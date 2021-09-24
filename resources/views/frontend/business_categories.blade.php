@@ -27,13 +27,7 @@
             </div>    
         </form>
 
-    
-        <div class="mt-5">
-            <div class="col-12 p-0">
-                <p>We are not competing with well-established market leaders like Kijiji; here (on our website), you get to hire international (& local) students, who may be willing to offer you the same level of expertise, at less than market rates.</p>
-            </div>
-        </div>
-        
+
         <div class="row mt-5">
             @foreach($categories as $category)
                 <div class="col-3 mb-4">

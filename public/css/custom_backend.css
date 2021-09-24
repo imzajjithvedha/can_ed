@@ -1,0 +1,19 @@
+.app-header {
+    height: 85px!important;
+}
+.header-fixed .app-body {
+    margin-top: 85px!important;
+}
+
+.form-control {
+    color: black!important;
+    border-left: 5px solid #bd2130!important;
+}
+
+th {
+    text-align: center!important;
+}
+
+td {
+    text-align: center;
+}

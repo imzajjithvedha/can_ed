@@ -1,0 +1,21 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.continue-article-btn {
+    background-image: -webkit-linear-gradient(top, #CF0411, #660000);
+    color: white;
+    border: none;
+}
+
+
+/* Single Article Styles */
+.favorite-heart {
+    font-size: 1.5rem;
+    border: none;
+    color: red;
+    background-color: white!important;
+}
+

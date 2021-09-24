@@ -1,0 +1,14 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.sitemap a {
+    font-size: 0.9rem;
+    display: block;
+}
+
+.sitemap a:hover {
+    color: #800000;
+}

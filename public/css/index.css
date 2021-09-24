@@ -1,0 +1,45 @@
+.main-banner {
+    background-image: url('../img/frontend/index/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    height: 500px;
+}
+.search-bar {
+    padding-top: 13rem;
+}
+.search {
+    border-right: 1px solid gray!important;
+}
+.search-drop {
+    outline: none!important;
+    font-size: 0.9rem;
+}
+.advanced-search {
+    background-color: #800;
+    opacity: 0.6;
+}
+.advanced-search:hover {
+    opacity: 1;
+}
+
+.index-categories {
+    background: #ddd;
+}
+.index-categories img {
+   width: 3.125rem;
+   filter: contrast(200%) brightness(45%);
+}
+.index-categories .row div {
+    border-right: 1px dotted gray;
+}
+
+.us-education .card-body {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);
+    color: white;
+}
+
+.us-education .card-body h6 {
+    color: white;
+}
+

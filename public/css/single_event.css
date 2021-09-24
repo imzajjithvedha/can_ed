@@ -1,0 +1,17 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.buttons {
+    border: 1px solid #800f0e;
+    color: #800f0e;
+    border-radius: 0.2rem;
+}
+
+.buttons:hover {
+    background-color: #800f0e;
+    color: white;
+}
+

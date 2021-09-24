@@ -1,0 +1,28 @@
+.login-page .btn, .register .btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    color: white;
+    border: 0;
+}
+.login-page a:hover {
+    color: white;
+}
+
+hr {
+    height: 0.3px!important;
+    opacity: 0.2!important;
+}
+
+
+
+.form-control {
+    color: black;
+    border-left: 5px solid #bd2130;
+}
+.g-recaptcha {
+    display: inline-block;
+}
+
+#submit_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+}

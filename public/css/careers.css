@@ -1,0 +1,22 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.careers .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff!important;
+    background-color: #bd2130!important;
+}
+.careers .nav-item button {
+    border-radius: 0!important;
+    color: black!important;
+}
+.careers .nav-item {
+    border: 2px solid black;
+}
+
+
+.tab-content .gray {
+    font-size: 0.875rem!important;
+}

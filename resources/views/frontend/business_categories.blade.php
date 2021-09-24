@@ -32,7 +32,7 @@
                 <div class="col-3 mb-4">
                     <div class="card">
                         <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
-                            <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top" alt="...">
+                            <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top" alt="..." style="height: 10rem;">
                             <div class="card-body text-center">
                                 <h6 class="card-title fw-bold gray">{{ $category->name }}</h6>
                             </div>

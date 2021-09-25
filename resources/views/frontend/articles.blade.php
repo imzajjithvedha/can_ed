@@ -9,12 +9,14 @@
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h5 class="fw-bolder">Articles: to the students</h5>
-        <hr>
 
-        
-        <form>
-            <div class="row">
-                <div class="col-3">
+        <form action=""  method="POST">
+        {{csrf_field()}}
+            <div class="row align-items-center">
+                <div class="col-7">
+                    <hr>
+                </div>
+                <div class="col-2 input-group">
                     <input type="text" class="form-control text-center" id="articles" aria-describedby="articles" value="All articles">
                 </div>
                 <div class="col-3 input-group">
@@ -23,7 +25,7 @@
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-            </div>
+            </div>    
         </form>
 
 

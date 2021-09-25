@@ -17,7 +17,11 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
+                        @if($event->image != null)
+                            <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
+                        @else
+                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner">
+                        @endif
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@
                 <a href="{{ route('frontend.faq') }}">FAQ</a><br>
                 <a href="{{ route('frontend.meet_our_team') }}">Meet Our Team</a><br>
                 <a href="{{ route('frontend.our_sponsors') }}">Our Sponsors</a><br>
-                <a href="{{ route('frontend.privacy_policy') }}">Comments/ Suggestions</a><br>
+                <a href="{{ route('frontend.suggestions') }}">Comments/ Suggestions</a><br>
                 <a href="{{ route('frontend.privacy_policy') }}">Privacy Policy</a><br>
                 <a href="{{ route('frontend.disclaimer') }}">Disclaimer</a><br>
             </div>

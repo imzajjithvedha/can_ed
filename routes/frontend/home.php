@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\WorldWideNetworkController;
 use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
+use App\Http\Controllers\Frontend\SuggestionController;
 
 
 use App\Http\Controllers\Frontend\User\AccountController;
@@ -42,6 +43,7 @@ Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('frequently-asked-questions', [FAQController::class, 'index'])->name('faq');
 Route::get('meet-our-team', [MeetOurTeamController::class, 'index'])->name('meet_our_team');
 Route::get('our-sponsors', [OurSponsorController::class, 'index'])->name('our_sponsors');
+Route::get('suggestions', [SuggestionController::class, 'index'])->name('suggestions');
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
 Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
 

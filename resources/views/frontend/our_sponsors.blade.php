@@ -1,4 +1,4 @@
- banner@extends('frontend.layouts.app')
+@extends('frontend.layouts.app')
 
 @section('title', 'Our Sponsors')
 
@@ -40,14 +40,14 @@
                             </a>
                         @else
                             @if($sponsor->image != null)
-                                <img src="{{ url('images/our_sponsors', $sponsor->image) }}" class="card-img-top" alt="...">
+                                <img src="{{ url('images/our_sponsors', $sponsor->image) }}" class="card-img-top" alt="..." style="height:15rem; object-fit: cover;">
                             @else
-                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100">
+                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height:15rem; object-fit: cover;">
                             @endif
                             <div class="card-body text-center">
                                 <h6 class="fw-bold text-dark">{{ $sponsor->name }}</h6>
                                 <p class="gray">{{ $sponsor->country }}</p>
-                            </div>
+                            </div> style="height:15rem; object-fit: cover;"
                         @endif
                     </div>
                 </div>

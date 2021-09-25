@@ -18,9 +18,9 @@
                                 <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src=""> <span class="text-white user-name">{{auth()->user()->first_name}}</span>
                                   </a>
-                                  <div class="dropdown-menu text-light" aria-labelledby="navbarDropdownMenuLink" style="background-color: #4195E1">
-                                    <a class="dropdown-item text-light" href="{{ route('frontend.user.account_dashboard') }}">My Account</a>
-                                    <a class="dropdown-item text-light" href="{{route('frontend.auth.logout')}}">Log Out</a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('frontend.user.account_dashboard') }}">My Account</a>
+                                    <a class="dropdown-item" href="{{route('frontend.auth.logout')}}">Log Out</a>
                                   </div>
                             </li>
                         @else

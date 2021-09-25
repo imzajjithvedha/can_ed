@@ -109,3 +109,21 @@ p {
 .required {
     color: red;
 }
+
+.menu-nav .dropdown-menu {
+    background-color: #b1040e!important;
+    left: -1rem!important;
+}
+
+.menu-nav .dropdown-menu a {
+    color: white!important;
+}
+
+.menu-nav .dropdown-item:hover {
+    color: #16181b!important;
+}
+
+.menu-nav .dropdown-toggle:after {
+    margin-left: 0.6em!important;
+    color: white!important;
+}

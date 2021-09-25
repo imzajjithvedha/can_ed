@@ -38,7 +38,7 @@
                         <div class="col-8">
                             <div class="row">
                                 <div class="col-6">
-                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event date & time: </h6>
+                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event date & time</h6>
                                 </div>
 
                                 <div class="col-6">
@@ -48,7 +48,7 @@
 
                             <div class="row">
                                 <div class="col-6">
-                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event location: </h6>
+                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event location</h6>
                                 </div>
 
                                 <div class="col-6">
@@ -58,7 +58,7 @@
 
                             <div class="row">
                                 <div class="col-6">
-                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event type:</h6>
+                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Event type</h6>
                                 </div>
 
                                 <div class="col-6">
@@ -133,7 +133,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-6">
-                            <h6 class="fw-bold mb-3" style="color: #800f0e;">Event organizer email: </h6>
+                            <h6 class="fw-bold mb-3" style="color: #800f0e;">Event organizer email</h6>
                         </div>
 
                         <div class="col-6">
@@ -143,7 +143,7 @@
 
                     <div class="row">
                         <div class="col-6">
-                            <h6 class="fw-bold mb-3" style="color: #800f0e;">Event organizer phone: </h6>
+                            <h6 class="fw-bold mb-3" style="color: #800f0e;">Event organizer phone</h6>
                         </div>
 
                         <div class="col-6">

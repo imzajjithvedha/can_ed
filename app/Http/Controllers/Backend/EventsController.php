@@ -30,9 +30,14 @@ class EventsController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $image = $request->file('image');
-        $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images/events'),$imageName);
+        if($request->file('image') != null) {
+            $image = $request->file('image');
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images/events'),$imageName);
+        }
+        else {
+            $imageName = 'null';
+        }
 
         $event = new Events;
 

@@ -102,6 +102,8 @@ p {
 
 .banner {
     height: 20rem!important;
+    object-fit: cover;
+    width: 100%;
 }
 
 .required {

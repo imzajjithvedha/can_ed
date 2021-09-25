@@ -31,7 +31,7 @@
                 @else
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">All Quotes</h4>
+                            <h4 class="fs-4 fw-bolder user-settings-head">My Quotes</h4>
                         </div>
                     </div>
 
@@ -47,10 +47,8 @@
                                                 <div class="col-4">
                                                     @if($quote->status == 'Approved')
                                                         <h5><span class="badge bg-success">Approved</span></h5>
-                                                    @elseif($quote->status == 'Pending')
-                                                        <h5><span class="badge bg-warning text-dark">Pending</span></h5>
                                                     @else
-                                                        <h5><span class="badge bg-danger">Disapproved</span></h5>
+                                                        <h5><span class="badge bg-warning text-dark">Pending</span></h5>
                                                     @endif
                                                 </div>
                                                 <div class="col-3">

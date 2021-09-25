@@ -5,10 +5,15 @@
     content: " *";
     color: red;
 }
-/* .user-settings .form-select,
-.user-settings .form-control {
-    padding: 16px!important;
-} */
+
+.profile-settings a {
+    color: #b1040e;
+}
+
+.profile-settings a:hover {
+    color: black!important;
+}
+
 .profile-settings a.active {
     font-weight: 800!important;
 }
@@ -45,14 +50,6 @@
     height: 45px;
     width: 500px;
 }
-
-/* .btn-close {
-    width: 0.4em;
-    height: 0.3em;
-    position: relative;
-    top: -0.85rem;
-} */
-
 
 .form-control {
     color: black;

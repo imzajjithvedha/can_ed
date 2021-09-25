@@ -10,6 +10,7 @@ use App\Models\FavoriteArticles;
 use App\Models\Quotes;
 use App\Models\Events;
 use DB;
+use App\Models\WorldWideNetwork;
 
 /**
  * Class DashboardController.
@@ -30,11 +31,13 @@ class DashboardController extends Controller
 
         $articles = FavoriteArticles::where('user_id', $user_id)->count();
 
+        $networks = WorldWideNetwork::where('user_id', $user_id)->where('status', 'Approved')->count();
+
         // $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
         // $businesses = FavoriteArticles::where('user_id', $user_id)->count();
 
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks]);
     }
 
     
@@ -174,6 +177,67 @@ class DashboardController extends Controller
     public function userQuoteDelete($id)
     {
         $quotes = Quotes::where('id', $id)->delete();
+
+        return back();
+    }
+
+
+
+
+    //world wide networks
+    public function userNetworks()
+    {
+        $user_id = auth()->user()->id;
+
+        $networks = WorldWideNetwork::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
+
+        return view('frontend.user.user_networks', ['networks' => $networks]);
+    }
+
+    public function userNetworkEdit($id)
+    {
+        $network = WorldWideNetwork::where('id', $id)->first();
+
+        return view('frontend.user.user_network_edit', ['network' => $network]);
+    }
+
+ 
+    public function userNetworkUpdate(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            
+            $image->move(public_path('images/world-wide-network'), $imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
+
+        $network = DB::table('world_wide_network') ->where('id', request('hidden_id'))->update(
+            [
+                'user_id' => $user_id,
+                'website_name' => $request->website_name,
+                'url' => $request->website_url,
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'country' => $request->country,
+                'our_banner_url' => $request->our_banner_url,
+                'image' => $imageName,
+                'status' => 'Pending'
+            ]
+        );
+   
+        return back()->with('success', 'success');
+    }
+
+    public function userNetworkDelete($id)
+    {
+        $network = WorldWideNetwork::where('id', $id)->delete();
 
         return back();
     }

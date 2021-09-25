@@ -1,72 +1,57 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Quotes')
+@section('title', 'Edit Event')
 
 @push('after-styles')
-    <link href="{{ url('css/quotes.css') }}" rel="stylesheet">
+    <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Quotes</h5>
-
-        <div class="row align-items-center">
-            <div class="col-10 pe-0">
-                <hr>
-            </div>
-            <div class="col-2 text-end ps-0">
-                @auth
-                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-quote">Post your quote</button>
-                @else
-                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Post your quote</a>
-                @endauth
-            </div>
-        </div>
-    </div>
+ 
 
 
-    <div class="container quotes">
-        @if(count($quotes) == 0)
-                    @include('frontend.includes.not_found_title',[
-                        'not_found_title' => 'Quotes not found',
-                        'not_found_description' => 'If you want you can post your quote here.'
-                    ])
-        @else
-            <div class="row">
-                @foreach($quotes as $quote)
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="fw-bolder mb-2 text-center" style="text-align:justify;">{{ $quote->quote}}</p>
-                                <p class="card-text gray text-center">{{ App\Models\Auth\User::where('id', $quote->user_id)->first()->first_name}} {{ App\Models\Auth\User::where('id', $quote->user_id)->first()->last_name}}</p>
-                            </div>
-                        </div>
+    <div class="container user-settings" style="margin-top:8rem;">
+        <div class="row justify-content-between">
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-12">
+                        @include('frontend.includes.profile-settings-links')
                     </div>
-                @endforeach
+                </div>
             </div>
-        @endif
-    </div>
 
+            <div class="col-8">
 
-    <!-- Modal -->
-    <form action="{{ route('frontend.quote_request') }}" method="POST">
-    {{csrf_field()}}
-        <div class="modal fade" id="post-quote" tabindex="-1" aria-labelledby="post-quote-label" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Quote Submission Form</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="row justify-content-between">
+                    <div class="col-8 p-0">
+                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Network</h4>
                     </div>
-                    <div class="modal-body">
-                        <!-- <div class="row mb-3">
-                            <div class="col-4">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your name" required>
+                </div>
+
+                <form action="{{ route('frontend.user.user_network_update') }}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <div class="row">
+                        <div class="col-12 border py-3">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" value="{{ $network->website_name }}" required>
                             </div>
-                            <div class="col-4">
-                                <input type="email" class="form-control" id="name" aria-describedby="name" placeholder="Enter your email" required>
+                            <div class="mb-3">
+                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url *" name="website_url" value="{{ $network->url }}" required>
                             </div>
-                            <div class="col-4">
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name" name="name" value="{{ $network->name }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number" name="phone" value="{{ $network->phone }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" value="{{ $network->email }}" required>
+                            </div>
+
+                            <div class="mb-3">
                                 <select class="form-control" id="country" name="country" required>
                                     <option value="">Select Country</option>
                                     <option value="Afganistan">Afghanistan</option>
@@ -317,31 +302,40 @@
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                             </div>
-                        </div> -->
-                        
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <textarea class="form-control" rows="7" name="quote" placeholder="Write your quote here" required></textarea>
-                            </div>
-                        </div>
 
-                        <div class="row mb-2 justify-content-center">
-                            <div class="col-md-6 text-center">
-                                <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
+                            <div class="mb-3">
+                                <input type="url" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website" name="our_banner_url" value="{{ $network->our_banner_url }}" required>
+                            </div>
+
+
+
+                            <div class="mb-3 form-group">
+                                <label class="form-label">Network Banner Image</label>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <img src="{{ url('images/world-wide-network', $network->image) }}" alt="" class="img-fluid">
+                                        <input type="hidden" class="form-control" name="old_image" value="{{ $network->image }}">
+                                    </div>
+
+                                    <div class="col-7">
+                                        <input type="file" class="form-control" id="image" name="new_image" value="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-center">
+                                <input type="hidden" class="form-control" value="{{ $network->id }}" name="hidden_id">
+                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" id="submit_btn" disabled>Submit Your Quote</button>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
-    </form>
+    </div>
 
 
-    @if(session()->get('flash_success'))
+    @if(\Session::has('success'))
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
@@ -351,32 +345,59 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your quote. It will appear here once we approved.</h4>
+                        <h4 class="mb-0 text-center">Network updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('frontend.quotes') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     @endif
 
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Warning</h4>
+                </div>
+
+                <div class="modal-body" style="padding: 2rem 1rem;">
+                    <h6 class="mb-0 text-center text-info">If you want to update the already approved banner, then we have to approve again. Please consider this before update your network banner.</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
 
-
-
 @push('after-scripts')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <script>
-        function checked() {
-            $('#submit_btn').removeAttr('disabled');
-        };
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($network->country) ?>
+
+            $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
     </script>
 
     <script>
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
         }
+
+        $(document).ready(function() {
+            $('#info-btn').click();
+        });
     </script>
 @endpush

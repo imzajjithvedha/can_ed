@@ -35,7 +35,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $events) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">Events</h6>
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Events</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">Quotes</h6>
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Quotes</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -54,14 +54,13 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $articles) }}</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">Favorite Articles</h6>
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Networks</h6>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
 
 
@@ -69,10 +68,10 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">00</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $articles) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">Favorite Businesses</h6>
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Articles</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +82,18 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">00</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">Favorite Schools</h6>
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Businesses</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="card">
+                                        <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">00</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Schools</h6>
                                         </div>
                                     </div>
                                 </div>

@@ -16,10 +16,15 @@ class CreateWorldWideNetworkTable extends Migration
         Schema::create('world_wide_network', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
-            $table->text('name');
+            $table->text('website_name');
             $table->text('url');
+            $table->text('name');
+            $table->text('phone');
+            $table->text('email');
+            $table->text('country');
             $table->text('our_banner_url');
             $table->text('image');
+            $table->text('status');
             $table->timestamps();
         });
     }

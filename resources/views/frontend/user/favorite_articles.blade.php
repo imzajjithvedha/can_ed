@@ -31,7 +31,7 @@
 
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">Favorite Articles</h4>
+                            <h4 class="fs-4 fw-bolder user-settings-head">My Favorite Articles</h4>
                         </div>
                     </div>
 

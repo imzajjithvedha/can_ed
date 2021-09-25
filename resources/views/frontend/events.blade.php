@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h5 class="fw-bolder">Events</h5>
 
         <div class="row align-items-center">
@@ -16,9 +16,9 @@
             </div>
             <div class="col-2 text-end ps-0">
                 @auth
-                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-event">Post your Event</button>
+                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-event">Post your event</button>
                 @else
-                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Post your Event</a>
+                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Post your event</a>
                 @endauth
             </div>
         </div>

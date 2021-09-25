@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 business">
+    <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
         <h5 class="fw-bolder">Business Categories</h5>
 
@@ -29,19 +29,26 @@
 
 
         <div class="row mt-5">
-            @foreach($categories as $category)
-                <div class="col-3 mb-4">
-                    <div class="card">
-                        <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
-                            <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top" alt="..." style="height: 10rem;">
-                            <div class="card-body text-center">
-                                <h6 class="card-title fw-bold gray">{{ $category->name }}</h6>
-                            </div>
-                        </a>
+            @if(count($categories) == 0)
+                    @include('frontend.includes.not_found_title',[
+                        'not_found_title' => 'Business Categories not found',
+                        'not_found_description' => 'Please check later.'
+                    ])
+            @else
+                @foreach($categories as $category)
+                    <div class="col-3 mb-4">
+                        <div class="card">
+                            <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
+                                <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top" alt="..." style="height: 10rem;">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold gray">{{ $category->name }}</h6>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-                
-            @endforeach
+                    
+                @endforeach
+            @endif
         </div>
     </div>
 @endsection

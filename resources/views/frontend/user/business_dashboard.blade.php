@@ -36,10 +36,8 @@
                                         <div class="badge mt-2 p-0">
                                             @if($business->status == 'Approved')
                                                 <h5><span class="badge bg-success">Approved</span></h5>
-                                            @elseif($business->status == 'Pending')
-                                                <h5><span class="badge bg-warning text-dark">Pending</span></h5>
                                             @else
-                                                <h5><span class="badge bg-danger">Disapproved</span></h5>
+                                                <h5><span class="badge bg-warning text-dark">Pending</span></h5>
                                             @endif
                                         </div>
                                     </div>

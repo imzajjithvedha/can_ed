@@ -137,7 +137,7 @@
                     </div>
 
                     <div class="row mb-4 justify-content-center">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-8 text-center">
                             <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                         </div>
                     </div>
@@ -183,7 +183,7 @@
         };
     </script>
 
-<script>
+    <script>
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
         }

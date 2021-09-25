@@ -16,7 +16,9 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-schools' ? 'active' : null }}" id="nav-favorite-schools-tab" href="{{ route('frontend.user.favorite_schools') }}" type="button" role="tab" aria-controls="nav-favorite-schools" aria-selected="false">Favorite Schools</a>
 
-        <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'user-quotes' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_quotes') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Quotes</a>
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user-quotes' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_quotes') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Quotes</a>
+
+        <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'user-networks' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_networks') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Network Banners</a>
 
 
 

@@ -79,6 +79,7 @@ Route::post('school-register/request', [SchoolController::class, 'schoolRegister
 Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
 Route::post('quotes/request', [QuoteController::class, 'quoteRequest'])->name('quote_request');
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
+Route::post('world-wide-network/request', [WorldWideNetworkController::class, 'networkRequest'])->name('network_request');
 
 
 
@@ -107,15 +108,24 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('user-events/delete/{id}', [DashboardController::class, 'userEventDelete'])->name('user_event_delete');
 
 
-        Route::get('user-quotes', [DashboardController::class, 'userQuotes'])->name('user_quotes');
-        Route::post('user-quotes/update', [DashboardController::class, 'userQuoteUpdate'])->name('user_quote_update');
-        Route::get('user-quotes/delete/{id}', [DashboardController::class, 'userQuoteDelete'])->name('user_quote_delete');
+        
 
         Route::get('favorite-articles', [DashboardController::class, 'favoriteArticles'])->name('favorite_articles');
         Route::get('favorite-articles/delete/{id}', [DashboardController::class, 'favoriteArticleDelete'])->name('favorite_article_delete');
         
         Route::get('favorite-schools', [DashboardController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-businesses', [DashboardController::class, 'favoriteBusinesses'])->name('favorite_businesses');
+
+
+        Route::get('user-quotes', [DashboardController::class, 'userQuotes'])->name('user_quotes');
+        Route::post('user-quotes/update', [DashboardController::class, 'userQuoteUpdate'])->name('user_quote_update');
+        Route::get('user-quotes/delete/{id}', [DashboardController::class, 'userQuoteDelete'])->name('user_quote_delete');
+
+
+        Route::get('user-networks', [DashboardController::class, 'userNetworks'])->name('user_networks');
+        Route::get('user-networks/edit/{id}', [DashboardController::class, 'userNetworkEdit'])->name('user_network_edit');
+        Route::post('user-networks/update', [DashboardController::class, 'userNetworkUpdate'])->name('user_network_update');
+        Route::get('user-networks/delete/{id}', [DashboardController::class, 'userNetworkDelete'])->name('user_network_delete');
 
 
 

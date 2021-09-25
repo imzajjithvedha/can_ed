@@ -135,6 +135,8 @@
                             </li>
                         </ul>
                     </li>
+
+
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/pages.privacy_policy'))}}" href="{{ route('admin.pages.privacy_policy') }}">
                             Privacy Policy

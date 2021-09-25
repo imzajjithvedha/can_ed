@@ -81,6 +81,11 @@ Route::post('quotes/request', [QuoteController::class, 'quoteRequest'])->name('q
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
 
 
+
+
+Route::post('articles/search-result', [ArticleController::class, 'articleSearch'])->name('article_search');
+Route::get('article-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
+
 Route::post('businesses/search-result', [BusinessController::class, 'businessSearch'])->name('business_search');
 Route::get('business-search-results/{business}/{location}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 

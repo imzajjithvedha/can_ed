@@ -154,8 +154,6 @@ class PagesController extends Controller
     }
 
 
-
-
     public function privacyPolicy()
     {
         $privacy = Pages::where('name', 'privacy_policy')->first();

@@ -17,7 +17,7 @@
                     <hr>
                 </div>
                 <div class="col-2 input-group">
-                    <input type="text" class="form-control text-center" id="articles" aria-describedby="articles" value="All articles" disabled>
+                    <input type="" class="form-control text-center" id="articles" aria-describedby="articles" value="All articles" disabled>
                 </div>
                 <div class="col-3 input-group">
                     <input type="text" class="form-control text-center" id="keyword" name="keyword" aria-describedby="search_article" placeholder="Search articles">
@@ -30,13 +30,13 @@
 
 
         <div class="articles mt-5">
-            @if(count($articles) == 0)
+            @if(count($filteredArticles) == 0)
                 @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'Articles not found',
+                    'not_found_title' => 'Article not found',
                     'not_found_description' => 'Please check later.'
                 ])
             @else
-                @foreach($articles as $article)
+                @foreach($filteredArticles as $article)
                     <div class="row justify-content-between border py-3 px-2 mb-3">
                         <div class="col-4">
                             <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">

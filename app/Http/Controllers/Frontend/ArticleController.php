@@ -59,4 +59,32 @@ class ArticleController extends Controller
             return back();
         }
     }
+
+    public function articleSearch(Request $request)
+    {
+        if(request('keyword') != null) {
+            $article = request('keyword');
+        }
+        else {
+            $article = 'article';
+        }
+
+        return redirect()->route('frontend.article_search_function', [$article]);
+
+    }
+
+    public function articleSearchFunction($article)
+    {
+
+        $articles = Articles::where('status', 'Approved');
+
+        if($article != 'article'){
+            $articles->where('title', 'like', '%' .  $article . '%');
+        }
+
+        $filteredArticles = $articles->get();
+
+        return view('frontend.article_search', ['filteredArticles' => $filteredArticles]);
+
+    }
 }

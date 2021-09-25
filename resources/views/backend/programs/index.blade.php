@@ -13,6 +13,8 @@
                     <strong>Programs&nbsp;</strong>
 
                     <a href="{{ route('admin.programs.create_program') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+
+                    <a href="{{ route('admin.programs.import_programs') }}" class="btn btn-primary pull-right ml-4">Import Programs</a>
                    
                 </div><!--card-header-->
 

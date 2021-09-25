@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
+use Excel;
 use App\Models\Programs; 
+use App\Imports\ProgramsImport; 
 
 /**
  * Class ProgramsController.
@@ -103,6 +105,19 @@ class ProgramsController extends Controller
 
         $program = Programs::where('id', $id)->delete();
 
+    }
+
+
+    public function importPrograms()
+    {
+        return view('backend.programs.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new ProgramsImport, $request->file);
+
+        return redirect()->route('admin.programs.index')->withFlashSuccess('Uploaded Successfully');          
     }
 
 }

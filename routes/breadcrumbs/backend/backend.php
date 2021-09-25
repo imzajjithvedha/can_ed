@@ -152,6 +152,10 @@ Breadcrumbs::for('admin.programs.edit_program', function ($trail) {
     $trail->push('Programs / Edit', route('admin.programs.edit_program', 1));
 });
 
+Breadcrumbs::for('admin.programs.import_programs', function ($trail) {
+    $trail->push('Programs / Import', route('admin.programs.import_programs', 1));
+});
+
 
 
 

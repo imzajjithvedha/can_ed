@@ -95,6 +95,8 @@ Route::get('programs/get-programs', [ProgramsController::class, 'getPrograms'])-
 Route::get('programs/edit-program/{id}', [ProgramsController::class, 'editProgram'])->name('programs.edit_program');
 Route::post('programs/update-program', [ProgramsController::class, 'updateProgram'])->name('programs.update_program');
 Route::get('programs/delete-program/{id}', [ProgramsController::class, 'deleteProgram'])->name('programs.delete_program');
+Route::get('programs/import-programs', [ProgramsController::class, 'importPrograms'])->name('programs.import_programs');
+Route::post('programs/import', [ProgramsController::class, 'import'])->name('programs.import');
 
 
 

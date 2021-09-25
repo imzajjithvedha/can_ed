@@ -8,16 +8,6 @@
 
 @section('content')
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Comments / Suggestions</h5>
-        <hr>
-
-        <p class="gray" >(This page is available only in english and french, the official languages of canada, because it pertains to canadian laws) keeping in mind that (the road to success is always under construction - lily tomlin): - do you have any comments about our website or suggestions on improvements that could be made? - do you have any comments about our services or any suggestions on how to improve them? <br>this website is designed and intended to help you find great canadian products, services and companies. we want you 100% comfortable using it, so feel free to contact us with your ideas. we would be happy to hear from you. alternatively, fill in the secure form below</p>
-
-        <p class="gray fw-bold">thank you</p>
-
-        <p class="gray fw-bold">the canadian exports team</p>
-
-
         <div class="row contact mt-5">
             <div class="col-6">
                 <h5 class="fw-bolder">Contact Information</h5>
@@ -69,15 +59,18 @@
             <div class="col-6">
                 <h5 class="fw-bolder">Get in touch</h5>
                 <hr>
+                    <div class="text-end">
+                        <p class="mb-2 required fw-bold">* Indicates required fields</p>
+                    </div>
                     <form>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name">
+                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your email">
+                            <input type="email" class="form-control" id="email" placeholder="Your email *">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="7" placeholder="Your message"></textarea>
+                            <textarea class="form-control" rows="7" placeholder="Your message *"></textarea>
                         </div>
 
                         <div class="row mb-4 justify-content-center">

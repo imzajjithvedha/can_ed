@@ -27,9 +27,9 @@
                 <div class="col-3">
                     <div class="card">
                         @if($member->image != null)
-                            <img src="{{ url('images/our_team', $member->image) }}" class="card-img-top" alt="..." style="height: 15rem;">
+                            <img src="{{ url('images/our_team', $member->image) }}" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
                         @else
-                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 15rem;">
+                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit:cover;">
                         @endif
                         <div class="card-body text-center">
                             <h6 class="fw-bold">{{ $member->name }}</h6>

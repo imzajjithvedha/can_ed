@@ -57,7 +57,7 @@
                     <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
                         <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
                             <div class="col-6">
-                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 6rem; object-fit: cover;">
+                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                             </div>
 
                             <div class="col-6">

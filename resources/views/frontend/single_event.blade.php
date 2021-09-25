@@ -94,7 +94,11 @@
                     <a href="{{ route('frontend.single_event', $event->id) }}" class="text-decoration-none">
                         <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
                             <div class="col-6">
-                                <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
+                                @if($event->image != null)
+                                    <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                @endif
                             </div>
 
                             <div class="col-6">
@@ -109,7 +113,7 @@
 
 
     <div class="modal" id="organizer" tabindex="-1" aria-labelledby="organizer" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Event organizer contact details</h5>

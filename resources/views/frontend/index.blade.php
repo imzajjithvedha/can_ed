@@ -306,7 +306,7 @@
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
                             <div class="card">
-                                <img src="{{ url('images/articles', $article->image) }}" class="card-img-top" alt="...">
+                                <img src="{{ url('images/articles', $article->image) }}" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
                                 <div class="card-body text-center">
                                     <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
                                 </div>

@@ -11,7 +11,7 @@
 
         <div class="row">
             <div class="col-8">
-                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100">
+                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
 
                 <div class="row mt-4 justify-content-between align-items-center">
                     <div class="col-9">

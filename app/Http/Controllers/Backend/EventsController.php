@@ -36,7 +36,7 @@ class EventsController extends Controller
             $image->move(public_path('images/events'),$imageName);
         }
         else {
-            $imageName = 'null';
+            $imageName = null;
         }
 
         $event = new Events;

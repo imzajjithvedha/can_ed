@@ -75,7 +75,7 @@
                         @if($event->url != null)
                             <a href="{{ $event->url }}" class="text-decoration-none buttons p-2" type="button" target="_blank">Register to the event</a>
                         @else
-                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact Organizer</button>
+                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
                         @endif
                     </div>
 

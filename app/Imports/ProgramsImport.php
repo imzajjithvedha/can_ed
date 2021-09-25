@@ -4,9 +4,9 @@ namespace App\Imports;
 
 use App\Models\Programs;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\withHeadingRow;
+use Maatwebsite\Excel\Concerns\withHeadings;
 
-class ProgramsImport implements ToModel, withHeadingRow
+class ProgramsImport implements ToModel, withHeadings
 {
     /**
     * @param array $row

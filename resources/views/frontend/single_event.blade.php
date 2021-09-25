@@ -71,17 +71,28 @@
 
 
                 <div class="row mt-5">
-                    <div class="col-6 text-end">
-                        @if($event->url != null)
+                    @if($event->url != null)
+                        <div class="col-4 text-end">
                             <a href="{{ $event->url }}" class="text-decoration-none buttons p-2" type="button" target="_blank">Register to the event</a>
-                        @else
-                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
-                        @endif
-                    </div>
+                        </div>
 
-                    <div class="col-6 text-start">
-                        <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2" type="button">Add your event</a>
-                    </div>
+                        <div class="col-4 text-center">
+                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
+                        </div>
+
+                        <div class="col-4 text-start">
+                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2" type="button">Add your event</a>
+                        </div>
+
+                    @else
+                        <div class="col-6 text-end">
+                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
+                        </div>
+
+                        <div class="col-6 text-start">
+                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2" type="button">Add your event</a>
+                        </div>
+                    @endif
                 </div>
 
             </div>

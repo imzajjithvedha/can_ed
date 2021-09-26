@@ -12,6 +12,7 @@ use App\Http\Controllers\Backend\SponsorsController;
 use App\Http\Controllers\Backend\ProgramsController;
 use App\Http\Controllers\Backend\QuotesController;
 use App\Http\Controllers\Backend\SchoolsController;
+use App\Http\Controllers\Backend\NetworksController;
 
 
 
@@ -62,6 +63,8 @@ Route::get('business-categories/get-categories', [BusinessCategoriesController::
 Route::get('business-categories/edit-category/{id}', [BusinessCategoriesController::class, 'editCategory'])->name('categories.edit_category');
 Route::post('business-categories/update-category', [BusinessCategoriesController::class, 'updateCategory'])->name('categories.update_category');
 Route::get('business-categories/delete-category/{id}', [BusinessCategoriesController::class, 'deleteCategory'])->name('categories.delete_category');
+Route::get('business-categories/import-categories', [BusinessCategoriesController::class, 'importCategories'])->name('categories.import_categories');
+Route::post('business-categories/import', [BusinessCategoriesController::class, 'import'])->name('categories.import');
 
 
 
@@ -84,6 +87,8 @@ Route::get('directory/get-directory', [DirectoryController::class, 'getDirectory
 Route::get('directory/edit-directory/{id}', [DirectoryController::class, 'editDirectory'])->name('directory.edit_directory');
 Route::post('directory/update-directory', [DirectoryController::class, 'updateDirectory'])->name('directory.update_directory');
 Route::get('directory/delete-directory/{id}', [DirectoryController::class, 'deleteDirectory'])->name('directory.delete_directory');
+Route::get('directory/import-directory', [DirectoryController::class, 'importDirectory'])->name('directory.import_directory');
+Route::post('directory/import', [DirectoryController::class, 'import'])->name('directory.import');
 
 
 
@@ -145,7 +150,17 @@ Route::get('quotes/delete-quote/{id}', [QuotesController::class, 'deleteQuote'])
 
 
 
-Route::get('world-wide-network', [SchoolsController::class, 'index'])->name('schools.index');
+Route::get('networks', [NetworksController::class, 'index'])->name('networks.index');
+Route::get('networks/create-network', [NetworksController::class, 'createNetwork'])->name('networks.create_network');
+Route::post('networks/store-network', [NetworksController::class, 'storeNetwork'])->name('networks.store_network');
+Route::get('networks/get-networks', [NetworksController::class, 'getNetworks'])->name('networks.get_networks');
+Route::get('networks/edit-network/{id}', [NetworksController::class, 'editNetwork'])->name('networks.edit_network');
+Route::post('networks/update-network', [NetworksController::class, 'updateNetwork'])->name('networks.update_network');
+Route::get('networks/delete-network/{id}', [NetworksController::class, 'deleteNetwork'])->name('networks.delete_network');
+
+
+
+// Route::get('world-wide-network', [SchoolsController::class, 'index'])->name('schools.index');
 // Route::get('articles', [SchoolsController::class, 'index'])->name('schools.index');
 Route::get('subscribers', [SchoolsController::class, 'index'])->name('schools.index');
 Route::get('fqa-management', [SchoolsController::class, 'index'])->name('schools.index');

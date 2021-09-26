@@ -16,7 +16,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description" value="{{ $directory->description }}" maxlength="100" required>{{ $directory->description }}</textarea>
+                                <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description  (maximum 100 letters)" value="{{ $directory->description }}" maxlength="100" required>{{ $directory->description }}</textarea>
                             </div>
 
                             <div class="mb-3">

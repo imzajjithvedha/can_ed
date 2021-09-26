@@ -1,111 +1,38 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 
-@section('title', 'World Wide Network')
-
-@push('after-styles')
-    <link href="{{ url('css/world_wide_network.css') }}" rel="stylesheet">
-@endpush
+@section('title', 'World Wide Network Approval | Admin')
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">World Wide Network</h5>
-        
-        <div class="row align-items-center">
-            <div class="col-10 pe-0">
-                <hr>
-            </div>
-            <div class="col-2 text-end ps-0">
-                @auth
-                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-quote">Submit your banner</button>
-                @else
-                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Submit your banner</a>
-                @endauth
-            </div>
-        </div>
-    </div>
-
-
-    <div class="container networks">
-        @if(count($networks) == 0)
-                @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'World wide networks not found',
-                    'not_found_description' => 'If you want you can post your banner here.'
-                ])
-        @else
-            <div class="row">
-                @foreach($networks as $network)
-                    <div class="col-6">
-                        <div class="card">
-                            <a href="{{ $network->url }}" class="text-decoration-none">
-                                <img src="{{ url('images/world-wide-network', $network->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem;object-fit: cover;">
-                                <div class="text-center p-2">
-                                    <p class="fw-bolder text-dark">{{ $network->website_name }}</p>
-                                    <p class="card-text gray">{{ $network->country }}</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @endif
-    </div>
-
-
-    <!-- Modal -->
-    <form action="{{ route('frontend.network_request') }}" method="POST" enctype="multipart/form-data">
-    {{csrf_field()}}
-        <div class="modal fade" id="post-quote" tabindex="-1" aria-labelledby="post-quote-label" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Place Your Banner</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="text-end">
-                            <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div>
-                        <div class="row mb-5 align-items-center">
-                            <h5 class="mb-2">1. Place our banner on your website</h5>
-
-                            <div class="col-7">
-                                <textarea class="form-control" rows="3" readonly>&lt;a href="http://www.studyingincanada.org/"&gt;&lt;img src="https://www.studyingincanada.org/images/468x60.gif" alt="Study in Canada" &gt;&lt;/a&gt;</textarea>
+    
+    <form action="{{route('admin.networks.update_network')}}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="row">
+            <div class="col-md-7 p-1">
+                <div class="card quote">
+                    <div class="card-body border">
+                        <div class="border p-3">
+                        <div class="mb-3">
+                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" value="{{ $network->website_name }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url *" name="website_url" value="{{ $network->url }}" required>
                             </div>
 
-                            <div class="col-5">
-                                <img src="{{ url('img/frontend/world_wide_network/banner_design.jpg') }}" alt="" class="img-fluid">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name" name="name" value="{{ $network->name }}" required>
                             </div>
-                        </div>
 
-                        
-                        <div class="row mb-3">
-                            <h5 class="mb-2">2. Submit your request</h5>
-                            
-                            <div class="col-6">
-                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" required>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number" name="phone" value="{{ $network->phone }}" required>
                             </div>
-                            <div class="col-6">
-                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website URL *" name="website_url" required>
-                            </div>
-                            
-                        </div>
-                    
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name *" name="name" required>
-                            </div>
-                            <div class="col-6">
-                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number *" name="phone" required>
-                            </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" required>
+                            <div class="mb-3">
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" value="{{ $network->email }}" required>
                             </div>
-                            <div class="col-6">
+
+                            <div class="mb-3">
                                 <select class="form-control" id="country" name="country" required>
-                                    <option value="">Select Country *</option>
+                                    <option value="">Select Country</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -354,75 +281,60 @@
                                     <option value="Zimbabwe">Zimbabwe</option>
                                 </select>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <div class="col-12">
-                                <input type="url" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website *" name="our_banner_url" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Upload your banner *</label>
-                                    <input class="form-control" type="file" id="image" name="image" placeholder="Upload your banner" title="Upload your banner" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-2 justify-content-center">
-                            <div class="col-md-6 text-center">
-                                <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website" name="our_banner_url" value="{{ $network->our_banner_url }}" required>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" id="submit_btn" disabled>Submit</button>
+                </div>
+            </div>
+
+            <div class="col-md-5 p-1">
+                <div class="card">
+                    <div class="card-body border">
+                        <div class="border p-3">
+                            <div class="form-group">
+                                <img src="{{ url('images/world-wide-network', $network->image) }}" alt="" class="img-fluid">
+                                <input type="hidden" class="form-control" name="old_image" value="{{$network->image}}">
+
+                                <div class="input-group mt-4">
+                                    <input type="file" class="form-control" id="image" name="new_image">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <select class="form-control" name="status" required>
+                                    <option value="Approved" {{ $network->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Pending" {{ $network->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                </select>
+                            </div>
+
+                            <div class="mt-5 text-center">
+                                <input type="hidden" name="hidden_id" value="{{ $network->id }}"/>
+                                <a href="{{ route('admin.networks.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
-
-    @if(\Session::has('success'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
 @endsection
 
 
-
 @push('after-scripts')
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
     <script>
-        function checked() {
-            $('#submit_btn').removeAttr('disabled');
-        };
-    </script>
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($network->country) ?>
 
-    <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
-        }
+            $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
     </script>
 @endpush

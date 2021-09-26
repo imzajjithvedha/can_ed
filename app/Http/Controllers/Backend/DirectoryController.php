@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
+use Excel;
 use App\Models\OnlineBusinessDirectory; 
+use App\Imports\DirectoryImport; 
 
 /**
  * Class DirectoryController.
@@ -126,6 +128,19 @@ class DirectoryController extends Controller
 
         $directory = OnlineBusinessDirectory::where('id', $id)->delete();
 
+    }
+
+
+    public function importDirectory()
+    {
+        return view('backend.directory.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new DirectoryImport, $request->file);
+
+        return redirect()->route('admin.directory.index')->withFlashSuccess('Uploaded Successfully');          
     }
 
 }

@@ -32,13 +32,18 @@
                         ])
             @else
                 @foreach($directories as $directory)
-                    <div class="col-6">
+                    <div class="col-4">
                         <div class="row align-items-center">
-                            <div class="col-6">
-                                <img src="{{ url('images/directory', $directory->image) }}" alt="" class="img-fluid">
-                            </div>
+                            <!-- <div class="col-5">
 
-                            <div class="col-6">
+                                @if($directory->image != null)
+                                    <img src="{{ url('images/directory', $directory->image) }}" alt="" class="img-fluid" style="height: 7rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 7rem; object-fit: cover;">
+                                @endif
+                            </div> -->
+
+                            <div class="col-12">
                                 <h6 class="mb-1 fw-bold" style="color: rgb(128, 0, 0);">{{ $directory->name }}</h6>
                                 <p class="gray mb-2" style="line-height: 1rem;">{{ $directory->description }}</p>
 

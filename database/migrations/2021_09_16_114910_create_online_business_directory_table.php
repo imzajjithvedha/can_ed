@@ -17,11 +17,14 @@ class CreateOnlineBusinessDirectoryTable extends Migration
             $table->bigIncrements('id');
             $table->text('user_id');
             $table->text('name');
-            $table->text('description');
-            $table->text('category');
+            $table->text('description')->nullable();
+            $table->text('category')->nullable();
             $table->text('phone');
             $table->text('email');
-            $table->text('image');
+            $table->text('city');
+            $table->text('province');
+            $table->text('country');
+            $table->text('url')->nullable();
             $table->text('status');
             $table->timestamps();
         });

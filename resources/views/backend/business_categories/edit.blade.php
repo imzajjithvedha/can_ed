@@ -15,7 +15,7 @@
                                 <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business Category Name" value="{{ $category->name }}" required>
                             </div>
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description" value="{{ $category->description }}" name="description" required>{{ $category->description }}</textarea>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Description" value="{{ $category->description }}" name="description">{{ $category->description }}</textarea>
                             </div>
                         </div>
                     </div>

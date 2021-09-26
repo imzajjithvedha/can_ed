@@ -84,7 +84,7 @@ class ArticleController extends Controller
 
         $filteredArticles = $articles->get();
 
-        return view('frontend.article_search', ['filteredArticles' => $filteredArticles]);
+        return view('frontend.articles_search', ['filteredArticles' => $filteredArticles]);
 
     }
 }

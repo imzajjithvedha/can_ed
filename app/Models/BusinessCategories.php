@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class BusinessCategories extends Model
 {
-    //
+    protected $fillable = ['user_id', 'name', 'description', 'status'];
 }

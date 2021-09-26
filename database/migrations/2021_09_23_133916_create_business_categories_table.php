@@ -19,7 +19,7 @@ class CreateBusinessCategoriesTable extends Migration
             $table->text('name');
             $table->text('description')->nullable();
             $table->text('status');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

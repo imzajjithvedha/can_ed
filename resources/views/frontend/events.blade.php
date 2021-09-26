@@ -65,20 +65,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title" name="title" required>
+                        <div class="text-end">
+                            <p class="mb-2 required fw-bold">* Indicates required fields</p>
                         </div>
                         <div class="mb-3">
-                            <textarea name="description" class="form-control" rows="7" placeholder="Description" required></textarea>
+                            <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title *" name="title" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
                         </div>
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" required>
+                                    <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" required>
                                 </div>
                                 <div class="col-6">
                                     <select class="form-control" id="country" name="country" required>
-                                        <option value="">Select Country</option>
+                                        <option value="">Select Country *</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
                                         <option value="Algeria">Algeria</option>
@@ -333,10 +336,10 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date" name="date" required>
+                                    <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date *" name="date" required>
                                 </div>
                                 <div class="col-6">
-                                    <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time" name="time" required>
+                                    <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time *" name="time" required>
                                 </div>
                             </div>
                         </div>
@@ -344,7 +347,7 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type" name="type" required>
+                                    <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type *" name="type" required>
                                 </div>
                                 <div class="col-6">
                                     <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Event URL" name="url">
@@ -355,10 +358,10 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email" name="email">
+                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email *" name="email">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone" name="phone">
+                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone *" name="phone">
                                 </div>
                             </div>
                         </div>
@@ -377,7 +380,7 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" id="submit_btn" disabled>Submit Your Event</button>
+                        <button type="submit" class="btn text-white" id="submit_btn" disabled>Submit</button>
                     </div>
 
                 </div>

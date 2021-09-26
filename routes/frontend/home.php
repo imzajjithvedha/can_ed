@@ -65,7 +65,7 @@ Route::get('business-categories/{id}/businesses', [BusinessController::class, 'b
 Route::get('business-register', [BusinessController::class, 'businessRegister'])->name('business_register');
 Route::get('businesses/single-business/{id}', [BusinessController::class, 'singleBusiness'])->name('single_business');
 
-Route::get('programs', [ProgramController::class, 'index'])->name('programs');
+
 Route::get('careers', [CareerController::class, 'careers'])->name('careers');
 Route::get('jobs', [CareerController::class, 'jobs'])->name('jobs');
 Route::get('site-map', [SitemapController::class, 'index'])->name('site_map');
@@ -74,11 +74,15 @@ Route::get('site-map', [SitemapController::class, 'index'])->name('site_map');
 Route::get('contact-us', [ContactController::class, 'index'])->name('contact_us');
 
 
+Route::get('programs', [ProgramController::class, 'index'])->name('programs');
+
+
 Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
 Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
 Route::post('quotes/request', [QuoteController::class, 'quoteRequest'])->name('quote_request');
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
+Route::post('programs/request', [ProgramController::class, 'programRequest'])->name('program_request');
 Route::post('world-wide-network/request', [WorldWideNetworkController::class, 'networkRequest'])->name('network_request');
 
 
@@ -87,8 +91,11 @@ Route::post('world-wide-network/request', [WorldWideNetworkController::class, 'n
 Route::post('articles/search-result', [ArticleController::class, 'articleSearch'])->name('article_search');
 Route::get('article-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
 
+Route::post('business-categories/search-result', [BusinessController::class, 'categorySearch'])->name('category_search');
+Route::get('business-categories-search-results/{keyword}',[BusinessController::class,'categorySearchFunction'])->name('category_search_function');
+
 Route::post('businesses/search-result', [BusinessController::class, 'businessSearch'])->name('business_search');
-Route::get('business-search-results/{business}/{location}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
+Route::get('businesses-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 
 /*
  * These frontend controllers require the user to be logged in

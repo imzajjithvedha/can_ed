@@ -13,6 +13,8 @@
                     <strong>Online Business Directory&nbsp;</strong>
 
                     <a href="{{ route('admin.directory.create_directory') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+
+                    <a href="{{ route('admin.directory.import_directory') }}" class="btn btn-primary pull-right ml-4">Import Directory</a>
                    
                 </div><!--card-header-->
 

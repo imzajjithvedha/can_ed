@@ -68,12 +68,12 @@
                     </div>
 
 
-                    <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Select your registration package</h6>
+                    <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Select your registration package *</h6>
 
                     <div class="row align-items-center mb-4">
                         <div class="col-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="package" value="basic">
+                                <input class="form-check-input" type="radio" name="package" value="basic" required>
                                 <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                     Basic
                                 </label>

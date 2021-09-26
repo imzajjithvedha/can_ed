@@ -50,6 +50,10 @@ Breadcrumbs::for('admin.categories.edit_category', function ($trail) {
     $trail->push('Business Categories / Edit', route('admin.categories.edit_category', 1));
 });
 
+Breadcrumbs::for('admin.categories.import_categories', function ($trail) {
+    $trail->push('Business Categories / Import', route('admin.categories.import_categories'));
+});
+
 
 
 
@@ -63,6 +67,10 @@ Breadcrumbs::for('admin.directory.create_directory', function ($trail) {
 
 Breadcrumbs::for('admin.directory.edit_directory', function ($trail) {
     $trail->push('Online Business Directory / Edit', route('admin.directory.edit_directory', 1));
+});
+
+Breadcrumbs::for('admin.directory.import_directory', function ($trail) {
+    $trail->push('Online Business Directory / Import', route('admin.directory.import_directory'));
 });
 
 
@@ -153,7 +161,7 @@ Breadcrumbs::for('admin.programs.edit_program', function ($trail) {
 });
 
 Breadcrumbs::for('admin.programs.import_programs', function ($trail) {
-    $trail->push('Programs / Import', route('admin.programs.import_programs', 1));
+    $trail->push('Programs / Import', route('admin.programs.import_programs'));
 });
 
 
@@ -171,8 +179,21 @@ Breadcrumbs::for('admin.quotes.edit_quote', function ($trail) {
 
 
 
-
 Breadcrumbs::for('admin.schools.index', function ($trail) {
     $trail->push('Schools', route('admin.schools.index'));
+});
+
+
+
+Breadcrumbs::for('admin.networks.index', function ($trail) {
+    $trail->push('World Wide Networks', route('admin.networks.index'));
+});
+
+Breadcrumbs::for('admin.networks.create_network', function ($trail) {
+    $trail->push('World Wide Networks / Create', route('admin.networks.create_network'));
+});
+
+Breadcrumbs::for('admin.networks.edit_network', function ($trail) {
+    $trail->push('World Wide Networks / Edit', route('admin.networks.edit_network', 1));
 });
 

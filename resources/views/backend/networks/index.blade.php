@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Businesses Categories | Admin'))
+@section('title', __('World Wide Networks | Admin'))
 
 @section('content')
     
@@ -10,21 +10,21 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Business Categories&nbsp;</strong>
+                    <strong>World Wide Networks&nbsp;</strong>
 
-                    <a href="{{ route('admin.categories.create_category') }}" class="btn btn-primary pull-right ml-4">Create New</a>
-
-                    <a href="{{ route('admin.categories.import_categories') }}" class="btn btn-primary pull-right ml-4">Import Business Categories</a>
+                    <a href="{{ route('admin.networks.create_network') }}" class="btn btn-primary pull-right ml-4">Create New</a>
                    
                 </div><!--card-header-->
 
                 <div class="card-body">
-                    <table class="table table-striped table-bordered" id="business-categories-table" style="width:100%">
+                    <table class="table table-striped table-bordered" id="networks-table" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
+                                <th scope="col">Website URL</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Image</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Our Banner URL</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <h5>Are you sure you want to remove this business category?</h5>
+                            <h5>Are you sure you want to remove this?</h5>
                         </div>                        
 
                     </div>
@@ -73,36 +73,38 @@
 @push('after-scripts')
 <script type="text/javascript">
     $(function () {
-        var table = $('#business-categories-table').DataTable({
+        var table = $('#networks-table').DataTable({
             processing: true,
-            ajax: "{{route('admin.categories.get_categories')}}",
+            ajax: "{{route('admin.networks.get_networks')}}",
             serverSide: true,
             order: [[0, "desc"]],
             columns: [
                 {data: 'id', name: 'id'},
+                {data: 'url', name: 'url'},
                 {data: 'name', name: 'name'},
-                {data: 'image', name: 'image'},
+                {data: 'country', name: 'country'},
+                {data: 'our_banner_url', name: 'our_banner_url'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });
 
-        let category_id;
+        let network_id;
 
         $(document).on('click', '.delete', function(){
-            category_id = $(this).attr('id');
+            network_id = $(this).attr('id');
             $('#confirmModal').modal('show');
         });
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"business-categories/delete-category/" + category_id,
+                url:"networks/delete-network/" + network_id,
         
                 success:function(data)
                 {
                     setTimeout(function(){
                         $('#confirmModal').modal('hide');
-                        $('#business-categories-table').DataTable().ajax.reload();
+                        $('#networks-table').DataTable().ajax.reload();
                     });
                 }
             })

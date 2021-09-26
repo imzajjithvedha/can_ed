@@ -33,7 +33,7 @@ class QuoteController extends Controller
 
         $quotes->save();
 
-        return back()->withFlashSuccess(__('alerts.frontend.quote.sent'));
+        return back()->with('success', 'success'); 
 
     }
 }

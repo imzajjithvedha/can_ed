@@ -8,6 +8,8 @@ use DataTables;
 use DB;
 use App\Models\Businesses; 
 use App\Models\BusinessCategories;
+use Excel;
+use App\Imports\CategoriesImport; 
 
 /**
  * Class BusinessCategoriesController.
@@ -124,6 +126,19 @@ class BusinessCategoriesController extends Controller
     public function deleteCategory($id)
     {
         $category = BusinessCategories::where('id', $id)->delete();
+    }
+
+
+    public function importCategories()
+    {
+        return view('backend.business_categories.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new CategoriesImport, $request->file);
+
+        return redirect()->route('admin.categories.index')->withFlashSuccess('Uploaded Successfully');          
     }
 
 }

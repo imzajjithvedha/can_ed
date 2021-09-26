@@ -185,8 +185,8 @@
             
             <li class="nav-item">
                 <a class="nav-link {{
-                    active_class(Route::is('admin/dashboard'))
-                }}" href="{{ route('admin.dashboard') }}">
+                    active_class(Route::is('admin/networks.index'))
+                }}" href="{{ route('admin.networks.index') }}">
                     <i class="nav-icon fas fa-network-wired"></i>
                     World Wide Network
                 </a>

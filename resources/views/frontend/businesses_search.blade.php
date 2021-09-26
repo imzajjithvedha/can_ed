@@ -30,13 +30,13 @@
         
         <div class="row mt-5">
 
-            @if(count($businesses) == 0)
+            @if(count($filteredBusinesses) == 0)
                         @include('frontend.includes.not_found_title',[
                             'not_found_title' => 'Businesses not found for this category',
                             'not_found_description' => 'Please check later.'
                         ])
             @else
-                @foreach($businesses as $business)
+                @foreach($filteredBusinesses as $business)
                     <div class="col-3 mb-4">
                         <div class="card">
                             <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">

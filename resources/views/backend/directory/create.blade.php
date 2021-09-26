@@ -18,7 +18,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description"  maxlength="100" required></textarea>
+                                <textarea name="description (maximum 100 letters)" class="form-control" id="description" rows="5" placeholder="Description"  maxlength="100" required></textarea>
                             </div>
 
                             <div class="mb-3">

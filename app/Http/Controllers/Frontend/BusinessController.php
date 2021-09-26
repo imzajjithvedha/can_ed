@@ -64,55 +64,9 @@ class BusinessController extends Controller
     }
 
 
-    public function businessSearch(Request $request)
-    {
-        if(request('business') != null) {
-            $business = request('business');
-        }
-        else {
-            $business = 'business';
-        }
-
-
-        if(request('location') != null) {
-            $location = request('location');
-        }
-        else {
-            $location = 'location';
-        }
-
-        return redirect()->route('frontend.business_search_function', [
-            $business,
-            $location,
-        ]);
-
-    }
-
-    public function businessSearchFunction($business, $location)
-    {
-
-        $businesses = Businesses::where('status', 'Approved');
-
-        if($business != 'business'){
-            $businesses->where('business_name', 'like', '%' .  $business . '%');
-        }
-
-        if($location != 'location'){
-            $businesses->where('address', 'like', '%' .  $location . '%');
-        }
-
-        
-
-        $filteredBusinesses = $businesses->get();
-
-        return view('frontend.business_search', ['filteredBusinesses' => $filteredBusinesses]);
-
-    }
-
-
     public function businessCategories()
     {
-        $categories = BusinessCategories::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
+        $categories = BusinessCategories::where('status', 'Approved')->orderBy('name', 'ASC')->get();
 
         return view('frontend.business_categories', ['categories' => $categories]);
     }
@@ -125,6 +79,63 @@ class BusinessController extends Controller
         $businesses = Businesses::where('status', 'Approved')->where('category', $id)->orderBy('updated_at', 'DESC')->get();
 
         return view('frontend.businesses', ['businesses' => $businesses, 'category' => $category]);
+    }
+
+
+    public function categorySearch(Request $request)
+    {
+        if(request('keyword') != null) {
+            $category = request('keyword');
+        }
+        else {
+            $category = 'category';
+        }
+
+        return redirect()->route('frontend.category_search_function', [$category]);
+
+    }
+
+    public function categorySearchFunction($category)
+    {
+        $categories = BusinessCategories::where('status', 'Approved');
+
+        if($category != 'article'){
+            $categories->where('name', 'like', '%' .  $category . '%');
+        }
+
+        $filteredCategories = $categories->get();
+
+        return view('frontend.business_categories_search', ['filteredCategories' => $filteredCategories]);
+
+    }
+
+    public function businessSearch(Request $request)
+    {
+        $category = $request->category;
+
+        if(request('keyword') != null) {
+            $business = request('keyword');
+        }
+        else {
+            $business = 'business';
+        }
+
+        return redirect()->route('frontend.business_search_function', [$category, $business]);
+
+    }
+
+    public function businessSearchFunction($category, $business)
+    {
+        $businesses = Businesses::where('status', 'Approved');
+
+        if($business != 'business'){
+            $businesses->where('name', 'like', '%' .  $business . '%');
+        }
+
+        $filteredBusinesses = $businesses->get();
+
+        return view('frontend.businesses_search', ['category' => $category, 'filteredBusinesses' => $filteredBusinesses]);
+
     }
 
 

@@ -33,12 +33,12 @@ class SchoolController extends Controller
         $school->reach_time = $request->reach_time;
         $school->time_zone = $request->time_zone;
         $school->country = $request->country;
-        $school->description = $request->description;
+        $school->message = $request->message;
         $school->status = 'Pending';
 
         $school->save();
 
-        return redirect('/');
+        return back()->with('success', 'success');
 
     }
 

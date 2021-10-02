@@ -75,6 +75,33 @@ Breadcrumbs::for('admin.directory.import_directory', function ($trail) {
 
 
 
+Breadcrumbs::for('admin.careers.how_careers_came_about', function ($trail) {
+    $trail->push('Careers / How these careers came about', route('admin.careers.how_careers_came_about'));
+});
+
+Breadcrumbs::for('admin.careers.all_careers', function ($trail) {
+    $trail->push('Careers / All Careers', route('admin.careers.all_careers'));
+});
+
+Breadcrumbs::for('admin.careers.create_career', function ($trail) {
+    $trail->push('Careers / All Careers / Create', route('admin.careers.create_career'));
+});
+
+Breadcrumbs::for('admin.careers.edit_career', function ($trail) {
+    $trail->push('Careers / All Careers / Edit', route('admin.careers.edit_career', 1));
+});
+
+Breadcrumbs::for('admin.careers.import_careers', function ($trail) {
+    $trail->push('Careers / All Careers / Import', route('admin.careers.import_careers'));
+});
+
+Breadcrumbs::for('admin.careers.hot_careers', function ($trail) {
+    $trail->push('Careers / Hot Careers', route('admin.careers.hot_careers'));
+});
+
+
+
+
 
 Breadcrumbs::for('admin.events.index', function ($trail) {
     $trail->push('Events', route('admin.events.index'));
@@ -114,6 +141,15 @@ Breadcrumbs::for('admin.pages.privacy_policy', function ($trail) {
 Breadcrumbs::for('admin.pages.disclaimer', function ($trail) {
     $trail->push('Pages / Disclaimer', route('admin.pages.disclaimer'));
 });
+
+
+
+
+
+Breadcrumbs::for('admin.featured_videos.index', function ($trail) {
+    $trail->push('Featured Videos', route('admin.featured_videos.index'));
+});
+
 
 
 
@@ -179,9 +215,35 @@ Breadcrumbs::for('admin.quotes.edit_quote', function ($trail) {
 
 
 
+
 Breadcrumbs::for('admin.schools.index', function ($trail) {
     $trail->push('Schools', route('admin.schools.index'));
 });
+
+Breadcrumbs::for('admin.schools.create_school', function ($trail) {
+    $trail->push('Schools / Create', route('admin.schools.create_school'));
+});
+
+Breadcrumbs::for('admin.schools.edit_school', function ($trail) {
+    $trail->push('Schools / Edit', route('admin.schools.edit_school', 1));
+});
+
+
+
+Breadcrumbs::for('admin.types.index', function ($trail) {
+    $trail->push('School Types', route('admin.types.index'));
+});
+
+Breadcrumbs::for('admin.types.create_school_type', function ($trail) {
+    $trail->push('School Types / Create', route('admin.types.create_school_type'));
+});
+
+Breadcrumbs::for('admin.types.edit_school_type', function ($trail) {
+    $trail->push('School Types / Edit', route('admin.types.edit_school_type', 1));
+});
+
+
+
 
 
 

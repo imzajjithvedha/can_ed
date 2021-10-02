@@ -18,6 +18,14 @@
                             <div class="mb-3">
                                 <textarea class="ckeditor form-control" name="description" value="{{ $article->description }}">{{ $article->description }}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label>Featured</label>
+                                <select class="form-control" name="featured" required>
+                                    <option value="Yes" {{ $article->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $article->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

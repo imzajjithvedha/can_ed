@@ -18,12 +18,13 @@ class DirectoryImport implements ToModel, WithHeadingRow
         return new OnlineBusinessDirectory([
             'user_id' => '1',
             'name' => $row['name'],
-            'description' => $row['description'],
-            'category' => $row['category'],
+            'address' => $row['address'],
+            'city' => $row['city'],
+            'province' => $row['province'],
+            'postal_code' => $row['postal_code'],
             'phone' => $row['phone'],
-            'email' => $row['email'],
-            'image' => null,
-            'url' => $row['url'],
+            'fax' => $row['fax'],
+            'industry' => $row['industry'],
             'status' => 'Approved'
         ]);
     }

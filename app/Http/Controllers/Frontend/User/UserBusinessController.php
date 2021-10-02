@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Businesses; 
 use DB;
 use App\Models\BusinessCategories;
+use App\Models\FavoriteBusinesses;
 /**
  * Class UserBusinessController.
  */
@@ -74,6 +75,26 @@ class UserBusinessController extends Controller
     public function userBusinessDelete($id)
     {
         $business = Businesses::where('id', $id)->delete();
+
+        return back();
+    }
+
+
+    // favorite businesses
+    public function favoriteBusinesses()
+    {
+        $user_id = auth()->user()->id;
+
+        $favorite = FavoriteBusinesses::where('user_id', $user_id)->get();
+
+        $businesses = Businesses::orderBy('updated_at', 'DESC')->get();
+
+        return view('frontend.user.favorite_businesses', ['favorite' => $favorite, 'businesses' => $businesses]);
+    }
+
+    public function favoriteBusinessDelete($id)
+    {
+        $favorite = FavoriteBusinesses::where('business_id', $id)->delete();
 
         return back();
     }

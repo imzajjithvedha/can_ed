@@ -36,7 +36,7 @@
             @include('frontend.includes.nav')
 
             <div style="margin-top: 12rem;">
-                @include('includes.partials.messages')
+                <!-- @include('includes.partials.messages') -->
                 @yield('content')
             </div>
 

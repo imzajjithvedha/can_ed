@@ -3,7 +3,6 @@
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\ArticleController;
-
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\FAQController;
 use App\Http\Controllers\Frontend\MeetOurTeamController;
@@ -20,13 +19,13 @@ use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
+use App\Http\Controllers\Frontend\FileManagerController;
 
 
-use App\Http\Controllers\Frontend\User\AccountController;
 use App\Http\Controllers\Frontend\User\DashboardController;
-use App\Http\Controllers\Frontend\User\ProfileController;
 use App\Http\Controllers\Frontend\User\UserSchoolController;
 use App\Http\Controllers\Frontend\User\UserBusinessController;
+use App\Http\Controllers\Frontend\User\UserProfileController;
 
 /*
  * Frontend Controllers
@@ -64,6 +63,7 @@ Route::get('business-categories', [BusinessController::class, 'businessCategorie
 Route::get('business-categories/{id}/businesses', [BusinessController::class, 'businesses'])->name('businesses');
 Route::get('business-register', [BusinessController::class, 'businessRegister'])->name('business_register');
 Route::get('businesses/single-business/{id}', [BusinessController::class, 'singleBusiness'])->name('single_business');
+Route::post('businesses/single-business/favorite', [BusinessController::class, 'favoriteBusiness'])->name('favorite_business');
 
 
 Route::get('careers', [CareerController::class, 'careers'])->name('careers');
@@ -97,6 +97,11 @@ Route::get('business-categories-search-results/{keyword}',[BusinessController::c
 Route::post('businesses/search-result', [BusinessController::class, 'businessSearch'])->name('business_search');
 Route::get('businesses-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 
+Route::post('directory/search-result', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
+Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[OnlineBusinessDirectoryController::class,'directorySearchFunction'])->name('directory_search_function');
+
+
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
@@ -106,7 +111,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
         Route::get('account-dashboard', [DashboardController::class, 'accountDashboard'])->name('account_dashboard');
+
+
         Route::get('account-information', [DashboardController::class, 'accountInformation'])->name('account_information');
+        Route::post('account-information/update', [DashboardController::class, 'accountInformationUpdate'])->name('account_information_update');
 
 
         Route::get('user-events', [DashboardController::class, 'userEvents'])->name('user_events');
@@ -115,14 +123,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('user-events/delete/{id}', [DashboardController::class, 'userEventDelete'])->name('user_event_delete');
 
 
-        
-
         Route::get('favorite-articles', [DashboardController::class, 'favoriteArticles'])->name('favorite_articles');
         Route::get('favorite-articles/delete/{id}', [DashboardController::class, 'favoriteArticleDelete'])->name('favorite_article_delete');
         
-        Route::get('favorite-schools', [DashboardController::class, 'favoriteSchools'])->name('favorite_schools');
-        Route::get('favorite-businesses', [DashboardController::class, 'favoriteBusinesses'])->name('favorite_businesses');
-
 
         Route::get('user-quotes', [DashboardController::class, 'userQuotes'])->name('user_quotes');
         Route::post('user-quotes/update', [DashboardController::class, 'userQuoteUpdate'])->name('user_quote_update');
@@ -136,12 +139,20 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
 
-
-
-
-
         Route::get('school-dashboard', [UserSchoolController::class, 'schoolDashboard'])->name('school_dashboard');
+        Route::get('user-schools/edit/{id}', [UserSchoolController::class, 'userSchoolEdit'])->name('user_school_edit');
+        Route::post('user-schools/information/update', [UserSchoolController::class, 'userSchoolUpdate'])->name('user_school_information_update');
+        Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
+        Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
+        Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
+
+
+
+
         Route::get('suggested-programs', [UserSchoolController::class, 'suggestedPrograms'])->name('suggested_programs');
+        Route::get('suggested-programs/edit/{id}', [UserSchoolController::class, 'suggestedProgramEdit'])->name('suggested_program_edit');
+        Route::post('suggested-programs/update', [UserSchoolController::class, 'suggestedProgramUpdate'])->name('suggested_program_update');
+        Route::get('suggested-programs/delete/{id}', [UserSchoolController::class, 'suggestedProgramDelete'])->name('suggested_program_delete');
 
 
 
@@ -149,13 +160,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('user-businesses/edit/{id}', [UserBusinessController::class, 'userBusinessEdit'])->name('user_business_edit');
         Route::post('user-businesses/update', [UserBusinessController::class, 'userBusinessUpdate'])->name('user_business_update');
         Route::get('user-businesses/delete/{id}', [UserBusinessController::class, 'userBusinessDelete'])->name('user_business_delete');
+        Route::get('favorite-businesses', [UserBusinessController::class, 'favoriteBusinesses'])->name('favorite_businesses');
+        Route::get('favorite-businesses/delete/{id}', [UserBusinessController::class, 'favoriteBusinessDelete'])->name('favorite_business_delete');
 
-        
 
-        // User Account Specific
-        Route::get('account', [AccountController::class, 'index'])->name('account');
+        Route::get('user-settings', [UserProfileController::class, 'settingsDashboard'])->name('user_settings');
+        Route::post('user-settings/update', [UserProfileController::class, 'settingsUpdate'])->name('settings_update');
 
-        // User Profile Specific
-        Route::patch('profile/update', [ProfileController::class, 'update'])->name('profile.update');
     });
 });

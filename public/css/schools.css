@@ -52,10 +52,28 @@
     border: 2px solid black;
 }
 .single-school .nav-item button {
-    padding: 0.4rem 3.22rem!important;
+    padding: 0.4rem 1.26rem!important;
 }
 
 
 .tab-content .gray {
     font-size: 0.875rem!important;
+}
+
+.tile {
+    background: white;
+    padding: 2%;
+    border: 1px solid #ddd;
+    /* margin-right: 1%;
+    margin-bottom: 1%; */
+}
+
+#pills-quick h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+#pills-quick p {
+    color: #76777a;
+    text-align: justify;
 }

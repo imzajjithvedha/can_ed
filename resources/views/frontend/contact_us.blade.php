@@ -59,33 +59,31 @@
             <div class="col-6">
                 <h5 class="fw-bolder">Get in touch</h5>
                 <hr>
-                    <div class="text-end">
-                        <p class="mb-2 required fw-bold">* Indicates required fields</p>
+                <div class="text-end">
+                    <p class="mb-2 required fw-bold">* Indicates required fields</p>
+                </div>
+                <form action="{{ route('frontend.contact.send') }}" method="POST">
+                {{csrf_field()}}
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Your name *" required>
                     </div>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *">
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your email *">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="7" placeholder="Your message *"></textarea>
-                        </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Your email *" required>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="7" placeholder="Your message *" name="message" required></textarea>
+                    </div>
 
-                        <div class="row mb-4 justify-content-center">
-                            <div class="col-md-6 text-center">
-                                <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-                            </div>
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-md-6 text-center">
+                            <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                         </div>
+                    </div>
 
-                        <div>
-                            <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send Message</button>
-                        </div>
-
-                        
-                    </form>
-
+                    <div>
+                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send Message</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -1,0 +1,107 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use DataTables;
+use DB;
+use App\Models\SchoolTypes; 
+
+/**
+ * Class SchoolTypesController.
+ */
+class SchoolTypesController extends Controller
+{
+    /**
+     * @return \Illuminate\View\View
+     */
+    public function index()
+    {
+        return view('backend.school_types.index');
+    }
+
+    public function createSchoolType()
+    {
+        return view('backend.school_types.create');
+    }
+
+    public function storeSchoolType(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        $type = new SchoolTypes;
+
+        $type->user_id = $user_id;
+        $type->name = $request->name;
+        $type->description = $request->description;
+        $type->status = 'Approved';
+
+        $type->save();
+
+        
+        return redirect()->route('admin.types.index')->withFlashSuccess('Created Successfully');                      
+    }
+
+
+    public function getSchoolTypes(Request $request)
+    {
+        if($request->ajax())
+        {
+            $data = SchoolTypes::get();
+
+            return DataTables::of($data)
+
+                ->addColumn('action', function($data){
+                    
+                    $button = '<a href="'.route('admin.types.edit_school_type', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="far fa-edit"></i> Edit </a>';
+                    $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
+                    return $button;
+                })
+
+                ->editColumn('status', function($data){
+                    if($data->status == 'Approved'){
+                        $status = '<span class="badge bg-success">Approved</span>';
+                    }else{
+                        $status = '<span class="badge bg-warning text-dark">Pending</span>';
+                    }   
+                    return $status;
+                })
+                
+                ->rawColumns(['action', 'status'])
+                ->make(true);
+        }
+        
+        return back();
+    }
+
+
+    public function editSchoolType($id)
+    {
+
+        $type = SchoolTypes::where('id',$id)->first();
+
+        return view('backend.school_types.edit',['type' => $type]);
+    }
+
+    public function updateSchoolType(Request $request)
+    {    
+
+        $type = DB::table('school_types') ->where('id', request('hidden_id'))->update(
+            [
+                'name' => $request->name,
+                'description' => $request->description,
+                'status' => $request->status
+            ]
+        );
+   
+        return redirect()->route('admin.types.index')->withFlashSuccess('Updated Successfully');                      
+
+    }
+
+    public function deleteSchoolType($id)
+    {
+        $type = SchoolTypes::where('id', $id)->delete();
+    }
+
+}

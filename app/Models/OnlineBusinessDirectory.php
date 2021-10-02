@@ -8,5 +8,5 @@ class OnlineBusinessDirectory extends Model
 {
     protected $table = 'online_business_directory';
 
-    protected $fillable = ['user_id', 'name', 'description', 'category', 'phone', 'email', 'image', 'url', 'status'];
+    protected $fillable = ['user_id', 'name', 'address', 'city', 'province', 'postal_code', 'phone', 'fax', 'industry', 'status'];
 }

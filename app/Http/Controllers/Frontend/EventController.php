@@ -50,7 +50,7 @@ class EventController extends Controller
 
         $event->save();
 
-        return back()->withFlashSuccess(__('alerts.frontend.event.sent'));
+        return back()->with('success', 'success');
 
     }
 

@@ -9,54 +9,34 @@
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h5 class="fw-bolder">Online Business Directory</h5>
-        
-        <form action="">
-            <div class="row align-items-center">
-                <div class="col-9">
-                    <hr>
-                </div>
-                <div class="col-3 input-group">
-                    <input type="text" class="form-control text-center" id="search_directory" aria-describedby="search_directory" placeholder="Search Directory">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <hr>
+    
 
         <div class="row mt-5">
-            @if(count($directories) == 0)
-                        @include('frontend.includes.not_found_title',[
-                            'not_found_title' => 'There is nothing in the directory',
-                            'not_found_description' => 'Please check later.'
-                        ])
-            @else
-                @foreach($directories as $directory)
-                    <div class="col-4">
-                        <div class="row align-items-center">
-                            <!-- <div class="col-5">
+            
+            <form action="{{ route('frontend.directory_search') }}" method="POST">
+            {{@csrf_field()}}
+                <div class="row justify-content-center">
+                    <div class="col-8">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Company Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="city" aria-describedby="city" name="city" placeholder="City">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="province" aria-describedby="province" name="province" placeholder="Province">
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="industry" aria-describedby="industry" name="industry" placeholder="Industry">
+                        </div>
 
-                                @if($directory->image != null)
-                                    <img src="{{ url('images/directory', $directory->image) }}" alt="" class="img-fluid" style="height: 7rem; object-fit: cover;">
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 7rem; object-fit: cover;">
-                                @endif
-                            </div> -->
-
-                            <div class="col-12">
-                                <h6 class="mb-1 fw-bold" style="color: rgb(128, 0, 0);">{{ $directory->name }}</h6>
-                                <p class="gray mb-2" style="line-height: 1rem;">{{ $directory->description }}</p>
-
-                                <p class="gray mb-1"><i class="fas fa-tasks me-2" style="color: rgb(128, 0, 0);"></i>{{ $directory->category }}</p>
-
-                                <p class="gray mb-1"><i class="fas fa-phone-alt me-2" style="color: rgb(128, 0, 0);"></i>{{ $directory->phone }}</p>
-
-                                <p class="gray"><i class="fas fa-envelope me-2" style="color: rgb(128, 0, 0);"></i></i>{{ $directory->email }}</p>
-                            </div>
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn">Search</button>
                         </div>
                     </div>
-                @endforeach
-            @endif
+                </div>
+            </form>
         </div>
     </div>
 @endsection

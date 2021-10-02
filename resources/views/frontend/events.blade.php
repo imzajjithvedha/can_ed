@@ -389,7 +389,7 @@
     </form>
 
 
-    @if(session()->get('flash_success'))
+    @if(\Session::has('success'))
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>

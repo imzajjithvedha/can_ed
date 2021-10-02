@@ -14,19 +14,13 @@ class SendContact extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * @var Request
-     */
-    public $request;
+    
+    public $details;
 
-    /**
-     * SendContact constructor.
-     *
-     * @param Request $request
-     */
-    public function __construct(Request $request)
+    
+    public function __construct($details)
     {
-        $this->request = $request;
+        $this->details = $details;
     }
 
     /**
@@ -36,11 +30,8 @@ class SendContact extends Mailable
      */
     public function build()
     {
-        return $this->to(config('mail.from.address'), config('mail.from.name'))
-            ->view('frontend.mail.contact')
-            ->text('frontend.mail.contact-text')
-            ->subject(__('strings.emails.contact.subject', ['app_name' => app_name()]))
-            ->from($this->request->email, $this->request->name)
-            ->replyTo($this->request->email, $this->request->name);
+        
+
+        return $this->subject('Contact Message')->view('frontend.mail.contact');
     }
 }

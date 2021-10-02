@@ -26,7 +26,7 @@ class ArticleController extends Controller
     {
         $article = Articles::where('id', $id)->first();
 
-        $more_articles = Articles::inRandomOrder()->limit(5)->get();
+        $more_articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
 
         return view('frontend.single_article', ['article' => $article, 'more_articles' => $more_articles]);
     }

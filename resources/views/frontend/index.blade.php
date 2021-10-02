@@ -157,144 +157,68 @@
         </div>
     </div>
 
-    <div class="container mt-5 featured-businesses">
-        <h5 class="fw-bolder">Featured Businesses</h5>
 
-        <div class="row mt-4">
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
+    @if(count($businesses) > 0)
+        <div class="container mt-5 featured-businesses">
+            <h5 class="fw-bolder">Featured Businesses</h5>
+
+            
+            <div class="row mt-4">
+                @foreach($businesses as $business)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
+                            <div class="card">
+                                <img src="{{ url('images/businesses', $business->image) }}" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/business.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 
-    <div class="container mt-5 us-education">
-        <h5 class="fw-bolder">Getting started with your u.s. education</h5>
 
-        <div class="row mt-4">
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/education.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
+    @if(count($featured_articles) > 0)
+        <div class="container mt-5 us-education">
+            <h5 class="fw-bolder">Getting started with your u.s. education</h5>
+
+            <div class="row mt-4">
+                @foreach($featured_articles as $article)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                            <div class="card">
+                                <img src="{{ url('images/articles', $article->image) }}" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/education.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/education.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/education.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Cleaner</h6>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
+    
 
-    <div class="container mt-5 featured-videos">
-        <h5 class="fw-bolder">Featured Videos</h5>
 
-        <div class="row mt-4">
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <video class="bg-dark" width="100%" height="200" controls>
-                        <source src="{{ url('img/frontend/index/welcomevideo.mp4') }}" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/R3zfXc8nVQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/R3zfXc8nVQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <iframe width="100%" height="200" src="https://www.youtube.com/embed/R3zfXc8nVQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
+    @if(count($videos) > 0)
+        <div class="container mt-5 featured-videos">
+            <h5 class="fw-bolder">Featured Videos</h5>
+
+            <div class="row mt-4">
+                @foreach($videos as $video)
+                    <div class="col-3 mb-4">
+                        <div class="card">
+                            <iframe width="100%" height="200" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 
 
     @if(count($articles) > 0)

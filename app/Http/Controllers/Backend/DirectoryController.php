@@ -40,11 +40,13 @@ class DirectoryController extends Controller
 
         $directory->user_id = $user_id;
         $directory->name = $request->name;
-        $directory->description = $request->description;
-        $directory->category = $request->category;
+        $directory->address = $request->address;
+        $directory->city = $request->city;
+        $directory->province = $request->province;
+        $directory->postal_code = $request->postal_code;
         $directory->phone = $request->phone;
-        $directory->email = $request->email;
-        $directory->image = $imageName;
+        $directory->fax = $request->fax;
+        $directory->industry = $request->industry;
         $directory->status = 'Approved';
 
 

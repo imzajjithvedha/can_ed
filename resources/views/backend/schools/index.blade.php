@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Schools'))
+@section('title', __('Schools | Admin'))
 
 @section('content')
     
@@ -12,19 +12,21 @@
                 <div class="card-header">
                     <strong>Schools&nbsp;</strong>
 
-                    <a href="#" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.articles.create_article') }}" class="btn btn-primary ms-4">Create New</a>
                    
                 </div><!--card-header-->
 
                 <div class="card-body">
-                    <table class="table table-striped table-bordered" id="villadatatable" style="width:100%">
+                    <table class="table table-striped table-bordered" id="schools-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">#ID</th>
-                                <th scope="col">Country Name</th>
-                                <th scope="col">Currency</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Website</th>
+                                <th scope="col">Country</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Option</th>
+                                <th scope="col">Options</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,49 +68,50 @@
         </div>
     </div>
     
-
-    <script type="text/javascript">
-        $(function () {
-            var table = $('#villadatatable').DataTable({
-                processing: true,
-                ajax: "",
-                serverSide: true,
-                order: [[0, "desc"]],
-                columns: [
-                    {data: 'id', name: 'id'},
-                    {data: 'country_name', name: 'country_name'},
-                    {data: 'currency', name: 'currency'},
-                    {data: 'status', name: 'status'},
-                    {data: 'action', name: 'action', orderable: false, searchable: false},
-                ]
-            });
- 
-
-            var user_id;
-
-            $(document).on('click', '.delete', function(){
-            user_id = $(this).attr('id');
-            $('#confirmModal').modal('show');
-            });
-
-            $('#ok_button').click(function(){
-            $.ajax({
-            url:"country/delete/"+user_id,
-            
-            success:function(data)
-            {
-                setTimeout(function(){
-                $('#confirmModal').modal('hide');
-                $('#villadatatable').DataTable().ajax.reload();
-                });
-            }
-            })
-            });
-
-          
-        });
-    </script>
-
-
-
 @endsection
+
+
+@push('after-scripts')
+<script type="text/javascript">
+    $(function () {
+        var table = $('#schools-table').DataTable({
+            processing: true,
+            ajax: "{{route('admin.schools.get_schools')}}",
+            serverSide: true,
+            order: [[0, "desc"]],
+            columns: [
+                {data: 'name', name: 'name'},
+                {data: 'website', name: 'website'},
+                {data: 'country', name: 'country'},
+                {data: 'email', name: 'email'},
+                {data: 'phone', name: 'phone'},
+                {data: 'status', name: 'status'},
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ]
+        });
+
+        let school_id;
+
+        $(document).on('click', '.delete', function(){
+            school_id = $(this).attr('id');
+            $('#confirmModal').modal('show');
+        });
+
+        $('#ok_button').click(function(){
+            $.ajax({
+                url:"schools/delete-school/" + school_id,
+        
+                success:function(data)
+                {
+                    setTimeout(function(){
+                        $('#confirmModal').modal('hide');
+                        $('#schools-table').DataTable().ajax.reload();
+                    });
+                }
+            })
+        });
+    });
+
+</script>
+
+@endpush

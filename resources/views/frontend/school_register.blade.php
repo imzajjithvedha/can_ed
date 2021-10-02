@@ -15,11 +15,14 @@
             {{csrf_field()}}
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your school name" name="name" required>
+                    <div class="text-end">
+                        <p class="mb-2 required fw-bold">* Indicates required fields</p>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="website" aria-describedby="website" placeholder="Enter your school website" name="website" required>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your school name *" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="website" aria-describedby="website" placeholder="Enter your school website *" name="website" required>
                     </div>
                     <div class="mb-3">
                         <div class="row">
@@ -175,7 +178,7 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-control" id="country" name="country" required>
-                            <option value="">Select Country</option>
+                            <option value="">Select Country *</option>
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
                             <option value="Algeria">Algeria</option>
@@ -425,7 +428,7 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <textarea name="description" class="form-control" rows="7" placeholder="Would you like to tell us anything before we contact you?"></textarea>
+                        <textarea name="message" class="form-control" rows="7" placeholder="Would you like to tell us anything before we contact you? *"></textarea>
                     </div>
                     <div class="mb-3 border p-3">
                         <p class="gray fw-bold">Protecting your privacy is fundamental to our mission and business</p>
@@ -434,33 +437,47 @@
                         <p class="gray fw-bold">We don't own the content you add to our website</p>
                     </div>
 
-                    <!-- <div class="row mb-4 justify-content-center">
-                        <div class="col-md-6 text-center">
-                            <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
-                        </div>
-                    </div> -->
-
-                    <div class="form-check">
+                    <!-- <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label gray" for="flexCheckDefault" style="font-size: 0.9rem;">
                             I agree to receive email from this school, study in canada and other partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" style="color: #800000;">Privacy policy</a>.
                         </label>
+                    </div> -->
+
+                    <div class="row mb-4 justify-content-center">
+                        <div class="col-md-8 text-center">
+                            <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
+                        </div>
                     </div>
 
-                    @auth
-
-                        <div class="text-center mt-5">
-                            <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn">Send Request</button>
-                        </div>
-                    @else
-                        <div class="text-center mt-5">
-                            <a href="{{ route('frontend.auth.login') }}" type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn">Send Request</a>
-                        </div>
-                    @endif
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn" disabled>Submit</button>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
+
+
+    @if(\Session::has('success'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
 
 
@@ -471,5 +488,11 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
     </script>
 @endpush

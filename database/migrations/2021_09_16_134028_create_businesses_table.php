@@ -30,6 +30,7 @@ class CreateBusinessesTable extends Migration
             $table->text('linked_in')->nullable();
             $table->text('package');
             $table->text('status');
+            $table->text('featured');
             $table->timestamps();
         });
     }

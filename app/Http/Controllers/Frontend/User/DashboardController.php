@@ -11,6 +11,8 @@ use App\Models\Quotes;
 use App\Models\Events;
 use DB;
 use App\Models\WorldWideNetwork;
+use App\Models\FavoriteBusinesses;
+use App\Models\Auth\User;
 
 /**
  * Class DashboardController.
@@ -31,19 +33,64 @@ class DashboardController extends Controller
 
         $articles = FavoriteArticles::where('user_id', $user_id)->count();
 
+        $businesses = FavoriteBusinesses::where('user_id', $user_id)->count();
+
         $networks = WorldWideNetwork::where('user_id', $user_id)->where('status', 'Approved')->count();
 
         // $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
-        // $businesses = FavoriteArticles::where('user_id', $user_id)->count();
-
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses]);
     }
 
     
     public function accountInformation()
     {
-        return view('frontend.user.account_information');
+        $user_id = auth()->user()->id;
+
+        $user = User::where('id', $user_id)->first();
+
+        return view('frontend.user.account_information', ['user' => $user]);
+    }
+
+    public function accountInformationUpdate(Request $request)
+    {
+        $first_name = request('first_name');
+        $last_name = request('last_name');
+        $email = request('email');
+        $display_name = request('display_name');
+        $user_type = request('user_type');
+        $dob = request('dob');
+        $gender = request('gender');
+        $marital = request('marital');
+        $city = request('city');
+        $province = request('province');
+        $country = request('country');
+        $postal_code = request('postal_code');
+        $home_phone = request('home_phone');
+        $mobile_phone = request('mobile_phone');
+
+        $users = DB::table('users') ->where('id', request('hidden_id'))->update(
+            [
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'email' => $email,
+                'display_name' => $display_name,
+                'user_type' => $user_type,
+                'dob' => $dob,
+                'gender' => $gender,
+                'marital_status' => $marital,
+                'city' => $city,
+                'province' => $province,
+                'country' => $country,
+                'postal_code' => $postal_code,
+                'home_phone' => $home_phone,
+                'mobile_phone' => $mobile_phone,
+                
+
+            ]
+        );
+
+        return back()->with('success', 'success');
     }
 
     
@@ -96,7 +143,7 @@ class DashboardController extends Controller
             ]
         );
    
-        return back()->withFlashSuccess(__('alerts.frontend.event.update'));   
+        return redirect()->route('frontend.user.user_events')->with('success', 'success');    
     }
 
 
@@ -116,7 +163,7 @@ class DashboardController extends Controller
 
         $favorite = favoriteArticles::where('user_id', $user_id)->get();
 
-        $articles = Articles::orderBy('created_at', 'DESC')->get();
+        $articles = Articles::orderBy('updated_at', 'DESC')->get();
 
         return view('frontend.user.favorite_articles', ['favorite' => $favorite, 'articles' => $articles]);
     }
@@ -129,18 +176,6 @@ class DashboardController extends Controller
     }
 
 
-    //favorite schools
-    public function favoriteSchools()
-    {
-        return view('frontend.user.favorite_schools');
-    }
-
-
-    //favorite businesses
-    public function favoriteBusinesses()
-    {
-        return view('frontend.user.favorite_businesses');
-    }
 
 
     //quotes

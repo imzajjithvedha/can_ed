@@ -24,8 +24,9 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Email</th>
+                                <th scope="col">address</th>
+                                <th scope="col">city</th>
+                                <th scope="col">phone</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -83,8 +84,9 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
+                {data: 'address', name: 'address'},
+                {data: 'city', name: 'city'},
                 {data: 'phone', name: 'phone'},
-                {data: 'email', name: 'email'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

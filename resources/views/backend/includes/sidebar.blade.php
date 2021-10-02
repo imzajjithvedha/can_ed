@@ -49,13 +49,25 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{
-                    active_class(Route::is('admin/dashboard'))
-                }}" href="{{ route('admin.dashboard') }}">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="nav-icon fas fa-tasks"></i>
                     Careers
                 </a>
+
+                <ul class="nav-dropdown-items">
+                    <li>
+                        <a class="nav-link {{active_class(Route::is('admin/careers.how_careers_came_about'))}}" href="{{ route('admin.careers.how_careers_came_about') }}">
+                            How Came
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/careers.all_careers'))}}" href="{{ route('admin.careers.all_careers') }}">All Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/careers.hot_careers'))}}" href="{{ route('admin.careers.hot_careers') }}">Hot Careers</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
@@ -73,6 +85,15 @@
                 }}" href="{{ route('admin.events.index') }}">
                     <i class="nav-icon far fa-calendar-alt"></i>
                     Events
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{
+                    active_class(Route::is('admin/featured_videos.index'))
+                }}" href="{{ route('admin.featured_videos.index') }}">
+                    <i class="nav-icon fas fa-video"></i>
+                    Featured Videos
                 </a>
             </li>
 
@@ -163,13 +184,19 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link {{
-                    active_class(Route::is('admin/dashboard'))
-                }}" href="{{ route('admin.schools.index') }}">
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link nav-dropdown-toggle href="#">
                     <i class="nav-icon fas fa-school"></i>
                     Schools
                 </a>
+
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/types.index'))}}" href="{{ route('admin.types.index') }}">
+                            School Types
+                        </a>
+                    </li>
+                </ul>
             </li>
 
 

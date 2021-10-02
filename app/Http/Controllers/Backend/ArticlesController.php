@@ -34,11 +34,18 @@ class ArticlesController extends Controller
         $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images/articles'),$imageName);
 
+        if($request->featured != null) {
+            $featured = $request->featured;
+        } else {
+            $featured = 'No';
+        }
+
         $article = new Articles;
 
         $article->user_id = $user_id;
         $article->title = $request->title;
         $article->description = $request->description;
+        $article->featured = $featured;
         $article->status = 'Approved';
         $article->image = $imageName;
 
@@ -113,6 +120,7 @@ class ArticlesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
+                'featured' => $request->featured,
                 'image' => $imageName,
                 'status' => $request->status
             ]

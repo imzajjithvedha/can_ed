@@ -16,15 +16,14 @@ class CreateOnlineBusinessDirectoryTable extends Migration
         Schema::create('online_business_directory', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
-            $table->text('name');
-            $table->text('description')->nullable();
-            $table->text('category')->nullable();
-            $table->text('phone');
-            $table->text('email');
-            $table->text('city');
-            $table->text('province');
-            $table->text('country');
-            $table->text('url')->nullable();
+            $table->text('name')->nullable();
+            $table->text('address')->nullable();
+            $table->text('city')->nullable();
+            $table->text('province')->nullable();
+            $table->text('postal_code')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('fax')->nullable();
+            $table->text('industry')->nullable();
             $table->text('status');
             $table->timestamps();
         });

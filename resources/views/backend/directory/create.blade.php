@@ -18,24 +18,31 @@
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description (maximum 100 letters)" class="form-control" id="description" rows="5" placeholder="Description"  maxlength="100" required></textarea>
+                                <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address" name="address" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="category" aria-describedby="category" placeholder="Category" name="category" required>
+                                <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone Number" name="phone" required>
+                                <input type="text" class="form-control" id="province" aria-describedby="province" placeholder="Province" name="province" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="email" aria-describedby="email" placeholder="Email Address" name="email" required>
+                                <input type="text" class="form-control" id="postal_code" aria-describedby="postal_code" placeholder="Postal Code" name="postal_code" required>
                             </div>
 
-                            <div class="form-group">
-                                <label for="image" class="form-label">Image</label>
-                                <input type="file" class="form-control" id="image" name="image" required>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone" name="phone" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="industry" aria-describedby="industry" placeholder="Industry" name="industry" required>
                             </div>
                         </div>
                     </div>

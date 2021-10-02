@@ -74,6 +74,15 @@
                                     <input type="file" class="form-control" id="image" name="new_image">
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label>Featured</label>
+                                <select class="form-control" name="featured" required>
+                                    <option value="Yes" {{ $business->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $business->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status" required>

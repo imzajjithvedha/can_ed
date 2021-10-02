@@ -3,7 +3,7 @@
 @section('title', 'Login')
 
 @push('after-styles')
-    <link href="{{ url('css/login.css') }}" rel="stylesheet">
+    <link href="{{ url('css/auth.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -12,9 +12,9 @@
             <div class="col-7">
                 <div class="row align-items-center">
                     
-                        <div class="col-7">
+                    <div class="col-7">
                         <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
-                    {{csrf_field()}}
+                        {{csrf_field()}}
                             <h5 class="fw-bolder">Login</h5>
                             <hr>
                             <div class="mb-3">
@@ -36,7 +36,7 @@
                                     </div>
                                 </div>
                                 <div class="col-5">
-                                    <a href="#" class="text-decoration-none" style="font-size: 0.8rem; color: #800000;">Forgot your password?</a>
+                                    <a href="{{ route('frontend.auth.password.email') }}" class="text-decoration-none" style="font-size: 0.8rem; color: #800000;">Forgot your password?</a>
                                 </div>
                             </div>
 

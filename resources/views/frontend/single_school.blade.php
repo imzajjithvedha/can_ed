@@ -16,10 +16,10 @@
                 <hr>
 
                 <div class="row">
-                    <div class="col-9">
-                        <img src="{{ url('img/frontend/index/school.jpg') }}" alt="" class="img-fluid">
+                    <div class="col-12">
+                        <img src="{{ url('img/frontend/index/school.jpg') }}" alt="" class="img-fluid w-100" style="height: 25rem;width: 100%; object-fit: cover;">
                     </div>
-                    <div class="col-3">
+                    <!-- <div class="col-3">
                         <p class="fw-bold">Social Media</p>
                         <hr class="my-2">
                         <a href="#" class="d-block border mb-2 p-2 text-center school-social text-decoration-none"><i class="fab fa-facebook-f"></i></a>
@@ -35,43 +35,111 @@
 
                         <p class="fw-bold mt-3">Links</p>
                         <hr class="my-2">
-                    </div>
+                    </div> -->
                 </div>
 
 
                 <div class="row mt-3">
                     <div class="col-12">
-                        <ul class="nav nav-pills mb-3 w-100" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills w-100" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active p-2" id="pills-quick-tab" data-bs-toggle="pill" data-bs-target="#pills-quick" type="button" role="tab" aria-controls="pills-quick" aria-selected="true">Quick Facts</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link p-2" id="pills-programs-tab" data-bs-toggle="pill" data-bs-target="#pills-programs" type="button" role="tab" aria-controls="pills-programs" aria-selected="false">Programs</button>
+                                <button class="nav-link p-2" id="pills-programs-tab" data-bs-toggle="pill" data-bs-target="#pills-programs" type="button" role="tab" aria-controls="pills-programs" aria-selected="false">Overview</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link p-2" id="pills-admissions-tab" data-bs-toggle="pill" data-bs-target="#pills-admissions" type="button" role="tab" aria-controls="pills-admissions" aria-selected="false">Admissions</button>
+                                <button class="nav-link p-2" id="pills-admissions-tab" data-bs-toggle="pill" data-bs-target="#pills-admissions" type="button" role="tab" aria-controls="pills-admissions" aria-selected="false">Programs Offered</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link p-2" id="pills-financial-tab" data-bs-toggle="pill" data-bs-target="#pills-financial" type="button" role="tab" aria-controls="pills-financial" aria-selected="false">Financial</button>
+                                <button class="nav-link p-2" id="pills-financial-tab" data-bs-toggle="pill" data-bs-target="#pills-financial" type="button" role="tab" aria-controls="pills-financial" aria-selected="false">Admissions</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link p-2" id="pills-financial-tab" data-bs-toggle="pill" data-bs-target="#pills-financial" type="button" role="tab" aria-controls="pills-financial" aria-selected="false">Scholarships Offered</button>
                             </li>
                         </ul>
 
 
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-quick" role="tabpanel" aria-labelledby="pills-quick-tab">
-                                <div class="row">
-                                    <div class="col-3 border px-5">
-                                        <h6>Location</h6>
+                                <div class="row" style="margin-left:0px;margin-right:0px;">
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Location</h5>
+                                            <p>gdfgf</p>
+                                        </div>
                                     </div>
-                                    <div class="col-3 border px-5">
-                                        <h6>Location</h6>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">School Type</h5>
+                                            <p></p>
+                                        </div>
                                     </div>
-                                    <div class="col-3 border px-5">
-                                        <h6>Location</h6>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Language</h5>
+                                            <p></p>
+                                        </div>
                                     </div>
-                                    <div class="col-3 border px-5">
-                                        <h6>Location</h6>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Undergraduates</h5>
+                                            <p></p>
+                                        </div>
                                     </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Entrance Dates</h5>
+                                            <p>fdgdfg</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Canadian Tuition</h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">International Fees</h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Telephone</h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Email</h5>
+                                            <p>sdfsdf</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Fax</h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3 tile">
+                                        <div class="form-group mb-0">
+                                            <h5 style="color:black">Address</h5>
+                                            <p></p>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 

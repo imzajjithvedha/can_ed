@@ -3,7 +3,7 @@
 @section('title', 'Register')
 
 @push('after-styles')
-    <link href="{{ url('css/login.css') }}" rel="stylesheet">
+    <link href="{{ url('css/auth.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -569,7 +569,7 @@
                             </div> -->
 
                             <div class="text-center mt-4">
-                                <button type="submit" class="btn w-100 text-white" id="submit_btn">Submit</button>
+                                <button type="submit" class="btn w-50 text-white" id="submit_btn">Submit</button>
                             </div>
                         </form>
                     </div>

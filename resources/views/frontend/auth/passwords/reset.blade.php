@@ -1,78 +1,58 @@
 @extends('frontend.layouts.app')
 
-@section('title', app_name() . ' | ' . __('labels.frontend.passwords.reset_password_box_title'))
+@section('title', 'Forgot Password')
+
+
+@push('after-styles')
+    <link href="{{ url('css/auth.css') }}" rel="stylesheet">
+@endpush
+
 
 @section('content')
-    <div class="row justify-content-center align-items-center">
-        <div class="col col-sm-6 align-self-center">
-            <div class="card">
-                <div class="card-header">
-                    <strong>
-                        @lang('labels.frontend.passwords.reset_password_box_title')
-                    </strong>
-                </div><!--card-header-->
 
-                <div class="card-body">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5 border p-0">
+                <div style="background-color: #333">
+                    <h5 class="text-center text-white p-3">Reset Password</h5>
+                </div>
+                
+                <form action="{{route('frontend.auth.password.reset')}}" method="post">
+                {{csrf_field()}}
 
-                    @if(session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
+                    <div class="row mt-4 justify-content-center">
+                        <div class="col-10 p-3">
+                            <div class="mb-4">
+                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email" name="email">
+                            </div>
+
+                            <div class="mb-4">
+                                <input type="password" class="form-control" id="password" aria-describedby="password" placeholder="Password" name="password">
+                            </div>
+
+                            <div class="mb-4">
+                                <input type="password" class="form-control" id="confirm_password" aria-describedby="confirm_password" placeholder="Confirm Password" name="confirm_password">
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <input type="hidden" name="token" value="{{ $token }}">
+                                <button type="submit" class="btn w-100 text-white" id="submit_btn" disabled>Send Password Reset Link</button>
+                            </div>
                         </div>
-                    @endif
-
-                    {{ html()->form('POST', route('frontend.auth.password.reset'))->class('form-horizontal')->open() }}
-                        {{ html()->hidden('token', $token) }}
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.email'))->for('email') }}
-
-                                    {{ html()->email('email')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.email'))
-                                        ->attribute('maxlength', 191)
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password'))->for('password') }}
-
-                                    {{ html()->password('password')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    {{ html()->label(__('validation.attributes.frontend.password_confirmation'))->for('password_confirmation') }}
-
-                                    {{ html()->password('password_confirmation')
-                                        ->class('form-control')
-                                        ->placeholder(__('validation.attributes.frontend.password_confirmation'))
-                                        ->required() }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group mb-0 clearfix">
-                                    {{ form_submit(__('labels.frontend.passwords.reset_password_button')) }}
-                                </div><!--form-group-->
-                            </div><!--col-->
-                        </div><!--row-->
-                    {{ html()->form()->close() }}
-                </div><!-- card-body -->
-            </div><!-- card -->
-        </div><!-- col-6 -->
-    </div><!-- row -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
 @endsection
+
+@push('after-scripts')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <script>
+        function checked() {
+            $('#submit_btn').removeAttr('disabled');
+        };
+    </script>
+@endpush

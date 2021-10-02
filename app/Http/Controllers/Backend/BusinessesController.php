@@ -37,6 +37,12 @@ class BusinessesController extends Controller
         $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images/businesses'), $imageName);
 
+        if($request->featured != null) {
+            $featured = $request->featured;
+        } else {
+            $featured = 'No';
+        }
+
         $business = new Businesses;
 
         $business->user_id = $user_id;
@@ -53,6 +59,7 @@ class BusinessesController extends Controller
         $business->you_tube = $request->you_tube;
         $business->linked_in = $request->linked_in;
         $business->package = $request->package;
+        $business->featured = $featured;
         $business->status = 'Approved';
 
         $business->save();
@@ -137,7 +144,8 @@ class BusinessesController extends Controller
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
                 'status' => $request->status,
-                'image' => $imageName
+                'image' => $imageName,
+                'featured' => $request->featured
             ]
         );
    

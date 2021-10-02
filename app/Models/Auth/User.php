@@ -16,4 +16,5 @@ class User extends BaseUser
         UserMethod,
         UserRelationship,
         UserScope;
+        
 }

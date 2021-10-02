@@ -79,7 +79,7 @@
                                 <div class="col-4">
                                     <div class="card">
                                         <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">00</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $businesses) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Businesses</h6>

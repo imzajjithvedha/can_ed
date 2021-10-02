@@ -6,28 +6,30 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Contact\SendContactRequest;
 use App\Mail\Frontend\Contact\SendContact;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 /**
  * Class ContactController.
  */
 class ContactController extends Controller
 {
-    /**
-     * @return \Illuminate\View\View
-     */
+    
     public function index()
     {
         return view('frontend.contact_us');
     }
 
-    /**
-     * @param SendContactRequest $request
-     *
-     * @return mixed
-     */
-    public function send(SendContactRequest $request)
+    
+    public function send(Request $request)
     {
-        Mail::send(new SendContact($request));
+
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+
+        Mail::to('zajjith@yopmail.com')->send(new SendContact($details));
 
         return redirect()->back()->withFlashSuccess(__('alerts.frontend.contact.sent'));
     }

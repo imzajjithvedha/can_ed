@@ -21,7 +21,7 @@ class CreateSchoolsTable extends Migration
             $table->text('reach_time');
             $table->text('time_zone');
             $table->text('country');
-            $table->text('description');
+            $table->text('message');
             $table->text('status');
             $table->timestamps();
         });

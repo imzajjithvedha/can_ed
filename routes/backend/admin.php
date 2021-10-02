@@ -13,6 +13,9 @@ use App\Http\Controllers\Backend\ProgramsController;
 use App\Http\Controllers\Backend\QuotesController;
 use App\Http\Controllers\Backend\SchoolsController;
 use App\Http\Controllers\Backend\NetworksController;
+use App\Http\Controllers\Backend\FeaturedVideosController;
+use App\Http\Controllers\Backend\CareersController;
+use App\Http\Controllers\Backend\SchoolTypesController;
 
 
 
@@ -20,16 +23,11 @@ use App\Http\Controllers\Backend\NetworksController;
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('schools', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('businesses', [SchoolsController::class, 'index'])->name('businesses.index');
-Route::get('all-programs', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('program-subjects', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('page-banner', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('faculties', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('business-categories', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('school-types', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('degree-types', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('jobs', [SchoolsController::class, 'index'])->name('schools.index');
+
+// Route::get('program-subjects', [SchoolsController::class, 'index'])->name('schools.index');
+// Route::get('faculties', [SchoolsController::class, 'index'])->name('schools.index');
+// Route::get('school-types', [SchoolsController::class, 'index'])->name('schools.index');
+// Route::get('degree-types', [SchoolsController::class, 'index'])->name('schools.index');
 
 
 
@@ -65,6 +63,27 @@ Route::post('business-categories/update-category', [BusinessCategoriesController
 Route::get('business-categories/delete-category/{id}', [BusinessCategoriesController::class, 'deleteCategory'])->name('categories.delete_category');
 Route::get('business-categories/import-categories', [BusinessCategoriesController::class, 'importCategories'])->name('categories.import_categories');
 Route::post('business-categories/import', [BusinessCategoriesController::class, 'import'])->name('categories.import');
+
+
+
+
+Route::get('careers/how-these-career-came-about', [CareersController::class, 'howCareersCameAbout'])->name('careers.how_careers_came_about');
+Route::post('careers/how-these-career-came-about/update', [CareersController::class, 'howCareersCameAboutUpdate'])->name('careers.how_careers_came_about_update');
+
+Route::get('careers/all-careers', [CareersController::class, 'allCareers'])->name('careers.all_careers');
+Route::get('careers/create-career', [CareersController::class, 'createCareer'])->name('careers.create_career');
+Route::post('careers/store-career', [CareersController::class, 'storeCareer'])->name('careers.store_career');
+Route::get('careers/get-careers', [CareersController::class, 'getCareers'])->name('careers.get_careers');
+Route::get('careers/edit-career/{id}', [CareersController::class, 'editCareer'])->name('careers.edit_career');
+Route::post('careers/update-career', [CareersController::class, 'updateCareer'])->name('careers.update_career');
+Route::get('careers/delete-career/{id}', [CareersController::class, 'deleteCareer'])->name('careers.delete_career');
+Route::get('careers/import-career', [CareersController::class, 'importCareers'])->name('careers.import_careers');
+Route::post('careers/import', [CareersController::class, 'import'])->name('careers.import');
+
+Route::get('careers/hot-careers', [CareersController::class, 'hotCareers'])->name('careers.hot_careers');
+Route::post('careers/hot-careers/update', [CareersController::class, 'hotCareersUpdate'])->name('careers.hot_careers_update');
+
+
 
 
 
@@ -138,6 +157,9 @@ Route::get('sponsors/delete-sponsor/{id}', [SponsorsController::class, 'deleteSp
 
 
 
+Route::get('featured-videos', [FeaturedVideosController::class, 'index'])->name('featured_videos.index');
+Route::post('featured-videos/update', [FeaturedVideosController::class, 'featuredVideosUpdate'])->name('featured_videos_update');
+
 
 
 Route::get('quotes', [QuotesController::class, 'index'])->name('quotes.index');
@@ -160,8 +182,27 @@ Route::get('networks/delete-network/{id}', [NetworksController::class, 'deleteNe
 
 
 
-// Route::get('world-wide-network', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('articles', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('subscribers', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('fqa-management', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('clerks', [SchoolsController::class, 'index'])->name('schools.index');
+
+Route::get('schools', [SchoolsController::class, 'index'])->name('schools.index');
+Route::get('schools/create-school', [SchoolsController::class, 'createSchool'])->name('schools.create_school');
+Route::post('schools/store-school', [SchoolsController::class, 'storeSchool'])->name('schools.store_school');
+Route::get('schools/get-schools', [SchoolsController::class, 'getSchools'])->name('schools.get_schools');
+Route::get('schools/edit-school/{id}', [SchoolsController::class, 'editSchool'])->name('schools.edit_school');
+Route::post('schools/update-school', [SchoolsController::class, 'updateSchool'])->name('schools.update_school');
+Route::get('schools/delete-school/{id}', [SchoolsController::class, 'deleteSchool'])->name('schools.delete_school');
+
+
+Route::get('school-types', [SchoolTypesController::class, 'index'])->name('types.index');
+Route::get('school-types/create-school-type', [SchoolTypesController::class, 'createSchoolType'])->name('types.create_school_type');
+Route::post('school-types/store-school-type', [SchoolTypesController::class, 'storeSchoolType'])->name('types.store_school_type');
+Route::get('school-types/get-school-types', [SchoolTypesController::class, 'getSchoolTypes'])->name('types.get_school_types');
+Route::get('school-types/edit-school-type/{id}', [SchoolTypesController::class, 'editSchoolType'])->name('types.edit_school_type');
+Route::post('school-types/update-school-type', [SchoolTypesController::class, 'updateSchoolType'])->name('types.update_school_type');
+Route::get('school-types/delete-school-type/{id}', [SchoolTypesController::class, 'deleteSchoolType'])->name('types.delete_school_type');
+
+
+
+
+// Route::get('subscribers', [SchoolsController::class, 'index'])->name('schools.index');
+// Route::get('fqa-management', [SchoolsController::class, 'index'])->name('schools.index');
+// Route::get('clerks', [SchoolsController::class, 'index'])->name('schools.index');

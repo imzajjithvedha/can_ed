@@ -16,19 +16,31 @@
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" id="description" rows="5" placeholder="Description  (maximum 100 letters)" value="{{ $directory->description }}" maxlength="100" required>{{ $directory->description }}</textarea>
+                                <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address" name="address" value="{{ $directory->address }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="category" aria-describedby="category" placeholder="Category" name="category" value="{{ $directory->category }}" required>
+                                <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" value="{{ $directory->city }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input class="form-control" name="phone" value="{{ $directory->phone }}" placeholder="Phone Number" required>
+                                <input type="text" class="form-control" id="province" aria-describedby="province" placeholder="Province" name="province" value="{{ $directory->province }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="email" class="form-control" name="email" value="{{ $directory->email }}" placeholder="Email" required>
+                                <input type="text" class="form-control" id="postal_code" aria-describedby="postal_code" placeholder="Postal Code" name="postal_code" value="{{ $directory->postal_code }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone" name="phone" value="{{ $directory->phone }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" value="{{ $directory->fax }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="industry" aria-describedby="industry" placeholder="Industry" name="industry" value="{{ $directory->industry }}" required>
                             </div>
                         </div>
                     </div>
@@ -39,15 +51,6 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <div class="form-group mb-3">
-                                <img src="{{ url('images/directory', $directory->image) }}" alt="" class="img-fluid">
-                                <input type="hidden" class="form-control" name="old_image" value="{{$directory->image}}">
-
-                                <div class="input-group mt-4">
-                                    <input type="file" class="form-control" id="inputGroupFile02" name="new_image" value="">
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status" required>

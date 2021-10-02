@@ -19,7 +19,7 @@ class CreatePagesTable extends Migration
             $table->text('title');
             $table->text('description');
             $table->text('user_id');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

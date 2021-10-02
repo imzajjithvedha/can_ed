@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Businesses;
 use App\Models\BusinessCategories;
+use App\Models\FavoriteBusinesses;
 
 /**
  * Class BusinessController.
@@ -48,6 +49,7 @@ class BusinessController extends Controller
         $business->linked_in = $request->linked_in;
         $business->package = $request->package;
         $business->status = 'Pending';
+        $business->featured = 'No';
 
         $business->save();
 
@@ -60,7 +62,9 @@ class BusinessController extends Controller
     {
         $business = Businesses::where('id', $id)->first();
 
-        return view('frontend.single_business', ['business' => $business]);
+        $more_businesses = Businesses::inRandomOrder()->limit(4)->get();
+
+        return view('frontend.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
     }
 
 
@@ -136,6 +140,35 @@ class BusinessController extends Controller
 
         return view('frontend.businesses_search', ['category' => $category, 'filteredBusinesses' => $filteredBusinesses]);
 
+    }
+
+
+    public function favoriteBusiness(Request $request) {
+
+        $business_id = $request->hidden_id;
+        $status = $request->favorite;
+        $user_id = auth()->user()->id;
+
+
+        if($status == 'non-favorite') {
+
+            $favorite = new FavoriteBusinesses;
+
+            $favorite->user_id = $user_id; 
+
+            $favorite->business_id = $business_id;
+
+            $favorite -> save();
+
+            return back();
+        }
+
+        if($status == 'favorite') {
+
+            $favorite = FavoriteBusinesses::where('user_id', $user_id)->where('business_id', $business_id)->delete();
+
+            return back();
+        }
     }
 
 

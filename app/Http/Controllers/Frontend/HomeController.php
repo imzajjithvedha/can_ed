@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Articles;
+use App\Models\Businesses;
+use App\Models\FeaturedVideos;
 
 /**
  * Class HomeController.
@@ -15,8 +17,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Articles::orderBy('id', 'desc')->take(4)->get();
+        $articles = Articles::where('status', 'Approved')->orderBy('id', 'desc')->take(4)->get();
 
-        return view('frontend.index', ['articles' => $articles]);
+        $featured_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->get();
+
+        $businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->get();
+
+        $videos = FeaturedVideos::get();
+
+        return view('frontend.index', ['articles' => $articles, 'featured_articles' => $featured_articles, 'businesses' => $businesses, 'videos' => $videos]);
     }
 }

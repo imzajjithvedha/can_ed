@@ -22,6 +22,7 @@
         <script src="https://kit.fontawesome.com/aa4e69f91b.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css"/>
 
+
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
         {{ style(mix('css/frontend.css')) }}
@@ -60,7 +61,8 @@
 
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-
+        
+        
         <script>
             function to_top() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });

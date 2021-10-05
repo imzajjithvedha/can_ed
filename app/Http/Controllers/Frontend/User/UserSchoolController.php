@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Businesses; 
 use DB;
+use File;
 use App\Models\Schools;
 use App\Models\Programs;
 
@@ -30,23 +31,92 @@ class UserSchoolController extends Controller
     {
         $school = Schools::where('id', $id)->first();
 
-        return view('frontend.user.school_edit', ['school' => $school]);
+        $images = json_decode($school->images);
+
+        $links = json_decode($school->links);
+
+        return view('frontend.user.school_edit', ['school' => $school, 'images' => $images, 'links' => $links]);
     }
 
 
-    // public function suggestedProgramUpdate(Request $request)
-    // {
+    public function userSchoolUpdate(Request $request)
+    {
+        $featured = $request->file('featured_image');
+
+        if($featured != null) {
+            $featured_image = time().'_'.rand(1000,10000).'.'.$featured->getClientOriginalExtension();
+            
+            $featured->move(public_path('images/schools'), $featured_image);
+        } 
+        else {
+            $featured_image = $request->old_image;
+        }
+
+        $images = [];
+
+        if($request->hasFile('new_images'))
+         {
+
+            foreach($request->file('new_images') as $image)
+            {
+                $name= time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+
+                $image->move(public_path('images/schools'), $name); 
+
+                array_push($images, $name); 
+            }
+         }
+        else {
+
+            
+            $images = $request->old_images;
+            
+        }
+
+
+        $link_name = $request->link_name;
+
+        $links = $request->links;
+
+        $output_json = [];
+
         
-    //     $program = DB::table('programs') ->where('id', request('hidden_id'))->update(
-    //         [
-    //             'name' => $request->name,
-    //             'description' => $request->description,
-    //             'status' => 'Pending'
-    //         ]
-    //     );
+        if($link_name == null) {
+            
+            $link_name == null;
+        }
+        else {
+            foreach($link_name as $key=>$link_item) {
+                $data = [
+                    'link_name' => $link_item,
+                    'link' => $links[$key]
+                ];
+    
+                array_push($output_json, $data);
+            }
+        }
+
+        
+        
+        $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+            [
+                'name' => $request->name,
+                'website' => $request->website,
+                'country' => $request->country,
+                'featured_image' => $featured_image,
+                'images' => json_encode($images),
+                'facebook' => $request->facebook,
+                'instagram' => $request->instagram,
+                'twitter' => $request->twitter,
+                'you_tube' => $request->you_tube,
+                'linked_in' => $request->linked_in,
+                'links' => json_encode($output_json),
+                'status' => 'Pending'
+            ]
+        );
    
-    //     return redirect()->route('frontend.user.suggested_programs')->with('success', 'success');    
-    // }
+        return redirect()->route('frontend.user.school_dashboard')->with('success', 'success');    
+    }
 
 
 

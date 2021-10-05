@@ -31,10 +31,10 @@
                             @foreach($schools as $school)
                                 <div class="row justify-content-between align-items-center border py-3 mb-3">
                                     <div class="col-5">
-                                        @if($school->image != null)
-                                            <img src="{{ url('images/schools', $school->image) }}" alt="" class="img-fluid">
+                                        @if($school->featured_image != null)
+                                            <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         @else
-                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100">
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         @endif
 
                                         <div class="badge mt-2 p-0">

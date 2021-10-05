@@ -57,9 +57,7 @@ if (! function_exists('is_school_registered')) {
      */
     function is_school_registered($user_id)
     {
-        $schoolRegistered = Schools::where('status','Approved')
-            ->where('user_id',$user_id)
-            ->first();
+        $schoolRegistered = Schools::where('user_id',$user_id)->first();
         if($schoolRegistered)
         {
             return $schoolRegistered;

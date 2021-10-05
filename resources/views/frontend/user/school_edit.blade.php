@@ -2,11 +2,11 @@
 
 @section('title', 'Edit School' )
 
-@section('content')
-
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
 @endpush
+
+@section('content')
 
     <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
@@ -22,6 +22,10 @@
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Edit School</h4>
+                        
+                    </div>
+                    <div class="col-4 text-end">
+                        <p class="mb-2 required fw-bold">* Indicates required fields</p>
                     </div>
                 </div>
 
@@ -65,7 +69,7 @@
                                                     <input type="text" class="form-control" id="website" aria-describedby="website" name="website" placeholder="School Website" value="{{ $school->website }}" required>
                                                 </div>
 
-                                                <div class="mb-3">
+                                                <div class="mb-4">
                                                     <select class="form-control" id="country" name="country" required>
                                                         <option value="">Select Country</option>
                                                         <option value="Afganistan">Afghanistan</option>
@@ -317,12 +321,48 @@
                                                     </select>
                                                 </div>
 
+                                                <div class="mb-4">
+                                                    <label for="school_featured_image" class="form-label">School Featured Image</label>
+
+                                                    @if($school->featured_image != null)
+                                                        <div class="row justify-content-center mb-3">
+                                                            <div class="col-12">
+                                                                <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+                                                    <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
+
+                                                    <input type="file" class="form-control" name="featured_image">
+
+
+                                                </div>
+
+                                                <div class="mb-4">
+                                                    <label for="school_featured_image" class="form-label">More School Images</label>
+
+                                                    @if(count($images) != 0)
+                                                        <div class="row mb-3">
+                                                            @foreach($images as $image)
+                                                                <div class="col-4 mb-3">
+                                                                    <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                    <input type="hidden" class="form-control" name="old_images[]" value="{{$image}}">
+                                                                </div>
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
+
+
+                                                    <input type="file" class="form-control" multiple name="new_images[]">
+                                                </div>
+
                                                 <div class="mb-3">
                                                     <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $school->facebook }}">
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $school->instagram }}">
+                                                    <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" placeholder="Instagram" value="{{ $school->instagram }}">
                                                 </div>
 
                                                 <div class="mb-3">
@@ -337,14 +377,34 @@
                                                     <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn" value="{{ $school->linked_in }}">
                                                 </div>
 
-                                                <!-- <div class="mb-3 form-group">
-                                                    <label class="form-label">Business Image</label>
-                                                    <div class="row">
-                                                        <div class="col-5">
-                                                            
+                                                <div class="mt-5 mb-3">
+                                                    <div class="row align-items-center mb-3">
+                                                        <div class="col-10">
+                                                            <label class="form-label mb-0">More External Links</label>
+                                                        </div>
+                                                        <div class="col-2 text-center">
+                                                            <i class="fas fa-plus rounded-pill text-muted plus-icon" style="background-color:#e3dfde; padding:13px;"></i>
                                                         </div>
                                                     </div>
-                                                </div> -->
+
+                                                    <div class="links">
+                                                        @foreach($links as $link)
+                                                            <div class="mb-3 single-link">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-11">
+                                                                        <input type="text" class="form-control" name="link_name[]" placeholder="Link Name" value="{{ $link->link_name }}">
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <i class="fas fa-trash rounded-pill text-muted delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <input type="url" class="form-control" name="links[]" placeholder="Link" value="{{ $link->link }}">
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                    
+                                                </div>
 
                                                 <div class="mt-5 text-center">
                                                     <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
@@ -394,6 +454,7 @@
             let link = $(this).attr('href');
             $('.modal-footer a').attr('href', link);
         })
+
     </script>
 
     <script>
@@ -403,6 +464,45 @@
 
         $(document).ready(function() {
             $('#info-btn').click();
+        });
+    </script>
+
+    <script>
+        $('.plus-icon').on('click', function() {
+            let template = `<div class="mb-3 single-link">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" name="link_name[]" placeholder="Link Name" value="">
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-trash rounded-pill text-muted delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                    </div>
+                                </div>
+                                
+                                <input type="url" class="form-control" name="links[]" placeholder="Link" value="">
+                            </div>`;
+
+            $('.links').append(template);
+
+            $('.delete-icon').on('click', function() {
+                $(this).parents('.single-link').remove();
+            });
+        });
+
+        $('.delete-icon').on('click', function() {
+            $(this).parents('.single-link').remove();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($school->country) ?>
+
+            $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
         });
     </script>
 @endpush

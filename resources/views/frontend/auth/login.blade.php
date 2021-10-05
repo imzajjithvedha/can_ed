@@ -7,6 +7,7 @@
 @endpush
 
 @section('content')
+@include('includes.partials.messages')
     <div class="container login" style="margin-bottom: 7rem;">
         <diw class="row justify-content-between">
             <div class="col-7">

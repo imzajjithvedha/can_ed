@@ -23,6 +23,14 @@ class CreateSchoolsTable extends Migration
             $table->text('country');
             $table->text('message');
             $table->text('status');
+            $table->text('featured_image')->nullable();
+            $table->text('images')->nullable();
+            $table->text('facebook')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('twitter')->nullable();
+            $table->text('you_tube')->nullable();
+            $table->text('linked_in')->nullable();
+            $table->text('links')->nullable();
             $table->timestamps();
         });
     }

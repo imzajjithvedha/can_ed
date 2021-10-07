@@ -31,6 +31,16 @@ class CreateSchoolsTable extends Migration
             $table->text('you_tube')->nullable();
             $table->text('linked_in')->nullable();
             $table->text('links')->nullable();
+            $table->text('location')->nullable();
+            $table->text('school_type')->nullable();
+            $table->text('language')->nullable();
+            $table->text('undergraduates')->nullable();
+            $table->text('entrance_dates')->nullable();
+            $table->text('canadian_tuition_fee')->nullable();
+            $table->text('international_tuition_fee')->nullable();
+            $table->text('telephone')->nullable();
+            $table->text('fax')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

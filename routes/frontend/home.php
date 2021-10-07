@@ -141,7 +141,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('school-dashboard', [UserSchoolController::class, 'schoolDashboard'])->name('school_dashboard');
         Route::get('user-schools/edit/{id}', [UserSchoolController::class, 'userSchoolEdit'])->name('user_school_edit');
-        Route::post('user-schools/information/update', [UserSchoolController::class, 'userSchoolUpdate'])->name('user_school_information_update');
+        Route::post('user-schools/information/update', [UserSchoolController::class, 'userInformationUpdate'])->name('user_school_information_update');
+        Route::post('user-schools/facts/update', [UserSchoolController::class, 'userFactsUpdate'])->name('user_school_facts_update');
+        Route::post('user-schools/overview/update', [UserSchoolController::class, 'userOverviewUpdate'])->name('user_school_overview_update');
         Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
         Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');

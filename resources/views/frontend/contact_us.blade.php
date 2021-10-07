@@ -20,11 +20,11 @@
                         <p class="gray">Mailing Address:</p>
                     </div>
                     <div class="col-7">
-                        <p class="gray">1051 Blvd Decarie</p>
-                        <p class="gray">P.O. Box: 53555 NORGATE</p>
-                        <p class="gray">Montreal - Qc.</p>
-                        <p class="gray">Canada</p>
-                        <p class="gray">Postal Code: H4L 3M0</p>
+                        <p class="gray">{{ $information->address_1 }}</p>
+                        <p class="gray">{{ $information->address_2 }}</p>
+                        <p class="gray">{{ $information->address_3 }}</p>
+                        <p class="gray">{{ $information->address_4 }}</p>
+                        <p class="gray">{{ $information->address_5 }}</p>
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                         <p class="gray">Telephone:</p>
                     </div>
                     <div class="col-7">
-                        <p class="gray">+1-514-557-7856 (From the rest of the world)</p>
+                        <p class="gray">{{ $information->telephone }}</p>
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                         <p class="gray">Email:</p>
                     </div>
                     <div class="col-7">
-                        <p class="gray">info@studyingincanada.org</p>
+                        <p class="gray">{{ $information->email }}</p>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
                         <p class="gray">Website:</p>
                     </div>
                     <div class="col-7">
-                        <p class="gray">www.studyingincanada.org</p>
+                        <p class="gray">{{ $information->website_url }}</p>
                     </div>
                 </div>
             </div>

@@ -43,7 +43,7 @@
 
 
             <div style="position:fixed; bottom: 0.8rem; right:0.8rem">
-                <button class="btn p-2" style="background-color: #800000; color: white; cursor: pointer; z-index: 1;" onclick="to_top()">Top</button>
+                <button class="btn" style="background-color: rgb(255 255 255 / 69%); color: black; cursor: pointer; z-index: 1; border-radius: 30px; padding: 10px 15px;" onclick="to_top()"><i class="fas fa-arrow-up"></i></button>
             </div>
             
 
@@ -61,6 +61,7 @@
 
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
         
         
         <script>

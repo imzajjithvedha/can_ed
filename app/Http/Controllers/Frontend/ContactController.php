@@ -7,6 +7,7 @@ use App\Http\Requests\Frontend\Contact\SendContactRequest;
 use App\Mail\Frontend\Contact\SendContact;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use App\Models\WebsiteInformation; 
 
 /**
  * Class ContactController.
@@ -16,7 +17,9 @@ class ContactController extends Controller
     
     public function index()
     {
-        return view('frontend.contact_us');
+        $information = WebsiteInformation::where('id', 1)->first();
+
+        return view('frontend.contact_us', ['information' => $information]);
     }
 
     

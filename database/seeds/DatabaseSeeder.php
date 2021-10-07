@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(AuthTableSeeder::class);
+        $this->call(WebsiteInformationSeeder::class);
+        $this->call(PagesSeeder::class);
 
         Model::reguard();
     }

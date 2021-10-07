@@ -69,24 +69,17 @@
             </div>
         </div>
 
-        <div class="row justify-content-center mt-4 footer-social-icons">
-            <div class="col-4 text-center">
-                <div class="row justify-content-center">
-                    <div class="col text-center mx-2">
-                        <a href="#" class="fab fa-facebook-f"></a>
-                    </div>
-                    <div class="col text-center mx-2">
-                        <a href="#" class="fab fa-google-plus-g"></a>
-                    </div>
-                    <div class="col text-center mx-2">
-                        <a href="#" class="fab fa-youtube"></a>
-                    </div>
-                    <div class="col text-center mx-2">
-                        <a href="#" class="fab fa-instagram"></a>
-                    </div>
-                    <div class="col text-center mx-2">
-                        <a href="#" class="fab fa-twitter"></a>
-                    </div>
+        <div class="col-lg-12 footer_col text-center">
+ 
+            <div class="footer_section footer_about">
+                <div class="footer_social">
+                    <ul>
+                        <li class="fb"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="gp"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->google }}" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li class="yt"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->you_tube }}" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                        <li class="ig"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->instagram }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li class="tw"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
         </div>

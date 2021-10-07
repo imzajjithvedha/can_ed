@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\NetworksController;
 use App\Http\Controllers\Backend\FeaturedVideosController;
 use App\Http\Controllers\Backend\CareersController;
 use App\Http\Controllers\Backend\SchoolTypesController;
+use App\Http\Controllers\Backend\WebsiteInformationController;
 
 
 
@@ -199,6 +200,9 @@ Route::get('school-types/get-school-types', [SchoolTypesController::class, 'getS
 Route::get('school-types/edit-school-type/{id}', [SchoolTypesController::class, 'editSchoolType'])->name('types.edit_school_type');
 Route::post('school-types/update-school-type', [SchoolTypesController::class, 'updateSchoolType'])->name('types.update_school_type');
 Route::get('school-types/delete-school-type/{id}', [SchoolTypesController::class, 'deleteSchoolType'])->name('types.delete_school_type');
+
+Route::get('information', [WebsiteInformationController::class, 'index'])->name('information.index');
+Route::post('information/update', [WebsiteInformationController::class, 'informationUpdate'])->name('information.update');
 
 
 

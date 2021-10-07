@@ -36,7 +36,7 @@
                     active_class(Route::is('admin/categories.index'))
                 }}" href="{{ route('admin.categories.index') }}">
                     <i class="nav-icon fas fa-suitcase"></i>
-                    Business Categories
+                    Business categories
                 </a>
             </li>
 
@@ -45,7 +45,7 @@
                     active_class(Route::is('admin/directory.index'))
                 }}" href="{{ route('admin.directory.index') }}">
                     <i class="nav-icon fas fa-folder"></i>
-                    Business Directory
+                    Business directory
                 </a>
             </li>
 
@@ -58,14 +58,14 @@
                 <ul class="nav-dropdown-items">
                     <li>
                         <a class="nav-link {{active_class(Route::is('admin/careers.how_careers_came_about'))}}" href="{{ route('admin.careers.how_careers_came_about') }}">
-                            How Came
+                            How came
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{active_class(Route::is('admin/careers.all_careers'))}}" href="{{ route('admin.careers.all_careers') }}">All Careers</a>
+                        <a class="nav-link {{active_class(Route::is('admin/careers.all_careers'))}}" href="{{ route('admin.careers.all_careers') }}">All careers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{active_class(Route::is('admin/careers.hot_careers'))}}" href="{{ route('admin.careers.hot_careers') }}">Hot Careers</a>
+                        <a class="nav-link {{active_class(Route::is('admin/careers.hot_careers'))}}" href="{{ route('admin.careers.hot_careers') }}">Hot careers</a>
                     </li>
                 </ul>
             </li>
@@ -75,7 +75,7 @@
                     active_class(Route::is('admin/dashboard'))
                 }}" href="{{ route('admin.dashboard') }}">
                     <i class="nav-icon far fa-address-card"></i>
-                    Contact Us
+                    Contact us
                 </a>
             </li>
 
@@ -93,7 +93,7 @@
                     active_class(Route::is('admin/featured_videos.index'))
                 }}" href="{{ route('admin.featured_videos.index') }}">
                     <i class="nav-icon fas fa-video"></i>
-                    Featured Videos
+                    Featured videos
                 </a>
             </li>
 
@@ -193,7 +193,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/types.index'))}}" href="{{ route('admin.types.index') }}">
-                            School Types
+                            School types
                         </a>
                     </li>
                 </ul>
@@ -202,10 +202,10 @@
 
             <li class="nav-item">
                 <a class="nav-link {{
-                    active_class(Route::is('admin/dashboard'))
-                }}" href="{{ route('admin.dashboard') }}">
+                    active_class(Route::is('admin/information.index'))
+                }}" href="{{ route('admin.information.index') }}">
                     <i class="nav-icon fab fa-weebly"></i>
-                    Website Details
+                    Website details
                 </a>
             </li>
 
@@ -215,7 +215,7 @@
                     active_class(Route::is('admin/networks.index'))
                 }}" href="{{ route('admin.networks.index') }}">
                     <i class="nav-icon fas fa-network-wired"></i>
-                    World Wide Network
+                    World wide network
                 </a>
             </li>
 

@@ -7,6 +7,8 @@
 @endpush
 
 @section('content')
+
+@include('includes.partials.messages')
     <div class="container student-register" style="margin-bottom: 7rem;">
         <diw class="row justify-content-between">
             <div class="col-7 border py-2">

@@ -8,6 +8,7 @@ use App\Models\Businesses;
 use DB;
 use File;
 use App\Models\Schools;
+use App\Models\SchoolTypes;
 use App\Models\Programs;
 
 /**
@@ -31,16 +32,17 @@ class UserSchoolController extends Controller
     {
         $school = Schools::where('id', $id)->first();
 
+        $school_types = SchoolTypes::where('status', 'Approved')->get();
+
         $images = json_decode($school->images);
 
         $links = json_decode($school->links);
 
-        return view('frontend.user.school_edit', ['school' => $school, 'images' => $images, 'links' => $links]);
+        return view('frontend.user.school_edit', ['school' => $school, 'images' => $images, 'links' => $links, 'school_types' => $school_types]);
     }
 
 
-    public function userSchoolUpdate(Request $request)
-    {
+    public function userInformationUpdate(Request $request) {
         $featured = $request->file('featured_image');
 
         if($featured != null) {
@@ -111,6 +113,51 @@ class UserSchoolController extends Controller
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
                 'links' => json_encode($output_json),
+                'status' => 'Pending'
+            ]
+        );
+   
+        return redirect()->route('frontend.user.school_dashboard')->with('success', 'success');    
+    }
+
+    public function userFactsUpdate(Request $request) {
+
+
+        $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+            [
+                'location' => $request->location,
+                'school_type' => $request->school_type,
+                'language' => $request->language,
+                'undergraduates' => $request->undergraduates,
+                'entrance_dates' => $request->entrance_dates,
+                'canadian_tuition_fee' => $request->canadian_tuition_fee,
+                'international_tuition_fee' => $request->international_tuition_fee,
+                'telephone' => $request->telephone,
+                'fax' => $request->fax,
+                'address' => $request->address,
+                'status' => 'Pending'
+            ]
+        );
+   
+        return redirect()->route('frontend.user.school_dashboard')->with('success', 'success');    
+    }
+
+    public function userOverviewUpdate(Request $request) {
+
+        dd($request);
+
+        $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+            [
+                'location' => $request->location,
+                'school_type' => $request->school_type,
+                'language' => $request->language,
+                'undergraduates' => $request->undergraduates,
+                'entrance_dates' => $request->entrance_dates,
+                'canadian_tuition_fee' => $request->canadian_tuition_fee,
+                'international_tuition_fee' => $request->international_tuition_fee,
+                'telephone' => $request->telephone,
+                'fax' => $request->fax,
+                'address' => $request->address,
                 'status' => 'Pending'
             ]
         );

@@ -259,3 +259,10 @@ Breadcrumbs::for('admin.networks.edit_network', function ($trail) {
     $trail->push('World Wide Networks / Edit', route('admin.networks.edit_network', 1));
 });
 
+
+
+
+Breadcrumbs::for('admin.information.index', function ($trail) {
+    $trail->push('Information', route('admin.information.index'));
+});
+

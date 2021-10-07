@@ -31,10 +31,10 @@
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="px-2 py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <ul class="nav nav-pills mb-3 justify-content-center school-tabs" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
-                                    <button class="nav-link active" id="pills-information-tab" data-bs-toggle="pill" data-bs-target="#pills-information" type="button" role="tab" aria-controls="pills-information" aria-selected="true">School Information</button>
+                                    <button class="nav-link active" id="pills-information-tab" data-bs-toggle="pill" data-bs-target="#pills-information" type="button" role="tab" aria-controls="pills-information" aria-selected="true">Information</button>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link" id="pills-facts-tab" data-bs-toggle="pill" data-bs-target="#pills-facts" type="button" role="tab" aria-controls="pills-facts" aria-selected="false">Quick Facts</button>
@@ -56,9 +56,10 @@
                                 </li>
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
+
                                 <div class="tab-pane fade show active" id="pills-information" role="tabpanel" aria-labelledby="pills-information-tab">
                                     <form action="{{ route('frontend.user.user_school_information_update') }}" method="post" enctype="multipart/form-data">
-                                    {{csrf_field()}}
+                                        {{csrf_field()}}
                                         <div class="row">
                                             <div class="col-12 border py-3">
                                                 <div class="mb-3">
@@ -415,8 +416,185 @@
                                     </form>
                                 </div>
 
-                                <div class="tab-pane fade" id="pills-facts" role="tabpanel" aria-labelledby="pills-facts-tab">b</div>
-                                <div class="tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">c</div>
+                                <div class="tab-pane fade" id="pills-facts" role="tabpanel" aria-labelledby="pills-facts-tab">
+                                    <form action="{{ route('frontend.user.user_school_facts_update') }}" method="post" enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="row">
+                                            <div class="col-12 border py-3">
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="location" aria-describedby="location" name="location" placeholder="School Location *" value="{{ $school->location }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <select class="form-control" id="school-type" name="school_type" placeholder="School Type" required>
+                                                        <option value="" selected disabled hidden>School Type *</option>
+                                                        @foreach($school_types as $school_type)
+                                                            @if($school->school_type != null)
+                                                                <option value="{{ $school_type->id }}" {{ $school_type->id == $school->school_type ? "selected" : "" }}>{{ $school_type->name }}</option>
+                                                            @else
+                                                                <option value="{{ $school_type->id }}">{{ $school_type->name }}</option>
+                                                            @endif
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="language" aria-describedby="language" name="language" placeholder="Language *" value="{{ $school->language }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="number" class="form-control" id="undergraduates" aria-describedby="undergraduates" name="undergraduates" placeholder="Total Undergraduates *" value="{{ $school->undergraduates }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="entrance" aria-describedby="entrance" name="entrance_dates" placeholder="Entrance Dates *" value="{{ $school->entrance_dates }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="number" class="form-control" id="canadian_fee" aria-describedby="canadian_fee" name="canadian_tuition_fee" placeholder="Canadian Tuition Fee (in CAD) *" value="{{ $school->canadian_tuition_fee }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="number" class="form-control" id="international_fee" aria-describedby="international_fee" name="international_tuition_fee" placeholder="International Tuition Fee (in CAD) *" value="{{ $school->international_tuition_fee }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="telephone" aria-describedby="telephone" name="telephone" placeholder="Telephone *" value="{{ $school->telephone }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="fax" aria-describedby="fax" name="fax" placeholder="Fax" value="{{ $school->fax }}">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" value="{{ $school->address }}" required>
+                                                </div>
+
+                                                <div class="mt-5 text-center">
+                                                    <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
+                                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-overview" role="tabpanel" aria-labelledby="pills-overview-tab">
+                                    <form action="{{ route('frontend.user.user_school_overview_update') }}" method="post" enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="row">
+                                            <div class="col-12 border py-3">
+                                                <div class="mb-5">
+                                                    <div class="mb-3">
+                                                        <input type="text" class="form-control" id="first_title" aria-describedby="first_title" name="first_title" placeholder="Title *" value="{{ $school->first_title }}" required>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <textarea name="first_description" required></textarea>
+                                                    </div>
+                                                </div>
+                                                
+
+                                                <div class="bullets mb-5">
+                                                    <div class="mb-3">
+                                                        <div class="row align-items-center mb-2">
+                                                            <div class="col-10">
+                                                                <input type="text" class="form-control" id="bullets_first_title" aria-describedby="bullets_first_title" name="bullets_points_title" placeholder="Bullet Points Title *" value="{{ $school->first_title }}">
+                                                            </div>
+                                                            
+                                                            <div class="col-2 text-center">
+                                                                <i class="fas fa-plus rounded-pill text-muted bullet-plus-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+
+                                                    <div class="mb-2 single-bullet">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-11">
+                                                                <input type="text" class="form-control" placeholder="Point" name="bullet_first[]">
+                                                            </div>
+                                                            <div class="col-1">
+                                                                <i class="fas fa-trash rounded-pill text-muted bullet-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="optional-section mb-5">
+                                                    <label class="form-label mb-0">Optional Section</label>
+                                                    <div class="mb-3">
+                                                        <input type="text" class="form-control" id="optional_title" aria-describedby="optional_title" name="optional_title" placeholder="Title *" value="{{ $school->first_title }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <textarea name="optional_description" rows="7" class="form-control"></textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <input type="text" class="form-control" id="optional_button_title" aria-describedby="optional_button_title" name="optional_button_title" placeholder="Button Title *" value="{{ $school->first_title }}">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <input type="url" class="form-control" id="optional_button_url" aria-describedby="optional_button_url" name="optional_button_url" placeholder="Button URL *" value="{{ $school->first_title }}">
+                                                    </div>
+
+                                                    <div class="mb-4">
+                                                        <label class="form-label">Optional Section Image</label>
+
+                                                        @if($school->optional_section_image != null)
+                                                            <div class="row justify-content-center mb-3">
+                                                                <div class="col-12">
+                                                                    <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
+                                                        <input type="hidden" class="form-control" name="old_optional_section_image" value="{{$school->old_optional_section_image}}">
+
+                                                        <input type="file" class="form-control" name="optional_section_image">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="mt-5 mb-3">
+                                                    <div class="row align-items-center mb-3">
+                                                        <div class="col-10">
+                                                            <label class="form-label mb-0">Programs</label>
+                                                        </div>
+                                                        <div class="col-2 text-center">
+                                                            <i class="fas fa-plus rounded-pill text-muted program-plus-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="programs">
+                                                        
+                                                            <div class="mb-3 single-program">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-11">
+                                                                        <input type="text" class="form-control" name="program_name[]" placeholder="Program Name" value="">
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <i class="fas fa-trash rounded-pill text-muted program-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <input type="text" class="form-control mb-2" name="length[]" placeholder="Length" value="">
+                                                                <input type="number" class="form-control mb-2" name="program_canadian_fee[]" placeholder="Canadian Student Fee" value="">
+                                                                <input type="number" class="form-control mb-2" name="program_international_fee[]" placeholder="International Student Fees" value="">
+                                                            </div>
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+
+                                                
+
+                                                <div class="mt-5 text-center">
+                                                    <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
+                                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -450,21 +628,50 @@
 
 @push('after-scripts')
     <script>
-        $('.delete').on('click', function() {
-            let link = $(this).attr('href');
-            $('.modal-footer a').attr('href', link);
-        })
-
-    </script>
-
-    <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
-        }
-
         $(document).ready(function() {
             $('#info-btn').click();
         });
+    </script>
+
+    <script>
+        $('.bullet-plus-icon').on('click', function() {
+            let template = `<div class="mb-2 single-bullet">
+                                <div class="row align-items-center">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" placeholder="Point" name="bullet_first[]" required>
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-trash rounded-pill text-muted bullet-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                    </div>
+                                </div>
+                            </div>`;
+
+            $('.bullets').append(template);
+
+            $('.bullet-delete-icon').on('click', function() {
+                $(this).parents('.single-bullet').remove();
+            });
+        });
+
+        $('.bullet-delete-icon').on('click', function() {
+            $(this).parents('.single-bullet').remove();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($school->country) ?>
+
+            $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+    </script>
+
+    <script>
+        CKEDITOR.replace( 'first_description' );
     </script>
 
     <script>
@@ -495,14 +702,31 @@
     </script>
 
     <script>
-        $(document).ready(function() {
-            let value = <?php echo json_encode ($school->country) ?>
+        $('.program-plus-icon').on('click', function() {
+            let template = `<div class="mb-3 single-program">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" name="program_name[]" placeholder="Program Name" value="">
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-trash rounded-pill text-muted program-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                    </div>
+                                </div>
+                                
+                                <input type="text" class="form-control mb-2" name="length[]" placeholder="Length" value="">
+                                <input type="number" class="form-control mb-2" name="program_canadian_fee[]" placeholder="Canadian Student Fee" value="">
+                                <input type="number" class="form-control mb-2" name="program_international_fee[]" placeholder="International Student Fees" value="">
+                            </div>`;
 
-            $('#country option').each(function(i){
-                if($(this).val() == value) {
-                    $(this).attr('selected', 'selected');
-                }
+            $('.programs').append(template);
+
+            $('.program-delete-icon').on('click', function() {
+                $(this).parents('.single-program').remove();
             });
+        });
+
+        $('.program-delete-icon').on('click', function() {
+            $(this).parents('.single-program').remove();
         });
     </script>
 @endpush

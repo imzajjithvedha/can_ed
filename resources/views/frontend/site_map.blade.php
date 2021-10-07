@@ -30,26 +30,26 @@
                 <a href="{{route('frontend.schools')}}" class="gray text-decoration-none">Schools</a>
                 <a href="{{route('frontend.programs')}}" class="gray text-decoration-none">Programs</a>
                 <a href="{{route('frontend.careers')}}" class="gray text-decoration-none">Careers</a>
-                <a href="{{route('frontend.auth.student_register')}}" class="gray text-decoration-none">Registration</a>
-                <a href="#" class="gray text-decoration-none">Users Panel</a>
+                <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
+                <a href="{{route('frontend.user.account_dashboard')}}" class="gray text-decoration-none">User Dashboard</a>
                 <a href="{{route('frontend.events')}}" class="gray text-decoration-none">Events</a>
-                <a href="{{route('frontend.businesses')}}" class="gray text-decoration-none">Businesses</a>
+                <a href="{{route('frontend.business_categories')}}" class="gray text-decoration-none">Business Categories</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a Question</a>
             </div>
 
             <div class="col-3">
                 <h6 class="fw-bold mb-2">For Schools</h6>
                 <a href="{{route('frontend.schools')}}" class="gray text-decoration-none">Schools</a>
-                <a href="{{route('frontend.auth.school_register')}}" class="gray text-decoration-none">Registration</a>
-                <a href="#" class="gray text-decoration-none">School Dashboard</a>
+                <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
+                <a href="{{route('frontend.user.school_dashboard')}}" class="gray text-decoration-none">School Dashboard</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a Question</a>
             </div>
 
             <div class="col-3">
                 <h6 class="fw-bold mb-2">For Businesses</h6>
-                <a href="{{route('frontend.businesses')}}" class="gray text-decoration-none">Businesses</a>
-                <a href="{{route('frontend.auth.business_register')}}" class="gray text-decoration-none">Registration</a>
-                <a href="#" class="gray text-decoration-none">Business Dashboard</a>
+                <a href="{{route('frontend.business_categories')}}" class="gray text-decoration-none">Business Categories</a>
+                <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
+                <a href="{{route('frontend.user.business_dashboard')}}" class="gray text-decoration-none">Business Dashboard</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a Question</a>
             </div>
         </div>

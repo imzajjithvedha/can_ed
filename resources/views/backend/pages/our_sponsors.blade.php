@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <div class="form-group mb-3">
+                            <div class="form-group">
                                 <input type="text" id="title" class="form-control" name="title" value="{{ $sponsor->title }}" placeholder="Title" required>
                             </div>
                             <div class="form-group">

@@ -92,7 +92,13 @@
                         <div class="col-md-4 tile">
                             <div class="form-group">
                                 <h4 style="color:black">Business Category:</h4>
-                                <p>{{ App\models\BusinessCategories::where('id', $business->category)->first()->name }}</p>
+                                <p>{{ App\models\BusinessCategories::where('id', $business->category_1)->first()->name }}</p>
+                                @if($business->category_2 != null)
+                                    <p>{{ App\models\BusinessCategories::where('id', $business->category_2)->first()->name }}</p>
+                                @endif
+                                @if($business->category_3 != null)
+                                    <p>{{ App\models\BusinessCategories::where('id', $business->category_3)->first()->name }}</p>
+                                @endif
                             </div>
                         </div>
 

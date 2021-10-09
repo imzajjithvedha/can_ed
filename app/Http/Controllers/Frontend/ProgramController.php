@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Programs;
 use Illuminate\Http\Request;
+use App\Mail\Frontend\Program;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class ProgramController.
@@ -33,6 +35,14 @@ class ProgramController extends Controller
         $program->status = 'Pending';
 
         $program->save();
+
+
+        $details = [
+            'name' => $request->name,
+            'description' => $request->description,
+        ];
+
+        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Program($details));
 
         return back()->with('success', 'success'); 
 

@@ -21,11 +21,11 @@
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
-                                <th scope="col">Category</th>
                                 <th scope="col">Contact Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Featured</th>
+                                <th scope="col">Package</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -81,11 +81,11 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'category', name: 'category'},
                 {data: 'contact_name', name: 'contact_name'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
                 {data: 'featured', name: 'featured'},
+                {data: 'package', name: 'package'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

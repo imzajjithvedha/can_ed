@@ -17,7 +17,9 @@ class CreateBusinessesTable extends Migration
             $table->bigIncrements('id');
             $table->text('user_id');
             $table->text('name');
-            $table->text('category');
+            $table->text('category_1');
+            $table->text('category_2')->nullable();
+            $table->text('category_3')->nullable();
             $table->text('description');
             $table->text('contact_name');
             $table->text('email');

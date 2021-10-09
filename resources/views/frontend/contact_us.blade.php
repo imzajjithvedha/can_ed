@@ -62,7 +62,7 @@
                 <div class="text-end">
                     <p class="mb-2 required fw-bold">* Indicates required fields</p>
                 </div>
-                <form action="{{ route('frontend.contact.send') }}" method="POST">
+                <form action="{{ route('frontend.contact_send') }}" method="POST">
                 {{csrf_field()}}
                     <div class="mb-3">
                         <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Your name *" required>
@@ -87,6 +87,26 @@
             </div>
         </div>
     </div>
+
+    @if(\Session::has('success'))
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you very much for contacting us. We will reply you as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
 @endsection
 
 
@@ -103,6 +123,12 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
     </script>
 
 @endpush

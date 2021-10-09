@@ -63,16 +63,24 @@
                                         <div class="row">
                                             <div class="col-12 border py-3">
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="School Name" value="{{ $school->name }}" required>
+                                                    <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="School Name *" value="{{ $school->name }}" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <input type="text" class="form-control" id="website" aria-describedby="website" name="website" placeholder="School Website" value="{{ $school->website }}" required>
+                                                    <input type="text" class="form-control" id="website" aria-describedby="website" name="website" placeholder="School Website *" value="{{ $school->website }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="email" class="form-control" id="website" aria-describedby="email" name="email" placeholder="School Email Address *" value="{{ $school->school_email }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control" id="website" aria-describedby="phone" name="phone" placeholder="School Phone Number *" value="{{ $school->school_phone }}" required>
                                                 </div>
 
                                                 <div class="mb-4">
                                                     <select class="form-control" id="country" name="country" required>
-                                                        <option value="">Select Country</option>
+                                                        <option value="">Select Country *</option>
                                                         <option value="Afganistan">Afghanistan</option>
                                                         <option value="Albania">Albania</option>
                                                         <option value="Algeria">Algeria</option>
@@ -323,7 +331,7 @@
                                                 </div>
 
                                                 <div class="mb-4">
-                                                    <label for="school_featured_image" class="form-label">School Featured Image</label>
+                                                    <label for="school_featured_image" class="form-label">School Featured Image *</label>
 
                                                     @if($school->featured_image != null)
                                                         <div class="row justify-content-center mb-3">
@@ -331,12 +339,14 @@
                                                                 <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
                                                             </div>
                                                         </div>
+
+                                                        <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
+
+                                                        <input type="file" class="form-control" name="featured_image">
+
+                                                    @else
+                                                        <input type="file" class="form-control" name="featured_image" required>
                                                     @endif
-
-                                                    <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
-
-                                                    <input type="file" class="form-control" name="featured_image">
-
 
                                                 </div>
 

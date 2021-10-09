@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Businesses;
 use App\Models\BusinessCategories;
 use App\Models\FavoriteBusinesses;
+use App\Mail\Frontend\Business;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class BusinessController.
@@ -36,7 +38,9 @@ class BusinessController extends Controller
 
         $business->user_id = $user_id;
         $business->name = $request->name;
-        $business->category = $request->category;
+        $business->category_1 = $request->category_1;
+        $business->category_2 = $request->category_2;
+        $business->category_3 = $request->category_3;
         $business->description = $request->description;
         $business->contact_name = $request->contact_name;
         $business->email = $request->email;
@@ -52,6 +56,26 @@ class BusinessController extends Controller
         $business->featured = 'No';
 
         $business->save();
+
+
+        $details = [
+            'name' => $request->name,
+            'category_1' => $request->category_1,
+            'category_2' => $request->category_2,
+            'category_3' => $request->category_3,
+            'description' => $request->description,
+            'contact_name' => $request->contact_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'facebook' => $request->facebook,
+            'twitter' => $request->twitter,
+            'you_tube' => $request->you_tube,
+            'linked_in' => $request->linked_in,
+            'package' => $request->package
+        ];
+
+        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Business($details));
 
         return back()->with('success', 'success');    
 
@@ -80,7 +104,9 @@ class BusinessController extends Controller
     {
         $category = businessCategories::where('id', $id)->first()->name;
 
-        $businesses = Businesses::where('status', 'Approved')->where('category', $id)->orderBy('updated_at', 'DESC')->get();
+        $businesses = Businesses::where('status', 'Approved')->where(function($query) use ($id) {
+            $query->where('category_1', $id)->orWhere('category_2', $id)->orWhere('category_3', $id);
+        })->orderBy('updated_at', 'DESC')->get();
 
         return view('frontend.businesses', ['businesses' => $businesses, 'category' => $category]);
     }

@@ -19,14 +19,97 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business Name *" required>
                             </div>
+
+                            <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Select your registration package *</h6>
+
+                            <div class="row align-items-center mb-4">
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="package" value="basic" id="basic" required>
+                                        <label class="form-check-label fw-bold" for="basic">
+                                            Basic
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <div class="border p-3">
+                                        <p class="gray fw-bold">Standard Ad, Expires in 30 days- Free</p>
+                                        <p class="gray fw-bold">One business category</p>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-4">
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input extra" type="radio" name="package" value="premium">
+                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                            Premium
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <div class="border p-3">
+                                        <p class="gray fw-bold">Up to 4x views</p>
+                                        <p class="gray fw-bold">Three business categories</p>
+                                        <p class="gray fw-bold">Link to your website</p>
+                                        <p class="gray fw-bold">Top ad and bump up every week</p>
+                                        <p class="gray fw-bold">$9.99</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-5">
+                                <div class="col-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input extra" type="radio" name="package" value="featured">
+                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                            Featured
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <div class="border p-3">
+                                        <p class="gray fw-bold">Up to 20x views</p>
+                                        <p class="gray fw-bold">Three business categories</p>
+                                        <p class="gray fw-bold">Link to your website</p>
+                                        <p class="gray fw-bold">Top ad and bump up every week</p>
+                                        <p class="gray fw-bold">$129.99</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="mb-3">
-                                <select class="form-control" id="category" name="category" placeholder="Business Category" required>
+                                <select class="form-control" id="category_1" name="category_1" placeholder="Business Category" required>
                                     <option value="" selected disabled hidden>Business Category *</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
+
+                            <div class="mb-3 category_2 d-none">
+                                <select class="form-control" id="category_2" name="category_2" placeholder="Business Category">
+                                    <option value="" selected disabled hidden>Business Category *</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3 category_3 d-none">
+                                <select class="form-control" id="category_3" name="category_3" placeholder="Business Category">
+                                    <option value="" selected disabled hidden>Business Category *</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
                             <div class="mb-3">
                                 <textarea name="description" class="form-control" rows="7" placeholder="Business Description *" required></textarea>
                             </div>
@@ -65,67 +148,6 @@
                                 <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn">
                             </div>
 
-
-                            <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Select your registration package</h6>
-
-                            <div class="row align-items-center mb-4">
-                                <div class="col-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="package" value="basic">
-                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
-                                            Basic
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-8">
-                                    <div class="border p-3">
-                                        <p class="gray fw-bold">Standard Ad, Expires in 30 days- Free</p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
-                            <div class="row align-items-center mb-4">
-                                <div class="col-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="package" value="premium">
-                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
-                                            Premium
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-8">
-                                    <div class="border p-3">
-                                        <p class="gray fw-bold">Up to 4x views</p>
-                                        <p class="gray fw-bold">Link to your website</p>
-                                        <p class="gray fw-bold">Top ad and bump up every week</p>
-                                        <p class="gray fw-bold">$9.99</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row align-items-center mb-4">
-                                <div class="col-4">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="package" value="featured">
-                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
-                                            Featured
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-8">
-                                    <div class="border p-3">
-                                        <p class="gray fw-bold">Up to 20x views</p>
-                                        <p class="gray fw-bold">Link to your website</p>
-                                        <p class="gray fw-bold">Top ad and bump up every week</p>
-                                        <p class="gray fw-bold">$129.99</p>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group">
                                 <select class="form-control" id="featured" name="featured" placeholder="Featured?">
                                     <option value="" selected disabled hidden>Do you want to show this article in the homepage? </option>
@@ -145,3 +167,18 @@
     </form>
 
 @endsection
+
+
+@push('after-scripts')
+    <script>
+        $('.form-check-input').on('click', function() {
+            if($(this).hasClass('extra')) {
+                $('.category_2').removeClass('d-none');
+                $('.category_3').removeClass('d-none');
+            } else {
+                $('.category_2').addClass('d-none');
+                $('.category_3').addClass('d-none');
+            }
+        });
+    </script>
+@endpush

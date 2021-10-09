@@ -70,14 +70,14 @@
                 </ul>
             </li>
 
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link {{
                     active_class(Route::is('admin/dashboard'))
                 }}" href="{{ route('admin.dashboard') }}">
                     <i class="nav-icon far fa-address-card"></i>
                     Contact us
                 </a>
-            </li>
+            </li> -->
 
             <li class="nav-item">
                 <a class="nav-link {{

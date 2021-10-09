@@ -36,10 +36,26 @@
                                     <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business Name" value="{{ $business->name }}" required>
                                 </div>
                                 <div class="mb-3">
-                                    <select class="form-control" id="category" name="category" placeholder="Business Category" required>
+                                    <select class="form-control" id="category_1" name="category_1" placeholder="Business Category" required>
                                         <option value="" selected disabled hidden>Business Category *</option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category ? "selected" : "" }}>{{ $category->name }}</option>
+                                            <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_1 ? "selected" : "" }}>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 category_2">
+                                    <select class="form-control" id="category_2" name="category_2" placeholder="Business Category">
+                                        <option value="" selected disabled hidden>Business Category *</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_2 ? "selected" : "" }}>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="mb-3 category_3">
+                                    <select class="form-control" id="category_3" name="category_3" placeholder="Business Category">
+                                        <option value="" selected disabled hidden>Business Category *</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_3 ? "selected" : "" }}>{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -76,7 +92,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="package" placeholder="Package" value="{{ $business->package }}" disabled>
+                                    <input type="text" class="form-control" id="package" aria-describedby="package" name="package" placeholder="Package" value="{{ $business->package }}" disabled>
                                 </div>
 
                                 <div class="mb-3 form-group">
@@ -131,5 +147,18 @@
         $(document).ready(function() {
             $('#info-btn').click();
         });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            if($('#package').val() == 'featured' || $('#package').val() == 'premium') {
+                $('.category_2').removeClass('d-none');
+                $('.category_3').removeClass('d-none');
+            } else {
+                $('.category_2').addClass('d-none');
+                $('.category_3').addClass('d-none');
+            }
+        });
+        
     </script>
 @endpush

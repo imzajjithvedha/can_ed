@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Quotes;
+use App\Mail\Frontend\Quote;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class QuoteController.
@@ -32,6 +34,12 @@ class QuoteController extends Controller
         $quotes->status = 'Pending';
 
         $quotes->save();
+
+        $details = [
+            'quote' => $request->quote,
+        ];
+
+        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Quote($details));
 
         return back()->with('success', 'success'); 
 

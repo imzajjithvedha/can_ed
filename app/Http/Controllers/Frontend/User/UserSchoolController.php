@@ -105,6 +105,8 @@ class UserSchoolController extends Controller
                 'name' => $request->name,
                 'website' => $request->website,
                 'country' => $request->country,
+                'school_email' => $request->email,
+                'school_phone' => $request->phone,
                 'featured_image' => $featured_image,
                 'images' => json_encode($images),
                 'facebook' => $request->facebook,

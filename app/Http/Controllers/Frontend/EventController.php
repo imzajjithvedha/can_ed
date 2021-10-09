@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use DataTables;
 use App\Models\Events;
 use Illuminate\Http\Request;
+use App\Mail\Frontend\Event;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class EventController.
@@ -49,6 +51,21 @@ class EventController extends Controller
         $event->image = $imageName;
 
         $event->save();
+
+        $details = [
+            'name' => $request->title,
+            'description' => $request->description,
+            'city' => $request->city,
+            'country' => $request->country,
+            'date' => $request->date,
+            'time' => $request->time,
+            'type' => $request->type,
+            'organizer_email' => $request->email,
+            'organizer_phone' => $request->phone,
+            'url' => $request->url
+        ];
+
+        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Event($details));
 
         return back()->with('success', 'success');
 

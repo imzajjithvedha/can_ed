@@ -47,7 +47,9 @@ class BusinessesController extends Controller
 
         $business->user_id = $user_id;
         $business->name = $request->name;
-        $business->category = $request->category;
+        $business->category_1 = $request->category_1;
+        $business->category_2 = $request->category_2;
+        $business->category_3 = $request->category_3;
         $business->description = $request->description;
         $business->contact_name = $request->contact_name;
         $business->email = $request->email;
@@ -82,12 +84,6 @@ class BusinessesController extends Controller
                     $button = '<a href="'.route('admin.businesses.edit_business', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm ml-3" style="margin-right: 10px"><i class="far fa-edit"></i> Approval </a>';
                     $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                     return $button;
-                })
-
-                ->editColumn('category', function($data){
-                    $cat = BusinessCategories::where('id', $data->category)->first()->name;
-                    
-                    return $cat;
                 })
 
                 ->editColumn('status', function($data){
@@ -133,7 +129,9 @@ class BusinessesController extends Controller
         $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                'category' => $request->category,
+                'category_1' => $request->category_1,
+                'category_2' => $request->category_2,
+                'category_3' => $request->category_3,
                 'description' => $request->description,
                 'contact_name' => $request->contact_name,
                 'email' => $request->email,

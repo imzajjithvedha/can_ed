@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Contact Us')
+@section('title', 'Comments/ Suggestions')
 
 @push('after-styles')
     <link href="{{ url('css/contact_us.css') }}" rel="stylesheet">
@@ -38,15 +38,16 @@
                     <p class="mb-2 required fw-bold">* Indicates required fields</p>
                 </div>
 
-                <form>
+                <form action="{{ route('frontend.suggestion_send') }}" method="POST">
+                {{csrf_field()}}
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *">
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *" name="name" required>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="Your email *">
+                        <input type="email" class="form-control" id="email" placeholder="Your email *" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" rows="7" placeholder="Your comment *"></textarea>
+                        <textarea class="form-control" rows="7" placeholder="Your comment *" name="message" required></textarea>
                     </div>
 
                     <div class="row mb-4 justify-content-center">
@@ -62,6 +63,26 @@
             </div>
         </div>
     </div>
+
+
+    @if(\Session::has('success'))
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you very much for your feedback about our website. We will check and let you know as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection
 
 
@@ -78,6 +99,12 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
     </script>
 
 @endpush

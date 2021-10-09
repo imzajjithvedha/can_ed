@@ -42,28 +42,56 @@ Route::get('about-us', [AboutController::class, 'index'])->name('about_us');
 Route::get('frequently-asked-questions', [FAQController::class, 'index'])->name('faq');
 Route::get('meet-our-team', [MeetOurTeamController::class, 'index'])->name('meet_our_team');
 Route::get('our-sponsors', [OurSponsorController::class, 'index'])->name('our_sponsors');
+
+
 Route::get('suggestions', [SuggestionController::class, 'index'])->name('suggestions');
+Route::post('suggestions/send', [SuggestionController::class, 'send'])->name('suggestion_send');
+
+
+
+
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
 Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
+
+
+
 
 Route::get('schools', [SchoolController::class, 'index'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
 Route::get('schools/single-school', [SchoolController::class, 'singleSchool'])->name('single_school');
+Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
+
+
 
 Route::get('events', [EventController::class, 'index'])->name('events');
 Route::get('get-events', [EventController::class, 'getEvents'])->name('get_events');
 Route::get('events/single-event/{id}', [EventController::class, 'singleEvent'])->name('single_event');
+Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
+// Route::post('events/send', [EventController::class, 'send'])->name('event_send');
 
 
 Route::get('online-business-directory', [OnlineBusinessDirectoryController::class, 'index'])->name('online_business_directory');
+
+
 Route::get('quotes', [QuoteController::class, 'index'])->name('quotes');
+Route::post('quotes/request', [QuoteController::class, 'quoteRequest'])->name('quote_request');
+
+
+
 Route::get('world-wide-network', [WorldWideNetworkController::class, 'index'])->name('world_wide_network');
+Route::post('world-wide-network/request', [WorldWideNetworkController::class, 'networkRequest'])->name('network_request');
+
+
+
 
 Route::get('business-categories', [BusinessController::class, 'businessCategories'])->name('business_categories');
 Route::get('business-categories/{id}/businesses', [BusinessController::class, 'businesses'])->name('businesses');
 Route::get('business-register', [BusinessController::class, 'businessRegister'])->name('business_register');
 Route::get('businesses/single-business/{id}', [BusinessController::class, 'singleBusiness'])->name('single_business');
 Route::post('businesses/single-business/favorite', [BusinessController::class, 'favoriteBusiness'])->name('favorite_business');
+Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
+
+
 
 
 Route::get('careers', [CareerController::class, 'careers'])->name('careers');
@@ -72,19 +100,12 @@ Route::get('site-map', [SitemapController::class, 'index'])->name('site_map');
 
 
 Route::get('contact-us', [ContactController::class, 'index'])->name('contact_us');
+Route::post('contact/send', [ContactController::class, 'send'])->name('contact_send');
+
 
 
 Route::get('programs', [ProgramController::class, 'index'])->name('programs');
-
-
-Route::post('contact/send', [ContactController::class, 'send'])->name('contact.send');
-Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
-Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
-Route::post('quotes/request', [QuoteController::class, 'quoteRequest'])->name('quote_request');
-Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
 Route::post('programs/request', [ProgramController::class, 'programRequest'])->name('program_request');
-Route::post('world-wide-network/request', [WorldWideNetworkController::class, 'networkRequest'])->name('network_request');
-
 
 
 

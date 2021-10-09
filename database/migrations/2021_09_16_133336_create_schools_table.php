@@ -18,8 +18,12 @@ class CreateSchoolsTable extends Migration
             $table->text('user_id');
             $table->text('name');
             $table->text('website');
+            $table->text('user_email');
+            $table->text('user_phone');
             $table->text('reach_time');
             $table->text('time_zone');
+            $table->text('school_email')->nullable();
+            $table->text('school_phone')->nullable();
             $table->text('country');
             $table->text('message');
             $table->text('status');

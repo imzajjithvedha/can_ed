@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Mail\Frontend\Contact;
+namespace App\Mail\Frontend;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class SendContact.
- */
-class SendContact extends Mailable
+class Network extends Mailable
 {
     use Queueable, SerializesModels;
 
-    
+
     public $details;
 
-    
+    /**
+     * Create a new message instance.
+     *
+     * @return void
+     */
     public function __construct($details)
     {
         $this->details = $details;
@@ -30,8 +31,6 @@ class SendContact extends Mailable
      */
     public function build()
     {
-        
-
-        return $this->subject('Contact Message')->view('frontend.mail.contact');
+        return $this->subject('World Wide Network Request - Studying in Canada')->view('frontend.mail.network_request');
     }
 }

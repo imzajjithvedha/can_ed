@@ -204,7 +204,7 @@
     
 
 
-    @if(count($videos) > 0)
+    @if($count > 0)
         <div class="container mt-5 featured-videos">
             <h5 class="fw-bolder">Featured Videos</h5>
 

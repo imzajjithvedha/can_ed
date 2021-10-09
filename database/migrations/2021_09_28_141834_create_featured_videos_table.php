@@ -16,7 +16,7 @@ class CreateFeaturedVideosTable extends Migration
         Schema::create('featured_videos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
-            $table->text('link');
+            $table->text('link')->nullable();
             $table->timestamps();
         });
     }

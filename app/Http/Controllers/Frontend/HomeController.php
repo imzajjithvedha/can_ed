@@ -23,8 +23,16 @@ class HomeController extends Controller
 
         $businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
-        $videos = FeaturedVideos::get();
 
-        return view('frontend.index', ['articles' => $articles, 'featured_articles' => $featured_articles, 'businesses' => $businesses, 'videos' => $videos]);
+        $videos = FeaturedVideos::get();
+        $count = 0;
+
+        foreach($videos as $video) {
+            if($video->link != null) {
+                $count++;
+            }
+        }
+
+        return view('frontend.index', ['articles' => $articles, 'featured_articles' => $featured_articles, 'businesses' => $businesses, 'videos' => $videos, 'count' => $count]);
     }
 }

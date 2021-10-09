@@ -12,19 +12,19 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group mb-3">
-                                <input type="url" id="video1" class="form-control" name="video1" value="" placeholder="First Video" required>
+                                <input type="url" id="video1" class="form-control" name="video1" value="" placeholder="First Video">
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="url" id="video2" class="form-control" name="video2" value="" placeholder="Second Video" required>
+                                <input type="url" id="video2" class="form-control" name="video2" value="" placeholder="Second Video">
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="url" id="video3" class="form-control" name="video3" value="" placeholder="Third Video" required>
+                                <input type="url" id="video3" class="form-control" name="video3" value="" placeholder="Third Video">
                             </div>
 
                             <div class="form-group mb-3">
-                                <input type="url" id="video4" class="form-control" name="video4" value="" placeholder="Fourth Video" required>
+                                <input type="url" id="video4" class="form-control" name="video4" value="" placeholder="Fourth Video">
                             </div>
                         </div>
                     </div>

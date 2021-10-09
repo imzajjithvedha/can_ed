@@ -19,9 +19,9 @@ class HomeController extends Controller
     {
         $articles = Articles::where('status', 'Approved')->orderBy('id', 'desc')->take(4)->get();
 
-        $featured_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->get();
+        $featured_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
-        $businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->get();
+        $businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
         $videos = FeaturedVideos::get();
 

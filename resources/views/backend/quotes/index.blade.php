@@ -17,7 +17,7 @@
                 </div><!--card-header-->
 
                 <div class="card-body">
-                    <table class="table table-striped table-bordered" id="events-table" style="width:100%">
+                    <table class="table table-striped table-bordered" id="quotes-table" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>

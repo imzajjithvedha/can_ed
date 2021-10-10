@@ -71,7 +71,7 @@
 @push('after-scripts')
 <script type="text/javascript">
     $(function () {
-        var table = $('#events-table').DataTable({
+        var table = $('#quotes-table').DataTable({
             processing: true,
             ajax: "{{route('admin.quotes.get_quotes')}}",
             serverSide: true,

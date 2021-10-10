@@ -50,13 +50,9 @@ return [
     ],
 
     'facebook' => [
-        'active' => env('FACEBOOK_ACTIVE'),
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => env('FACEBOOK_REDIRECT'),
-        'scopes' => [],
-        'with' => [],
-        'fields' => [],
+        'redirect' => 'http://localhost:8000/auth/facebook/callback',
     ],
 
     'github' => [

@@ -42,8 +42,8 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
         // Route::get('login/{provider}', [SocialLoginController::class, 'login'])->name('social.login');
         // Route::get('login/{provider}/callback', [SocialLoginController::class, 'login']);
 
-        Route::get('login/facebook', [SocialLoginController::class, 'redirectToFacebook'])->name('login.facebook');
-        Route::get('login/facebook/callback', [SocialLoginController::class, 'handleFacebookCallback']);
+        Route::get('/auth/facebook/redirect', [SocialLoginController::class, 'handleFacebookRedirect'])->name('facebook.redirect');
+        Route::get('/auth/facebook/callback', [SocialLoginController::class, 'handleFacebookCallback'])->name('facebook.callback');
 
         // Registration Routes
         Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');

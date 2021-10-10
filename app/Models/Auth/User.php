@@ -16,5 +16,7 @@ class User extends BaseUser
         UserMethod,
         UserRelationship,
         UserScope;
+
+    protected $fillable = ['first_name', 'last_name', 'email', 'password','oauth_id', 'oauth_type'];
         
 }

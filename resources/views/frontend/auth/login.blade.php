@@ -58,7 +58,7 @@
 
                     <div class="col-5 text-center">
                         <div class="position-relative" style="top: -2rem;">
-                            <a href="{{ route('frontend.auth.login.facebook') }}" class="btn btn-light btn-block text-left border"><i class="fa fa-facebook-square" style="color:#3B579D;"></i> Login with Facebook</a>
+                            <a href="{{ route('frontend.auth.facebook.redirect') }}" class="btn btn-light btn-block text-left border"><i class="fa fa-facebook-square" style="color:#3B579D;"></i> Login with Facebook</a>
                             <a href="#" class="btn btn-light btn-block text-left border"><i class="fa fa-google-plus-square" style="color:#DD4B39;"></i> Login with Google</a>
                             <a href="#" class="btn btn-light btn-block text-left border"><i class="fa fa-linkedin" style="color:#006097;"></i> Login with LinkedIn</a>
                         </div>

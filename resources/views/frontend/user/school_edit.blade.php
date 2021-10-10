@@ -55,6 +55,7 @@
                                     <button class="nav-link" id="pills-scholarships-tab" data-bs-toggle="pill" data-bs-target="#pills-scholarships" type="button" role="tab" aria-controls="pills-scholarships" aria-selected="false">Scholarships</button>
                                 </li>
                             </ul>
+
                             <div class="tab-content" id="pills-tabContent">
 
                                 <div class="tab-pane fade show active" id="pills-information" role="tabpanel" aria-labelledby="pills-information-tab">
@@ -574,9 +575,9 @@
                                                         </div>
                                                     </div>
 
-                                                    <div class="programs">
+                                                    <div class="programs-overview">
                                                         
-                                                            <div class="mb-3 single-program">
+                                                            <div class="mb-3 single-program-overview">
                                                                 <div class="row align-items-center mb-2">
                                                                     <div class="col-11">
                                                                         <input type="text" class="form-control" name="program_name[]" placeholder="Program Name" value="">
@@ -593,6 +594,137 @@
                                                         
                                                     </div>
                                                     
+                                                </div>
+
+                                                
+
+                                                <div class="mt-5 text-center">
+                                                    <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
+                                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-programs" role="tabpanel" aria-labelledby="pills-programs-tab">
+                                    <form action="{{ route('frontend.user.user_school_programs_update') }}" method="post" enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="row">
+                                            <div class="col-12 border py-3">
+                                                
+                                                <div class="mb-3">
+                                                    <div class="row align-items-center mb-3">
+                                                        <div class="col-10">
+                                                            <label class="form-label mb-0">Programs</label>
+                                                        </div>
+                                                        <div class="col-2 text-center">
+                                                            <i class="fas fa-plus rounded-pill text-muted program-plus-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="programs">
+                                                        @foreach($programs as $program )
+                                                            <div class="mb-3 single-program">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-11">
+                                                                        <input type="text" class="form-control" name="programs[]" placeholder="Program Name" value="{{ $program->program_name }}">
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <i class="fas fa-trash rounded-pill text-muted program-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <input type="text" class="form-control" name="sub_titles[]" placeholder="Sub Title" value="{{ $program->sub_title }}">
+                                                            </div>
+                                                        @endforeach
+                                                        
+                                                    </div>
+                                                    
+                                                </div>
+
+                                                <div class="mt-5 text-center">
+                                                    <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
+                                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="tab-pane fade" id="pills-scholarships" role="tabpanel" aria-labelledby="pills-scholarships-tab">
+                                    <form action="{{ route('frontend.user.user_school_scholarships_update') }}" method="post" enctype="multipart/form-data">
+                                        {{csrf_field()}}
+                                        <div class="row">
+                                            <div class="col-12 border py-3">
+                                                <div class="mb-5">
+                                                    <label class="form-label mb-0">Top page paragraph</label>
+                                                    <textarea name="scholarship_paragraph_top" value="{{ $school->scholarships_top }}" required>{{ $school->scholarships_top }}</textarea>
+                                                </div>
+
+                                                <div class="mb-5">
+                                                    <label class="form-label mb-0">Bottom page paragraph</label>
+                                                    <textarea name="scholarship_paragraph_bottom" value="{{ $school->scholarships_bottom }}" required>{{ $school->scholarships_bottom }}</textarea>
+                                                </div>
+                                                
+                                                <div class="mt-5 mb-3">
+                                                    <div class="row align-items-center mb-3">
+                                                        <div class="col-10">
+                                                            <label class="form-label mb-0">Scholarships</label>
+                                                        </div>
+                                                        <div class="col-2 text-center">
+                                                            <i class="fas fa-plus rounded-pill text-muted scholarship-plus-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="scholarships">
+                                                        @foreach($scholarships as $scholarship)
+                                                            <div class="mb-5 single-scholarship">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-11">
+                                                                        <input type="text" class="form-control" name="scholarship_name[]" placeholder="Scholarship Name" value="{{ $scholarship->scholarship_name }}">
+                                                                    </div>
+                                                                    <div class="col-1">
+                                                                        <i class="fas fa-trash rounded-pill text-muted scholarship-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="mb-4">
+                                                                    <textarea class="form-control" name="summary[]" id="summary" rows="5" value="{{ $scholarship->summary }}" placeholder="Summary">{{ $scholarship->summary }}</textarea>
+                                                                </div>
+                                                                
+
+                                                                <div class="mb-4">
+                                                                    <label for="eligibility" class="form-label">Basic Eligibility</label>
+                                                                    @foreach($scholarship->eligibility as $eligibility)
+                                                                        <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Eligibility Criteria" value="{{ $eligibility }}">
+                                                                    @endforeach
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <input type="text" class="form-control" name="award[]" placeholder="Award" value="{{ $scholarship->award }}">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <input type="text" class="form-control" name="action[]" placeholder="Action" value="{{ $scholarship->action }}">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <input type="date" class="form-control" name="deadline[]" placeholder="Deadline" value="{{ $scholarship->deadline }}">
+                                                                </div>
+
+                                                                <div class="mb-3">
+                                                                    <input type="text" class="form-control" name="availability[]" placeholder="Availability" value="{{ $scholarship->availability }}">
+                                                                </div>
+
+                                                                <div class="mb-5">
+                                                                    <input type="text" class="form-control" name="level_of_study[]" placeholder="Level of Study" value="{{ $scholarship->level_of_study }}">
+                                                                </div>
+                                                                <hr>
+                                                            </div>
+                                                            
+                                                        @endforeach
+                                                    </div>
                                                 </div>
 
                                                 
@@ -682,6 +814,8 @@
 
     <script>
         CKEDITOR.replace( 'first_description' );
+        CKEDITOR.replace( 'scholarship_paragraph_top' );
+        CKEDITOR.replace( 'scholarship_paragraph_bottom' );
     </script>
 
     <script>
@@ -712,7 +846,7 @@
     </script>
 
     <script>
-        $('.program-plus-icon').on('click', function() {
+        $('.programs-plus-icon').on('click', function() {
             let template = `<div class="mb-3 single-program">
                                 <div class="row align-items-center mb-2">
                                     <div class="col-11">
@@ -730,6 +864,33 @@
 
             $('.programs').append(template);
 
+            $('.programs-delete-icon').on('click', function() {
+                $(this).parents('.single-program').remove();
+            });
+        });
+
+        $('.program-delete-icon').on('click', function() {
+            $(this).parents('.single-program').remove();
+        });
+    </script>
+
+    <script>
+        $('.program-plus-icon').on('click', function() {
+            let template = `<div class="mb-3 single-program">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" name="programs[]" placeholder="Program Name" value="">
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-trash rounded-pill text-muted program-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                    </div>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="sub_titles[]" placeholder="Sub Title" value="">
+                            </div>`;
+
+            $('.programs').append(template);
+
             $('.program-delete-icon').on('click', function() {
                 $(this).parents('.single-program').remove();
             });
@@ -737,6 +898,66 @@
 
         $('.program-delete-icon').on('click', function() {
             $(this).parents('.single-program').remove();
+        });
+    </script>
+
+    <script>
+        $('.scholarship-plus-icon').on('click', function() {
+            let template = `<div class="mb-5 single-scholarship">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-11">
+                                        <input type="text" class="form-control" name="scholarship_name[]" placeholder="Scholarship Name" value="">
+                                    </div>
+                                    <div class="col-1">
+                                        <i class="fas fa-trash rounded-pill text-muted scholarship-delete-icon" style="background-color:#e3dfde; padding:13px;"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <textarea class="form-control" name="summary[]" id="summary" rows="5" value="" placeholder="Summary"></textarea>
+                                </div>
+                                
+
+                                <div class="mb-4">
+                                    <label for="eligibility" class="form-label">Basic Eligibility</label>
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Eligibility Criteria" value="">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Eligibility Criteria" value="">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Eligibility Criteria" value="">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Eligibility Criteria" value="">
+                                    <input type="text" class="form-control" name="eligibility[]" placeholder="Eligibility Criteria" value="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="award[]" placeholder="Award" value="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="action[]" placeholder="Action" value="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="date" class="form-control" name="deadline[]" placeholder="Deadline" value="">
+                                </div>
+
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="availability[]" placeholder="Availability" value="">
+                                </div>
+
+                                <div class="mb-5">
+                                    <input type="text" class="form-control" name="level_of_study[]" placeholder="Level of Study" value="">
+                                </div>
+                                <hr>
+                            </div>`;
+
+            $('.scholarships').prepend(template);
+
+            $('.scholarship-delete-icon').on('click', function() {
+                $(this).parents('.single-scholarship').remove();
+            });
+        });
+
+        $('.scholarship-delete-icon').on('click', function() {
+            $(this).parents('.single-scholarship').remove();
         });
     </script>
 @endpush

@@ -38,7 +38,18 @@ class UserSchoolController extends Controller
 
         $links = json_decode($school->links);
 
-        return view('frontend.user.school_edit', ['school' => $school, 'images' => $images, 'links' => $links, 'school_types' => $school_types]);
+        $programs = json_decode($school->programs);
+
+        $scholarships = json_decode($school->scholarships);
+
+        return view('frontend.user.school_edit', [
+            'school' => $school,
+            'images' => $images,
+            'links' => $links,
+            'school_types' => $school_types,
+            'programs' => $programs,
+            'scholarships' => $scholarships
+        ]);
     }
 
 
@@ -146,8 +157,6 @@ class UserSchoolController extends Controller
 
     public function userOverviewUpdate(Request $request) {
 
-        dd($request);
-
         $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
             [
                 'location' => $request->location,
@@ -168,14 +177,117 @@ class UserSchoolController extends Controller
     }
 
 
+    public function userProgramsUpdate(Request $request) {
 
-    // public function suggestedProgramDelete($id)
-    // {
-    //     $program = Programs::where('id', $id)->delete();
 
-    //     return back();
-    // }
+        $programs = $request->programs;
 
+        $sub_titles = $request->sub_titles;
+
+        $output_json = [];
+
+
+        if($programs == null) {
+ 
+            $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+                [
+                    'programs' => '[]'
+                ]
+            );
+        }
+        else {
+            foreach($programs as $key=>$program) {
+                $data = [
+                    'program_name' => $program,
+                    'sub_title' => $sub_titles[$key]
+                ];
+    
+                array_push($output_json, $data);
+            }
+
+            $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+                [
+                    'programs' => $output_json
+                ]
+            );
+        }
+
+        return redirect()->route('frontend.user.school_dashboard')->with('success', 'success');    
+    }
+
+
+
+
+    public function userScholarshipsUpdate(Request $request) {
+
+        $scholarship_name = $request->scholarship_name;
+        $summary = $request->summary;
+        $eligibility = $request->eligibility;
+        $award = $request->award;
+        $action = $request->action;
+        $deadline = $request->deadline;
+        $availability = $request->availability;
+        $level_of_study = $request->level_of_study;
+
+        $output_json = [];
+
+        if($scholarship_name == null) {
+ 
+            $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+                [
+                    'scholarships_top' => $request->scholarship_paragraph_top,
+                    'scholarships_bottom' => $request->scholarship_paragraph_bottom,
+                    'scholarships' => '[]'
+                ]
+            );
+
+        }
+        else {
+            foreach($scholarship_name as $key=>$scholarship) {
+
+                if($key == 0) {
+                    $data = [
+                        'scholarship_name' => $scholarship,
+                        'summary' => $summary[$key],
+                        'eligibility' => [$eligibility[$key], $eligibility[$key+1], $eligibility[$key+2], $eligibility[$key+3], $eligibility[$key+4]],
+                        'award' => $award[$key],
+                        'action' => $action[$key],
+                        'deadline' => $deadline[$key],
+                        'availability' => $availability[$key],
+                        'level_of_study' => $level_of_study[$key]
+                    ];
+                } else {
+                    $data = [
+                        'scholarship_name' => $scholarship,
+                        'summary' => $summary[$key],
+                        'eligibility' => [$eligibility[$key+4], $eligibility[$key+5], $eligibility[$key+6], $eligibility[$key+7], $eligibility[$key+8]],
+                        'award' => $award[$key],
+                        'action' => $action[$key],
+                        'deadline' => $deadline[$key],
+                        'availability' => $availability[$key],
+                        'level_of_study' => $level_of_study[$key]
+                    ];
+                }
+                
+
+                array_push($output_json, $data);
+            }
+
+            $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+                [
+                    'scholarships_top' => $request->scholarship_paragraph_top,
+                    'scholarships_bottom' => $request->scholarship_paragraph_bottom,
+                    'scholarships' => $output_json
+                ]
+            );
+        }
+
+        return redirect()->route('frontend.user.school_dashboard')->with('success', 'success');    
+    }
+
+
+
+    
 
 
 

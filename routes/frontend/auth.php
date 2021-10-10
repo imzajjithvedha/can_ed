@@ -39,8 +39,11 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
         Route::post('login', [LoginController::class, 'login'])->name('login.post');
 
         // Socialite Routes
-        Route::get('login/{provider}', [SocialLoginController::class, 'login'])->name('social.login');
-        Route::get('login/{provider}/callback', [SocialLoginController::class, 'login']);
+        // Route::get('login/{provider}', [SocialLoginController::class, 'login'])->name('social.login');
+        // Route::get('login/{provider}/callback', [SocialLoginController::class, 'login']);
+
+        Route::get('login/facebook', [SocialLoginController::class, 'redirectToFacebook'])->name('login.facebook');
+        Route::get('login/facebook/callback', [SocialLoginController::class, 'handleFacebookCallback']);
 
         // Registration Routes
         Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');

@@ -45,6 +45,10 @@ class CreateSchoolsTable extends Migration
             $table->text('telephone')->nullable();
             $table->text('fax')->nullable();
             $table->text('address')->nullable();
+            $table->text('programs')->nullable();
+            $table->text('scholarships')->nullable();
+            $table->text('scholarships_top')->nullable();
+            $table->text('scholarships_bottom')->nullable();
             $table->timestamps();
         });
     }

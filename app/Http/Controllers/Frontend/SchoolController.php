@@ -41,6 +41,8 @@ class SchoolController extends Controller
         $school->status = 'Pending';
         $school->images = '[]';
         $school->links = '[]';
+        $school->programs = '[]';
+        $school->scholarships = '[]';
 
         $school->save();
 

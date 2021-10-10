@@ -67,7 +67,6 @@ Route::get('events', [EventController::class, 'index'])->name('events');
 Route::get('get-events', [EventController::class, 'getEvents'])->name('get_events');
 Route::get('events/single-event/{id}', [EventController::class, 'singleEvent'])->name('single_event');
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
-// Route::post('events/send', [EventController::class, 'send'])->name('event_send');
 
 
 Route::get('online-business-directory', [OnlineBusinessDirectoryController::class, 'index'])->name('online_business_directory');
@@ -165,6 +164,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('user-schools/information/update', [UserSchoolController::class, 'userInformationUpdate'])->name('user_school_information_update');
         Route::post('user-schools/facts/update', [UserSchoolController::class, 'userFactsUpdate'])->name('user_school_facts_update');
         Route::post('user-schools/overview/update', [UserSchoolController::class, 'userOverviewUpdate'])->name('user_school_overview_update');
+        Route::post('user-schools/programs/update', [UserSchoolController::class, 'userProgramsUpdate'])->name('user_school_programs_update');
+        Route::post('user-schools/scholarships/update', [UserSchoolController::class, 'userScholarshipsUpdate'])->name('user_school_scholarships_update');
         Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
         Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');

@@ -1,4 +1,4 @@
-<p>You have a new event request. Below are the details.</p>
+<p>You have a new quote request. Below are the details.</p>
 
 <p><strong>Name:</strong> {{ auth()->user()->name }}</p>
 <p><strong>Email:</strong> {{ auth()->user()->email }}</p>

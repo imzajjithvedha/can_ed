@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\Quotes; 
+use App\Models\Quotes;
+use App\Models\Auth\User; 
 
 /**
  * Class QuotesController.
@@ -56,6 +57,18 @@ class QuotesController extends Controller
                     $button .= '<button type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i> Delete</button>';
                     return $button;
                 })
+
+                ->addColumn('name', function($data){
+                    $name = User::where('id', $data->user_id)->first()->name;
+                 
+                    return $name;
+                })
+
+                ->addColumn('email', function($data){
+                    $email = User::where('id', $data->user_id)->first()->email;
+                 
+                    return $email;
+                })
                 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
@@ -66,7 +79,7 @@ class QuotesController extends Controller
                     return $status;
                 })
                 
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action', 'name', 'email', 'status'])
                 ->make(true);
         }
         return back();

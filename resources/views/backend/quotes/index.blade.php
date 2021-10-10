@@ -21,7 +21,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col" style="max-width: 500px;">Quote</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col" style="max-width: 400px;">Quote</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -78,6 +80,8 @@
             order: [[0, "desc"]],
             columns: [
                 {data: 'id', name: 'id'},
+                {data: 'name', name: 'name'},
+                {data: 'email', name: 'email'},
                 {data: 'quote', name: 'quote'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},

@@ -20,7 +20,6 @@
                     <table class="table table-striped table-bordered" id="quotes-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col" style="max-width: 400px;">Quote</th>
@@ -79,7 +78,6 @@
             serverSide: true,
             order: [[0, "desc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'quote', name: 'quote'},

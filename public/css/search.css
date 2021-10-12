@@ -1,0 +1,26 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+
+th {
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #f6f9fc;
+    font-size: 1rem;
+    text-align: center;
+}
+
+td {
+    font-size: 0.95rem!important;
+    text-align: center;
+    vertical-align: middle!important;
+    /* padding: 0!important; */
+}
+
+.form-control {
+    color: black;
+    border-left: 5px solid #bd2130;
+}

@@ -34,7 +34,6 @@ class CreateSchoolsTable extends Migration
             $table->text('twitter')->nullable();
             $table->text('you_tube')->nullable();
             $table->text('linked_in')->nullable();
-            $table->text('links')->nullable();
             $table->text('location')->nullable();
             $table->text('school_type')->nullable();
             $table->text('language')->nullable();
@@ -42,13 +41,21 @@ class CreateSchoolsTable extends Migration
             $table->text('entrance_dates')->nullable();
             $table->text('canadian_tuition_fee')->nullable();
             $table->text('international_tuition_fee')->nullable();
-            $table->text('telephone')->nullable();
             $table->text('fax')->nullable();
             $table->text('address')->nullable();
-            $table->text('programs')->nullable();
             $table->text('scholarships')->nullable();
             $table->text('scholarships_top')->nullable();
             $table->text('scholarships_bottom')->nullable();
+            $table->text('link_1_name')->nullable();
+            $table->text('link_1_url')->nullable();
+            $table->text('link_2_name')->nullable();
+            $table->text('link_2_url')->nullable();
+            $table->text('link_3_name')->nullable();
+            $table->text('link_3_url')->nullable();
+            $table->text('link_4_name')->nullable();
+            $table->text('link_4_url')->nullable();
+            $table->text('link_5_name')->nullable();
+            $table->text('link_5_url')->nullable();
             $table->timestamps();
         });
     }

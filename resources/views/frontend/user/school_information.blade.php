@@ -1,14 +1,14 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My Account Information')
-
-@section('content')
+@section('title', 'Edit School' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
 @endpush
 
-    <div class="container user-settings">
+@section('content')
+
+    <div class="container user-settings" style="margin-top:8rem;">
         <div class="row justify-content-between">
             <div class="col-4">
                 <div class="row">
@@ -21,112 +21,36 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Account Information</h4>
-                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can customize your basic account set-up information.</h6>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Information</h4>
+                        
+                    </div>
+                    <div class="col-4 text-end">
+                        <p class="mb-2 required fw-bold">* Indicates required fields</p>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                            <h4 class="mb-2">About You</h4>
-                                    
-                            <form action="{{ route('frontend.user.account_information_update') }}" method="post" enctype="multipart/form-data">
-                            {{csrf_field()}}
+                        <div class="px-2 py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                            <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="text" class="form-control" value="{{ $user->first_name }}" id="firstName" placeholder="First Name" aria-describedby="firstName" name="first_name">
-                                        </div>  
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="text" value="{{ $user->last_name }}" class="form-control" id="lastName" placeholder="Last Name" aria-describedby="lastName" name="last_name">
-                                        </div>  
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="text" class="form-control" id="displayName" name="display_name" placeholder="Display Name" aria-describedby="displayName" value="{{ $user->display_name }}">
-                                        </div>  
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input value="{{ $user->email }}" type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email" name="email">
-                                        </div>  
-                                    </div>
-                                </div>
-                                    
-
-                                <h4 class="mt-4 mb-1">More About You</h4>
-                                <h6 class="mb-2" style="color: #5e6871">Tell us more about you and your needs.</h6>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <select class="form-control" aria-label="userType" id="userType" name="user_type" placeholder="I am a">
-                                                <option value="" selected disabled hidden>I am a</option>
-                                                <option value="student">Student</option>
-                                                <option value="business">Business</option>
-                                                <option value="school">School</option>
-                                            </select>
+                                    <div class="col-12 border py-3">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="School Name *" value="{{ $school->name }}" required>
                                         </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input value="{{ $user->dob }}" type="date" class="form-control" id="dob" aria-describedby="dob" placeholder="Date of Birth" name="dob">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <select class="form-control" aria-label="gender" id="gender" name="gender" placeholder="Gender">
-                                                <option value="" selected hidden disabled>Gender</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="website" aria-describedby="website" name="website" placeholder="School Website *" value="{{ $school->website }}" required>
                                         </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <select class="form-control" aria-label="marital" id="marital" name="marital">
-                                                <option value="" selected hidden disabled>Marital Status</option>
-                                                <option value="single">Single</option>
-                                                <option value="common-law">Common Law</option>
-                                                <option value="married">Married</option>
-                                                <option value="separated">separated</option>
-                                                <option value="divorced">Divorced</option>
-                                            </select>
+
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" id="website" aria-describedby="email" name="email" placeholder="School Email Address *" value="{{ $school->school_email }}" required>
                                         </div>
-                                    </div>
-                                </div>
 
-
-                                <h4 class="mt-4 mb-1">Contact Information</h4>
-                                <h6 class="mb-2" style="color: #5e6871">Keep your contact details up to date</h6>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="text" class="form-control" id="city" aria-describedby="city" name="city" placeholder="City" value="{{ $user->city }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="province" class="form-control" id="province" aria-describedby="province" placeholder="Province" name="province" value="{{ $user->province }}">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <select class="form-control" id="country" name="country" placeholder="Select Your Country">
-                                                <option value="">Select Your Country</option>
+                                        <div class="mb-5">
+                                            <select class="form-control" id="country" name="country" required>
+                                                <option value="">Select Country *</option>
                                                 <option value="Afganistan">Afghanistan</option>
                                                 <option value="Albania">Albania</option>
                                                 <option value="Algeria">Algeria</option>
@@ -375,31 +299,98 @@
                                                 <option value="Zimbabwe">Zimbabwe</option>
                                             </select>
                                         </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="postal-code" class="form-control" id="postal-code" name="postal_code" placeholder="Postal Code" aria-describedby="postal-code" value="{{ $user->postal_code }}">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="home-phone" class="form-control" id="home-phone" name="home_phone" placeholder="Home Phone" aria-describedby="home-phone" value="{{ $user->home_phone }}">
+                                        <div class="mb-5">
+                                            <label for="school_featured_image" class="form-label">School Featured Image *</label>
+
+                                            @if($school->featured_image != null)
+                                                <div class="row justify-content-center mb-3">
+                                                    <div class="col-12">
+                                                        <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                                                    </div>
+                                                </div>
+
+                                                <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
+
+                                                <input type="file" class="form-control" name="featured_image">
+
+                                            @else
+                                                <input type="file" class="form-control" name="featured_image" required>
+                                            @endif
+
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <label for="school_featured_image" class="form-label">More School Images</label>
+
+                                            @if(count($images) != 0)
+                                                <div class="row mb-3">
+                                                    @foreach($images as $image)
+                                                        <div class="col-4 mb-3">
+                                                            <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            <input type="hidden" class="form-control" name="old_images[]" value="{{$image}}">
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            @endif
+
+
+                                            <input type="file" class="form-control" multiple name="new_images[]">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $school->facebook }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" placeholder="Instagram" value="{{ $school->instagram }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" placeholder="Twitter" value="{{ $school->twitter }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" placeholder="YouTube" value="{{ $school->you_tube }}">
+                                        </div>
+
+                                        <div class="mb-5">
+                                            <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn" value="{{ $school->linked_in }}">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <div>
+                                                <label class="form-label mb-0">External Links</label>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link Name" value="{{ $school->link_1_name }}">
+                                                    <input type="url" class="form-control" id="link_1_url" aria-describedby="link_1_url" name="link_1_url" placeholder="Link" value="{{ $school->link_1_url }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control mb-2" id="link_2_name" aria-describedby="link_2" name="link_2_name" placeholder="Link Name" value="{{ $school->link_2_name }}">
+                                                    <input type="url" class="form-control" id="link_2_url" aria-describedby="link_2_url" name="link_2_url" placeholder="Link" value="{{ $school->link_2_url }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control mb-2" id="link_3_name" aria-describedby="link_3" name="link_3_name" placeholder="Link Name" value="{{ $school->link_3_name }}">
+                                                    <input type="url" class="form-control" id="link_3_url" aria-describedby="link_3_url" name="link_3_url" placeholder="Link" value="{{ $school->link_3_url }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control mb-2" id="link_4_name" aria-describedby="link_4" name="link_4_name" placeholder="Link Name" value="{{ $school->link_4_name }}">
+                                                    <input type="url" class="form-control" id="link_4_url" aria-describedby="link_4_url" name="link_4_url" placeholder="Link" value="{{ $school->link_4_url }}">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <input type="text" class="form-control mb-2" id="link_5_name" aria-describedby="link_5" name="link_5_name" placeholder="Link Name" value="{{ $school->link_5_name }}">
+                                                    <input type="url" class="form-control" id="link_5_url" aria-describedby="link_5_url" name="link_5_url" placeholder="Link" value="{{ $school->link_5_url }}">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+
+
+                                        <div class="mt-5 text-center">
+                                            <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
+                                            <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="mb-4">
-                                            <input type="mobile-phone" class="form-control" id="mobile-phone" name="mobile_phone" placeholder="Mobile Phone" aria-describedby="mobile-phone" value="{{ $user->mobile_phone }}">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="mt-3 text-center">
-                                    <!-- <button type="button" class="btn rounded-pill text-light px-4 py-2 me-2" style="background-color: #6e6e70;">Deactivate Account</button> -->
-                                    <input type="hidden" class="form-control" value="{{ $user->id }}" name="hidden_id">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Save</button>
                                 </div>
                             </form>
                         </div>
@@ -410,17 +401,36 @@
     </div>
 
 
-    @if(\Session::has('success'))
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
 
-        <!-- Button trigger modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-danger">Warning</h4>
+                </div>
+
+                <div class="modal-body" style="padding: 2rem 1rem;">
+                    <h6 class="mb-0 text-center text-info">If you want to update the already approved school, then we have to approve again. Please consider this before update your school.</h6>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+    <!-- @if(\Session::has('success'))
         <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Your information updated successfully.</h4>
+                        <h4 class="mb-0 text-center">School information updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -428,53 +438,39 @@
                 </div>
             </div>
         </div>
-    @endif
+    @endif -->
 
 
 @endsection
 
-
 @push('after-scripts')
+    <!-- <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
+    </script> -->
+
     <script>
         $(document).ready(function() {
-            let user_type = <?php echo json_encode ($user->user_type ) ?>
+            $('#info-btn').click();
+        });
+    </script>
 
-            $('#userType option').each(function(i){
-                if($(this).val() == user_type) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
-
-            let gender = <?php echo json_encode ($user->gender ) ?>
-
-            $('#gender option').each(function(i){
-                if($(this).val() == gender) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
-
-            let marital_status = <?php echo json_encode ($user->marital_status ) ?>
-
-            $('#marital option').each(function(i){
-                if($(this).val() == marital_status) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
-
-            let country = <?php echo json_encode ($user->country ) ?>
+    <script>
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($school->country) ?>
 
             $('#country option').each(function(i){
-                if($(this).val() == country) {
+                if($(this).val() == value) {
                     $(this).attr('selected', 'selected');
                 }
             });
         });
     </script>
 
-
     <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
-        }
+        CKEDITOR.replace( 'first_description' );
     </script>
+
 @endpush
+

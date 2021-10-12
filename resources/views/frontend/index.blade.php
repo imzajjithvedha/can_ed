@@ -11,12 +11,13 @@
         <div class="container" style="margin-top: -12rem;">
             <div class="row justify-content-center search-bar">
                 <div class="col-6">
-                    <form>
+                    <form action="{{ route('frontend.home_search') }}"  method="POST">
+                        {{csrf_field()}}
                         <div class="input-group shadow-lg">
-                            <input type="text" name="search_keyword" class="form-control p-3 rounded-0 search border-0" aria-label="search">
-                            <select class="border-0 text-center search-drop">
+                            <input type="text" name="keyword" class="form-control p-3 rounded-0 search border-0" aria-label="search">
+                            <select class="border-0 text-center search-drop" name='type'>
                                 <option value="schools" selected="selected">Schools</option>
-                                <option value="business">Businesses</option>
+                                <option value="businesses">Businesses</option>
                                 <option value="resources">Resources</option>
                             </select>
                             <button type="submit" class="btn rounded-0 text-white"><i class="fas fa-search" style="color: black;"></i></button>
@@ -35,49 +36,49 @@
         <div class="container">
             <div class="row p-3">
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.language_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/languages.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Language Problems</p>
+                        <p class="gray mt-2">Language Programs</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.college_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/community.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Community College</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.bachelor_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/degree.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Bachelor Degree</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.master_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/masters.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Masters</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.certificate_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/certificate.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Certificate / short term</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="{{ route('frontend.summer_programs') }}" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/summer.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Summer</p>
                     </a>
                 </div>
                 <div class="col text-center">
-                    <a href="#">
+                    <a href="#" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/highschool.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">High School</p>
                     </a>
                 </div>
                 <div class="col text-center" style="border:none;">
-                    <a href="#">
+                    <a href="#" class="text-decoration-none">
                         <img src="{{ url('img/frontend/index/summer.png') }}" alt="" class="img-fluid">
                         <p class="gray mt-2">Online</p>
                     </a>
@@ -271,4 +272,36 @@
             </div>
         </div>
     </div>
+
+
+
+    @if(\Session::has('success'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you for your school request. We will check and approve as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
 @endsection
+
+
+
+@push('after-scripts')
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
+    </script>
+@endpush

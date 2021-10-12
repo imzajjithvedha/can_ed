@@ -19,13 +19,16 @@ use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
-use App\Http\Controllers\Frontend\FileManagerController;
+use App\Http\Controllers\Frontend\ProgramsSearchController;
+
 
 
 use App\Http\Controllers\Frontend\User\DashboardController;
 use App\Http\Controllers\Frontend\User\UserSchoolController;
 use App\Http\Controllers\Frontend\User\UserBusinessController;
 use App\Http\Controllers\Frontend\User\UserProfileController;
+use App\Http\Controllers\Frontend\User\UserSchoolProgramController;
+use App\Http\Controllers\Frontend\User\UserSchoolScholarshipController;
 
 /*
  * Frontend Controllers
@@ -58,7 +61,7 @@ Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaim
 
 Route::get('schools', [SchoolController::class, 'index'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
-Route::get('schools/single-school', [SchoolController::class, 'singleSchool'])->name('single_school');
+Route::get('schools/single-school/{id}', [SchoolController::class, 'singleSchool'])->name('single_school');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
 
 
@@ -122,6 +125,27 @@ Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[Onlin
 
 
 
+// Homepage search routes
+Route::get('language-programs', [ProgramsSearchController::class, 'languagePrograms'])->name('language_programs');
+Route::get('get-language-programs', [ProgramsSearchController::class, 'getLanguagePrograms'])->name('get_language_programs');
+Route::get('college-programs', [ProgramsSearchController::class, 'collegePrograms'])->name('college_programs');
+Route::get('get-college-programs', [ProgramsSearchController::class, 'getCollegePrograms'])->name('get_college_programs');
+Route::get('bachelor-programs', [ProgramsSearchController::class, 'bachelorPrograms'])->name('bachelor_programs');
+Route::get('get-bachelor-programs', [ProgramsSearchController::class, 'getBachelorPrograms'])->name('get_bachelor_programs');
+Route::get('master-programs', [ProgramsSearchController::class, 'masterPrograms'])->name('master_programs');
+Route::get('get-master-programs', [ProgramsSearchController::class, 'getMasterPrograms'])->name('get_master_programs');
+Route::get('certificate-programs', [ProgramsSearchController::class, 'certificatePrograms'])->name('certificate_programs');
+Route::get('get-certificate-programs', [ProgramsSearchController::class, 'getCertificatePrograms'])->name('get_certificate_programs');
+Route::get('summer-programs', [ProgramsSearchController::class, 'summerPrograms'])->name('summer_programs');
+Route::get('get-summer-programs', [ProgramsSearchController::class, 'getSummerPrograms'])->name('get_summer_programs');
+
+
+
+Route::post('home/schools/search-result', [ProgramsSearchController::class, 'homeSearch'])->name('home_search');
+Route::get('home/schools-search-results/{keyword}',[ProgramsSearchController::class,'schoolSearchFunction'])->name('school_search_function');
+Route::get('home/businesses-search-results/{keyword}',[ProgramsSearchController::class,'businessSearchFunction'])->name('business_search_function');
+
+
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
@@ -159,16 +183,47 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
 
-        Route::get('school-dashboard', [UserSchoolController::class, 'schoolDashboard'])->name('school_dashboard');
+        Route::get('school-information', [UserSchoolController::class, 'schoolInformation'])->name('school_information');
+        Route::get('school-quick-facts', [UserSchoolController::class, 'schoolQuickFacts'])->name('school_quick_facts');
+        Route::get('school-overview', [UserSchoolController::class, 'schoolOverview'])->name('school_overview');
+        
+        
+        Route::get('school-admissions', [UserSchoolController::class, 'schoolAdmissions'])->name('school_admissions');
+        Route::get('school-financial', [UserSchoolController::class, 'schoolFinancial'])->name('school_financial');
+        Route::get('school-scholarships', [UserSchoolController::class, 'schoolScholarships'])->name('school_scholarships');
+
         Route::get('user-schools/edit/{id}', [UserSchoolController::class, 'userSchoolEdit'])->name('user_school_edit');
-        Route::post('user-schools/information/update', [UserSchoolController::class, 'userInformationUpdate'])->name('user_school_information_update');
-        Route::post('user-schools/facts/update', [UserSchoolController::class, 'userFactsUpdate'])->name('user_school_facts_update');
-        Route::post('user-schools/overview/update', [UserSchoolController::class, 'userOverviewUpdate'])->name('user_school_overview_update');
-        Route::post('user-schools/programs/update', [UserSchoolController::class, 'userProgramsUpdate'])->name('user_school_programs_update');
-        Route::post('user-schools/scholarships/update', [UserSchoolController::class, 'userScholarshipsUpdate'])->name('user_school_scholarships_update');
-        Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
+
+        Route::post('school-information/update', [UserSchoolController::class, 'schoolInformationUpdate'])->name('school_information_update');
+        Route::post('schools-quick-facts/update', [UserSchoolController::class, 'schoolQuickFactsUpdate'])->name('school_quick_facts_update');
+
+
         Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
+        // Route::post('user-schools/overview/update', [UserSchoolController::class, 'userOverviewUpdate'])->name('user_school_overview_update');
+
+
+
+        Route::get('school-programs', [UserSchoolProgramController::class, 'schoolPrograms'])->name('school_programs');
+        Route::get('get-school-programs', [UserSchoolProgramController::class, 'getSchoolPrograms'])->name('get_school_programs');
+        Route::post('school-programs/create', [UserSchoolProgramController::class, 'schoolProgramCreate'])->name('school_program_create');
+        Route::get('school-programs/edit/{id}', [UserSchoolProgramController::class, 'schoolProgramEdit'])->name('school_program_edit');
+        Route::post('school-programs/update', [UserSchoolProgramController::class, 'schoolProgramUpdate'])->name('school_program_update');
+        Route::get('school-programs/delete/{id}', [UserSchoolProgramController::class, 'SchoolProgramDelete'])->name('school_program_delete');
+
+
+
+        Route::get('school-scholarships', [UserSchoolScholarshipController::class, 'schoolScholarships'])->name('school_scholarships');
+        Route::get('get-school-scholarships', [UserSchoolScholarshipController::class, 'getSchoolScholarships'])->name('get_school_scholarships');
+        Route::post('school-scholarships/create', [UserSchoolScholarshipController::class, 'schoolScholarshipCreate'])->name('school_scholarship_create');
+        Route::get('school-scholarships/edit/{id}', [UserSchoolScholarshipController::class, 'schoolScholarshipEdit'])->name('school_scholarship_edit');
+        Route::post('school-scholarships/update', [UserSchoolScholarshipController::class, 'schoolScholarshipUpdate'])->name('school_scholarship_update');
+        Route::get('school-scholarships/delete/{id}', [UserSchoolScholarshipController::class, 'SchoolScholarshipDelete'])->name('school_scholarship_delete');
+
+
+        // Route::post('user-schools/scholarships/update', [UserSchoolController::class, 'userScholarshipsUpdate'])->name('user_school_scholarships_update');
+        // Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
+        
 
 
 

@@ -26,8 +26,19 @@
     @if(is_school_registered(auth()->user()->id))
         <h5 class="px-3 mt-4 pb-2 mb-0">School Dashboard</h5>
 
-        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-dashboard' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_dashboard') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">School Information</a>
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-information' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_information') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Information</a>
 
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-quick-facts' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_quick_facts') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Quick Facts</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-overview' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_overview') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Overview</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-programs' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_programs') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Programs</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-admissions' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_admissions') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Admissions</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-financial' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_financial') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Financial</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships</a>
 
         <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'suggested-programs' ? 'active' : null }}" id="nav-suggested-programs-tab" href="{{ route('frontend.user.suggested_programs') }}" type="button" role="tab" aria-controls="nav-suggested-programs" aria-selected="false">Suggested Programs</a>
 

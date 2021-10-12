@@ -81,3 +81,19 @@
     border: 0!important;
     border-top: 0!important;
 }
+
+th {
+    text-align: center!important;
+}
+
+td {
+    text-align: center;
+    font-size: 0.95rem;
+    vertical-align: middle!important;
+    /* padding: 0!important; */
+}
+
+.create_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+}

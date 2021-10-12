@@ -33,6 +33,10 @@
 .index-categories .row div {
     border-right: 1px dotted gray;
 }
+.index-categories a:hover p {
+    color:#800;
+    font-weight: 600;
+}
 
 .us-education .card-body {
     background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);

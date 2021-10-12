@@ -465,25 +465,23 @@
     </div>
 
 
-    @if(\Session::has('success'))
+    @if(is_school_registered(auth()->user()->id) || \Session::has('warning'))
+        <button type="button" class="btn btn-primary invisible" id="warning-btn" data-bs-toggle="modal" data-bs-target="#warningModal"></button>
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
+                        <h4 class="mb-0 text-center">You already requested or registered a school in our site. You can't register more than one school. If you want to add a new school please delete the old school from your dashboard or edit your school details. We are very sorry for the inconvenience.</h4>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
                     </div>
                 </div>
             </div>
         </div>
     @endif
+
 @endsection
 
 
@@ -497,8 +495,8 @@
     </script>
 
     <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
+        if(document.getElementById("warning-btn")){
+            $('#warning-btn').click();
         }
     </script>
 @endpush

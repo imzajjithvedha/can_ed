@@ -385,7 +385,7 @@ class ProgramsSearchController extends Controller
                 $keyword = request('keyword');
             }
             else {
-                $keyword = 'business';
+                $keyword = 'businesses';
             }
 
             return redirect()->route('frontend.business_search_function', [$keyword]);
@@ -398,7 +398,7 @@ class ProgramsSearchController extends Controller
     {
         $schools = Schools::where('status', 'Approved');
 
-        if($keyword != 'school'){
+        if($keyword != 'schools'){
             $schools->where('name', 'like', '%' .  $keyword . '%');
         }
 
@@ -412,7 +412,7 @@ class ProgramsSearchController extends Controller
     {
         $businesses = Businesses::where('status', 'Approved');
 
-        if($keyword != 'business'){
+        if($keyword != 'businesses'){
             $businesses->where('name', 'like', '%' .  $keyword . '%');
         }
 

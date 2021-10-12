@@ -25,7 +25,7 @@
                     <div class="col-3 mb-4">
                         <div class="card">
                             <a href="{{ route('frontend.single_school', $school->id) }}" class="text-decoration-none">
-                                <img src="{{ url('images/schools', $school->image) }}" class="card-img-top" alt="...">
+                                <img src="{{ url('images/schools', $school->featured_image) }}" class="card-img-top" alt="...">
                                 <div class="card-body text-center">
                                     <h6 class="card-title fw-bold gray">{{ $school->name }}</h6>
                                 </div>

@@ -215,7 +215,7 @@
                         <div class="card">
                             <iframe width="100%" height="200" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                            <p class="m-3 text-center">{{ $video->title }}</p>
+                            <p class="gray fw-bolder m-3 text-center">{{ $video->title }}</p>
                         </div>
                         
                     </div>

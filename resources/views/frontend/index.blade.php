@@ -184,7 +184,7 @@
 
     @if(count($featured_articles) > 0)
         <div class="container mt-5 us-education">
-            <h5 class="fw-bolder">Getting started with your u.s. education</h5>
+            <a href="{{ route('frontend.articles') }}" class="fw-bolder h5 text-decoration-none text-dark">Getting started with your u.s. education</a>
 
             <div class="row mt-4">
                 @foreach($featured_articles as $article)
@@ -207,7 +207,7 @@
 
     @if(count($videos) > 0)
         <div class="container mt-5 featured-videos">
-            <a href="{{ route('frontend.videos') }}" class="text-decoration-none text-black fw-bolder" style="font-size: 1.25rem">Featured Videos</a>
+            <a href="{{ route('frontend.videos') }}" class="h5 text-decoration-none text-dark fw-bolder">Featured Videos</a>
 
             <div class="row mt-4">
                 @foreach($videos as $video)

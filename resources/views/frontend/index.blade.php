@@ -161,7 +161,7 @@
 
     @if(count($businesses) > 0)
         <div class="container mt-5 featured-businesses">
-            <h5 class="fw-bolder">Featured Businesses</h5>
+            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured Businesses</a>
 
             
             <div class="row mt-4">

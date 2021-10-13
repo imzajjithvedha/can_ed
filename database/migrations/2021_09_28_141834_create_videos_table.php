@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFeaturedVideosTable extends Migration
+class CreateVideosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,14 @@ class CreateFeaturedVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('featured_videos', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
-            $table->text('link')->nullable();
+            $table->text('title');
+            $table->text('link');
+            $table->text('description')->nullable();
+            $table->text('featured');
+            $table->text('status');
             $table->timestamps();
         });
     }

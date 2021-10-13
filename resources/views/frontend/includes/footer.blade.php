@@ -52,10 +52,10 @@
             </div> -->
 
 
-            <div class="col-2 text-center">
+            <!-- <div class="col-2 text-center">
                 <a href="{{ route('frontend.index') }}" class="footer-logo"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid mb-3" style="height: 8rem;"></a>
                 <a href="{{ route('frontend.site_map') }}">Site Map</a>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -64,7 +64,7 @@
 <div class="container-fluid footer p-4">
     <div class="container">
         <div class="row">
-            <!-- <div class="col-12 text-center">
+            <div class="col-12 text-center">
                 <a href="{{ route('frontend.index') }}" class="px-2 border-end d-inline-block px-3">Home</a>
                 <a href="{{ route('frontend.disclaimer') }}" class="px-2 border-end d-inline-block px-3">Disclaimer</a>
                 <a href="{{ route('frontend.online_business_directory') }}" class="px-2 border-end d-inline-block px-3">Online Business Directory</a>
@@ -72,7 +72,7 @@
                 <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3">Comments / Suggestion</a>
                 <a href="{{ route('frontend.site_map') }}" class="px-2 border-end d-inline-block px-3">Site Map</a>
                 <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3" style="border-right:none!important;">Contact Us</a>
-            </div> -->
+            </div>
 
             <div class="col-lg-12 footer_col text-center">
     

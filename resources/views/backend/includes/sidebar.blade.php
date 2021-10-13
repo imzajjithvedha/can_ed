@@ -90,8 +90,8 @@
 
             <li class="nav-item">
                 <a class="nav-link {{
-                    active_class(Route::is('admin/featured_videos.index'))
-                }}" href="{{ route('admin.featured_videos.index') }}">
+                    active_class(Route::is('admin/videos.index'))
+                }}" href="{{ route('admin.videos.index') }}">
                     <i class="nav-icon fas fa-video"></i>
                     Videos
                 </a>

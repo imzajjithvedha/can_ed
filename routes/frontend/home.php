@@ -20,6 +20,7 @@ use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
 use App\Http\Controllers\Frontend\ProgramsSearchController;
+use App\Http\Controllers\Frontend\VideoController;
 
 
 
@@ -122,6 +123,9 @@ Route::get('businesses-search-results/{category}/{keyword}',[BusinessController:
 
 Route::post('directory/search-result', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
 Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[OnlineBusinessDirectoryController::class,'directorySearchFunction'])->name('directory_search_function');
+
+
+Route::get('videos', [VideoController::class, 'index'])->name('videos');
 
 
 

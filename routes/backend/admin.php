@@ -13,7 +13,7 @@ use App\Http\Controllers\Backend\ProgramsController;
 use App\Http\Controllers\Backend\QuotesController;
 use App\Http\Controllers\Backend\SchoolsController;
 use App\Http\Controllers\Backend\NetworksController;
-use App\Http\Controllers\Backend\FeaturedVideosController;
+use App\Http\Controllers\Backend\VideosController;
 use App\Http\Controllers\Backend\CareersController;
 use App\Http\Controllers\Backend\SchoolTypesController;
 use App\Http\Controllers\Backend\WebsiteInformationController;
@@ -158,8 +158,12 @@ Route::get('sponsors/delete-sponsor/{id}', [SponsorsController::class, 'deleteSp
 
 
 
-Route::get('featured-videos', [FeaturedVideosController::class, 'index'])->name('featured_videos.index');
-Route::post('featured-videos/update', [FeaturedVideosController::class, 'featuredVideosUpdate'])->name('featured_videos_update');
+Route::get('videos', [VideosController::class, 'index'])->name('videos.index');
+Route::post('videos/store-video', [VideosController::class, 'storeVideo'])->name('videos.store_video');
+Route::get('videos/get-videos', [VideosController::class, 'getVideos'])->name('videos.get_videos');
+Route::get('videos/edit-video/{id}', [VideosController::class, 'editVideo'])->name('videos.edit_video');
+Route::post('videos/update-video', [VideosController::class, 'updateVideo'])->name('videos.update_video');
+Route::get('videos/delete-video/{id}', [VideosController::class, 'deleteVideo'])->name('videos.delete_video');
 
 
 

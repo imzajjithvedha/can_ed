@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Articles;
 use App\Models\Businesses;
-use App\Models\FeaturedVideos;
+use App\Models\Videos;
 
 /**
  * Class HomeController.
@@ -24,15 +24,9 @@ class HomeController extends Controller
         $businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
 
-        $videos = FeaturedVideos::get();
-        $count = 0;
+        $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->get();
 
-        foreach($videos as $video) {
-            if($video->link != null) {
-                $count++;
-            }
-        }
 
-        return view('frontend.index', ['articles' => $articles, 'featured_articles' => $featured_articles, 'businesses' => $businesses, 'videos' => $videos, 'count' => $count]);
+        return view('frontend.index', ['articles' => $articles, 'featured_articles' => $featured_articles, 'businesses' => $businesses, 'videos' => $videos]);
     }
 }

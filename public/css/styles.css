@@ -98,7 +98,7 @@ p {
     border-bottom: 2px solid black;
 }
 .footer_social {
-    /* margin-top:23px */
+    margin-top:23px
 }
 .footer_social ul li {
     display:inline-block;
@@ -112,8 +112,8 @@ p {
     -o-transition:all 200ms ease;
     transition:all 200ms ease;
 
-    margin-left: 1rem;
-    margin-right: 1rem;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
 }
 .footer_social ul li a {
     display:block;

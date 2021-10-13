@@ -146,8 +146,12 @@ Breadcrumbs::for('admin.pages.disclaimer', function ($trail) {
 
 
 
-Breadcrumbs::for('admin.featured_videos.index', function ($trail) {
-    $trail->push('Featured Videos', route('admin.featured_videos.index'));
+Breadcrumbs::for('admin.videos.index', function ($trail) {
+    $trail->push('Videos', route('admin.videos.index'));
+});
+
+Breadcrumbs::for('admin.videos.edit_video', function ($trail) {
+    $trail->push('Videos / Edit', route('admin.videos.edit_video', 1));
 });
 
 

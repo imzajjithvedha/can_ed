@@ -205,16 +205,19 @@
     
 
 
-    @if($count > 0)
+    @if(count($videos) > 0)
         <div class="container mt-5 featured-videos">
-            <h5 class="fw-bolder">Featured Videos</h5>
+            <a href="{{ route('frontend.videos') }}" class="text-decoration-none text-black fw-bolder" style="font-size: 1.25rem">Featured Videos</a>
 
             <div class="row mt-4">
                 @foreach($videos as $video)
                     <div class="col-3 mb-4">
                         <div class="card">
                             <iframe width="100%" height="200" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <p class="m-3 text-center">{{ $video->title }}</p>
                         </div>
+                        
                     </div>
                 @endforeach
             </div>

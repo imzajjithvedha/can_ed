@@ -22,3 +22,7 @@ hr {
     background-image: linear-gradient(to bottom, #CF0411, #660000);
     border: none;
 }
+
+.modal-footer {
+    justify-content: center!important;
+}

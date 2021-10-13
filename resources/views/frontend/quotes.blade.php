@@ -34,7 +34,7 @@
         @else
             <div class="row">
                 @foreach($quotes as $quote)
-                    <div class="col-4">
+                    <div class="col-4 mb-4">
                         <div class="card">
                             <div class="card-body">
                                 <p class="fw-bolder mb-2 text-center" style="text-align:justify;">{{ $quote->quote}}</p>
@@ -94,10 +94,10 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your quote. It will appear here once we approved.</h4>
+                        <h4 class="mb-0 text-center">Thank you for your quote. It will appear here once approved</h4>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('frontend.quotes') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                        <a href="{{ route('frontend.quotes') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
                     </div>
                 </div>
             </div>

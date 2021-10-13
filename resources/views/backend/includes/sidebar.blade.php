@@ -56,16 +56,16 @@
                 </a>
 
                 <ul class="nav-dropdown-items">
-                    <li>
-                        <a class="nav-link {{active_class(Route::is('admin/careers.how_careers_came_about'))}}" href="{{ route('admin.careers.how_careers_came_about') }}">
-                            How came
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/careers.all_careers'))}}" href="{{ route('admin.careers.all_careers') }}">All careers</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/careers.hot_careers'))}}" href="{{ route('admin.careers.hot_careers') }}">Hot careers</a>
+                    </li>
+                    <li>
+                        <a class="nav-link {{active_class(Route::is('admin/careers.how_careers_came_about'))}}" href="{{ route('admin.careers.how_careers_came_about') }}">
+                            How came
+                        </a>
                     </li>
                 </ul>
             </li>
@@ -93,7 +93,7 @@
                     active_class(Route::is('admin/featured_videos.index'))
                 }}" href="{{ route('admin.featured_videos.index') }}">
                     <i class="nav-icon fas fa-video"></i>
-                    Featured videos
+                    Videos
                 </a>
             </li>
 

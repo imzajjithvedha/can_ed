@@ -67,6 +67,12 @@ p {
     border-bottom: 2px solid red;
     color: #333;
 }
+.navigation-links .footer-logo {
+    border-bottom: 0!important;
+}
+.navigation-links .footer-logo:hover {
+    border-bottom: 0!important;
+}
 .navigation-links h6 {
     background-color: #ccc;
     color: #333;
@@ -92,7 +98,7 @@ p {
     border-bottom: 2px solid black;
 }
 .footer_social {
-    margin-top:23px
+    /* margin-top:23px */
 }
 .footer_social ul li {
     display:inline-block;
@@ -105,6 +111,9 @@ p {
     -ms-transition:all 200ms ease;
     -o-transition:all 200ms ease;
     transition:all 200ms ease;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 .footer_social ul li a {
     display:block;

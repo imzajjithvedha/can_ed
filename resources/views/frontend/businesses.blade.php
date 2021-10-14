@@ -19,7 +19,7 @@
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_business" aria-describedby="search_business" name="keyword" placeholder="Search by Business" value="">
+                    <input type="text" class="form-control text-center" id="search_businesses" aria-describedby="search_businesses" name="keyword" placeholder="Search Businesses" value="">
                     <input type="hidden" name="category" value="{{ $category }}">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>

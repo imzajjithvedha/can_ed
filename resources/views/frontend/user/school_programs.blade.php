@@ -36,9 +36,10 @@
                                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                                         <thead>
                                             <tr class="align-items-center">
+                                                <th scope="col">Program Category</th>
                                                 <th scope="col">Program Name</th>
                                                 <th scope="col">Description</th>
-                                                <th scope="col" style="max-width: 180px;">Options</th>
+                                                <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -65,6 +66,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <div class="mb-3">
+                            <select class="form-control" id="program_category" name="program_category" placeholder="Program Category" required>
+                                <option value="" selected disabled hidden>Program Category *</option>
+                                @foreach($program_categories as $program_category)
+                                    <option value="{{ $program_category->id }}">{{ $program_category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <div class="mb-3">
                             <select class="form-control" id="title" name="title" placeholder="Program Name" required>
                                 <option value="" selected disabled hidden>Program Name *</option>
@@ -169,8 +179,9 @@
                 processing: true,
                 ajax: "{{route('frontend.user.get_school_programs')}}",
                 serverSide: true,
-                order: [[0, "asc"]],
+                order: [[1, "asc"]],
                 columns: [
+                    {data: 'program_category', name: 'program_category'},
                     {data: 'name', name: 'name'},
                     {data: 'sub_title', name: 'sub_title'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},

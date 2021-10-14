@@ -21,8 +21,8 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Change Password</h4>
-                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can change your account password.</h6>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Account Settings</h4>
+                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can change your account settings.</h6>
                     </div>
                 </div>
 
@@ -64,7 +64,8 @@
                                 </div>
 
                                 <div class="mt-3 text-center">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 update" style="background-color: #94ca60;">Update Password</button>
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Update Password</button>
+                                    <button type="button" class="btn rounded-pill text-light px-4 py-2 ms-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Close my account</button>
                                 </div>
                             </form>
                         </div>
@@ -73,6 +74,24 @@
             </div>
         </div>
     </div>
+
+    <form action="{{ route('frontend.user.account_delete') }}" method="POST">
+        {{ csrf_field() }}
+        <div class="modal fade" id="confirmClose" tabindex="-1" aria-labelledby="confirmCloseLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Do you want to close your account?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn rounded text-white" style="background-color: red;">Close my account</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 
     @if(\Session::has('success'))

@@ -177,6 +177,15 @@
 
             <li class="nav-item">
                 <a class="nav-link {{
+                    active_class(Route::is('admin/program_categories.index'))
+                }}" href="{{ route('admin.program_categories.index') }}">
+                    <i class="nav-icon fas fa-project-diagram"></i>
+                    Program Categories
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {{
                     active_class(Route::is('admin/quotes.index'))
                 }}" href="{{ route('admin.quotes.index') }}">
                     <i class="nav-icon fas fa-quote-right"></i>

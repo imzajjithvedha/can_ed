@@ -206,6 +206,21 @@ Breadcrumbs::for('admin.programs.import_programs', function ($trail) {
 
 
 
+Breadcrumbs::for('admin.program_categories.index', function ($trail) {
+    $trail->push('Program Categories', route('admin.program_categories.index'));
+});
+
+Breadcrumbs::for('admin.program_categories.edit_program_category', function ($trail) {
+    $trail->push('Program Categories / Edit', route('admin.program_categories.edit_program_category', 1));
+});
+
+Breadcrumbs::for('admin.program_categories.import_program_categories', function ($trail) {
+    $trail->push('Program Categories / Import', route('admin.program_categories.import_program_categories'));
+});
+
+
+
+
 
 Breadcrumbs::for('admin.quotes.index', function ($trail) {
     $trail->push('Quotes', route('admin.quotes.index'));

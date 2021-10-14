@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\VideosController;
 use App\Http\Controllers\Backend\CareersController;
 use App\Http\Controllers\Backend\SchoolTypesController;
 use App\Http\Controllers\Backend\WebsiteInformationController;
+use App\Http\Controllers\Backend\ProgramCategoriesController;
 
 
 
@@ -122,6 +123,16 @@ Route::post('programs/update-program', [ProgramsController::class, 'updateProgra
 Route::get('programs/delete-program/{id}', [ProgramsController::class, 'deleteProgram'])->name('programs.delete_program');
 Route::get('programs/import-programs', [ProgramsController::class, 'importPrograms'])->name('programs.import_programs');
 Route::post('programs/import', [ProgramsController::class, 'import'])->name('programs.import');
+
+
+Route::get('program-categories', [ProgramCategoriesController::class, 'index'])->name('program_categories.index');
+Route::post('program-categories/store-program-category', [ProgramCategoriesController::class, 'storeProgramCategory'])->name('program_categories.store_program_category');
+Route::get('program-categories/get-program-categories', [ProgramCategoriesController::class, 'getProgramCategories'])->name('program_categories.get_program_categories');
+Route::get('program-categories/edit-program-category/{id}', [ProgramCategoriesController::class, 'editProgramCategory'])->name('program_categories.edit_program_category');
+Route::post('program-categories/update-program-category', [ProgramCategoriesController::class, 'updateProgramCategory'])->name('program_categories.update_program_category');
+Route::get('program-categories/delete-program-category/{id}', [ProgramCategoriesController::class, 'deleteProgramCategory'])->name('program_categories.delete_program_category');
+Route::get('program-categories/import-program-categories', [ProgramCategoriesController::class, 'importProgramCategories'])->name('program_categories.import_program_categories');
+Route::post('program-categories/import', [ProgramCategoriesController::class, 'import'])->name('program_categories.import');
 
 
 

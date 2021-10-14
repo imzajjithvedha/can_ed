@@ -37,6 +37,15 @@
                                 <div class="row">
                                     <div class="col-12 border py-3">
                                         <div class="mb-3">
+                                            <select class="form-control" id="program_category" name="program_category" placeholder="Program Category" required>
+                                                <option value="" selected disabled hidden>Program Category *</option>
+                                                @foreach($program_categories as $program_category)
+                                                    <option value="{{ $program_category->id }}" {{ $program_category->id == $school_program->program_category ? "selected" : "" }}>{{ $program_category->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
                                             <select class="form-control" id="title" name="title" placeholder="Program Name *" required>
                                                 <option value="" selected disabled hidden>Program Name *</option>
                                                 @foreach($programs as $program)

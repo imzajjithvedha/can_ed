@@ -121,6 +121,9 @@ Route::get('business-categories-search-results/{keyword}',[BusinessController::c
 Route::post('businesses/search-result', [BusinessController::class, 'businessSearch'])->name('business_search');
 Route::get('businesses-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 
+Route::post('schools/search-result', [SchoolController::class, 'schoolSearch'])->name('school_search');
+Route::get('schools-search-results/{keyword}',[SchoolController::class,'schoolSearchFunction'])->name('school_search_function');
+
 Route::post('directory/search-result', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
 Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[OnlineBusinessDirectoryController::class,'directorySearchFunction'])->name('directory_search_function');
 
@@ -146,8 +149,9 @@ Route::get('get-summer-programs', [ProgramsSearchController::class, 'getSummerPr
 
 
 Route::post('home/schools/search-result', [ProgramsSearchController::class, 'homeSearch'])->name('home_search');
-Route::get('home/schools-search-results/{keyword}',[ProgramsSearchController::class,'schoolSearchFunction'])->name('school_search_function');
-Route::get('home/businesses-search-results/{keyword}',[ProgramsSearchController::class,'businessSearchFunction'])->name('business_search_function');
+Route::get('home/schools-search-results/{keyword}',[ProgramsSearchController::class,'schoolSearchFunction'])->name('home_school_search_function');
+Route::get('home/businesses-search-results/{keyword}',[ProgramsSearchController::class,'businessSearchFunction'])->name('home_business_search_function');
+Route::get('home/resources-search-results/{keyword}',[ProgramsSearchController::class,'resourceSearchFunction'])->name('home_resource_search_function');
 
 
 /*
@@ -249,6 +253,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('user-settings', [UserProfileController::class, 'settingsDashboard'])->name('user_settings');
         Route::post('user-settings/update', [UserProfileController::class, 'settingsUpdate'])->name('settings_update');
+
+
+        Route::post('user-account/delete', [UserProfileController::class, 'accountDelete'])->name('account_delete');
 
     });
 });

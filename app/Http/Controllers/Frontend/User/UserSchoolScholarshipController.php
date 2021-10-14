@@ -72,8 +72,8 @@ class UserSchoolScholarshipController extends Controller
                     
                     ->addColumn('action', function($data){
                         
-                        $button = '<a href="'.route('frontend.user.school_scholarship_edit', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm me-3"><i class="far fa-edit"></i> Edit </a>';
-                        $button .= '<a type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm" style="color: white"><i class="far fa-trash-alt"></i> Delete </a>';
+                        $button = '<a href="'.route('frontend.user.school_scholarship_edit', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm me-3" style="font-size: 0.6rem;"><i class="far fa-edit"></i> Edit </a>';
+                        $button .= '<a type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm" style="color: white; font-size: 0.6rem;"><i class="far fa-trash-alt"></i> Delete </a>';
 
                         return $button;
                     })

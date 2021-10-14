@@ -376,7 +376,7 @@ class ProgramsSearchController extends Controller
                 $keyword = 'schools';
             }
 
-            return redirect()->route('frontend.school_search_function', [$keyword]);
+            return redirect()->route('frontend.home_school_search_function', [$keyword]);
 
         }
         elseif(request('type') == 'businesses') {
@@ -388,8 +388,19 @@ class ProgramsSearchController extends Controller
                 $keyword = 'businesses';
             }
 
-            return redirect()->route('frontend.business_search_function', [$keyword]);
+            return redirect()->route('frontend.home_business_search_function', [$keyword]);
 
+        }
+        else {
+
+            if(request('keyword') != null) {
+                $keyword = request('keyword');
+            }
+            else {
+                $keyword = 'businesses';
+            }
+
+            return redirect()->route('frontend.home_resources_search_function', [$keyword]);
         }
         
     }
@@ -404,7 +415,7 @@ class ProgramsSearchController extends Controller
 
         $filteredSchools = $schools->get();
 
-        return view('frontend.home_school_search', ['filteredSchools' => $filteredSchools]);
+        return view('frontend.home_schools_search', ['filteredSchools' => $filteredSchools]);
 
     }
 
@@ -421,5 +432,19 @@ class ProgramsSearchController extends Controller
         return view('frontend.home_businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
 
     }
+
+    // public function businessSearchFunction($keyword)
+    // {
+    //     $businesses = Businesses::where('status', 'Approved');
+
+    //     if($keyword != 'businesses'){
+    //         $businesses->where('name', 'like', '%' .  $keyword . '%');
+    //     }
+
+    //     $filteredBusinesses = $businesses->get();
+
+    //     return view('frontend.home_businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
+
+    // }
 
 }

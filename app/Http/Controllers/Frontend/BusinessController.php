@@ -129,7 +129,7 @@ class BusinessController extends Controller
     {
         $categories = BusinessCategories::where('status', 'Approved');
 
-        if($category != 'article'){
+        if($category != 'category'){
             $categories->where('name', 'like', '%' .  $category . '%');
         }
 

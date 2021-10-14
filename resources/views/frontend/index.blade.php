@@ -297,14 +297,36 @@
             </div>
         </div>
     @endif
+
+
+    @if(\Session::has('account_deleted'))
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary invisible" id="delete-btn" data-bs-toggle="modal" data-bs-target="#deleteAccountModal"></button>
+
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body" style="padding: 5rem 1rem;">
+                    <h4 class="mb-0 text-center">Your account successfully deleted.</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
 @endsection
 
 
 
 @push('after-scripts')
     <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
+        if(document.getElementById("delete-btn")){
+            $('#delete-btn').click();
         }
     </script>
 @endpush

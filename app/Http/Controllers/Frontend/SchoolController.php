@@ -76,11 +76,41 @@ class SchoolController extends Controller
 
     public function index()
     {
-        return view('frontend.schools');
+        $schools = Schools::where('status', 'Approved')->get();
+
+        return view('frontend.schools', ['schools' => $schools]);
     }
 
     public function singleSchool()
     {
         return view('frontend.single_school');
+    }
+
+
+    public function schoolSearch(Request $request)
+    {
+        if(request('keyword') != null) {
+            $school = request('keyword');
+        }
+        else {
+            $school = 'school';
+        }
+
+        return redirect()->route('frontend.school_search_function', [$school]);
+
+    }
+
+    public function schoolSearchFunction($school)
+    {
+        $schools = Schools::where('status', 'Approved');
+
+        if($school != 'school'){
+            $schools->where('name', 'like', '%' .  $school . '%');
+        }
+
+        $filteredSchools = $schools->get();
+
+        return view('frontend.schools_search', ['filteredSchools' => $filteredSchools]);
+
     }
 }

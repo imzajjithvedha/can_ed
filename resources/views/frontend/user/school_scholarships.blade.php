@@ -40,7 +40,7 @@
                                                 <th scope="col">Provider</th>
                                                 <th scope="col">Amount</th>
                                                 <th scope="col">Deadline</th>
-                                                <th scope="col" style="max-width: 180px;">Options</th>
+                                                <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
                                         </thead>
                                         <tbody>

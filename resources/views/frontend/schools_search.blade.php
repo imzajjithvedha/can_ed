@@ -8,33 +8,34 @@
 
 @section('content')
 
-    <div class="container mt-5 schools">
+    <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
         <h5 class="fw-bolder">Schools</h5>
 
-        <form action="{{ route('frontend.school_search') }}" method="POST">
-            {{ csrf_field() }}
+        <form action="{{ route('frontend.school_search') }}"  method="POST">
+        {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-8">
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search Schools" name="keyword">
+                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" name="keyword" placeholder="Search Schools" value="">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-            </div>
+            </div>    
         </form>
-        
+
+
         <div class="row mt-5">
-            @if(count($schools) == 0)
+            @if(count($filteredSchools) == 0)
                     @include('frontend.includes.not_found_title',[
                         'not_found_title' => 'Schools not found',
                         'not_found_description' => 'Please check later.'
                     ])
             @else
-                @foreach($schools as $school)
+                @foreach($filteredSchools as $school)
                     <div class="col-3 mb-4">
                         <div class="card">
                             <a href="{{ route('frontend.single_school', $school->id) }}" class="text-decoration-none">

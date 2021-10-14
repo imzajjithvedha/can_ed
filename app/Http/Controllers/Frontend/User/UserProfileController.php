@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Frontend\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Hash;
+use App\Models\Auth\User;
+use App\Models\Auth\PasswordHistory;
+use Auth;
 
 /**
  * Class UserProfileController.
@@ -44,5 +47,18 @@ class UserProfileController extends Controller
             return back()->with('error', 'error');
         }
 
+    }
+
+
+    public function accountDelete(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        $history = PasswordHistory::where('user_id', $user_id)->delete();
+
+        $user = User::where('id', $user_id)->delete();
+
+        // return view('frontend.index')->with('account_deleted', 'account_deleted');
+        return redirect()->route('frontend.auth.login');
     }
 }

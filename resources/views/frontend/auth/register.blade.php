@@ -17,16 +17,6 @@
                         <h5 class="fw-bolder">Registration</h5>
                         <hr style="background: #bd2130; height: 1px!important; opacity: 1!important;">
 
-                        <div class="row">
-                            <div class="col-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-                                    <label class="form-check-label" for="flexCheckChecked">
-                                        Student Account
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
                         <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         {{ csrf_field() }}
                             <div class="mb-3">

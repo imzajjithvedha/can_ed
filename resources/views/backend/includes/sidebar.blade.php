@@ -177,15 +177,6 @@
 
             <li class="nav-item">
                 <a class="nav-link {{
-                    active_class(Route::is('admin/program_categories.index'))
-                }}" href="{{ route('admin.program_categories.index') }}">
-                    <i class="nav-icon fas fa-project-diagram"></i>
-                    Program Categories
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link {{
                     active_class(Route::is('admin/quotes.index'))
                 }}" href="{{ route('admin.quotes.index') }}">
                     <i class="nav-icon fas fa-quote-right"></i>
@@ -200,6 +191,12 @@
                 </a>
 
                 <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/degree_levels.index'))}}" href="{{ route('admin.degree_levels.index') }}">
+                            Degree levels
+                        </a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/types.index'))}}" href="{{ route('admin.types.index') }}">
                             School types

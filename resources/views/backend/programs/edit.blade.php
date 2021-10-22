@@ -11,6 +11,14 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
+                            <div class="mb-3">
+                                <select name="degree_level" class="form-control">
+                                        <option value="" selected disabled hidden>Degree Level</option>
+                                    @foreach($degree_levels as $degree_level)
+                                        <option value="{{ $degree_level->id }}" {{ $degree_level->name == App\Models\Programs::where('id', $program->id)->first()->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
 
                             <div class="mb-3">
                                 <input class="form-control" name="title" value="{{ $program->name }}" placeholder="Program Title" required>

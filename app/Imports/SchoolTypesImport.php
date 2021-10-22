@@ -2,11 +2,11 @@
 
 namespace App\Imports;
 
-use App\Models\ProgramCategories;
+use App\Models\SchoolTypes;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class ProgramCategoriesImport implements ToModel, WithHeadingRow
+class SchoolTypesImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,10 +15,11 @@ class ProgramCategoriesImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
-        return new ProgramCategories([
+        return new SchoolTypes([
             'user_id' => '1',
             'name' => $row['name'],
-            'status' => 'Approved'
+            'description' => $row['description'],
+            'status' => 'Approved',
         ]);
     }
 }

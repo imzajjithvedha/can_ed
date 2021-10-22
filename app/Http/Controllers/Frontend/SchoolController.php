@@ -48,9 +48,6 @@ class SchoolController extends Controller
             $school->message = $request->message;
             $school->status = 'Pending';
             $school->images = '[]';
-            $school->links = '[]';
-            $school->programs = '[]';
-            $school->scholarships = '[]';
 
             $school->save();
 

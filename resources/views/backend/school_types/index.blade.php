@@ -13,6 +13,8 @@
                     <strong>School Types&nbsp;</strong>
 
                     <a href="{{ route('admin.types.create_school_type') }}" class="btn btn-primary ms-4">Create New</a>
+
+                    <a href="{{ route('admin.types.import_school_types') }}" class="btn btn-primary pull-right ml-4">Import School Types</a>
                    
                 </div><!--card-header-->
 

@@ -31,8 +31,16 @@
                 ])
             @else
                 @foreach($programs as $program)
-                    <div class="col-3">
-                        <p style="color: #800000;"><i class="fas fa-star"></i> {{ $program->name }}</p>
+                    <div class="col-3 mb-2">
+                        <!-- <p style="color: #800000;"><i class="fas fa-star"></i> {{ $program->name }}</p> -->
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fas fa-star" style="color: #800000;"></i>
+                            </div>
+                            <div class="col-10">
+                                <p style="color: #800000;">{{ $program->name }}</p>
+                            </div>
+                        </div>
                     </div>
                 @endforeach
             @endif
@@ -92,7 +100,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your program suggestion. It will appear here once we approved.</h4>
+                        <h4 class="mb-0 text-center">Thank you for your program suggestion. It will appear here once approved</h4>
                     </div>
                     <div class="modal-footer">
                         <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>

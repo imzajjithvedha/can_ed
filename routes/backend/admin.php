@@ -18,6 +18,7 @@ use App\Http\Controllers\Backend\CareersController;
 use App\Http\Controllers\Backend\SchoolTypesController;
 use App\Http\Controllers\Backend\WebsiteInformationController;
 use App\Http\Controllers\Backend\ProgramCategoriesController;
+use App\Http\Controllers\Backend\DegreeLevelsController;
 
 
 
@@ -125,16 +126,6 @@ Route::get('programs/import-programs', [ProgramsController::class, 'importProgra
 Route::post('programs/import', [ProgramsController::class, 'import'])->name('programs.import');
 
 
-Route::get('program-categories', [ProgramCategoriesController::class, 'index'])->name('program_categories.index');
-Route::post('program-categories/store-program-category', [ProgramCategoriesController::class, 'storeProgramCategory'])->name('program_categories.store_program_category');
-Route::get('program-categories/get-program-categories', [ProgramCategoriesController::class, 'getProgramCategories'])->name('program_categories.get_program_categories');
-Route::get('program-categories/edit-program-category/{id}', [ProgramCategoriesController::class, 'editProgramCategory'])->name('program_categories.edit_program_category');
-Route::post('program-categories/update-program-category', [ProgramCategoriesController::class, 'updateProgramCategory'])->name('program_categories.update_program_category');
-Route::get('program-categories/delete-program-category/{id}', [ProgramCategoriesController::class, 'deleteProgramCategory'])->name('program_categories.delete_program_category');
-Route::get('program-categories/import-program-categories', [ProgramCategoriesController::class, 'importProgramCategories'])->name('program_categories.import_program_categories');
-Route::post('program-categories/import', [ProgramCategoriesController::class, 'import'])->name('program_categories.import');
-
-
 
 Route::get('pages/about-us', [PagesController::class, 'aboutUs'])->name('pages.about_us');
 Route::post('pages/about-us/update', [PagesController::class, 'aboutUsUpdate'])->name('pages.about_us_update');
@@ -215,6 +206,22 @@ Route::get('school-types/get-school-types', [SchoolTypesController::class, 'getS
 Route::get('school-types/edit-school-type/{id}', [SchoolTypesController::class, 'editSchoolType'])->name('types.edit_school_type');
 Route::post('school-types/update-school-type', [SchoolTypesController::class, 'updateSchoolType'])->name('types.update_school_type');
 Route::get('school-types/delete-school-type/{id}', [SchoolTypesController::class, 'deleteSchoolType'])->name('types.delete_school_type');
+Route::get('school-types/import-school-types', [SchoolTypesController::class, 'importSchoolTypes'])->name('types.import_school_types');
+Route::post('school-types/import', [SchoolTypesController::class, 'import'])->name('types.import');
+
+
+
+Route::get('degree-levels', [DegreeLevelsController::class, 'index'])->name('degree_levels.index');
+Route::get('degree-levels/create-degree-level', [DegreeLevelsController::class, 'createDegreeLevel'])->name('degree_levels.create_degree_level');
+Route::post('degree-levels/store-degree-level', [DegreeLevelsController::class, 'storeDegreeLevel'])->name('degree_levels.store_degree_level');
+Route::get('degree-levels/get-degree-levels', [DegreeLevelsController::class, 'getDegreeLevels'])->name('degree_levels.get_degree_levels');
+Route::get('degree-levels/edit-degree-level/{id}', [DegreeLevelsController::class, 'editDegreeLevel'])->name('degree_levels.edit_degree_level');
+Route::post('degree-levels/update-degree-level', [DegreeLevelsController::class, 'updateDegreeLevel'])->name('degree_levels.update_degree_level');
+Route::get('degree-levels/delete-degree-level/{id}', [DegreeLevelsController::class, 'deleteDegreeLevel'])->name('degree_levels.delete_degree_level');
+Route::get('degree-levels/import-degree-levels', [DegreeLevelsController::class, 'importDegreeLevels'])->name('degree_levels.import_degree_levels');
+Route::post('degree-levels/import', [DegreeLevelsController::class, 'import'])->name('degree_levels.import');
+
+
 
 Route::get('information', [WebsiteInformationController::class, 'index'])->name('information.index');
 Route::post('information/update', [WebsiteInformationController::class, 'informationUpdate'])->name('information.update');

@@ -24,6 +24,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Title</th>
+                                <th scope="col">Degree Level</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -81,6 +82,7 @@
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
+                {data: 'degree_level', name: 'degree_level'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

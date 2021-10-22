@@ -48,31 +48,40 @@
 
                 <div class="row">
                     <div class="col-9">
-                        <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                        @if($business->image != null)
+                            <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                        @else
+                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                        @endif
                     </div>
                     <div class="col-3">
                         <p class="fw-bold">Social Media</p>
                         <hr class="my-2">
                         @if($business->facebook != null)
-                            <a href="{{ $business->facebook }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $business->facebook }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         @endif
 
                         @if($business->twitter != null)
-                            <a href="{{ $business->twitter }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $business->twitter }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-twitter"></i></a>
                         @endif
 
                         @if($business->you_tube != null)
-                            <a href="{{ $business->you_tube }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="{{ $business->you_tube }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                         @endif
 
                         @if($business->linked_in != null)
-                            <a href="{{ $business->linked_in }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none"><i class="fab fa-youtube"></i></a>
+                            <a href="{{ $business->linked_in }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-youtube"></i></a>
                         @endif
                         
 
                         <p class="fw-bold mt-3">Contact</p>
                         <hr class="my-2">
-                        <button type="button" class="fw-bold border-0 bg-white" data-bs-toggle="modal" data-bs-target="#exampleModal"class="fw-bold" style="color: #800000; font-size: 0.9rem"><i class="fas fa-envelope me-2"></i>Send a message</button>
+
+                        @auth
+                            <button type="button" class="fw-bold border-0 bg-white" data-bs-toggle="modal" id="message_btn" data-bs-target="#messageModal" class="fw-bold" style="color: #800000; font-size: 0.9rem"><i class="fas fa-envelope me-2"></i>Send a message</button>
+                        @else
+                            <a href="{{ route('frontend.auth.login') }}" class="fw-bold border-0 bg-white text-decoration-none" class="fw-bold" style="color: #800000; font-size: 0.9rem"><i class="fas fa-envelope me-2"></i>Send a message</a>
+                        @endauth
                     </div>
                 </div>
 
@@ -145,7 +154,11 @@
                 @foreach($more_businesses as $business)
                     <div class="card mb-4">
                         <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
-                            <img src="{{ url('images/businesses', $business->image) }}" class="card-img-top" alt="..." style="    height: 8rem; object-fit: cover;">
+                            @if($business->image != null)
+                                <img src="{{ url('images/businesses', $business->image) }}" class="card-img-top" alt="..." style="height: 8rem; object-fit: cover;">
+                            @else
+                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                            @endif
                             <div class="card-body text-center">
                                 <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
                             </div>
@@ -159,8 +172,9 @@
 
 
     <!-- Modal -->
-    <form>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="{{ route('frontend.business_single_contact') }}" method="POST">
+        {{ csrf_field() }}
+        <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -173,13 +187,13 @@
                         </div>
                         
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *" required>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *" name="name" required>
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Your email *" required>
+                            <input type="email" class="form-control" id="email" placeholder="Your email *" name="email" required>
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control" rows="7" placeholder="Your message *" required></textarea>
+                            <textarea class="form-control" rows="7" placeholder="Your message *" name="message" required></textarea>
                         </div>
 
                         <div class="row mb-4 justify-content-center">
@@ -190,6 +204,7 @@
                         
                     </div>
                     <div class="modal-footer">
+                        <input type="hidden" class="form-control" name="business_id" value="{{ $business->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary" id="submit_btn" disabled>Send Message</button>
                     </div>
@@ -197,6 +212,7 @@
             </div>
         </div>
     </form>
+
 @endsection
 
 

@@ -42,7 +42,11 @@
                                     @if(is_favorite_business( $business->id, auth()->user()->id))
                                         <div class="row border py-3 px-2 mb-3">
                                             <div class="col-4">
-                                                <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid">
+                                                @if($business->image != null)
+                                                    <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                @else
+                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                @endif
 
                                                 <p class="gray mt-4">Updated: {{ $business->updated_at }}</p>
                                             </div>

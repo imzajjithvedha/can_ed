@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Program Categories | Admin'))
+@section('title', __('Degree Levels | Admin'))
 
 @section('content')
     
@@ -10,21 +10,22 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Program Categories&nbsp;</strong>
+                    <strong>Degree Levels&nbsp;</strong>
 
-                    <button class="btn btn-primary pull-right ml-4" data-bs-toggle="modal" data-bs-target="#createProgramCategory">Create New</button>
+                    <a href="{{ route('admin.degree_levels.create_degree_level') }}" class="btn btn-primary ms-4">Create New</a>
 
-                    <a href="{{ route('admin.program_categories.import_program_categories') }}" class="btn btn-primary pull-right ml-4">Import Program Categories</a>
+                    <a href="{{ route('admin.degree_levels.import_degree_levels') }}" class="btn btn-primary pull-right ml-4">Import Degree Levels</a>
                    
                 </div><!--card-header-->
 
                 <div class="card-body">
-                    <table class="table table-striped table-bordered" id="program-categories-table" style="width:100%">
+                    <table class="table table-striped table-bordered" id="degree-levels-table" style="width:100%">
                         <thead>
                             <tr>
+                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Option</th>
+                                <th scope="col">Options</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,30 +36,6 @@
             </div><!--card-->
         </div><!--col-->
     </div><!--row-->
-
-
-    <form action="{{ route('admin.program_categories.store_program_category') }}" method="POST">
-    {{csrf_field()}}
-        <div class="modal fade" id="createProgramCategory" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Program Category</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name *" name="name" required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Create</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
     
 
      <!-- Modal delete -->
@@ -75,7 +52,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <h5>Are you sure you want to remove this program category?</h5>
+                            <h5>Are you sure you want to remove this?</h5>
                         </div>                        
 
                     </div>
@@ -96,34 +73,35 @@
 @push('after-scripts')
 <script type="text/javascript">
     $(function () {
-        var table = $('#program-categories-table').DataTable({
+        var table = $('#degree-levels-table').DataTable({
             processing: true,
-            ajax: "{{route('admin.program_categories.get_program_categories')}}",
+            ajax: "{{route('admin.degree_levels.get_degree_levels')}}",
             serverSide: true,
             order: [[0, "desc"]],
             columns: [
-                {data: 'name', name: 'name'},
+                {data: 'id', name: 'id'},
+                {data: 'name', name: 'title'},
                 {data: 'status', name: 'status'},
-                {data: 'action', name: 'action', orderable: false, searchable: false}
+                {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });
 
-        let program_category_id;
+        let degree_level_id;
 
         $(document).on('click', '.delete', function(){
-            program_category_id = $(this).attr('id');
+            degree_level_id = $(this).attr('id');
             $('#confirmModal').modal('show');
         });
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"program-categories/delete-program-category/" + program_category_id,
+                url:"degree-levels/delete-degree-level/" + degree_level_id,
         
                 success:function(data)
                 {
                     setTimeout(function(){
                         $('#confirmModal').modal('hide');
-                        $('#program-categories-table').DataTable().ajax.reload();
+                        $('#degree-levels-table').DataTable().ajax.reload();
                     });
                 }
             })

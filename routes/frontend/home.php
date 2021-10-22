@@ -30,6 +30,7 @@ use App\Http\Controllers\Frontend\User\UserBusinessController;
 use App\Http\Controllers\Frontend\User\UserProfileController;
 use App\Http\Controllers\Frontend\User\UserSchoolProgramController;
 use App\Http\Controllers\Frontend\User\UserSchoolScholarshipController;
+use App\Http\Controllers\Frontend\User\UserSchoolContactController;
 
 /*
  * Frontend Controllers
@@ -93,6 +94,7 @@ Route::get('business-register', [BusinessController::class, 'businessRegister'])
 Route::get('businesses/single-business/{id}', [BusinessController::class, 'singleBusiness'])->name('single_business');
 Route::post('businesses/single-business/favorite', [BusinessController::class, 'favoriteBusiness'])->name('favorite_business');
 Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
+Route::post('businesses/single-business/contact', [BusinessController::class, 'BusinessSingleContact'])->name('business_single_contact');
 
 
 
@@ -135,23 +137,21 @@ Route::get('videos', [VideoController::class, 'index'])->name('videos');
 // Homepage search routes
 Route::get('language-programs', [ProgramsSearchController::class, 'languagePrograms'])->name('language_programs');
 Route::get('get-language-programs', [ProgramsSearchController::class, 'getLanguagePrograms'])->name('get_language_programs');
-Route::get('college-programs', [ProgramsSearchController::class, 'collegePrograms'])->name('college_programs');
-Route::get('get-college-programs', [ProgramsSearchController::class, 'getCollegePrograms'])->name('get_college_programs');
-Route::get('bachelor-programs', [ProgramsSearchController::class, 'bachelorPrograms'])->name('bachelor_programs');
-Route::get('get-bachelor-programs', [ProgramsSearchController::class, 'getBachelorPrograms'])->name('get_bachelor_programs');
-Route::get('master-programs', [ProgramsSearchController::class, 'masterPrograms'])->name('master_programs');
-Route::get('get-master-programs', [ProgramsSearchController::class, 'getMasterPrograms'])->name('get_master_programs');
-Route::get('certificate-programs', [ProgramsSearchController::class, 'certificatePrograms'])->name('certificate_programs');
-Route::get('get-certificate-programs', [ProgramsSearchController::class, 'getCertificatePrograms'])->name('get_certificate_programs');
-Route::get('summer-programs', [ProgramsSearchController::class, 'summerPrograms'])->name('summer_programs');
-Route::get('get-summer-programs', [ProgramsSearchController::class, 'getSummerPrograms'])->name('get_summer_programs');
+Route::get('community-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('community_schools');
+Route::get('bachelor-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('bachelor_schools');
+Route::get('masters-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('master_schools');
+Route::get('certificate-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('certificate_schools');
+Route::get('summer-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('summer_schools');
+Route::get('high-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('high_schools');
+Route::get('online-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('online_schools');
 
 
 
 Route::post('home/schools/search-result', [ProgramsSearchController::class, 'homeSearch'])->name('home_search');
 Route::get('home/schools-search-results/{keyword}',[ProgramsSearchController::class,'schoolSearchFunction'])->name('home_school_search_function');
 Route::get('home/businesses-search-results/{keyword}',[ProgramsSearchController::class,'businessSearchFunction'])->name('home_business_search_function');
-Route::get('home/resources-search-results/{keyword}',[ProgramsSearchController::class,'resourceSearchFunction'])->name('home_resource_search_function');
+Route::get('home/programs-search-results/{keyword}',[ProgramsSearchController::class,'programSearchFunction'])->name('home_program_search_function');
+Route::get('home/articles-search-results/{keyword}',[ProgramsSearchController::class,'articleSearchFunction'])->name('home_article_search_function');
 
 
 /*
@@ -218,6 +218,15 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('school-programs/edit/{id}', [UserSchoolProgramController::class, 'schoolProgramEdit'])->name('school_program_edit');
         Route::post('school-programs/update', [UserSchoolProgramController::class, 'schoolProgramUpdate'])->name('school_program_update');
         Route::get('school-programs/delete/{id}', [UserSchoolProgramController::class, 'SchoolProgramDelete'])->name('school_program_delete');
+
+        Route::get('school-contacts', [UserSchoolContactController::class, 'schoolContacts'])->name('school_contacts');
+        Route::get('get-school-contacts', [UserSchoolContactController::class, 'getSchoolContacts'])->name('get_school_contacts');
+        Route::post('school-contacts/create', [UserSchoolContactController::class, 'schoolContactCreate'])->name('school_contact_create');
+        Route::get('school-contacts/edit/{id}', [UserSchoolContactController::class, 'schoolContactEdit'])->name('school_contact_edit');
+        Route::post('school-contacts/update', [UserSchoolContactController::class, 'schoolContactUpdate'])->name('school_contact_update');
+        Route::get('school-contacts/delete/{id}', [UserSchoolContactController::class, 'SchoolContactDelete'])->name('school_contact_delete');
+
+        Route::post('school-contacts/paragraph/update', [UserSchoolContactController::class, 'schoolContactsParagraphUpdate'])->name('school_contacts_paragraph_update');
 
 
 

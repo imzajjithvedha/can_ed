@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\SchoolTypes; 
+use App\Models\SchoolTypes;
+use Excel;
+use App\Imports\SchoolTypesImport; 
 
 /**
  * Class SchoolTypesController.
@@ -102,6 +104,19 @@ class SchoolTypesController extends Controller
     public function deleteSchoolType($id)
     {
         $type = SchoolTypes::where('id', $id)->delete();
+    }
+
+
+    public function importSchoolTypes()
+    {
+        return view('backend.school_types.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new SchoolTypesImport, $request->file);
+
+        return redirect()->route('admin.types.index')->withFlashSuccess('Uploaded Successfully');          
     }
 
 }

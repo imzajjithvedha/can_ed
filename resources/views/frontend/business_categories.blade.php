@@ -40,7 +40,7 @@
                         <div class="card">
                             <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
                                 @if($category->image != null)
-                                    <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top" alt="..." style="height: 10rem; object-fit: cover;">
+                                    <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif

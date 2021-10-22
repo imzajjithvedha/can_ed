@@ -40,6 +40,8 @@
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships</a>
 
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-contacts' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_contacts') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Contacts</a>
+
         <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'suggested-programs' ? 'active' : null }}" id="nav-suggested-programs-tab" href="{{ route('frontend.user.suggested_programs') }}" type="button" role="tab" aria-controls="nav-suggested-programs" aria-selected="false">Suggested Programs</a>
 
     @endif

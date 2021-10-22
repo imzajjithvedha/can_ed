@@ -7,22 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Program extends Mailable
+class ProgramUser extends Mailable
 {
     use Queueable, SerializesModels;
 
 
-    public $details;
+    // public $details;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
-    {
-        $this->details = $details;
-    }
+    // public function __construct($details)
+    // {
+    //     $this->details = $details;
+    // }
 
     /**
      * Build the message.
@@ -31,6 +31,6 @@ class Program extends Mailable
      */
     public function build()
     {
-        return $this->subject('Program Suggestion - Studying in Canada')->view('frontend.mail.program_request');
+        return $this->subject('Program Suggestion - Studying in Canada')->view('frontend.mail.program_request_user');
     }
 }

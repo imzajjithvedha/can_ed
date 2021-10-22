@@ -17,7 +17,7 @@ class ProgramsImport implements ToModel, WithHeadingRow
     {
         return new Programs([
             'user_id' => '1',
-            'program_category' => $row['program_category'],
+            'degree_level' => $row['degree_level'],
             'name' => $row['name'],
             'description' => $row['description'],
             'status' => 'Approved',

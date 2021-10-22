@@ -39,7 +39,11 @@
                 @foreach($articles as $article)
                     <div class="row justify-content-between border py-3 px-2 mb-3">
                         <div class="col-4">
-                            <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                            @if($article->image != null)
+                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
+                            @else
+                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                            @endif
 
                             <p class="gray mt-4">Updated: {{ $article->updated_at }}</p>
                         </div>

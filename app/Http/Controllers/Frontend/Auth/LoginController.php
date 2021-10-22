@@ -32,6 +32,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
+        session(['link' => url()->previous()]);
+        
         return view('frontend.auth.login');
     }
 
@@ -102,7 +104,7 @@ class LoginController extends Controller
             auth()->logoutOtherDevices($request->password);
         }
 
-        return redirect()->intended($this->redirectPath());
+        return redirect(session('link'));
     }
 
     /**

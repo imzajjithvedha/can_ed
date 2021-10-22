@@ -29,8 +29,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 border">
-                        <div class="px-2 py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                    <div class="col-12">
+                        <div class="py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
                                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">

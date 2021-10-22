@@ -14,6 +14,15 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
+                                <select name="degree_level" class="form-control">
+                                        <option value="" selected disabled hidden>Degree Level</option>
+                                    @foreach($degree_levels as $degree_level)
+                                        <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
                                 <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Program Title" name="title" required>
                             </div>
 

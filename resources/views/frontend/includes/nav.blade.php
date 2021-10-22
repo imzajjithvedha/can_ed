@@ -17,9 +17,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   @if(auth()->user()->display_name != null)
-                                    <span class="text-white user-name">{{auth()->user()->display_name}}</span>
+                                    <span class="text-white user-name">Welcome back, {{auth()->user()->display_name}}</span>
                                   @else
-                                    <span class="text-white user-name">{{auth()->user()->first_name}}</span>
+                                    <span class="text-white user-name">Welcome back, {{auth()->user()->first_name}}</span>
                                   @endif
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -28,6 +28,9 @@
                                   </div>
                             </li>
                         @else
+                            <!-- <li class="nav-item border-end px-2 border-end">
+                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.register') }}">Create Account</a>
+                            </li> -->
                             <li class="nav-item border-end px-2 border-end">
                                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.login') }}">Register a School</a>
                             </li>
@@ -47,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
         <div class="container p-0">
-          <a class="navbar-brand text-center text-white fw-bold" href="{{ route('frontend.index') }}" style="font-family: futura; font-size:1.5625rem; line-height:0.75; letter-spacing: 2px;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->name) }} <br> <span style="font-family: futura; font-size:0.875rem; font-style: italic;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->mantra) }}</span></a>
+          <a class="navbar-brand text-center text-white fw-bold" href="{{ route('frontend.index') }}" style="font-family: Futura BdCn BT Bold; font-size:1.5625rem; line-height:0.75; letter-spacing: 2px;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->name) }} <br> <span style="font-family: FUTURA LIGHT FONT; font-size:0.875rem; font-style: italic;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->mantra) }}</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

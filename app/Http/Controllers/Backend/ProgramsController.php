@@ -8,7 +8,8 @@ use DataTables;
 use DB;
 use Excel;
 use App\Models\Programs; 
-use App\Imports\ProgramsImport; 
+use App\Imports\ProgramsImport;
+use App\Models\DegreeLevels;
 
 /**
  * Class ProgramsController.
@@ -25,7 +26,9 @@ class ProgramsController extends Controller
 
     public function createProgram()
     {
-        return view('backend.programs.create');
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
+
+        return view('backend.programs.create', ['degree_levels' => $degree_levels]);
     }
 
     public function storeProgram(Request $request)
@@ -34,7 +37,10 @@ class ProgramsController extends Controller
 
         $program = new Programs;
 
+        $degree_level = DegreeLevels::where('status', 'Approved')->where('id', $request->degree_level)->first()->name;
+
         $program->user_id = $user_id;
+        $program->degree_level = $degree_level;
         $program->name = $request->title;
         $program->description = $request->description;
         $program->status = 'Approved';
@@ -61,6 +67,18 @@ class ProgramsController extends Controller
                     return $button;
                 })
 
+                ->editColumn('degree_level', function($data){
+                    if($data->degree_level != null){
+
+                        $degree_level = $data->degree_level;
+
+                    }else{
+                        $degree_level = '-';
+                    }   
+
+                    return $degree_level;
+                })
+
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
                         $status = '<span class="badge bg-success">Approved</span>';
@@ -70,7 +88,7 @@ class ProgramsController extends Controller
                     return $status;
                 })
                 
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action','status', 'degree_level'])
                 ->make(true);
         }
         return back();
@@ -79,18 +97,21 @@ class ProgramsController extends Controller
 
     public function editProgram($id)
     {
-
         $program = Programs::where('id',$id)->first();
 
-        return view('backend.programs.edit',['program' => $program]);
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
+
+        return view('backend.programs.edit',['program' => $program, 'degree_levels' => $degree_levels]);
     }
 
     public function updateProgram(Request $request)
     {    
-        
+        $degree_level = DegreeLevels::where('status', 'Approved')->where('id', $request->degree_level)->first()->name;
+
         $program = DB::table('programs') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->title,
+                'degree_level' => $degree_level,
                 'description' => $request->description,
                 'status' => $request->status
             ]

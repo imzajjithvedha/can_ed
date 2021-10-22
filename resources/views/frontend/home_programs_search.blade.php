@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'College Programs')
+@section('title', 'Language Programs')
 
 @push('after-styles')
     <link href="{{ url('css/search.css') }}" rel="stylesheet">
@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
-        <h5 class="fw-bolder">College Programs</h5>
+        <h5 class="fw-bolder">Programs - Search Results</h5>
         <hr>
     </div>
 
@@ -38,9 +38,11 @@
 @push('after-scripts')
     <script>
         $(function () {
+            let keyword = <?php echo json_encode($keyword); ?>;
+
             var table = $('#programs-table').DataTable({
                 processing: true,
-                ajax: "{{route('frontend.get_college_programs')}}",
+                ajax: "{{route('frontend.home_program_search_function', $keyword)}}",
                 serverSide: true,
                 order: [[0, "asc"]],
                 columns: [

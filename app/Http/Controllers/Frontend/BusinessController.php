@@ -8,7 +8,11 @@ use App\Models\Businesses;
 use App\Models\BusinessCategories;
 use App\Models\FavoriteBusinesses;
 use App\Mail\Frontend\Business;
+use App\Mail\Frontend\SingleBusinessAdmin;
+use App\Mail\Frontend\SingleBusinessUser;
+use App\Mail\Frontend\SingleBusinessOwner;
 use Illuminate\Support\Facades\Mail;
+use App\Models\SingleBusinessContact;
 
 /**
  * Class BusinessController.
@@ -82,33 +86,11 @@ class BusinessController extends Controller
     }
 
 
-    public function singleBusiness($id)
-    {
-        $business = Businesses::where('id', $id)->first();
-
-        $more_businesses = Businesses::inRandomOrder()->limit(4)->get();
-
-        return view('frontend.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
-    }
-
-
     public function businessCategories()
     {
         $categories = BusinessCategories::where('status', 'Approved')->orderBy('name', 'ASC')->get();
 
         return view('frontend.business_categories', ['categories' => $categories]);
-    }
-
-
-    public function businesses($id)
-    {
-        $category = businessCategories::where('id', $id)->first()->name;
-
-        $businesses = Businesses::where('status', 'Approved')->where(function($query) use ($id) {
-            $query->where('category_1', $id)->orWhere('category_2', $id)->orWhere('category_3', $id);
-        })->orderBy('updated_at', 'DESC')->get();
-
-        return view('frontend.businesses', ['businesses' => $businesses, 'category' => $category]);
     }
 
 
@@ -139,9 +121,33 @@ class BusinessController extends Controller
 
     }
 
+
+    public function businesses($id)
+    {
+        $category = businessCategories::where('id', $id)->first();
+
+        $businesses = Businesses::where('status', 'Approved')->where(function($query) use ($id) {
+            $query->where('category_1', $id)->orWhere('category_2', $id)->orWhere('category_3', $id);
+        })->orderBy('updated_at', 'DESC')->get();
+
+        return view('frontend.businesses', ['businesses' => $businesses, 'category' => $category]);
+    }
+
+    public function singleBusiness($id)
+    {
+        $business = Businesses::where('id', $id)->first();
+
+        $more_businesses = Businesses::inRandomOrder()->limit(4)->get();
+
+        return view('frontend.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
+    }
+
+
+    
+
     public function businessSearch(Request $request)
     {
-        $category = $request->category;
+        $category_id = $request->category_id;
 
         if(request('keyword') != null) {
             $business = request('keyword');
@@ -150,13 +156,15 @@ class BusinessController extends Controller
             $business = 'business';
         }
 
-        return redirect()->route('frontend.business_search_function', [$category, $business]);
+        return redirect()->route('frontend.business_search_function', [$category_id, $business]);
 
     }
 
-    public function businessSearchFunction($category, $business)
+    public function businessSearchFunction($category_id, $business)
     {
         $businesses = Businesses::where('status', 'Approved');
+
+        $category = businessCategories::where('id', $category_id)->first();
 
         if($business != 'business'){
             $businesses->where('name', 'like', '%' .  $business . '%');
@@ -195,6 +203,42 @@ class BusinessController extends Controller
 
             return back();
         }
+    }
+
+
+
+    public function BusinessSingleContact(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        $single_business_contact = new SingleBusinessContact;
+
+
+        $single_business_contact->user_id = $user_id;
+        $single_business_contact->business_id = $request->business_id;
+        $single_business_contact->name = $request->name;
+        $single_business_contact->email = $request->email;
+        $single_business_contact->message = $request->message;
+
+        $single_business_contact->save();
+
+
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message,
+            'business_id' => $request->business_id,
+        ];
+
+        Mail::to(['zajjith@yopmail.com'])->send(new SingleBusinessAdmin($details));
+
+        Mail::to([$request->email])->send(new SingleBusinessUser($details));
+
+        Mail::to([Businesses::where('id', $request->business_id)->first()->email])->send(new SingleBusinessOwner($details));
+
+
+        return redirect()->route('frontend.index')->with('business_contact', 'business_contact'); 
+
     }
 
 

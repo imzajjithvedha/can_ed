@@ -206,21 +206,6 @@ Breadcrumbs::for('admin.programs.import_programs', function ($trail) {
 
 
 
-Breadcrumbs::for('admin.program_categories.index', function ($trail) {
-    $trail->push('Program Categories', route('admin.program_categories.index'));
-});
-
-Breadcrumbs::for('admin.program_categories.edit_program_category', function ($trail) {
-    $trail->push('Program Categories / Edit', route('admin.program_categories.edit_program_category', 1));
-});
-
-Breadcrumbs::for('admin.program_categories.import_program_categories', function ($trail) {
-    $trail->push('Program Categories / Import', route('admin.program_categories.import_program_categories'));
-});
-
-
-
-
 
 Breadcrumbs::for('admin.quotes.index', function ($trail) {
     $trail->push('Quotes', route('admin.quotes.index'));
@@ -259,6 +244,29 @@ Breadcrumbs::for('admin.types.create_school_type', function ($trail) {
 
 Breadcrumbs::for('admin.types.edit_school_type', function ($trail) {
     $trail->push('School Types / Edit', route('admin.types.edit_school_type', 1));
+});
+
+Breadcrumbs::for('admin.types.import_school_types', function ($trail) {
+    $trail->push('School Types / Import', route('admin.types.import_school_types'));
+});
+
+
+
+
+Breadcrumbs::for('admin.degree_levels.index', function ($trail) {
+    $trail->push('Degree Levels', route('admin.degree_levels.index'));
+});
+
+Breadcrumbs::for('admin.degree_levels.create_degree_level', function ($trail) {
+    $trail->push('Degree Levels / Create', route('admin.degree_levels.create_degree_level'));
+});
+
+Breadcrumbs::for('admin.degree_levels.edit_degree_level', function ($trail) {
+    $trail->push('Degree Levels / Edit', route('admin.degree_levels.edit_degree_level', 1));
+});
+
+Breadcrumbs::for('admin.degree_levels.import_degree_levels', function ($trail) {
+    $trail->push('Degree Levels / Import', route('admin.degree_levels.import_degree_levels'));
 });
 
 

@@ -21,7 +21,7 @@
             <div class="col-8">
                 <div class="row justify-content-between align-items-center mb-3">
                     <div class="col-8">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Scholarships FAQ's</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Admission FAQ's</h4>
                     </div>
                     <div class="col-4 text-end">
                         <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
@@ -65,7 +65,7 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.school_scholarship_faq_create') }}" method="POST">
+    <form action="{{ route('frontend.user.school_admission_faq_create') }}" method="POST">
     {{csrf_field()}}
         <div class="modal fade" id="createScholarshipFAQ" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -172,7 +172,7 @@
         $(function () {
             var table = $('#faq-table').DataTable({
                 processing: true,
-                ajax: "{{route('frontend.user.get_school_scholarships_faq')}}",
+                ajax: "{{route('frontend.user.get_school_admission_faq')}}",
                 serverSide: true,
                 order: [[1, "asc"]],
                 columns: [
@@ -193,7 +193,7 @@
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"school-scholarships-faq/delete/" + faq_id,
+                url:"school-admission-faq/delete/" + faq_id,
         
                 success:function(data)
                 {

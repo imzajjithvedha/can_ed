@@ -741,11 +741,330 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="programs" role="tabpanel" aria-labelledby="programs-tab">
+
+                            <div class="tab-pane fade" id="admissions" role="tabpanel" aria-labelledby="admissions-tab">
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="gray">
+                                            {!! $school->admission_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if(count($admission_employees) != null)
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Employees</h5>
+
+                                            @foreach($admission_employees as $admission_employee)
+                                                <div class="p-3 mb-4" style="background-color: #f2f4f8;">
+
+                                                    <div class="row">
+                                                        <div class="col-4">
+                                                            @if($admission_employee->image != null)
+                                                                <img src="{{ url('images/schools', $admission_employee->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-3" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                        </div>
+
+                                                        <div class="col-8">
+                                                            <div class="row align-items-center mb-2">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">Name</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <h6 class="fw-bolder">{{ $admission_employee->name }}</h6>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">Position</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->position }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">Description</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->description }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">Phone</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->phone }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">Email</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->email }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="row justify-content-center mb-5">
+                                    <div class="col-7 text-center">
+                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="row rounded">
+                                            <div class="col-1 red-btn py-3"></div>
+                                            <div class="col-3 text-white bg-primary py-3">
+                                                <h6 class="fw-bold">Good to go?</h6>
+                                            </div>
+                                            <div class="col-7 text-white red-btn py-3">
+                                                <h6 class="fw-bold">Let's apply</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_1 }}</h5>
+
+                                        <div class="gray">
+                                            {!! $school->admission_title_1_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="gray p-3" style="background-color: #f2f4f8;">
+                                            {!! $school->admission_text_content_1 !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->admission_title_2 }}</h5>
+
+                                        <div>
+                                            @foreach(json_decode($school->admission_title_2_bullets) as $bullet)
+                                                @if($bullet != null)
+                                                    
+                                                    <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.8rem;"></i>{{ $bullet }}</p>
+                                                        
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+
+                                        <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_3 }}</h5>
+
+                                        <div class="p-3" style="background-color: #f2f4f8">
+                                            {!! $school->admission_title_3_paragraph !!}
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+
+                                        <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_4 }}</h5>
+
+                                        <div class="p-3" style="background-color: #f2f4f8">
+                                            {!! $school->admission_title_4_paragraph !!}
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_5 }}</h5>
+
+                                        <div class="gray">
+                                            {!! $school->admission_title_5_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                @if(count($admission_featured_employees) > 0)
+                                    <div class="row mb-5">
+                                        @foreach($admission_featured_employees as $admission_featured_employee)
+                                            <div class="col-4">
+                                                <div class="card">
+                                                    <img src="{{ url('images/schools', $admission_featured_employee->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+
+                                                    <div class="card-body p-3">
+                                                    <h6 class="fw-bold mb-1" style="color: #384058">{{ $admission_featured_employee->name }}</h6>
+                                                    <p class="gray fw-bold">{{ $admission_featured_employee->position }}</p>
+                                                    <p class="gray mb-1" style="font-size: 0.75rem;">{{ $admission_featured_employee->description }}</p>
+
+                                                    <div class="row align-items-center">
+                                                        <div class="col-1">
+                                                            <i class="fas fa-phone-alt gray" style="font-size: 0.8rem;"></i>
+                                                        </div>
+                                                        <div class="col-10 ps-2">
+                                                            <p class="gray" style="font-size: 0.8rem;">{{ $admission_featured_employee->phone }}</p>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row align-items-center">
+                                                        <div class="col-1">
+                                                            <i class="far fa-envelope gray" style="font-size: 0.8rem;"></i>
+                                                        </div>
+                                                        <div class="col-10 ps-2">
+                                                            <p class="gray" style="font-size: 0.8rem;">{{ $admission_featured_employee->email }}</p>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
+
+                                @if(count($admission_faqs) > 0)
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+
+                                            <div class="accordion" id="accordionExample">
+                                                @foreach($admission_faqs as $admission_faq)
+                                                    <div class="accordion-item mb-3 rounded-0 border-0">
+                                                        <h2 class="accordion-header border" id="heading-{{ $admission_faq->id }}">
+                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $admission_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $admission_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                {{ $admission_faq->question }}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse-{{ $admission_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $admission_faq->id }}" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body gray">
+                                                                <p class="gray">{{ $admission_faq->answer }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="row justify-content-center mb-5">
+                                    <div class="col-7 text-center">
+                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+
+                                        <div class="row align-items-center">
+                                            @foreach($articles as $article)
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center">
+                                                                <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="row rounded">
+                                            <div class="col-1 red-btn py-3"></div>
+                                            <div class="col-3 text-white bg-primary py-3">
+                                                <h6 class="fw-bold">Good to go?</h6>
+                                            </div>
+                                            <div class="col-7 text-white red-btn py-3">
+                                                <h6 class="fw-bold">Let's apply</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
 
-                            <div class="tab-pane fade" id="programs" role="tabpanel" aria-labelledby="programs-tab">
+                            <div class="tab-pane fade" id="financial" role="tabpanel" aria-labelledby="financial-tab">
 
                             </div>
 
@@ -1016,8 +1335,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="row mb-5">
                                     <div class="col-12">
                                         <div class="row rounded">
@@ -1213,11 +1530,11 @@
                                 </div>
                                 
                             </div>
+                            
                         </div>
                     </div>
                 </div>
             </div>
-   
         </div>
     </div>
 

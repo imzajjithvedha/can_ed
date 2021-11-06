@@ -172,6 +172,20 @@ class CreateSchoolsTable extends Migration
             $table->text('overview_title_12_bullets')->nullable();
             $table->text('overview_title_13')->nullable();
             $table->text('overview_title_13_paragraph')->nullable();
+
+
+            $table->text('admission_paragraph')->nullable();
+            $table->text('admission_title_1')->nullable();
+            $table->text('admission_title_1_paragraph')->nullable();
+            $table->text('admission_text_content_1')->nullable();
+            $table->text('admission_title_2')->nullable();
+            $table->text('admission_title_2_bullets')->nullable();
+            $table->text('admission_title_3')->nullable();
+            $table->text('admission_title_3_paragraph')->nullable();
+            $table->text('admission_title_4')->nullable();
+            $table->text('admission_title_4_paragraph')->nullable();
+            $table->text('admission_title_5')->nullable();
+            $table->text('admission_title_5_paragraph')->nullable();
             $table->timestamps();
         });
     }

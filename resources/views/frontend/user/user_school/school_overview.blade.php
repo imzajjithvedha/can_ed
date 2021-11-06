@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_overview_update') }}" class="mb-5" method="POST" enctype="multipart/form-data" >
+                                    <form action="{{ route('frontend.user.school_overview_update') }}" class="mb-5" method="POST" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="overview_title_1" class="form-label mb-1">Title 1</label>

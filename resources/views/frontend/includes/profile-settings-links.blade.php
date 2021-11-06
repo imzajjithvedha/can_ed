@@ -36,7 +36,9 @@
     @if(is_school_registered(auth()->user()->id))
         <h5 class="px-3 mt-4 pb-2 mb-0">School Dashboard</h5>
 
-        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-admission' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_admission') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Admissions</a>
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-admission' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_admission') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Admission</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-admission-faq' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_admission_faq') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Admission FAQ</a>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-contacts' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_contacts') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Contacts</a>
 

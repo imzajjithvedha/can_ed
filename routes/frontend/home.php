@@ -36,6 +36,9 @@ use App\Http\Controllers\Frontend\User\UserSchoolInformationController;
 use App\Http\Controllers\Frontend\User\UserSchoolScholarshipFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolOverviewController;
 use App\Http\Controllers\Frontend\User\UserSchoolOverviewFAQController;
+use App\Http\Controllers\Frontend\User\UserSchoolAdmissionController;
+use App\Http\Controllers\Frontend\User\UserSchoolAdmissionEmployeeController;
+use App\Http\Controllers\Frontend\User\UserSchoolAdmissionFAQController;
 
 /*
  * Frontend Controllers
@@ -213,6 +216,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('school-information/update', [UserSchoolInformationController::class, 'schoolInformationUpdate'])->name('school_information_update');
 
 
+        //School Overview
         Route::get('school-overview', [UserSchoolOverviewController::class, 'schoolOverview'])->name('school_overview');
         Route::post('schools-overview/update', [UserSchoolOverviewController::class, 'schoolOverviewUpdate'])->name('school_overview_update');
 
@@ -223,8 +227,30 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('school-overview-faq/update', [UserSchoolOverviewFAQController::class, 'schoolOverviewFAQUpdate'])->name('school_overview_faq_update');
         Route::get('school-overview-faq/delete/{id}', [UserSchoolOverviewFAQController::class, 'SchoolOverviewFAQDelete'])->name('school_overview_faq_delete');
 
-        Route::get('school-admission', [UserSchoolController::class, 'schoolAdmission'])->name('school_admission');
 
+
+        //School Admission
+        Route::get('school-admission', [UserSchoolAdmissionController::class, 'schoolAdmission'])->name('school_admission');
+        Route::post('school-admission/update', [UserSchoolAdmissionController::class, 'schoolAdmissionUpdate'])->name('school_admission_update');
+
+
+        Route::get('get-school-admission-employees', [UserSchoolAdmissionEmployeeController::class, 'getSchoolAdmissionEmployees'])->name('get_school_admission_employees');
+        Route::post('school-admission-employee/create', [UserSchoolAdmissionEmployeeController::class, 'schoolAdmissionEmployeeCreate'])->name('school_admission_employee_create');
+        Route::get('school-admission-employee/edit/{id}', [UserSchoolAdmissionEmployeeController::class, 'schoolAdmissionEmployeeEdit'])->name('school_admission_employee_edit');
+        Route::post('school-admission-employee/update', [UserSchoolAdmissionEmployeeController::class, 'schoolAdmissionEmployeeUpdate'])->name('school_admission_employee_update');
+        Route::get('school-admission-employee/delete/{id}', [UserSchoolAdmissionEmployeeController::class, 'SchoolAdmissionEmployeeDelete'])->name('school_admission_employee_delete');
+
+
+        Route::get('school-admission-faq', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQ'])->name('school_admission_faq');
+        Route::get('get-school-admission-faq', [UserSchoolAdmissionFAQController::class, 'getSchoolAdmissionFAQ'])->name('get_school_admission_faq');
+        Route::post('school-admission-faq/create', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQCreate'])->name('school_admission_faq_create');
+        Route::get('school-admission-faq/edit/{id}', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQEdit'])->name('school_admission_faq_edit');
+        Route::post('school-admission-faq/update', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQUpdate'])->name('school_admission_faq_update');
+        Route::get('school-admission-faq/delete/{id}', [UserSchoolAdmissionFAQController::class, 'SchoolAdmissionFAQDelete'])->name('school_admission_faq_delete');
+
+
+
+        //School Financial
         Route::get('school-financial', [UserSchoolController::class, 'schoolFinancial'])->name('school_financial');
 
 

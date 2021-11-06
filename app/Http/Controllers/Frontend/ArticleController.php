@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         $articles = Articles::OrderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.articles', ['articles' => $articles]);
+        return view('frontend.article.articles', ['articles' => $articles]);
     }
 
     public function singleArticle($id)
@@ -28,7 +28,7 @@ class ArticleController extends Controller
 
         $more_articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
 
-        return view('frontend.single_article', ['article' => $article, 'more_articles' => $more_articles]);
+        return view('frontend.article.single_article', ['article' => $article, 'more_articles' => $more_articles]);
     }
 
 
@@ -84,7 +84,7 @@ class ArticleController extends Controller
 
         $filteredArticles = $articles->get();
 
-        return view('frontend.articles_search', ['filteredArticles' => $filteredArticles]);
+        return view('frontend.article.articles_search', ['filteredArticles' => $filteredArticles]);
 
     }
 }

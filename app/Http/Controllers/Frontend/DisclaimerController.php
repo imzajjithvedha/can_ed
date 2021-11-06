@@ -17,6 +17,6 @@ class DisclaimerController extends Controller
     {
         $disclaimer = Pages::where('name', 'disclaimer')->first();
 
-        return view('frontend.disclaimer', ['disclaimer' => $disclaimer]);
+        return view('frontend.page.disclaimer', ['disclaimer' => $disclaimer]);
     }
 }

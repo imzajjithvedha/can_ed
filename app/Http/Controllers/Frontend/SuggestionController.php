@@ -17,7 +17,7 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        return view('frontend.suggestions');
+        return view('frontend.page.suggestions');
     }
 
     public function send(Request $request)

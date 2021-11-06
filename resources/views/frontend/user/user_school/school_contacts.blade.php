@@ -36,7 +36,7 @@
                                     <form action="{{ route('frontend.user.school_contacts_paragraph_update') }}" class="mb-5" method="POST">
                                     {{csrf_field()}}
                                         <div class="mb-3">
-                                            <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contact_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contact_paragraph }}</textarea>
+                                            <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contacts_page_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contacts_page_paragraph }}</textarea>
                                         </div>
 
                                         <div class="text-end">
@@ -60,8 +60,7 @@
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Department</th>
                                                 <th scope="col">Phone</th>
-                                                <th scope="col">Website</th>
-                                                <th scope="col" style="max-width: 130px;">Options</th>
+                                                <th scope="col" style="max-width: 150px;">Options</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -484,7 +483,6 @@
                     {data: 'name', name: 'name'},
                     {data: 'department', name: 'department'},
                     {data: 'phone', name: 'phone'},
-                    {data: 'website', name: 'website'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
@@ -526,7 +524,7 @@
         }
     </script>
 
-<script>
+    <script>
         if(document.getElementById("paragraph-btn")){
             $('#paragraph-btn').click();
         }

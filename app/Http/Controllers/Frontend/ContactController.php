@@ -19,7 +19,7 @@ class ContactController extends Controller
     {
         $information = WebsiteInformation::where('id', 1)->first();
 
-        return view('frontend.contact_us', ['information' => $information]);
+        return view('frontend.page.contact_us', ['information' => $information]);
     }
 
     

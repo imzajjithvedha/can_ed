@@ -19,9 +19,9 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between">
+                <div class="row justify-content-between mb-2">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Information</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Information</h4>
                         
                     </div>
                     <div class="col-4 text-end">
@@ -31,26 +31,30 @@
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="px-2 py-3 school">
                             <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="row">
-                                    <div class="col-12 border py-3">
+                                    <div class="col-12">
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="School Name *" value="{{ $school->name }}" required>
+                                            <label for="name" class="form-label mb-1">Name *</label>
+                                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" value="{{ $school->name }}" required>
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" id="website" aria-describedby="website" name="website" placeholder="School Website *" value="{{ $school->website }}" required>
+                                            <label for="website" class="form-label mb-1">Website *</label>
+                                            <input type="text" class="form-control" id="website" aria-describedby="website" name="website" value="{{ $school->website }}" required>
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" id="website" aria-describedby="email" name="email" placeholder="School Email Address *" value="{{ $school->school_email }}" required>
+                                            <label for="email" class="form-label mb-1">Email *</label>
+                                            <input type="email" class="form-control" id="email" aria-describedby="email" name="email" value="{{ $school->school_email }}" required>
                                         </div>
 
                                         <div class="mb-5">
+                                            <label for="country" class="form-label mb-1">Country *</label>
                                             <select class="form-control" id="country" name="country" required>
-                                                <option value="">Select Country *</option>
+                                                <option value="" disabled hidden></option>
                                                 <option value="Afganistan">Afghanistan</option>
                                                 <option value="Albania">Albania</option>
                                                 <option value="Algeria">Algeria</option>
@@ -339,56 +343,80 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $school->facebook }}">
+                                            <label for="facebook" class="form-label mb-1">Facebook</label>
+                                            <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" value="{{ $school->facebook }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" placeholder="Instagram" value="{{ $school->instagram }}">
+                                            <label for="instagram" class="form-label mb-1">Instagram</label>
+                                            <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" value="{{ $school->instagram }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" placeholder="Twitter" value="{{ $school->twitter }}">
+                                            <label for="twitter" class="form-label mb-1">Twitter</label>
+                                            <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" value="{{ $school->twitter }}">
                                         </div>
 
                                         <div class="mb-3">
-                                            <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" placeholder="YouTube" value="{{ $school->you_tube }}">
+                                            <label for="you-tube" class="form-label mb-1">YouTube</label>
+                                            <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" value="{{ $school->you_tube }}">
                                         </div>
 
                                         <div class="mb-5">
-                                            <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn" value="{{ $school->linked_in }}">
+                                            <label for="linked-in" class="form-label mb-1">LinkedIn</label>
+                                            <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" value="{{ $school->linked_in }}">
                                         </div>
 
                                         <div class="mb-3">
                                             <div>
-                                                <label class="form-label mb-0">External Links</label>
-                                                <div class="mb-3">
+                                                <label class="form-label mb-1">External Links</label>
+                                                <div class="mb-4">
                                                     <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link Name" value="{{ $school->link_1_name }}">
                                                     <input type="url" class="form-control" id="link_1_url" aria-describedby="link_1_url" name="link_1_url" placeholder="Link" value="{{ $school->link_1_url }}">
                                                 </div>
-                                                <div class="mb-3">
+                                                <div class="mb-4">
                                                     <input type="text" class="form-control mb-2" id="link_2_name" aria-describedby="link_2" name="link_2_name" placeholder="Link Name" value="{{ $school->link_2_name }}">
                                                     <input type="url" class="form-control" id="link_2_url" aria-describedby="link_2_url" name="link_2_url" placeholder="Link" value="{{ $school->link_2_url }}">
                                                 </div>
-                                                <div class="mb-3">
+                                                <div class="mb-4">
                                                     <input type="text" class="form-control mb-2" id="link_3_name" aria-describedby="link_3" name="link_3_name" placeholder="Link Name" value="{{ $school->link_3_name }}">
                                                     <input type="url" class="form-control" id="link_3_url" aria-describedby="link_3_url" name="link_3_url" placeholder="Link" value="{{ $school->link_3_url }}">
                                                 </div>
-                                                <div class="mb-3">
+                                                <div class="mb-4">
                                                     <input type="text" class="form-control mb-2" id="link_4_name" aria-describedby="link_4" name="link_4_name" placeholder="Link Name" value="{{ $school->link_4_name }}">
                                                     <input type="url" class="form-control" id="link_4_url" aria-describedby="link_4_url" name="link_4_url" placeholder="Link" value="{{ $school->link_4_url }}">
                                                 </div>
-                                                <div class="mb-3">
+                                                <div class="mb-4">
                                                     <input type="text" class="form-control mb-2" id="link_5_name" aria-describedby="link_5" name="link_5_name" placeholder="Link Name" value="{{ $school->link_5_name }}">
                                                     <input type="url" class="form-control" id="link_5_url" aria-describedby="link_5_url" name="link_5_url" placeholder="Link" value="{{ $school->link_5_url }}">
                                                 </div>
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control mb-2" id="link_6_name" aria-describedby="link_6" name="link_6_name" placeholder="Link Name" value="{{ $school->link_6_name }}">
+                                                    <input type="url" class="form-control" id="link_6_url" aria-describedby="link_6_url" name="link_6_url" placeholder="Link" value="{{ $school->link_6_url }}">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control mb-2" id="link_7_name" aria-describedby="link_7" name="link_7_name" placeholder="Link Name" value="{{ $school->link_7_name }}">
+                                                    <input type="url" class="form-control" id="link_7_url" aria-describedby="link_7_url" name="link_7_url" placeholder="Link" value="{{ $school->link_7_url }}">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control mb-2" id="link_8_name" aria-describedby="link_8" name="link_8_name" placeholder="Link Name" value="{{ $school->link_8_name }}">
+                                                    <input type="url" class="form-control" id="link_8_url" aria-describedby="link_8_url" name="link_8_url" placeholder="Link" value="{{ $school->link_8_url }}">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control mb-2" id="link_9_name" aria-describedby="link_9" name="link_9_name" placeholder="Link Name" value="{{ $school->link_9_name }}">
+                                                    <input type="url" class="form-control" id="link_9_url" aria-describedby="link_9_url" name="link_9_url" placeholder="Link" value="{{ $school->link_9_url }}">
+                                                </div>
+                                                <div class="mb-4">
+                                                    <input type="text" class="form-control mb-2" id="link_10_name" aria-describedby="link_10" name="link_10_name" placeholder="Link Name" value="{{ $school->link_10_name }}">
+                                                    <input type="url" class="form-control" id="link_10_url" aria-describedby="link_10_url" name="link_10_url" placeholder="Link" value="{{ $school->link_10_url }}">
+                                                </div>
                                             </div>
-                                            
                                         </div>
 
 
                                         <div class="mt-5 text-center">
                                             <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
-                                            <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update school information" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </div>
                                 </div>
@@ -402,9 +430,9 @@
 
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#infoModal"></button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -412,7 +440,7 @@
                 </div>
 
                 <div class="modal-body" style="padding: 2rem 1rem;">
-                    <h6 class="mb-0 text-center text-info">If you want to update the already approved school, then we have to approve again. Please consider this before update your school.</h6>
+                    <h6 class="mb-0 text-center text-info">If you want to update the already approved school information, then we have to approve again. Please consider this before update your school information.</h6>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -422,10 +450,10 @@
     </div> 
 
 
-    <!-- @if(\Session::has('success'))
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+    @if(\Session::has('success'))
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#successModal"></button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
@@ -438,17 +466,17 @@
                 </div>
             </div>
         </div>
-    @endif -->
+    @endif
 
 
 @endsection
 
 @push('after-scripts')
-    <!-- <script>
+    <script>
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
         }
-    </script> -->
+    </script>
 
     <script>
         $(document).ready(function() {
@@ -467,10 +495,5 @@
             });
         });
     </script>
-
-    <script>
-        CKEDITOR.replace( 'first_description' );
-    </script>
-
 @endpush
 

@@ -18,7 +18,7 @@ class OnlineBusinessDirectoryController extends Controller
     {
         $directories = OnlineBusinessDirectory::where('status', 'Approved')->get();
 
-        return view('frontend.online_business_directory', ['directories' => $directories]);
+        return view('frontend.directory.online_business_directory', ['directories' => $directories]);
     }
 
 
@@ -81,7 +81,7 @@ class OnlineBusinessDirectoryController extends Controller
 
         $filteredDirectory = $directory->get();
 
-        return view('frontend.online_business_directory_search', ['filteredDirectory' => $filteredDirectory]);
+        return view('frontend.directory.online_business_directory_search', ['filteredDirectory' => $filteredDirectory]);
 
     }
 }

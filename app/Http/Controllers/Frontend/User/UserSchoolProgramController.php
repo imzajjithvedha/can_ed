@@ -12,7 +12,7 @@ use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
-use App\Models\ProgramCategories;
+use App\Models\DegreeLevels;
 
 /**
  * Class UserSchoolProgramController.
@@ -32,11 +32,11 @@ class UserSchoolProgramController extends Controller
 
         $programs = Programs::where('status', 'Approved')->get();
 
-        $program_categories = ProgramCategories::where('status', 'Approved')->get();
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
 
         $school_programs = SchoolPrograms::get();
 
-        return view('frontend.user.school_programs', ['school' => $school, 'programs' => $programs, 'program_categories' => $program_categories]);
+        return view('frontend.user.user_school.school_programs', ['school' => $school, 'programs' => $programs, 'degree_levels' => $degree_levels]);
 
     }
 
@@ -49,7 +49,7 @@ class UserSchoolProgramController extends Controller
 
         $program->user_id = $user_id;
         $program->school_id = $request->hidden_id;
-        $program->program_category = $request->program_category;
+        $program->degree_level = $request->degree_level;
         $program->program_id = $request->title;
         $program->sub_title = $request->sub_title;
 
@@ -83,23 +83,23 @@ class UserSchoolProgramController extends Controller
                         return $name;
                     })
 
-                    ->addColumn('program_category', function($data){
+                    ->addColumn('degree_level', function($data){
 
-                        if($data->program_category != null) {
-                            $program_category = ProgramCategories::where('id', $data->program_category)->where('status', 'Approved')->first()->name;
+                        if($data->degree_level != null) {
+                            $degree_level = DegreeLevels::where('id', $data->degree_level)->where('status', 'Approved')->first()->name;
                      
-                            return $program_category;
+                            return $degree_level;
                         }
                         else {
 
-                            $program_category = '-';
+                            $degree_level = '-';
                             
-                            return $program_category;
+                            return $degree_level;
                         }
                         
                     })
 
-                    ->rawColumns(['action', 'name', 'program_category'])
+                    ->rawColumns(['action', 'name', 'degree_level'])
                     ->make(true);
             }
             
@@ -112,9 +112,9 @@ class UserSchoolProgramController extends Controller
 
         $programs = Programs::where('status', 'Approved')->get();
 
-        $program_categories = ProgramCategories::where('status', 'Approved')->get();
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
 
-        return view('frontend.user.school_program_edit', ['school_program' => $school_program, 'programs' => $programs, 'program_categories' => $program_categories]);
+        return view('frontend.user.user_school.school_program_edit', ['school_program' => $school_program, 'programs' => $programs, 'degree_levels' => $degree_levels]);
     }
 
 
@@ -124,7 +124,7 @@ class UserSchoolProgramController extends Controller
 
         $program = DB::table('school_programs') ->where('id', request('hidden_id'))->update(
             [
-                'program_category' => $request->program_category,
+                'degree_level' => $request->degree_level,
                 'program_id' => $request->title,
                 'sub_title' => $request->sub_title
             ]
@@ -138,5 +138,20 @@ class UserSchoolProgramController extends Controller
         $program = SchoolPrograms::where('id', $id)->delete();
 
         return back();
+    }
+
+
+    public function schoolProgramsParagraphUpdate(Request $request) {
+
+        $user_id = auth()->user()->id;
+
+        $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
+            [
+                'programs_title_1' => $request->title_1,
+                'programs_page_paragraph' => $request->paragraph,
+            ]
+        );
+        
+        return redirect()->route('frontend.user.school_programs')->with('paragraph', 'paragraph');     
     }
 }

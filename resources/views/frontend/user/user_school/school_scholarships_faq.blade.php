@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School Scholarships' )
+@section('title', 'School Scholarships FAQ' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -20,26 +20,34 @@
 
             <div class="col-8">
                 <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">All Scholarships</h4>
+                    <div class="col-8">
+                        <h4 class="fs-4 fw-bolder user-settings-head">Scholarships FAQ's</h4>
                     </div>
                     <div class="col-4 text-end">
-                        <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Scholarship</button>
+                        <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
-                                    <table class="table table-striped table-bordered" id="scholarships-table" style="width:100%">
+
+                                    <!-- <div class="row justify-content-between align-items-center mb-3">
+                                        <div class="col-8">
+                                            <h4 class="fs-4 fw-bolder user-settings-head">Scholarship FAQ's</h4>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
+                                        </div>
+                                    </div> -->
+
+                                    <table class="table table-striped table-bordered" id="faq-table" style="width:100%">
                                         <thead>
                                             <tr class="align-items-center">
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Provider</th>
-                                                <th scope="col">Amount</th>
-                                                <th scope="col">Deadline</th>
+                                                <th scope="col">Question</th>
+                                                <th scope="col">Answer</th>
                                                 <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
                                         </thead>
@@ -57,71 +65,28 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.school_scholarship_create') }}" method="POST">
+    <form action="{{ route('frontend.user.school_scholarship_faq_create') }}" method="POST">
     {{csrf_field()}}
-        <div class="modal fade" id="createProgram" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal fade" id="createScholarshipFAQ" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Scholarship</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add FAQ</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="text-end">
-                            <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Scholarship Name *">
+                            <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question" name="question" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="provider" placeholder="Provider *">
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *"></textarea>
-                        </div>
-
-                        <div class="mb-5">
-                            <input type="number" class="form-control" name="amount" placeholder="Amount *">
-                        </div>
-
-                        <div class="mb-5">
-                            <label for="eligibility">Basic Eligibility</label>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="award" placeholder="Award *">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="action" placeholder="Action *">
-                        </div>
-                        <div class="mb-3">
-                            <input type="date" class="form-control" name="deadline" placeholder="Deadline *">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="availability" placeholder="Availability *">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="level_of_study" placeholder="Level of Study *">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="school_name" placeholder="School Name *">
+                            <textarea name="answer" id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer" name="answer" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Scholarship</button>
+                        <button type="submit" class="btn btn-success">Add FAQ</button>
                     </div>
                 </div>
             </div>
@@ -139,7 +104,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Scholarship updated successfully.</h4>
+                        <h4 class="mb-0 text-center">FAQ updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -153,14 +118,14 @@
     @if(\Session::has('created'))
 
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="create-scholarship-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <button type="button" class="btn btn-primary invisible" id="create-faq-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Scholarship added successfully.</h4>
+                        <h4 class="mb-0 text-center">FAQ added successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -185,7 +150,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <h5>Are you sure you want to remove this scholarship?</h5>
+                            <h5>Are you sure you want to remove this FAQ?</h5>
                         </div>                        
 
                     </div>
@@ -205,38 +170,36 @@
 @push('after-scripts')
     <script>
         $(function () {
-            var table = $('#scholarships-table').DataTable({
+            var table = $('#faq-table').DataTable({
                 processing: true,
-                ajax: "{{route('frontend.user.get_school_scholarships')}}",
+                ajax: "{{route('frontend.user.get_school_scholarships_faq')}}",
                 serverSide: true,
-                order: [[0, "asc"]],
+                order: [[1, "asc"]],
                 columns: [
-                    {data: 'name', name: 'name'},
-                    {data: 'provider', name: 'provider'},
-                    {data: 'amount', name: 'amount'},
-                    {data: 'deadline', name: 'deadline'},
+                    {data: 'question', name: 'question'},
+                    {data: 'answer', name: 'answer'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });
         });
 
 
-        let scholarship_id;
+        let faq_id;
 
         $(document).on('click', '.delete', function(){
-            scholarship_id = $(this).attr('id');
+            faq_id = $(this).attr('id');
             $('#confirmModal').modal('show');
         });
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"school-scholarships/delete/" + scholarship_id,
+                url:"school-scholarships-faq/delete/" + faq_id,
         
                 success:function(data)
                 {
                     setTimeout(function(){
                         $('#confirmModal').modal('hide');
-                        $('#scholarships-table').DataTable().ajax.reload();
+                        $('#faq-table').DataTable().ajax.reload();
                     });
                 }
             })
@@ -251,10 +214,11 @@
     </script>
 
     <script>
-        if(document.getElementById("create-scholarship-btn")){
-            $('#create-scholarship-btn').click();
+        if(document.getElementById("create-faq-btn")){
+            $('#create-faq-btn').click();
         }
     </script>
+
     
 @endpush
 

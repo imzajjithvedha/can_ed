@@ -5,6 +5,7 @@ use App\Models\Schools;
 use App\Models\Businesses; 
 use App\Models\FavoriteArticles; 
 use App\Models\FavoriteBusinesses;
+use App\Models\FavoriteSchools;
 
 if (! function_exists('app_name')) {
     /**
@@ -124,6 +125,30 @@ if (! function_exists('is_favorite_business')) {
 
         $favorite = FavoriteBusinesses::where('user_id', $user_id )
             ->where('business_id', $business_id)
+            ->first();
+
+        if($favorite)
+        {
+            return $favorite;
+        }
+        else {
+            return null;
+        }
+    }
+}
+
+
+if (! function_exists('is_favorite_school')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_favorite_school($school_id, $user_id)
+    {
+
+        $favorite = FavoriteSchools::where('user_id', $user_id)
+            ->where('school_id', $school_id)
             ->first();
 
         if($favorite)

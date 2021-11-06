@@ -25,11 +25,11 @@ class CareerController extends Controller
 
         $more_articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
 
-        return view('frontend.careers', ['how_careers' => $how_careers, 'hot_careers' => $hot_careers, 'careers' => $careers, 'more_articles' => $more_articles]);
+        return view('frontend.page.careers', ['how_careers' => $how_careers, 'hot_careers' => $hot_careers, 'careers' => $careers, 'more_articles' => $more_articles]);
     }
 
     public function jobs()
     {
-        return view('frontend.jobs');
+        return view('frontend.page.jobs');
     }
 }

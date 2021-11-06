@@ -21,7 +21,7 @@ class ProgramController extends Controller
     {
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'ASC')->get();
 
-        return view('frontend.programs', ['programs' => $programs]);
+        return view('frontend.page.programs', ['programs' => $programs]);
     }
 
     public function programRequest(Request $request)

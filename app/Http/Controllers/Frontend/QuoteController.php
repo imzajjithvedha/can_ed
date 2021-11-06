@@ -20,7 +20,7 @@ class QuoteController extends Controller
     {
         $quotes = Quotes::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.quotes', ['quotes' => $quotes]);
+        return view('frontend.quote.quotes', ['quotes' => $quotes]);
     }
 
     public function quoteRequest(Request $request)

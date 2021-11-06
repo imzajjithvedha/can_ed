@@ -17,6 +17,6 @@ class PrivacyPolicyController extends Controller
     {
         $privacy = Pages::where('name', 'privacy_policy')->first();
 
-        return view('frontend.privacy_policy', ['privacy' => $privacy]);
+        return view('frontend.page.privacy_policy', ['privacy' => $privacy]);
     }
 }

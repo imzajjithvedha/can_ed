@@ -21,7 +21,7 @@ class EventController extends Controller
     {
         $events = Events::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.events', ['events' => $events]);
+        return view('frontend.event.events', ['events' => $events]);
     }
 
     public function eventRequest(Request $request)
@@ -102,7 +102,7 @@ class EventController extends Controller
 
         $more_events = Events::inRandomOrder()->limit(5)->get();
 
-        return view('frontend.single_event', ['event' => $event, 'more_events' => $more_events]);
+        return view('frontend.event.single_event', ['event' => $event, 'more_events' => $more_events]);
     }
 
 }

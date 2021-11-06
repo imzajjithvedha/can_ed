@@ -37,10 +37,10 @@
                                 <div class="row">
                                     <div class="col-12 border py-3">
                                         <div class="mb-3">
-                                            <select class="form-control" id="program_category" name="program_category" placeholder="Program Category" required>
-                                                <option value="" selected disabled hidden>Program Category *</option>
-                                                @foreach($program_categories as $program_category)
-                                                    <option value="{{ $program_category->id }}" {{ $program_category->id == $school_program->program_category ? "selected" : "" }}>{{ $program_category->name }}</option>
+                                            <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree Level" required>
+                                                <option value="" selected disabled hidden>Degree Level *</option>
+                                                @foreach($degree_levels as $degree_level)
+                                                    <option value="{{ $degree_level->id }}" {{ $degree_level->id == $school_program->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

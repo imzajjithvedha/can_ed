@@ -20,6 +20,6 @@ class OurSponsorController extends Controller
 
         $sponsors = OurSponsors::where('status', 'Approved')->get();
 
-        return view('frontend.our_sponsors', ['our_sponsors' => $our_sponsors, 'sponsors' => $sponsors]);
+        return view('frontend.page.our_sponsors', ['our_sponsors' => $our_sponsors, 'sponsors' => $sponsors]);
     }
 }

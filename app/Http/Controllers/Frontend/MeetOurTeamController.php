@@ -19,6 +19,6 @@ class MeetOurTeamController extends Controller
         $team = Pages::where('name', 'meet_our_team')->first();
         $members = OurTeam::where('status', 'Approved')->get();
 
-        return view('frontend.meet_our_team', ['team' => $team, 'members' => $members]);
+        return view('frontend.page.meet_our_team', ['team' => $team, 'members' => $members]);
     }
 }

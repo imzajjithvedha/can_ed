@@ -17,6 +17,6 @@ class AboutController extends Controller
     {
         $about = Pages::where('name', 'about_us')->first();
 
-        return view('frontend.about_us', ['about' => $about]);
+        return view('frontend.page.about_us', ['about' => $about]);
     }
 }

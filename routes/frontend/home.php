@@ -19,18 +19,23 @@ use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
-use App\Http\Controllers\Frontend\ProgramsSearchController;
+use App\Http\Controllers\Frontend\SchoolTypeController;
 use App\Http\Controllers\Frontend\VideoController;
 
 
 
 use App\Http\Controllers\Frontend\User\DashboardController;
-use App\Http\Controllers\Frontend\User\UserSchoolController;
+use App\Http\Controllers\Frontend\User\UserSuggestedProgramController;
 use App\Http\Controllers\Frontend\User\UserBusinessController;
 use App\Http\Controllers\Frontend\User\UserProfileController;
 use App\Http\Controllers\Frontend\User\UserSchoolProgramController;
 use App\Http\Controllers\Frontend\User\UserSchoolScholarshipController;
 use App\Http\Controllers\Frontend\User\UserSchoolContactController;
+use App\Http\Controllers\Frontend\User\UserSchoolQuickFactsController;
+use App\Http\Controllers\Frontend\User\UserSchoolInformationController;
+use App\Http\Controllers\Frontend\User\UserSchoolScholarshipFAQController;
+use App\Http\Controllers\Frontend\User\UserSchoolOverviewController;
+use App\Http\Controllers\Frontend\User\UserSchoolOverviewFAQController;
 
 /*
  * Frontend Controllers
@@ -65,6 +70,7 @@ Route::get('schools', [SchoolController::class, 'index'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
 Route::get('schools/single-school/{id}', [SchoolController::class, 'singleSchool'])->name('single_school');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
+Route::post('schools/single-school/favorite', [SchoolController::class, 'favoriteSchool'])->name('favorite_school');
 
 
 
@@ -135,23 +141,28 @@ Route::get('videos', [VideoController::class, 'index'])->name('videos');
 
 
 // Homepage search routes
-Route::get('language-programs', [ProgramsSearchController::class, 'languagePrograms'])->name('language_programs');
-Route::get('get-language-programs', [ProgramsSearchController::class, 'getLanguagePrograms'])->name('get_language_programs');
-Route::get('community-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('community_schools');
-Route::get('bachelor-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('bachelor_schools');
-Route::get('masters-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('master_schools');
-Route::get('certificate-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('certificate_schools');
-Route::get('summer-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('summer_schools');
-Route::get('high-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('high_schools');
-Route::get('online-schools', [ProgramsSearchController::class, 'schoolsCategory'])->name('online_schools');
+Route::get('language-programs', [SchoolTypeController::class, 'languagePrograms'])->name('language_programs');
+Route::get('get-language-programs', [SchoolTypeController::class, 'getLanguagePrograms'])->name('get_language_programs');
+Route::get('community-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('community_schools');
+Route::get('bachelor-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('bachelor_schools');
+Route::get('masters-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('master_schools');
+Route::get('certificate-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('certificate_schools');
+Route::get('summer-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('summer_schools');
+Route::get('high-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('high_schools');
+Route::get('online-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('online_schools');
 
 
 
-Route::post('home/schools/search-result', [ProgramsSearchController::class, 'homeSearch'])->name('home_search');
-Route::get('home/schools-search-results/{keyword}',[ProgramsSearchController::class,'schoolSearchFunction'])->name('home_school_search_function');
-Route::get('home/businesses-search-results/{keyword}',[ProgramsSearchController::class,'businessSearchFunction'])->name('home_business_search_function');
-Route::get('home/programs-search-results/{keyword}',[ProgramsSearchController::class,'programSearchFunction'])->name('home_program_search_function');
-Route::get('home/articles-search-results/{keyword}',[ProgramsSearchController::class,'articleSearchFunction'])->name('home_article_search_function');
+Route::post('home/schools/search-result', [HomeController::class, 'homeSearch'])->name('home_search');
+Route::get('home/schools-search-results/{keyword}',[HomeController::class,'schoolSearchFunction'])->name('home_school_search_function');
+Route::get('home/businesses-search-results/{keyword}',[HomeController::class,'businessSearchFunction'])->name('home_business_search_function');
+Route::get('home/programs-search-results/{keyword}',[HomeController::class,'programSearchFunction'])->name('home_program_search_function');
+Route::get('home/articles-search-results/{keyword}',[HomeController::class,'articleSearchFunction'])->name('home_article_search_function');
+
+
+
+Route::post('school-scholarships/search-result', [SchoolController::class, 'schoolScholarshipSearch'])->name('school_scholarship_search');
+Route::get('school-scholarships-search-results/{id}/{keyword}/{award}/{level}/{available}',[SchoolController::class,'schoolScholarshipSearchFunction'])->name('school_scholarship_search_function');
 
 
 /*
@@ -191,25 +202,35 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
 
-        Route::get('school-information', [UserSchoolController::class, 'schoolInformation'])->name('school_information');
-        Route::get('school-quick-facts', [UserSchoolController::class, 'schoolQuickFacts'])->name('school_quick_facts');
-        Route::get('school-overview', [UserSchoolController::class, 'schoolOverview'])->name('school_overview');
-        
-        
-        Route::get('school-admissions', [UserSchoolController::class, 'schoolAdmissions'])->name('school_admissions');
-        Route::get('school-financial', [UserSchoolController::class, 'schoolFinancial'])->name('school_financial');
-        Route::get('school-scholarships', [UserSchoolController::class, 'schoolScholarships'])->name('school_scholarships');
-
-        Route::get('user-schools/edit/{id}', [UserSchoolController::class, 'userSchoolEdit'])->name('user_school_edit');
-
-        Route::post('school-information/update', [UserSchoolController::class, 'schoolInformationUpdate'])->name('school_information_update');
-        Route::post('schools-quick-facts/update', [UserSchoolController::class, 'schoolQuickFactsUpdate'])->name('school_quick_facts_update');
-
-
         Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
-        // Route::post('user-schools/overview/update', [UserSchoolController::class, 'userOverviewUpdate'])->name('user_school_overview_update');
 
+
+
+
+        //School Routes
+        Route::get('school-information', [UserSchoolInformationController::class, 'schoolInformation'])->name('school_information');
+        Route::post('school-information/update', [UserSchoolInformationController::class, 'schoolInformationUpdate'])->name('school_information_update');
+
+
+        Route::get('school-overview', [UserSchoolOverviewController::class, 'schoolOverview'])->name('school_overview');
+        Route::post('schools-overview/update', [UserSchoolOverviewController::class, 'schoolOverviewUpdate'])->name('school_overview_update');
+
+        Route::get('school-overview-faq', [UserSchoolOverviewFAQController::class, 'schoolOverviewFAQ'])->name('school_overview_faq');
+        Route::get('get-school-overview-faq', [UserSchoolOverviewFAQController::class, 'getSchoolOverviewFAQ'])->name('get_school_overview_faq');
+        Route::post('school-overview-faq/create', [UserSchoolOverviewFAQController::class, 'schoolOverviewFAQCreate'])->name('school_overview_faq_create');
+        Route::get('school-overview-faq/edit/{id}', [UserSchoolOverviewFAQController::class, 'schoolOverviewFAQEdit'])->name('school_overview_faq_edit');
+        Route::post('school-overview-faq/update', [UserSchoolOverviewFAQController::class, 'schoolOverviewFAQUpdate'])->name('school_overview_faq_update');
+        Route::get('school-overview-faq/delete/{id}', [UserSchoolOverviewFAQController::class, 'SchoolOverviewFAQDelete'])->name('school_overview_faq_delete');
+
+        Route::get('school-admission', [UserSchoolController::class, 'schoolAdmission'])->name('school_admission');
+
+        Route::get('school-financial', [UserSchoolController::class, 'schoolFinancial'])->name('school_financial');
+
+
+        Route::get('school-quick-facts', [UserSchoolQuickFactsController::class, 'schoolQuickFacts'])->name('school_quick_facts');
+        Route::post('schools-quick-facts/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsUpdate'])->name('school_quick_facts_update');
+        Route::post('school-quick-facts/paragraphs/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsParagraphsUpdate'])->name('school_quick_facts_paragraphs_update');
 
 
         Route::get('school-programs', [UserSchoolProgramController::class, 'schoolPrograms'])->name('school_programs');
@@ -218,16 +239,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('school-programs/edit/{id}', [UserSchoolProgramController::class, 'schoolProgramEdit'])->name('school_program_edit');
         Route::post('school-programs/update', [UserSchoolProgramController::class, 'schoolProgramUpdate'])->name('school_program_update');
         Route::get('school-programs/delete/{id}', [UserSchoolProgramController::class, 'SchoolProgramDelete'])->name('school_program_delete');
-
-        Route::get('school-contacts', [UserSchoolContactController::class, 'schoolContacts'])->name('school_contacts');
-        Route::get('get-school-contacts', [UserSchoolContactController::class, 'getSchoolContacts'])->name('get_school_contacts');
-        Route::post('school-contacts/create', [UserSchoolContactController::class, 'schoolContactCreate'])->name('school_contact_create');
-        Route::get('school-contacts/edit/{id}', [UserSchoolContactController::class, 'schoolContactEdit'])->name('school_contact_edit');
-        Route::post('school-contacts/update', [UserSchoolContactController::class, 'schoolContactUpdate'])->name('school_contact_update');
-        Route::get('school-contacts/delete/{id}', [UserSchoolContactController::class, 'SchoolContactDelete'])->name('school_contact_delete');
-
-        Route::post('school-contacts/paragraph/update', [UserSchoolContactController::class, 'schoolContactsParagraphUpdate'])->name('school_contacts_paragraph_update');
-
+        Route::post('school-programs/paragraph/update', [UserSchoolProgramController::class, 'schoolProgramsParagraphUpdate'])->name('school_programs_paragraph_update');
 
 
         Route::get('school-scholarships', [UserSchoolScholarshipController::class, 'schoolScholarships'])->name('school_scholarships');
@@ -236,22 +248,36 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('school-scholarships/edit/{id}', [UserSchoolScholarshipController::class, 'schoolScholarshipEdit'])->name('school_scholarship_edit');
         Route::post('school-scholarships/update', [UserSchoolScholarshipController::class, 'schoolScholarshipUpdate'])->name('school_scholarship_update');
         Route::get('school-scholarships/delete/{id}', [UserSchoolScholarshipController::class, 'SchoolScholarshipDelete'])->name('school_scholarship_delete');
+        Route::post('school-scholarships/paragraph/update', [UserSchoolScholarshipController::class, 'schoolScholarshipsParagraphUpdate'])->name('school_scholarships_paragraph_update');
 
 
-        // Route::post('user-schools/scholarships/update', [UserSchoolController::class, 'userScholarshipsUpdate'])->name('user_school_scholarships_update');
-        // Route::get('user-schools/delete/{id}', [UserSchoolController::class, 'userSchoolDelete'])->name('user_school_delete');
-        
+        Route::get('school-scholarships-faq', [UserSchoolScholarshipFAQController::class, 'schoolScholarshipsFAQ'])->name('school_scholarships_faq');
+        Route::get('get-school-scholarships-faq', [UserSchoolScholarshipFAQController::class, 'getSchoolScholarshipsFAQ'])->name('get_school_scholarships_faq');
+        Route::post('school-scholarships-faq/create', [UserSchoolScholarshipFAQController::class, 'schoolScholarshipFAQCreate'])->name('school_scholarship_faq_create');
+        Route::get('school-scholarships-faq/edit/{id}', [UserSchoolScholarshipFAQController::class, 'schoolScholarshipFAQEdit'])->name('school_scholarship_faq_edit');
+        Route::post('school-scholarships-faq/update', [UserSchoolScholarshipFAQController::class, 'schoolScholarshipFAQUpdate'])->name('school_scholarship_faq_update');
+        Route::get('school-scholarships-faq/delete/{id}', [UserSchoolScholarshipFAQController::class, 'SchoolScholarshipFAQDelete'])->name('school_scholarship_faq_delete');
+
+
+        Route::get('school-contacts', [UserSchoolContactController::class, 'schoolContacts'])->name('school_contacts');
+        Route::get('get-school-contacts', [UserSchoolContactController::class, 'getSchoolContacts'])->name('get_school_contacts');
+        Route::post('school-contacts/create', [UserSchoolContactController::class, 'schoolContactCreate'])->name('school_contact_create');
+        Route::get('school-contacts/edit/{id}', [UserSchoolContactController::class, 'schoolContactEdit'])->name('school_contact_edit');
+        Route::post('school-contacts/update', [UserSchoolContactController::class, 'schoolContactUpdate'])->name('school_contact_update');
+        Route::get('school-contacts/delete/{id}', [UserSchoolContactController::class, 'SchoolContactDelete'])->name('school_contact_delete');
+        Route::post('school-contacts/paragraph/update', [UserSchoolContactController::class, 'schoolContactsParagraphUpdate'])->name('school_contacts_paragraph_update');
 
 
 
+        //Suggested Programs Routes
+        Route::get('suggested-programs', [UserSuggestedProgramController::class, 'suggestedPrograms'])->name('suggested_programs');
+        Route::get('suggested-programs/edit/{id}', [UserSuggestedProgramController::class, 'suggestedProgramEdit'])->name('suggested_program_edit');
+        Route::post('suggested-programs/update', [UserSuggestedProgramController::class, 'suggestedProgramUpdate'])->name('suggested_program_update');
+        Route::get('suggested-programs/delete/{id}', [UserSuggestedProgramController::class, 'suggestedProgramDelete'])->name('suggested_program_delete');
 
-        Route::get('suggested-programs', [UserSchoolController::class, 'suggestedPrograms'])->name('suggested_programs');
-        Route::get('suggested-programs/edit/{id}', [UserSchoolController::class, 'suggestedProgramEdit'])->name('suggested_program_edit');
-        Route::post('suggested-programs/update', [UserSchoolController::class, 'suggestedProgramUpdate'])->name('suggested_program_update');
-        Route::get('suggested-programs/delete/{id}', [UserSchoolController::class, 'suggestedProgramDelete'])->name('suggested_program_delete');
 
 
-
+        //Business Routes
         Route::get('business-dashboard', [UserBusinessController::class, 'businessDashboard'])->name('business_dashboard');
         Route::get('user-businesses/edit/{id}', [UserBusinessController::class, 'userBusinessEdit'])->name('user_business_edit');
         Route::post('user-businesses/update', [UserBusinessController::class, 'userBusinessUpdate'])->name('user_business_update');
@@ -260,9 +286,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('favorite-businesses/delete/{id}', [UserBusinessController::class, 'favoriteBusinessDelete'])->name('favorite_business_delete');
 
 
+
+        //Settings Route
         Route::get('user-settings', [UserProfileController::class, 'settingsDashboard'])->name('user_settings');
         Route::post('user-settings/update', [UserProfileController::class, 'settingsUpdate'])->name('settings_update');
-
 
         Route::post('user-account/delete', [UserProfileController::class, 'accountDelete'])->name('account_delete');
 

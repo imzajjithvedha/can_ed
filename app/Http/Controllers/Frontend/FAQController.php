@@ -17,6 +17,6 @@ class FAQController extends Controller
     {
         $faq = Pages::where('name', 'faq')->first();
 
-        return view('frontend.faq', ['faq' => $faq]);
+        return view('frontend.page.faq', ['faq' => $faq]);
     }
 }

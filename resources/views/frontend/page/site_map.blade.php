@@ -41,7 +41,7 @@
                 <h6 class="fw-bold mb-2">For Schools</h6>
                 <a href="{{route('frontend.schools')}}" class="gray text-decoration-none">Schools</a>
                 <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
-                <a href="{{route('frontend.user.school_dashboard')}}" class="gray text-decoration-none">School Dashboard</a>
+                <a href="{{route('frontend.user.school_information')}}" class="gray text-decoration-none">School Dashboard</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a Question</a>
             </div>
 

@@ -23,7 +23,7 @@ class UserBusinessController extends Controller
 
         $businesses = Businesses::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.user.business_dashboard', ['businesses' => $businesses]);
+        return view('frontend.user.user_business.business_dashboard', ['businesses' => $businesses]);
     }
 
     public function userBusinessEdit($id)
@@ -32,7 +32,7 @@ class UserBusinessController extends Controller
 
         $categories = BusinessCategories::where('status', 'Approved')->get();
 
-        return view('frontend.user.business_edit', ['business' => $business, 'categories' => $categories]);
+        return view('frontend.user.user_business.business_edit', ['business' => $business, 'categories' => $categories]);
     }
 
 

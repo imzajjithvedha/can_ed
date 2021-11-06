@@ -17,7 +17,7 @@ class CreateSchoolProgramsTable extends Migration
             $table->bigIncrements('id');
             $table->text('user_id');
             $table->text('school_id');
-            $table->text('program_category');
+            $table->text('degree_level');
             $table->text('program_id');
             $table->text('sub_title');
             $table->timestamps();

@@ -21,6 +21,7 @@
         <link href="{{ url('css/styles.css') }}" rel="stylesheet">
         <script src="https://kit.fontawesome.com/aa4e69f91b.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css"/>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
@@ -62,6 +63,7 @@
         <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <script>
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

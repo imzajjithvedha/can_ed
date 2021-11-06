@@ -23,6 +23,8 @@ hr {
 }
 
 
+
+
 /* Single School Styles */
 /* .single-school hr {
     background: #bd2130;
@@ -83,3 +85,57 @@ hr {
     color: #76777a;
     text-align: justify;
 } */
+
+
+/* Single school Styles */
+.favorite-heart {
+    font-size: 1.5rem;
+    border: none;
+    color: red;
+    background-color: white!important;
+}
+
+.nav-tabs .nav-link {
+    color: black;
+    font-weight: 600;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: black;
+    background-color: #fff;
+    border-top: 5px solid #bd2130;
+}
+.nav-tabs .nav-link:hover {
+    border-top: 5px solid #bd2130;
+}
+.single-fact {
+    border: 1px solid #dee2e6!important;
+    border-radius: 12px;
+    box-shadow: 0 0rem 1rem rgba(0,0,0,.175);
+}
+.red-btn {
+    background-image: -webkit-linear-gradient(top, #CF0411, #660000);
+    color: white;
+    border: none;
+}
+
+.table td, .table th {
+    padding: 1rem 1.5rem!important;
+}
+
+.scholarship-search select {
+    background-color: #01468f;
+    color: white;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='fas fa-chevron-down' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
+}
+
+#apply_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+}
+
+#overview .table thead th {
+    border: none!important;
+    background-color: #01468f;
+    color: white;
+}

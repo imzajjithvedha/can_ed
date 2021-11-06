@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\Frontend\User\DashboardController;
-use App\Http\Controllers\Frontend\USer\UserSchoolController;
+use App\Http\Controllers\Frontend\User\UserSchoolController;
 
 
 use Illuminate\Http\Request;

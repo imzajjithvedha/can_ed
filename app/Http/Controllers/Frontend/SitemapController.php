@@ -14,6 +14,6 @@ class SitemapController extends Controller
      */
     public function index()
     {
-        return view('frontend.site_map');
+        return view('frontend.page.site_map');
     }
 }

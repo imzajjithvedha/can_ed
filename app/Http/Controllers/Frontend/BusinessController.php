@@ -27,7 +27,7 @@ class BusinessController extends Controller
     {
         $categories = BusinessCategories::where('status', 'Approved')->get();
 
-        return view('frontend.business_register', ['categories' => $categories]);
+        return view('frontend.business.business_register', ['categories' => $categories]);
     }
 
     public function businessRegisterRequest(Request $request)
@@ -90,7 +90,7 @@ class BusinessController extends Controller
     {
         $categories = BusinessCategories::where('status', 'Approved')->orderBy('name', 'ASC')->get();
 
-        return view('frontend.business_categories', ['categories' => $categories]);
+        return view('frontend.business.business_categories', ['categories' => $categories]);
     }
 
 
@@ -117,7 +117,7 @@ class BusinessController extends Controller
 
         $filteredCategories = $categories->get();
 
-        return view('frontend.business_categories_search', ['filteredCategories' => $filteredCategories]);
+        return view('frontend.business.business_categories_search', ['filteredCategories' => $filteredCategories]);
 
     }
 
@@ -130,7 +130,7 @@ class BusinessController extends Controller
             $query->where('category_1', $id)->orWhere('category_2', $id)->orWhere('category_3', $id);
         })->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.businesses', ['businesses' => $businesses, 'category' => $category]);
+        return view('frontend.business.businesses', ['businesses' => $businesses, 'category' => $category]);
     }
 
     public function singleBusiness($id)
@@ -139,7 +139,7 @@ class BusinessController extends Controller
 
         $more_businesses = Businesses::inRandomOrder()->limit(4)->get();
 
-        return view('frontend.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
+        return view('frontend.business.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
     }
 
 
@@ -172,7 +172,7 @@ class BusinessController extends Controller
 
         $filteredBusinesses = $businesses->get();
 
-        return view('frontend.businesses_search', ['category' => $category, 'filteredBusinesses' => $filteredBusinesses]);
+        return view('frontend.business.businesses_search', ['category' => $category, 'filteredBusinesses' => $filteredBusinesses]);
 
     }
 

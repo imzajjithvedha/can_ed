@@ -19,24 +19,51 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-8 p-0">
+                <!-- <div class="row justify-content-between align-items-center mb-3">
+                    <div class="col-8">
                         <h4 class="fs-4 fw-bolder user-settings-head">All Programs</h4>
                     </div>
                     <div class="col-4 text-end">
                         <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Program</button>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="py-3 school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
+
+                                    <form action="{{ route('frontend.user.school_programs_paragraph_update') }}" class="mb-5" method="POST">
+                                        {{csrf_field()}}
+                                            <div class="mb-3">
+                                                <label for="title_1" class="form-label mb-1">Title 1</label>
+                                                <input type="text" class="form-control" id="title_1" aria-describedby="title_1" name="title_1" value="{{ $school->programs_title_1 }}">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->programs_page_paragraph }}" placeholder="Paragraph in the programs page">{{ $school->programs_page_paragraph }}</textarea>
+                                            </div>
+
+                                            <div class="text-end">
+                                                <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
+                                                <input type="submit" value="Update Paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            </div>
+                                    </form>
+
+                                    <div class="row justify-content-between align-items-center mb-3">
+                                        <div class="col-8">
+                                            <h4 class="fs-4 fw-bolder user-settings-head">All Programs</h4>
+                                        </div>
+                                        <div class="col-4 text-end">
+                                            <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Program</button>
+                                        </div>
+                                    </div>
+
                                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                                         <thead>
                                             <tr class="align-items-center">
-                                                <th scope="col">Program Category</th>
+                                                <th scope="col">Degree Level</th>
                                                 <th scope="col">Program Name</th>
                                                 <th scope="col">Description</th>
                                                 <th scope="col" style="max-width: 130px;">Options</th>
@@ -67,10 +94,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <select class="form-control" id="program_category" name="program_category" placeholder="Program Category" required>
-                                <option value="" selected disabled hidden>Program Category *</option>
-                                @foreach($program_categories as $program_category)
-                                    <option value="{{ $program_category->id }}">{{ $program_category->name }}</option>
+                            <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree Level" required>
+                                <option value="" selected disabled hidden>Degree Level *</option>
+                                @foreach($degree_levels as $degree_level)
+                                    <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -141,6 +168,27 @@
     @endif
 
 
+    @if(\Session::has('paragraph'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="paragraph-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Paragraph updated successfully.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+
     <!-- Modal delete -->
     <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -181,7 +229,7 @@
                 serverSide: true,
                 order: [[1, "asc"]],
                 columns: [
-                    {data: 'program_category', name: 'program_category'},
+                    {data: 'degree_level', name: 'degree_level'},
                     {data: 'name', name: 'name'},
                     {data: 'sub_title', name: 'sub_title'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -222,6 +270,12 @@
     <script>
         if(document.getElementById("create-program-btn")){
             $('#create-program-btn').click();
+        }
+    </script>
+
+    <script>
+        if(document.getElementById("paragraph-btn")){
+            $('#paragraph-btn').click();
         }
     </script>
     

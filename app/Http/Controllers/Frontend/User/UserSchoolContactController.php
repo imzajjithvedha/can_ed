@@ -31,7 +31,7 @@ class UserSchoolContactController extends Controller
         $contacts = SchoolContacts::where('school_id', $school->id)->get();
 
 
-        return view('frontend.user.school_contacts', ['contacts' => $contacts, 'school' => $school]);
+        return view('frontend.user.user_school.school_contacts', ['contacts' => $contacts, 'school' => $school]);
     }
 
 
@@ -87,7 +87,7 @@ class UserSchoolContactController extends Controller
     {
         $contact = SchoolContacts::where('id', $id)->first();
 
-        return view('frontend.user.school_contact_edit', ['contact' => $contact]);
+        return view('frontend.user.user_school.school_contact_edit', ['contact' => $contact]);
     }
 
 
@@ -126,7 +126,7 @@ class UserSchoolContactController extends Controller
 
         $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
             [
-                'contact_paragraph' => $request->paragraph,
+                'contacts_page_paragraph' => $request->paragraph,
             ]
         );
         

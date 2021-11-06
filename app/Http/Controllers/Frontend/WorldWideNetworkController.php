@@ -20,7 +20,7 @@ class WorldWideNetworkController extends Controller
     {
         $networks = WorldWideNetwork::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.world_wide_network', ['networks' => $networks]);
+        return view('frontend.world_wide_network.world_wide_network', ['networks' => $networks]);
     }
 
     public function networkRequest(Request $request)

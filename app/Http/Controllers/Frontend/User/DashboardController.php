@@ -102,14 +102,14 @@ class DashboardController extends Controller
 
         $events = Events::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.user.user_events', ['events' => $events]);
+        return view('frontend.user.user_event.user_events', ['events' => $events]);
     }
 
     public function userEventEdit($id)
     {
         $event = Events::where('id', $id)->first();
 
-        return view('frontend.user.user_event_edit', ['event' => $event]);
+        return view('frontend.user.user_event.user_event_edit', ['event' => $event]);
     }
 
 
@@ -143,7 +143,7 @@ class DashboardController extends Controller
             ]
         );
    
-        return redirect()->route('frontend.user.user_events')->with('success', 'success');    
+        return redirect()->route('frontend.user.user_event.user_events')->with('success', 'success');    
     }
 
 
@@ -185,7 +185,7 @@ class DashboardController extends Controller
 
         $quotes = Quotes::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.user.user_quotes', ['quotes' => $quotes]);
+        return view('frontend.user.user_quote.user_quotes', ['quotes' => $quotes]);
     }
 
     public function getUserQuote($id)
@@ -226,14 +226,14 @@ class DashboardController extends Controller
 
         $networks = WorldWideNetwork::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.user.user_networks', ['networks' => $networks]);
+        return view('frontend.user.user_network.user_networks', ['networks' => $networks]);
     }
 
     public function userNetworkEdit($id)
     {
         $network = WorldWideNetwork::where('id', $id)->first();
 
-        return view('frontend.user.user_network_edit', ['network' => $network]);
+        return view('frontend.user.user_network.user_network_edit', ['network' => $network]);
     }
 
  

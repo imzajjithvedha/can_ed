@@ -97,3 +97,10 @@ td {
     background-image: linear-gradient(to bottom, #CF0411, #660000);
     border: none;
 }
+
+.school .form-label {
+    color: #76777a;
+}
+.school ::placeholder {
+    font-size: 0.9rem;
+}

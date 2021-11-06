@@ -17,6 +17,6 @@ class VideoController extends Controller
     {
         $videos = Videos::where('status', 'Approved')->get();
 
-        return view('frontend.videos', ['videos' => $videos]);
+        return view('frontend.video.videos', ['videos' => $videos]);
     }
 }

@@ -20,10 +20,10 @@
 
             <div class="col-8">
                 <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-8">
+                    <div class="col-8 p-0">
                         <h4 class="fs-4 fw-bolder user-settings-head">Overview FAQ's</h4>
                     </div>
-                    <div class="col-4 text-end">
+                    <div class="col-4 text-end p-0">
                         <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
                     </div>
                 </div>

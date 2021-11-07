@@ -187,13 +187,19 @@
             <li class="nav-item nav-dropdown">
                 <a class="nav-link nav-dropdown-toggle href="#">
                     <i class="nav-icon fas fa-school"></i>
-                    Schools
+                    School details
                 </a>
 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/degree_levels.index'))}}" href="{{ route('admin.degree_levels.index') }}">
                             Degree levels
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/schools.index'))}}" href="{{ route('admin.schools.index') }}">
+                            Schools
                         </a>
                     </li>
 

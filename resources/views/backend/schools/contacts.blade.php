@@ -1,75 +1,51 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 
-@section('title', 'School Contacts' )
-
-@push('after-styles')
-    <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
-@endpush
+@section('title', __('Edit School | Admin'))
 
 @section('content')
 
-    <div class="container user-settings" style="margin-top:8rem;">
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        @include('frontend.includes.profile-settings-links')
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-8">
-                <!-- <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">All Contacts</h4>
-                    </div>
-                    <div class="col-4 text-end">
-                        <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add Contact</button>
-                    </div>
-                </div> -->
+    @include('backend.includes.top_nav')
+    
+    <div class="row">
+        <div class="col-md-12 p-1">
+            <div class="card">
+                <div class="card-body border">
+                    <div class="p-3">
+                        <form action="{{ route('admin.schools.school_contacts_paragraph_update') }}" class="mb-5" method="POST">
+                            {{csrf_field()}}
+                            <div class="mb-3">
+                                <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contacts_page_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contacts_page_paragraph }}</textarea>
+                            </div>
 
-                <div class="row">
-                    <div class="col-12">
-                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
-                            <div class="row">
-                                <div class="col-12 border py-3">
-                                    <form action="{{ route('frontend.user.school_contacts_paragraph_update') }}" class="mb-5" method="POST">
-                                        {{csrf_field()}}
-                                        <div class="mb-3">
-                                            <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contacts_page_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contacts_page_paragraph }}</textarea>
-                                        </div>
+                            <div class="text-end">
+                                <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
+                                <input type="submit" value="Update Paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                            </div>
+                        </form>
 
-                                        <div class="text-end">
-                                            <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                            <input type="submit" value="Update Paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
-                                        </div>
-                                    </form>
-
-                                    <div class="row justify-content-between align-items-center mb-3">
-                                        <div class="col-8">
-                                            <h4 class="fs-4 fw-bolder user-settings-head">All Contacts</h4>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add Contact</button>
-                                        </div>
-                                    </div>
-
-                                    <table class="table table-striped table-bordered" id="contacts-table" style="width:100%">
-                                        <thead>
-                                            <tr class="align-items-center">
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Department</th>
-                                                <th scope="col">Phone</th>
-                                                <th scope="col" style="max-width: 150px;">Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <div class="row justify-content-between align-items-center mb-3">
+                            <div class="col-8">
+                                <h4 class="fs-4 fw-bolder user-settings-head">All Contacts</h4>
+                            </div>
+                            <div class="col-4 text-end">
+                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add Contact</button>
                             </div>
                         </div>
+
+                        <table class="table table-striped table-bordered" id="contacts-table" style="width:100%">
+                            <thead>
+                                <tr class="align-items-center">
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col" style="max-width: 150px;">Options</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -77,7 +53,7 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.school_contact_create') }}" method="POST">
+    <form action="{{ route('admin.schools.school_contact_create') }}" method="POST">
         {{csrf_field()}}
         <div class="modal fade" id="createContact" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -378,69 +354,7 @@
     </form>
 
 
-    @if(\Session::has('success'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Contact updated successfully.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
-    @if(\Session::has('created'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="create-contact-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Contact added successfully.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-    @if(\Session::has('paragraph'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="paragraph-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Paragraph updated successfully.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
-    <!-- Modal delete -->
+   <!-- Modal delete -->
     <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -469,16 +383,18 @@
         </div>
     </div>
 
+
 @endsection
+
 
 @push('after-scripts')
     <script>
         $(function () {
             var table = $('#contacts-table').DataTable({
                 processing: true,
-                ajax: "{{route('frontend.user.get_school_contacts')}}",
+                ajax: "{{route('admin.schools.get_school_contacts', $school->id)}}",
                 serverSide: true,
-                order: [[1, "asc"]],
+                order: [[0, "asc"]],
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'department', name: 'department'},
@@ -490,15 +406,20 @@
 
 
         let contact_id;
+        let url;
 
         $(document).on('click', '.delete', function(){
             contact_id = $(this).attr('id');
             $('#confirmModal').modal('show');
+
+            url = "{{ route('admin.schools.school_contact_delete', [$school->id, ':contact_id']) }}";
+        
+            url = url.replace(':contact_id', contact_id);
         });
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"school-contacts/delete/" + contact_id,
+                url: url,
         
                 success:function(data)
                 {
@@ -512,23 +433,4 @@
 
     </script>
 
-    <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
-        }
-    </script>
-
-    <script>
-        if(document.getElementById("create-contact-btn")){
-            $('#create-contact-btn').click();
-        }
-    </script>
-
-    <script>
-        if(document.getElementById("paragraph-btn")){
-            $('#paragraph-btn').click();
-        }
-    </script>
-    
 @endpush
-

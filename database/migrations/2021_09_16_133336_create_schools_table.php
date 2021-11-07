@@ -186,6 +186,68 @@ class CreateSchoolsTable extends Migration
             $table->text('admission_title_4_paragraph')->nullable();
             $table->text('admission_title_5')->nullable();
             $table->text('admission_title_5_paragraph')->nullable();
+
+            $table->text('financial_title_1')->nullable();
+            $table->text('financial_title_1_paragraph')->nullable();
+            $table->text('financial_title_2')->nullable();
+            $table->text('financial_title_2_tab_1')->nullable();
+            $table->text('financial_title_2_tab_2')->nullable();
+            $table->text('financial_title_2_tab_3')->nullable();
+
+            $table->text('financial_tab_1_sub_title_1')->nullable();
+            $table->text('financial_tab_1_sub_title_1_bullet')->nullable();
+            $table->text('financial_tab_1_sub_title_1_bullet_price')->nullable();
+            $table->text('financial_tab_1_sub_title_2')->nullable();
+            $table->text('financial_tab_1_sub_title_2_paragraph')->nullable();
+            $table->text('financial_tab_1_sub_title_3')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_1')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_1_price')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_2')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_2_price')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_3')->nullable();
+            $table->text('financial_tab_1_sub_title_3_bullet_3_price')->nullable();
+            $table->text('financial_tab_1_sub_title_3_paragraph')->nullable();
+
+            $table->text('financial_tab_2_sub_title_1')->nullable();
+            $table->text('financial_tab_2_sub_title_1_bullet')->nullable();
+            $table->text('financial_tab_2_sub_title_1_bullet_price')->nullable();
+            $table->text('financial_tab_2_sub_title_2')->nullable();
+            $table->text('financial_tab_2_sub_title_2_paragraph')->nullable();
+            $table->text('financial_tab_2_sub_title_3')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_1')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_1_price')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_2')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_2_price')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_3')->nullable();
+            $table->text('financial_tab_2_sub_title_3_bullet_3_price')->nullable();
+            $table->text('financial_tab_2_sub_title_3_paragraph')->nullable();
+
+            $table->text('financial_tab_3_sub_title_1')->nullable();
+            $table->text('financial_tab_3_sub_title_1_bullet')->nullable();
+            $table->text('financial_tab_3_sub_title_1_bullet_price')->nullable();
+            $table->text('financial_tab_3_sub_title_2')->nullable();
+            $table->text('financial_tab_3_sub_title_2_paragraph')->nullable();
+            $table->text('financial_tab_3_sub_title_3')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_1')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_1_price')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_2')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_2_price')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_3')->nullable();
+            $table->text('financial_tab_3_sub_title_3_bullet_3_price')->nullable();
+            $table->text('financial_tab_3_sub_title_3_paragraph')->nullable();
+
+            $table->text('financial_title_3')->nullable();
+            $table->text('financial_title_3_paragraph')->nullable();
+            $table->text('financial_title_4')->nullable();
+            $table->text('financial_title_4_paragraph')->nullable();
+            $table->text('financial_related_programs_4')->nullable();
+            $table->text('financial_title_5')->nullable();
+            $table->text('financial_title_5_paragraph')->nullable();
+            $table->text('financial_title_6')->nullable();
+            $table->text('financial_title_6_paragraph')->nullable();
+            $table->text('financial_related_programs_6')->nullable();
+            $table->text('financial_text_content_1')->nullable();
+
             $table->timestamps();
         });
     }

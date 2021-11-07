@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
 .app-header {
     height: 85px!important;
 }
@@ -16,4 +22,25 @@ th {
 
 td {
     text-align: center;
+}
+
+.form-label {
+    color: #76777a;
+}
+
+.create_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none!important;
+}
+
+.school-top-nav a.active {
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+}
+
+.school-top-nav a:hover {
+    background-color: rgb(216, 216, 216);
+    color: black;
+    font-weight: 600;
 }

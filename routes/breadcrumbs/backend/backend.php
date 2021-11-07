@@ -228,9 +228,54 @@ Breadcrumbs::for('admin.schools.create_school', function ($trail) {
     $trail->push('Schools / Create', route('admin.schools.create_school'));
 });
 
-Breadcrumbs::for('admin.schools.edit_school', function ($trail) {
-    $trail->push('Schools / Edit', route('admin.schools.edit_school', 1));
+Breadcrumbs::for('admin.schools.school_information', function ($trail) {
+    $trail->push('School / Information', route('admin.schools.school_information', 1));
 });
+
+Breadcrumbs::for('admin.schools.school_admission', function ($trail) {
+    $trail->push('School / Admission', route('admin.schools.school_admission', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_admission_employee_edit', function ($trail) {
+    $trail->push('School / Admission / Employee / Edit', route('admin.schools.school_admission_employee_edit', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_quick_facts', function ($trail) {
+    $trail->push('School / Quick Facts', route('admin.schools.school_quick_facts', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_programs', function ($trail) {
+    $trail->push('School / Programs', route('admin.schools.school_programs', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_program_edit', function ($trail) {
+    $trail->push('School / Programs / Edit', route('admin.schools.school_program_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_scholarships', function ($trail) {
+    $trail->push('School / Scholarships', route('admin.schools.school_scholarships', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_scholarship_edit', function ($trail) {
+    $trail->push('School / Scholarships / Edit', route('admin.schools.school_scholarship_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_scholarships_faq', function ($trail) {
+    $trail->push('School / Scholarships FAQ', route('admin.schools.school_scholarships_faq', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_scholarship_faq_edit', function ($trail) {
+    $trail->push('School / Scholarships FAQ / Edit', route('admin.schools.school_scholarship_faq_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_contacts', function ($trail) {
+    $trail->push('School / Contacts', route('admin.schools.school_contacts', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_contact_edit', function ($trail) {
+    $trail->push('School / Contact/ Edit', route('admin.schools.school_contact_edit', [1, 1]));
+});
+
 
 
 

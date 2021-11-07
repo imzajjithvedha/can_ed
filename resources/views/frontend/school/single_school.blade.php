@@ -11,7 +11,7 @@
     <div class="container mt-5 single-school">
 
         <div class="row">
-            <div class="col-3 pt-5">
+            <div class="col-3">
                 <h5 class="fw-bolder">Related Articles</h5>
                 <hr>
 
@@ -47,7 +47,7 @@
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $school->id }}">
                                     <input type="hidden" name='favorite' value="favorite">
-                                    <button type="submit" class="fas fa-heart favorite-heart text-decoration-none"></button>
+                                    <button type="submit" class="fas fa-heart favorite-heart text-decoration-none" style="vertical-align: middle;"></button>
                                 </form>
                             </div>
                         @else
@@ -56,7 +56,7 @@
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $school->id }}">
                                     <input type="hidden" name='favorite' value="non-favorite">
-                                    <button type="submit" class="far fa-heart favorite-heart text-decoration-none"></button>
+                                    <button type="submit" class="far fa-heart favorite-heart text-decoration-none" style="vertical-align: middle;"></button>
                                 </form>
                             </div>
                         @endif
@@ -97,7 +97,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <ul class="nav nav-tabs justify-content-between mb-3" id="myTab" role="tablist">
+                        <ul class="nav nav-tabs justify-content-between mb-3 main-nav" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick Facts</button>
                             </li>
@@ -114,7 +114,7 @@
                                 <button class="nav-link" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financial</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a href="#tab-scholarships" class="nav-link" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</a>
+                                <button class="nav-link" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
@@ -122,6 +122,7 @@
                         </ul>
                         
                         <div class="tab-content" id="myTabContent">
+
                             <div class="tab-pane fade show active" id="quick-facts" role="tabpanel" aria-labelledby="quick-facts-tab">
                                 <div class="row mb-5">
                                     <div class="col-3 mb-4">
@@ -1064,9 +1065,428 @@
 
                             </div>
 
+
                             <div class="tab-pane fade" id="financial" role="tabpanel" aria-labelledby="financial-tab">
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_1 }}</h5>
+
+                                        <div class="gray">
+                                            {!! $school->financial_title_1_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->financial_title_2 }}</h5>
+
+                                        <ul class="nav nav-tabs financial-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active" id="financial-tab-tab1" data-bs-toggle="tab" data-bs-target="#financial-tab1" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $school->financial_title_2_tab_1 }}</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="financial-tab-tab2" data-bs-toggle="tab" data-bs-target="#financial-tab2" type="button" role="tab" aria-controls="profile" aria-selected="false">{{ $school->financial_title_2_tab_2 }}</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link" id="financial-tab-tab3" data-bs-toggle="tab" data-bs-target="#financial-tab3" type="button" role="tab" aria-controls="contact" aria-selected="false">{{ $school->financial_title_2_tab_3 }}</button>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+
+                                            <div class="tab-pane fade show active" id="financial-tab1" role="tabpanel" aria-labelledby="financial-tab-tab1">
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_1 }}</h6>
+
+                                                <div class="row p-3">
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet_price }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_2 }}</h6>
+
+                                                <div class="gray p-3">
+                                                    {!! $school->financial_tab_1_sub_title_2_paragraph !!}
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_3 }}</h6>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->financial_tab_1_sub_title_3_paragraph !!}
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="financial-tab2" role="tabpanel" aria-labelledby="financial-tab-tab2">
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_1 }}</h6>
+
+                                                <div class="row p-3">
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet_price }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_2 }}</h6>
+
+                                                <div class="gray p-3">
+                                                    {!! $school->financial_tab_2_sub_title_2_paragraph !!}
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_3 }}</h6>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->financial_tab_2_sub_title_3_paragraph !!}
+                                                </div>
+
+                                            </div>
+
+                                            <div class="tab-pane fade" id="financial-tab3" role="tabpanel" aria-labelledby="financial-tab-tab3">
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_1 }}</h6>
+
+                                                <div class="row p-3">
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet_price }}</p>
+                                                    </div>
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_2 }}</h6>
+
+                                                <div class="gray p-3">
+                                                    {!! $school->financial_tab_3_sub_title_2_paragraph !!}
+                                                </div>
+
+                                                <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_3 }}</h6>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row px-3">
+                                                    <div class="col-12 py-3 border-bottom">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3 }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3_price }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->financial_tab_3_sub_title_3_paragraph !!}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_3 }}</h5>
+
+                                        <div class="gray">
+                                            {!! $school->financial_title_3_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="row rounded">
+                                            <div class="col-1 red-btn py-3"></div>
+                                            <div class="col-3 text-white bg-primary py-3">
+                                                <h6 class="fw-bold">Good to go?</h6>
+                                            </div>
+                                            <div class="col-7 text-white red-btn py-3">
+                                                <h6 class="fw-bold">Let's apply</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row px-3">
+                                    <div class="col-12">
+                                        <div class="row py-3" style="background-color: #f2f4f8;">
+                                            <div class="col-12">
+                                                <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_4 }}</h5>
+
+                                                <div class="gray">
+                                                    {!! $school->financial_title_4_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program name</th>
+                                                    <th scope="col" class="text-center">Length</th>
+                                                    <th scope="col" class="text-center">Tuition, Canadian student</th>
+                                                    <th scope="col">Tuition, international student</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach(json_decode($school->financial_related_programs_4) as $related4)
+                                                    <tr style="font-size: 0.95rem;">
+                                                        <td><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ $related4->name }}</td>
+                                                        <td class="text-center">{{ $related4->length }}</td>
+                                                        <td class="text-center fw-bold">${{ $related4->canadian }}</td>
+                                                        <td class="text-center fw-bold">${{ $related4->international }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_5 }}</h5>
+
+                                        <div class="gray">
+                                            {!! $school->financial_title_5_paragraph !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row px-3">
+                                    <div class="col-12">
+                                        <div class="row py-3" style="background-color: #f2f4f8;">
+                                            <div class="col-12">
+                                                <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_6 }}</h5>
+
+                                                <div class="gray">
+                                                    {!! $school->financial_title_6_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Program name</th>
+                                                    <th scope="col" class="text-center">Length</th>
+                                                    <th scope="col" class="text-center">Tuition, Canadian student</th>
+                                                    <th scope="col">Tuition, international student</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach(json_decode($school->financial_related_programs_6) as $related6)
+                                                    <tr style="font-size: 0.95rem;">
+                                                        <td><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ $related6->name }}</td>
+                                                        <td class="text-center">{{ $related6->length }}</td>
+                                                        <td class="text-center fw-bold">${{ $related6->canadian }}</td>
+                                                        <td class="text-center fw-bold">${{ $related6->international }}</td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="gray p-3" style="background-color: #f2f4f8;">
+                                            {!! $school->financial_text_content_1 !!}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @if(count($financial_faqs) != null)
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+
+                                            <div class="accordion" id="accordionExample">
+                                                @foreach($financial_faqs as $financial_faq)
+                                                    <div class="accordion-item mb-3 rounded-0 border-0">
+                                                        <h2 class="accordion-header border" id="heading-{{ $financial_faq->id }}">
+                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $financial_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $financial_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                {{ $financial_faq->question }}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse-{{ $financial_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $financial_faq->id }}" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body gray">
+                                                                <p class="gray">{{ $financial_faq->answer }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <div class="row justify-content-center mb-5">
+                                    <div class="col-7 text-center">
+                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+
+                                        <div class="row align-items-center">
+                                            @foreach($articles as $article)
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center">
+                                                                <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-5">
+                                    <div class="col-12">
+                                        <div class="row rounded">
+                                            <div class="col-1 red-btn py-3"></div>
+                                            <div class="col-3 text-white bg-primary py-3">
+                                                <h6 class="fw-bold">Good to go?</h6>
+                                            </div>
+                                            <div class="col-7 text-white red-btn py-3">
+                                                <h6 class="fw-bold">Let's apply</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
+
 
                             <div class="tab-pane fade" id="scholarships" role="tabpanel" aria-labelledby="scholarships-tab">
                                 <div class="row mb-5">
@@ -1473,6 +1893,7 @@
 
 
                             </div>
+
 
                             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                                 <div class="row mb-5">

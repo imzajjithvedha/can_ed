@@ -83,8 +83,8 @@
                 {data: 'name', name: 'name'},
                 {data: 'website', name: 'website'},
                 {data: 'country', name: 'country'},
-                {data: 'email', name: 'email'},
-                {data: 'phone', name: 'phone'},
+                {data: 'school_email', name: 'school_email'},
+                {data: 'school_phone', name: 'school_phone'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

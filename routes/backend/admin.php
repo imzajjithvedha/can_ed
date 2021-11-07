@@ -19,23 +19,20 @@ use App\Http\Controllers\Backend\SchoolTypesController;
 use App\Http\Controllers\Backend\WebsiteInformationController;
 use App\Http\Controllers\Backend\ProgramCategoriesController;
 use App\Http\Controllers\Backend\DegreeLevelsController;
+use App\Http\Controllers\Backend\SchoolsInformationController;
+use App\Http\Controllers\Backend\SchoolsAdmissionController;
+use App\Http\Controllers\Backend\SchoolsAdmissionEmployeeController;
+use App\Http\Controllers\Backend\SchoolsQuickFactsController;
+use App\Http\Controllers\Backend\SchoolsProgramController;
+use App\Http\Controllers\Backend\SchoolsScholarshipController;
+use App\Http\Controllers\Backend\SchoolsScholarshipFAQController;
+use App\Http\Controllers\Backend\SchoolsContactController;
 
 
 
 // All route names are prefixed with 'admin.'.
 Route::redirect('/', '/admin/dashboard', 301);
 Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-
-// Route::get('program-subjects', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('faculties', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('school-types', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('degree-types', [SchoolsController::class, 'index'])->name('schools.index');
-
-
-
-
-
 
 
 Route::get('articles', [ArticlesController::class, 'index'])->name('articles.index');
@@ -69,9 +66,9 @@ Route::post('business-categories/import', [BusinessCategoriesController::class, 
 
 
 
-
 Route::get('careers/how-these-career-came-about', [CareersController::class, 'howCareersCameAbout'])->name('careers.how_careers_came_about');
 Route::post('careers/how-these-career-came-about/update', [CareersController::class, 'howCareersCameAboutUpdate'])->name('careers.how_careers_came_about_update');
+
 
 Route::get('careers/all-careers', [CareersController::class, 'allCareers'])->name('careers.all_careers');
 Route::get('careers/create-career', [CareersController::class, 'createCareer'])->name('careers.create_career');
@@ -83,11 +80,9 @@ Route::get('careers/delete-career/{id}', [CareersController::class, 'deleteCaree
 Route::get('careers/import-career', [CareersController::class, 'importCareers'])->name('careers.import_careers');
 Route::post('careers/import', [CareersController::class, 'import'])->name('careers.import');
 
+
 Route::get('careers/hot-careers', [CareersController::class, 'hotCareers'])->name('careers.hot_careers');
 Route::post('careers/hot-careers/update', [CareersController::class, 'hotCareersUpdate'])->name('careers.hot_careers_update');
-
-
-
 
 
 
@@ -101,7 +96,6 @@ Route::get('events/delete-event/{id}', [EventsController::class, 'deleteEvent'])
 
 
 
-
 Route::get('directory', [DirectoryController::class, 'index'])->name('directory.index');
 Route::get('directory/create-directory', [DirectoryController::class, 'createDirectory'])->name('directory.create_directory');
 Route::post('directory/store-directory', [DirectoryController::class, 'storeDirectory'])->name('directory.store_directory');
@@ -111,7 +105,6 @@ Route::post('directory/update-directory', [DirectoryController::class, 'updateDi
 Route::get('directory/delete-directory/{id}', [DirectoryController::class, 'deleteDirectory'])->name('directory.delete_directory');
 Route::get('directory/import-directory', [DirectoryController::class, 'importDirectory'])->name('directory.import_directory');
 Route::post('directory/import', [DirectoryController::class, 'import'])->name('directory.import');
-
 
 
 
@@ -141,6 +134,7 @@ Route::get('pages/disclaimer', [PagesController::class, 'disclaimer'])->name('pa
 Route::post('pages/disclaimer/update', [PagesController::class, 'disclaimerUpdate'])->name('pages.disclaimer_update');
 
 
+
 Route::get('team', [TeamController::class, 'index'])->name('team.index');
 Route::get('team/create-team', [TeamController::class, 'createTeam'])->name('team.create_team');
 Route::post('team/store-team', [TeamController::class, 'storeTeam'])->name('team.store_team');
@@ -148,6 +142,7 @@ Route::get('team/get-team', [TeamController::class, 'getTeam'])->name('team.get_
 Route::get('team/edit-team/{id}', [TeamController::class, 'editTeam'])->name('team.edit_team');
 Route::post('team/update-team', [TeamController::class, 'updateTeam'])->name('team.update_team');
 Route::get('team/delete-team/{id}', [TeamController::class, 'deleteTeam'])->name('team.delete_team');
+
 
 
 Route::get('sponsors', [SponsorsController::class, 'index'])->name('sponsors.index');
@@ -189,14 +184,84 @@ Route::get('networks/delete-network/{id}', [NetworksController::class, 'deleteNe
 
 
 
-
+//Schools
 Route::get('schools', [SchoolsController::class, 'index'])->name('schools.index');
-Route::get('schools/create-school', [SchoolsController::class, 'createSchool'])->name('schools.create_school');
-Route::post('schools/store-school', [SchoolsController::class, 'storeSchool'])->name('schools.store_school');
 Route::get('schools/get-schools', [SchoolsController::class, 'getSchools'])->name('schools.get_schools');
-Route::get('schools/edit-school/{id}', [SchoolsController::class, 'editSchool'])->name('schools.edit_school');
-Route::post('schools/update-school', [SchoolsController::class, 'updateSchool'])->name('schools.update_school');
 Route::get('schools/delete-school/{id}', [SchoolsController::class, 'deleteSchool'])->name('schools.delete_school');
+
+
+//School Information
+Route::get('schools/edit-school/{id}/information', [SchoolsInformationController::class, 'schoolInformation'])->name('schools.school_information');
+Route::post('schools/edit-school/information/update', [SchoolsInformationController::class, 'schoolInformationUpdate'])->name('schools.school_information_update');
+
+
+//School Admission
+Route::get('schools/edit-school/{id}/admission', [SchoolsAdmissionController::class, 'schoolAdmission'])->name('schools.school_admission');
+Route::post('schools/edit-school/admission/update', [SchoolsAdmissionController::class, 'schoolAdmissionUpdate'])->name('schools.school_admission_update');
+
+
+Route::get('schools/edit-school/{id}/get-admission-employees', [SchoolsAdmissionEmployeeController::class, 'getSchoolAdmissionEmployees'])->name('schools.get_school_admission_employees');
+Route::post('schools/edit-school/admission/employee/create', [SchoolsAdmissionEmployeeController::class, 'schoolAdmissionEmployeeCreate'])->name('schools.school_admission_employee_create');
+Route::get('schools/edit-school/admission/employee/edit/{id}', [SchoolsAdmissionEmployeeController::class, 'schoolAdmissionEmployeeEdit'])->name('schools.school_admission_employee_edit');
+// Route::post('schools/edit-school/{id}/admission/update', [SchoolsAdmissionEmployeeController::class, 'schoolAdmissionEmployeeUpdate'])->name('schools.school_admission_employee_update');
+Route::get('schools/edit-school/admission/employee/delete/{id}', [SchoolsAdmissionEmployeeController::class, 'SchoolAdmissionEmployeeDelete'])->name('schools.school_admission_employee_delete');
+
+
+// Route::get('school-admission-faq', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQ'])->name('school_admission_faq');
+// Route::get('get-school-admission-faq', [UserSchoolAdmissionFAQController::class, 'getSchoolAdmissionFAQ'])->name('get_school_admission_faq');
+// Route::post('school-admission-faq/create', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQCreate'])->name('school_admission_faq_create');
+// Route::get('school-admission-faq/edit/{id}', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQEdit'])->name('school_admission_faq_edit');
+// Route::post('school-admission-faq/update', [UserSchoolAdmissionFAQController::class, 'schoolAdmissionFAQUpdate'])->name('school_admission_faq_update');
+// Route::get('school-admission-faq/delete/{id}', [UserSchoolAdmissionFAQController::class, 'SchoolAdmissionFAQDelete'])->name('school_admission_faq_delete');
+
+
+
+//School quick facts
+Route::get('schools/edit-school/{id}/quick-facts', [SchoolsQuickFactsController::class, 'schoolQuickFacts'])->name('schools.school_quick_facts');
+Route::post('schools/edit-school/quick-facts/paragraphs/update', [SchoolsQuickFactsController::class, 'schoolQuickFactsParagraphsUpdate'])->name('schools.school_quick_facts_paragraphs_update');
+Route::post('schools/edit-school/quick-facts/update', [SchoolsQuickFactsController::class, 'schoolQuickFactsUpdate'])->name('schools.school_quick_facts_update');
+
+
+//School programs
+Route::get('schools/edit-school/{id}/programs', [SchoolsProgramController::class, 'schoolPrograms'])->name('schools.school_programs');
+Route::get('schools/edit-school/{id}/get-programs', [SchoolsProgramController::class, 'getSchoolPrograms'])->name('schools.get_school_programs');
+Route::post('schools/edit-school/programs/create', [SchoolsProgramController::class, 'schoolProgramCreate'])->name('schools.school_program_create');
+Route::get('schools/edit-school/{id}/programs/edit/{program_id}', [SchoolsProgramController::class, 'schoolProgramEdit'])->name('schools.school_program_edit');
+Route::post('schools/edit-school/programs/update', [SchoolsProgramController::class, 'schoolProgramUpdate'])->name('schools.school_program_update');
+Route::get('schools/edit-school/{id}/programs/delete/{program_id}', [SchoolsProgramController::class, 'SchoolProgramDelete'])->name('schools.school_program_delete');
+Route::post('schools/edit-school/programs/paragraph/update', [SchoolsProgramController::class, 'schoolProgramsParagraphUpdate'])->name('schools.school_programs_paragraph_update');
+
+
+//School scholarships
+Route::get('schools/edit-school/{id}/scholarships', [SchoolsScholarshipController::class, 'schoolScholarships'])->name('schools.school_scholarships');
+Route::get('schools/edit-school/{id}/get-scholarships', [SchoolsScholarshipController::class, 'getSchoolScholarships'])->name('schools.get_school_scholarships');
+Route::post('schools/edit-school/scholarships/create', [SchoolsScholarshipController::class, 'schoolScholarshipCreate'])->name('schools.school_scholarship_create');
+Route::get('schools/edit-school/{id}/scholarships/edit/{scholarship_id}', [SchoolsScholarshipController::class, 'schoolScholarshipEdit'])->name('schools.school_scholarship_edit');
+Route::post('schools/edit-school/scholarships/update', [SchoolsScholarshipController::class, 'schoolScholarshipUpdate'])->name('schools.school_scholarship_update');
+Route::get('schools/edit-school/{id}/scholarships/delete/{scholarship_id}', [SchoolsScholarshipController::class, 'SchoolScholarshipDelete'])->name('schools.school_scholarship_delete');
+Route::post('schools/edit-school/scholarships/paragraph/update', [SchoolsScholarshipController::class, 'schoolScholarshipsParagraphUpdate'])->name('schools.school_scholarships_paragraph_update');
+
+
+Route::get('schools/edit-school/{id}/scholarships-faq', [SchoolsScholarshipFAQController::class, 'schoolScholarshipsFAQ'])->name('schools.school_scholarships_faq');
+Route::get('schools/edit-school/{id}/get-scholarships-faq', [SchoolsScholarshipFAQController::class, 'getSchoolScholarshipsFAQ'])->name('schools.get_school_scholarships_faq');
+Route::post('schools/edit-school/scholarships-faq/create', [SchoolsScholarshipFAQController::class, 'schoolScholarshipFAQCreate'])->name('schools.school_scholarship_faq_create');
+Route::get('schools/edit-school/{id}/scholarships-faq/edit/{faq_id}', [SchoolsScholarshipFAQController::class, 'schoolScholarshipFAQEdit'])->name('schools.school_scholarship_faq_edit');
+Route::post('schools/edit-school/scholarships-faq/update', [SchoolsScholarshipFAQController::class, 'schoolScholarshipFAQUpdate'])->name('schools.school_scholarship_faq_update');
+Route::get('schools/edit-school/{id}/scholarships-faq/delete/{faq_id}', [SchoolsScholarshipFAQController::class, 'SchoolScholarshipFAQDelete'])->name('schools.school_scholarship_faq_delete');
+
+
+
+
+//School Contacts
+Route::get('schools/edit-school/{id}/contacts', [SchoolsContactController::class, 'schoolContacts'])->name('schools.school_contacts');
+Route::get('schools/edit-school/{id}/get-contacts', [SchoolsContactController::class, 'getSchoolContacts'])->name('schools.get_school_contacts');
+Route::post('schools/edit-school/contacts/create', [SchoolsContactController::class, 'schoolContactCreate'])->name('schools.school_contact_create');
+Route::get('schools/edit-school/{id}/contacts/edit/{contact_id}', [SchoolsContactController::class, 'schoolContactEdit'])->name('schools.school_contact_edit');
+Route::post('schools/edit-school/contacts/update', [SchoolsContactController::class, 'schoolContactUpdate'])->name('schools.school_contact_update');
+Route::get('schools/edit-school/{id}/contacts/delete/{contact_id}', [SchoolsContactController::class, 'SchoolContactDelete'])->name('schools.school_contact_delete');
+Route::post('schools/edit-school/contacts/paragraph/update', [SchoolsContactController::class, 'schoolContactsParagraphUpdate'])->name('schools.school_contacts_paragraph_update');
+
+
 
 
 Route::get('school-types', [SchoolTypesController::class, 'index'])->name('types.index');

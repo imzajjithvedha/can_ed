@@ -13,6 +13,8 @@ use DB;
 use App\Models\WorldWideNetwork;
 use App\Models\FavoriteBusinesses;
 use App\Models\Auth\User;
+use App\Models\FavoriteSchools;
+use App\Models\Schools;
 
 /**
  * Class DashboardController.
@@ -174,6 +176,27 @@ class DashboardController extends Controller
 
         return back();
     }
+
+
+    // favorite schools
+    public function favoriteSchools()
+    {
+        $user_id = auth()->user()->id;
+
+        $favorite = favoriteSchools::where('user_id', $user_id)->get();
+
+        $schools = Schools::orderBy('updated_at', 'DESC')->get();
+
+        return view('frontend.user.favorite_schools', ['favorite' => $favorite, 'schools' => $schools]);
+    }
+
+    public function favoriteSchoolDelete($id)
+    {
+        $favorite = favoriteSchools::where('school_id', $id)->delete();
+
+        return back();
+    }
+
 
 
 

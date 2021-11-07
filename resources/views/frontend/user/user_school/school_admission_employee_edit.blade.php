@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit Scholarship' )
+@section('title', 'Edit Employee' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -21,7 +21,7 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Employee</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Edit employee</h4>
                         
                     </div>
                     <div class="col-4 text-end">

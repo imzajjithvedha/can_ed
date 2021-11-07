@@ -16,6 +16,7 @@ use App\Models\SchoolScholarshipsFAQ;
 use App\Models\SchoolOverviewFAQ;
 use App\Models\SchoolAdmissionEmployees;
 use App\Models\SchoolAdmissionFAQ;
+use App\Models\SchoolFinancialFAQ;
 
 /**
  * Class SchoolController.
@@ -113,6 +114,8 @@ class SchoolController extends Controller
         $admission_featured_employees = SchoolAdmissionEmployees::where('school_id', $id)->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(3)->get();
 
         $admission_faqs = SchoolAdmissionFAQ::where('school_id', $id)->get();
+
+        $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->get();
         
 
         return view('frontend.school.single_school', [
@@ -133,6 +136,7 @@ class SchoolController extends Controller
             'admission_employees' => $admission_employees,
             'admission_featured_employees' => $admission_featured_employees,
             'admission_faqs' => $admission_faqs,
+            'financial_faqs' => $financial_faqs,
         ]);
     }
 

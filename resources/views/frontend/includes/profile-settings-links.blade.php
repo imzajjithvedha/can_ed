@@ -44,6 +44,8 @@
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-financial' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_financial') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Financial</a>
 
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-financial-faq' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_financial_faq') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Financial FAQ</a>
+
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-information' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_information') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Information</a>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-overview' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_overview') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Overview</a>

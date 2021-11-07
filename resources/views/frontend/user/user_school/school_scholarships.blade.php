@@ -19,14 +19,14 @@
             </div>
 
             <div class="col-8">
-                <!-- <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between align-items-center mb-3">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">All Scholarships</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Scholarships</h4>
                     </div>
-                    <div class="col-4 text-end">
+                    <!-- <div class="col-4 text-end">
                         <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Scholarship</button>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
 
                 <div class="row">
                     <div class="col-12">
@@ -205,7 +205,7 @@
 
 
     <form action="{{ route('frontend.user.school_scholarship_create') }}" method="POST" enctype="multipart/form-data">
-    {{csrf_field()}}
+        {{csrf_field()}}
         <div class="modal fade" id="createProgram" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">

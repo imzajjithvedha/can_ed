@@ -3,33 +3,37 @@
 @section('title', __('Edit School | Admin'))
 
 @section('content')
+
+
+    @include('backend.includes.top_nav')
     
-    <form action="{{route('admin.schools.update_school')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.schools.school_information_update') }}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
+
         <div class="row">
             <div class="col-md-7 p-1">
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input class="form-control" name="name" value="{{ $school->name }}" placeholder="School Name" required>
+                                <label for="name" class="form-label mb-1">Name *</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" value="{{ $school->name }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input class="form-control" name="website" value="{{ $school->website }}" placeholder="Website" required>
+                                <label for="website" class="form-label mb-1">Website *</label>
+                                <input type="text" class="form-control" id="website" aria-describedby="website" name="website" value="{{ $school->website }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input class="form-control" name="reach_time" value="{{ $school->reach_time }}" placeholder="Title" disabled>
+                                <label for="email" class="form-label mb-1">Email *</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" value="{{ $school->school_email }}" required>
                             </div>
 
-                            <div class="mb-3">
-                                <input class="form-control" name="time_zone" value="{{ $school->time_zone }}" placeholder="Time Zone" disabled>
-                            </div>
-
-                            <div class="mb-3">
+                            <div class="mb-5">
+                                <label for="country" class="form-label mb-1">Country *</label>
                                 <select class="form-control" id="country" name="country" required>
-                                    <option value="">Select Country</option>
+                                    <option value="" disabled hidden></option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -279,8 +283,113 @@
                                 </select>
                             </div>
 
+                            <div class="mb-5">
+                                <label for="school_featured_image" class="form-label">School Featured Image *</label>
+
+                                @if($school->featured_image != null)
+                                    <div class="row justify-content-center mb-3">
+                                        <div class="col-12">
+                                            <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                                        </div>
+                                    </div>
+
+                                    <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
+
+                                    <input type="file" class="form-control" name="featured_image">
+
+                                @else
+                                    <input type="file" class="form-control" name="featured_image" required>
+                                @endif
+
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="school_featured_image" class="form-label">More School Images</label>
+
+                                @if(count($images) != 0)
+                                    <div class="row mb-3">
+                                        @foreach($images as $image)
+                                            <div class="col-4 mb-3">
+                                                <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                <input type="hidden" class="form-control" name="old_images[]" value="{{$image}}">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
+
+                                <input type="file" class="form-control" multiple name="new_images[]">
+                            </div>
+
                             <div class="mb-3">
-                                <textarea class="form-control" name="message" value="{{ $school->message }}" rows="7">{{ $school->message }}</textarea>
+                                <label for="facebook" class="form-label mb-1">Facebook</label>
+                                <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" value="{{ $school->facebook }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="instagram" class="form-label mb-1">Instagram</label>
+                                <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" value="{{ $school->instagram }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="twitter" class="form-label mb-1">Twitter</label>
+                                <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" value="{{ $school->twitter }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="you-tube" class="form-label mb-1">YouTube</label>
+                                <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" value="{{ $school->you_tube }}">
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="linked-in" class="form-label mb-1">LinkedIn</label>
+                                <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" value="{{ $school->linked_in }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <div>
+                                    <label class="form-label mb-1">External Links</label>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link Name" value="{{ $school->link_1_name }}">
+                                        <input type="url" class="form-control" id="link_1_url" aria-describedby="link_1_url" name="link_1_url" placeholder="Link" value="{{ $school->link_1_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_2_name" aria-describedby="link_2" name="link_2_name" placeholder="Link Name" value="{{ $school->link_2_name }}">
+                                        <input type="url" class="form-control" id="link_2_url" aria-describedby="link_2_url" name="link_2_url" placeholder="Link" value="{{ $school->link_2_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_3_name" aria-describedby="link_3" name="link_3_name" placeholder="Link Name" value="{{ $school->link_3_name }}">
+                                        <input type="url" class="form-control" id="link_3_url" aria-describedby="link_3_url" name="link_3_url" placeholder="Link" value="{{ $school->link_3_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_4_name" aria-describedby="link_4" name="link_4_name" placeholder="Link Name" value="{{ $school->link_4_name }}">
+                                        <input type="url" class="form-control" id="link_4_url" aria-describedby="link_4_url" name="link_4_url" placeholder="Link" value="{{ $school->link_4_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_5_name" aria-describedby="link_5" name="link_5_name" placeholder="Link Name" value="{{ $school->link_5_name }}">
+                                        <input type="url" class="form-control" id="link_5_url" aria-describedby="link_5_url" name="link_5_url" placeholder="Link" value="{{ $school->link_5_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_6_name" aria-describedby="link_6" name="link_6_name" placeholder="Link Name" value="{{ $school->link_6_name }}">
+                                        <input type="url" class="form-control" id="link_6_url" aria-describedby="link_6_url" name="link_6_url" placeholder="Link" value="{{ $school->link_6_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_7_name" aria-describedby="link_7" name="link_7_name" placeholder="Link Name" value="{{ $school->link_7_name }}">
+                                        <input type="url" class="form-control" id="link_7_url" aria-describedby="link_7_url" name="link_7_url" placeholder="Link" value="{{ $school->link_7_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_8_name" aria-describedby="link_8" name="link_8_name" placeholder="Link Name" value="{{ $school->link_8_name }}">
+                                        <input type="url" class="form-control" id="link_8_url" aria-describedby="link_8_url" name="link_8_url" placeholder="Link" value="{{ $school->link_8_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_9_name" aria-describedby="link_9" name="link_9_name" placeholder="Link Name" value="{{ $school->link_9_name }}">
+                                        <input type="url" class="form-control" id="link_9_url" aria-describedby="link_9_url" name="link_9_url" placeholder="Link" value="{{ $school->link_9_url }}">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control mb-2" id="link_10_name" aria-describedby="link_10" name="link_10_name" placeholder="Link Name" value="{{ $school->link_10_name }}">
+                                        <input type="url" class="form-control" id="link_10_url" aria-describedby="link_10_url" name="link_10_url" placeholder="Link" value="{{ $school->link_10_url }}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -291,6 +400,30 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
+                            <div class="mb-3">
+                                <label for="email" class="form-label mb-1">User Email</label>
+                                <input class="form-control" value="{{ $school->user_email }}" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label mb-1">User Phone</label>
+                                <input class="form-control" value="{{ $school->user_phone }}" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label mb-1">Reach time</label>
+                                <input class="form-control" value="{{ $school->reach_time }}" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label mb-1">Timezone</label>
+                                <input class="form-control" value="{{ $school->time_zone }}" disabled>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label mb-1">Message</label> 
+                                <textarea class="form-control" value="{{ $school->message }}" rows="7" disabled>{{ $school->message }}</textarea>
+                            </div>
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status" required>
@@ -301,7 +434,7 @@
 
                             <div class="mt-4 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $school->id }}"/>
-                                <a href="{{ route('admin.schools.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <a href="{{ route('admin.schools.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Home</a>
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>

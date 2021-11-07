@@ -39,6 +39,8 @@ use App\Http\Controllers\Frontend\User\UserSchoolOverviewFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolAdmissionController;
 use App\Http\Controllers\Frontend\User\UserSchoolAdmissionEmployeeController;
 use App\Http\Controllers\Frontend\User\UserSchoolAdmissionFAQController;
+use App\Http\Controllers\Frontend\User\UserSchoolFinancialController;
+use App\Http\Controllers\Frontend\User\UserSchoolFinancialFAQController;
 
 /*
  * Frontend Controllers
@@ -205,8 +207,8 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
 
-        Route::get('favorite-schools', [UserSchoolController::class, 'favoriteSchools'])->name('favorite_schools');
-        Route::get('favorite-schools/delete/{id}', [UserSchoolController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
+        Route::get('favorite-schools', [DashboardController::class, 'favoriteSchools'])->name('favorite_schools');
+        Route::get('favorite-schools/delete/{id}', [DashboardController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
 
 
 
@@ -251,9 +253,20 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         //School Financial
-        Route::get('school-financial', [UserSchoolController::class, 'schoolFinancial'])->name('school_financial');
+        Route::get('school-financial', [UserSchoolFinancialController::class, 'schoolFinancial'])->name('school_financial');
+        Route::post('school-financial/update', [UserSchoolFinancialController::class, 'schoolFinancialUpdate'])->name('school_financial_update');
 
 
+        Route::get('school-financial-faq', [UserSchoolFinancialFAQController::class, 'schoolFinancialFAQ'])->name('school_financial_faq');
+        Route::get('get-school-financial-faq', [UserSchoolFinancialFAQController::class, 'getSchoolFinancialFAQ'])->name('get_school_financial_faq');
+        Route::post('school-financial-faq/create', [UserSchoolFinancialFAQController::class, 'schoolFinancialFAQCreate'])->name('school_financial_faq_create');
+        Route::get('school-financial-faq/edit/{id}', [UserSchoolFinancialFAQController::class, 'schoolFinancialFAQEdit'])->name('school_financial_faq_edit');
+        Route::post('school-financial-faq/update', [UserSchoolFinancialFAQController::class, 'schoolFinancialFAQUpdate'])->name('school_financial_faq_update');
+        Route::get('school-financial-faq/delete/{id}', [UserSchoolFinancialFAQController::class, 'SchoolFinancialFAQDelete'])->name('school_financial_faq_delete');
+
+
+
+        //School Quick Facts
         Route::get('school-quick-facts', [UserSchoolQuickFactsController::class, 'schoolQuickFacts'])->name('school_quick_facts');
         Route::post('schools-quick-facts/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsUpdate'])->name('school_quick_facts_update');
         Route::post('school-quick-facts/paragraphs/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsParagraphsUpdate'])->name('school_quick_facts_paragraphs_update');

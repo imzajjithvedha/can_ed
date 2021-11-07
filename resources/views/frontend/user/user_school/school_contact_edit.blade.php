@@ -21,7 +21,7 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Contact</h4>
+                        <h4 class="fs-4 fw-bolder user-settings-head">Edit contact</h4>
                         
                     </div>
                     <div class="col-4 text-end">

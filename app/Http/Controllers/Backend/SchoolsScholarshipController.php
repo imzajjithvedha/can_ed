@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Frontend\User;
+namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,22 +14,20 @@ use App\Models\Programs;
 use App\Models\SchoolScholarships;
 
 /**
- * Class UserSchoolScholarshipController.
+ * Class SchoolsScholarshipController.
  */
-class UserSchoolScholarshipController extends Controller
+class SchoolsScholarshipController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function schoolScholarships()
+    public function schoolScholarships($id)
     {
-        $user_id = auth()->user()->id;
+        $school = Schools::where('id', $id)->first();
 
-        $school = Schools::where('user_id', $user_id)->first();
+        $scholarships = SchoolScholarships::where('school_id', $id)->get();
 
-        $scholarships = SchoolScholarships::where('user_id', $user_id)->get();
-
-        return view('frontend.user.user_school.school_scholarships', ['school' => $school, 'scholarships' => $scholarships]);
+        return view('backend.schools.scholarships', ['school' => $school, 'scholarships' => $scholarships]);
 
     }
 
@@ -66,15 +64,14 @@ class UserSchoolScholarshipController extends Controller
 
         $scholarship->save();
 
-        return redirect()->route('frontend.user.school_scholarships')->with('created', 'created');       
+        return back()->withFlashSuccess('Scholarship Added Successfully');
     }
 
 
-    public function getSchoolScholarships(Request $request)
+    public function getSchoolScholarships($id, Request $request)
     {
-        $user_id = auth()->user()->id;
 
-        $data = SchoolScholarships::where('user_id', $user_id)->get();
+        $data = SchoolScholarships::where('school_id', $id)->get();
 
         if($request->ajax())
             {
@@ -82,7 +79,7 @@ class UserSchoolScholarshipController extends Controller
                     
                     ->addColumn('action', function($data){
                         
-                        $button = '<a href="'.route('frontend.user.school_scholarship_edit', $data->id).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm me-3" style="font-size: 0.6rem;"><i class="far fa-edit"></i> Edit </a>';
+                        $button = '<a href="'.route('admin.schools.school_scholarship_edit', [$data->school_id, $data->id]).'" name="edit" id="'.$data->id.'" class="edit btn btn-secondary btn-sm me-3" style="font-size: 0.6rem;"><i class="far fa-edit"></i> Edit </a>';
                         $button .= '<a type="button" name="delete" id="'.$data->id.'" class="delete btn btn-danger btn-sm" style="color: white; font-size: 0.6rem;"><i class="far fa-trash-alt"></i> Delete </a>';
 
                         return $button;
@@ -95,11 +92,13 @@ class UserSchoolScholarshipController extends Controller
             return back();
     }
 
-    public function schoolScholarshipEdit($id)
+    public function schoolScholarshipEdit($id, $scholarship_id)
     {
-        $scholarship = SchoolScholarships::where('id', $id)->first();
+        $school = Schools::where('id', $id)->first();
 
-        return view('frontend.user.user_school.school_scholarship_edit', ['scholarship' => $scholarship]);
+        $scholarship = SchoolScholarships::where('id', $scholarship_id)->first();
+
+        return view('backend.schools.scholarships_edit', ['school' => $school, 'scholarship' => $scholarship]);
     }
 
 
@@ -116,8 +115,7 @@ class UserSchoolScholarshipController extends Controller
             $featured_image = $request->old_image;
         }
 
-
-        $user_id = auth()->user()->id;
+        $id = $request->school_id;
 
         $program = DB::table('school_scholarships') ->where('id', request('hidden_id'))->update(
             [
@@ -136,12 +134,12 @@ class UserSchoolScholarshipController extends Controller
             ]
         );
         
-        return back()->with('success', 'success');     
+        return redirect()->route('admin.schools.school_scholarships', $id)->withFlashSuccess('Updated Successfully');
     }
 
-    public function SchoolScholarshipDelete($id)
+    public function SchoolScholarshipDelete($id, $scholarship_id)
     {
-        $scholarship = SchoolScholarships::where('id', $id)->delete();
+        $scholarship = SchoolScholarships::where('id', $scholarship_id)->delete();
 
         return back();
     }
@@ -198,6 +196,6 @@ class UserSchoolScholarshipController extends Controller
             ]
         );
         
-        return back()->with('paragraph', 'paragraph');
+        return back()->withFlashSuccess('Updated Successfully');
     }
 }

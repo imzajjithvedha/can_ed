@@ -1,9 +1,9 @@
 <div class="sidebar">
     <nav class="sidebar-nav">
         <ul class="nav">
-            <li class="nav-title">
+            <!-- <li class="nav-title">
                 @lang('menus.backend.sidebar.general')
-            </li>
+            </li> -->
             <li class="nav-item">
                 <a class="nav-link {{
                     active_class(Route::is('admin/dashboard'))

@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h5 class="fw-bolder">{{ $our_sponsors->title }}</h5>
         <hr>
 
@@ -24,7 +24,7 @@
 
         <div class="row mt-5">
             @foreach($sponsors as $sponsor)
-                <div class="col-3">
+                <div class="col-3" style="margin-bottom: 2rem;">
                     <div class="card">
                         @if($sponsor->url != null)
                             <a href="{{ $sponsor->url }}" class="text-decoration-none" target="_blank">

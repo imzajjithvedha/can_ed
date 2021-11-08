@@ -24,7 +24,7 @@
 
         <div class="row mt-5">
             @foreach($members as $member)
-                <div class="col-3">
+                <div class="col-3" style="margin-bottom: margin-bottom: 2rem;">
                     <div class="card">
                         @if($member->image != null)
                             <img src="{{ url('images/our_team', $member->image) }}" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">

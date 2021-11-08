@@ -38,7 +38,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid">
+                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$article->image}}">
 
                                 <div class="form-group mt-5">

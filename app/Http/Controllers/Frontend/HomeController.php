@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use DataTables;
 use App\Models\Articles;
 use App\Models\Businesses;
 use App\Models\Videos;
+use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\DegreeLevels;
+use App\Models\SchoolPrograms;
 
 /**
  * Class HomeController.
@@ -110,7 +113,7 @@ class HomeController extends Controller
 
         $filteredSchools = $schools->get();
 
-        return view('frontend.home_schools_search', ['filteredSchools' => $filteredSchools]);
+        return view('frontend.page.home_schools_search', ['filteredSchools' => $filteredSchools]);
 
     }
 
@@ -124,7 +127,7 @@ class HomeController extends Controller
 
         $filteredBusinesses = $businesses->get();
 
-        return view('frontend.home_businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
+        return view('frontend.page.home_businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
 
     }
 
@@ -182,7 +185,7 @@ class HomeController extends Controller
                     ->make(true);
             }
             
-            return view('frontend.home_programs_search', ['keyword' => $keyword]);
+            return view('frontend.page.home_programs_search', ['keyword' => $keyword]);
     }
 
 
@@ -196,7 +199,7 @@ class HomeController extends Controller
 
         $filteredArticles = $articles->get();
 
-        return view('frontend.home_articles_search', ['filteredArticles' => $filteredArticles]);
+        return view('frontend.page.home_articles_search', ['filteredArticles' => $filteredArticles]);
 
     }
 }

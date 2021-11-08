@@ -20,7 +20,7 @@
                                     <option value="schools" selected="selected">Schools</option>
                                     <option value="businesses">Businesses</option>
                                     <option value="programs">Programs</option>
-                                    <option value="careers">Careers</option>
+                                    <!-- <option value="careers">Careers</option> -->
                                     <option value="articles">Articles</option>
                                     <!-- <option value="resources">Resources</option> -->
                                 </select>

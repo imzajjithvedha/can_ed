@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_admission_update') }}" class="mb-5" method="POST">
+                        <form action="{{ route('admin.schools.school_admission_paragraph_update') }}" class="mb-5" method="POST">
                             {{csrf_field()}}
                                 <div class="mb-3">
                                     <label for="admission_paragraph" class="form-label mb-1">Main Paragraph</label>
@@ -116,7 +116,7 @@
     </div>
 
 
-    <form action="{{ route('admin.schools.school_admission_employee_create') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.schools.school_admission_create') }}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="modal fade" id="createEmployee" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -170,27 +170,6 @@
     </form>
 
 
-    @if(\Session::has('created'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="create-btn" data-bs-toggle="modal" data-bs-target="#createModal"></button>
-
-        <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Employee added successfully.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
     <!-- Modal delete -->
     <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -228,7 +207,7 @@
 
             var table = $('#employee-table').DataTable({
                 processing: true,
-                ajax: "{{route('admin.schools.get_school_admission_employees', $school->id)}}",
+                ajax: "{{route('admin.schools.get_school_admission', $school->id)}}",
                 serverSide: true,
                 order: [[0, "asc"]],
                 columns: [
@@ -243,15 +222,20 @@
 
 
         let employee_id;
+        let url;
 
         $(document).on('click', '.delete', function(){
             employee_id = $(this).attr('id');
             $('#confirmModal').modal('show');
+
+            url = "{{ route('admin.schools.school_admission_delete', [$school->id, ':employee_id']) }}";
+        
+            url = url.replace(':employee_id', employee_id);
         });
 
         $('#ok_button').click(function(){
             $.ajax({
-                url:"employee/delete/" + employee_id,
+                url: url,
         
                 success:function(data)
                 {

@@ -75,7 +75,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($images as $image)
                                     <div class="swiper-slide">
-                                        <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 20rem;width: 100%; object-fit: cover;">
+                                        <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
                                     </div>
                                 @endforeach
                             </div>
@@ -88,8 +88,113 @@
                         <h6 class="text-white p-2" style="background-color: #800000">{{$school->name}} web links</h6>
 
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-6 pe-0">
+                                @if($school->link_1_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_1_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_1_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
 
+                                @if($school->link_2_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_2_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_2_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_3_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_3_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_3_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_4_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_4_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_4_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_5_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_5_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_5_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_6_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_6_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_6_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_7_name != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->link_7_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_7_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->link_8_name != null)
+                                    <div class="border p-2">
+                                        <a href="{{ $school->link_8_url }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_8_name }}</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                            </div>
+
+                            <div class="col-6 ps-0">
+                                @if($school->facebook != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->facebook }}" class="text-decoration-none" target="_blank">
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-facebook-f me-2 text-primary"></i>Facebook</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->twitter != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->twitter }}" class="text-decoration-none">
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-twitter me-2 text-primary"></i>Twitter</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->instagram != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->instagram }}" class="text-decoration-none">
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-instagram me-2 text-primary"></i>Instagram</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->you_tube != null)
+                                    <div class="border border-top-0 p-2">
+                                        <a href="{{ $school->you_tube }}" class="text-decoration-none">
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-youtube me-2 text-primary"></i>YouTube</p>
+                                        </a>
+                                    </div>
+                                @endif
+
+                                @if($school->linked_in != null)
+                                    <div class="border p-2">
+                                        <a href="{{ $school->linked_in }}" class="text-decoration-none">
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-linkedin me-2 text-primary"></i>LinkedIn</p>
+                                        </a>
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -274,15 +379,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <div class="row rounded">
-                                            <div class="col-1 red-btn py-3"></div>
-                                            <div class="col-3 text-white bg-primary py-3">
-                                                <h6 class="fw-bold">Good to go?</h6>
-                                            </div>
-                                            <div class="col-7 text-white red-btn py-3">
-                                                <h6 class="fw-bold">Let's apply</h6>
-                                            </div>
-                                        </div>
+                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -957,13 +1054,13 @@
                                     <div class="row mb-5">
                                         @foreach($admission_featured_employees as $admission_featured_employee)
                                             <div class="col-4">
-                                                <div class="card">
+                                                <div class="card" style="height: 22rem;">
                                                     <img src="{{ url('images/schools', $admission_featured_employee->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
                                                     <div class="card-body p-3">
                                                     <h6 class="fw-bold mb-1" style="color: #384058">{{ $admission_featured_employee->name }}</h6>
                                                     <p class="gray fw-bold">{{ $admission_featured_employee->position }}</p>
-                                                    <p class="gray mb-1" style="font-size: 0.75rem;">{{ $admission_featured_employee->description }}</p>
+                                                    <p class="gray mb-1" style="font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $admission_featured_employee->description }}</p>
 
                                                     <div class="row align-items-center">
                                                         <div class="col-1">

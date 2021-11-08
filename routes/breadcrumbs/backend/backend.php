@@ -236,8 +236,16 @@ Breadcrumbs::for('admin.schools.school_admission', function ($trail) {
     $trail->push('School / Admission', route('admin.schools.school_admission', 1));
 });
 
-Breadcrumbs::for('admin.schools.school_admission_employee_edit', function ($trail) {
-    $trail->push('School / Admission / Employee / Edit', route('admin.schools.school_admission_employee_edit', 1));
+Breadcrumbs::for('admin.schools.school_admission_edit', function ($trail) {
+    $trail->push('School / Admission / Employee / Edit', route('admin.schools.school_admission_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_admission_faq', function ($trail) {
+    $trail->push('School / Admission FAQ', route('admin.schools.school_admission_faq', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_admission_faq_edit', function ($trail) {
+    $trail->push('School / Admission FAQ / Edit', route('admin.schools.school_admission_faq_edit', [1, 1]));
 });
 
 Breadcrumbs::for('admin.schools.school_quick_facts', function ($trail) {
@@ -274,6 +282,30 @@ Breadcrumbs::for('admin.schools.school_contacts', function ($trail) {
 
 Breadcrumbs::for('admin.schools.school_contact_edit', function ($trail) {
     $trail->push('School / Contact/ Edit', route('admin.schools.school_contact_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_overview', function ($trail) {
+    $trail->push('School / Overview', route('admin.schools.school_overview', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_overview_faq', function ($trail) {
+    $trail->push('School / Overview FAQ', route('admin.schools.school_overview_faq', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_overview_faq_edit', function ($trail) {
+    $trail->push('School / Overview FAQ / Edit', route('admin.schools.school_overview_faq_edit', [1, 1]));
+});
+
+Breadcrumbs::for('admin.schools.school_financial', function ($trail) {
+    $trail->push('School / Financial', route('admin.schools.school_financial', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_financial_faq', function ($trail) {
+    $trail->push('School / Financial FAQ', route('admin.schools.school_financial_faq', 1));
+});
+
+Breadcrumbs::for('admin.schools.school_financial_faq_edit', function ($trail) {
+    $trail->push('School / Financial FAQ / Edit', route('admin.schools.school_financial_faq_edit', [1, 1]));
 });
 
 

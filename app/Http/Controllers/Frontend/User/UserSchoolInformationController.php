@@ -103,10 +103,6 @@ class UserSchoolInformationController extends Controller
                 'link_7_url' => $request->link_7_url,
                 'link_8_name' => $request->link_8_name,
                 'link_8_url' => $request->link_8_url,
-                'link_9_name' => $request->link_9_name,
-                'link_9_url' => $request->link_9_url,
-                'link_10_name' => $request->link_10_name,
-                'link_10_url' => $request->link_10_url,
                 'status' => 'Pending'
             ]
         );

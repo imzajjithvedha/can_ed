@@ -44,3 +44,12 @@ td {
     color: black;
     font-weight: 600;
 }
+
+.overview .fa, .overview .fas {
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background-color: #23A1C0;
+    padding: 0.75rem;
+    border-radius: 50px;
+}

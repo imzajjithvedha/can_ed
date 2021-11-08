@@ -57,7 +57,7 @@
 
 
     <form action="{{ route('frontend.user.school_financial_faq_create') }}" method="POST">
-    {{csrf_field()}}
+        {{csrf_field()}}
         <div class="modal fade" id="createScholarshipFAQ" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

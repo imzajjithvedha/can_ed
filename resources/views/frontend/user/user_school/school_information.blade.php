@@ -402,14 +402,6 @@
                                                     <input type="text" class="form-control mb-2" id="link_8_name" aria-describedby="link_8" name="link_8_name" placeholder="Link Name" value="{{ $school->link_8_name }}">
                                                     <input type="url" class="form-control" id="link_8_url" aria-describedby="link_8_url" name="link_8_url" placeholder="Link" value="{{ $school->link_8_url }}">
                                                 </div>
-                                                <div class="mb-4">
-                                                    <input type="text" class="form-control mb-2" id="link_9_name" aria-describedby="link_9" name="link_9_name" placeholder="Link Name" value="{{ $school->link_9_name }}">
-                                                    <input type="url" class="form-control" id="link_9_url" aria-describedby="link_9_url" name="link_9_url" placeholder="Link" value="{{ $school->link_9_url }}">
-                                                </div>
-                                                <div class="mb-4">
-                                                    <input type="text" class="form-control mb-2" id="link_10_name" aria-describedby="link_10" name="link_10_name" placeholder="Link Name" value="{{ $school->link_10_name }}">
-                                                    <input type="url" class="form-control" id="link_10_url" aria-describedby="link_10_url" name="link_10_url" placeholder="Link" value="{{ $school->link_10_url }}">
-                                                </div>
                                             </div>
                                         </div>
 

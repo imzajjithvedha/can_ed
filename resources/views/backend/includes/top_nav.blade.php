@@ -7,7 +7,7 @@
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="" class="text-decoration-none p-2 {{ Request::segment(5) == 'admission-faq' ? 'active' : null }}">Admission FAQ</a>
+            <a href="{{ route('admin.schools.school_admission_faq', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'admission-faq' ? 'active' : null }}">Admission FAQ</a>
         </div>
     </div>
 
@@ -19,13 +19,13 @@
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="" class="text-decoration-none p-2 {{ Request::segment(5) == 'financial' ? 'active' : null }}">Financial</a>
+            <a href="{{ route('admin.schools.school_financial', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'financial' ? 'active' : null }}">Financial</a>
         </div>
     </div>
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="" class="text-decoration-none p-2 {{ Request::segment(5) == 'financial-faq' ? 'active' : null }}">Financial FAQ</a>
+            <a href="{{ route('admin.schools.school_financial_faq', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'financial-faq' ? 'active' : null }}">Financial FAQ</a>
         </div>
     </div>
 
@@ -37,13 +37,13 @@
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="" class="text-decoration-none p-2 {{ Request::segment(5) == 'overview' ? 'active' : null }}">Overview</a>
+            <a href="{{ route('admin.schools.school_overview', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'overview' ? 'active' : null }}">Overview</a>
         </div>
     </div>
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="" class="text-decoration-none p-2 {{ Request::segment(5) == 'overview-faq' ? 'active' : null }}">Overview FAQ</a>
+            <a href="{{ route('admin.schools.school_overview_faq', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'overview-faq' ? 'active' : null }}">Overview FAQ</a>
         </div>
     </div>
 

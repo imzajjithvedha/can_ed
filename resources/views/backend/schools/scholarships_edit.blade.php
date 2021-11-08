@@ -15,7 +15,7 @@
                         <form action="{{ route('admin.schools.school_scholarship_update') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="row">
-                                <div class="col-12 border py-3">
+                                <div class="col-12 py-3">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Scholarship Name *</label>
                                         <input type="text" class="form-control" name="name" placeholder="Scholarship Name *" value="{{ $scholarship->name }}">

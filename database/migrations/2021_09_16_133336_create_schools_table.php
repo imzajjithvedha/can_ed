@@ -62,10 +62,6 @@ class CreateSchoolsTable extends Migration
             $table->text('link_7_url')->nullable();
             $table->text('link_8_name')->nullable();
             $table->text('link_8_url')->nullable();
-            $table->text('link_9_name')->nullable();
-            $table->text('link_9_url')->nullable();
-            $table->text('link_10_name')->nullable();
-            $table->text('link_10_url')->nullable();
             $table->text('start_date')->nullable();
             $table->text('online_distance_education')->nullable();
             $table->text('minimum_gpa')->nullable();

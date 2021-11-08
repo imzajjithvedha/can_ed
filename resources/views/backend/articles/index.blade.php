@@ -77,7 +77,6 @@
             serverSide: true,
             order: [[0, "desc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'title', name: 'title'},
                 {data: 'image', name: 'image'},
                 {data: 'featured', name: 'featured'},

@@ -65,7 +65,7 @@
 <div class="container-fluid footer p-4">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-12 text-center footer-top-nav">
                 <a href="{{ route('frontend.index') }}" class="px-2 border-end d-inline-block px-3">Home</a>
                 <a href="{{ route('frontend.disclaimer') }}" class="px-2 border-end d-inline-block px-3">Disclaimer</a>
                 <a href="{{ route('frontend.online_business_directory') }}" class="px-2 border-end d-inline-block px-3">Online Business Directory</a>

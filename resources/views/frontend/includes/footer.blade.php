@@ -6,14 +6,14 @@
             <div class="col">
                 <h6 class="p-2 fw-bolder">Study in Canada</h6>
                 <hr>
-                <a href="{{ route('frontend.about_us') }}">About Us</a><br>
-                <a href="{{ route('frontend.suggestions') }}">Comments/ Suggestions</a><br>
-                <a href="{{ route('frontend.contact_us') }}">Contact Us</a><br>
+                <a href="{{ route('frontend.about_us') }}">About us</a><br>
+                <a href="{{ route('frontend.suggestions') }}">Comments / suggestions</a><br>
+                <a href="{{ route('frontend.contact_us') }}">Contact us</a><br>
                 <a href="{{ route('frontend.disclaimer') }}">Disclaimer</a><br>
                 <a href="{{ route('frontend.faq') }}">FAQ</a><br>
-                <a href="{{ route('frontend.meet_our_team') }}">Meet Our Team</a><br>
-                <a href="{{ route('frontend.our_sponsors') }}">Our Sponsors</a><br>
-                <a href="{{ route('frontend.privacy_policy') }}">Privacy Policy</a><br>
+                <a href="{{ route('frontend.meet_our_team') }}">Meet our team</a><br>
+                <a href="{{ route('frontend.our_sponsors') }}">Our sponsors</a><br>
+                <a href="{{ route('frontend.privacy_policy') }}">Privacy policy</a><br>
             </div>
 
             <div class="col">
@@ -21,10 +21,10 @@
                 <hr>
                 <a href="{{ route('frontend.articles') }}">Articles</a><br>
                 <a href="{{ route('frontend.events') }}">Events</a><br>
-                <a href="{{ route('frontend.online_business_directory') }}">Online Business Directory</a><br>
+                <a href="{{ route('frontend.online_business_directory') }}">Online business directory</a><br>
                 <a href="{{ route('frontend.quotes') }}">Quotes</a><br>
                 <a href="{{ route('frontend.videos') }}">Videos</a><br>
-                <a href="{{ route('frontend.world_wide_network') }}">World Wide Network</a><br>
+                <a href="{{ route('frontend.world_wide_network') }}">World wide network</a><br>
             </div>
 
             <div class="col">
@@ -68,11 +68,11 @@
             <div class="col-12 text-center footer-top-nav">
                 <a href="{{ route('frontend.index') }}" class="px-2 border-end d-inline-block px-3">Home</a>
                 <a href="{{ route('frontend.disclaimer') }}" class="px-2 border-end d-inline-block px-3">Disclaimer</a>
-                <a href="{{ route('frontend.online_business_directory') }}" class="px-2 border-end d-inline-block px-3">Online Business Directory</a>
-                <a href="{{ route('frontend.privacy_policy') }}" class="px-2 border-end d-inline-block px-3">Privacy Policy</a>
-                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3">Comments / Suggestion</a>
-                <a href="{{ route('frontend.site_map') }}" class="px-2 border-end d-inline-block px-3">Site Map</a>
-                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3" style="border-right:none!important;">Contact Us</a>
+                <a href="{{ route('frontend.online_business_directory') }}" class="px-2 border-end d-inline-block px-3">Online business directory</a>
+                <a href="{{ route('frontend.privacy_policy') }}" class="px-2 border-end d-inline-block px-3">Privacy policy</a>
+                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3">Comments / suggestion</a>
+                <a href="{{ route('frontend.site_map') }}" class="px-2 border-end d-inline-block px-3">Site map</a>
+                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3" style="border-right:none!important;">Contact us</a>
             </div>
 
             <div class="col-lg-12 footer_col text-center">

@@ -12,9 +12,11 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
+                                <label for="title" class="form-label">Title</label>
                                 <input type="text" id="title" class="form-control" name="title" value="{{ $privacy->title }}" placeholder="Title" required>
                             </div>
                             <div class="form-group">
+                                <label for="description" class="form-label">Description</label>
                                 <textarea type="text" class="ckeditor form-control mt-2" name="description" value="{{ $privacy->description }}" required>{!! $privacy->description !!}</textarea>
                             </div>
                         </div>
@@ -35,7 +37,8 @@
 
                             <input type="hidden" class="form-control" name="old_image" value="{{$privacy->image}}">
 
-                            <div class="input-group mt-5">
+                            <div class="form-group mt-5">
+                                <label for="image" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="inputGroupFile02" name="new_image">
                             </div>
 

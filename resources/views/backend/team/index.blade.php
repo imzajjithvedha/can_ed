@@ -14,13 +14,12 @@
 
                     <a href="{{ route('admin.team.create_team') }}" class="btn btn-primary ms-4">Create New</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="team-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Image</th>
@@ -77,9 +76,8 @@
             processing: true,
             ajax: "{{route('admin.team.get_team')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'title', name: 'title'},
                 {data: 'image', name: 'image'},

@@ -4,8 +4,6 @@
 
 @section('content')
 
-
-
     <form action="{{ route('admin.team.store_team') }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
@@ -38,11 +36,3 @@
     </form>
 
 @endsection
-
-@push('after-scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-@endpush

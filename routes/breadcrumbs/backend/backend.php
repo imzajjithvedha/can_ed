@@ -119,23 +119,23 @@ Breadcrumbs::for('admin.events.edit_event', function ($trail) {
 
 
 Breadcrumbs::for('admin.pages.about_us', function ($trail) {
-    $trail->push('Pages / About Us', route('admin.pages.about_us'));
+    $trail->push('Pages / About us', route('admin.pages.about_us'));
 });
 
 Breadcrumbs::for('admin.pages.faq', function ($trail) {
-    $trail->push('Pages / Frequently Asked Questions', route('admin.pages.faq'));
+    $trail->push('Pages / Frequently asked questions', route('admin.pages.faq'));
 });
 
 Breadcrumbs::for('admin.pages.meet_our_team', function ($trail) {
-    $trail->push('Pages / Meet Our Team', route('admin.pages.meet_our_team'));
+    $trail->push('Pages / Meet our team', route('admin.pages.meet_our_team'));
 });
 
 Breadcrumbs::for('admin.pages.our_sponsors', function ($trail) {
-    $trail->push('Pages / Our Sponsors', route('admin.pages.our_sponsors'));
+    $trail->push('Pages / Our sponsors', route('admin.pages.our_sponsors'));
 });
 
 Breadcrumbs::for('admin.pages.privacy_policy', function ($trail) {
-    $trail->push('Pages / Privacy Policy', route('admin.pages.privacy_policy'));
+    $trail->push('Pages / Privacy policy', route('admin.pages.privacy_policy'));
 });
 
 Breadcrumbs::for('admin.pages.disclaimer', function ($trail) {

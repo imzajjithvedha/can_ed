@@ -5,22 +5,18 @@
 @section('content')
     
 
-<div class="row">
+    <div class="row">
         <div class="col">
-
             <div class="card">
                 <div class="card-header">
                     <strong>Our Sponsors&nbsp;</strong>
-
                     <a href="{{ route('admin.sponsors.create_sponsor') }}" class="btn btn-primary ms-4">Create New</a>
-                   
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="sponsors-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Image</th>
@@ -34,9 +30,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -72,46 +68,45 @@
 
 
 @push('after-scripts')
-<script type="text/javascript">
-    $(function () {
-        var table = $('#sponsors-table').DataTable({
-            processing: true,
-            ajax: "{{route('admin.sponsors.get_sponsors')}}",
-            serverSide: true,
-            order: [[0, "desc"]],
-            columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'name'},
-                {data: 'country', name: 'country'},
-                {data: 'image', name: 'image'},
-                {data: 'url', name: 'url'},
-                {data: 'status', name: 'status'},
-                {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
+    <script type="text/javascript">
+        $(function () {
+            var table = $('#sponsors-table').DataTable({
+                processing: true,
+                ajax: "{{route('admin.sponsors.get_sponsors')}}",
+                serverSide: true,
+                order: [[0, "asc"]],
+                columns: [
+                    {data: 'name', name: 'name'},
+                    {data: 'country', name: 'country'},
+                    {data: 'image', name: 'image'},
+                    {data: 'url', name: 'url'},
+                    {data: 'status', name: 'status'},
+                    {data: 'action', name: 'action', orderable: false, searchable: false},
+                ]
+            });
+
+            let sponsor_id;
+
+            $(document).on('click', '.delete', function(){
+                sponsor_id = $(this).attr('id');
+                $('#confirmModal').modal('show');
+            });
+
+            $('#ok_button').click(function(){
+                $.ajax({
+                    url:"sponsors/delete-sponsor/" + sponsor_id,
+            
+                    success:function(data)
+                    {
+                        setTimeout(function(){
+                            $('#confirmModal').modal('hide');
+                            $('#sponsors-table').DataTable().ajax.reload();
+                        });
+                    }
+                })
+            });
         });
 
-        let sponsor_id;
-
-        $(document).on('click', '.delete', function(){
-            sponsor_id = $(this).attr('id');
-            $('#confirmModal').modal('show');
-        });
-
-        $('#ok_button').click(function(){
-            $.ajax({
-                url:"sponsors/delete-sponsor/" + sponsor_id,
-        
-                success:function(data)
-                {
-                    setTimeout(function(){
-                        $('#confirmModal').modal('hide');
-                        $('#sponsors-table').DataTable().ajax.reload();
-                    });
-                }
-            })
-        });
-    });
-
-</script>
+    </script>
 
 @endpush

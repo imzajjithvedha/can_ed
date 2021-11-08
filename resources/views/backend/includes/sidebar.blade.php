@@ -124,31 +124,13 @@
 
                     <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
-                            Our Team
-                        </a>
-
-                        <ul class="nav-dropdown-items">
-                            <li class="nav-item">
-                                <a class="nav-link {{active_class(Route::is('admin/pages.meet_our_team'))}}" href="{{ route('admin.pages.meet_our_team') }}">
-                                    Meet our Team
-                                </a>
-                            </li>
-                           
-                            <li class="nav-item">
-                                <a class="nav-link {{active_class(Route::is('admin/team.index'))}}" href="{{ route('admin.team.index') }}">Team Members</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item nav-dropdown">
-                        <a class="nav-link nav-dropdown-toggle" href="#">
-                            Our Sponsors
+                            Our sponsors
                         </a>
 
                         <ul class="nav-dropdown-items">
                             <li>
                                 <a class="nav-link {{active_class(Route::is('admin/pages.our_sponsors'))}}" href="{{ route('admin.pages.our_sponsors') }}">
-                                    Our Sponsors Details
+                                    Our sponsors details
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -157,10 +139,28 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item nav-dropdown">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            Our team
+                        </a>
+
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a class="nav-link {{active_class(Route::is('admin/pages.meet_our_team'))}}" href="{{ route('admin.pages.meet_our_team') }}">
+                                    Meet our team
+                                </a>
+                            </li>
+                           
+                            <li class="nav-item">
+                                <a class="nav-link {{active_class(Route::is('admin/team.index'))}}" href="{{ route('admin.team.index') }}">Team members</a>
+                            </li>
+                        </ul>
+                    </li>
+
 
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/pages.privacy_policy'))}}" href="{{ route('admin.pages.privacy_policy') }}">
-                            Privacy Policy
+                            Privacy policy
                         </a>
                     </li>
                 </ul>

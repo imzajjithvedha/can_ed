@@ -12,14 +12,17 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
                                 <input class="form-control" name="name" value="{{ $member->name }}" placeholder="Name" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
                                 <input class="form-control" name="title" value="{{ $member->title }}" placeholder="Title" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" value="{{ $member->description }}" rows="7" placeholder="Description">{{ $member->description }}</textarea>
                             </div>
                         </div>
@@ -32,11 +35,12 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <img src="{{ url('images/our_team', $member->image) }}" alt="" class="img-fluid">
+                                <img src="{{ url('images/our_team', $member->image) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit:cover;">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$member->image}}">
 
-                                <div class="input-group mt-4">
-                                    <input type="file" class="form-control" id="inputGroupFile02" name="new_image" value="">
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Image</label>
+                                    <input type="file" class="form-control" id="image" name="new_image">
                                 </div>
                             </div>
 
@@ -60,12 +64,3 @@
         </div>
     </form>
 @endsection
-
-
-@push('after-scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-@endpush

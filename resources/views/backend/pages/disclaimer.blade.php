@@ -12,9 +12,11 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
+                                <label for="title" class="form-label">Title</label>
                                 <input type="text" id="title" class="form-control" name="title" value="{{ $disclaimer->title }}" placeholder="Title" required>
                             </div>
                             <div class="form-group">
+                                <label for="description" class="form-label">Description</label>
                                 <textarea type="text" class="ckeditor form-control mt-2" name="description" value="{{ $disclaimer->description }}" required>{!! $disclaimer->description !!}</textarea>
                             </div>
                         </div>
@@ -26,7 +28,6 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            
                             @if($disclaimer->image != null)
                                 <img src="{{ url('images/pages', $disclaimer->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                             @else
@@ -35,7 +36,8 @@
 
                             <input type="hidden" class="form-control" name="old_image" value="{{$disclaimer->image}}">
 
-                            <div class="input-group mt-5">
+                            <div class="form-group mt-5">
+                                <label for="image" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="inputGroupFile02" name="new_image">
                             </div>
 
@@ -46,19 +48,8 @@
                     </div>
                 </div>
             </div>
-
-            
         </div>
     </form>
 
 @endsection
-
-
-@push('after-scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-@endpush
 

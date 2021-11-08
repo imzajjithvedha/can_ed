@@ -12,16 +12,18 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input class="form-control" name="title" value="{{ $article->title }}" placeholder="Title" required>
+                                <label for="title" class="form-label">Title</label>
+                                <input class="form-control" name="title" id="title" value="{{ $article->title }}" placeholder="Title" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea class="ckeditor form-control" name="description" value="{{ $article->description }}">{{ $article->description }}</textarea>
+                                <label for="description" class="form-label">Description</label>
+                                <textarea class="ckeditor form-control" name="description" id="description" value="{{ $article->description }}">{{ $article->description }}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label>Featured</label>
-                                <select class="form-control" name="featured" required>
+                                <label for="featured-article" class="form-label">Do you want to show this article in the homepage?</label>
+                                <select class="form-control" name="featured" id="featured-article" required>
                                     <option value="Yes" {{ $article->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $article->featured == 'No' ? "selected" : "" }}>No</option>                               
                                 </select>
@@ -39,14 +41,15 @@
                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$article->image}}">
 
-                                <div class="input-group mt-4">
-                                    <input type="file" class="form-control" id="inputGroupFile02" name="new_image" value="">
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Image</label>
+                                    <input type="file" class="form-control" id="image" name="new_image" value="">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $article->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $article->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Create New Article | Admin'))
+@section('title', __('Create Article | Admin'))
 
 @section('content')
 
@@ -17,7 +17,7 @@
                                 <input type="text" id="title" class="form-control" name="title" placeholder="Article Title" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Content</label>
+                                <label class="form-label">Description</label>
                                 <textarea name="description" class="ckeditor form-control" id="description" required></textarea>
                             </div>
                             <div class="form-group">
@@ -25,8 +25,8 @@
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
                             <div class="form-group">
-                                <select class="form-control" id="featured" name="featured" placeholder="Featured?">
-                                    <option value="" selected disabled hidden>Do you want to show this article in the homepage? </option>
+                                <select class="form-control" id="featured" name="featured" placeholder="Featured?" required>
+                                    <option value="" selected disabled hidden>Do you want to show this article in the homepage?</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>

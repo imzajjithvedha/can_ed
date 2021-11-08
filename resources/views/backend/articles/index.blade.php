@@ -5,7 +5,7 @@
 @section('content')
     
 
-<div class="row">
+    <div class="row">
         <div class="col">
 
             <div class="card">
@@ -14,13 +14,12 @@
 
                     <a href="{{ route('admin.articles.create_article') }}" class="btn btn-primary ms-4">Create New</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="articles-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Featured</th>
@@ -33,9 +32,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -62,7 +61,6 @@
                        
                     </div>
                 </form>
-
             </div>
         </div>
     </div>

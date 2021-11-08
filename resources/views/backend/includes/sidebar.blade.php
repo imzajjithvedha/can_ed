@@ -106,7 +106,7 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/pages.about_us'))}}" href="{{ route('admin.pages.about_us') }}">
-                            About Us
+                            About us
                         </a>
                     </li>
 

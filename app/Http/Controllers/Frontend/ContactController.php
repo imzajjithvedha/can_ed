@@ -32,7 +32,7 @@ class ContactController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SendContact($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SendContact($details));
 
         return redirect()->back()->with('success', 'success');
     }

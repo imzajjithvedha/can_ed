@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h5 class="fw-bolder">{{ $team->title }}</h5>
         <hr>
 

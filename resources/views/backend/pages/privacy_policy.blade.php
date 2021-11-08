@@ -26,7 +26,13 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <img src="{{ url('images/pages', $privacy->image) }}" alt="" class="img-fluid">
+
+                            @if($privacy->image != null)
+                                <img src="{{ url('images/pages', $privacy->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                            @else
+                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                            @endif
+
                             <input type="hidden" class="form-control" name="old_image" value="{{$privacy->image}}">
 
                             <div class="input-group mt-5">

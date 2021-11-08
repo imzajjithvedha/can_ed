@@ -93,76 +93,32 @@
         </div>
     </div>
 
-    <div class="container mt-5 featured-schools">
-        <h5 class="fw-bolder">Featured Schools</h5>
 
-        <div class="row mt-4">
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
+
+    @if(count($featured_schools) > 0)
+        <div class="container mt-5 featured-schools">
+            <a href="{{ route('frontend.schools') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured Schools</a>
+
+            <div class="row mt-4">
+                @foreach($featured_schools as $featured_school)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_school', $featured_school->id) }}" class="text-decoration-none">
+                            <div class="card">
+                                @if($featured_school->featured_image != null)
+                                    <img src="{{ url('images/schools', $featured_school->featured_image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_school->name }}</h6>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3 mb-4">
-                <div class="card">
-                    <img src="{{ url('img/frontend/index/school.jpg') }}" class="card-img-top" alt="...">
-                    <div class="card-body text-center">
-                        <h6 class="card-title fw-bold gray">Royal College</h6>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    @endif
 
 
     @if(count($featured_businesses) > 0)

@@ -30,6 +30,8 @@ class HomeController extends Controller
 
         $featured_businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
+        $featured_schools = Schools::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
+
         $school_types = SchoolTypes::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
         $degree_levels = DegreeLevels::where('status', 'Approved')->orderBy('name', 'asc')->get();
@@ -45,6 +47,7 @@ class HomeController extends Controller
             'articles' => $articles,
             'featured_articles' => $featured_articles,
             'featured_businesses' => $featured_businesses,
+            'featured_schools' => $featured_schools,
             'videos' => $videos,
             'school_types' => $school_types,
             'programs' => $programs,

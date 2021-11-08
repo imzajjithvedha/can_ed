@@ -57,7 +57,11 @@ class SchoolController extends Controller
             $school->user_phone = $request->phone;
             $school->message = $request->message;
             $school->status = 'Pending';
+            $school->featured = 'No';
             $school->images = '[]';
+            $school->overview_title_2_bullets = [null, null, null, null, null, null, null, null, null, null, ];
+            $school->overview_title_12_bullets = [null, null, null, null, null, null, null, null, null, null, ];
+            $school->admission_title_2_bullets = [null, null, null, null, null, null, null, null, null, null, ];
 
             $school->save();
 

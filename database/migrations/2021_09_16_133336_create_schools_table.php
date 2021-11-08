@@ -27,6 +27,7 @@ class CreateSchoolsTable extends Migration
             $table->text('country');
             $table->text('message');
             $table->text('status');
+            $table->text('featured')->nullable();
             $table->text('featured_image')->nullable();
             $table->text('images')->nullable();
             $table->text('facebook')->nullable();

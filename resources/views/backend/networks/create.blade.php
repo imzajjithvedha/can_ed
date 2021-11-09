@@ -14,27 +14,27 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name" name="website_name" required>
+                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" required>
                             </div>
                             <div class="mb-3">
-                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url" name="website_url" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name" name="name" required>
+                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url *" name="website_url" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number" name="phone" required>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name *" name="name" required>
                             </div>
 
                             <div class="mb-3">
-                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" required>
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number *" name="phone" required>
+                            </div>
+
+                            <div class="mb-3">
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" required>
                             </div>
 
                             <div class="mb-3">
                                 <select class="form-control" id="country" name="country" required>
-                                    <option value="">Select Country</option>
+                                    <option value="" selected disabled hidden>Country *</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -289,7 +289,7 @@
                             </div> -->
 
                             <div class="mb-3 form-group">
-                                <label class="form-label">Banner Image</label>
+                                <label for="image" class="form-label">Banner Image *</label>
                                 <div class="mb-3">
                                     <input class="form-control" type="file" id="image" name="image" placeholder="Upload your banner" title="Upload your banner" required>
                                 </div>
@@ -299,7 +299,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button><br>
                 </div>
             </div>    
         </div>

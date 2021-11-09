@@ -352,15 +352,15 @@ Breadcrumbs::for('admin.degree_levels.import_degree_levels', function ($trail) {
 
 
 Breadcrumbs::for('admin.networks.index', function ($trail) {
-    $trail->push('World Wide Networks', route('admin.networks.index'));
+    $trail->push('World wide networks', route('admin.networks.index'));
 });
 
 Breadcrumbs::for('admin.networks.create_network', function ($trail) {
-    $trail->push('World Wide Networks / Create', route('admin.networks.create_network'));
+    $trail->push('World wide networks / Create', route('admin.networks.create_network'));
 });
 
 Breadcrumbs::for('admin.networks.edit_network', function ($trail) {
-    $trail->push('World Wide Networks / Edit', route('admin.networks.edit_network', 1));
+    $trail->push('World wide networks / Edit', route('admin.networks.edit_network', 1));
 });
 
 

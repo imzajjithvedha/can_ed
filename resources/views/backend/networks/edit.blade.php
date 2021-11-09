@@ -11,26 +11,32 @@
                 <div class="card quote">
                     <div class="card-body border">
                         <div class="border p-3">
-                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="website_name" class="form-label">Enter your website name *</label>
                                 <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" value="{{ $network->website_name }}" required>
                             </div>
                             <div class="mb-3">
+                                <label for="website_url" class="form-label">Enter your website url *</label>
                                 <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url *" name="website_url" value="{{ $network->url }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name" name="name" value="{{ $network->name }}" required>
+                                <label for="name" class="form-label">Enter your full name *</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name *" name="name" value="{{ $network->name }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number" name="phone" value="{{ $network->phone }}" required>
+                                <label for="number" class="form-label">Enter your phone number *</label>
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number *" name="phone" value="{{ $network->phone }}" required>
                             </div>
 
                             <div class="mb-3">
-                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" value="{{ $network->email }}" required>
+                            <label for="website_name" class="form-label">Enter your email address *</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" value="{{ $network->email }}" required>
                             </div>
 
                             <div class="mb-3">
+                            <label for="website_name" class="form-label">Country *</label>
                                 <select class="form-control" id="country" name="country" required>
                                     <option value="">Select Country</option>
                                     <option value="Afganistan">Afghanistan</option>
@@ -283,7 +289,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website" name="our_banner_url" value="{{ $network->our_banner_url }}" required>
+                            <label for="website_name" class="form-label">URL to our banner on your website</label>
+                                <input type="text" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website" name="our_banner_url" value="{{ $network->our_banner_url }}">
                             </div>
                         </div>
                     </div>
@@ -298,13 +305,14 @@
                                 <img src="{{ url('images/world-wide-network', $network->image) }}" alt="" class="img-fluid">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$network->image}}">
 
-                                <div class="input-group mt-4">
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Banner Image</label>
                                     <input type="file" class="form-control" id="image" name="new_image">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="website_name" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $network->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $network->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

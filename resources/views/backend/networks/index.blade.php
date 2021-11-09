@@ -5,26 +5,25 @@
 @section('content')
     
 
-<div class="row">
+    <div class="row">
         <div class="col">
 
             <div class="card">
                 <div class="card-header">
-                    <strong>World Wide Networks&nbsp;</strong>
+                    <strong>World wide networks&nbsp;</strong>
 
-                    <a href="{{ route('admin.networks.create_network') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.networks.create_network') }}" class="btn btn-primary pull-right ml-4">Create new</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="networks-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
+                                <th scope="col">Website name</th>
                                 <th scope="col">Website URL</th>
-                                <th scope="col">Name</th>
                                 <th scope="col">Country</th>
-                                <th scope="col">Our Banner URL</th>
+                                <th scope="col">Our banner URL</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -34,9 +33,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -77,11 +76,10 @@
             processing: true,
             ajax: "{{route('admin.networks.get_networks')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[1, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
+                {data: 'website_name', name: 'website_name'},
                 {data: 'url', name: 'url'},
-                {data: 'name', name: 'name'},
                 {data: 'country', name: 'country'},
                 {data: 'our_banner_url', name: 'our_banner_url'},
                 {data: 'status', name: 'status'},

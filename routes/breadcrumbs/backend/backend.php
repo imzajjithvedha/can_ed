@@ -58,19 +58,19 @@ Breadcrumbs::for('admin.categories.import_categories', function ($trail) {
 
 
 Breadcrumbs::for('admin.directory.index', function ($trail) {
-    $trail->push('Online Business Directory', route('admin.directory.index'));
+    $trail->push('Online business directory', route('admin.directory.index'));
 });
 
 Breadcrumbs::for('admin.directory.create_directory', function ($trail) {
-    $trail->push('Online Business Directory / Create', route('admin.directory.create_directory'));
+    $trail->push('Online business directory / Create', route('admin.directory.create_directory'));
 });
 
 Breadcrumbs::for('admin.directory.edit_directory', function ($trail) {
-    $trail->push('Online Business Directory / Edit', route('admin.directory.edit_directory', 1));
+    $trail->push('Online business directory / Edit', route('admin.directory.edit_directory', 1));
 });
 
 Breadcrumbs::for('admin.directory.import_directory', function ($trail) {
-    $trail->push('Online Business Directory / Import', route('admin.directory.import_directory'));
+    $trail->push('Online business directory / Import', route('admin.directory.import_directory'));
 });
 
 

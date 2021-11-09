@@ -10,11 +10,11 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Online Business Directory&nbsp;</strong>
+                    <strong>Online business directory&nbsp;</strong>
 
-                    <a href="{{ route('admin.directory.create_directory') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.directory.create_directory') }}" class="btn btn-primary pull-right ml-4">Create new</a>
 
-                    <a href="{{ route('admin.directory.import_directory') }}" class="btn btn-primary pull-right ml-4">Import Directory</a>
+                    <a href="{{ route('admin.directory.import_directory') }}" class="btn btn-primary pull-right ml-4">Import directory</a>
                    
                 </div><!--card-header-->
 
@@ -22,11 +22,10 @@
                     <table class="table table-striped table-bordered" id="directory-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">address</th>
-                                <th scope="col">city</th>
-                                <th scope="col">phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">City</th>
+                                <th scope="col">Phone</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -80,9 +79,8 @@
             processing: true,
             ajax: "{{route('admin.directory.get_directory')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'address', name: 'address'},
                 {data: 'city', name: 'city'},

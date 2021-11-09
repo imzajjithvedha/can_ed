@@ -12,34 +12,42 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input class="form-control" name="name" value="{{ $directory->name }}" placeholder="Name" required>
+                                <label for="name" class="form-label">Name *</label>
+                                <input class="form-control" name="name" id="name" value="{{ $directory->name }}" placeholder="Name" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="address" class="form-label">Address *</label>
                                 <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address" name="address" value="{{ $directory->address }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="city" class="form-label">City *</label>
                                 <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" value="{{ $directory->city }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="province" class="form-label">Province *</label>
                                 <input type="text" class="form-control" id="province" aria-describedby="province" placeholder="Province" name="province" value="{{ $directory->province }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="postal_code" aria-describedby="postal_code" placeholder="Postal Code" name="postal_code" value="{{ $directory->postal_code }}" required>
+                                <label for="postal_code" class="form-label">Postal code *</label>
+                                <input type="text" class="form-control" id="postal_code" aria-describedby="postal_code" placeholder="Postal code" name="postal_code" value="{{ $directory->postal_code }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="phone" class="form-label">Phone *</label>
                                 <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone" name="phone" value="{{ $directory->phone }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="fax" class="form-label">Fax *</label>
                                 <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" value="{{ $directory->fax }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="industry" class="form-label">Industry *</label>
                                 <input type="text" class="form-control" id="industry" aria-describedby="industry" placeholder="Industry" name="industry" value="{{ $directory->industry }}" required>
                             </div>
                         </div>
@@ -52,8 +60,8 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $directory->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $directory->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

@@ -14,7 +14,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label class="form-label">Excel File</label>
+                                <label for="file" class="form-label">Excel file</label>
                                 <input type="file" class="form-control" id="file" name="file" required>
                             </div>
                         </div>

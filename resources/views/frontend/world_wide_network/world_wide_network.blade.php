@@ -36,7 +36,7 @@
                 @foreach($networks as $network)
                     <div class="col-6">
                         <div class="card">
-                            <a href="{{ $network->url }}" class="text-decoration-none">
+                            <a href="{{ $network->url }}" class="text-decoration-none" target="_blank">
                                 <img src="{{ url('images/world-wide-network', $network->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem;object-fit: cover;">
                                 <div class="text-center p-2">
                                     <p class="fw-bolder text-dark">{{ $network->website_name }}</p>

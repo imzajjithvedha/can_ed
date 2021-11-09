@@ -101,19 +101,19 @@
                 <h5 class="fw-bolder">More Events</h5>
                 <hr>
 
-                @foreach($more_events as $event)
-                    <a href="{{ route('frontend.single_event', $event->id) }}" class="text-decoration-none">
+                @foreach($more_events as $more_event)
+                    <a href="{{ route('frontend.single_event', $more_event->id) }}" class="text-decoration-none">
                         <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
                             <div class="col-6">
-                                @if($event->image != null)
-                                    <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                @if($more_event->image != null)
+                                    <img src="{{ url('images/events', $more_event->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                                 @endif
                             </div>
 
                             <div class="col-6">
-                                <p class="fw-bold gray">{{ $event->title }}</p>
+                                <p class="fw-bold gray">{{ $more_event->title }}</p>
                             </div>
                         </div>
                     </a>

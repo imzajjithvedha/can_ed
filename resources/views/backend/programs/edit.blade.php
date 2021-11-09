@@ -42,7 +42,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $program->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $program->status == 'Pending' ? "selected" : "" }}>Pending</option>                               

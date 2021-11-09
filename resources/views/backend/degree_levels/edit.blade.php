@@ -12,10 +12,12 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input class="form-control" name="name" value="{{ $level->name }}" placeholder="School Type Name" required>
+                                <label for="name" class="form-label">School type name *</label>
+                                <input class="form-control" name="name" id="name" value="{{ $level->name }}" placeholder="School type name *" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="description" class="form-label">Description</label>
                                 <textarea name="description" class="form-control" id="description" placeholder="Description" rows="5" value="{{ $level->description }}">{{ $level->description }}</textarea>
                             </div>
                         </div>
@@ -28,8 +30,8 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $level->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $level->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

@@ -10,19 +10,18 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>School Types&nbsp;</strong>
+                    <strong>School types&nbsp;</strong>
 
-                    <a href="{{ route('admin.types.create_school_type') }}" class="btn btn-primary ms-4">Create New</a>
+                    <a href="{{ route('admin.types.create_school_type') }}" class="btn btn-primary ms-4">Create new</a>
 
-                    <a href="{{ route('admin.types.import_school_types') }}" class="btn btn-primary pull-right ml-4">Import School Types</a>
+                    <a href="{{ route('admin.types.import_school_types') }}" class="btn btn-primary pull-right ml-4">Import school types</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="school-types-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Options</th>
@@ -77,10 +76,9 @@
             processing: true,
             ajax: "{{route('admin.types.get_school_types')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [0, "asc"],
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'title'},
+                {data: 'name', name: 'name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

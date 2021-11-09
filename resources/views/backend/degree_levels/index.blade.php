@@ -10,11 +10,11 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Degree Levels&nbsp;</strong>
+                    <strong>Degree levels&nbsp;</strong>
 
-                    <a href="{{ route('admin.degree_levels.create_degree_level') }}" class="btn btn-primary ms-4">Create New</a>
+                    <a href="{{ route('admin.degree_levels.create_degree_level') }}" class="btn btn-primary ms-4">Create new</a>
 
-                    <a href="{{ route('admin.degree_levels.import_degree_levels') }}" class="btn btn-primary pull-right ml-4">Import Degree Levels</a>
+                    <a href="{{ route('admin.degree_levels.import_degree_levels') }}" class="btn btn-primary pull-right ml-4">Import degree levels</a>
                    
                 </div><!--card-header-->
 
@@ -22,7 +22,6 @@
                     <table class="table table-striped table-bordered" id="degree-levels-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Options</th>
@@ -33,9 +32,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -77,10 +76,9 @@
             processing: true,
             ajax: "{{route('admin.degree_levels.get_degree_levels')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
-                {data: 'name', name: 'title'},
+                {data: 'name', name: 'name'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

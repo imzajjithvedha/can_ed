@@ -312,38 +312,38 @@ Breadcrumbs::for('admin.schools.school_financial_faq_edit', function ($trail) {
 
 
 Breadcrumbs::for('admin.types.index', function ($trail) {
-    $trail->push('School Types', route('admin.types.index'));
+    $trail->push('School types', route('admin.types.index'));
 });
 
 Breadcrumbs::for('admin.types.create_school_type', function ($trail) {
-    $trail->push('School Types / Create', route('admin.types.create_school_type'));
+    $trail->push('School types / Create', route('admin.types.create_school_type'));
 });
 
 Breadcrumbs::for('admin.types.edit_school_type', function ($trail) {
-    $trail->push('School Types / Edit', route('admin.types.edit_school_type', 1));
+    $trail->push('School types / Edit', route('admin.types.edit_school_type', 1));
 });
 
 Breadcrumbs::for('admin.types.import_school_types', function ($trail) {
-    $trail->push('School Types / Import', route('admin.types.import_school_types'));
+    $trail->push('School types / Import', route('admin.types.import_school_types'));
 });
 
 
 
 
 Breadcrumbs::for('admin.degree_levels.index', function ($trail) {
-    $trail->push('Degree Levels', route('admin.degree_levels.index'));
+    $trail->push('Degree levels', route('admin.degree_levels.index'));
 });
 
 Breadcrumbs::for('admin.degree_levels.create_degree_level', function ($trail) {
-    $trail->push('Degree Levels / Create', route('admin.degree_levels.create_degree_level'));
+    $trail->push('Degree levels / Create', route('admin.degree_levels.create_degree_level'));
 });
 
 Breadcrumbs::for('admin.degree_levels.edit_degree_level', function ($trail) {
-    $trail->push('Degree Levels / Edit', route('admin.degree_levels.edit_degree_level', 1));
+    $trail->push('Degree levels / Edit', route('admin.degree_levels.edit_degree_level', 1));
 });
 
 Breadcrumbs::for('admin.degree_levels.import_degree_levels', function ($trail) {
-    $trail->push('Degree Levels / Import', route('admin.degree_levels.import_degree_levels'));
+    $trail->push('Degree levels / Import', route('admin.degree_levels.import_degree_levels'));
 });
 
 

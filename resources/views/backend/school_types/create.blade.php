@@ -14,7 +14,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <input type="text" id="name" class="form-control" name="name" placeholder="School Type Name" required>
+                                <input type="text" id="name" class="form-control" name="name" placeholder="School type name *" required>
                             </div>
                             <div class="form-group">
                                 <textarea name="description" class="form-control" id="description" placeholder="Description" rows="5"></textarea>
@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button>
+                    <button type="submit" class="btn btn-success">Create new</button>
                 </div>
             </div>    
         </div>

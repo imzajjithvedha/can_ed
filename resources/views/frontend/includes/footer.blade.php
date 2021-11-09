@@ -24,7 +24,7 @@
                 <a href="{{ route('frontend.online_business_directory') }}">Online business directory</a><br>
                 <a href="{{ route('frontend.quotes') }}">Quotes</a><br>
                 <a href="{{ route('frontend.videos') }}">Videos</a><br>
-                <a href="{{ route('frontend.world_wide_network') }}">World wide network</a><br>
+                <a href="{{ route('frontend.world_wide_network') }}">World wide networks</a><br>
             </div>
 
             <div class="col">

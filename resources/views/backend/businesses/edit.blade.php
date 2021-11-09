@@ -12,65 +12,79 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business Name" value="{{ $business->name }}" required>
+                                <label for="name" class="form-label">Business name *</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business name *" value="{{ $business->name }}" required>
                             </div>
                             <div class="mb-3">
+                                <label for="category_1" class="form-label">Business category *</label>
                                 <select class="form-control" id="category_1" name="category_1" placeholder="Business Category" required>
-                                    <option value="" selected disabled hidden>Business Category *</option>
+                                    <option value="" selected disabled hidden>Business category *</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_1 ? "selected" : "" }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="mb-3 category_2">
+                                <label for="category_2" class="form-label">Business category *</label>
                                 <select class="form-control" id="category_2" name="category_2" placeholder="Business Category">
-                                    <option value="" selected disabled hidden>Business Category *</option>
+                                    <option value="" selected disabled hidden>Business category *</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_2 ? "selected" : "" }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="mb-3 category_3">
+                                <label for="category_3" class="form-label">Business category *</label>
                                 <select class="form-control" id="category_3" name="category_3" placeholder="Business Category">
-                                    <option value="" selected disabled hidden>Business Category *</option>
+                                    <option value="" selected disabled hidden>Business category *</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ $category->id == App\Models\Businesses::where('id', $business->id)->first()->category_3 ? "selected" : "" }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Business Description" value="{{ $business->description }}" name="description" required>{{ $business->description }}</textarea>
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Business Description *" value="{{ $business->description }}" id="description" required>{{ $business->description }}</textarea>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact Name" value="{{ $business->contact_name }}" required>
+                                <label for="description" class="form-label">Contact name *</label>
+                                <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact name *" value="{{ $business->contact_name }}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business Email" value="{{ $business->email }}" required>
+                                <label for="description" class="form-label">Business email *</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business email *" value="{{ $business->email }}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business Phone" value="{{ $business->phone }}" required>
+                                <label for="phone" class="form-label">Business phone *</label>
+                                <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business phone" value="{{ $business->phone }}" required>
                             </div>
                             <div class="mb-3">
+                                <label for="address" class="form-label">Address *</label>
                                 <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address" value="{{ $business->address }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="facebook" class="form-label">Facebook</label>
                                 <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $business->facebook }}">
                             </div>
 
                             <div class="mb-3">
+                                <label for="twitter" class="form-label">Twitter</label>
                                 <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" placeholder="Twitter" value="{{ $business->twitter }}">
                             </div>
 
                             <div class="mb-3">
+                                <label for="you-tube" class="form-label">YouTube</label>
                                 <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" placeholder="YouTube" value="{{ $business->you_tube }}">
                             </div>
 
                             <div class="mb-3">
+                                <label for="linked-in" class="form-label">LinkedIn</label>
                                 <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn" value="{{ $business->linked_in }}">
                             </div>
 
                             <div class="mb-3">
+                            <label for="package" class="form-label">Package *</label>
                                 <input type="text" class="form-control" id="package" aria-describedby="package" name="package" id="package" placeholder="Package" value="{{ $business->package }}" disabled>
                             </div>
                         </div>
@@ -83,25 +97,26 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid">
+                                <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$business->image}}">
 
-                                <div class="input-group mt-4">
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" id="image" name="new_image">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label>Featured</label>
-                                <select class="form-control" name="featured" required>
+                                <label for="featured" class="form-label">Do you want to show this article in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured" required>
                                     <option value="Yes" {{ $business->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $business->featured == 'No' ? "selected" : "" }}>No</option>                               
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $business->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $business->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

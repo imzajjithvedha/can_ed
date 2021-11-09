@@ -12,16 +12,16 @@
                 <div class="card-header">
                     <strong>Businesses&nbsp;</strong>
 
-                    <a href="{{ route('admin.businesses.create_business') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.businesses.create_business') }}" class="btn btn-primary pull-right ml-4">Create new</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="businesses-table" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
-                                <th scope="col">Contact Name</th>
+                                <th scope="col">Contact name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
                                 <th scope="col">Featured</th>
@@ -35,9 +35,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -78,7 +78,7 @@
             processing: true,
             ajax: "{{route('admin.businesses.get_businesses')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'contact_name', name: 'contact_name'},

@@ -39,19 +39,19 @@ Breadcrumbs::for('admin.businesses.edit_business', function ($trail) {
 
 
 Breadcrumbs::for('admin.categories.index', function ($trail) {
-    $trail->push('Business Categories', route('admin.categories.index'));
+    $trail->push('Business categories', route('admin.categories.index'));
 });
 
 Breadcrumbs::for('admin.categories.create_category', function ($trail) {
-    $trail->push('Business Categories / Create', route('admin.categories.create_category'));
+    $trail->push('Business categories / Create', route('admin.categories.create_category'));
 });
 
 Breadcrumbs::for('admin.categories.edit_category', function ($trail) {
-    $trail->push('Business Categories / Edit', route('admin.categories.edit_category', 1));
+    $trail->push('Business categories / Edit', route('admin.categories.edit_category', 1));
 });
 
 Breadcrumbs::for('admin.categories.import_categories', function ($trail) {
-    $trail->push('Business Categories / Import', route('admin.categories.import_categories'));
+    $trail->push('Business categories / Import', route('admin.categories.import_categories'));
 });
 
 

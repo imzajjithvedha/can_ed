@@ -14,7 +14,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Business Category Name" name="name" required>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Business category name *" name="name" required>
                             </div>
 
                             <div class="mb-3">
@@ -22,7 +22,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Business Category Image</label>
+                                <label for="image" class="form-label">Business category image *</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button><br>
                 </div>
             </div>    
         </div>

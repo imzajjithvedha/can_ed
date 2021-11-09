@@ -10,19 +10,18 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Business Categories&nbsp;</strong>
+                    <strong>Business categories&nbsp;</strong>
 
-                    <a href="{{ route('admin.categories.create_category') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.categories.create_category') }}" class="btn btn-primary pull-right ml-4">Create new</a>
 
-                    <a href="{{ route('admin.categories.import_categories') }}" class="btn btn-primary pull-right ml-4">Import Business Categories</a>
+                    <a href="{{ route('admin.categories.import_categories') }}" class="btn btn-primary pull-right ml-4">Import business categories</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="business-categories-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Status</th>
@@ -34,9 +33,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -77,9 +76,8 @@
             processing: true,
             ajax: "{{route('admin.categories.get_categories')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'image', name: 'image'},
                 {data: 'status', name: 'status'},

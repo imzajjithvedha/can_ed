@@ -12,19 +12,22 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
+                                <label for="title" class="form-label">Video title *</label>
                                 <input type="text" id="title" class="form-control" name="title" placeholder="Video Title *" value="{{ $video->title }}" required>
                             </div>
 
                             <div class="form-group">
+                                <label for="link" class="form-label">Video link *</label>
                                 <input type="url" id="link" class="form-control" name="link" value="{{ $video->link }}" placeholder="Video Link *" required>
                             </div>
 
                             <div class="form-group">
-                                <textarea name="description" class="form-control" rows="4" value="{{ $video->description }}" placeholder="Description">{{ $video->description }}</textarea>
+                                <label for="description" class="form-label">Description</label>
+                                <textarea name="description" class="form-control" id="description" rows="4" value="{{ $video->description }}" placeholder="Description">{{ $video->description }}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label>Do you want to show this video in the homepage?</label>
+                                <label for="featured" class="form-label">Do you want to show this video in the homepage? *</label>
                                 <select class="form-control" id="featured" name="featured" placeholder="Featured? *">
                                     <option value="Yes" {{ $video->featured == 'Yes' ? "selected" : "" }}>Yes</option>
                                     <option value="No" {{ $video->featured == 'No' ? "selected" : "" }}>No</option>
@@ -40,8 +43,8 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $video->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $video->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

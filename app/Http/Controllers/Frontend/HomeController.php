@@ -39,7 +39,7 @@ class HomeController extends Controller
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
 
-        $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->get();
+        $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->orderBy('updated_at', 'desc')->get();
 
 
         return view('frontend.index', 

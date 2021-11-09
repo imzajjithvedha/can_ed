@@ -27,9 +27,13 @@ class VideosController extends Controller
 
         $video = new Videos;
 
+        $link = $request->link;
+
+        $new_link = str_replace('watch?v=', 'embed/', $link);
+
         $video->user_id = $user_id;
         $video->title = $request->title;
-        $video->link = $request->link;
+        $video->link = $new_link;
         $video->featured = $request->featured;
         $video->status = 'Approved';
 
@@ -91,10 +95,14 @@ class VideosController extends Controller
 
     public function updateVideo(Request $request)
     {    
+        $link = $request->link;
+
+        $new_link = str_replace('watch?v=', 'embed/', $link);
+
         $video = DB::table('videos') ->where('id', request('hidden_id'))->update(
             [
                 'title' => $request->title,
-                'link' => $request->link,
+                'link' => $new_link,
                 'description' => $request->description,
                 'featured' => $request->featured,
                 'status' => $request->status

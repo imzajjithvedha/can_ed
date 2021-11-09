@@ -703,4 +703,5 @@
             $('#modal-btn').click();
         }
     </script>
+    
 @endpush

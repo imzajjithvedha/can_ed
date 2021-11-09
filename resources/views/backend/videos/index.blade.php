@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <strong>Videos&nbsp;</strong>
 
-                    <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#createVideo">Create New</button>
+                    <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#createVideo">Create new</button>
                    
                 </div><!--card-header-->
 
@@ -32,9 +32,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
 
 
 
@@ -44,16 +44,16 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Create Video</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Create video</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <input type="text" id="title" class="form-control" name="title" placeholder="Video Title *" required>
+                            <input type="text" id="title" class="form-control" name="title" placeholder="Video title *" required>
                         </div>
 
                         <div class="form-group">
-                            <input type="url" id="link" class="form-control" name="link" placeholder="Video Link *" required>
+                            <input type="url" id="link" class="form-control" name="link" placeholder="Video link *" required>
                         </div>
 
                         <div class="form-group">
@@ -62,7 +62,7 @@
 
                         <div class="form-group">
                             <select class="form-control" id="featured" name="featured" placeholder="Featured? *">
-                                <option value="" selected disabled hidden>Do you want to show this video in the homepage? </option>
+                                <option value="" selected disabled hidden>Do you want to show this video in the homepage? *</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Create Video</button>
+                        <button type="submit" class="btn btn-success">Create video</button>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@
             processing: true,
             ajax: "{{route('admin.videos.get_videos')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'title', name: 'title'},
                 {data: 'link', name: 'link'},

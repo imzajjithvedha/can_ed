@@ -13,13 +13,13 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="form-group">
-                            <textarea name="quote" class="form-control" id="description" rows="7" placeholder="Quote" required></textarea>
+                            <textarea name="quote" class="form-control" id="quote" rows="7" placeholder="Enter your quote..." required></textarea>
                         </div>
                     </div>
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button><br>
                 </div>
             </div>    
         </div>

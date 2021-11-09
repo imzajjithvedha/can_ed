@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <strong>Quotes&nbsp;</strong>
 
-                    <a href="{{ route('admin.quotes.create_quote') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.quotes.create_quote') }}" class="btn btn-primary pull-right ml-4">Create new</a>
                    
                 </div><!--card-header-->
 

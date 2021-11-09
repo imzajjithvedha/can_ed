@@ -99,7 +99,8 @@ class QuotesController extends Controller
         
         $quote = DB::table('quotes') ->where('id', request('hidden_id'))->update(
             [
-                'status' => $request->status
+                'quote' => $request->quote,
+                'status' => $request->status,
             ]
         );
    

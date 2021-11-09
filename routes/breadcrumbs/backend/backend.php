@@ -211,7 +211,7 @@ Breadcrumbs::for('admin.quotes.index', function ($trail) {
     $trail->push('Quotes', route('admin.quotes.index'));
 });
 Breadcrumbs::for('admin.quotes.create_quote', function ($trail) {
-    $trail->push('Articles / Create', route('admin.quotes.create_quote'));
+    $trail->push('Quotes / Create', route('admin.quotes.create_quote'));
 });
 Breadcrumbs::for('admin.quotes.edit_quote', function ($trail) {
     $trail->push('Quotes / Approval', route('admin.quotes.edit_quote', 1));

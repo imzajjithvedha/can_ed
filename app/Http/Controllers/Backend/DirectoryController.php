@@ -32,10 +32,6 @@ class DirectoryController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $image = $request->file('image');
-        $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images/directory'), $imageName);
-
         $directory = new OnlineBusinessDirectory;
 
         $directory->user_id = $user_id;
@@ -98,25 +94,17 @@ class DirectoryController extends Controller
     public function updateDirectory(Request $request)
     {    
 
-        $image = $request->file('new_image');
 
-        if($image != null) {
-            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-            
-            $image->move(public_path('images/directory'), $imageName);
-        } 
-        else {
-            $imageName = $request->old_image;
-        }
-        
         $directory = DB::table('online_business_directory') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                'description' => $request->description,
-                'category' => $request->category,
+                'address' => $request->address,
+                'city' => $request->city,
+                'province' => $request->province,
+                'postal_code' => $request->postal_code,
                 'phone' => $request->phone,
-                'email' => $request->email,
-                'image' => $imageName,
+                'fax' => $request->fax,
+                'industry' => $request->industry,
                 'status' => $request->status,
             ]
         );

@@ -38,7 +38,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax *" required>
+                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax *" name="fax" required>
                             </div>
 
                             <div class="mb-3">

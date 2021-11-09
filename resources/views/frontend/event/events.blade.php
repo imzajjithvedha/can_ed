@@ -422,7 +422,7 @@
                 processing: true,
                 ajax: "{{route('frontend.get_events')}}",
                 serverSide: true,
-                order: [[2, "desc"], [3, "desc"]],
+                order: [0, "asc"],
                 columns: [
                     {data: 'title', name: 'title'},
                     {data: 'type', name: 'type'},

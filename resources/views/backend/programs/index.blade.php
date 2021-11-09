@@ -12,19 +12,18 @@
                 <div class="card-header">
                     <strong>Programs&nbsp;</strong>
 
-                    <a href="{{ route('admin.programs.create_program') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.programs.create_program') }}" class="btn btn-primary pull-right ml-4">Create new</a>
 
-                    <a href="{{ route('admin.programs.import_programs') }}" class="btn btn-primary pull-right ml-4">Import Programs</a>
+                    <a href="{{ route('admin.programs.import_programs') }}" class="btn btn-primary pull-right ml-4">Import programs</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
                                 <th scope="col">Title</th>
-                                <th scope="col">Degree Level</th>
+                                <th scope="col">Degree level</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -34,9 +33,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -78,9 +77,8 @@
             processing: true,
             ajax: "{{route('admin.programs.get_programs')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'degree_level', name: 'degree_level'},
                 {data: 'status', name: 'status'},

@@ -13,17 +13,18 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Program title *" name="title" required>
+                            </div>
+
                             <div class="mb-3">
                                 <select name="degree_level" class="form-control">
-                                        <option value="" selected disabled hidden>Degree Level</option>
+                                    <option value="" selected disabled hidden>Degree level</option>
                                     @foreach($degree_levels as $degree_level)
                                         <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Program Title" name="title" required>
                             </div>
 
                             <div class="mb-3">
@@ -34,7 +35,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button><br>
                 </div>
             </div>    
         </div>

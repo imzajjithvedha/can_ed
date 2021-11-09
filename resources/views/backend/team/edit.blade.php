@@ -12,18 +12,18 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
+                                <label for="name" class="form-label">Name *</label>
                                 <input class="form-control" name="name" value="{{ $member->name }}" placeholder="Name" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">Title *</label>
                                 <input class="form-control" name="title" value="{{ $member->title }}" placeholder="Title" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="description" class="form-label">Description</label>
-                                <textarea name="description" class="form-control" value="{{ $member->description }}" rows="7" placeholder="Description">{{ $member->description }}</textarea>
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea name="description" class="form-control" value="{{ $member->description }}" rows="7" placeholder="Description" required>{{ $member->description }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -45,8 +45,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $member->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $member->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

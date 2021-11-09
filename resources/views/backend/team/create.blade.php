@@ -12,16 +12,16 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" required>
+                                <input type="text" id="name" class="form-control" name="name" placeholder="Name *" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="title" class="form-control" name="title" placeholder="Title" required>
+                                <input type="text" id="title" class="form-control" name="title" placeholder="Title *" required>
                             </div>
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description"></textarea>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Member Image</label>
+                                <label for="image" class="form-label">Member image *</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button>
                 </div>
             </div>    
         </div>

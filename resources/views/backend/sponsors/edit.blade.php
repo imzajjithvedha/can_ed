@@ -12,12 +12,12 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
+                                <label for="name" class="form-label">Name *</label>
                                 <input class="form-control" name="name" value="{{ $sponsor->name }}" placeholder="Name" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="country" class="form-label">Country</label>
+                                <label for="country" class="form-label">Country *</label>
                                 <select id="country" name="country" class="form-control" value="{{ $sponsor->country }}" required>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
@@ -269,7 +269,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="url" class="form-label">URL</label>
+                                <label for="url" class="form-label">URL *</label>
                                 <input class="form-control" id="url" name="url" value="{{ $sponsor->url }}" placeholder="URL">
                             </div>
                         </div>
@@ -292,8 +292,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $sponsor->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $sponsor->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

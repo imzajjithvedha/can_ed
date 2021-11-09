@@ -1,9 +1,8 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Create New Event | Admin'))
+@section('title', __('Create Event | Admin'))
 
 @section('content')
-
 
 
     <form action="{{ route('admin.events.store_event') }}" method="post" enctype="multipart/form-data">
@@ -14,21 +13,21 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title" name="title" required>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event title *" name="title" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description" required></textarea>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
                             </div>
 
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" value="" required>
+                                        <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" required>
                                     </div>
                                     <div class="col-6">
-                                        <select class="form-control" id="country" name="country" value="" required>
-                                            <option value="">Select Country</option>
+                                        <select class="form-control" id="country" name="country" required>
+                                            <option value="" selected hidden disabled>Country *</option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>
@@ -283,10 +282,10 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date" name="date" required>
+                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event date *" name="date" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time" name="time" required>
+                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event time *" name="time" required>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +293,7 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type" name="type" required>
+                                        <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event type *" name="type" required>
                                     </div>
                                     <div class="col-6">
                                         <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Event URL" name="url">
@@ -305,16 +304,16 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email" name="email" required>
+                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email *" name="email" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone" name="phone" required>
+                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone *" name="phone" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3 form-group">
-                                <label class="form-label">Event Banner Image</label>
+                                <label class="form-label">Event banner image</label>
                                 <div class="row">
                                     <div class="col-5">
                                         <input type="file" class="form-control" id="image" name="image">
@@ -326,7 +325,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button><br>
                 </div>
             </div>    
         </div>

@@ -12,11 +12,11 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">Title *</label>
                                 <input type="text" id="title" class="form-control" name="title" value="{{ $team->title }}" placeholder="Title" required>
                             </div>
                             <div class="form-group">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">Description *</label>
                                 <textarea type="text" class="ckeditor form-control mt-2" name="description" value="{{ $team->description }}" required>{!! $team->description !!}</textarea>
                             </div>
                         </div>

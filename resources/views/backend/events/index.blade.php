@@ -12,19 +12,18 @@
                 <div class="card-header">
                     <strong>Events&nbsp;</strong>
 
-                    <a href="{{ route('admin.events.create_event') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.events.create_event') }}" class="btn btn-primary pull-right ml-4">Create new</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="events-table" style="width:100%">
                         <thead>
                             <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Event Title</th>
-                                <th scope="col">Event Type</th>
-                                <th scope="col">Event Date</th>
-                                <th scope="col">Event Time</th>
+                                <th scope="col">Event title</th>
+                                <th scope="col">Event type</th>
+                                <th scope="col">Event date</th>
+                                <th scope="col">Event time</th>
                                 <th scope="col">City</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
@@ -36,9 +35,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -79,9 +78,8 @@
             processing: true,
             ajax: "{{route('admin.events.get_events')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
-                {data: 'id', name: 'id'},
                 {data: 'title', name: 'title'},
                 {data: 'type', name: 'type'},
                 {data: 'date', name: 'date'},

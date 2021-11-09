@@ -12,7 +12,7 @@
                 <div class="card-header">
                     <strong>Articles&nbsp;</strong>
 
-                    <a href="{{ route('admin.articles.create_article') }}" class="btn btn-primary ms-4">Create New</a>
+                    <a href="{{ route('admin.articles.create_article') }}" class="btn btn-primary ms-4">Create new</a>
                    
                 </div>
 
@@ -75,7 +75,7 @@
             processing: true,
             ajax: "{{route('admin.articles.get_articles')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'title', name: 'title'},
                 {data: 'image', name: 'image'},

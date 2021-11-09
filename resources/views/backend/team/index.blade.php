@@ -10,9 +10,9 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Team Members&nbsp;</strong>
+                    <strong>Team members&nbsp;</strong>
 
-                    <a href="{{ route('admin.team.create_team') }}" class="btn btn-primary ms-4">Create New</a>
+                    <a href="{{ route('admin.team.create_team') }}" class="btn btn-primary ms-4">Create new</a>
                    
                 </div>
 

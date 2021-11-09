@@ -12,21 +12,25 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
+                                <label for="title" class="form-label">Event title *</label>
                                 <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title" name="title" value="{{ $event->title }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" value="{{ $event->description }}" placeholder="Description" required>{{ $event->description }}"</textarea>
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea name="description" class="form-control" id="description" rows="7" value="{{ $event->description }}" placeholder="Description" required>{{ $event->description }}"</textarea>
                             </div>
 
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
+                                        <label for="city" class="form-label">City *</label>
                                         <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" value="{{ $event->city }}" required>
                                     </div>
                                     <div class="col-6">
+                                        <label for="country" class="form-label">Country *</label>
                                         <select class="form-control" id="country" name="country" value="{{ $event->country }}" required>
-                                            <option value="">Select Country</option>
+                                            <option value="" disabled hidden>Select Country</option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>
@@ -281,9 +285,11 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
+                                        <label for="date" class="form-label">Date *</label>
                                         <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date" name="date" value="{{ $event->date }}" required>
                                     </div>
                                     <div class="col-6">
+                                        <label for="time" class="form-label">Time *</label>
                                         <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time" name="time" value="{{ $event->time }}" required>
                                     </div>
                                 </div>
@@ -292,9 +298,11 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
+                                        <label for="type" class="form-label">Event type *</label>
                                         <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type" name="type" value="{{ $event->type }}" required>
                                     </div>
                                     <div class="col-6">
+                                        <label for="url" class="form-label">Event URL</label>
                                         <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Event URL" name="url" value="{{ $event->url }}">
                                     </div>
                                 </div>
@@ -303,10 +311,12 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email" name="email" value="{{ $event->organizer_email }}" required>
+                                        <label for="email" class="form-label">Event organizer email *</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email" name="email" value="{{ $event->organizer_email }}" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone" name="phone" value="{{ $event->organizer_phone }}" required>
+                                        <label for="phone" class="form-label">Event organizer phone *</label>
+                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone" name="phone" value="{{ $event->organizer_phone }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -323,13 +333,14 @@
                                 <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$event->image}}">
 
-                                <div class="input-group mt-4">
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" id="image" name="new_image">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $event->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $event->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>

@@ -14,11 +14,11 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <input type="text" id="name" class="form-control" name="name" placeholder="Name" required>
+                                <input type="text" id="name" class="form-control" name="name" placeholder="Name *" required>
                             </div>
                             <div class="form-group">
                                 <select id="country" name="country" class="form-control" required>
-                                    <option value="" selected disabled hidden>Country</option>
+                                    <option value="" selected disabled hidden>Country *</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -268,10 +268,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="url" class="form-control" name="url" placeholder="URL" required>
+                                <input type="url" id="url" class="form-control" name="url" placeholder="URL *" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Sponsor Image</label>
+                                <label class="form-label">Sponsor image *</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>
                         </div>
@@ -279,7 +279,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create New</button><br>
+                    <button type="submit" class="btn btn-success">Create new</button>
                 </div>
             </div>    
         </div>

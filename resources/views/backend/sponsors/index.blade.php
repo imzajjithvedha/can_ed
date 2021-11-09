@@ -9,8 +9,8 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <strong>Our Sponsors&nbsp;</strong>
-                    <a href="{{ route('admin.sponsors.create_sponsor') }}" class="btn btn-primary ms-4">Create New</a>
+                    <strong>Our sponsors&nbsp;</strong>
+                    <a href="{{ route('admin.sponsors.create_sponsor') }}" class="btn btn-primary ms-4">Create new</a>
                 </div>
 
                 <div class="card-body">

@@ -12,17 +12,17 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">Article title *</label>
                                 <input class="form-control" name="title" id="title" value="{{ $article->title }}" placeholder="Title" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="description" class="form-label">Description</label>
+                                <label for="description" class="form-label">Description *</label>
                                 <textarea class="ckeditor form-control" name="description" id="description" value="{{ $article->description }}">{{ $article->description }}</textarea>
                             </div>
 
                             <div class="form-group">
-                                <label for="featured-article" class="form-label">Do you want to show this article in the homepage?</label>
+                                <label for="featured-article" class="form-label">Do you want to show this article in the homepage? *</label>
                                 <select class="form-control" name="featured" id="featured-article" required>
                                     <option value="Yes" {{ $article->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $article->featured == 'No' ? "selected" : "" }}>No</option>                               
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $article->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $article->status == 'Pending' ? "selected" : "" }}>Pending</option>                               

@@ -59,9 +59,9 @@ class SchoolController extends Controller
             $school->status = 'Pending';
             $school->featured = 'No';
             $school->images = '[]';
-            $school->overview_title_2_bullets = [null, null, null, null, null, null, null, null, null, null, ];
-            $school->overview_title_12_bullets = [null, null, null, null, null, null, null, null, null, null, ];
-            $school->admission_title_2_bullets = [null, null, null, null, null, null, null, null, null, null, ];
+            $school->overview_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+            $school->overview_title_12_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+            $school->admission_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
 
             $school->save();
 
@@ -84,7 +84,7 @@ class SchoolController extends Controller
 
     public function index()
     {
-        $schools = Schools::where('status', 'Approved')->get();
+        $schools = Schools::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
         return view('frontend.school.schools', ['schools' => $schools]);
     }
@@ -99,6 +99,7 @@ class SchoolController extends Controller
 
         $contacts = SchoolContacts::where('school_id', $id)->get();
 
+        $total_programs = SchoolPrograms::where('school_id', $id)->get();
         $high_school_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 1)->get();
         $language_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 2)->get();
         $certificate_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 3)->get();
@@ -127,6 +128,7 @@ class SchoolController extends Controller
             'images' => $images,
             'articles' => $articles,
             'contacts' => $contacts,
+            'total_programs' => $total_programs,
             'high_school_programs' => $high_school_programs,
             'language_programs' => $language_programs,
             'certificate_programs' => $certificate_programs,

@@ -55,7 +55,7 @@
 
     <div class="col-3 p-1 mb-2">
         <div class="card mb-0">
-            <a href="{{ route('admin.schools.school_quick_facts', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'quick-facts' ? 'active' : null }}">Quick Facts</a>
+            <a href="{{ route('admin.schools.school_quick_facts', $school->id) }}" class="text-decoration-none p-2 {{ Request::segment(5) == 'quick-facts' ? 'active' : null }}">Quick facts</a>
         </div>
     </div>
 

@@ -12,9 +12,9 @@
                 <div class="card-header">
                     <strong>Schools&nbsp;</strong>
 
-                    <a href="{{ route('admin.articles.create_article') }}" class="btn btn-primary ms-4">Create New</a>
+                    <a href="{{ route('admin.schools.create_school') }}" class="btn btn-primary ms-4">Create new</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="schools-table" style="width:100%">
@@ -34,9 +34,9 @@
                         </tbody>
                     </table>
                 </div>
-            </div><!--card-->
-        </div><!--col-->
-    </div><!--row-->
+            </div>
+        </div>
+    </div>
     
 
      <!-- Modal delete -->
@@ -78,7 +78,7 @@
             processing: true,
             ajax: "{{route('admin.schools.get_schools')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'website', name: 'website'},

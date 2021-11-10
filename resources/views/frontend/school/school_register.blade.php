@@ -22,7 +22,7 @@
                         <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your school name *" name="name" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="website" aria-describedby="website" placeholder="Enter your school website *" name="website" required>
+                        <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Enter your school website *" name="website" required>
                     </div>
                     <div class="mb-3">
                         <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" required>

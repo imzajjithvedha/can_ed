@@ -190,6 +190,8 @@ Route::get('networks/delete-network/{id}', [NetworksController::class, 'deleteNe
 
 //Schools
 Route::get('schools', [SchoolsController::class, 'index'])->name('schools.index');
+Route::get('schools/create-school', [SchoolsController::class, 'createSchool'])->name('schools.create_school');
+Route::post('schools/store-school', [SchoolsController::class, 'storeSchool'])->name('schools.store_school');
 Route::get('schools/get-schools', [SchoolsController::class, 'getSchools'])->name('schools.get_schools');
 Route::get('schools/delete-school/{id}', [SchoolsController::class, 'deleteSchool'])->name('schools.delete_school');
 

@@ -16,22 +16,22 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <label for="name" class="form-label mb-1">Name *</label>
+                                <label for="name" class="form-label">Name *</label>
                                 <input type="text" class="form-control" id="name" aria-describedby="name" name="name" value="{{ $school->name }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="website" class="form-label mb-1">Website *</label>
+                                <label for="website" class="form-label">Website *</label>
                                 <input type="text" class="form-control" id="website" aria-describedby="website" name="website" value="{{ $school->website }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label mb-1">Email *</label>
+                                <label for="email" class="form-label">Email *</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="email" name="email" value="{{ $school->school_email }}" required>
                             </div>
 
                             <div class="mb-5">
-                                <label for="country" class="form-label mb-1">Country *</label>
+                                <label for="country" class="form-label">Country *</label>
                                 <select class="form-control" id="country" name="country" required>
                                     <option value="" disabled hidden></option>
                                     <option value="Afganistan">Afghanistan</option>
@@ -284,7 +284,7 @@
                             </div>
 
                             <div class="mb-5">
-                                <label for="school_featured_image" class="form-label">School Featured Image *</label>
+                                <label for="school_featured_image" class="form-label">School featured image *</label>
 
                                 @if($school->featured_image != null)
                                     <div class="row justify-content-center mb-3">
@@ -304,7 +304,7 @@
                             </div>
 
                             <div class="mb-5">
-                                <label for="school_featured_image" class="form-label">More School Images</label>
+                                <label class="form-label">More school images</label>
 
                                 @if(count($images) != 0)
                                     <div class="row mb-3">
@@ -322,33 +322,33 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="facebook" class="form-label mb-1">Facebook</label>
+                                <label for="facebook" class="form-label">Facebook</label>
                                 <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" value="{{ $school->facebook }}">
                             </div>
 
                             <div class="mb-3">
-                                <label for="instagram" class="form-label mb-1">Instagram</label>
+                                <label for="instagram" class="form-label">Instagram</label>
                                 <input type="url" class="form-control" id="instagram" aria-describedby="instagram" name="instagram" value="{{ $school->instagram }}">
                             </div>
 
                             <div class="mb-3">
-                                <label for="twitter" class="form-label mb-1">Twitter</label>
+                                <label for="twitter" class="form-label">Twitter</label>
                                 <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" value="{{ $school->twitter }}">
                             </div>
 
                             <div class="mb-3">
-                                <label for="you-tube" class="form-label mb-1">YouTube</label>
+                                <label for="you-tube" class="form-label">YouTube</label>
                                 <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" value="{{ $school->you_tube }}">
                             </div>
 
                             <div class="mb-5">
-                                <label for="linked-in" class="form-label mb-1">LinkedIn</label>
+                                <label for="linked-in" class="form-label">LinkedIn</label>
                                 <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" value="{{ $school->linked_in }}">
                             </div>
 
                             <div class="mb-3">
                                 <div>
-                                    <label class="form-label mb-1">External Links</label>
+                                    <label class="form-label">External links</label>
                                     <div class="mb-4">
                                         <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link Name" value="{{ $school->link_1_name }}">
                                         <input type="url" class="form-control" id="link_1_url" aria-describedby="link_1_url" name="link_1_url" placeholder="Link" value="{{ $school->link_1_url }}">
@@ -393,32 +393,32 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <label for="email" class="form-label mb-1">User Email</label>
+                                <label for="email" class="form-label">User email</label>
                                 <input class="form-control" value="{{ $school->user_email }}" disabled>
                             </div>
 
                             <div class="mb-3">
-                                <label for="phone" class="form-label mb-1">User Phone</label>
+                                <label for="phone" class="form-label">User phone</label>
                                 <input class="form-control" value="{{ $school->user_phone }}" disabled>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label mb-1">Reach time</label>
+                                <label class="form-label">Reach time</label>
                                 <input class="form-control" value="{{ $school->reach_time }}" disabled>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label mb-1">Timezone</label>
+                                <label class="form-label">Timezone</label>
                                 <input class="form-control" value="{{ $school->time_zone }}" disabled>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label mb-1">Message</label> 
+                                <label class="form-label">Message</label> 
                                 <textarea class="form-control" value="{{ $school->message }}" rows="7" disabled>{{ $school->message }}</textarea>
                             </div>
                             <div class="form-group">
-                                <label>Status</label>
-                                <select class="form-control" name="status" required>
+                                <label for="status" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $school->status == 'Approved' ? "selected" : "" }}>Approve</option>   
                                     <option value="Pending" {{ $school->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
@@ -439,12 +439,6 @@
 
 
 @push('after-scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-
     <script>
         $(document).ready(function() {
             let value = <?php echo json_encode ($school->country) ?>

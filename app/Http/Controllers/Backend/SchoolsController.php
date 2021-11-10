@@ -22,6 +22,37 @@ class SchoolsController extends Controller
         return view('backend.schools.index');
     }
 
+    public function createSchool()
+    {
+        return view('backend.schools.create');
+    }
+
+    public function storeSchool(Request $request)
+    {
+        $user_id = auth()->user()->id;
+
+        $school = new Schools;
+
+        $school->user_id = $user_id;
+        $school->name = $request->name;
+        $school->website = $request->website;
+        $school->country = $request->country;
+        $school->school_email = $request->email;
+        $school->school_phone = $request->phone;
+        $school->status = 'Pending';
+        $school->featured = 'No';
+        $school->images = '[]';
+        $school->overview_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+        $school->overview_title_12_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+        $school->admission_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+
+        $school->save();
+
+        
+        return redirect()->route('admin.schools.index')->withFlashSuccess('Created Successfully');                      
+    }
+
+
     public function getSchools(Request $request)
     {
         if($request->ajax())

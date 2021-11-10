@@ -28,7 +28,7 @@
                                 <input type="text" class="form-control" id="quick_facts_title_2" aria-describedby="quick_facts_title_2" name="quick_facts_title_2" value="{{ $school->quick_facts_title_2 }}">
                             </div>
                             <div class="mb-3">
-                                <label for="title-2-image" class="form-label">Title 2 Image</label>
+                                <label for="title-2-image" class="form-label">Title 2 image</label>
 
                                 @if($school->quick_facts_title_2_image != null)
                                     <div class="row justify-content-center mb-3">
@@ -61,7 +61,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="quick_facts_title_2_link" class="form-label mb-1">Title 2 - Link</label>
+                                <label for="quick_facts_title_2_link" class="form-label mb-1">Title 2 - link</label>
                                 <input type="url" class="form-control" id="quick_facts_title_2_link" aria-describedby="quick_facts_title_2_link" name="quick_facts_title_2_link" value="{{ $school->quick_facts_title_2_link }}">
                             </div>
 
@@ -72,7 +72,7 @@
 
                             <div class="text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                <input type="submit" value="Update quick facts paragraphs" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update quick facts details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
 
@@ -80,12 +80,12 @@
                         <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="mb-3">
-                                <label for="location" class="form-label mb-1">School Location</label>
+                                <label for="location" class="form-label mb-1">School location</label>
                                 <input type="text" class="form-control" id="location" aria-describedby="location" name="location" value="{{ $school->location }}">
                             </div>
 
                             <div class="mb-3">
-                                <label for="school-type" class="form-label mb-1">School Type</label>
+                                <label for="school-type" class="form-label mb-1">School type</label>
                                 <select class="form-control" id="school-type" name="school_type" placeholder="School Type">
                                     <option value="aaa" selected disabled hidden>aaa</option>
                                     @foreach($school_types as $school_type)
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="entrance" class="form-label mb-1">Entrance Dates (Separate by comma)</label>
+                                <label for="entrance" class="form-label mb-1">Entrance dates (Separate by comma)</label>
                                 <input type="text" class="form-control" id="entrance" aria-describedby="entrance" name="entrance_dates" value="{{ $school->entrance_dates }}">
                             </div>
 
@@ -139,7 +139,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="start-date" class="form-label mb-1">Start Date</label>
+                                <label for="start-date" class="form-label mb-1">Start date</label>
                                 <select class="form-control" id="start-date" name="start_date">
                                     <option value="" selected disabled hidden></option>
                                     <option value="all" {{ $school->start_date == 'all' ? "selected" : "" }}>All</option>
@@ -368,7 +368,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="elementary-school" class="form-label mb-1">Elementary School for students with kids</label>
+                                <label for="elementary-school" class="form-label mb-1">Elementary school for students with kids</label>
                                 <select class="form-control" id="elementary-school" name="elementary_school">
                                     <option value="" selected disabled hidden></option>
                                     <option value="all" {{ $school->elementary_school == 'all' ? "selected" : "" }}>All</option>

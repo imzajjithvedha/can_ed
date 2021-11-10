@@ -170,7 +170,7 @@
 
                                 @if($school->twitter != null)
                                     <div class="border border-top-0 p-2">
-                                        <a href="{{ $school->twitter }}" class="text-decoration-none">
+                                        <a href="{{ $school->twitter }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-twitter me-2 text-primary"></i>Twitter</p>
                                         </a>
                                     </div>
@@ -178,7 +178,7 @@
 
                                 @if($school->instagram != null)
                                     <div class="border border-top-0 p-2">
-                                        <a href="{{ $school->instagram }}" class="text-decoration-none">
+                                        <a href="{{ $school->instagram }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-instagram me-2 text-primary"></i>Instagram</p>
                                         </a>
                                     </div>
@@ -186,7 +186,7 @@
 
                                 @if($school->you_tube != null)
                                     <div class="border border-top-0 p-2">
-                                        <a href="{{ $school->you_tube }}" class="text-decoration-none">
+                                        <a href="{{ $school->you_tube }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-youtube me-2 text-primary"></i>YouTube</p>
                                         </a>
                                     </div>
@@ -194,7 +194,7 @@
 
                                 @if($school->linked_in != null)
                                     <div class="border p-2">
-                                        <a href="{{ $school->linked_in }}" class="text-decoration-none">
+                                        <a href="{{ $school->linked_in }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-linkedin me-2 text-primary"></i>LinkedIn</p>
                                         </a>
                                     </div>

@@ -17,9 +17,9 @@
                             <div class="row">
                                 <div class="col-12py-3">
                                     <div class="mb-3">
-                                        <label for="school-type" class="form-label mb-1">Degree Level</label>
-                                        <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree Level" required>
-                                            <option value="" selected disabled hidden>Degree Level *</option>
+                                        <label for="school-type" class="form-label mb-1">Degree level *</label>
+                                        <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree level *" required>
+                                            <option value="" disabled hidden></option>
                                             @foreach($degree_levels as $degree_level)
                                                 <option value="{{ $degree_level->id }}" {{ $degree_level->id == $school_program->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
                                             @endforeach
@@ -27,9 +27,9 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="school-type" class="form-label mb-1">Program Name</label>
-                                        <select class="form-control" id="title" name="title" placeholder="Program Name *" required>
-                                            <option value="" selected disabled hidden>Program Name *</option>
+                                        <label for="school-type" class="form-label mb-1">Program name *</label>
+                                        <select class="form-control" id="title" name="title" placeholder="Program name *" required>
+                                            <option value="" disabled hidden></option>
                                             @foreach($programs as $program)
                                                 
                                                 <option value="{{ $program->id }}" {{ $program->id == $school_program->program_id ? "selected" : "" }}>{{ $program->name }}</option>
@@ -39,8 +39,8 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="school-type" class="form-label mb-1">Sub Title</label>
-                                        <input type="text" class="form-control" id="sub_title" aria-describedby="sub_title" name="sub_title" placeholder="Sub Title *" value="{{ $school_program->sub_title }}" required>
+                                        <label for="school-type" class="form-label mb-1">Sub title *</label>
+                                        <input type="text" class="form-control" id="sub_title" aria-describedby="sub_title" name="sub_title" placeholder="Sub title *" value="{{ $school_program->sub_title }}" required>
                                     </div>
 
                                     <div class="mt-5 text-center">

@@ -350,35 +350,35 @@
                                 <div>
                                     <label class="form-label">External links</label>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link Name" value="{{ $school->link_1_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="link_1_name" placeholder="Link name" value="{{ $school->link_1_name }}">
                                         <input type="url" class="form-control" id="link_1_url" aria-describedby="link_1_url" name="link_1_url" placeholder="Link" value="{{ $school->link_1_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_2_name" aria-describedby="link_2" name="link_2_name" placeholder="Link Name" value="{{ $school->link_2_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_2_name" aria-describedby="link_2" name="link_2_name" placeholder="Link name" value="{{ $school->link_2_name }}">
                                         <input type="url" class="form-control" id="link_2_url" aria-describedby="link_2_url" name="link_2_url" placeholder="Link" value="{{ $school->link_2_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_3_name" aria-describedby="link_3" name="link_3_name" placeholder="Link Name" value="{{ $school->link_3_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_3_name" aria-describedby="link_3" name="link_3_name" placeholder="Link name" value="{{ $school->link_3_name }}">
                                         <input type="url" class="form-control" id="link_3_url" aria-describedby="link_3_url" name="link_3_url" placeholder="Link" value="{{ $school->link_3_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_4_name" aria-describedby="link_4" name="link_4_name" placeholder="Link Name" value="{{ $school->link_4_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_4_name" aria-describedby="link_4" name="link_4_name" placeholder="Link name" value="{{ $school->link_4_name }}">
                                         <input type="url" class="form-control" id="link_4_url" aria-describedby="link_4_url" name="link_4_url" placeholder="Link" value="{{ $school->link_4_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_5_name" aria-describedby="link_5" name="link_5_name" placeholder="Link Name" value="{{ $school->link_5_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_5_name" aria-describedby="link_5" name="link_5_name" placeholder="Link name" value="{{ $school->link_5_name }}">
                                         <input type="url" class="form-control" id="link_5_url" aria-describedby="link_5_url" name="link_5_url" placeholder="Link" value="{{ $school->link_5_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_6_name" aria-describedby="link_6" name="link_6_name" placeholder="Link Name" value="{{ $school->link_6_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_6_name" aria-describedby="link_6" name="link_6_name" placeholder="Link name" value="{{ $school->link_6_name }}">
                                         <input type="url" class="form-control" id="link_6_url" aria-describedby="link_6_url" name="link_6_url" placeholder="Link" value="{{ $school->link_6_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_7_name" aria-describedby="link_7" name="link_7_name" placeholder="Link Name" value="{{ $school->link_7_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_7_name" aria-describedby="link_7" name="link_7_name" placeholder="Link name" value="{{ $school->link_7_name }}">
                                         <input type="url" class="form-control" id="link_7_url" aria-describedby="link_7_url" name="link_7_url" placeholder="Link" value="{{ $school->link_7_url }}">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="text" class="form-control mb-2" id="link_8_name" aria-describedby="link_8" name="link_8_name" placeholder="Link Name" value="{{ $school->link_8_name }}">
+                                        <input type="text" class="form-control mb-2" id="link_8_name" aria-describedby="link_8" name="link_8_name" placeholder="Link name" value="{{ $school->link_8_name }}">
                                         <input type="url" class="form-control" id="link_8_url" aria-describedby="link_8_url" name="link_8_url" placeholder="Link" value="{{ $school->link_8_url }}">
                                     </div>
                                 </div>

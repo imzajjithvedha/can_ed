@@ -39,7 +39,7 @@
                                 <input type="text" class="form-control" id="scholarships_title_2" aria-describedby="scholarships_title_2" name="scholarships_title_2" value="{{ $school->scholarships_title_2 }}">
                             </div>
                             <div class="mb-3">
-                                <label for="title-2-image" class="form-label">Title 2 Image</label>
+                                <label for="title-2-image" class="form-label">Title 2 image</label>
 
                                 @if($school->scholarships_title_2_image != null)
                                     <div class="row justify-content-center mb-3">
@@ -72,7 +72,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="scholarships_title_2_link" class="form-label mb-1">Title 2 - Link</label>
+                                <label for="scholarships_title_2_link" class="form-label mb-1">Title 2 - link</label>
                                 <input type="url" class="form-control" id="scholarships_title_2_link" aria-describedby="scholarships_title_2_link" name="scholarships_title_2_link" value="{{ $school->scholarships_title_2_link }}">
                             </div>
 
@@ -101,7 +101,7 @@
                                 <input type="text" class="form-control" id="scholarships_title_4" aria-describedby="scholarships_title_4" name="scholarships_title_4" value="{{ $school->scholarships_title_4 }}">
                             </div>
                             <div class="mb-3">
-                                <label for="title-4-image" class="form-label">Title 4 Image</label>
+                                <label for="title-4-image" class="form-label">Title 4 image</label>
 
                                 @if($school->scholarships_title_4_image != null)
                                     <div class="row justify-content-center mb-3">
@@ -134,7 +134,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="scholarships_title_4_link" class="form-label mb-1">Title 4 - Link</label>
+                                <label for="scholarships_title_4_link" class="form-label mb-1">Title 4 - link</label>
                                 <input type="url" class="form-control" id="scholarships_title_4_link" aria-describedby="scholarships_title_4_link" name="scholarships_title_4_link" value="{{ $school->scholarships_title_4_link }}">
                             </div>
 
@@ -151,10 +151,10 @@
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All Scholarships</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head">All scholarships</h4>
                             </div>
                             <div class="col-4 text-end">
-                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Scholarship</button>
+                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>
                             </div>
                         </div>
 
@@ -185,15 +185,15 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Scholarship</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add scholarship</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="text-end">
+                        <!-- <div class="text-end">
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div>
+                        </div> -->
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Scholarship Name *">
+                            <input type="text" class="form-control" name="name" placeholder="Scholarship name *">
                         </div>
 
                         <!-- <div class="mb-3">
@@ -209,7 +209,7 @@
                         </div> -->
 
                         <div class="mb-3">
-                            <label for="eligibility" class="form-label">Basic Eligibility</label>
+                            <label for="eligibility" class="form-label">Basic eligibility *</label>
                             <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
                             <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
                             <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
@@ -246,7 +246,7 @@
 
                         <div class="mb-3">
                             <select name="level_of_study" id="level_of_study" class="form-control">
-                                <option value="" selected disabled hidden>Level of Study *</option>
+                                <option value="" selected disabled hidden>Level of study *</option>
                                 <option value="Graduate">Graduate</option>
                                 <option value="Undergraduate">Undergraduate</option>
                                 <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
@@ -258,14 +258,14 @@
                         </div> -->
 
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured Image</label>
+                            <label for="featured_image" class="form-label">Featured image *</label>
                             <input type="file" class="form-control" name="featured_image" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Scholarship</button>
+                        <button type="submit" class="btn btn-success">Add scholarship</button>
                     </div>
                 </div>
             </div>

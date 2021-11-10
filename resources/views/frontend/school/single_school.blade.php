@@ -1903,30 +1903,7 @@
 
                                 @endif
 
-                                @if(count($scholarship_faqs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
-
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach($scholarship_faqs as $scholarship_faq)
-                                                    <div class="accordion-item mb-3 rounded-0 border-0">
-                                                        <h2 class="accordion-header border" id="heading-{{ $scholarship_faq->id }}">
-                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $scholarship_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $scholarship_faq->id }}" style="color: #384058; font-weight: 700">
-                                                                {{ $scholarship_faq->question }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse-{{ $scholarship_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $scholarship_faq->id }}" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body gray">
-                                                                <p class="gray">{{ $scholarship_faq->answer }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                
 
                                 <div class="row mb-5">
                                     <div class="col-12">
@@ -2014,6 +1991,32 @@
 
                                                     <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white">{{ $school->scholarships_title_4_button }}</a>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                
+
+                                @if(count($scholarship_faqs) > 0)
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+
+                                            <div class="accordion" id="accordionExample">
+                                                @foreach($scholarship_faqs as $scholarship_faq)
+                                                    <div class="accordion-item mb-3 rounded-0 border-0">
+                                                        <h2 class="accordion-header border" id="heading-{{ $scholarship_faq->id }}">
+                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $scholarship_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $scholarship_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                {{ $scholarship_faq->question }}
+                                                            </button>
+                                                        </h2>
+                                                        <div id="collapse-{{ $scholarship_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $scholarship_faq->id }}" data-bs-parent="#accordionExample">
+                                                            <div class="accordion-body gray">
+                                                                <p class="gray">{{ $scholarship_faq->answer }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

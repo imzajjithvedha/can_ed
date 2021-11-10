@@ -416,6 +416,15 @@
                                 <label class="form-label">Message</label> 
                                 <textarea class="form-control" value="{{ $school->message }}" rows="7" disabled>{{ $school->message }}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label for="featured" class="form-label">Do you want to show this school in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured" required>
+                                    <option value="Yes" {{ $school->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $school->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>

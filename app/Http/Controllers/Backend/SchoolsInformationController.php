@@ -100,6 +100,7 @@ class SchoolsInformationController extends Controller
                 'link_7_url' => $request->link_7_url,
                 'link_8_name' => $request->link_8_name,
                 'link_8_url' => $request->link_8_url,
+                'featured' => $request->featured,
                 'status' => $request->status,
             ]
         );

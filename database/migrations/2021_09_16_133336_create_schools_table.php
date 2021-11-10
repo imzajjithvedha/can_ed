@@ -44,9 +44,6 @@ class CreateSchoolsTable extends Migration
             $table->text('international_tuition_fee')->nullable();
             $table->text('fax')->nullable();
             $table->text('address')->nullable();
-            $table->text('scholarships')->nullable();
-            $table->text('scholarships_top')->nullable();
-            $table->text('scholarships_bottom')->nullable();
             $table->text('link_1_name')->nullable();
             $table->text('link_1_url')->nullable();
             $table->text('link_2_name')->nullable();
@@ -126,7 +123,6 @@ class CreateSchoolsTable extends Migration
             $table->text('scholarships_title_4_button')->nullable();
             $table->text('scholarships_title_4_link')->nullable();
             $table->text('scholarships_title_4_image_name')->nullable();
-            $table->text('scholarships_faq')->nullable();
 
             $table->text('overview_title_1')->nullable();
             $table->text('overview_title_1_paragraph')->nullable();

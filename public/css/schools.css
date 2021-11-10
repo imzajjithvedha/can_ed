@@ -88,6 +88,16 @@ hr {
 
 
 /* Single school Styles */
+.swiper-button-next, .swiper-button-prev {
+    color: white;
+}
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    font-size: 1.5rem;
+}
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    font-size: 1.5rem;
+}
+
 .favorite-heart {
     font-size: 1.35rem;
     border: none;

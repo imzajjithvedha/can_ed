@@ -306,7 +306,7 @@
                                         <div class="single-fact text-center p-3">
                                             <h6 class="fw-bold mb-1">Minimum GPA</h6>
                                             @if($school->minimum_gpa != null)
-                                                <p class="gray">{{ $school->minimum_gpa }}</p>
+                                                <p class="gray">{{ $school->minimum_gpa }}%</p>
                                             @else
                                                 <p class="gray">Not defined</p>
                                             @endif

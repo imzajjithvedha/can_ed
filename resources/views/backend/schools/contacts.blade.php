@@ -20,16 +20,16 @@
 
                             <div class="text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                <input type="submit" value="Update Paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All Contacts</h4>
+                                <h4 class="fs-4 fw-bolder user-settings-head">All contacts</h4>
                             </div>
                             <div class="col-4 text-end">
-                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add Contact</button>
+                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add contact</button>
                             </div>
                         </div>
 
@@ -59,29 +59,29 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Contact</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add contact</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name" name="name" required>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name *" name="name" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="department" aria-describedby="department" placeholder="Department" name="department" required>
+                            <input type="text" class="form-control" id="department" aria-describedby="department" placeholder="Department *" name="department" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address" name="address" required>
+                            <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address *" name="address" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="other_address" aria-describedby="other_address" placeholder="City, Province & Postal Code" name="other_address" required>
+                            <input type="text" class="form-control" id="other_address" aria-describedby="other_address" placeholder="City, province & postal code *" name="other_address" required>
                         </div>
 
                         <div class="mb-3">
                             <select class="form-control" id="country" name="country" required>
-                                <option value="">Select Country *</option>
+                                <option value="" selected disabled hidden>Country *</option>
                                 <option value="Afganistan">Afghanistan</option>
                                 <option value="Albania">Albania</option>
                                 <option value="Algeria">Algeria</option>
@@ -332,21 +332,21 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone" name="phone" required>
+                            <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone *" name="phone" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" required>
+                            <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax *" name="fax" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website Link" name="website" required>
+                            <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website link *" name="website" required>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Contact</button>
+                        <button type="submit" class="btn btn-success">Add contact</button>
                     </div>
                 </div>
             </div>

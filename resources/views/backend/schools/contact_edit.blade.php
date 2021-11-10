@@ -13,13 +13,13 @@
                 <div class="card-body border">
                     <div class="p-3">
                         <div class="row justify-content-between">
-                        <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">Edit contact</h4>
-                            
+                            <div class="col-8 p-0">
+                                <h4 class="fs-4 fw-bolder user-settings-head">Edit contact</h4>
+                            </div>
                         </div>
-                        <div class="col-4 text-end">
+                        <!-- <div class="col-4 text-end">
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div>
+                        </div> -->
                     </div>
 
                     <div class="row">
@@ -30,29 +30,29 @@
                                     <div class="row">
                                         <div class="col-12 py-3">
                                             <div class="mb-3">
-                                                <label for="name" class="form-label mb-1">Name</label>
+                                                <label for="name" class="form-label mb-1">Name *</label>
                                                 <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Name" name="name" value="{{ $contact->name }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="department" class="form-label mb-1">Department</label>
+                                                <label for="department" class="form-label mb-1">Department *</label>
                                                 <input type="text" class="form-control" id="department" aria-describedby="department" placeholder="Department" name="department" value="{{ $contact->department }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="address" class="form-label mb-1">Address</label>
+                                                <label for="address" class="form-label mb-1">Address *</label>
                                                 <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address" name="address" value="{{ $contact->address }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="other_address" class="form-label mb-1">City, Province & Postal Code</label>
-                                                <input type="text" class="form-control" id="other_address" aria-describedby="other_address" placeholder="City, Province & Postal Code" name="other_address" value="{{ $contact->city_province_postal_code }}" required>
+                                                <label for="other_address" class="form-label mb-1">City, province & postal code</label>
+                                                <input type="text" class="form-control" id="other_address" aria-describedby="other_address" placeholder="City, province & postal code" name="other_address" value="{{ $contact->city_province_postal_code }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="country" class="form-label mb-1">Country</label>
+                                                <label for="country" class="form-label mb-1">Country *</label>
                                                 <select class="form-control" id="country" name="country" required>
-                                                    <option value="">Select Country *</option>
+                                                    <option value="" disabled hidden>Country *</option>
                                                     <option value="Afganistan">Afghanistan</option>
                                                     <option value="Albania">Albania</option>
                                                     <option value="Algeria">Algeria</option>
@@ -303,18 +303,18 @@
                                             </div>
 
                                             <div class="mb-3">
-                                            <label for="phone" class="form-label mb-1">Phone</label>
-                                                <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone" name="phone" value="{{ $contact->phone }}" required>
+                                            <label for="phone" class="form-label mb-1">Phone *</label>
+                                                <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone *" name="phone" value="{{ $contact->phone }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="fax" class="form-label mb-1">Fax</label>
-                                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" value="{{ $contact->fax }}" required>
+                                                <label for="fax" class="form-label mb-1">Fax *</label>
+                                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax *" name="fax" value="{{ $contact->fax }}" required>
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="website" class="form-label mb-1">Website Link</label>
-                                                <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website Link" name="website" value="{{ $contact->website }}" required>
+                                                <label for="website" class="form-label mb-1">Website link *</label>
+                                                <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website link *" name="website" value="{{ $contact->website }}" required>
                                             </div>
 
                                             <div class="mt-5 text-center">

@@ -80,7 +80,7 @@
                         <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="mb-3">
-                                <label for="location" class="form-label mb-1">School location</label>
+                                <label for="location" class="form-label mb-1">School location (city)</label>
                                 <input type="text" class="form-control" id="location" aria-describedby="location" name="location" value="{{ $school->location }}">
                             </div>
 

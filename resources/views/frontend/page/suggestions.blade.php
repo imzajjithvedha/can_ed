@@ -10,27 +10,27 @@
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5 justify-content-center">
             <div class="col-12 mb-5">
-                <h5 class="fw-bolder">Comments / Suggestions</h5>
+                <h5 class="fw-bolder">Comments / suggestions</h5>
                 <hr>
 
-                <h6 class="fw-bold mb-2" style="text-align: justify">This page is available only in english and french, the official languages of canada, because it pertains to canadian laws.</h6>
+                <h6 class="fw-bold mb-2" style="text-align: justify">This page is available only in English and French, the official languages of Canada, because it pertains to Canadian laws.</h6>
 
-                <p class="gray">keeping in mind that (the road to success is always under construction - lily tomlin): </p>
+                <p class="gray">keeping in mind that (the road to success is always under construction - Lily Tomlin): </p>
 
                 <p class="gray">- do you have any comments about our website or suggestions on improvements that could be made?</p>
 
                 <p class="gray">- do you have any comments about our services or any suggestions on how to improve them?</p>
 
-                <p class="gray mt-2">This website is designed and intended to help you find great canadian products, services and companies. We want you 100% comfortable using it, so feel free to contact us with your ideas. we would be happy to hear from you. alternatively, fill in the secure form below.</p>
+                <p class="gray mt-2">This website is designed and intended to help you find great Canadian products, services and companies. We want you 100% comfortable using it, so feel free to contact us with your ideas. We would be happy to hear from you. alternatively, fill in the secure form below.</p>
 
-                <p class="gray fw-bold mt-2">thank you</p>
+                <p class="gray fw-bold mt-2">Thank you</p>
 
-                <p class="gray fw-bold">the canadian team</p>
+                <p class="gray fw-bold">The Canadian team</p>
             </div>
 
             <div class="col-8">
 
-                <h5 class="fw-bolder">Feedback Form</h5>
+                <h5 class="fw-bolder">Feedback form</h5>
 
                 <hr>
 
@@ -57,7 +57,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send Message</button>
+                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send message</button>
                     </div>
                 </form>
             </div>

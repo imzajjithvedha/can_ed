@@ -211,10 +211,10 @@
                         <div class="mb-3">
                             <label for="eligibility" class="form-label">Basic eligibility *</label>
                             <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
                         </div>
 
                         <div class="mb-3">

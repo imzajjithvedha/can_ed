@@ -1696,7 +1696,7 @@
                                                         <div class="col-12">
                                                             <div class="input-group">
                                                                 <input type="text" name="keyword" class="form-control p-4 rounded-0 border-0 search-input" aria-label="search" placeholder="Search your keyword">
-                                                                <button type="submit" class="btn rounded-0 text-white bg-white  border-start "><i class="fas fa-search" style="color: black; font-size: 25px;"></i></button>
+                                                                <button type="submit" class="btn rounded-0 text-white bg-white border-start"><i class="fas fa-search" style="color: black; font-size: 25px;"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2135,21 +2135,5 @@
           prevEl: ".swiper-button-prev",
         },
       });
-    </script>
-
-
-
-    <script type='text/javascript'>
-        $(document).ready(function() {
-            if (location.href.match(/#tab-scholarships/)) {
-                $('#scholarships-tab').addClass('active');
-                $('#quick-facts-tab').removeClass('active');
-
-                $('#quick-facts').removeClass('active');
-                $('#quick-facts').removeClass('show');
-                $('#scholarships').addClass('active');
-                $('#scholarships').addClass('show');
-            }
-        });
     </script>
 @endpush

@@ -332,10 +332,10 @@
                             <div class="mb-5 related-programs-4">
                                 <div class="row align-items-center mb-3">
                                     <div class="col-8">
-                                        <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
+                                        <h6 class="fs-5 fw-bolder user-settings-head">Related programs</h6>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <button type="button" class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram4">Add Program</button>
+                                        <button type="button" class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram4">Add program</button>
                                     </div>
                                 </div>
 
@@ -390,10 +390,10 @@
                             <div class="mb-5 related-programs-6">
                                 <div class="row align-items-center mb-3">
                                     <div class="col-8">
-                                        <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
+                                        <h6 class="fs-5 fw-bolder user-settings-head">Related programs</h6>
                                     </div>
                                     <div class="col-4 text-end">
-                                        <button type="button" class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram6">Add Program</button>
+                                        <button type="button" class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram6">Add program</button>
                                     </div>
                                 </div>
 

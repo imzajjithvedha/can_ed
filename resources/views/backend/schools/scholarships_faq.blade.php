@@ -62,11 +62,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question" name="question" required>
+                            <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question *" name="question" required>
                         </div>
 
                         <div class="mb-3">
-                            <textarea id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer" name="answer" required></textarea>
+                            <textarea id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer *" name="answer" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

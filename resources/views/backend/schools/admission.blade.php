@@ -15,7 +15,7 @@
                         <form action="{{ route('admin.schools.school_admission_paragraph_update') }}" class="mb-5" method="POST">
                             {{csrf_field()}}
                                 <div class="mb-3">
-                                    <label for="admission_paragraph" class="form-label mb-1">Main Paragraph</label>
+                                    <label for="admission_paragraph" class="form-label mb-1">Main paragraph</label>
                                     <textarea name="admission_paragraph" class="ckeditor form-control" id="admission_paragraph" value="{{ $school->admission_paragraph }}">{{ $school->admission_paragraph }}</textarea>
                                 </div>
 
@@ -122,12 +122,12 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add employee</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee Name *" name="name" required>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee name *" name="name" required>
                         </div>
 
                         <div class="mb-3">
@@ -147,11 +147,11 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="file" class="form-control" name="featured_image">
+                            <input type="file" class="form-control" name="featured_image" required>
                         </div>
 
                         <div class="mb-3">
-                            <select class="form-control" id="featured" name="featured" placeholder="Featured?">
+                            <select class="form-control" id="featured" name="featured" placeholder="Featured?" required>
                                 <option value="" selected disabled hidden>Do you want to show this employee under meet our team? </option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
@@ -162,7 +162,7 @@
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Employee</button>
+                        <button type="submit" class="btn btn-success">Add employee</button>
                     </div>
                 </div>
             </div>

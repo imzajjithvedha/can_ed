@@ -17,9 +17,9 @@
                                 <h4 class="fs-4 fw-bolder user-settings-head">Edit employee</h4>
                                 
                             </div>
-                            <div class="col-4 text-end">
+                            <!-- <div class="col-4 text-end">
                                 <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row">
@@ -30,31 +30,32 @@
                                         <div class="row">
                                             <div class="col-12 py-3">
                                                 <div class="mb-3">
-                                                    <label for="name" class="form-label">Employee Name *</label>
-                                                    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee Name *" name="name" value="{{ $employee->name }}" required>
+                                                    <label for="name" class="form-label">Employee name *</label>
+                                                    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee name *" name="name" value="{{ $employee->name }}" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="position" class="form-label">Position</label>
+                                                    <label for="position" class="form-label">Position *</label>
                                                     <input type="text" class="form-control" id="position" aria-describedby="position" placeholder="Position *" name="position" value="{{ $employee->position }}" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="description" class="form-label">Description</label>
+                                                    <label for="description" class="form-label">Description *</label>
                                                     <textarea name="description" id="description" rows="5" class="form-control" aria-describedby="description" placeholder="Description *" value="{{ $employee->description }}" required>{{ $employee->description }}</textarea>
                                                 </div>
 
                                                 <div class="mb-3">
+                                                    <label for="phone" class="form-label">Telephone *</label>
                                                     <input type="number" class="form-control" id="phone" aria-describedby="phone" placeholder="Telephone *" name="phone" value="{{ $employee->phone }}" required>
                                                 </div>
                                 
                                                 <div class="mb-3">
+                                                    <label for="email" class="form-label">Email *</label>
                                                     <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email *" name="email" value="{{ $employee->email }}" required>
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="featured_image" class="form-label">Image</label>
-
+                                                
                                                     @if($employee->image != null)
                                                         <div class="row justify-content-center mb-3">
                                                             <div class="col-12">
@@ -67,13 +68,14 @@
                                                         <input type="file" class="form-control" name="featured_image">
 
                                                     @else
+                                                        <label for="featured_image" class="form-label">Image *</label>
                                                         <input type="file" class="form-control" name="featured_image">
                                                     @endif
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <label for="featured_image" class="form-label">Do you want to show this employee under meet our team?</label>
-                                                    <select class="form-control" name="featured" required>
+                                                    <label for="featured" class="form-label">Do you want to show this employee under meet our team? *</label>
+                                                    <select class="form-control" name="featured" id="featured" required>
                                                         <option value="Yes" {{ $employee->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                                         <option value="No" {{ $employee->featured == 'No' ? "selected" : "" }}>No</option>                               
                                                     </select>

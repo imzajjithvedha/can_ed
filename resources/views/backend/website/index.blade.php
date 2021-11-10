@@ -58,7 +58,7 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <div class="text-center mt-3">
+                            <div class="text-center">
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>

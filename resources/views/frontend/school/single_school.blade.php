@@ -547,7 +547,7 @@
                                                 {!! $school->overview_title_6_paragraph !!}
                                             </div>
 
-                                            <div>
+                                            <div class="text-end">
                                                 <a href="{{ $school->overview_title_6_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem"><span style="color: red;">{{ $school->overview_title_6_button }}</span><i class="fas fa-long-arrow-alt-right gray ms-3"></i></a>
                                             </div>
                                         </div>
@@ -1995,7 +1995,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                
+
 
                                 @if(count($scholarship_faqs) > 0)
                                     <div class="row mb-5">

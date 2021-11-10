@@ -87,7 +87,7 @@
                             <div class="mb-3">
                                 <label for="school-type" class="form-label mb-1">School type</label>
                                 <select class="form-control" id="school-type" name="school_type" placeholder="School Type">
-                                    <option value="" selected disabled hidden>School type</option>
+                                    <option value="" selected disabled hidden></option>
                                     @foreach($school_types as $school_type)
                                         @if($school->school_type != null)
                                             <option value="{{ $school_type->id }}" {{ $school_type->id == $school->school_type ? "selected" : "" }}>{{ $school_type->name }}</option>

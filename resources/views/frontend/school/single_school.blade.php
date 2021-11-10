@@ -2090,14 +2090,14 @@
                                                     @foreach ($contacts as $contact)
                                                         <tr>
                                                             <td>
-                                                                <h6 class="fw-bolder mb-2" style="color: #384058">{{ $contact->name }}</h6>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">{{ $contact->department }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">{{ $contact->address }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">{{ $contact->country }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
-                                                                <p class="gray fw-bold mb-1" style="color: #384058">Website: <span style="color: #bd2130">{{ $contact->website }}</span></p>
+                                                                <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
+                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Website: <span style="color: #bd2130">{{ $contact->website }}</span></p>
                                                             </td>
                                                         </tr>
                                                     @endforeach

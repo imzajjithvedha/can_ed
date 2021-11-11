@@ -230,7 +230,7 @@
                             </li>
                         </ul>
                         
-                        <div class="tab-content" id="myTabContent">
+                        <div class="tab-content" id="myTabContent" style="text-align: justify;">
 
                             <div class="tab-pane fade show active" id="quick-facts" role="tabpanel" aria-labelledby="quick-facts-tab">
 

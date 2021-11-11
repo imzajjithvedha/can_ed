@@ -496,7 +496,7 @@
 
                                                     <p class="gray mb-3">{{ $school->overview_title_3_date }}</p>
 
-                                                    <div class="row justify-content-end">
+                                                    <div class="row justify-content-end px-3">
                                                         <div class="col-1 text-end">
                                                             <a href="{{ $school->overview_title_3_link }}" class="gray"><i class="fas fa-long-arrow-alt-right"></i></a>
                                                         </div>

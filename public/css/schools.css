@@ -88,6 +88,11 @@ hr {
 
 
 /* Single school Styles */
+.related-articles {
+    background: #dbdbdb;
+    padding: 0.8rem;
+    text-align: center;
+}
 .swiper-button-next, .swiper-button-prev {
     color: white;
 }

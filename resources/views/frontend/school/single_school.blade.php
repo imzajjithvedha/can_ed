@@ -11,9 +11,9 @@
     <div class="container mt-5 single-school">
 
         <div class="row">
-            <div class="col-3">
-                <h5 class="fw-bolder">Related Articles</h5>
-                <hr>
+            <div class="col-3" style="padding-top: 3.7rem;">
+                <h5 class="fw-bolder related-articles">Related articles</h5>
+                <hr class="mt-0">
 
                 <div class="row align-items-center">
                     @foreach($articles as $article)

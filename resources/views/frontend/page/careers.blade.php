@@ -11,7 +11,9 @@
     <div class="container careers" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h5 class="fw-bolder">Careers in Canada</h5>
 
-        <form action="{{ route('frontend.article_search') }}"  method="POST">
+        <hr>
+
+        <!-- <form action="{{ route('frontend.article_search') }}"  method="POST">
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-8">
@@ -24,20 +26,20 @@
                     </div>
                 </div>
             </div>    
-        </form>
+        </form> -->
 
         
         <div class="row mt-5">
-            <div class="col-7">
-                <ul class="nav nav-pills mb-3 w-100" id="pills-tab" role="tablist">
+            <div class="col-8">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active p-2" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true" style="width:206px; height: 100%;">{{ $how_careers->title }}</button>
+                        <button class="nav-link active" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true" style="width:206px; height: 100%;">{{ $how_careers->title }}</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link p-2" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false" style="width:206px; height: 100%;">All Careers</button>
+                        <button class="nav-link" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false" style="width:206px; height: 100%;">All careers</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link p-2" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false" style="width:206px; height: 100%;">{{ $hot_careers->title }}</button>
+                        <button class="nav-link" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false" style="width:206px; height: 100%;">{{ $hot_careers->title }}</button>
                     </li>
                 </ul>
 
@@ -85,8 +87,8 @@
                 </div>
             </div>
 
-            <div class="col-5">
-                <h5 class="fw-bolder">Helpful Articles</h5>
+            <div class="col-4">
+                <h5 class="fw-bolder">Helpful articles</h5>
                 <hr>
 
                 @foreach($more_articles as $article)

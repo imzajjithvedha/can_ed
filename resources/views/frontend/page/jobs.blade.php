@@ -18,7 +18,7 @@
                 <form action="">
                     <div class="row align-items-center">
                         <div class="col-8 input-group">
-                            <input type="text" class="form-control" id="search_article" aria-describedby="search_article" placeholder="Job title, Location, Skills">
+                            <input type="text" class="form-control" id="search_article" aria-describedby="search_article" placeholder="Job title, location, skills">
                             <div class="input-group-append">
                                 <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                             </div>
@@ -33,9 +33,9 @@
     </div>
 
 
-    <div class="container jobs">
+    <!-- <div class="container jobs">
         <p class="bg-info text-white p-2">This section will update after we discussed about jobs dynamic section.</p>
-    </div>
+    </div> -->
 
 
     <!-- Modal -->
@@ -44,20 +44,20 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Post Your Job</h5>
+                        <h5 class="modal-title">Post your Job</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row mb-3 justify-content-center">
                             
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Job Title" required>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Job title *" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" required>
+                                <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email Address" required>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email address *" required>
                             </div>
 
                             <div class="col-md-6 text-center mt-3">

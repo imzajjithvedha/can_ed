@@ -494,11 +494,11 @@
 
                                                     <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_3_paragraph }}</p>
 
-                                                    <div class="row px-3 align-items-center">
+                                                    <div class="row align-items-center">
                                                         <div class="col-10">
                                                             <p class="gray">{{ $school->overview_title_3_date }}</p>
                                                         </div>
-                                                        <div class="col-1 text-end">
+                                                        <div class="col-2 text-end">
                                                             <a href="{{ $school->overview_title_3_link }}" class="gray"><i class="fas fa-long-arrow-alt-right"></i></a>
                                                         </div>
                                                     </div>

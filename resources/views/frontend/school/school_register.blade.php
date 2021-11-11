@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container school-register" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">School Registration Request</h5>
+        <h5 class="fw-bolder">School registration request</h5>
         <hr>
 
         <form class="mt-5" action="{{ route('frontend.school_register_request') }}" method="POST">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="col-4 ps-1">
                                 <select class="form-control" id="timezone" name="time_zone" required>
-                                    <option value="">Time Zone</option>
+                                    <option value="" selected disabled hidden>Time zone *</option>
                                     <option value="GMT-10:00">(GMT-10:00) Hawaii</option>
                                     <option>(GMT-09:00) Alaska</option>
                                     <option>(GMT-08:00) Pacific Time (US &amp; Canada)</option>
@@ -184,7 +184,7 @@
                     </div>
                     <div class="mb-3">
                         <select class="form-control" id="country" name="country" required>
-                            <option value="">Select Country *</option>
+                            <option value="" selected disabled hidden>Country *</option>
                             <option value="Afganistan">Afghanistan</option>
                             <option value="Albania">Albania</option>
                             <option value="Algeria">Algeria</option>

@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">World Wide Network</h5>
+        <h5 class="fw-bolder">World wide network</h5>
         
         <div class="row align-items-center">
             <div class="col-10 pe-0">

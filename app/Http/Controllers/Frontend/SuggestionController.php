@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Frontend\Suggestion;
+use App\Mail\Frontend\UserSuggestion;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,8 @@ class SuggestionController extends Controller
         ];
 
         Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Suggestion($details));
+
+        Mail::to([$request->email])->send(new UserSuggestion($details));
 
         return redirect()->back()->with('success', 'success');
     }

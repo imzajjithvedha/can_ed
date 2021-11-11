@@ -10,7 +10,7 @@
 
     <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
-        <h5 class="fw-bolder">Business Categories</h5>
+        <h5 class="fw-bolder">Business categories</h5>
 
         <form action="{{ route('frontend.category_search') }}"  method="POST">
         {{csrf_field()}}
@@ -19,7 +19,7 @@
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_business" aria-describedby="search_business" name="keyword" placeholder="Search by Business Category" value="">
+                    <input type="text" class="form-control text-center" id="search_business" aria-describedby="search_business" name="keyword" placeholder="Search by business category" value="">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>

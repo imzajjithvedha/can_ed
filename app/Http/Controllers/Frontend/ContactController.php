@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Contact\SendContactRequest;
 use App\Mail\Frontend\SendContact;
+use App\Mail\Frontend\UserContact;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Models\WebsiteInformation; 
@@ -32,7 +33,9 @@ class ContactController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SendContact($details));
+        Mail::to(['zajjith@yopmail.com'])->send(new SendContact($details));
+
+        Mail::to([$request->email])->send(new UserContact($details));
 
         return redirect()->back()->with('success', 'success');
     }

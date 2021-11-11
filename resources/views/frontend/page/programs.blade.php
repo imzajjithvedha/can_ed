@@ -16,9 +16,9 @@
             </div>
             <div class="col-2 text-end ps-0">
                 @auth
-                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#suggest-program">Suggest a Program</button>
+                    <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#suggest-program">Suggest a program</button>
                 @else
-                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Suggest a Program</a>
+                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Suggest a program</a>
                 @endauth
             </div>
         </div>

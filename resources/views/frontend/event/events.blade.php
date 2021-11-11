@@ -36,10 +36,10 @@
                 <table class="table table-striped table-bordered" id="events-table" style="width:100%">
                     <thead>
                         <tr>
-                            <th scope="col">Event Title</th>
-                            <th scope="col">Event Type</th>
-                            <th scope="col">Event Date</th>
-                            <th scope="col">Event Time</th>
+                            <th scope="col">Event title</th>
+                            <th scope="col">Event type</th>
+                            <th scope="col">Event date</th>
+                            <th scope="col">Event time</th>
                             <th scope="col">City</th>
                             <th scope="col">Country</th>
                             <th scope="col"></th>
@@ -61,7 +61,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Event Submission Form</h5>
+                        <h5 class="modal-title">Event submission form</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -69,7 +69,7 @@
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
                         </div>
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title *" name="title" required>
+                            <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event title *" name="title" required>
                         </div>
                         <div class="mb-3">
                             <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-6">
                                     <select class="form-control" id="country" name="country" required>
-                                        <option value="">Select Country *</option>
+                                        <option value="" selected disabled hidden>Country *</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>
                                         <option value="Algeria">Algeria</option>
@@ -336,10 +336,10 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date *" name="date" required>
+                                    <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event date *" name="date" required>
                                 </div>
                                 <div class="col-6">
-                                    <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time *" name="time" required>
+                                    <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event time *" name="time" required>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +347,7 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type *" name="type" required>
+                                    <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event type *" name="type" required>
                                 </div>
                                 <div class="col-6">
                                     <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Event URL" name="url">
@@ -358,16 +358,16 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email *" name="email">
+                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email *" name="email">
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone *" name="phone">
+                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone *" name="phone">
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-3 form-group">
-                            <label class="form-label">Event Banner Image</label>
+                            <label for="image" class="form-label">Event banner image</label>
                             <input type="file" class="form-control" id="image" name="image" required>
                         </div>
 

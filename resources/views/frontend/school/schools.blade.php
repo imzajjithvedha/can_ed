@@ -19,7 +19,7 @@
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search Schools" name="keyword">
+                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search schools" name="keyword">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>

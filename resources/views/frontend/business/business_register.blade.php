@@ -19,7 +19,7 @@
                         <p class="mb-2 required fw-bold">* Indicates required fields</p>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business Name *" required>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Business name *" required>
                     </div>
 
                     <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Select your registration package *</h6>
@@ -86,8 +86,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <select class="form-control" id="category_1" name="category_1" placeholder="Business Category" required>
-                            <option value="" selected disabled hidden>Business Category *</option>
+                        <select class="form-control" id="category_1" name="category_1" placeholder="Business category" required>
+                            <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -95,8 +95,8 @@
                     </div>
 
                     <div class="mb-3 category_2 d-none">
-                        <select class="form-control" id="category_2" name="category_2" placeholder="Business Category">
-                            <option value="" selected disabled hidden>Business Category *</option>
+                        <select class="form-control" id="category_2" name="category_2" placeholder="Business category">
+                            <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -104,8 +104,8 @@
                     </div>
 
                     <div class="mb-3 category_3 d-none">
-                        <select class="form-control" id="category_3" name="category_3" placeholder="Business Category">
-                            <option value="" selected disabled hidden>Business Category *</option>
+                        <select class="form-control" id="category_3" name="category_3" placeholder="Business category">
+                            <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -113,22 +113,23 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea name="description" class="form-control" rows="7" placeholder="Business Description *" required></textarea>
+                        <textarea name="description" class="form-control" rows="7" placeholder="Business description *" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact Name *" required>
+                        <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact name *" required>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business Email *" required>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business email *" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business Phone *" required>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business phone *" required>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                     </div>
                     <div class="mb-3">
-                        <input class="form-control" type="file" id="formFile" name="image" required>
+                        <label for="image" class="form-label">Business image *</label>
+                        <input class="form-control" type="file" id="image" name="image" required>
                     </div>
 
 

@@ -55,7 +55,7 @@
                         @endif
                     </div>
                     <div class="col-3">
-                        <p class="fw-bold">Social Media</p>
+                        <p class="fw-bold">Social media</p>
                         <hr class="my-2">
                         @if($business->facebook != null)
                             <a href="{{ $business->facebook }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -90,7 +90,7 @@
                     <div class="col-12">
                         <div class="tab-button-outer">
                             <ul id="tab-button">
-                                <li><a><b>Quick Facts</b></a></li>
+                                <li><a><b>Quick facts</b></a></li>
                             </ul>
                         </div>
                     </div>
@@ -100,7 +100,7 @@
                     <div class="row" style="margin-left:0px;margin-right:0px;">
                         <div class="col-md-4 tile">
                             <div class="form-group">
-                                <h4 style="color:black">Business Category:</h4>
+                                <h4 style="color:black">Business category:</h4>
                                 <p>{{ App\Models\BusinessCategories::where('id', $business->category_1)->first()->name }}</p>
                                 @if($business->category_2 != null)
                                     <p>{{ App\Models\BusinessCategories::where('id', $business->category_2)->first()->name }}</p>
@@ -120,7 +120,7 @@
 
                         <div class="col-lg-4 tile">
                             <div class="form-group">
-                                <h4 style="color:black">Contact Person:</h4>
+                                <h4 style="color:black">Contact person:</h4>
                                 <p>{{ $business->contact_name }}</p>
                             </div>
                         </div>
@@ -148,7 +148,7 @@
             </div>
 
             <div class="col-3">
-                <h5 class="fw-bolder">Related Businesses</h5>
+                <h5 class="fw-bolder">Related businesses</h5>
                 <hr>
 
                 @foreach($more_businesses as $business)
@@ -178,7 +178,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Contact Business</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Contact business</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -206,7 +206,7 @@
                     <div class="modal-footer">
                         <input type="hidden" class="form-control" name="business_id" value="{{ $business->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary" id="submit_btn" disabled>Send Message</button>
+                        <button type="submit" class="btn btn-primary" id="submit_btn" disabled>Send message</button>
                     </div>
                 </div>
             </div>

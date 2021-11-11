@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Online Business Directory</h5>
+        <h5 class="fw-bolder">Online business directory</h5>
         <hr>
     
 
@@ -19,7 +19,7 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Company Name">
+                            <input type="text" class="form-control" id="name" aria-describedby="name" name="name" placeholder="Company name">
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control" id="city" aria-describedby="city" name="city" placeholder="City">

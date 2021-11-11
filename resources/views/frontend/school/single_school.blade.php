@@ -787,7 +787,7 @@
                                                     @if(count($high_school_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">High School</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058">High school</h5>
                                                                 @foreach($high_school_programs as $high_school_program)
                                                                     <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -798,7 +798,7 @@
                                                     @if(count($language_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Language Programs</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Language programs</h5>
                                                                 @foreach($language_programs as $language_program)
                                                                     <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -809,7 +809,7 @@
                                                     @if(count($certificate_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Certificate / Short Term</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Certificate / short term</h5>
                                                                 @foreach($certificate_programs as $certificate_program)
                                                                     <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -831,7 +831,7 @@
                                                     @if(count($community_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Community College</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Community college</h5>
                                                                 @foreach($community_programs as $community_program)
                                                                     <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -842,7 +842,7 @@
                                                     @if(count($bachelor_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Bachelor Degree</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Bachelor degree</h5>
                                                                 @foreach($bachelor_programs as $bachelor_program)
                                                                     <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
                                                                 @endforeach

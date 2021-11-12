@@ -45,14 +45,14 @@
                                 </label>
                             </div>
 
-                            <!-- <div class="row mt-3 justify-content-center">
+                            <div class="row mt-3 justify-content-center">
                                 <div class="col-md-6">
                                     <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <div class="text-center mt-4">
-                                <button type="submit" class="btn w-50 text-white" id="submit_btn">Submit</button>
+                                <button type="submit" class="btn w-50 text-white" id="submit_btn" disabled>Submit</button>
                             </div>
                         </form>
                     </div>

@@ -28,7 +28,7 @@
                                     <form action="{{ route('admin.schools.school_admission_faq_update') }}" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="row">
-                                            <div class="col-12 border py-3">
+                                            <div class="col-12 py-3">
                                                 <div class="mb-3">
                                                     <label for="question" class="form-label">Question *</label>
                                                     <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question *" name="question" value="{{ $faq->question }}" required>
@@ -37,6 +37,11 @@
                                                 <div class="mb-3">
                                                     <label for="question" class="form-label">Answer *</label>
                                                     <textarea id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer *" name="answer" value="{{ $faq->answer }}" required>{{ $faq->answer }}</textarea>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="orders" class="form-label mb-1">Order *</label>
+                                                    <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $faq->orders }}" required>
                                                 </div>
 
                                                 <div class="mt-5 text-center">

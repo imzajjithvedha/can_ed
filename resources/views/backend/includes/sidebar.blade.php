@@ -190,7 +190,7 @@
 
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/schools.index'))}}" href="{{ route('admin.schools.index') }}">
-                            Schools
+                            Schools profiles
                         </a>
                     </li>
 

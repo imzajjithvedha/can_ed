@@ -97,7 +97,7 @@ class SchoolController extends Controller
 
         $articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(3)->get();
 
-        $contacts = SchoolContacts::where('school_id', $id)->get();
+        $contacts = SchoolContacts::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
         $total_programs = SchoolPrograms::where('school_id', $id)->get();
         $high_school_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 1)->get();
@@ -109,18 +109,19 @@ class SchoolController extends Controller
         $master_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 7)->get();
 
 
-        $scholarships = SchoolScholarships::where('school_id', $id)->get();
+        $scholarships = SchoolScholarships::where('school_id', $id)->orderBy('name', 'asc')->get();
 
-        $scholarship_faqs = SchoolScholarshipsFAQ::where('school_id', $id)->get();
-        $overview_faqs = SchoolOverviewFAQ::where('school_id', $id)->get();
+        $scholarship_faqs = SchoolScholarshipsFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
+        
+        $overview_faqs = SchoolOverviewFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
-        $admission_employees = SchoolAdmissionEmployees::where('school_id', $id)->get();
+        $admission_employees = SchoolAdmissionEmployees::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
-        $admission_featured_employees = SchoolAdmissionEmployees::where('school_id', $id)->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(3)->get();
+        $admission_featured_employees = SchoolAdmissionEmployees::where('school_id', $id)->where('featured', 'Yes')->orderBy('orders', 'asc')->take(3)->get();
 
-        $admission_faqs = SchoolAdmissionFAQ::where('school_id', $id)->get();
+        $admission_faqs = SchoolAdmissionFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
-        $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->get();
+        $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
         
 
         return view('frontend.school.single_school', [

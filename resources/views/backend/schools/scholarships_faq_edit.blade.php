@@ -39,6 +39,11 @@
                                                     <textarea id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer *" name="answer" value="{{ $faq->answer }}" required>{{ $faq->answer }}</textarea>
                                                 </div>
 
+                                                <div class="mb-3">
+                                                    <label for="orders" class="form-label mb-1">Order *</label>
+                                                    <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $faq->orders }}" required>
+                                                </div>
+
                                                 <div class="mt-5 text-center">
                                                     <input type="hidden" class="form-control" value="{{ $faq->id }}" name="hidden_id">
                                                     <input type="hidden" class="form-control" value="{{ $school->id }}" name="school_id">

@@ -11,8 +11,8 @@
         <div class="col-md-12 p-1">
             <div class="card">
                 <div class="card-body border">
-                    <div class="p-3">
-                        <form action="{{ route('admin.schools.school_contacts_paragraph_update') }}" class="mb-5" method="POST">
+                    <div class="border p-3">
+                        <form action="{{ route('admin.schools.school_contacts_paragraph_update') }}" method="POST">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contacts_page_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contacts_page_paragraph }}</textarea>
@@ -23,6 +23,8 @@
                                 <input type="submit" value="Update paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
+
+                        <hr class="my-4">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
@@ -39,6 +41,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Department</th>
                                     <th scope="col">Phone</th>
+                                    <th scope="col">Order</th>
                                     <th scope="col" style="max-width: 150px;">Options</th>
                                 </tr>
                             </thead>
@@ -342,6 +345,10 @@
                         <div class="mb-3">
                             <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website link *" name="website" required>
                         </div>
+
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
@@ -394,11 +401,12 @@
                 processing: true,
                 ajax: "{{route('admin.schools.get_school_contacts', $school->id)}}",
                 serverSide: true,
-                order: [[0, "asc"]],
+                order: [[3, "asc"]],
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'department', name: 'department'},
                     {data: 'phone', name: 'phone'},
+                    {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

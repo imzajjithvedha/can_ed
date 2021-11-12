@@ -29,6 +29,7 @@ class CreateSchoolScholarshipsTable extends Migration
             $table->text('level_of_study');
             // $table->text('school_name');
             $table->text('image');
+            $table->text('link');
             $table->timestamps();
         });
     }

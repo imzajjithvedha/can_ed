@@ -49,6 +49,7 @@ class SchoolsContactController extends Controller
         $contact->phone = $request->phone;
         $contact->fax = $request->fax;
         $contact->website = $request->website;
+        $contact->orders = $request->orders;
 
         $contact->save();
 
@@ -104,6 +105,7 @@ class SchoolsContactController extends Controller
                 'phone' => $request->phone,
                 'fax' => $request->fax,
                 'website' => $request->website,
+                'orders' => $request->orders,
             ]
         );
         

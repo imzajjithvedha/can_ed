@@ -17,9 +17,9 @@
                                 <h4 class="fs-4 fw-bolder user-settings-head">Edit financial FAQ</h4>
                                 
                             </div>
-                            <div class="col-4 text-end">
+                            <!-- <div class="col-4 text-end">
                                 <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="row">
@@ -37,6 +37,11 @@
                                                 <div class="mb-3">
                                                     <label for="question" class="form-label">Answer *</label>
                                                     <textarea name="answer" id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer" name="answer" value="{{ $faq->answer }}" required>{{ $faq->answer }}</textarea>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="orders" class="form-label mb-1">Order *</label>
+                                                    <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $faq->orders }}" required>
                                                 </div>
 
                                                 <div class="mt-5 text-center">

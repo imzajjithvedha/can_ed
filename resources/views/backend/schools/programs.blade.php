@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_programs_paragraph_update') }}" class="mb-5" method="POST">
+                        <form action="{{ route('admin.schools.school_programs_paragraph_update') }}" method="POST">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="title_1" class="form-label mb-1">Title 1</label>
@@ -28,6 +28,8 @@
                                 <input type="submit" value="Update program page" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
+
+                        <hr class="my-4">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">

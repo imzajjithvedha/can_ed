@@ -317,6 +317,11 @@
                                                 <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website link *" name="website" value="{{ $contact->website }}" required>
                                             </div>
 
+                                            <div class="mb-3">
+                                                <label for="orders" class="form-label mb-1">Order *</label>
+                                                <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $contact->orders }}" required>
+                                            </div>
+
                                             <div class="mt-5 text-center">
                                                 <input type="hidden" class="form-control" value="{{ $contact->id }}" name="hidden_id">
                                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="school_id">

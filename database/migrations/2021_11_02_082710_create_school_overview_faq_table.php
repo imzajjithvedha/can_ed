@@ -19,6 +19,7 @@ class CreateSchoolOverviewFaqTable extends Migration
             $table->text('school_id');
             $table->text('question');
             $table->text('answer');
+            $table->int('orders');
             $table->timestamps();
         });
     }

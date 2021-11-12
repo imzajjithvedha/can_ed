@@ -51,18 +51,15 @@ class UserSchoolScholarshipController extends Controller
         $scholarship->user_id = $user_id;
         $scholarship->school_id = $request->hidden_id;
         $scholarship->name = $request->name;
-        // $scholarship->provider = $request->provider;
         $scholarship->summary = $request->summary;
-        // $scholarship->amount = $request->amount;
         $scholarship->eligibility = json_encode($request->eligibility);
         $scholarship->award = $request->award;
         $scholarship->action = $request->action;
         $scholarship->deadline = $request->deadline;
         $scholarship->availability = $request->availability;
         $scholarship->level_of_study = $request->level_of_study;
-        // $scholarship->school_name = $request->school_name;
-        // $scholarship->school_name = $request->school_name;
         $scholarship->image = $featured_image;
+        $scholarship->link = $request->link;
 
         $scholarship->save();
 
@@ -122,9 +119,7 @@ class UserSchoolScholarshipController extends Controller
         $program = DB::table('school_scholarships') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                // 'provider' => $request->provider,
                 'summary' => $request->summary,
-                // 'amount' => $request->amount,
                 'eligibility' => json_encode($request->eligibility),
                 'award' => $request->award,
                 'action' => $request->action,
@@ -132,7 +127,7 @@ class UserSchoolScholarshipController extends Controller
                 'availability' => $request->availability,
                 'level_of_study' => $request->level_of_study,
                 'image' => $featured_image,
-                // 'school_name' => $request->school_name
+                'link' => $request->link,
             ]
         );
         

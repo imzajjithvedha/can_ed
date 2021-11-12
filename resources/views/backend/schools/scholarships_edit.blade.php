@@ -18,21 +18,13 @@
                                 <div class="col-12 py-3">
                                     <div class="mb-3">
                                         <label for="name" class="form-label">Scholarship name *</label>
-                                        <input type="text" class="form-control" name="name" placeholder="Scholarship name *" value="{{ $scholarship->name }}">
+                                        <input type="text" class="form-control" name="name" placeholder="Scholarship name *" value="{{ $scholarship->name }}" required>
                                     </div>
-
-                                    <!-- <div class="mb-3">
-                                        <input type="text" class="form-control" name="provider" placeholder="Provider *" value="{{ $scholarship->provider }}">
-                                    </div> -->
 
                                     <div class="mb-3">
                                         <label for="summary" class="form-label">Summary *</label>
-                                        <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" value="{{ $scholarship->summary }}">{{ $scholarship->summary }}</textarea>
+                                        <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" value="{{ $scholarship->summary }}" required>{{ $scholarship->summary }}</textarea>
                                     </div>
-
-                                    <!-- <div class="mb-5">
-                                        <input type="number" class="form-control" name="amount" placeholder="Amount *" value="{{ $scholarship->amount }}">
-                                    </div> -->
 
                                     <div class="mb-3">
                                         <label for="eligibility" class="form-label">Basic eligibility *</label>
@@ -43,7 +35,7 @@
 
                                     <div class="mb-3">
                                         <label for="award" class="form-label">Award *</label>
-                                        <select name="award" id="award" class="form-control">
+                                        <select name="award" id="award" class="form-control" required>
                                             <option value="" selected disabled hidden>Awards *</option>
                                             <option value="Admission" {{ $scholarship->award == 'Admission' ? "selected" : "" }}>Admission</option>
                                             <option value="Current students" {{ $scholarship->award == 'Current students' ? "selected" : "" }}>Current students</option>
@@ -53,16 +45,16 @@
 
                                     <div class="mb-3">
                                         <label for="action" class="form-label">Action *</label>
-                                        <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}">
+                                        <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="deadline" class="form-label">Deadline *</label>
-                                        <input type="date" class="form-control" name="deadline" placeholder="Deadline *" value="{{ $scholarship->deadline }}">
+                                        <input type="date" class="form-control" name="deadline" placeholder="Deadline *" value="{{ $scholarship->deadline }}" required>
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="availability" class="form-label">Availability *</label>
-                                        <select name="availability" id="availability" class="form-control">
+                                        <select name="availability" id="availability" class="form-control" required>
                                             <option value="" selected disabled hidden>Availability *</option>
                                             <option value="All students" {{ $scholarship->availability == 'All students' ? "selected" : "" }}>All students</option>
                                             <option value="International students" {{ $scholarship->availability == 'International students' ? "selected" : "" }}>International students</option>
@@ -73,17 +65,13 @@
 
                                     <div class="mb-3">
                                         <label for="summary" class="form-label">Level of study *</label>
-                                        <select name="level_of_study" id="level_of_study" class="form-control">
+                                        <select name="level_of_study" id="level_of_study" class="form-control" required>
                                             <option value="" selected disabled hidden>Level of Study *</option>
                                             <option value="Graduate" {{ $scholarship->level_of_study == 'Graduate' ? "selected" : "" }}>Graduate</option>
                                             <option value="Undergraduate" {{ $scholarship->level_of_study == 'Undergraduate' ? "selected" : "" }}>Undergraduate</option>
                                             <option value="Graduate and undergraduate" {{ $scholarship->level_of_study == 'Graduate and undergraduate' ? "selected" : "" }}>Graduate and undergraduate</option>
                                         </select>
                                     </div>
-
-                                    <!-- <div class="mb-3">
-                                        <input type="text" class="form-control" name="school_name" placeholder="School Name *" value="{{ $scholarship->school_name }}">
-                                    </div> -->
 
                                     <div class="mb-3">
                                         @if($scholarship->image != null)
@@ -102,6 +90,10 @@
                                             <input type="file" class="form-control" name="featured_image" required>
                                         @endif
 
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <input type="url" class="form-control" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
                                     </div>
 
                                     <div class="mt-5 text-center">

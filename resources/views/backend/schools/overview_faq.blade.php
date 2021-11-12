@@ -41,6 +41,7 @@
                                                     <tr class="align-items-center">
                                                         <th scope="col">Question</th>
                                                         <th scope="col">Answer</th>
+                                                        <th scope="col">Order</th>
                                                         <th scope="col" style="max-width: 130px;">Options</th>
                                                     </tr>
                                                 </thead>
@@ -77,6 +78,11 @@
                         <div class="mb-3">
                             <textarea name="answer" id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer *" name="answer" required></textarea>
                         </div>
+
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
@@ -129,10 +135,11 @@
                 processing: true,
                 ajax: "{{route('admin.schools.get_school_overview_faq', $school->id)}}",
                 serverSide: true,
-                order: [[1, "asc"]],
+                order: [[2, "asc"]],
                 columns: [
                     {data: 'question', name: 'question'},
                     {data: 'answer', name: 'answer'},
+                    {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

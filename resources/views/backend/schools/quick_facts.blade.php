@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data" style="margin-bottom: 4rem;">
+                        <form action="{{ route('admin.schools.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="quick_facts_title_1" class="form-label mb-1">Title 1</label>
@@ -75,6 +75,9 @@
                                 <input type="submit" value="Update quick facts details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
+
+
+                        <hr class="my-4">
 
 
                         <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">

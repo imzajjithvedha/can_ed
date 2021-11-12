@@ -24,6 +24,7 @@ class CreateSchoolAdmissionEmployeesTable extends Migration
             $table->text('email');
             $table->text('image');
             $table->text('featured');
+            $table->int('orders');
             $table->timestamps();
         });
     }

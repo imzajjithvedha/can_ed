@@ -47,6 +47,7 @@ class SchoolsAdmissionController extends Controller
         $employee->email = $request->email;
         $employee->featured = $request->featured;
         $employee->image = $image_call;
+        $employee->orders = $request->orders;
 
         $employee->save();
 
@@ -112,6 +113,7 @@ class SchoolsAdmissionController extends Controller
                 'email' => $request->email,
                 'featured' => $request->featured,
                 'image' => $image_call,
+                'orders' => $request->orders,
             ]
         );
         

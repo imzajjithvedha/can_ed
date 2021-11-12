@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_admission_paragraph_update') }}" class="mb-5" method="POST">
+                        <form action="{{ route('admin.schools.school_admission_paragraph_update') }}" method="POST">
                             {{csrf_field()}}
                                 <div class="mb-3">
                                     <label for="admission_paragraph" class="form-label mb-1">Main paragraph</label>
@@ -86,6 +86,8 @@
                                 </div>
                         </form>
 
+                        <hr class="my-4">
+
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
                                 <h4 class="fs-4 fw-bolder user-settings-head">All admission department employees</h4>
@@ -102,6 +104,7 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Featured</th>
+                                    <th scope="col">Order</th>
                                     <th scope="col" style="max-width: 130px;">Options</th>
                                 </tr>
                             </thead>
@@ -148,6 +151,10 @@
 
                         <div class="mb-3">
                             <input type="file" class="form-control" name="featured_image" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
                         </div>
 
                         <div class="mb-3">
@@ -209,12 +216,13 @@
                 processing: true,
                 ajax: "{{route('admin.schools.get_school_admission', $school->id)}}",
                 serverSide: true,
-                order: [[0, "asc"]],
+                order: [[4, "asc"]],
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'phone', name: 'phone'},
                     {data: 'email', name: 'email'},
                     {data: 'featured', name: 'featured'},
+                    {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

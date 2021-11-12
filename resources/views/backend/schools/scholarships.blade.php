@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_scholarships_paragraph_update') }}" class="mb-5" method="POST" enctype="multipart/form-data" >
+                        <form action="{{ route('admin.schools.school_scholarships_paragraph_update') }}" method="POST" enctype="multipart/form-data" >
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="scholarships_title_1" class="form-label mb-1">Title 1</label>
@@ -149,6 +149,8 @@
                             </div>
                         </form>
 
+                        <hr class="my-4">
+
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
                                 <h4 class="fs-4 fw-bolder user-settings-head">All scholarships</h4>
@@ -189,24 +191,14 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <div class="text-end">
-                            <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div> -->
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Scholarship name *">
-                        </div>
-
-                        <!-- <div class="mb-3">
-                            <input type="text" class="form-control" name="provider" placeholder="Provider *">
-                        </div> -->
 
                         <div class="mb-3">
-                            <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *"></textarea>
+                            <input type="text" class="form-control" name="name" placeholder="Scholarship name *" required>
                         </div>
 
-                        <!-- <div class="mb-5">
-                            <input type="number" class="form-control" name="amount" placeholder="Amount *">
-                        </div> -->
+                        <div class="mb-3">
+                            <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
+                        </div>
 
                         <div class="mb-3">
                             <label for="eligibility" class="form-label">Basic eligibility *</label>
@@ -218,7 +210,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <select name="award" id="award" class="form-control">
+                            <select name="award" id="award" class="form-control" required>
                                 <option value="" selected disabled hidden>Awards *</option>
                                 <option value="Admission">Admission</option>
                                 <option value="Current students">Current students</option>
@@ -227,15 +219,15 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="action" placeholder="Action *">
+                            <input type="text" class="form-control" name="action" placeholder="Action *" required>
                         </div>
                         <div class="mb-3">
                             <label for="eligibility" class="form-label">Deadline *</label>
-                            <input type="date" class="form-control" name="deadline" placeholder="Deadline *">
+                            <input type="date" class="form-control" name="deadline" placeholder="Deadline *" required>
                         </div>
 
                         <div class="mb-3">
-                            <select name="availability" id="availability" class="form-control">
+                            <select name="availability" id="availability" class="form-control" required>
                                 <option value="" selected disabled hidden>Availability *</option>
                                 <option value="All students">All students</option>
                                 <option value="International students">International students</option>
@@ -245,7 +237,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <select name="level_of_study" id="level_of_study" class="form-control">
+                            <select name="level_of_study" id="level_of_study" class="form-control" required>
                                 <option value="" selected disabled hidden>Level of study *</option>
                                 <option value="Graduate">Graduate</option>
                                 <option value="Undergraduate">Undergraduate</option>
@@ -261,6 +253,11 @@
                             <label for="featured_image" class="form-label">Featured image *</label>
                             <input type="file" class="form-control" name="featured_image" required>
                         </div>
+
+                        <div class="mb-3">
+                            <input type="url" class="form-control" name="link" placeholder="Link *" required>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">

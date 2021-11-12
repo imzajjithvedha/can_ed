@@ -42,6 +42,7 @@ class SchoolsAdmissionFAQController extends Controller
         $faq->school_id = $request->hidden_id;
         $faq->question = $request->question;
         $faq->answer = $request->answer;
+        $faq->orders = $request->orders;
 
 
         $faq->save();
@@ -93,6 +94,7 @@ class SchoolsAdmissionFAQController extends Controller
             [
                 'question' => $request->question,
                 'answer' => $request->answer,
+                'orders' => $request->orders,
             ]
         );
         

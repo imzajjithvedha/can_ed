@@ -23,7 +23,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Title</th>
-                                <th scope="col">Degree level</th>
+                                <!-- <th scope="col">Degree level</th> -->
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>
@@ -80,7 +80,7 @@
             order: [[0, "asc"]],
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'degree_level', name: 'degree_level'},
+                // {data: 'degree_level', name: 'degree_level'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]

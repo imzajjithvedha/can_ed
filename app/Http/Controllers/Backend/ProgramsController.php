@@ -38,7 +38,7 @@ class ProgramsController extends Controller
         $program = new Programs;
 
         if($request->degree_level != null) {
-            $degree_level = DegreeLevels::where('status', 'Approved')->where('id', $request->degree_level)->first()->name;
+            $degree_level = $request->degree_level;
         }
         else {
             $degree_level = null;
@@ -73,17 +73,17 @@ class ProgramsController extends Controller
                     return $button;
                 })
 
-                ->editColumn('degree_level', function($data){
-                    if($data->degree_level != null){
+                // ->editColumn('degree_level', function($data){
+                //     if($data->degree_level != null){
 
-                        $degree_level = $data->degree_level;
+                //         $degree_level = $data->degree_level;
 
-                    }else{
-                        $degree_level = '-';
-                    }   
+                //     }else{
+                //         $degree_level = '-';
+                //     }   
 
-                    return $degree_level;
-                })
+                //     return $degree_level;
+                // })
 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
@@ -113,7 +113,7 @@ class ProgramsController extends Controller
     public function updateProgram(Request $request)
     {    
         if($request->degree_level != null) {
-            $degree_level = DegreeLevels::where('status', 'Approved')->where('id', $request->degree_level)->first()->name;
+            $degree_level = $request->degree_level;
         }
         else {
             $degree_level = null;

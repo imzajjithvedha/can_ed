@@ -1,4 +1,4 @@
-<p>You have a new event request. Below are the details.</p>
+<p>You have an existing event's update request. Below are the details.</p>
 
 <p><strong>Title:</strong> {{ $details['name'] }}</p>
 <p><strong>Description:</strong> {{ $details['description'] }}</p>
@@ -13,7 +13,6 @@
 @if($details['url'] != null)
     <p><strong>Event URL:</strong> {{ $details['url'] }}</p>
 @endif
-
 
 <p>Login to your <a href="{{ route('admin.dashboard') }}" class="text-decoration-none">account</a></p>
 

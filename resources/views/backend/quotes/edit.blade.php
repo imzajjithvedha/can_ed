@@ -11,7 +11,7 @@
                 <div class="card quote">
                     <div class="card-body border">
                         <div class="form-group">
-                            <label for="quote" class="form-label">Quote</label>
+                            <label for="quote" class="form-label">Quote *</label>
                             <textarea name="quote" class="form-control" id="quote" rows="7" placeholder="Enter your quote..." value="{{ $quote->quote }}" required>{{ $quote->quote }}</textarea>
                         </div>
                     </div>
@@ -23,7 +23,7 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $quote->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $quote->status == 'Pending' ? "selected" : "" }}>Pending</option>                               

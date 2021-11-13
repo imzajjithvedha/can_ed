@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Mail\Frontend\Program;
 use App\Mail\Frontend\UserProgram;
 use Illuminate\Support\Facades\Mail;
+use App\Models\DegreeLevels;
 
 /**
  * Class ProgramController.
@@ -21,7 +22,9 @@ class ProgramController extends Controller
     {
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'ASC')->get();
 
-        return view('frontend.page.programs', ['programs' => $programs]);
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
+
+        return view('frontend.page.programs', ['programs' => $programs, 'degree_levels' => $degree_levels]);
     }
 
     public function programRequest(Request $request)
@@ -32,6 +35,7 @@ class ProgramController extends Controller
 
         $program->user_id = $user_id;
         $program->name = $request->name;
+        $program->degree_level = $request->degree_level;
         $program->description = $request->description;
         $program->status = 'Pending';
 
@@ -40,6 +44,7 @@ class ProgramController extends Controller
 
         $details = [
             'name' => $request->name,
+            'degree_level' => $request->degree_level,
             'description' => $request->description,
         ];
 

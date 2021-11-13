@@ -16,6 +16,13 @@ use App\Models\Auth\User;
 use App\Models\FavoriteSchools;
 use App\Models\favoriteEvents;
 use App\Models\Schools;
+use App\Mail\Frontend\EventUpdate;
+use App\Mail\Frontend\UserEventUpdate;
+use App\Mail\Frontend\NetworkUpdate;
+use App\Mail\Frontend\UserNetworkUpdate;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Frontend\QuoteUpdate;
+use App\Mail\Frontend\UserQuoteUpdate;
 
 /**
  * Class DashboardController.
@@ -38,11 +45,12 @@ class DashboardController extends Controller
 
         $businesses = FavoriteBusinesses::where('user_id', $user_id)->count();
 
+        $schools = FavoriteSchools::where('user_id', $user_id)->count();
+
         $networks = WorldWideNetwork::where('user_id', $user_id)->where('status', 'Approved')->count();
 
-        // $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools]);
     }
 
     
@@ -118,6 +126,8 @@ class DashboardController extends Controller
 
     public function userEventUpdate(Request $request)
     {
+        $user_id = auth()->user()->id;
+
         $image = $request->file('new_image');
 
         if($image != null) {
@@ -145,8 +155,30 @@ class DashboardController extends Controller
                 'image' => $imageName
             ]
         );
+
+        if($request->status == 'Approved') {
+
+            $details = [
+                'name' => $request->title,
+                'description' => $request->description,
+                'city' => $request->city,
+                'country' => $request->country,
+                'date' => $request->date,
+                'time' => $request->time,
+                'type' => $request->type,
+                'organizer_email' => $request->email,
+                'organizer_phone' => $request->phone,
+                'url' => $request->url,
+                'user_id' => $user_id,
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new EventUpdate($details));
+    
+            Mail::to([$request->email])->send(new UserEventUpdate($details));
+        }
+
    
-        return redirect()->route('frontend.user.user_event.user_events')->with('success', 'success');    
+        return redirect()->route('frontend.user.user_events')->with('success', 'success');    
     }
 
 
@@ -249,8 +281,22 @@ class DashboardController extends Controller
                 'status' => 'Pending'
             ]
         );
+
+
+        if($request->status == 'Approved') {
+            
+            $details = [
+                'quote' => $request->quote,
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new QuoteUpdate($details));
+    
+            Mail::to([auth()->user()->email])->send(new UserQuoteUpdate($details));
+        }
    
-        return back()->withFlashSuccess('Updated Successfully');    
+
+        
+        return back()->with('success', 'success');    
     }
 
     public function userQuoteDelete($id)
@@ -310,8 +356,25 @@ class DashboardController extends Controller
                 'status' => 'Pending'
             ]
         );
+
+        if($request->status == 'Approved') {
+
+            $details = [
+                'website_name' => $request->website_name,
+                'url' => $request->website_url,
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'email' => $request->email,
+                'country' => $request->country,
+                'our_banner_url' => $request->our_banner_url
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new NetworkUpdate($details));
+    
+            Mail::to([$request->email])->send(new UserNetworkUpdate($details));
+        }
    
-        return back()->with('success', 'success');
+        return redirect()->route('frontend.user.user_networks')->with('success', 'success');
     }
 
     public function userNetworkDelete($id)

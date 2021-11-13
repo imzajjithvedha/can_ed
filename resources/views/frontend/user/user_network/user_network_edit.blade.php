@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit Event')
+@section('title', 'Edit Network')
 
 @push('after-styles')
     <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
@@ -24,7 +24,7 @@
 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Network</h4>
+                        <h4 class="user-settings-head">Edit network</h4>
                     </div>
                 </div>
 
@@ -33,27 +33,33 @@
                     <div class="row">
                         <div class="col-12 border py-3">
                             <div class="mb-3">
+                                <label for="website_name" class="form-label">Enter your website name *</label>
                                 <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" value="{{ $network->website_name }}" required>
                             </div>
                             <div class="mb-3">
+                                <label for="website_url" class="form-label">Enter your website url *</label>
                                 <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website url *" name="website_url" value="{{ $network->url }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name" name="name" value="{{ $network->name }}" required>
+                                <label for="name" class="form-label">Enter your full name *</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name *" name="name" value="{{ $network->name }}" required>
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number" name="phone" value="{{ $network->phone }}" required>
+                                <label for="name" class="form-label">Enter your phone number *</label>
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number *" name="phone" value="{{ $network->phone }}" required>
                             </div>
 
                             <div class="mb-3">
-                            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" value="{{ $network->email }}" required>
+                                <label for="email" class="form-label">Enter your email address *</label>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" value="{{ $network->email }}" required>
                             </div>
 
                             <div class="mb-3">
+                                <label for="country" class="form-label">Country *</label>
                                 <select class="form-control" id="country" name="country" required>
-                                    <option value="">Select Country</option>
+                                    <option value="" disabled hidden>Select Country</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -304,20 +310,21 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="url" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website" name="our_banner_url" value="{{ $network->our_banner_url }}" required>
+                                <label for="our_banner_url" class="form-label">URL to our banner on your website *</label>
+                                <input type="url" class="form-control" id="our_banner_url" aria-describedby="banner_url" placeholder="URL to our banner on your website *" name="our_banner_url" value="{{ $network->our_banner_url }}" required>
                             </div>
 
 
 
-                            <div class="mb-3 form-group">
-                                <label class="form-label">Network Banner Image</label>
+                            <div>
+                                <label class="form-label">Network banner image *</label>
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img src="{{ url('images/world-wide-network', $network->image) }}" alt="" class="img-fluid">
+                                    <div class="col-12 mb-3">
+                                        <img src="{{ url('images/world-wide-network', $network->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
                                         <input type="hidden" class="form-control" name="old_image" value="{{ $network->image }}">
                                     </div>
 
-                                    <div class="col-7">
+                                    <div class="col-12">
                                         <input type="file" class="form-control" id="image" name="new_image" value="">
                                     </div>
                                 </div>
@@ -325,7 +332,8 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{ $network->id }}" name="hidden_id">
-                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="hidden" class="form-control" value="{{$network->status}}" name="status">
+                                <input type="submit" value="Update network" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </div>
                     </div>
@@ -335,27 +343,7 @@
     </div>
 
 
-    @if(\Session::has('success'))
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Network updated successfully.</h4>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endif
-
-
+    
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
 
@@ -367,7 +355,7 @@
                 </div>
 
                 <div class="modal-body" style="padding: 2rem 1rem;">
-                    <h6 class="mb-0 text-center text-info">If you want to update the already approved banner, then we have to approve again. Please consider this before update your network banner.</h6>
+                    <h6 class="mb-0 text-center text-info">If you want to update the already approved banner, then we have to approve again. Please consider this before update your network details.</h6>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -392,10 +380,6 @@
     </script>
 
     <script>
-        if(document.getElementById("modal-btn")){
-            $('#modal-btn').click();
-        }
-
         $(document).ready(function() {
             $('#info-btn').click();
         });

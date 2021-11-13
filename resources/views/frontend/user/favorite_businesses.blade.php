@@ -23,7 +23,7 @@
                     @include('frontend.includes.not_found',[
                         'not_found_title' => 'Favorite businesses not found',
                         'not_found_description' => 'Add businesses to your favorite list',
-                        'not_found_button_caption' => 'Explore Businesses',
+                        'not_found_button_caption' => 'Explore businesses',
                         'url' => 'business-categories'
                     ])
 
@@ -31,31 +31,31 @@
 
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">My Favorite Businesses</h4>
+                            <h4 class="user-settings-head">My favorite businesses</h4>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 border">
-                            <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                            <div class="px-3 pt-3" id="nav-businesses" role="tabpanel" aria-labelledby="nav-businesses-tab">
                                 @foreach($businesses as $business)
                                     @if(is_favorite_business( $business->id, auth()->user()->id))
-                                        <div class="row border py-3 px-2 mb-3">
-                                            <div class="col-4">
+                                        <div class="row border py-3 mb-3">
+                                            <div class="col-4 text-center">
                                                 @if($business->image != null)
                                                     <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                                 @else
                                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                                 @endif
 
-                                                <p class="gray mt-2">Updated: {{ $business->updated_at }}</p>
+                                                <p class="gray mt-3">Updated: {{ $business->updated_at }}</p>
                                             </div>
 
                                             <div class="col-8">
                                                 <h6 class="fw-bolder">{{ $business->title }}</h6>
-                                                <p class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $business->description }}</p>
+                                                <p class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{ $business->description }}</p>
 
-                                                <p class="mt-2">By: {{ $business->contact_name }}</p>
+                                                <p class="fw-bold mt-2">Busienss organizer : {{ $business->contact_name }}</p>
 
                                                 <div class="row justify-content-end">
                                                     <div class="col-9">
@@ -87,7 +87,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Favorite Business</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete favorite business</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-4 more-articles">
-                <h5 class="fw-bolder">More Articles</h5>
+                <h5 class="fw-bolder">More articles</h5>
                 <hr>
 
                 @foreach($more_articles as $article)

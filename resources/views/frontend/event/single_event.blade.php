@@ -129,7 +129,7 @@
             </div>
 
             <div class="col-4">
-                <h5 class="fw-bolder">More Events</h5>
+                <h5 class="fw-bolder">More events</h5>
                 <hr>
 
                 @foreach($more_events as $more_event)

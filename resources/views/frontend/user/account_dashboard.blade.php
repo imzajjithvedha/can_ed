@@ -21,79 +21,76 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Account Dashboard</h4>
+                        <h4 class="user-settings-head">Account dashboard</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
-                            <div class="row mb-4">
-                                <div class="col-4">
-                                    <div class="card">
+                        <div class="py-3" id="nav-dashboard" role="tabpanel" aria-labelledby="nav-dashboard-tab">
+                            <div class="row">
+                                <div class="col-4 mb-4">
+                                    <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $events) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Events</h6>
+                                            <a href="{{ route('frontend.user.user_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My events</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-4">
-                                    <div class="card">
-                                        <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Quotes</h6>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-4">
-                                    <div class="card">
-                                        <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
-                                        </div>
-                                        <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Networks</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-4">
-                                    <div class="card">
+                                <div class="col-4 mb-4">
+                                    <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $articles) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Articles</h6>
+                                            <a href="{{ route('frontend.user.favorite_articles') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite articles</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-4">
-                                    <div class="card">
+                                <div class="col-4 mb-4">
+                                    <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $businesses) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Businesses</h6>
+                                            <a href="{{ route('frontend.user.favorite_businesses') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite businesses</a>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-4">
-                                    <div class="card">
+                                    <div class="card text-center">
                                         <div class="card-img-top text-center">
-                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">00</p>
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $schools) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <h6 class="card-title text-center" style="color: #0d6efd;">My Favorite Schools</h6>
+                                            <a href="{{ route('frontend.user.favorite_schools') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite schools</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="card text-center">
+                                        <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ route('frontend.user.user_networks') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My Networks</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="card text-center">
+                                        <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My quotes</a>
                                         </div>
                                     </div>
                                 </div>

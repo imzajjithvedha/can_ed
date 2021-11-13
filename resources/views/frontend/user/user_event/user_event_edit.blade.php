@@ -24,7 +24,7 @@
 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Event</h4>
+                        <h4 class="user-settings-head">Edit event</h4>
                     </div>
                 </div>
 
@@ -33,21 +33,25 @@
                     <div class="row">
                         <div class="col-12 border py-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event Title" name="title" value="{{$event->title}}" required>
+                                <label for="title" class="form-label">Event title *</label>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Event title *" name="title" value="{{$event->title}}" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description" value="{{$event->description}}">{{$event->description}}</textarea>
+                                <label for="title" class="form-label">Event description *</label>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Event description *" value="{{$event->description}}" required>{{$event->description}}</textarea>
                             </div>
 
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
+                                        <label for="city" class="form-label">City *</label>
                                         <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City" name="city" value="{{$event->city}}" required>
                                     </div>
                                     <div class="col-6">
+                                        <label for="country" class="form-label">Country *</label>
                                         <select class="form-control" id="country" name="country" value="{{$event->country}}" required>
-                                            <option value="">Select Country</option>
+                                            <option value="" disabled hidden></option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>
                                             <option value="Algeria">Algeria</option>
@@ -302,10 +306,12 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event Date" name="date" value="{{$event->date}}" required>
+                                        <label for="date" class="form-label">Event date *</label>
+                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Event date *" name="date" value="{{$event->date}}" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event Time" name="time" value="{{$event->time}}" required>
+                                        <label for="time" class="form-label">Event time *</label>
+                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Event time *" name="time" value="{{$event->time}}" required>
                                     </div>
                                 </div>
                             </div>
@@ -313,10 +319,12 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event Type" name="type" value="{{$event->type}}" required>
+                                        <label for="type" class="form-label">Event type *</label>
+                                        <input type="text" class="form-control" id="type" aria-describedby="type" placeholder="Event type *" name="type" value="{{$event->type}}" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="url" value="{{$event->url}}" class="form-control" id="url" aria-describedby="url" placeholder="Event URL" name="url">
+                                        <label for="url" class="form-label">Event URL *</label>
+                                        <input type="url" value="{{$event->url}}" class="form-control" id="url" aria-describedby="url" placeholder="Event URL *" name="url">
                                     </div>
                                 </div>
                             </div>
@@ -324,23 +332,25 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event Organizer Email" name="email" value="{{$event->organizer_email}}">
+                                        <label for="email" class="form-label">Event organizer email *</label>
+                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email *" name="email" value="{{$event->organizer_email}}" required>
                                     </div>
                                     <div class="col-6">
-                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event Organizer Phone" name="phone" value="{{$event->organizer_phone}}">
+                                        <label for="phone" class="form-label">Event organizer phone *</label>
+                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone *" name="phone" value="{{$event->organizer_phone}}" required>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="mb-3 form-group">
-                                <label class="form-label">Event Banner Image</label>
+                            <div>
+                                <label class="form-label">Event banner image *</label>
                                 <div class="row">
-                                    <div class="col-5">
-                                        <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
+                                    <div class="col-12 mb-3">
+                                        <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
                                         <input type="hidden" class="form-control" name="old_image" value="{{$event->image}}">
                                     </div>
 
-                                    <div class="col-7">
+                                    <div class="col-12">
                                         <input type="file" class="form-control" id="image" name="new_image" value="">
                                     </div>
                                 </div>
@@ -348,7 +358,8 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$event->id}}" name="hidden_id">
-                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="hidden" class="form-control" value="{{$event->status}}" name="status">
+                                <input type="submit" value="Update event" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </div>
                     </div>

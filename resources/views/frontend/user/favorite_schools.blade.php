@@ -23,7 +23,7 @@
                     @include('frontend.includes.not_found',[
                         'not_found_title' => 'Favorite schools not found',
                         'not_found_description' => 'Add schools to your favorite list',
-                        'not_found_button_caption' => 'Explore Schools',
+                        'not_found_button_caption' => 'Explore schools',
                         'url' => 'schools'
                     ])
 
@@ -31,25 +31,26 @@
 
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">My favorite schools</h4>
+                            <h4 class="user-settings-head">My favorite schools</h4>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 border">
-                            <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                            <div class="px-3 pt-3" id="nav-schools" role="tabpanel" aria-labelledby="nav-schools-tab">
                                 @foreach($schools as $school)
                                     @if(is_favorite_school($school->id, auth()->user()->id))
-                                        <div class="row border py-3 px-2 mb-3 align-items-center">
-                                            <div class="col-4">
+                                        <div class="row border py-3 mb-3 align-items-center">
+                                            <div class="col-4 text-center">
                                                 <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+
+                                                <p class="gray mt-3">Updated: {{ $school->updated_at }}</p>
                                             </div>
 
                                             <div class="col-8">
-                                                <h6 class="fw-bolder mb-3">Name: {{ $school->name }}</h6>
-                                                <p class="gray mb-2">Email: {{ $school->school_email }}</p>
-                                                <p class="gray mb-2">Phone: {{ $school->school_email }}</p>
-                                                <p class="gray mb-2">Country: {{ $school->country }}</p>
+
+                                                <h6 class="fw-bolder">{{ $school->name }}</h6>
+                                                <div class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{!! $school->quick_facts_title_1_paragraph !!}</div>
                                                 
 
                                                 <div class="row justify-content-end">
@@ -82,7 +83,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Favorite School</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete favorite school</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

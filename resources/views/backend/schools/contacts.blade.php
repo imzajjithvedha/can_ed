@@ -31,7 +31,7 @@
                                 <h4 class="fs-4 fw-bolder user-settings-head">All contacts</h4>
                             </div>
                             <div class="col-4 text-end">
-                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add contact</button>
+                                <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add contact</button>
                             </div>
                         </div>
 

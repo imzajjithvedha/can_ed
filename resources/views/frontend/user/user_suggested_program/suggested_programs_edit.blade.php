@@ -24,7 +24,7 @@
 
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Edit Suggested Program</h4>
+                        <h4 class="user-settings-head">Edit suggested program</h4>
                     </div>
                 </div>
 
@@ -33,17 +33,30 @@
                     <div class="row">
                         <div class="col-12 border py-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Program Name" name="name" value="{{$program->name}}" required>
+                                <label for="name" class="form-label">Program name *</label>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Program name *" name="name" value="{{$program->name}}" required>
                             </div>
 
                             <div class="mb-3">
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description" value="{{$program->description}}">{{$program->description}}</textarea>
+                                <label for="degree_level" class="form-label">Degree level</label>
+                                <select name="degree_level" class="form-control" id="degree_level">
+                                    <option value="" selected disabled hidden></option>
+                                    @foreach($degree_levels as $degree_level)
+                                        <option value="{{ $degree_level->id }}" {{ $degree_level->id == App\Models\Programs::where('id', $program->id)->first()->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea name="description" id="description" class="form-control" rows="7" placeholder="Description *" value="{{$program->description}}">{{$program->description}}</textarea>
                             </div>
 
                         
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$program->id}}" name="hidden_id">
-                                <input type="submit" value="Update" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="hidden" class="form-control" value="{{$program->status}}" name="status">
+                                <input type="submit" value="Update program" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </div>
                     </div>

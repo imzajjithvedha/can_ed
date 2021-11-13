@@ -23,7 +23,7 @@
                                 <select name="degree_level" class="form-control" id="degree_level">
                                         <option value="" selected disabled hidden>Degree level</option>
                                     @foreach($degree_levels as $degree_level)
-                                        <option value="{{ $degree_level->id }}" {{ $degree_level->name == App\Models\Programs::where('id', $program->id)->first()->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
+                                        <option value="{{ $degree_level->id }}" {{ $degree_level->id == App\Models\Programs::where('id', $program->id)->first()->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

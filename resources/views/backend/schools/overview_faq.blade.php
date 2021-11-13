@@ -17,7 +17,7 @@
                                 <h4 class="fs-4 fw-bolder user-settings-head">Overview FAQ's</h4>
                             </div>
                             <div class="col-4 text-end p-0">
-                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
+                                <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
                             </div>
                         </div>
 
@@ -32,7 +32,7 @@
                                                     <h4 class="fs-4 fw-bolder user-settings-head">Scholarship FAQ's</h4>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
+                                                    <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
                                                 </div>
                                             </div> -->
 

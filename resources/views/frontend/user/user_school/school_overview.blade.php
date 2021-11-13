@@ -257,7 +257,7 @@
                                                     <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button type="button" class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram">Add Program</button>
+                                                    <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram">Add Program</button>
                                                 </div>
                                             </div>
 

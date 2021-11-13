@@ -69,6 +69,15 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <select name="degree_level" class="form-control">
+                                        <option value="" selected disabled hidden>Degree level</option>
+                                        @foreach($degree_levels as $degree_level)
+                                            <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
                                     <textarea class="form-control" rows="7" name="description" placeholder="Description"></textarea>
                                 </div>
                             </div>

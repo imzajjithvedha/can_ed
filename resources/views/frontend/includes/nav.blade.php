@@ -17,9 +17,9 @@
                             <li class="nav-item ">
                                 <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   @if(auth()->user()->display_name != null)
-                                    <span class="text-white user-name">Welcome back, {{auth()->user()->display_name}}</span>
+                                    <span class="text-white user-name">{{auth()->user()->display_name}}</span>
                                   @else
-                                    <span class="text-white user-name">Welcome back, {{auth()->user()->first_name}}</span>
+                                    <span class="text-white user-name">{{auth()->user()->first_name}}</span>
                                   @endif
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

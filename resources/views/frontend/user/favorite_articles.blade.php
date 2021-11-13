@@ -23,7 +23,7 @@
                     @include('frontend.includes.not_found',[
                         'not_found_title' => 'Favorite articles not found',
                         'not_found_description' => 'Add articles to your favorite list',
-                        'not_found_button_caption' => 'Explore Articles',
+                        'not_found_button_caption' => 'Explore articles',
                         'url' => 'articles'
                     ])
 
@@ -31,25 +31,25 @@
 
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">My Favorite Articles</h4>
+                            <h4 class="user-settings-head">My favorite articles</h4>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 border">
-                            <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                            <div class="px-3 pt-3" id="nav-articles" role="tabpanel" aria-labelledby="nav-articles-tab">
                                 @foreach($articles as $article)
                                     @if(is_favorite($article->id, auth()->user()->id))
-                                        <div class="row border py-3 px-2 mb-3">
-                                            <div class="col-4">
+                                        <div class="row border py-3 mb-3">
+                                            <div class="col-4 text-center">
                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
-                                                <p class="gray mt-2">Updated: {{ $article->updated_at }}</p>
+                                                <p class="gray mt-3">Updated: {{ $article->updated_at }}</p>
                                             </div>
 
                                             <div class="col-8">
                                                 <h6 class="fw-bolder">{{ $article->title }}</h6>
-                                                <div class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
+                                                <div class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
 
                                                 <div class="row justify-content-end">
                                                     <div class="col-9">
@@ -81,7 +81,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Favorite Article</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete favorite article</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

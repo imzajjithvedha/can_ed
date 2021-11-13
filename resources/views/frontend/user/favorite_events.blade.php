@@ -23,7 +23,7 @@
                     @include('frontend.includes.not_found',[
                         'not_found_title' => 'Favorite events not found',
                         'not_found_description' => 'Add events to your favorite list',
-                        'not_found_button_caption' => 'Explore Events',
+                        'not_found_button_caption' => 'Explore events',
                         'url' => 'events'
                     ])
 
@@ -31,17 +31,17 @@
 
                     <div class="row justify-content-between">
                         <div class="col-8 p-0">
-                            <h4 class="fs-4 fw-bolder user-settings-head">My Favorite Events</h4>
+                            <h4 class="user-settings-head">My favorite events</h4>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 border">
-                            <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                            <div class="px-3 pt-3" id="nav-events" role="tabpanel" aria-labelledby="nav-events-tab">
                                 @foreach($events as $event)
                                     @if(is_favorite_event($event->id, auth()->user()->id))
-                                        <div class="row border py-3 px-2 mb-3">
-                                            <div class="col-4">
+                                        <div class="row border py-3 mb-3">
+                                            <div class="col-4 text-center">
                                                 <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
                                                 <p class="gray mt-2">Updated: {{ $event->updated_at }}</p>
@@ -49,7 +49,10 @@
 
                                             <div class="col-8">
                                                 <h6 class="fw-bolder">{{ $event->title }}</h6>
-                                                <p class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $event->description }}</p>
+                                                <p class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $event->description }}</p>
+
+                                                <p class="fw-bold mb-2">Location : <span class="p gray fw-normal">{{ $event->city }}, {{ $event->country }}</span></p>
+                                                <p class="fw-bold mb-2">Date & Time : <span class="p gray fw-normal">{{ $event->date }} - {{ $event->time }}</span></p>
 
 
                                                 <div class="row justify-content-end">

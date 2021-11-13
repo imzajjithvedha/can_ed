@@ -12,6 +12,10 @@ use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
+use App\Mail\Frontend\ProgramUpdate;
+use App\Mail\Frontend\UserProgramUpdate;
+use App\Models\DegreeLevels;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class UserSuggestedProgramController.
@@ -26,7 +30,7 @@ class UserSuggestedProgramController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $programs = Programs::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
+        $programs = Programs::where('user_id', $user_id)->orderBy('name', 'asc')->get();
 
         return view('frontend.user.user_suggested_program.suggested_programs', ['programs' => $programs]);
     }
@@ -35,7 +39,9 @@ class UserSuggestedProgramController extends Controller
     {
         $program = Programs::where('id', $id)->first();
 
-        return view('frontend.user.user_suggested_program.suggested_programs_edit', ['program' => $program]);
+        $degree_levels = DegreeLevels::where('status', 'Approved')->get();
+
+        return view('frontend.user.user_suggested_program.suggested_programs_edit', ['program' => $program, 'degree_levels' => $degree_levels]);
     }
 
 
@@ -45,10 +51,25 @@ class UserSuggestedProgramController extends Controller
         $program = DB::table('programs') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
+                'degree_level' => $request->degree_level,
                 'description' => $request->description,
                 'status' => 'Pending'
             ]
         );
+
+
+        if($request->status == 'Approved') {
+            
+            $details = [
+                'name' => $request->name,
+                'degree_level' => $request->degree_level,
+                'description' => $request->description,
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new ProgramUpdate($details));
+    
+            Mail::to(auth()->user()->email)->send(new UserProgramUpdate());
+        }
    
         return redirect()->route('frontend.user.suggested_programs')->with('success', 'success');    
     }

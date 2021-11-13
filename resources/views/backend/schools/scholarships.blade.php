@@ -156,7 +156,7 @@
                                 <h4 class="fs-4 fw-bolder user-settings-head">All scholarships</h4>
                             </div>
                             <div class="col-4 text-end">
-                                <button class="btn create_btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>
+                                <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>
                             </div>
                         </div>
 

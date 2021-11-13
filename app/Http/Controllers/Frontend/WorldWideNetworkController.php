@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\WorldWideNetwork;
 use App\Mail\Frontend\Network;
+use App\Mail\Frontend\UserNetwork;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -18,7 +19,7 @@ class WorldWideNetworkController extends Controller
      */
     public function index()
     {
-        $networks = WorldWideNetwork::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
+        $networks = WorldWideNetwork::where('status', 'Approved')->orderBy('website_name', 'asc')->get();
 
         return view('frontend.world_wide_network.world_wide_network', ['networks' => $networks]);
     }
@@ -57,7 +58,9 @@ class WorldWideNetworkController extends Controller
             'our_banner_url' => $request->our_banner_url
         ];
 
-        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Network($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Network($details));
+
+        Mail::to([$request->email])->send(new UserNetwork($details));
 
         return back()->with('success', 'success');
 

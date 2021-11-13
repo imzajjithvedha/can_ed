@@ -11,8 +11,13 @@
 
         <div class="row">
             <div class="col-8">
-                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
 
+                @if($article->image != null)
+                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
+                @else
+                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                @endif
+                
                 <div class="row mt-4 justify-content-between align-items-center">
                     <div class="col-9">
                         <h5 class="fw-bold">{{ $article->title }}</h5>
@@ -49,7 +54,7 @@
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-4 more-articles">
                 <h5 class="fw-bolder">More Articles</h5>
                 <hr>
 
@@ -62,6 +67,7 @@
 
                             <div class="col-6">
                                 <p class="fw-bold gray">{{ $article->title }}</p>
+                                <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{!! $article->description !!}</div>
                             </div>
                         </div>
                     </a>

@@ -121,7 +121,6 @@ class NetworksController extends Controller
         
         $network = DB::table('world_wide_network') ->where('id', request('hidden_id'))->update(
             [
-                'user_id' => $user_id,
                 'website_name' => $request->website_name,
                 'url' => $request->website_url,
                 'name' => $request->name,

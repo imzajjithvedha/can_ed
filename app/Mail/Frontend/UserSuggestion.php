@@ -30,6 +30,6 @@ class UserSuggestion extends Mailable
      */
     public function build()
     {
-        return $this->subject('Suggestion Message')->view('frontend.mail.user_suggestion');
+        return $this->subject('Suggestion message - Study in Canada')->view('frontend.mail.user_suggestion');
     }
 }

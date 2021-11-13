@@ -8,13 +8,13 @@
 
 
 
-<p>Below are the business owner details.</p>
+<p style="margin-top: 15px;">Below are the business owner details.</p>
 
 <p><strong>Name:</strong> {{ App\Models\Businesses::where('id', $details['business_id'])->first()->contact_name }}</p>
 
 <p><strong>Email:</strong> {{ App\Models\Businesses::where('id', $details['business_id'])->first()->email }}</p>
 
-<p><strong>Phone:</strong> {{ App\Models\Businesses::where('id', $details['business_id'])->first()->phone }}</p>
+<p style="margin-bottom: 10px;"><strong>Phone:</strong> {{ App\Models\Businesses::where('id', $details['business_id'])->first()->phone }}</p>
 
 
 

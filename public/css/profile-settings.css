@@ -1,5 +1,6 @@
 .user-settings label {
     font-size: 0.9rem;
+    color: #76777a;
 }
 .user-settings .required:after {
     content: " *";
@@ -96,11 +97,4 @@ td {
 .create_btn {
     background-image: linear-gradient(to bottom, #CF0411, #660000);
     border: none;
-}
-
-.school .form-label {
-    color: #76777a;
-}
-.school ::placeholder {
-    font-size: 0.9rem;
 }

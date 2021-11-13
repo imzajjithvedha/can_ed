@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Programs;
 use Illuminate\Http\Request;
-use App\Mail\Frontend\ProgramAdmin;
-use App\Mail\Frontend\ProgramUser;
+use App\Mail\Frontend\Program;
+use App\Mail\Frontend\UserProgram;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -43,9 +43,9 @@ class ProgramController extends Controller
             'description' => $request->description,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new ProgramAdmin($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Program($details));
 
-        Mail::to(auth()->user()->email)->send(new ProgramUser());
+        Mail::to(auth()->user()->email)->send(new UserProgram());
 
         return back()->with('success', 'success'); 
 

@@ -14,6 +14,7 @@ use App\Models\WorldWideNetwork;
 use App\Models\FavoriteBusinesses;
 use App\Models\Auth\User;
 use App\Models\FavoriteSchools;
+use App\Models\favoriteEvents;
 use App\Models\Schools;
 
 /**
@@ -193,6 +194,26 @@ class DashboardController extends Controller
     public function favoriteSchoolDelete($id)
     {
         $favorite = favoriteSchools::where('school_id', $id)->delete();
+
+        return back();
+    }
+
+
+    // favorite events
+    public function favoriteEvents()
+    {
+        $user_id = auth()->user()->id;
+
+        $favorite = favoriteEvents::where('user_id', $user_id)->get();
+
+        $events = Events::orderBy('updated_at', 'DESC')->get();
+
+        return view('frontend.user.favorite_events', ['favorite' => $favorite, 'events' => $events]);
+    }
+
+    public function favoriteEventDelete($id)
+    {
+        $favorite = favoriteEvents::where('event_id', $id)->delete();
 
         return back();
     }

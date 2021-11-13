@@ -12,13 +12,17 @@
         
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-businesses' ? 'active' : null }}" id="nav-favorite-businesses-tab" href="{{ route('frontend.user.favorite_businesses') }}" type="button" role="tab" aria-controls="nav-favorite-businesses" aria-selected="false">Favorite Businesses</a>
 
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-events' ? 'active' : null }}" id="nav-favorite-events-tab" href="{{ route('frontend.user.favorite_events') }}" type="button" role="tab" aria-controls="nav-favorite-events" aria-selected="false">Favorite Events</a>
+
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-schools' ? 'active' : null }}" id="nav-favorite-schools-tab" href="{{ route('frontend.user.favorite_schools') }}" type="button" role="tab" aria-controls="nav-favorite-schools" aria-selected="false">Favorite Schools</a>
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user-events' ? 'active' : null }}" id="nav-events-tab" href="{{ route('frontend.user.user_events') }}" type="button" role="tab" aria-controls="nav-events" aria-selected="false">My Events</a>
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user-networks' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_networks') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Network Banners</a>
 
-        <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'user-quotes' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_quotes') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Quotes</a>
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user-quotes' ? 'active' : null }}" id="nav-quotes-tab" href="{{ route('frontend.user.user_quotes') }}" type="button" role="tab" aria-controls="nav-quotes" aria-selected="false">My Quotes</a>
+
+        <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'suggested-programs' ? 'active' : null }}" id="nav-suggested-programs-tab" href="{{ route('frontend.user.suggested_programs') }}" type="button" role="tab" aria-controls="nav-suggested-programs" aria-selected="false">Suggested Programs</a>
 
 
 
@@ -54,13 +58,13 @@
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-programs' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_programs') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Programs</a>
 
-        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-quick-facts' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_quick_facts') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Quick Facts</a>
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-quick-facts' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_quick_facts') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Quick facts</a>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships</a>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships-faq' ? 'active' : null }}" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships_faq') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships FAQ</a>
 
-        <a class="nav-link bg-white border-bottom ps-5 w-100 {{ Request::segment(1) == 'suggested-programs' ? 'active' : null }}" id="nav-suggested-programs-tab" href="{{ route('frontend.user.suggested_programs') }}" type="button" role="tab" aria-controls="nav-suggested-programs" aria-selected="false">Suggested Programs</a>
+        <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'school-settings' ? 'active' : null }}" id="nav-settings-tab" href="{{ route('frontend.user.school_settings') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">School settings</a>
 
     @endif
 

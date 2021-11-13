@@ -21,7 +21,6 @@
                         <thead>
                             <tr>
                                 <th scope="col">Website name</th>
-                                <th scope="col">Website URL</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Our banner URL</th>
                                 <th scope="col">Status</th>
@@ -79,7 +78,6 @@
             order: [[1, "asc"]],
             columns: [
                 {data: 'website_name', name: 'website_name'},
-                {data: 'url', name: 'url'},
                 {data: 'country', name: 'country'},
                 {data: 'our_banner_url', name: 'our_banner_url'},
                 {data: 'status', name: 'status'},

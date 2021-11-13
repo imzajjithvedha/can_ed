@@ -151,16 +151,16 @@
                 <h5 class="fw-bolder">Related businesses</h5>
                 <hr>
 
-                @foreach($more_businesses as $business)
+                @foreach($more_businesses as $more_business)
                     <div class="card mb-4">
-                        <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
-                            @if($business->image != null)
-                                <img src="{{ url('images/businesses', $business->image) }}" class="card-img-top" alt="..." style="height: 8rem; object-fit: cover;">
+                        <a href="{{ route('frontend.single_business', $more_business->id) }}" class="text-decoration-none">
+                            @if($more_business->image != null)
+                                <img src="{{ url('images/businesses', $more_business->image) }}" class="card-img-top" alt="..." style="height: 8rem; object-fit: cover;">
                             @else
                                 <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
                             @endif
                             <div class="card-body text-center">
-                                <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                <h6 class="card-title fw-bold gray">{{ $more_business->name }}</h6>
                             </div>
                         </a>
                     </div>
@@ -192,11 +192,11 @@
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" placeholder="Your email *" name="email" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <textarea class="form-control" rows="7" placeholder="Your message *" name="message" required></textarea>
                         </div>
 
-                        <div class="row mb-4 justify-content-center">
+                        <div class="row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                             </div>
@@ -213,7 +213,28 @@
         </div>
     </form>
 
+    @if(\Session::has('business_contact'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Thank you for contacting a business. Business owner will contact you as soon as possible.</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('frontend.single_business', $business->id) }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
 @endsection
+
 
 
 
@@ -225,6 +246,12 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
     </script>
 
 @endpush

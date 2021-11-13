@@ -42,16 +42,14 @@
                                     @if(is_favorite($article->id, auth()->user()->id))
                                         <div class="row border py-3 px-2 mb-3">
                                             <div class="col-4">
-                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid">
+                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
-                                                <p class="gray mt-4">Updated: {{ $article->updated_at }}</p>
+                                                <p class="gray mt-2">Updated: {{ $article->updated_at }}</p>
                                             </div>
 
                                             <div class="col-8">
                                                 <h6 class="fw-bolder">{{ $article->title }}</h6>
-                                                <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
-
-                                                <p class="mt-2">By: Admin</p>
+                                                <div class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
 
                                                 <div class="row justify-content-end">
                                                     <div class="col-9">

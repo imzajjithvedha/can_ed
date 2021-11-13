@@ -33,7 +33,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height:15rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center">
+                                <div class="card-body text-center p-3">
                                     <h6 class="fw-bold text-dark">{{ $sponsor->name }}</h6>
                                     <p class="gray">{{ $sponsor->country }}</p>
                                 </div>
@@ -44,7 +44,7 @@
                             @else
                                 <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height:15rem; object-fit: cover;">
                             @endif
-                            <div class="card-body text-center">
+                            <div class="card-body text-center p-3">
                                 <h6 class="fw-bold text-dark">{{ $sponsor->name }}</h6>
                                 <p class="gray">{{ $sponsor->country }}</p>
                             </div> style="height:15rem; object-fit: cover;"

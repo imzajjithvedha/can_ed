@@ -107,7 +107,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="featured" class="form-label">Do you want to show this article in the homepage? *</label>
+                                <label for="featured" class="form-label">Do you want to show this business in the homepage? *</label>
                                 <select class="form-control" name="featured" id="featured" required>
                                     <option value="Yes" {{ $business->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $business->featured == 'No' ? "selected" : "" }}>No</option>                               

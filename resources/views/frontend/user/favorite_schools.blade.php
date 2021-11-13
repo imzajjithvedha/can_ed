@@ -40,16 +40,16 @@
                             <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                                 @foreach($schools as $school)
                                     @if(is_favorite_school($school->id, auth()->user()->id))
-                                        <div class="row border py-3 px-2 mb-3">
+                                        <div class="row border py-3 px-2 mb-3 align-items-center">
                                             <div class="col-4">
-                                                <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid">
+                                                <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                             </div>
 
                                             <div class="col-8">
-                                                <h6 class="fw-bolder mb-3">School name: {{ $school->name }}</h6>
-                                                <p class="gray mb-2">School email: {{ $school->school_email }}</p>
-                                                <p class="gray mb-2">School phone: {{ $school->school_email }}</p>
-                                                <p class="gray mb-2">School country: {{ $school->country }}</p>
+                                                <h6 class="fw-bolder mb-3">Name: {{ $school->name }}</h6>
+                                                <p class="gray mb-2">Email: {{ $school->school_email }}</p>
+                                                <p class="gray mb-2">Phone: {{ $school->school_email }}</p>
+                                                <p class="gray mb-2">Country: {{ $school->country }}</p>
                                                 
 
                                                 <div class="row justify-content-end">

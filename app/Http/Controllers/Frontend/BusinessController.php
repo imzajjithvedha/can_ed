@@ -8,6 +8,7 @@ use App\Models\Businesses;
 use App\Models\BusinessCategories;
 use App\Models\FavoriteBusinesses;
 use App\Mail\Frontend\Business;
+use App\Mail\Frontend\UserBusiness;
 use App\Mail\Frontend\SingleBusinessAdmin;
 use App\Mail\Frontend\SingleBusinessUser;
 use App\Mail\Frontend\SingleBusinessOwner;
@@ -79,7 +80,9 @@ class BusinessController extends Controller
             'package' => $request->package
         ];
 
-        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Business($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Business($details));
+
+        Mail::to([$request->email])->send(new UserBusiness($details));
 
         return back()->with('success', 'success');    
 
@@ -230,14 +233,14 @@ class BusinessController extends Controller
             'business_id' => $request->business_id,
         ];
 
-        Mail::to(['zajjith@yopmail.com'])->send(new SingleBusinessAdmin($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SingleBusinessAdmin($details));
 
         Mail::to([$request->email])->send(new SingleBusinessUser($details));
 
         Mail::to([Businesses::where('id', $request->business_id)->first()->email])->send(new SingleBusinessOwner($details));
 
 
-        return redirect()->route('frontend.index')->with('business_contact', 'business_contact'); 
+        return back()->with('business_contact', 'business_contact'); 
 
     }
 

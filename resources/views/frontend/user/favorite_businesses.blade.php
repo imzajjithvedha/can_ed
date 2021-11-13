@@ -48,12 +48,12 @@
                                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                                 @endif
 
-                                                <p class="gray mt-4">Updated: {{ $business->updated_at }}</p>
+                                                <p class="gray mt-2">Updated: {{ $business->updated_at }}</p>
                                             </div>
 
                                             <div class="col-8">
                                                 <h6 class="fw-bolder">{{ $business->title }}</h6>
-                                                <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $business->description !!}</div>
+                                                <p class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{{ $business->description }}</p>
 
                                                 <p class="mt-2">By: {{ $business->contact_name }}</p>
 

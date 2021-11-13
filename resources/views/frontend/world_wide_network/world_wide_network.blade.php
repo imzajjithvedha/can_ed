@@ -18,7 +18,7 @@
                 @auth
                     <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-quote">Submit your banner</button>
                 @else
-                <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Submit your banner</a>
+                    <a href="{{ route('frontend.auth.login') }}" type="button" class="btn text-white post-btn">Submit your banner</a>
                 @endauth
             </div>
         </div>
@@ -58,7 +58,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Place Your Banner</h5>
+                        <h5 class="modal-title">Place your banner</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -66,20 +66,20 @@
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
                         </div>
                         <div class="row mb-5 align-items-center">
-                            <h5 class="mb-2">1. Place our banner on your website</h5>
+                            <h6 class="fw-bold mb-2">1. Place our banner on your website</h6>
 
                             <div class="col-7">
                                 <textarea class="form-control" rows="3" readonly>&lt;a href="http://www.studyingincanada.org/"&gt;&lt;img src="https://www.studyingincanada.org/images/468x60.gif" alt="Study in Canada" &gt;&lt;/a&gt;</textarea>
                             </div>
 
                             <div class="col-5">
-                                <img src="{{ url('img/frontend/world_wide_network/banner_design.jpg') }}" alt="" class="img-fluid">
+                                <img src="{{ url('img/frontend/world_wide_network/banner.png') }}" alt="" class="img-fluid">
                             </div>
                         </div>
 
                         
                         <div class="row mb-3">
-                            <h5 class="mb-2">2. Submit your request</h5>
+                            <h6 class="fw-bold mb-2">2. Submit your request</h6>
                             
                             <div class="col-6">
                                 <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" required>
@@ -105,7 +105,7 @@
                             </div>
                             <div class="col-6">
                                 <select class="form-control" id="country" name="country" required>
-                                    <option value="">Select Country *</option>
+                                    <option value="" selected disabled hidden>Country *</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -362,12 +362,10 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-4">
                             <div class="col-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Upload your banner *</label>
-                                    <input class="form-control" type="file" id="image" name="image" placeholder="Upload your banner" title="Upload your banner" required>
-                                </div>
+                                <label class="form-label">Upload your banner *</label>
+                                <input class="form-control" type="file" id="image" name="image" placeholder="Upload your banner" title="Upload your banner" required>
                             </div>
                         </div>
 
@@ -400,7 +398,7 @@
                         <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                        <a href="{{ route('frontend.world_wide_network') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Program Suggestion Form</h5>
+                        <h5 class="modal-title">Program suggestion form</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-12">
                                 <div class="mb-3">
-                                    <input type="text" class="form-control" id="name" aria-describedby="program_name" name="name" placeholder="Program Name *" required>
+                                    <input type="text" class="form-control" id="name" aria-describedby="program_name" name="name" placeholder="Program name *" required>
                                 </div>
 
                                 <div class="mb-3">
@@ -103,7 +103,7 @@
                         <h4 class="mb-0 text-center">Thank you for your program suggestion. It will appear here once approved</h4>
                     </div>
                     <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                        <a href="{{ route('frontend.programs') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
                     </div>
                 </div>
             </div>

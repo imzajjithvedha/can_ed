@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use DataTables;
 use App\Models\Events;
+use App\Models\FavoriteEvents;
 use Illuminate\Http\Request;
 use App\Mail\Frontend\Event;
+use App\Mail\Frontend\UserEvent;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -62,10 +64,13 @@ class EventController extends Controller
             'type' => $request->type,
             'organizer_email' => $request->email,
             'organizer_phone' => $request->phone,
-            'url' => $request->url
+            'url' => $request->url,
+            'user_id' => $user_id,
         ];
 
-        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Event($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Event($details));
+
+        Mail::to([$request->email])->send(new UserEvent($details));
 
         return back()->with('success', 'success');
 
@@ -83,7 +88,7 @@ class EventController extends Controller
                     
                     ->addColumn('action', function($data){
                         
-                        $button = '<a href="'.route('frontend.single_event', $data->id).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none;">Read More</a>';
+                        $button = '<a href="'.route('frontend.single_event', $data->id).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none; font-size: 0.9rem;">Read More</a>';
 
                         return $button;
                     })
@@ -100,9 +105,38 @@ class EventController extends Controller
     {
         $event = Events::where('id', $id)->first();
 
-        $more_events = Events::inRandomOrder()->limit(5)->get();
+        $more_events = Events::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
 
         return view('frontend.event.single_event', ['event' => $event, 'more_events' => $more_events]);
     }
+
+    public function favoriteEvent(Request $request) {
+
+        $event_id = $request->hidden_id;
+        $status = $request->favorite;
+        $user_id = auth()->user()->id;
+
+
+        if($status == 'non-favorite') {
+
+            $favorite = new FavoriteEvents;
+
+            $favorite->user_id = $user_id; 
+
+            $favorite->event_id = $event_id;
+
+            $favorite -> save();
+
+            return back();
+        }
+
+        if($status == 'favorite') {
+
+            $favorite = FavoriteEvents::where('user_id', $user_id)->where('event_id', $event_id)->delete();
+
+            return back();
+        }
+    }
+
 
 }

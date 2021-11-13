@@ -358,10 +358,10 @@
                         <div class="mb-3">
                             <div class="row">
                                 <div class="col-6">
-                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email *" name="email">
+                                    <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Event organizer email *" name="email" required>
                                 </div>
                                 <div class="col-6">
-                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone *" name="phone">
+                                    <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Event organizer phone *" name="phone" required>
                                 </div>
                             </div>
                         </div>

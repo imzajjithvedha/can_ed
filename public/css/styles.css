@@ -111,9 +111,6 @@ p {
     -ms-transition:all 200ms ease;
     -o-transition:all 200ms ease;
     transition:all 200ms ease;
-
-    /* margin-left: 1rem;
-    margin-right: 1rem; */
 }
 .footer_social ul li a {
     display:block;
@@ -160,6 +157,11 @@ p {
     color: white!important;
 }
 
+.menu-nav .dropdown-menu a:focus {
+    background-color: #b1040e!important;
+    color: white!important;
+}
+
 .menu-nav .dropdown-item:hover {
     color: #16181b!important;
 }
@@ -167,5 +169,14 @@ p {
 .menu-nav .dropdown-toggle:after {
     margin-left: 0.6em!important;
     color: white!important;
+}
+
+::placeholder {
+    font-size: 0.95rem;
+}
+
+.form-label {
+    font-size: 0.95rem;
+    color: #76777a;
 }
 

@@ -392,6 +392,12 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">User name</label>
+                                <input class="form-control" value="{{ App\Models\Auth\User::where('id', $school->user_id)->first()->name }}" disabled>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="email" class="form-label">User email</label>
                                 <input class="form-control" value="{{ $school->user_email }}" disabled>

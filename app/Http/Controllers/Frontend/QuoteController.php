@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Quotes;
 use App\Mail\Frontend\Quote;
+use App\Mail\Frontend\UserQuote;
 use Illuminate\Support\Facades\Mail;
 
 /**
@@ -18,7 +19,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes = Quotes::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
+        $quotes = Quotes::where('status', 'Approved')->orderBy('quote', 'asc')->get();
 
         return view('frontend.quote.quotes', ['quotes' => $quotes]);
     }
@@ -39,7 +40,9 @@ class QuoteController extends Controller
             'quote' => $request->quote,
         ];
 
-        Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Quote($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Quote($details));
+
+        Mail::to([auth()->user()->email])->send(new UserQuote($details));
 
         return back()->with('success', 'success'); 
 

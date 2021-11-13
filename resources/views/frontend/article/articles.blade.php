@@ -17,7 +17,7 @@
                     <hr>
                 </div>
                 <div class="col-2 input-group">
-                    <input type="text" class="form-control text-center" id="articles" aria-describedby="articles" value="All articles" disabled>
+                    <a href="{{ route('frontend.articles') }}" type="text" class="form-control text-center text-decoration-none" style="font-size: 0.95rem">All articles</a>
                 </div>
                 <div class="col-3 input-group">
                     <input type="text" class="form-control text-center" id="keyword" name="keyword" aria-describedby="search_article" placeholder="Search articles">
@@ -45,7 +45,7 @@
                                 <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
                             @endif
 
-                            <p class="gray mt-4">Updated: {{ $article->updated_at }}</p>
+                            <p class="gray mt-3">Updated: {{ $article->updated_at }}</p>
                         </div>
 
                         <div class="col-8">

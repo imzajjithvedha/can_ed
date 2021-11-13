@@ -1,6 +1,6 @@
 <p>You have a new business request. Below are the details.</p>
 
-<p><strong>Business Name:</strong> {{ $details['name'] }}</p>
+<p><strong>Business name:</strong> {{ $details['name'] }}</p>
 
 @if(($details['category_2'] != null) && ($details['category_3'] != null))
     <p><strong>Category:</strong> {{ App\Models\BusinessCategories::where('id', $details['category_1'])->first()->name }}, {{ App\Models\BusinessCategories::where('id', $details['category_2'])->first()->name }} & {{ App\Models\BusinessCategories::where('id', $details['category_3'])->first()->name }}</p>
@@ -17,7 +17,7 @@
 @endif
 
 <p><strong>Description:</strong> {{ $details['description'] }}</p>
-<p><strong>Contact Name:</strong> {{ $details['contact_name'] }}</p>
+<p><strong>Contact name:</strong> {{ $details['contact_name'] }}</p>
 <p><strong>Email:</strong> {{ $details['email'] }}</p>
 <p><strong>Phone:</strong> {{ $details['phone'] }}</p>
 <p><strong>Address:</strong> {{ $details['address'] }}</p>

@@ -41,6 +41,7 @@ use App\Http\Controllers\Frontend\User\UserSchoolAdmissionEmployeeController;
 use App\Http\Controllers\Frontend\User\UserSchoolAdmissionFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialFAQController;
+use App\Http\Controllers\Frontend\User\UserSchoolSettingsController;
 
 /*
  * Frontend Controllers
@@ -83,6 +84,7 @@ Route::get('events', [EventController::class, 'index'])->name('events');
 Route::get('get-events', [EventController::class, 'getEvents'])->name('get_events');
 Route::get('events/single-event/{id}', [EventController::class, 'singleEvent'])->name('single_event');
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
+Route::post('events/single-event/favorite', [EventController::class, 'favoriteEvent'])->name('favorite_event');
 
 
 Route::get('online-business-directory', [OnlineBusinessDirectoryController::class, 'index'])->name('online_business_directory');
@@ -190,6 +192,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('user-events/update', [DashboardController::class, 'userEventUpdate'])->name('user_event_update');
         Route::get('user-events/delete/{id}', [DashboardController::class, 'userEventDelete'])->name('user_event_delete');
 
+        Route::get('favorite-events', [DashboardController::class, 'favoriteEvents'])->name('favorite_events');
+        Route::get('favorite-events/delete/{id}', [DashboardController::class, 'favoriteEventDelete'])->name('favorite_event_delete');
+
 
         Route::get('favorite-articles', [DashboardController::class, 'favoriteArticles'])->name('favorite_articles');
         Route::get('favorite-articles/delete/{id}', [DashboardController::class, 'favoriteArticleDelete'])->name('favorite_article_delete');
@@ -266,7 +271,7 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
 
-        //School Quick Facts
+        
         Route::get('school-quick-facts', [UserSchoolQuickFactsController::class, 'schoolQuickFacts'])->name('school_quick_facts');
         Route::post('schools-quick-facts/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsUpdate'])->name('school_quick_facts_update');
         Route::post('school-quick-facts/paragraphs/update', [UserSchoolQuickFactsController::class, 'schoolQuickFactsParagraphsUpdate'])->name('school_quick_facts_paragraphs_update');
@@ -305,6 +310,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('school-contacts/update', [UserSchoolContactController::class, 'schoolContactUpdate'])->name('school_contact_update');
         Route::get('school-contacts/delete/{id}', [UserSchoolContactController::class, 'SchoolContactDelete'])->name('school_contact_delete');
         Route::post('school-contacts/paragraph/update', [UserSchoolContactController::class, 'schoolContactsParagraphUpdate'])->name('school_contacts_paragraph_update');
+
+
+        Route::get('school/settings', [UserSchoolSettingsController::class, 'SchoolSettings'])->name('school_settings');
+
+        Route::post('school/delete', [UserSchoolSettingsController::class, 'schoolDelete'])->name('school_delete');
+
 
 
 

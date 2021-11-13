@@ -66,13 +66,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center footer-top-nav">
-                <a href="{{ route('frontend.index') }}" class="px-2 border-end d-inline-block px-3">Home</a>
-                <a href="{{ route('frontend.disclaimer') }}" class="px-2 border-end d-inline-block px-3">Disclaimer</a>
-                <a href="{{ route('frontend.online_business_directory') }}" class="px-2 border-end d-inline-block px-3">Online business directory</a>
-                <a href="{{ route('frontend.privacy_policy') }}" class="px-2 border-end d-inline-block px-3">Privacy policy</a>
-                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3">Comments / suggestion</a>
-                <a href="{{ route('frontend.site_map') }}" class="px-2 border-end d-inline-block px-3">Site map</a>
-                <a href="{{ route('frontend.contact_us') }}" class="px-2 border-end d-inline-block px-3" style="border-right:none!important;">Contact us</a>
+                <a href="{{ route('frontend.index') }}" class="border-end d-inline-block px-3">Home</a>
+                <a href="{{ route('frontend.disclaimer') }}" class="border-end d-inline-block px-3">Disclaimer</a>
+                <a href="{{ route('frontend.online_business_directory') }}" class="border-end d-inline-block px-3">Online business directory</a>
+                <a href="{{ route('frontend.privacy_policy') }}" class="border-end d-inline-block px-3">Privacy policy</a>
+                <a href="{{ route('frontend.contact_us') }}" class="border-end d-inline-block px-3">Comments / suggestion</a>
+                <a href="{{ route('frontend.site_map') }}" class="border-end d-inline-block px-3">Site map</a>
+                <a href="{{ route('frontend.contact_us') }}" class="border-end d-inline-block px-3" style="border-right:none!important;">Contact us</a>
             </div>
 
             <div class="col-lg-12 footer_col text-center">

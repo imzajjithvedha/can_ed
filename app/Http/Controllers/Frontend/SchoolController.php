@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Schools;
 use App\Mail\Frontend\School;
+use App\Mail\Frontend\UserSchool;
 use Illuminate\Support\Facades\Mail;
 use App\Models\FavoriteSchools;
 use App\Models\Articles;
@@ -76,7 +77,9 @@ class SchoolController extends Controller
                 'message' => $request->message
             ];
     
-            Mail::to(['zajjith@yopmail.com', 'zajjith@gmail.com', 'ccaned@gmail.com'])->send(new School($details));
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new School($details));
+
+            Mail::to([$request->email])->send(new UserSchool($details));
 
             return redirect()->route('frontend.index')->with('success', 'success');
         }

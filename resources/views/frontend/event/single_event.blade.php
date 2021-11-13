@@ -3,7 +3,7 @@
 @section('title', 'Events: '.$event->title)
 
 @push('after-styles')
-    <link href="{{ url('css/single_event.css') }}" rel="stylesheet">
+    <link href="{{ url('css/events.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -12,8 +12,8 @@
 
         <div class="row">
             <div class="col-8">
-                <h5 class="fw-bolder">{{ $event->title }}</h5>
-                <hr>
+                <!-- <h5 class="fw-bolder">{{ $event->title }}</h5>
+                <hr> -->
 
                 <div class="row">
                     <div class="col-12">
@@ -23,6 +23,37 @@
                             <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner">
                         @endif
                     </div>
+                </div>
+
+                <div class="row mt-4 justify-content-between align-items-center">
+                    <div class="col-9">
+                        <h5 class="fw-bold">{{ $event->title }}</h5>
+                    </div>
+                    @auth
+                        @if(is_favorite_event( $event->id, auth()->user()->id))
+                            <div class="col-2 text-end">
+                                <form action="{{ route('frontend.favorite_event') }}" method="POST">
+                                {{csrf_field()}}
+                                    <input type="hidden" name='hidden_id' value="{{ $event->id }}">
+                                    <input type="hidden" name='favorite' value="favorite">
+                                    <button type="submit" class="fas fa-heart favorite-heart text-decoration-none"></button>
+                                </form>
+                            </div>
+                        @else
+                            <div class="col-2 text-end">
+                                <form action="{{ route('frontend.favorite_event') }}" method="POST">
+                                {{csrf_field()}}
+                                    <input type="hidden" name='hidden_id' value="{{ $event->id }}">
+                                    <input type="hidden" name='favorite' value="non-favorite">
+                                    <button type="submit" class="far fa-heart favorite-heart text-decoration-none"></button>
+                                </form>
+                            </div>
+                        @endif
+                    @else
+                        <div class="col-2 text-end">
+                            <a href="{{ route('frontend.auth.login') }}" class="far fa-heart favorite-heart text-decoration-none"></a>
+                        </div>
+                    @endauth
                 </div>
 
 
@@ -114,6 +145,7 @@
 
                             <div class="col-6">
                                 <p class="fw-bold gray">{{ $more_event->title }}</p>
+                                <p class="gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $more_event->description }}</p>
                             </div>
                         </div>
                     </a>

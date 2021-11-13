@@ -7,8 +7,8 @@
 <p><strong>Date:</strong> {{ $details['date'] }}</p>
 <p><strong>Time:</strong> {{ $details['time'] }}</p>
 <p><strong>Type:</strong> {{ $details['type'] }}</p>
-<p><strong>Organizer Email:</strong> {{ $details['organizer_email'] }}</p>
-<p><strong>Organizer Phone:</strong> {{ $details['organizer_phone'] }}</p>
+<p><strong>Organizer email:</strong> {{ $details['organizer_email'] }}</p>
+<p><strong>Organizer phone:</strong> {{ $details['organizer_phone'] }}</p>
 <p><strong>Event URL:</strong> {{ $details['url'] }}</p>
 
 

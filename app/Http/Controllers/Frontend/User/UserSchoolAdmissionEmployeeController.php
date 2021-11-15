@@ -8,6 +8,7 @@ use DB;
 use DataTables;
 use File;
 use App\Models\SchoolAdmissionEmployees;
+use App\Models\Schools;
 
 /**
  * Class UserSchoolAdmissionEmployeeController.
@@ -38,6 +39,7 @@ class UserSchoolAdmissionEmployeeController extends Controller
         $employee->email = $request->email;
         $employee->featured = $request->featured;
         $employee->image = $image_call;
+        $employee->orders = $request->orders;
 
         $employee->save();
 
@@ -49,7 +51,9 @@ class UserSchoolAdmissionEmployeeController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = SchoolAdmissionEmployees::where('user_id', $user_id)->get();
+        $school_id = Schools::where('user_id', $user_id)->first()->id;
+
+        $data = SchoolAdmissionEmployees::where('school_id', $school_id)->get();
 
         if($request->ajax())
             {
@@ -102,6 +106,7 @@ class UserSchoolAdmissionEmployeeController extends Controller
                 'email' => $request->email,
                 'featured' => $request->featured,
                 'image' => $image_call,
+                'orders' => $request->orders,
             ]
         );
         

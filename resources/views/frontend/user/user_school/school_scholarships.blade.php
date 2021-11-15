@@ -19,9 +19,9 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Scholarships</h4>
+                        <h4 class="user-settings-head">Scholarships</h4>
                     </div>
                     <!-- <div class="col-4 text-end">
                         <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Scholarship</button>
@@ -30,7 +30,7 @@
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-scholarships" role="tabpanel" aria-labelledby="nav-scholarships-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
 
@@ -42,7 +42,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="scholarships_title_1_paragraph" class="form-label mb-1">Paragraphs for title 1</label>
+                                            <label for="scholarships_title_1_paragraph" class="form-label mb-1">Title 1 - paragraph</label>
                                             <textarea name="scholarships_title_1_paragraph" class="ckeditor form-control" id="scholarships_title_1_paragraph" value="{{ $school->scholarships_title_1_paragraph }}">{{ $school->scholarships_title_1_paragraph }}</textarea>
                                         </div>
 
@@ -61,7 +61,7 @@
                                             <input type="text" class="form-control" id="scholarships_title_2" aria-describedby="scholarships_title_2" name="scholarships_title_2" value="{{ $school->scholarships_title_2 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-2-image" class="form-label">Title 2 Image</label>
+                                            <label for="title-2-image" class="form-label">Title 2 - image</label>
 
                                             @if($school->scholarships_title_2_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -94,7 +94,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="scholarships_title_2_link" class="form-label mb-1">Title 2 - Link</label>
+                                            <label for="scholarships_title_2_link" class="form-label mb-1">Title 2 - link</label>
                                             <input type="url" class="form-control" id="scholarships_title_2_link" aria-describedby="scholarships_title_2_link" name="scholarships_title_2_link" value="{{ $school->scholarships_title_2_link }}">
                                         </div>
 
@@ -109,7 +109,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="scholarships_title_3_paragraph" class="form-label mb-1">Paragraphs for title 3</label>
+                                            <label for="scholarships_title_3_paragraph" class="form-label mb-1">Title 3 - paragraph</label>
                                             <textarea name="scholarships_title_3_paragraph" class="ckeditor form-control" id="scholarships_title_3_paragraph" value="{{ $school->scholarships_title_3_paragraph }}">{{ $school->scholarships_title_3_paragraph }}</textarea>
                                         </div>
 
@@ -123,7 +123,7 @@
                                             <input type="text" class="form-control" id="scholarships_title_4" aria-describedby="scholarships_title_4" name="scholarships_title_4" value="{{ $school->scholarships_title_4 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-4-image" class="form-label">Title 4 Image</label>
+                                            <label for="title-4-image" class="form-label">Title 4 - image</label>
 
                                             @if($school->scholarships_title_4_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -156,27 +156,29 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="scholarships_title_4_link" class="form-label mb-1">Title 4 - Link</label>
+                                            <label for="scholarships_title_4_link" class="form-label mb-1">Title 4 - link</label>
                                             <input type="url" class="form-control" id="scholarships_title_4_link" aria-describedby="scholarships_title_4_link" name="scholarships_title_4_link" value="{{ $school->scholarships_title_4_link }}">
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div>
                                             <label for="scholarships_title_4_image_name" class="form-label mb-1">Title 4 - image name</label>
                                             <input type="text" class="form-control" id="scholarships_title_4_image_name" aria-describedby="scholarships_title_4_image_name" name="scholarships_title_4_image_name" value="{{ $school->scholarships_title_4_image_name }}">
                                         </div>
 
-                                        <div class="text-end">
+                                        <div class="mt-5 text-end">
                                             <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                            <input type="submit" value="Update scholarships paragraphs" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update scholarships details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </form>
 
+                                    <hr class="my-5">
+
                                     <div class="row justify-content-between align-items-center mb-3">
                                         <div class="col-8">
-                                            <h4 class="fs-4 fw-bolder user-settings-head">All Scholarships</h4>
+                                            <h5 class="fw-bold">All scholarships</h5>
                                         </div>
                                         <div class="col-4 text-end">
-                                            <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Scholarship</button>
+                                            <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>
                                         </div>
                                     </div>
 
@@ -214,24 +216,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="text-end">
+                        <!-- <div class="text-end">
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="name" placeholder="Scholarship Name *" required>
-                        </div>
-
-                        <!-- <div class="mb-3">
-                            <input type="text" class="form-control" name="provider" placeholder="Provider *">
                         </div> -->
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="name" placeholder="Scholarship name *" required>
+                        </div>
 
                         <div class="mb-3">
                             <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
                         </div>
-
-                        <!-- <div class="mb-5">
-                            <input type="number" class="form-control" name="amount" placeholder="Amount *">
-                        </div> -->
 
                         <div class="mb-3">
                             <label for="eligibility" class="form-label">Basic Eligibility</label>
@@ -271,19 +265,15 @@
 
                         <div class="mb-3">
                             <select name="level_of_study" id="level_of_study" class="form-control" required>
-                                <option value="" selected disabled hidden>Level of Study *</option>
+                                <option value="" selected disabled hidden>Level of study *</option>
                                 <option value="Graduate">Graduate</option>
                                 <option value="Undergraduate">Undergraduate</option>
                                 <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
                             </select>
                         </div>
 
-                        <!-- <div class="mb-3">
-                            <input type="text" class="form-control" name="school_name" placeholder="School Name *">
-                        </div> -->
-
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured Image</label>
+                            <label for="featured_image" class="form-label">Featured image *</label>
                             <input type="file" class="form-control" name="featured_image" required>
                         </div>
 
@@ -295,7 +285,7 @@
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Scholarship</button>
+                        <button type="submit" class="btn btn-success">Add scholarship</button>
                     </div>
                 </div>
             </div>
@@ -335,7 +325,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Paragraph updated successfully.</h4>
+                        <h4 class="mb-0 text-center">Scholarships details updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

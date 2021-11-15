@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_financial_update') }}" class="mb-5" method="POST">
+                        <form action="{{ route('admin.schools.school_financial_update') }}" method="POST">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="financial_title_1" class="form-label mb-1">Title 1</label>
@@ -425,15 +425,15 @@
                                 @endif
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="financial_text_content_1" class="form-label mb-1">Text content 1</label>
                                 <textarea name="financial_text_content_1" class="ckeditor form-control" id="financial_text_content_1" value="{{ $school->financial_text_content_1 }}">{{ $school->financial_text_content_1 }}</textarea>
                             </div>
                             
 
-                            <div class="text-end">
+                            <div class="mt-5 text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                <input type="submit" value="Update financial details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update financial details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
                     </div>

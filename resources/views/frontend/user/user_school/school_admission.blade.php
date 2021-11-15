@@ -19,22 +19,22 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Admission</h4>
+                        <h4 class="user-settings-head">Admission</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-admission" role="tabpanel" aria-labelledby="nav-admission-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_admission_update') }}" class="mb-5" method="POST">
+                                    <form action="{{ route('frontend.user.school_admission_update') }}" method="POST">
                                         {{csrf_field()}}
                                             <div class="mb-3">
-                                                <label for="admission_paragraph" class="form-label mb-1">Main Paragraph</label>
+                                                <label for="admission_paragraph" class="form-label mb-1">Main paragraph</label>
                                                 <textarea name="admission_paragraph" class="ckeditor form-control" id="admission_paragraph" value="{{ $school->admission_paragraph }}">{{ $school->admission_paragraph }}</textarea>
                                             </div>
 
@@ -44,7 +44,7 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="admission_title_1_paragraph" class="form-label mb-1">Paragraphs for title 1</label>
+                                                <label for="admission_title_1_paragraph" class="form-label mb-1">Title 1 - paragraph</label>
                                                 <textarea name="admission_title_1_paragraph" class="ckeditor form-control" id="admission_title_1_paragraph" value="{{ $school->admission_title_1_paragraph }}">{{ $school->admission_title_1_paragraph }}</textarea>
                                             </div>
 
@@ -101,13 +101,15 @@
 
                                             <div class="text-end">
                                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                                <input type="submit" value="Update admission details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                <input type="submit" value="Update admission details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                             </div>
                                     </form>
 
+                                    <hr class="my-4">
+
                                     <div class="row justify-content-between align-items-center mb-3">
                                         <div class="col-8">
-                                            <h4 class="fs-4 fw-bolder user-settings-head">All admission department employees</h4>
+                                            <h5 class="fw-bold">All admission department employees</h5>
                                         </div>
                                         <div class="col-4 text-end">
                                             <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createEmployee">Add employee</button>
@@ -121,6 +123,7 @@
                                                 <th scope="col">Phone</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Featured</th>
+                                                <th scope="col">Order</th>
                                                 <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
                                         </thead>
@@ -144,12 +147,12 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Employee</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add employee</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee Name *" name="name" required>
+                            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Employee name *" name="name" required>
                         </div>
 
                         <div class="mb-3">
@@ -169,12 +172,17 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="file" class="form-control" name="featured_image">
+                            <label for="image" class="form-label">Employee image *</label>
+                            <input type="file" class="form-control" name="featured_image" required>
                         </div>
 
                         <div class="mb-3">
-                            <select class="form-control" id="featured" name="featured" placeholder="Featured?">
-                                <option value="" selected disabled hidden>Do you want to show this employee under meet our team? </option>
+                            <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <select class="form-control" id="featured" name="featured" placeholder="Featured?" required>
+                                <option value="" selected disabled hidden>Do you want to show this employee under meet our team? *</option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
@@ -184,7 +192,7 @@
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Employee</button>
+                        <button type="submit" class="btn btn-success">Add employee</button>
                     </div>
                 </div>
             </div>
@@ -292,12 +300,13 @@
                 processing: true,
                 ajax: "{{route('frontend.user.get_school_admission_employees')}}",
                 serverSide: true,
-                order: [[0, "asc"]],
+                order: [[4, "asc"]],
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'phone', name: 'phone'},
                     {data: 'email', name: 'email'},
                     {data: 'featured', name: 'featured'},
+                    {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

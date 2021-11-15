@@ -21,19 +21,19 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">All Businesses</h4>
+                        <h4 class="user-settings-head">All businesses</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="px-3 pt-3" id="nav-businesses" role="tabpanel" aria-labelledby="nav-businesses-tab">
                             @foreach($businesses as $business)
-                                <div class="row justify-content-between align-items-center border py-3 mb-3">
-                                    <div class="col-5">
-                                        <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid">
+                                <div class="row border py-3 mb-3">
+                                    <div class="col-4 text-center">
+                                        <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
-                                        <div class="badge mt-2 p-0">
+                                        <div class="mt-2">
                                             @if($business->status == 'Approved')
                                                 <h5><span class="badge bg-success">Approved</span></h5>
                                             @else
@@ -41,9 +41,9 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="col-7">
-                                        <h5 class="fw-bold mb-2">{{ $business->name }}</h5>
-                                        <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $business-> description}}</p>
+                                    <div class="col-8">
+                                        <h6 class="fw-bolder">{{ $business->name }}</h6>
+                                        <p class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;">{{ $business-> description}}</p>
 
                                         <div class="row justify-content-end">
                                             <div class="col-9">
@@ -94,7 +94,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Business</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete business</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

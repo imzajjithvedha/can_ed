@@ -63,7 +63,9 @@ class UserSchoolProgramController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = SchoolPrograms::where('user_id', $user_id)->get();
+        $school_id = Schools::where('user_id', $user_id)->first()->id;
+
+        $data = SchoolPrograms::where('school_id', $school_id)->get();
 
         if($request->ajax())
             {

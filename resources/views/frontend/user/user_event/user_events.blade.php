@@ -55,7 +55,7 @@
 
                                         <div class="col-8">
                                             <h6 class="fw-bolder">{{ $event->title }}</h6>
-                                            <p class="gray my-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $event->description }}</span></p>
+                                            <p class="gray my-2" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $event->description }}</span></p>
 
                                             <p class="fw-bold mb-2">Location : <span class="p gray fw-normal">{{ $event->city }}, {{ $event->country }}</span></p>
                                             <p class="fw-bold mb-2">Date & Time : <span class="p gray fw-normal">{{ $event->date }} - {{ $event->time }}</span></p>

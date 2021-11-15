@@ -21,16 +21,31 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">School Settings</h4>
-                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can change your school settings.</h6>
+                        <h4 class="user-settings-head">School settings</h4>
+                        <h6 class="user-settings-sub" style="color: #5e6871">Here you can find your school settings.</h6>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                            <div class="border text-center px-2 py-3">
-                                <button type="button" class="btn rounded-pill text-light px-4 py-2 ms-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Delete my school</button>
+                        <div class="py-3" id="nav-settings" role="tabpanel" aria-labelledby="nav-settings-tab">
+                            <div class="border p-3">
+                                <div class="row align-items-center mb-5">
+                                    <div class="col-4">
+                                        <h5 class="fw-bold">School status : </h5>
+                                    </div>
+                                    <div class="col-8">
+                                        @if($school->status == 'Approved')
+                                            <h5><span class="badge bg-success p-3" style="font-size: 1.1rem;">Approved</span></h5>
+                                        @else
+                                            <h5><span class="badge bg-warning text-dark p-3" style="font-size: 1.1rem;">Pending</span></h5>
+                                        @endif
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="button" class="btn rounded-pill text-light px-5 py-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Delete my school</button>
+                                </div>
                             </div>
                         </div>
                     </div>

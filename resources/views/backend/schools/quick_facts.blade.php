@@ -65,19 +65,19 @@
                                 <input type="url" class="form-control" id="quick_facts_title_2_link" aria-describedby="quick_facts_title_2_link" name="quick_facts_title_2_link" value="{{ $school->quick_facts_title_2_link }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="quick_facts_title_2_image_name" class="form-label mb-1">Title 2 - image name</label>
                                 <input type="text" class="form-control" id="quick_facts_title_2_image_name" aria-describedby="quick_facts_title_2_image_name" name="quick_facts_title_2_image_name" value="{{ $school->quick_facts_title_2_image_name }}">
                             </div>
 
-                            <div class="text-end">
+                            <div class="mt-5 text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                <input type="submit" value="Update quick facts details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update quick facts details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
 
 
-                        <hr class="my-4">
+                        <hr class="my-5">
 
 
                         <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">
@@ -449,7 +449,7 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="service-and-guidance-new-arrivals" class="form-label mb-1">Service and guidance to new arrivals in Canada</label>
                                 <select class="form-control" id="service-and-guidance-new-arrivals" name="service_and_guidance_new_arrivals">
                                     <option value="" selected disabled hidden></option>
@@ -460,7 +460,7 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
-                                <input type="submit" value="Update quick facts" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update quick facts" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
                     </div>

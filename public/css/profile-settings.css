@@ -10,9 +10,13 @@
     font-weight: 800!important;
 }
 
-
 .user-settings-head {
     margin-bottom: 0.3rem!important;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.user-settings-head-faq {
     font-size: 1.4rem;
     font-weight: 700;
 }
@@ -38,6 +42,22 @@
     border-left: 5px solid #bd2130;
 }
 
+th {
+    text-align: center!important;
+    font-size: 0.95rem;
+}
+
+td {
+    text-align: center;
+    font-size: 0.9rem;
+    vertical-align: middle!important;
+}
+
+.create-btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+}
+
 
 
 /* account dashboard */
@@ -48,28 +68,6 @@
     color: #ff8000;
 }
 
-
-
-/* .user-settings label {
-    font-size: 0.9rem;
-    color: #76777a;
-}
-.user-settings .required:after {
-    content: " *";
-    color: red;
-}
-
-#nav-communication label {
-    font-size: 1rem;
-}
-#nav-results label {
-    font-size: 1rem;
-} */
-
-/* .form-check .form-check-input {
-    margin-left: -1.0rem!important;
-    margin-right: 1rem;
-} */
 .user-settings .fa, .user-settings .fas {
     font-weight: 900;
     color: white;
@@ -81,44 +79,9 @@
 
 
 
-/* .invalid {
+.invalid {
     color: red;
     font-weight: 600;
-} */
-
-/* .school-tabs .nav-link {
-    color: gray!important;
 }
 
-.school-tabs .nav-link:hover {
-    color: black!important;
-    font-weight: 600!important;
-}
 
-.school-tabs .active {
-    color: white!important;
-    background-color: #bd2130!important;
-} */
-
-/* .scholarships hr {
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    border: 0!important;
-    border-top: 0!important;
-} */
-
-th {
-    text-align: center!important;
-}
-
-td {
-    text-align: center;
-    font-size: 0.95rem;
-    vertical-align: middle!important;
-    /* padding: 0!important; */
-}
-
-.create-btn {
-    background-image: linear-gradient(to bottom, #CF0411, #660000);
-    border: none;
-}

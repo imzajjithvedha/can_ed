@@ -19,22 +19,13 @@
             </div>
 
             <div class="col-8">
-                <!-- <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-8">
-                        <h4 class="fs-4 fw-bolder user-settings-head">All Programs</h4>
-                    </div>
-                    <div class="col-4 text-end">
-                        <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Program</button>
-                    </div>
-                </div> -->
-
                 <div class="row">
                     <div class="col-12">
                         <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_programs_paragraph_update') }}" class="mb-5" method="POST">
+                                    <form action="{{ route('frontend.user.school_programs_paragraph_update') }}" method="POST">
                                         {{csrf_field()}}
                                             <div class="mb-3">
                                                 <label for="title_1" class="form-label mb-1">Title 1</label>
@@ -42,29 +33,32 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->programs_page_paragraph }}" placeholder="Paragraph in the programs page">{{ $school->programs_page_paragraph }}</textarea>
+                                                <label for="paragraph" class="form-label mb-1">Title 1 - paragraph</label>
+                                                <textarea name="paragraph" class="ckeditor form-control" id="paragraph" value="{{ $school->programs_page_paragraph }}">{{ $school->programs_page_paragraph }}</textarea>
                                             </div>
 
                                             <div class="text-end">
                                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                                <input type="submit" value="Update Paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                <input type="submit" value="Update programs details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                             </div>
                                     </form>
 
+                                    <hr class="my-4">
+
                                     <div class="row justify-content-between align-items-center mb-3">
                                         <div class="col-8">
-                                            <h4 class="fs-4 fw-bolder user-settings-head">All Programs</h4>
+                                            <h5 class="fw-bold">All programs</h5>
                                         </div>
                                         <div class="col-4 text-end">
-                                            <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add Program</button>
+                                            <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add program</button>
                                         </div>
                                     </div>
 
                                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                                         <thead>
                                             <tr class="align-items-center">
-                                                <th scope="col">Degree Level</th>
-                                                <th scope="col">Program Name</th>
+                                                <th scope="col">Degree level</th>
+                                                <th scope="col">Program name</th>
                                                 <th scope="col">Description</th>
                                                 <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
@@ -89,13 +83,13 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Program</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add program</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree Level" required>
-                                <option value="" selected disabled hidden>Degree Level *</option>
+                            <select class="form-control" id="degree_level" name="degree_level" placeholder="Degree level *" required>
+                                <option value="" selected disabled hidden>Degree level *</option>
                                 @foreach($degree_levels as $degree_level)
                                     <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
                                 @endforeach
@@ -103,8 +97,8 @@
                         </div>
 
                         <div class="mb-3">
-                            <select class="form-control" id="title" name="title" placeholder="Program Name" required>
-                                <option value="" selected disabled hidden>Program Name *</option>
+                            <select class="form-control" id="title" name="title" placeholder="Program name *" required>
+                                <option value="" selected disabled hidden>Program name *</option>
                                 @foreach($programs as $program)
                                     <option value="{{ $program->id }}">{{ $program->name }}</option>
                                 @endforeach
@@ -112,13 +106,13 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="sub_title" aria-describedby="sub_title" placeholder="Description" name="sub_title" required>
+                            <textarea name="sub_title" class="form-control" id="sub_title" rows="5" placeholder="Description *" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Add Program</button>
+                        <button type="submit" class="btn btn-success">Add program</button>
                     </div>
                 </div>
             </div>
@@ -178,7 +172,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Paragraph updated successfully.</h4>
+                        <h4 class="mb-0 text-center">Program details updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

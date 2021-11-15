@@ -12,6 +12,9 @@ use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
+use App\Mail\Frontend\SchoolUpdate;
+use App\Mail\Frontend\UserSchoolUpdate;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class UserSchoolInformationController.
@@ -106,6 +109,21 @@ class UserSchoolInformationController extends Controller
                 'status' => 'Pending'
             ]
         );
+
+        if($request->status == 'Approved') {
+
+            $details = [
+                'name' => $request->name,
+                'website' => $request->website,
+                'country' => $request->country,
+                'school_email' => $request->email,
+                'featured_image' => $featured_image,
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SchoolUpdate($details));
+    
+            Mail::to([auth()->user()->email])->send(new UserSchoolUpdate($details));
+        }
    
         return back()->with('success', 'success');    
     }

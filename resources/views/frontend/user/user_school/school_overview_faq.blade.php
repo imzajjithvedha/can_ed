@@ -19,9 +19,9 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between align-items-center mb-2">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Overview FAQ's</h4>
+                        <h4 class="user-settings-head-faq">Overview FAQ's</h4>
                     </div>
                     <div class="col-4 text-end p-0">
                         <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
@@ -34,20 +34,12 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <!-- <div class="row justify-content-between align-items-center mb-3">
-                                        <div class="col-8">
-                                            <h4 class="fs-4 fw-bolder user-settings-head">Scholarship FAQ's</h4>
-                                        </div>
-                                        <div class="col-4 text-end">
-                                            <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
-                                        </div>
-                                    </div> -->
-
                                     <table class="table table-striped table-bordered" id="faq-table" style="width:100%">
                                         <thead>
                                             <tr class="align-items-center">
                                                 <th scope="col">Question</th>
                                                 <th scope="col">Answer</th>
+                                                <th scope="col">Order</th>
                                                 <th scope="col" style="max-width: 130px;">Options</th>
                                             </tr>
                                         </thead>
@@ -76,11 +68,15 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question" name="question" required>
+                            <input type="text" class="form-control" id="question" aria-describedby="question" placeholder="Question *" name="question" required>
                         </div>
 
                         <div class="mb-3">
-                            <textarea name="answer" id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer" name="answer" required></textarea>
+                            <textarea name="answer" id="answer" rows="5" class="form-control" aria-describedby="answer" placeholder="Answer *" name="answer" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -174,10 +170,11 @@
                 processing: true,
                 ajax: "{{route('frontend.user.get_school_overview_faq')}}",
                 serverSide: true,
-                order: [[1, "asc"]],
+                order: [[2, "asc"]],
                 columns: [
                     {data: 'question', name: 'question'},
                     {data: 'answer', name: 'answer'},
+                    {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

@@ -1,4 +1,4 @@
-<p>Hello, {{ auth()->user()->name }} </p>
+<p>Hello, {{ auth()->user()->name }}</p>
 
 <p style="margin-bottom: 2px;">This is the message to inform that you updated your event details. We will check the changes and approve as soon as possible.</p>
 

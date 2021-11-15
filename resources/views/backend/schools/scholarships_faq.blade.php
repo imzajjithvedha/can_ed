@@ -11,10 +11,10 @@
         <div class="col-md-12 p-1">
             <div class="card">
                 <div class="card-body border">
-                    <div class="p-3">
+                    <div class="px-3">
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8 p-0">
-                                <h4 class="fs-4 fw-bolder user-settings-head mb-0">Scholarships FAQ's</h4>
+                                <h4 class="user-settings-head-faq">Scholarships FAQ's</h4>
                             </div>
                             <div class="col-4 text-end p-0">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createScholarshipFAQ">Add FAQ</button>
@@ -25,7 +25,7 @@
                             <div class="col-12">
                                 <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
                                     <div class="row">
-                                        <div class="col-12 border py-3">
+                                        <div class="col-12 border p-3">
 
                                             <table class="table table-striped table-bordered" id="faq-table" style="width:100%">
                                                 <thead>

@@ -51,6 +51,7 @@ class UserSchoolContactController extends Controller
         $contact->phone = $request->phone;
         $contact->fax = $request->fax;
         $contact->website = $request->website;
+        $contact->orders = $request->orders;
 
         $contact->save();
 
@@ -62,7 +63,9 @@ class UserSchoolContactController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = SchoolContacts::where('user_id', $user_id)->get();
+        $school_id = Schools::where('user_id', $user_id)->first()->id;
+
+        $data = SchoolContacts::where('school_id', $school_id)->get();
 
         if($request->ajax())
             {
@@ -105,6 +108,7 @@ class UserSchoolContactController extends Controller
                 'phone' => $request->phone,
                 'fax' => $request->fax,
                 'website' => $request->website,
+                'orders' => $request->orders,
             ]
         );
         

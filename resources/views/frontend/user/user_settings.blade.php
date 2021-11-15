@@ -21,7 +21,7 @@
             <div class="col-8">
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Account Settings</h4>
+                        <h4 class="user-settings-head">Account Settings</h4>
                         <h6 class="user-settings-sub" style="color: #5e6871">Here you can change your account settings.</h6>
                     </div>
                 </div>

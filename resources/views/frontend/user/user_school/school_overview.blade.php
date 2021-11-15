@@ -19,19 +19,19 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Overview</h4>
+                        <h4 class="user-settings-head">Overview</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-overview" role="tabpanel" aria-labelledby="nav-overview-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_overview_update') }}" class="mb-5" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('frontend.user.school_overview_update') }}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="overview_title_1" class="form-label mb-1">Title 1</label>
@@ -39,7 +39,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_1_paragraph" class="form-label mb-1">Paragraphs for title 1</label>
+                                            <label for="overview_title_1_paragraph" class="form-label mb-1">Title 1 - paragraph</label>
                                             <textarea name="overview_title_1_paragraph" class="ckeditor form-control" id="overview_title_1_paragraph" value="{{ $school->overview_title_1_paragraph }}">{{ $school->overview_title_1_paragraph }}</textarea>
                                         </div>
 
@@ -55,7 +55,7 @@
 
                                         <div class="mb-3">
                                             <div>
-                                                <label class="form-label mb-1">Title 2 bullet points</label>
+                                                <label class="form-label mb-1">Title 2 - bullet points</label>
                                                 @foreach(json_decode($school->overview_title_2_bullets) as $overview_title_2_bullet)
                                                     <div class="mb-4">
                                                         <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="overview_title_2_bullets[]" value="{{ $overview_title_2_bullet }}">
@@ -65,7 +65,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-3-image" class="form-label">Title 3 Image</label>
+                                            <label for="title-3-image" class="form-label">Title 3 - image</label>
 
                                             @if($school->overview_title_3_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -94,7 +94,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_3_link" class="form-label mb-1">Title 3 - Link</label>
+                                            <label for="overview_title_3_link" class="form-label mb-1">Title 3 - link</label>
                                             <input type="url" class="form-control" id="overview_title_3_link" aria-describedby="overview_title_3_link" name="overview_title_3_link" value="{{ $school->overview_title_3_link }}">
                                         </div>
 
@@ -104,7 +104,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_3_date" class="form-label mb-1">Title 3 - Date</label>
+                                            <label for="overview_title_3_date" class="form-label mb-1">Title 3 - date</label>
                                             <input type="text" class="form-control" id="overview_title_3_date" aria-describedby="overview_title_3_date" name="overview_title_3_date" value="{{ $school->overview_title_3_date }}">
                                         </div>
 
@@ -119,7 +119,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-4-image" class="form-label">Title 4 Image</label>
+                                            <label for="title-4-image" class="form-label">Title 4 - image</label>
 
                                             @if($school->overview_title_4_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -163,7 +163,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_6_link" class="form-label mb-1">Title 6 - Link</label>
+                                            <label for="overview_title_6_link" class="form-label mb-1">Title 6 - link</label>
                                             <input type="url" class="form-control" id="overview_title_6_link" aria-describedby="overview_title_6_link" name="overview_title_6_link" value="{{ $school->overview_title_6_link }}">
                                         </div>
 
@@ -188,7 +188,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_8_link" class="form-label mb-1">Title 8 - Link</label>
+                                            <label for="overview_title_8_link" class="form-label mb-1">Title 8 - link</label>
                                             <input type="url" class="form-control" id="overview_title_8_link" aria-describedby="overview_title_8_link" name="overview_title_8_link" value="{{ $school->overview_title_8_link }}">
                                         </div>
 
@@ -198,7 +198,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-9-image" class="form-label">Title 9 Image</label>
+                                            <label for="title-9-image" class="form-label">Title 9 - image</label>
 
                                             @if($school->overview_title_9_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -232,7 +232,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="overview_title_9_link" class="form-label mb-1">Title 9 - Link</label>
+                                            <label for="overview_title_9_link" class="form-label mb-1">Title 9 - link</label>
                                             <input type="url" class="form-control" id="overview_title_9_link" aria-describedby="overview_title_9_link" name="overview_title_9_link" value="{{ $school->overview_title_9_link }}">
                                         </div>
 
@@ -254,10 +254,10 @@
                                         <div class="mb-5 related-programs">
                                             <div class="row align-items-center mb-3">
                                                 <div class="col-8">
-                                                    <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
+                                                    <h6 class="fs-5 fw-bolder user-settings-head">Related programs</h6>
                                                 </div>
                                                 <div class="col-4 text-end">
-                                                    <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram">Add Program</button>
+                                                    <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram">Add program</button>
                                                 </div>
                                             </div>
 
@@ -266,7 +266,7 @@
                                                     <div class="mb-3 single-program border p-3">
                                                         <div class="row mb-3 align-items-center">
                                                             <div class="col-10">
-                                                                <label for="program-name" class="form-label mb-0">Program Name</label>
+                                                                <label for="program-name" class="form-label mb-0">Program name *</label>
                                                             </div>
 
                                                             <div class="col-2 text-end">
@@ -274,16 +274,16 @@
                                                             </div>
                                                         </div>
                                                         
-                                                        <input type="text" class="form-control mb-2" id="program-name" name="programs[]" placeholder="Program Name" value="{{$overview_related_program->name}}" required>
+                                                        <input type="text" class="form-control mb-2" name="programs[]" placeholder="Program name *" value="{{$overview_related_program->name}}" required>
 
-                                                        <label for="program-length" class="form-label">Length</label>
-                                                        <input type="text" class="form-control mb-2" id="program-length" name="length[]" placeholder="Length" value="{{$overview_related_program->length}}" required>
+                                                        <label for="program-length" class="form-label">Length *</label>
+                                                        <input type="text" class="form-control mb-2" name="length[]" placeholder="Length *" value="{{$overview_related_program->length}}" required>
 
-                                                        <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                                                        <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian[]" placeholder="Tuition, Canadian student" value="{{$overview_related_program->canadian}}" required>
+                                                        <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
+                                                        <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian students fee *" value="{{$overview_related_program->canadian}}" required>
 
-                                                        <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                                                        <input type="text" class="form-control mb-2" id="program-international-fee" name="international[]" placeholder="Tuition, international student" value="{{$overview_related_program->international}}" required>
+                                                        <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
+                                                        <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="{{$overview_related_program->international}}" required>
                                                     </div>
                                                 @endforeach
                                             @endif
@@ -306,7 +306,7 @@
 
                                         <div class="mb-3">
                                             <div>
-                                                <label class="form-label mb-1">Title 12 bullet points</label>
+                                                <label class="form-label mb-1">Title 12 - bullet points</label>
                                                 @foreach(json_decode($school->overview_title_12_bullets) as $overview_title_12_bullet)
                                                     <div class="mb-4">
                                                         <input type="text" class="form-control mb-2" id="link_1_name" aria-describedby="link_1" name="overview_title_12_bullets[]" value="{{ $overview_title_12_bullet }}">
@@ -329,7 +329,7 @@
                                     
                                         <div class="text-end">
                                             <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                            <input type="submit" value="Update overview" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update overview details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </form>
                                 </div>
@@ -375,13 +375,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-4">
-                            <input type="text" class="form-control mb-2" id="program-name" name="programs[]" placeholder="Program Name" required>
+                            <input type="text" class="form-control mb-2" id="program-name" name="programs[]" placeholder="Program name *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-length" name="length[]" placeholder="Length" required>
+                            <input type="text" class="form-control mb-2" id="program-length" name="length[]" placeholder="Length *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian[]" placeholder="Tuition, Canadian student" required>
+                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian[]" placeholder="Tuition, Canadian students fee *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international[]" placeholder="Tuition, international student" required>
+                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international[]" placeholder="Tuition, international students fee *" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -418,7 +418,7 @@
             template = `<div class="mb-3 single-program border p-3">
                             <div class="row mb-3 align-items-center">
                                 <div class="col-10">
-                                    <label for="program-name" class="form-label mb-0">Program Name</label>
+                                    <label for="program-name" class="form-label mb-0">Program name *</label>
                                 </div>
 
                                 <div class="col-2 text-end">
@@ -426,16 +426,16 @@
                                 </div>
                             </div>
                             
-                            <input type="text" class="form-control mb-2" name="programs[]" placeholder="Program Name" value="${name}" required>
+                            <input type="text" class="form-control mb-2" name="programs[]" placeholder="Program name *" value="${name}" required>
 
                             <label for="program-length" class="form-label">Length</label>
-                            <input type="text" class="form-control mb-2" name="length[]" placeholder="Length" value="${length}" required>
+                            <input type="text" class="form-control mb-2" name="length[]" placeholder="Length *" value="${length}" required>
 
-                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                            <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian student" value="${canadian}" required>
+                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
+                            <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian students fee *" value="${canadian}" required>
 
-                            <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international student" value="${international}" required>
+                            <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
+                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="${international}" required>
                         </div>`
 
             $('.related-programs').append(template);

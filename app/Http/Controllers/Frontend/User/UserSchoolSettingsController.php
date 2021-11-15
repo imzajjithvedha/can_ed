@@ -20,7 +20,11 @@ class UserSchoolSettingsController extends Controller
      */
     public function SchoolSettings()
     {
-        return view('frontend.user.user_school.school_settings');
+        $user_id = auth()->user()->id;
+
+        $school = Schools::where('user_id', $user_id)->first();
+
+        return view('frontend.user.user_school.school_settings', ['school' => $school]);
     }
 
     

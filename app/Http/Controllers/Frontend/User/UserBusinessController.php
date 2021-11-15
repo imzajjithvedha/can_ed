@@ -8,6 +8,9 @@ use App\Models\Businesses;
 use DB;
 use App\Models\BusinessCategories;
 use App\Models\FavoriteBusinesses;
+use App\Mail\Frontend\BusinessUpdate;
+use App\Mail\Frontend\UserBusinessUpdate;
+use Illuminate\Support\Facades\Mail;
 /**
  * Class UserBusinessController.
  */
@@ -68,6 +71,30 @@ class UserBusinessController extends Controller
                 'image' => $imageName
             ]
         );
+
+        if($request->status == 'Approved') {
+
+            $details = [
+                'name' => $request->name,
+                'category_1' => $request->category_1,
+                'category_2' => $request->category_2,
+                'category_3' => $request->category_3,
+                'description' => $request->description,
+                'contact_name' => $request->contact_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'address' => $request->address,
+                'facebook' => $request->facebook,
+                'twitter' => $request->twitter,
+                'you_tube' => $request->you_tube,
+                'linked_in' => $request->linked_in,
+                'package' => $request->package
+            ];
+    
+            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new BusinessUpdate($details));
+    
+            Mail::to([$request->email])->send(new UserBusinessUpdate($details));
+        }
    
         return redirect()->route('frontend.user.business_dashboard')->with('success', 'success');    
     }

@@ -19,21 +19,22 @@
                                 <input type="text" class="form-control" id="title_1" aria-describedby="title_1" name="title_1" value="{{ $school->programs_title_1 }}">
                             </div>
 
-                            <div class="mb-3">
-                                <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->programs_page_paragraph }}" placeholder="Paragraphs for title 1">{{ $school->programs_page_paragraph }}</textarea>
+                            <div>
+                                <label for="paragraph" class="form-label mb-1">Title 1 - paragraph</label>
+                                <textarea name="paragraph" class="ckeditor form-control" id="paragraph" value="{{ $school->programs_page_paragraph }}">{{ $school->programs_page_paragraph }}</textarea>
                             </div>
 
-                            <div class="text-end">
+                            <div class="mt-5 text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
                                 <input type="submit" value="Update program page" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
 
-                        <hr class="my-4">
+                        <hr class="my-5">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All programs</h4>
+                                <h5 class="fw-bold">All programs</h5>
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add program</button>
@@ -89,8 +90,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" id="sub_title" aria-describedby="sub_title" placeholder="Description *" name="sub_title" required>
+                            <textarea name="sub_title" class="form-control" id="sub_title" rows="5" placeholder="Description *" required></textarea>
                         </div>
+                        
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">

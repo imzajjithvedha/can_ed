@@ -75,22 +75,22 @@
                                     <input type="text" class="form-control" id="admission_title_5" aria-describedby="admission_title_5" name="admission_title_5" value="{{ $school->admission_title_5 }}">
                                 </div>
 
-                                <div class="mb-3">
+                                <div>
                                     <label for="admission_title_5_paragraph" class="form-label mb-1">Paragraphs for title 5</label>
                                     <textarea name="admission_title_5_paragraph" class="ckeditor form-control" id="admission_title_5_paragraph" value="{{ $school->admission_title_5_paragraph }}">{{ $school->admission_title_5_paragraph }}</textarea>
                                 </div>
 
-                                <div class="text-end">
+                                <div class="mt-5 text-end">
                                     <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                    <input type="submit" value="Update admission details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                    <input type="submit" value="Update admission details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                 </div>
                         </form>
 
-                        <hr class="my-4">
+                        <hr class="my-5">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All admission department employees</h4>
+                                <h5 class="fw-bold">All admission department employees</h5>
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createEmployee">Add employee</button>
@@ -150,6 +150,7 @@
                         </div>
 
                         <div class="mb-3">
+                            <label for="image" class="form-label">Employee image *</label>
                             <input type="file" class="form-control" name="featured_image" required>
                         </div>
 

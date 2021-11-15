@@ -46,6 +46,7 @@ class UserSchoolScholarshipFAQController extends Controller
         $faq->school_id = $request->hidden_id;
         $faq->question = $request->question;
         $faq->answer = $request->answer;
+        $faq->orders = $request->orders;
 
 
         $faq->save();
@@ -58,7 +59,9 @@ class UserSchoolScholarshipFAQController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = SchoolScholarshipsFAQ::where('user_id', $user_id)->get();
+        $school_id = Schools::where('user_id', $user_id)->first()->id;
+
+        $data = SchoolScholarshipsFAQ::where('school_id', $school_id)->get();
 
         if($request->ajax())
             {
@@ -96,6 +99,7 @@ class UserSchoolScholarshipFAQController extends Controller
             [
                 'question' => $request->question,
                 'answer' => $request->answer,
+                'orders' => $request->orders,
             ]
         );
         

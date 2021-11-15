@@ -19,19 +19,19 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between align-items-center mb-3">
+                <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Financial</h4>
+                        <h4 class="user-settings-head">Financial</h4>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="school" id="nav-communication" role="tabpanel" aria-labelledby="nav-communication-tab">
+                        <div class="school" id="nav-financial" role="tabpanel" aria-labelledby="nav-financial-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_financial_update') }}" class="mb-5" method="POST">
+                                    <form action="{{ route('frontend.user.school_financial_update') }}" method="POST">
                                         {{csrf_field()}}
                                             <div class="mb-3">
                                                 <label for="financial_title_1" class="form-label mb-1">Title 1</label>
@@ -39,7 +39,7 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="financial_title_1_paragraph" class="form-label mb-1">Paragraphs for title 1</label>
+                                                <label for="financial_title_1_paragraph" class="form-label mb-1">Title 1 - paragraph</label>
                                                 <textarea name="financial_title_1_paragraph" class="ckeditor form-control" id="financial_title_1_paragraph" value="{{ $school->financial_title_1_paragraph }}">{{ $school->financial_title_1_paragraph }}</textarea>
                                             </div>
 
@@ -343,7 +343,7 @@
                                                 <input type="text" class="form-control" id="financial_title_4" aria-describedby="financial_title_4" name="financial_title_4" value="{{ $school->financial_title_4 }}">
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div class="mb-5">
                                                 <label for="financial_title_4_paragraph" class="form-label mb-1">Paragraphs for title 4</label>
                                                 <textarea name="financial_title_4_paragraph" class="ckeditor form-control" id="financial_title_4_paragraph" value="{{ $school->financial_title_4_paragraph }}">{{ $school->financial_title_4_paragraph }}</textarea>
                                             </div>
@@ -351,10 +351,10 @@
                                             <div class="mb-5 related-programs-4">
                                                 <div class="row align-items-center mb-3">
                                                     <div class="col-8">
-                                                        <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
+                                                        <h6 class="fs-5 fw-bolder user-settings-head">Related programs</h6>
                                                     </div>
                                                     <div class="col-4 text-end">
-                                                        <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram4">Add Program</button>
+                                                        <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram4">Add program</button>
                                                     </div>
                                                 </div>
 
@@ -363,7 +363,7 @@
                                                         <div class="mb-3 single-program border p-3">
                                                             <div class="row mb-3 align-items-center">
                                                                 <div class="col-10">
-                                                                    <label for="program-name" class="form-label mb-0">Program Name</label>
+                                                                    <label for="program-name" class="form-label mb-0">Program name</label>
                                                                 </div>
 
                                                                 <div class="col-2 text-end">
@@ -371,16 +371,16 @@
                                                                 </div>
                                                             </div>
                                                             
-                                                            <input type="text" class="form-control mb-2" id="program-name" name="programs4[]" placeholder="Program Name" value="{{$financial_related_program_4->name}}" required>
+                                                            <input type="text" class="form-control mb-2" id="program-name" name="programs4[]" placeholder="Program name *" value="{{$financial_related_program_4->name}}" required>
 
-                                                            <label for="program-length" class="form-label">Length</label>
-                                                            <input type="text" class="form-control mb-2" id="program-length" name="length4[]" placeholder="Length" value="{{$financial_related_program_4->length}}" required>
+                                                            <label for="program-length" class="form-label">Length *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-length" name="length4[]" placeholder="Length *" value="{{$financial_related_program_4->length}}" required>
 
-                                                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                                                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian4[]" placeholder="Tuition, Canadian student" value="{{$financial_related_program_4->canadian}}" required>
+                                                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian students *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian4[]" placeholder="Tuition, Canadian students *" value="{{$financial_related_program_4->canadian}}" required>
 
-                                                            <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                                                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international4[]" placeholder="Tuition, international student" value="{{$financial_related_program_4->international}}" required>
+                                                            <label for="program-international-fee" class="form-label">Tuition, international students *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international4[]" placeholder="Tuition, international students *" value="{{$financial_related_program_4->international}}" required>
                                                         </div>
                                                     @endforeach
                                                 @endif
@@ -401,7 +401,7 @@
                                                 <input type="text" class="form-control" id="financial_title_6" aria-describedby="financial_title_6" name="financial_title_6" value="{{ $school->financial_title_6 }}">
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div class="mb-5">
                                                 <label for="financial_title_6_paragraph" class="form-label mb-1">Paragraphs for title 6</label>
                                                 <textarea name="financial_title_6_paragraph" class="ckeditor form-control" id="financial_title_6_paragraph" value="{{ $school->financial_title_6_paragraph }}">{{ $school->financial_title_6_paragraph }}</textarea>
                                             </div>
@@ -409,10 +409,10 @@
                                             <div class="mb-5 related-programs-6">
                                                 <div class="row align-items-center mb-3">
                                                     <div class="col-8">
-                                                        <h6 class="fs-5 fw-bolder user-settings-head">Related Programs</h6>
+                                                        <h6 class="fs-5 fw-bolder user-settings-head">Related programs</h6>
                                                     </div>
                                                     <div class="col-4 text-end">
-                                                        <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram6">Add Program</button>
+                                                        <button type="button" class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#addProgram6">Add program</button>
                                                     </div>
                                                 </div>
 
@@ -421,7 +421,7 @@
                                                         <div class="mb-3 single-program border p-3">
                                                             <div class="row mb-3 align-items-center">
                                                                 <div class="col-10">
-                                                                    <label for="program-name" class="form-label mb-0">Program Name</label>
+                                                                    <label for="program-name" class="form-label mb-0">Program name *</label>
                                                                 </div>
 
                                                                 <div class="col-2 text-end">
@@ -429,30 +429,30 @@
                                                                 </div>
                                                             </div>
                                                             
-                                                            <input type="text" class="form-control mb-2" id="program-name" name="programs6[]" placeholder="Program Name" value="{{$financial_related_program_6->name}}" required>
+                                                            <input type="text" class="form-control mb-2" id="program-name" name="programs6[]" placeholder="Program name *" value="{{$financial_related_program_6->name}}" required>
 
-                                                            <label for="program-length" class="form-label">Length</label>
-                                                            <input type="text" class="form-control mb-2" id="program-length" name="length6[]" placeholder="Length" value="{{$financial_related_program_6->length}}" required>
+                                                            <label for="program-length" class="form-label">Length *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-length" name="length6[]" placeholder="Length *" value="{{$financial_related_program_6->length}}" required>
 
-                                                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                                                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian6[]" placeholder="Tuition, Canadian student" value="{{$financial_related_program_6->canadian}}" required>
+                                                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian students *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian6[]" placeholder="Tuition, Canadian students *" value="{{$financial_related_program_6->canadian}}" required>
 
-                                                            <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                                                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international6[]" placeholder="Tuition, international student" value="{{$financial_related_program_6->international}}" required>
+                                                            <label for="program-international-fee" class="form-label">Tuition, international students *</label>
+                                                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international6[]" placeholder="Tuition, international students *" value="{{$financial_related_program_6->international}}" required>
                                                         </div>
                                                     @endforeach
                                                 @endif
                                             </div>
 
-                                            <div class="mb-3">
+                                            <div>
                                                 <label for="financial_text_content_1" class="form-label mb-1">Text content 1</label>
                                                 <textarea name="financial_text_content_1" class="ckeditor form-control" id="financial_text_content_1" value="{{ $school->financial_text_content_1 }}">{{ $school->financial_text_content_1 }}</textarea>
                                             </div>
                                             
 
-                                            <div class="text-end">
+                                            <div class="mt-5 text-end">
                                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                                <input type="submit" value="Update financial details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                                <input type="submit" value="Update financial details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                             </div>
                                     </form>
                                 </div>
@@ -496,13 +496,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-4">
-                            <input type="text" class="form-control mb-2" id="program-name4" name="programs4[]" placeholder="Program Name" required>
+                            <input type="text" class="form-control mb-2" id="program-name4" name="programs4[]" placeholder="Program name *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-length4" name="length4[]" placeholder="Length" required>
+                            <input type="text" class="form-control mb-2" id="program-length4" name="length4[]" placeholder="Length *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-canadian-fee4" name="canadian4[]" placeholder="Tuition, Canadian student" required>
+                            <input type="text" class="form-control mb-2" id="program-canadian-fee4" name="canadian4[]" placeholder="Tuition, Canadian students fee *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-international-fee4" name="international4[]" placeholder="Tuition, international student" required>
+                            <input type="text" class="form-control mb-2" id="program-international-fee4" name="international4[]" placeholder="Tuition, international students fee *" required>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -564,7 +564,7 @@
             template1 = `<div class="mb-3 single-program border p-3">
                             <div class="row mb-3 align-items-center">
                                 <div class="col-10">
-                                    <label for="program-name" class="form-label mb-0">Program Name</label>
+                                    <label for="program-name" class="form-label mb-0">Program name *</label>
                                 </div>
 
                                 <div class="col-2 text-end">
@@ -572,16 +572,16 @@
                                 </div>
                             </div>
                             
-                            <input type="text" class="form-control mb-2" name="programs4[]" placeholder="Program Name" value="${name4}" required>
+                            <input type="text" class="form-control mb-2" name="programs4[]" placeholder="Program name *" value="${name4}" required>
 
-                            <label for="program-length" class="form-label">Length</label>
-                            <input type="text" class="form-control mb-2" name="length4[]" placeholder="Length" value="${length4}" required>
+                            <label for="program-length" class="form-label">Length *</label>
+                            <input type="text" class="form-control mb-2" name="length4[]" placeholder="Length *" value="${length4}" required>
 
-                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                            <input type="text" class="form-control mb-2" name="canadian4[]" placeholder="Tuition, Canadian student" value="${canadian4}" required>
+                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
+                            <input type="text" class="form-control mb-2" name="canadian4[]" placeholder="Tuition, Canadian students fee *" value="${canadian4}" required>
 
-                            <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                            <input type="text" class="form-control mb-2" name="international4[]" placeholder="Tuition, international student" value="${international4}" required>
+                            <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
+                            <input type="text" class="form-control mb-2" name="international4[]" placeholder="Tuition, international students fee *" value="${international4}" required>
                         </div>`
 
             $('.related-programs-4').append(template1);

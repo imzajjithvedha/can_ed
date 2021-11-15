@@ -15,7 +15,8 @@
                         <form action="{{ route('admin.schools.school_contacts_paragraph_update') }}" method="POST">
                             {{csrf_field()}}
                             <div class="mb-3">
-                                <textarea name="paragraph" class="form-control" rows="5" value="{{ $school->contacts_page_paragraph }}" placeholder="Paragraph in the contact page">{{ $school->contacts_page_paragraph }}</textarea>
+                                <label for="paragraph" class="form-label mb-1">Main paragraph</label>
+                                <textarea name="paragraph" class="ckeditor form-control" id="paragraph" value="{{ $school->contacts_page_paragraph }}">{{ $school->contacts_page_paragraph }}</textarea>
                             </div>
 
                             <div class="text-end">
@@ -24,11 +25,11 @@
                             </div>
                         </form>
 
-                        <hr class="my-4">
+                        <hr class="my-5">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All contacts</h4>
+                                <h5 class="fw-bold">All contacts</h5>
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createContact">Add contact</button>

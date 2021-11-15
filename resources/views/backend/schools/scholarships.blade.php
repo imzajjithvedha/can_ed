@@ -138,22 +138,22 @@
                                 <input type="url" class="form-control" id="scholarships_title_4_link" aria-describedby="scholarships_title_4_link" name="scholarships_title_4_link" value="{{ $school->scholarships_title_4_link }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="scholarships_title_4_image_name" class="form-label mb-1">Title 4 - image name</label>
                                 <input type="text" class="form-control" id="scholarships_title_4_image_name" aria-describedby="scholarships_title_4_image_name" name="scholarships_title_4_image_name" value="{{ $school->scholarships_title_4_image_name }}">
                             </div>
 
-                            <div class="text-end">
+                            <div class="mt-5 text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
                                 <input type="submit" value="Update scholarships details" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
 
-                        <hr class="my-4">
+                        <hr class="my-5">
 
                         <div class="row justify-content-between align-items-center mb-3">
                             <div class="col-8">
-                                <h4 class="fs-4 fw-bolder user-settings-head">All scholarships</h4>
+                                <h5 class="fw-bold">All scholarships</h5>
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>

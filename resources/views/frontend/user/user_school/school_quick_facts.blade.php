@@ -19,9 +19,9 @@
             </div>
 
             <div class="col-8">
-                <div class="row justify-content-between mb-2">
+                <div class="row justify-content-between">
                     <div class="col-8 p-0">
-                        <h4 class="fs-4 fw-bolder user-settings-head">Quick Facts</h4>
+                        <h4 class="user-settings-head">Quick facts</h4>
                     </div>
                     <!-- <div class="col-4 text-end">
                         <p class="mb-2 required fw-bold">* Indicates required fields</p>
@@ -29,18 +29,18 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-12 border">
-                        <div class="px-2 py-3 school" role="tabpanel">
+                    <div class="col-12">
+                        <div class="school" role="tabpanel" id="nav-quick" role="tabpanel" aria-labelledby="nav-quick-tab">
                             <div class="row">
-                                <div class="col-12">
-                                    <form action="{{ route('frontend.user.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data" style="margin-bottom: 4rem;">
+                                <div class="col-12 border py-3">
+                                    <form action="{{ route('frontend.user.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="quick_facts_title_1" class="form-label mb-1">Title 1</label>
                                             <input type="text" class="form-control" id="quick_facts_title_1" aria-describedby="quick_facts_title_1" name="quick_facts_title_1" value="{{ $school->quick_facts_title_1 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="quick_facts_title_1_paragraph" class="form-label mb-1">Paragraphs for title 1</label>
+                                            <label for="quick_facts_title_1_paragraph" class="form-label mb-1">Title 1 - paragraph</label>
                                             <textarea name="quick_facts_title_1_paragraph" class="ckeditor form-control" id="quick_facts_title_1_paragraph" value="{{ $school->quick_facts_title_1_paragraph }}">{{ $school->quick_facts_title_1_paragraph }}</textarea>
                                         </div>
 
@@ -49,7 +49,7 @@
                                             <input type="text" class="form-control" id="quick_facts_title_2" aria-describedby="quick_facts_title_2" name="quick_facts_title_2" value="{{ $school->quick_facts_title_2 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-2-image" class="form-label">Title 2 Image</label>
+                                            <label for="title-2-image" class="form-label">Title 2 - image</label>
 
                                             @if($school->quick_facts_title_2_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -82,20 +82,22 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="quick_facts_title_2_link" class="form-label mb-1">Title 2 - Link</label>
+                                            <label for="quick_facts_title_2_link" class="form-label mb-1">Title 2 - link</label>
                                             <input type="url" class="form-control" id="quick_facts_title_2_link" aria-describedby="quick_facts_title_2_link" name="quick_facts_title_2_link" value="{{ $school->quick_facts_title_2_link }}">
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div>
                                             <label for="quick_facts_title_2_image_name" class="form-label mb-1">Title 2 - image name</label>
                                             <input type="text" class="form-control" id="quick_facts_title_2_image_name" aria-describedby="quick_facts_title_2_image_name" name="quick_facts_title_2_image_name" value="{{ $school->quick_facts_title_2_image_name }}">
                                         </div>
 
-                                        <div class="text-end">
+                                        <div class="mt-5 text-end">
                                             <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                            <input type="submit" value="Update quick facts paragraphs" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update quick facts details" class="btn rounded-pill text-light px-45 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </form>
+
+                                    <hr class="my-5">
 
 
                                     <form action="{{ route('frontend.user.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">
@@ -108,7 +110,7 @@
                                         <div class="mb-3">
                                             <label for="school-type" class="form-label mb-1">School Type</label>
                                             <select class="form-control" id="school-type" name="school_type" placeholder="School Type">
-                                                <option value="aaa" selected disabled hidden>aaa</option>
+                                                <option value="" selected disabled hidden></option>
                                                 @foreach($school_types as $school_type)
                                                     @if($school->school_type != null)
                                                         <option value="{{ $school_type->id }}" {{ $school_type->id == $school->school_type ? "selected" : "" }}>{{ $school_type->name }}</option>
@@ -467,7 +469,7 @@
                                             </select>
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div>
                                             <label for="service-and-guidance-new-arrivals" class="form-label mb-1">Service and guidance to new arrivals in Canada</label>
                                             <select class="form-control" id="service-and-guidance-new-arrivals" name="service_and_guidance_new_arrivals">
                                                 <option value="" selected disabled hidden></option>
@@ -478,7 +480,7 @@
 
                                         <div class="mt-5 text-center">
                                             <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
-                                            <input type="submit" value="Update quick facts" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update quick facts" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                         </div>
                                     </form>
                                 </div>
@@ -501,7 +503,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Paragraphs updated successfully.</h4>
+                        <h4 class="mb-0 text-center">Quick facts details updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

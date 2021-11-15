@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_overview_update') }}" class="mb-5" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.schools.school_overview_update') }}" method="POST" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="overview_title_1" class="form-label mb-1">Title 1</label>
@@ -302,15 +302,14 @@
                                 <input type="text" class="form-control" id="overview_title_13" aria-describedby="overview_title_13" name="overview_title_13" value="{{ $school->overview_title_13 }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="overview_title_13_paragraph" class="form-label mb-1">Title 13 - paragraph</label>
                                 <textarea name="overview_title_13_paragraph" class="ckeditor form-control" id="overview_title_13_paragraph" value="{{ $school->overview_title_13_paragraph }}">{{ $school->overview_title_13_paragraph }}</textarea>
                             </div>
 
-                        
-                            <div class="text-end">
+                            <div class="mt-5 text-end">
                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                <input type="submit" value="Update overview" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update overview" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>
                     </div>
@@ -366,7 +365,7 @@
             template = `<div class="mb-3 single-program border p-3">
                             <div class="row mb-3 align-items-center">
                                 <div class="col-10">
-                                    <label for="program-name" class="form-label mb-0">Program Name</label>
+                                    <label for="program-name" class="form-label mb-0">Program name *</label>
                                 </div>
 
                                 <div class="col-2 text-end">
@@ -374,16 +373,16 @@
                                 </div>
                             </div>
                             
-                            <input type="text" class="form-control mb-2" name="programs[]" placeholder="Program Name" value="${name}" required>
+                            <input type="text" class="form-control mb-2" name="programs[]" placeholder="Program name *" value="${name}" required>
 
-                            <label for="program-length" class="form-label">Length</label>
-                            <input type="text" class="form-control mb-2" name="length[]" placeholder="Length" value="${length}" required>
+                            <label for="program-length" class="form-label">Length *</label>
+                            <input type="text" class="form-control mb-2" name="length[]" placeholder="Length *" value="${length}" required>
 
-                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian student</label>
-                            <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian student" value="${canadian}" required>
+                            <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
+                            <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian students fee *" value="${canadian}" required>
 
-                            <label for="program-international-fee" class="form-label">Tuition, international student</label>
-                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international student" value="${international}" required>
+                            <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
+                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="${international}" required>
                         </div>`
 
             $('.related-programs').append(template);

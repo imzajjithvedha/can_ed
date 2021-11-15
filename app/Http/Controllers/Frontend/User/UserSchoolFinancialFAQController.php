@@ -42,6 +42,7 @@ class UserSchoolFinancialFAQController extends Controller
         $faq->school_id = $request->hidden_id;
         $faq->question = $request->question;
         $faq->answer = $request->answer;
+        $faq->orders = $request->orders;
 
 
         $faq->save();
@@ -54,7 +55,9 @@ class UserSchoolFinancialFAQController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $data = SchoolFinancialFAQ::where('user_id', $user_id)->get();
+        $school_id = Schools::where('user_id', $user_id)->first()->id;
+
+        $data = SchoolFinancialFAQ::where('school_id', $school_id)->get();
 
         if($request->ajax())
             {
@@ -85,13 +88,13 @@ class UserSchoolFinancialFAQController extends Controller
 
     public function schoolFinancialFAQUpdate(Request $request) {
 
-    
         $user_id = auth()->user()->id;
 
         $faq = DB::table('school_financial_faq')->where('id', request('hidden_id'))->update(
             [
                 'question' => $request->question,
                 'answer' => $request->answer,
+                'orders' => $request->orders,
             ]
         );
         

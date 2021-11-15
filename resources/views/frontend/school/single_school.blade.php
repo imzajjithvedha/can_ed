@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col-3" style="padding-top: 3.7rem;">
-                <h5 class="fw-bolder related-articles">Related articles</h5>
+                <h6 class="fw-bold related-articles">Related articles</h6>
                 <hr class="mt-0">
 
                 <div class="row align-items-center">
@@ -38,7 +38,7 @@
             <div class="col-9">
                 <div class="row align-items-center">
                     <div class="col-10">
-                        <h5 class="fw-bolder">{{ $school->name }}</h5>
+                        <h4 class="fw-bolder">{{ $school->name }}</h4>
                     </div>
                     @auth
                         @if(is_favorite_school( $school->id, auth()->user()->id))
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="col-3 ps-0 text">
-                        <h6 class="text-white p-2" style="background-color: #800000">{{$school->name}} web links</h6>
+                        <h6 class="fw-bold related-articles" style="border-bottom: 2px solid #bd2130;">{{$school->name}} weblinks</h6>
 
                         <div class="row">
                             <div class="col-6 pe-0">
@@ -187,7 +187,7 @@
                                 @if($school->you_tube != null)
                                     <div class="border border-top-0 p-2">
                                         <a href="{{ $school->you_tube }}" class="text-decoration-none" target="_blank">
-                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-youtube me-2 text-primary"></i>YouTube</p>
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-youtube me-2" style="color: red;"></i>YouTube</p>
                                         </a>
                                     </div>
                                 @endif
@@ -323,7 +323,11 @@
                                     <div class="col-3 mb-4">
                                         <div class="single-fact text-center p-3">
                                             <h6 class="fw-bold mb-1">Phone</h6>
-                                            <p class="gray">{{ $school->school_phone }}</p>
+                                            @if($school->school_phone != null)
+                                                <p class="gray">{{ $school->school_phone }}</p>
+                                            @else
+                                                <p class="gray">Not defined</p>
+                                            @endif
                                         </div>
                                     </div>
 
@@ -450,7 +454,7 @@
                                     </div>
                                 @endif
 
-                                @if($school->overview_text_content_1 != null)
+                                <!-- @if($school->overview_text_content_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
                                             <div class="gray p-3" style="background-color: #f2f4f8;">
@@ -458,7 +462,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endif
+                                @endif -->
 
 
                                 @if($school->overview_title_2 != null)
@@ -577,20 +581,15 @@
                                 @if($school->overview_title_8 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <div class="row">
-                                                <div class="col-5">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_8 }}</h5>
-                                                </div>
-                                                <div class="col-7">
-                                                    <div class="gray mb-2">
-                                                        {!! $school->overview_title_8_paragraph !!}
-                                                    </div>
+                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_8 }}</h5>
+                                                
+                                            <div class="gray mb-2">
+                                                {!! $school->overview_title_8_paragraph !!}
+                                            </div>
 
-                                                    <div class="row justify-content-end">
-                                                        <div class="col-3 text-end">
-                                                            <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;">Read more</a>
-                                                        </div>
-                                                    </div>
+                                            <div class="row justify-content-end">
+                                                <div class="col-3 text-end">
+                                                    <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;">Read more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +648,7 @@
                                                 <tbody>
                                                     @foreach(json_decode($school->overview_related_programs) as $related)
                                                         <tr style="font-size: 0.95rem;">
-                                                            <td><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ $related->name }}</td>
+                                                            <td style="word-break: break-all;">{{ $related->name }}</td>
                                                             <td class="text-center">{{ $related->length }}</td>
                                                             <td class="text-center fw-bold">${{ $related->canadian }}</td>
                                                             <td class="text-center fw-bold">${{ $related->international }}</td>
@@ -787,9 +786,9 @@
                                                     @if(count($high_school_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">High school</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">High school</h5>
                                                                 @foreach($high_school_programs as $high_school_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -798,9 +797,9 @@
                                                     @if(count($language_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Language programs</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Language programs</h5>
                                                                 @foreach($language_programs as $language_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -809,9 +808,9 @@
                                                     @if(count($certificate_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Certificate / short term</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Certificate / short term</h5>
                                                                 @foreach($certificate_programs as $certificate_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -820,9 +819,9 @@
                                                     @if(count($summer_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Summer</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Summer</h5>
                                                                 @foreach($summer_programs as $summer_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -831,9 +830,9 @@
                                                     @if(count($community_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Community college</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Community college</h5>
                                                                 @foreach($community_programs as $community_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -842,9 +841,9 @@
                                                     @if(count($bachelor_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Bachelor degree</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Bachelor degree</h5>
                                                                 @foreach($bachelor_programs as $bachelor_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -853,9 +852,9 @@
                                                     @if(count($master_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058">Masters</h5>
+                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Masters</h5>
                                                                 @foreach($master_programs as $master_program)
-                                                                    <p class="gray"><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$master_program->program_id)->first()->name }}</p>
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$master_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -1512,7 +1511,7 @@
                                                 <tbody>
                                                     @foreach(json_decode($school->financial_related_programs_4) as $related4)
                                                         <tr style="font-size: 0.95rem;">
-                                                            <td><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ $related4->name }}</td>
+                                                            <td style="word-break: break-all;">{{ $related4->name }}</td>
                                                             <td class="text-center">{{ $related4->length }}</td>
                                                             <td class="text-center fw-bold">${{ $related4->canadian }}</td>
                                                             <td class="text-center fw-bold">${{ $related4->international }}</td>
@@ -1567,7 +1566,7 @@
                                                 <tbody>
                                                     @foreach(json_decode($school->financial_related_programs_6) as $related6)
                                                         <tr style="font-size: 0.95rem;">
-                                                            <td><i class="fas fa-chevron-right me-2" style="color: #384058"></i>{{ $related6->name }}</td>
+                                                            <td style="word-break: break-all;">{{ $related6->name }}</td>
                                                             <td class="text-center">{{ $related6->length }}</td>
                                                             <td class="text-center fw-bold">${{ $related6->canadian }}</td>
                                                             <td class="text-center fw-bold">${{ $related6->international }}</td>
@@ -2070,7 +2069,7 @@
                                 @if($school->contacts_page_paragraph != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <p class="gray">{{ $school->contacts_page_paragraph }}</p>
+                                            <div class="gray">{!! $school->contacts_page_paragraph !!}</div>
                                         </div>
                                     </div>
                                 @endif
@@ -2084,10 +2083,10 @@
                                 @if(count($contacts) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <table class="table table-striped table-bordered">
+                                            <table class="table table-striped">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col" style="font-size: 1.3rem; font-weight: 800">Contact this school</th>
+                                                        <th scope="col" style="font-size: 1.3rem; font-weight: 800">Contact {{ $school->name }}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>

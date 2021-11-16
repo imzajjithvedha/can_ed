@@ -176,7 +176,7 @@
             </li>
 
             <li class="nav-item nav-dropdown">
-                <a class="nav-link nav-dropdown-toggle href="#">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="nav-icon fas fa-school"></i>
                     School details
                 </a>

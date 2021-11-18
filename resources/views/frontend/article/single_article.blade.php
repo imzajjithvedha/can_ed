@@ -20,7 +20,7 @@
                 
                 <div class="row mt-4 justify-content-between align-items-center">
                     <div class="col-9">
-                        <h5 class="fw-bold">{{ $article->title }}</h5>
+                        <h4 class="fw-bold futura">{{ $article->title }}</h4>
                     </div>
                     @auth
                         @if(is_favorite( $article->id, auth()->user()->id))
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-4 more-articles">
-                <h5 class="fw-bolder">More articles</h5>
+                <h4 class="fw-bolder futura">More articles</h4>
                 <hr>
 
                 @foreach($more_articles as $article)
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="col-6">
-                                <p class="fw-bold gray">{{ $article->title }}</p>
+                                <h6 class="fw-bold gray futura">{{ $article->title }}</h6>
                                 <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{!! $article->description !!}</div>
                             </div>
                         </div>

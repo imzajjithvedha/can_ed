@@ -7,8 +7,8 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Events</h5>
+    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
+        <h4 class="fw-bolder futura">Events</h4>
 
         <div class="row align-items-center">
             <div class="col-10 pe-0">

@@ -12,7 +12,7 @@
 
         <div class="row">
             <div class="col-3" style="padding-top: 3.7rem;">
-                <h6 class="fw-bold related-articles">Related articles</h6>
+                <h6 class="fw-bold related-articles futura">Related articles</h6>
                 <hr class="mt-0">
 
                 <div class="row align-items-center">
@@ -38,7 +38,7 @@
             <div class="col-9">
                 <div class="row align-items-center">
                     <div class="col-10">
-                        <h4 class="fw-bolder">{{ $school->name }}</h4>
+                        <h4 class="fw-bolder futura">{{ $school->name }}</h4>
                     </div>
                     @auth
                         @if(is_favorite_school( $school->id, auth()->user()->id))
@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="col-3 ps-0 text">
-                        <h6 class="fw-bold related-articles" style="border-bottom: 2px solid #bd2130;">{{$school->name}} weblinks</h6>
+                        <h6 class="fw-bold related-articles futura" style="border-bottom: 2px solid #bd2130;">{{$school->name}} Weblinks</h6>
 
                         <div class="row">
                             <div class="col-6 pe-0">
@@ -179,7 +179,7 @@
                                 @if($school->instagram != null)
                                     <div class="border border-top-0 p-2">
                                         <a href="{{ $school->instagram }}" class="text-decoration-none" target="_blank">
-                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-instagram me-2 text-primary"></i>Instagram</p>
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><img src="{{ url('img/frontend/instagram.jpg') }}" alt="" class="img-fluid me-2" style="height: 0.9rem;">Instagram</p>
                                         </a>
                                     </div>
                                 @endif
@@ -208,25 +208,25 @@
                     <div class="col-12">
                         <ul class="nav nav-tabs justify-content-between mb-3 main-nav" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</button>
+                                <button class="nav-link active futura" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</button>
+                                <button class="nav-link futura" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</button>
+                                <button class="nav-link futura" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</button>
+                                <button class="nav-link futura" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financial</button>
+                                <button class="nav-link futura" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financial</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</button>
+                                <button class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                                <button class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
                             </li>
                         </ul>
                         
@@ -454,7 +454,7 @@
                                     </div>
                                 @endif
 
-                                <!-- @if($school->overview_text_content_1 != null)
+                                @if($school->overview_text_content_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
                                             <div class="gray p-3" style="background-color: #f2f4f8;">
@@ -462,7 +462,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endif -->
+                                @endif
 
 
                                 @if($school->overview_title_2 != null)

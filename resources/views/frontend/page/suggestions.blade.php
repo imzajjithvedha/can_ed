@@ -10,7 +10,7 @@
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5 justify-content-center">
             <div class="col-12 mb-5">
-                <h5 class="fw-bolder">Comments / suggestions</h5>
+                <h4 class="fw-bolder futura">Comments / suggestions</h4>
                 <hr>
 
                 <h6 class="fw-bold mb-2" style="text-align: justify">This page is available only in English and French, the official languages of Canada, because it pertains to Canadian laws.</h6>
@@ -30,7 +30,7 @@
 
             <div class="col-8">
 
-                <h5 class="fw-bolder">Feedback form</h5>
+                <h4 class="fw-bolder futura">Feedback form</h4>
 
                 <hr>
 

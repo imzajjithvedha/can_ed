@@ -10,7 +10,7 @@
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5">
             <div class="col-6">
-                <h5 class="fw-bolder">Contact Information</h5>
+                <h4 class="fw-bolder futura">Contact Information</h4>
                 <hr>
 
                 <p class="gray">We communicate with over 100 countries. please write to us in english. thank you for understanding and sorry for inconvenience.</p>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="col-6">
-                <h5 class="fw-bolder">Get in touch</h5>
+                <h4 class="fw-bolder futura">Get in touch</h4>
                 <hr>
                 <div class="text-end">
                     <p class="mb-2 required fw-bold">* Indicates required fields</p>

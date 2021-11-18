@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Online business directory</h5>
+        <h4 class="fw-bolder futura">Online business directory</h4>
         <hr>
     
 
@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="text-center mt-4">
-                            <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn">Search</button>
+                            <button type="submit" class="btn btn-primary px-5 py-2 text-white" id="submit_btn">Search</button>
                         </div>
                     </div>
                 </div>

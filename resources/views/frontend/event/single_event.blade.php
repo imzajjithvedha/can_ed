@@ -27,7 +27,7 @@
 
                 <div class="row mt-4 justify-content-between align-items-center">
                     <div class="col-9">
-                        <h5 class="fw-bold">{{ $event->title }}</h5>
+                        <h4 class="fw-bold futura">{{ $event->title }}</h4>
                     </div>
                     @auth
                         @if(is_favorite_event( $event->id, auth()->user()->id))
@@ -104,24 +104,24 @@
                 <div class="row mt-5">
                     @if($event->url != null)
                         <div class="col-4 text-end">
-                            <a href="{{ $event->url }}" class="text-decoration-none buttons p-2" type="button" target="_blank">Register to the event</a>
+                            <a href="{{ $event->url }}" class="text-decoration-none buttons p-2 futura" type="button" target="_blank" style="font-size: 1.1rem;">Register to the event</a>
                         </div>
 
                         <div class="col-4 text-center">
-                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
+                            <button class="text-decoration-none buttons p-2 futura" type="button" data-bs-toggle="modal" data-bs-target="#organizer" style="font-size: 1.1rem;">Contact organizer</button>
                         </div>
 
                         <div class="col-4 text-start">
-                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2" type="button">Add your event</a>
+                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2 futura" type="button" style="font-size: 1.1rem;">Add your event</a>
                         </div>
 
                     @else
                         <div class="col-6 text-end">
-                            <button class="text-decoration-none buttons p-2" type="button" data-bs-toggle="modal" data-bs-target="#organizer">Contact organizer</button>
+                            <button class="text-decoration-none buttons p-2 futura" type="button" data-bs-toggle="modal" data-bs-target="#organizer" style="font-size: 1.1rem;">Contact organizer</button>
                         </div>
 
                         <div class="col-6 text-start">
-                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2" type="button">Add your event</a>
+                            <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2 futura" type="button" style="font-size: 1.1rem;">Add your event</a>
                         </div>
                     @endif
                 </div>
@@ -129,7 +129,7 @@
             </div>
 
             <div class="col-4">
-                <h5 class="fw-bolder">More events</h5>
+                <h4 class="fw-bolder futura">More events</h4>
                 <hr>
 
                 @foreach($more_events as $more_event)
@@ -144,7 +144,7 @@
                             </div>
 
                             <div class="col-6">
-                                <p class="fw-bold gray">{{ $more_event->title }}</p>
+                                <h6 class="fw-bold gray futura">{{ $more_event->title }}</h6>
                                 <p class="gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $more_event->description }}</p>
                             </div>
                         </div>

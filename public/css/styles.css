@@ -8,7 +8,12 @@
 	font-family: "futura";
 	src: url("../fonts/futura.ttf");
 }
-
+.futura {
+    font-family: Futura;
+}
+.btn {
+    font-family: Futura;
+}
 .fixed-top .navbar li a {
     font-family: "futura", sans-serif!important;
 }

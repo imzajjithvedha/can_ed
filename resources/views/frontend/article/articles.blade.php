@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Articles: to the students</h5>
+        <h4 class="fw-bolder futura">Articles: to the students</h4>
 
         <form action="{{ route('frontend.article_search') }}"  method="POST">
         {{csrf_field()}}
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="col-8">
-                            <h6 class="fw-bolder">{{ $article->title }}</h6>
+                            <h5 class="fw-bolder futura">{{ $article->title }}</h5>
                             <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
 
                             <p class="mt-2">By: Admin</p>

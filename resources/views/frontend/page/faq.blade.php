@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">{{ $faq->title }}</h5>
+        <h4 class="fw-bolder futura">{{ $faq->title }}</h4>
         <hr>
 
     @if($faq->image != null)

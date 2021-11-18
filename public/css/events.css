@@ -8,6 +8,7 @@ hr {
     background-image: -webkit-linear-gradient(top, #CF0411, #660000);
     color: white;
     border: none;
+    font-size: 1.2rem;
 }
 
 .form-control {
@@ -28,8 +29,9 @@ th {
     color: #8898aa;
     border-color: #e9ecef;
     background-color: #f6f9fc;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-align: center;
+    font-family: Futura;
 }
 
 td {

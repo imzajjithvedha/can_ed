@@ -1,6 +1,6 @@
 <div class="fixed-top menu-nav">
     <div class="container-fluid py-2 text-white top-nav">
-        <div class="container p-0">
+        <div class="container">
             <div class="row justify-content-end" id="navbarSupportedContent">
                 <div class="col-8 text-end">
                     <div class="logo position-relative">
@@ -49,8 +49,8 @@
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
-        <div class="container p-0">
-          <a class="navbar-brand text-center text-white fw-bold" href="{{ route('frontend.index') }}" style="font-family: Futura BdCn BT Bold; font-size:1.5625rem; line-height:0.75; letter-spacing: 2px;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->name) }} <br> <span style="font-family: FUTURA LIGHT FONT; font-size:0.875rem; font-style: italic;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->mantra) }}</span></a>
+        <div class="container">
+          <a class="navbar-brand text-center text-white fw-bold futura" href="{{ route('frontend.index') }}" style="font-size:25px; line-height:0.75; letter-spacing: 2px;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->name) }} <br> <span class="futura" style="font-size:14px; font-style: italic;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->mantra) }}</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

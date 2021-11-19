@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">{{ $school->name }} scholarships - Search results</h5>
+        <h4 class="fw-bolder futura">{{ $school->name }} scholarships - Search results</h4>
         <hr>
 
         <div class="scholarships mt-5">

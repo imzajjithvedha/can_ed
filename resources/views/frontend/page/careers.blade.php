@@ -9,7 +9,7 @@
 @section('content')
 
     <div class="container careers" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Careers in Canada</h5>
+        <h4 class="fw-bolder futura">Careers in Canada</h4>
 
         <hr>
 
@@ -88,7 +88,7 @@
             </div>
 
             <div class="col-4">
-                <h5 class="fw-bolder">Helpful articles</h5>
+                <h4 class="fw-bolder futura">Helpful articles</h4>
                 <hr>
 
                 @foreach($more_articles as $article)

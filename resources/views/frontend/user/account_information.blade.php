@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-12 border">
                         <div class="py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
-                            <h5 class="fw-bold mb-2">About you</h5>
+                            <h4 class="fw-bold mb-2 futura">About you</h4>
                                     
                             <form action="{{ route('frontend.user.account_information_update') }}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -56,7 +56,7 @@
                                 </div>
                                     
 
-                                <h5 class="fw-bold mt-5 mb-1">More about you</h5>
+                                <h4 class="fw-bold mt-5 mb-1 futura">More about you</h4>
                                 <p class="mb-2 gray">Tell us more about you.</p>
 
                                 <div class="row mb-3">
@@ -98,7 +98,7 @@
                                 </div>
 
 
-                                <h5 class="fw-bold mt-5 mb-1">Contact information</h5>
+                                <h4 class="fw-bold mt-5 mb-1 futura">Contact information</h4>
                                 <p class="mb-2 gray">Keep your contact details up to date.</p>
 
                                 <div class="row mb-3">

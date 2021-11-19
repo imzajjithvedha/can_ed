@@ -34,7 +34,7 @@
                         <div class="school" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
-                                    <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
                                         {{csrf_field()}}
                                         <div class="row">
                                             <div class="col-12">
@@ -53,7 +53,7 @@
                                                     <input type="email" class="form-control" id="email" aria-describedby="email" name="email" value="{{ $school->school_email }}" required>
                                                 </div>
 
-                                                <div class="mb-5">
+                                                <div class="mb-3">
                                                     <label for="country" class="form-label mb-1">Country *</label>
                                                     <select class="form-control" id="country" name="country" required>
                                                         <option value="" disabled hidden></option>
@@ -306,42 +306,30 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="mb-5">
-                                                    <label for="school_featured_image" class="form-label">School featured image *</label>
-
-                                                    @if($school->featured_image != null)
-                                                        <div class="row justify-content-center mb-3">
-                                                            <div class="col-12">
-                                                                <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
-                                                            </div>
+                                                <div class="form-group featured-image">
+                                                    <label class="form-label">Featured image</label>
+                                                    <div class="input-group" data-toggle="aizuploader" data-type="image">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                                         </div>
-
-                                                        <input type="hidden" class="form-control" name="old_image" value="{{$school->featured_image}}">
-
-                                                        <input type="file" class="form-control" name="featured_image">
-
-                                                    @else
-                                                        <input type="file" class="form-control" name="featured_image" required>
-                                                    @endif
-
+                                                        <div class="form-control file-amount">Choose File</div>
+                                                        <input type="hidden" name="featured_image" value="{{ $school->featured_image}}" class="selected-files" >
+                                                    </div>
+                                                    <div class="file-preview box sm">
+                                                    </div>
                                                 </div>
 
-                                                <div class="mb-5">
-                                                    <label for="school_featured_image" class="form-label">More school images</label>
-
-                                                    @if(count($images) != 0)
-                                                        <div class="row mb-3">
-                                                            @foreach($images as $image)
-                                                                <div class="col-4 mb-3">
-                                                                    <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                    <input type="hidden" class="form-control" name="old_images[]" value="{{$image}}">
-                                                                </div>
-                                                            @endforeach
+                                                <div class="form-group more-school-images">
+                                                    <label class="form-label">More school images</label>
+                                                    <div class="input-group" data-toggle="aizuploader" data-type="video" data-multiple="true">
+                                                        <div class="input-group-prepend">
+                                                            <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                                         </div>
-                                                    @endif
-
-
-                                                    <input type="file" class="form-control" multiple name="new_images[]">
+                                                        <div class="form-control file-amount">Choose File</div>
+                                                        <input type="hidden" name="images" value="{{ $school->images}}" class="selected-files">
+                                                    </div>
+                                                    <div class="file-preview box sm">
+                                                    </div>
                                                 </div>
 
                                                 <div class="mb-3">
@@ -416,7 +404,7 @@
                                                 <div class="mt-5 text-center">
                                                     <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
                                                     <input type="hidden" class="form-control" value="{{$school->status}}" name="status">
-                                                    <input type="submit" value="Update school information" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                                    <input type="submit" value="Update school information" class="btn rounded-pill text-light px-5 py-2 submit" style="background-color: #94ca60;">
                                                 </div>
                                             </div>
                                         </div>
@@ -496,6 +484,49 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        function validateForm() {
+            var count = $(".more-school-images .file-preview .file-preview-item").length;
+            var count_x = $(".featured-image .file-preview .file-preview-item").length;
+
+            if( count > 10 ) { 
+
+                alert('You are only allowed to add 10 images for a school.');
+
+                call();
+                return false;
+
+            }
+            else if(count_x < 1) {
+                alert('You must have a featured image for a school');
+                call();
+                return false;
+            }
+            else { 
+                return true;
+            }    
+        }
+    </script>
+
+    <script>
+        function call (){
+
+            $('.remove-attachment').on('click',function() {
+                $('.submit').removeAttr('disabled','disabled');
+            });
+
+            $('.more-school-images .input-group').on('click',function() {
+                $('.submit').removeAttr('disabled','disabled');
+            });
+
+            $('.featured-image .input-group').on('click',function() {
+                $('.submit').removeAttr('disabled','disabled');
+            });
+
+        };
+        
     </script>
 @endpush
 

@@ -21,6 +21,7 @@ use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
 use App\Http\Controllers\Frontend\SchoolTypeController;
 use App\Http\Controllers\Frontend\VideoController;
+use App\Http\Controllers\Frontend\AizUploadController;
 
 
 
@@ -74,7 +75,7 @@ Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaim
 
 Route::get('schools', [SchoolController::class, 'index'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
-Route::get('schools/single-school/{id}', [SchoolController::class, 'singleSchool'])->name('single_school');
+Route::get('schools/single-school/{id}/{school_name}', [SchoolController::class, 'singleSchool'])->name('single_school');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
 Route::post('schools/single-school/favorite', [SchoolController::class, 'favoriteSchool'])->name('favorite_school');
 
@@ -170,6 +171,15 @@ Route::get('home/articles-search-results/{keyword}',[HomeController::class,'arti
 
 Route::post('school-scholarships/search-result', [SchoolController::class, 'schoolScholarshipSearch'])->name('school_scholarship_search');
 Route::get('school-scholarships-search-results/{id}/{keyword}/{award}/{level}/{available}',[SchoolController::class,'schoolScholarshipSearchFunction'])->name('school_scholarship_search_function');
+
+
+
+Route::post('/aiz-uploader', [AizUploadController::class, 'show_uploader']);
+Route::post('/aiz-uploader/upload', [AizUploadController::class, 'upload']);
+Route::get('/aiz-uploader/get_uploaded_files', [AizUploadController::class, 'get_uploaded_files']);
+Route::post('/aiz-uploader/get_file_by_ids', [AizUploadController::class, 'get_preview_files']);
+Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachment_download'])->name('download_attachment');
+Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_content']);
 
 
 /*

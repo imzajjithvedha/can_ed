@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container school-register" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">School registration request</h5>
+        <h4 class="fw-bolder futura">School registration request</h4>
         <hr>
 
         <form class="mt-5" action="{{ route('frontend.school_register_request') }}" method="POST">

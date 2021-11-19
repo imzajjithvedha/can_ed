@@ -10,7 +10,7 @@
 
     <div class="container mt-5 videos" style="margin-top: 5rem; margin-bottom: 5rem;">
 
-        <h5 class="fw-bolder">Videos</h5>
+        <h4 class="fw-bolder futura">Videos</h4>
         <hr>
 
 

@@ -57,12 +57,12 @@ class SchoolController extends Controller
             $school->user_email = $request->email;
             $school->user_phone = $request->phone;
             $school->message = $request->message;
+            $school->slug = str_replace(" ", "-", $request->name);
             $school->status = 'Pending';
             $school->featured = 'No';
-            $school->images = '[]';
-            $school->overview_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
-            $school->overview_title_12_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
-            $school->admission_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null ]';
+            $school->overview_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null]';
+            $school->overview_title_12_bullets = '[null, null, null, null, null, null, null, null, null, null]';
+            $school->admission_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null]';
 
             $school->save();
 
@@ -92,11 +92,10 @@ class SchoolController extends Controller
         return view('frontend.school.schools', ['schools' => $schools]);
     }
 
-    public function singleSchool($id)
+    public function singleSchool($id, $school_name)
     {
         $school = Schools::where('id', $id)->first();
 
-        $images = json_decode($school->images);
 
         $articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(3)->get();
 
@@ -129,7 +128,6 @@ class SchoolController extends Controller
 
         return view('frontend.school.single_school', [
             'school' => $school,
-            'images' => $images,
             'articles' => $articles,
             'contacts' => $contacts,
             'total_programs' => $total_programs,

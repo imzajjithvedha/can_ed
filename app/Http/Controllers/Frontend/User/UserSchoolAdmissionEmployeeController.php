@@ -36,7 +36,9 @@ class UserSchoolAdmissionEmployeeController extends Controller
         $employee->position = $request->position;
         $employee->description = $request->description;
         $employee->phone = $request->phone;
+        $employee->more_1 = $request->more_1;
         $employee->email = $request->email;
+        $employee->more_2 = $request->more_2;
         $employee->featured = $request->featured;
         $employee->image = $image_call;
         $employee->orders = $request->orders;
@@ -103,7 +105,9 @@ class UserSchoolAdmissionEmployeeController extends Controller
                 'position' => $request->position,
                 'description' => $request->description,
                 'phone' => $request->phone,
+                'more_1' => $request->more_1,
                 'email' => $request->email,
+                'more_2' => $request->more_2,
                 'featured' => $request->featured,
                 'image' => $image_call,
                 'orders' => $request->orders,

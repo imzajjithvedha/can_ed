@@ -10,7 +10,7 @@
 
     <div class="container mt-5 business">
 
-        <h5 class="fw-bolder">Businesses - {{ $category->name }}</h5>
+        <h4 class="fw-bolder futura">Businesses - {{ $category->name }}</h4>
 
         <form action="{{ route('frontend.business_search') }}"  method="POST">
         {{csrf_field()}}

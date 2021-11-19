@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Jobs in Canada</h5>
+        <h4 class="fw-bolder futura">Jobs in Canada</h4>
         <hr>
 
         <p class="gray">We follow the canadian national occupational classification (noc) developed by employment and social development canada <a href="https://noc.esdc.gc.ca/Home/AboutTheNoc/be5dedb6d2cb44b48b41662382fb28ab" class="text-decoration-none">read more about the noc</a></p>

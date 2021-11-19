@@ -142,11 +142,19 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="number" class="form-control" id="phone" aria-describedby="phone" placeholder="Telephone *" name="phone" required>
+                            <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Telephone *" name="phone" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="more_1" aria-describedby="more_1" placeholder="More_1 *" name="more_1" required>
                         </div>
 
                         <div class="mb-3">
                             <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email *" name="email" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="more_2" aria-describedby="more_2" placeholder="More_2 *" name="more_2" required>
                         </div>
 
                         <div class="mb-3">

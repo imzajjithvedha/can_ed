@@ -65,7 +65,7 @@
                         <tbody>
                             @foreach($filteredDirectory as $directory)
                                 <tr>
-                                    <th scope="row">{{ $directory->name}}</th>
+                                    <td scope="row">{{ $directory->name}}</td>
                                     <td>{{ $directory->address}}</td>
                                     <td>{{ $directory->city}}</td>
                                     <td>{{ $directory->province}}</td>

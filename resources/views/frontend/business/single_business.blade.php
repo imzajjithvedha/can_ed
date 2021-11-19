@@ -14,7 +14,7 @@
             <div class="col-8">
                 <div class="row">
                     <div class="col-8">
-                        <h5 class="fw-bolder">{{ $business->name }}</h5>
+                        <h4 class="fw-bolder futura">{{ $business->name }}</h4>
                     </div>
 
                     @auth
@@ -90,7 +90,7 @@
                     <div class="col-12">
                         <div class="tab-button-outer">
                             <ul id="tab-button">
-                                <li><a><b>Quick facts</b></a></li>
+                                <li><a><b class="futura">Quick facts</b></a></li>
                             </ul>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
             </div>
 
             <div class="col-3">
-                <h5 class="fw-bolder">Related businesses</h5>
+                <h4 class="fw-bolder futura">Related businesses</h4>
                 <hr>
 
                 @foreach($more_businesses as $more_business)
@@ -160,7 +160,7 @@
                                 <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
                             @endif
                             <div class="card-body text-center">
-                                <h6 class="card-title fw-bold gray">{{ $more_business->name }}</h6>
+                                <h6 class="card-title fw-bold gray futura">{{ $more_business->name }}</h6>
                             </div>
                         </a>
                     </div>

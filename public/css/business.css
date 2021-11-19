@@ -57,18 +57,20 @@
 
 #tab-button li a {
     display: block;
-    padding: .5em;
+    padding: 0.3rem;
     background: white;
     border: 1px solid #ddd;
     text-align: center;
     color: #000;
     text-decoration: none;
     border-top: 5px solid #b1040e;
+    font-size: 1.3rem;
 }
 
 #details h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
+    font-family: Futura;
 }
 
 #details p {

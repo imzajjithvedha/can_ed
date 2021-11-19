@@ -89,9 +89,10 @@ hr {
 
 /* Single school Styles */
 .related-articles {
-    background: #dbdbdb;
+    background: #b1040e;
     padding: 0.8rem;
     text-align: center;
+    color: white;
 }
 .swiper-button-next, .swiper-button-prev {
     color: white;

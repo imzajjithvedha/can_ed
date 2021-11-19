@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">{{ $type }}</h5>
+        <h4 class="fw-bolder futura">{{ $type }}</h4>
 
         <form action="{{ route('frontend.school_search') }}"  method="POST">
         {{csrf_field()}}

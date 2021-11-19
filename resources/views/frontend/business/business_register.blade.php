@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Register a business</h5>
+        <h4 class="fw-bolder futura">Register a business</h4>
         <hr>
 
         <form class="mt-5" action="{{ route('frontend.business_register_request') }}" method="POST" enctype="multipart/form-data">

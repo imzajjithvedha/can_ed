@@ -10,7 +10,7 @@
 
     <div class="container mt-5 schools">
 
-        <h5 class="fw-bolder">Schools</h5>
+        <h4 class="fw-bolder futura">Schools</h4>
 
         <form action="{{ route('frontend.school_search') }}" method="POST">
             {{ csrf_field() }}
@@ -37,9 +37,9 @@
                 @foreach($schools as $school)
                     <div class="col-3 mb-4">
                         <div class="card">
-                            <a href="{{ route('frontend.single_school', $school->id) }}" class="text-decoration-none">
+                            <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="text-decoration-none">
                                 @if($school->featured_image != null)
-                                    <img src="{{ url('images/schools', $school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 10rem; object-fir: cover;" alt="...">
+                                    <img src="{{ uploaded_asset($school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 10rem; object-fir: cover;" alt="...">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif

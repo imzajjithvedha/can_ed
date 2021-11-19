@@ -18,10 +18,16 @@ hr {
 }
 
 th {
-    text-align: center!important;
-    
+    color: #8898aa;
+    border-color: #e9ecef;
+    background-color: #f6f9fc;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: Futura;
 }
 
 td {
+    font-size: 0.95rem!important;
     text-align: center;
+    vertical-align: middle!important;
 }

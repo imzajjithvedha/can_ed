@@ -50,8 +50,18 @@
                             </div>
             
                             <div class="mb-3">
+                                <label for="more_1" class="form-label">More_1 *</label>
+                                <input type="text" class="form-control" id="more_1" aria-describedby="more_1" placeholder="More_1 *" name="more_1" value="{{ $employee->more_1 }}" required>
+                            </div>
+            
+                            <div class="mb-3">
                                 <label for="email" class="form-label">Email *</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email *" name="email" value="{{ $employee->email }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="more_2" class="form-label">More_2 *</label>
+                                <input type="text" class="form-control" id="more_2" aria-describedby="more_2" placeholder="More_2 *" name="more_2" value="{{ $employee->more_2 }}" required>
                             </div>
 
                             <div class="mb-3">

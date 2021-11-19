@@ -10,7 +10,7 @@
 
     <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
-        <h5 class="fw-bolder">Business categories</h5>
+        <h4 class="fw-bolder futura">Business categories</h4>
 
         <form action="{{ route('frontend.category_search') }}"  method="POST">
         {{csrf_field()}}

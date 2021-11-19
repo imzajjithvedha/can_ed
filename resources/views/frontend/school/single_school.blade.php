@@ -11,22 +11,22 @@
     <div class="container mt-5 single-school">
 
         <div class="row">
-            <div class="col-3" style="padding-top: 3.7rem;">
-                <h6 class="fw-bold related-articles futura">Related articles</h6>
-                <hr class="mt-0">
+            <div class="col-3" style="padding-top: 4rem;">
+                <h6 class="fw-bold related-articles futura mb-4">Related articles</h6>
+                
 
                 <div class="row align-items-center">
                     @foreach($articles as $article)
                         <div class="col-12 mb-3">
                             <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                <div class="card">
+                                <div class="card border-0">
                                     @if($article->image != null)
                                         <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @else
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @endif
-                                    <div class="card-body text-center">
-                                        <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                    <div class="card-body text-center p-2">
+                                        <h6 class="card-title fw-bold gray futura">{{ $article->title }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -71,25 +71,36 @@
 
                 <div class="row mb-3">
                     <div class="col-9">
-                        @if(count($images) > 0)
+                        @if($school->images != null)
                             <div class="swiper mySwiper">
                                 <div class="swiper-wrapper">
-                                    @foreach($images as $image)
-                                        <div class="swiper-slide">
-                                            <img src="{{ url('images/schools', $image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
-                                        </div>
+                                    @php
+                                        $str_arr = preg_split ("/\,/", $school->images);
+                                    @endphp
+                                    @foreach($str_arr as $key => $image)
+                                        @if(App\Models\Upload::where('id', $image)->first()->extension == 'mp4')
+                                            <div class="swiper-slide">
+                                                <video controls style="height: 20.3rem; width: 100%;">
+                                                    <source src="{{ uploaded_asset($image) }}" type="video/mp4">
+                                                </video>
+                                            </div>
+                                        @else
+                                            <div class="swiper-slide">
+                                                <img src="{{ uploaded_asset($image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
+                                            </div>
+                                        @endif
                                     @endforeach
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
                             </div>
                         @else
-                            <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
+                            <img src="{{ uploaded_asset($school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
                         @endif
                     </div>
 
                     <div class="col-3 ps-0 text">
-                        <h6 class="fw-bold related-articles futura" style="border-bottom: 2px solid #bd2130;">{{$school->name}} Weblinks</h6>
+                        <h6 class="fw-bold related-articles futura">{{$school->name}} Weblinks</h6>
 
                         <div class="row">
                             <div class="col-6 pe-0">
@@ -193,7 +204,7 @@
                                 @endif
 
                                 @if($school->linked_in != null)
-                                    <div class="border p-2">
+                                    <div class="border border-top-0 p-2">
                                         <a href="{{ $school->linked_in }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-linkedin me-2 text-primary"></i>LinkedIn</p>
                                         </a>
@@ -208,25 +219,25 @@
                     <div class="col-12">
                         <ul class="nav nav-tabs justify-content-between mb-3 main-nav" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link active futura" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</button>
+                                <a href="#tab-quick-facts" class="nav-link active futura" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</button>
+                                <a href="#tab-overview" class="nav-link futura" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</button>
+                                <a href="#tab-programs" class="nav-link futura" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</button>
+                                <a href="#tab-admissions" class="nav-link futura" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financial</button>
+                                <a href="#tab-financial" class="nav-link futura" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financials</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</button>
+                                <a href="#tab-scholarships" class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>
+                                <a href="#tab-contact" class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
                             </li>
                         </ul>
                         
@@ -359,6 +370,50 @@
                                             <p class="gray">{{ $school->country }}</p>
                                         </div>
                                     </div>
+
+                                    <div class="col-3 mb-4">
+                                        <div class="single-fact text-center p-3">
+                                            <h6 class="fw-bold mb-1">Address</h6>
+                                            @if($school->address != null)
+                                                <p class="gray">{{ $school->address }}</p>
+                                            @else
+                                                <p class="gray">Not defined</p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 mb-4">
+                                        <div class="single-fact text-center p-3">
+                                            <h6 class="fw-bold mb-1">Address</h6>
+                                            @if($school->address != null)
+                                                <p class="gray">{{ $school->address }}</p>
+                                            @else
+                                                <p class="gray">Not defined</p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 mb-4">
+                                        <div class="single-fact text-center p-3">
+                                            <h6 class="fw-bold mb-1">Address</h6>
+                                            @if($school->address != null)
+                                                <p class="gray">{{ $school->address }}</p>
+                                            @else
+                                                <p class="gray">Not defined</p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3 mb-4">
+                                        <div class="single-fact text-center p-3">
+                                            <h6 class="fw-bold mb-1">Address</h6>
+                                            @if($school->address != null)
+                                                <p class="gray">{{ $school->address }}</p>
+                                            @else
+                                                <p class="gray">Not defined</p>
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
 
                                 @if($school->quick_facts_title_1 != null)
@@ -392,7 +447,9 @@
                                                     <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->quick_facts_title_2_paragraph }}</p>
 
                                                     @if($school->quick_facts_title_2_button != null)
-                                                        <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white">{{ $school->quick_facts_title_2_button }}</a>
+                                                        <div class="text-end">
+                                                            <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->quick_facts_title_2_button }}</a>
+                                                        </div>
                                                     @endif
                                                 </div>
                                             </div>
@@ -427,13 +484,13 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -503,7 +560,7 @@
                                                             <p class="gray">{{ $school->overview_title_3_date }}</p>
                                                         </div>
                                                         <div class="col-2 text-end">
-                                                            <a href="{{ $school->overview_title_3_link }}" class="gray"><i class="fas fa-long-arrow-alt-right"></i></a>
+                                                            <a href="{{ $school->overview_title_3_link }}" class="gray" target="_blank"><i class="fas fa-long-arrow-alt-right"></i></a>
                                                         </div>
                                                     </div>
 
@@ -553,7 +610,7 @@
                                             </div>
 
                                             <div class="text-end">
-                                                <a href="{{ $school->overview_title_6_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem"><span style="color: red;">{{ $school->overview_title_6_button }}</span><i class="fas fa-long-arrow-alt-right gray ms-3"></i></a>
+                                                <a href="{{ $school->overview_title_6_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem" target="_blank"><span style="color: red;">{{ $school->overview_title_6_button }}</span><i class="fas fa-long-arrow-alt-right gray ms-3"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -561,7 +618,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -589,7 +646,7 @@
 
                                             <div class="row justify-content-end">
                                                 <div class="col-3 text-end">
-                                                    <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;">Read more</a>
+                                                    <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;" target="_blank">Read more</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -612,7 +669,9 @@
 
                                                     <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_9_paragraph }}</p>
 
-                                                    <a href="{{ $school->overview_title_9_link }}" class="btn red-btn text-white">{{ $school->overview_title_9_button }}</a>
+                                                    <div class="text-end">
+                                                        <a href="{{ $school->overview_title_9_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_9_button }}</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -729,7 +788,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -760,7 +819,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -786,7 +845,7 @@
                                                     @if(count($high_school_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">High school</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058;">High school</h5>
                                                                 @foreach($high_school_programs as $high_school_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -797,7 +856,7 @@
                                                     @if(count($language_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Language programs</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058;">Language programs</h5>
                                                                 @foreach($language_programs as $language_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -808,7 +867,7 @@
                                                     @if(count($certificate_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Certificate / short term</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Certificate / short term</h5>
                                                                 @foreach($certificate_programs as $certificate_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -819,7 +878,7 @@
                                                     @if(count($summer_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Summer</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Summer</h5>
                                                                 @foreach($summer_programs as $summer_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -830,7 +889,7 @@
                                                     @if(count($community_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Community college</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Community college</h5>
                                                                 @foreach($community_programs as $community_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -841,7 +900,7 @@
                                                     @if(count($bachelor_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Bachelor degree</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Bachelor degree</h5>
                                                                 @foreach($bachelor_programs as $bachelor_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -852,7 +911,7 @@
                                                     @if(count($master_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold" style="color: #384058; font-family: FUTURA LIGHT FONT;">Masters</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Masters</h5>
                                                                 @foreach($master_programs as $master_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$master_program->program_id)->first()->name }}</p>
                                                                 @endforeach
@@ -867,7 +926,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -898,7 +957,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1003,7 +1062,24 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
+                                                            <div class="row mb-2">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">More 1</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->more_1 }}</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row mb-2">
                                                                 <div class="col-4">
                                                                     <div class="row">
                                                                         <div class="col-10">
@@ -1020,6 +1096,23 @@
                                                                 </div>
                                                             </div>
 
+                                                            <div class="row">
+                                                                <div class="col-4">
+                                                                    <div class="row">
+                                                                        <div class="col-10">
+                                                                            <p class="fw-bold">More 2</p>
+                                                                        </div>
+                                                                        <div class="col-1 p-0">
+                                                                            <p class="fw-bold">:</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-8">
+                                                                    <p class="gray">{{ $admission_employee->more_2 }}</p>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1030,14 +1123,14 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1122,43 +1215,7 @@
                                 @endif
 
 
-                                @if(count($admission_featured_employees) > 0)
-                                    <div class="row mb-5">
-                                        @foreach($admission_featured_employees as $admission_featured_employee)
-                                            <div class="col-4">
-                                                <div class="card" style="height: 22rem;">
-                                                    <img src="{{ url('images/schools', $admission_featured_employee->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-
-                                                    <div class="card-body p-3">
-                                                    <h6 class="fw-bold mb-1" style="color: #384058">{{ $admission_featured_employee->name }}</h6>
-                                                    <p class="gray fw-bold">{{ $admission_featured_employee->position }}</p>
-                                                    <p class="gray mb-1" style="font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $admission_featured_employee->description }}</p>
-
-                                                    <div class="row align-items-center">
-                                                        <div class="col-1">
-                                                            <i class="fas fa-phone-alt gray" style="font-size: 0.8rem;"></i>
-                                                        </div>
-                                                        <div class="col-10 ps-2">
-                                                            <p class="gray" style="font-size: 0.8rem;">{{ $admission_featured_employee->phone }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row align-items-center">
-                                                        <div class="col-1">
-                                                            <i class="far fa-envelope gray" style="font-size: 0.8rem;"></i>
-                                                        </div>
-                                                        <div class="col-10 ps-2">
-                                                            <p class="gray" style="font-size: 0.8rem;">{{ $admission_featured_employee->email }}</p>
-                                                        </div>
-                                                    </div>
-                                                    </div>
-
-                                                    
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
+                                
 
 
                                 @if(count($admission_faqs) > 0)
@@ -1188,7 +1245,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -1219,7 +1276,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1257,7 +1314,7 @@
                                                     <button class="nav-link" id="financial-tab-tab3" data-bs-toggle="tab" data-bs-target="#financial-tab3" type="button" role="tab" aria-controls="contact" aria-selected="false">{{ $school->financial_title_2_tab_3 }}</button>
                                                 </li>
                                             </ul>
-                                            <div class="tab-content" id="myTabContent">
+                                            <div class="tab-content">
 
                                                 <div class="tab-pane fade show active" id="financial-tab1" role="tabpanel" aria-labelledby="financial-tab-tab1">
 
@@ -1475,7 +1532,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1615,7 +1672,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -1646,7 +1703,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1680,7 +1737,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -1907,7 +1964,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -1940,7 +1997,9 @@
 
                                                     <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_2_paragraph }}</p>
 
-                                                    <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white">{{ $school->scholarships_title_2_button }}</a>
+                                                    <div class="text-end">
+                                                        <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_2_button }}</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1989,7 +2048,10 @@
 
                                                     <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_4_paragraph }}</p>
 
-                                                    <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white">{{ $school->scholarships_title_4_button }}</a>
+                                                    <div class="text-end">
+                                                        <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_4_button }}</a>
+                                                    </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -2025,7 +2087,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -2057,7 +2119,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
 
@@ -2076,7 +2138,7 @@
 
                                 <div class="row justify-content-center mb-5">
                                     <div class="col-7 text-center">
-                                        <a href="" class="btn text-white red-btn w-100 py-3">Need help planning your career?</a>
+                                        <a href="#" class="btn text-white red-btn w-100 py-3" target="_blank">Need help planning your career?</a>
                                     </div>
                                 </div>
 
@@ -2100,7 +2162,7 @@
                                                                 <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
                                                                 <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
                                                                 <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">Website: <span style="color: #bd2130">{{ $contact->website }}</span></p>
+                                                                <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -2112,7 +2174,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <a class="btn text-white fw-bold red-btn w-100 py-3">Let's apply</a>
+                                        <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
                                 
@@ -2139,5 +2201,43 @@
           prevEl: ".swiper-button-prev",
         },
       });
+    </script>
+
+
+    <script type='text/javascript'>
+
+        var hash = location.hash.replace(/^#/, '');
+
+        if (hash) {
+            $('.main-nav a[href="#' + hash + '"]').tab('show');
+        } 
+
+
+        $('.main-nav a').on('shown.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+
+            // window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        })
+
+        $(document).ready(function() {
+            $('.main-nav').children('li').each(function () {
+                if($(this).find('a').hasClass('active')) {
+                    let id = $(this).find('a').attr('id');
+
+                    $('#myTabContent').children('div').each(function () {
+                        if($(this).attr('aria-labelledby') == id) {
+                            $(this).addClass('active');
+                            $(this).addClass('show')
+                        }
+                        else {
+                            $(this).removeClass('active');
+                            $(this).removeClass('show');
+                        }
+                    });
+                }
+            });
+        });
+        
     </script>
 @endpush

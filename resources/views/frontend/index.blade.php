@@ -102,10 +102,10 @@
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_school', $featured_school->id) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_school', [$featured_school->id, $featured_school->slug]) }}" class="text-decoration-none">
                             <div class="card">
                                 @if($featured_school->featured_image != null)
-                                    <img src="{{ url('images/schools', $featured_school->featured_image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                    <img src="{{ uploaded_asset($featured_school->featured_image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif

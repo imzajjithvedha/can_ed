@@ -26,6 +26,7 @@ class CreateSchoolsTable extends Migration
             $table->text('school_phone')->nullable();
             $table->text('country');
             $table->text('message')->nullable();
+            $table->text('slug');
             $table->text('status');
             $table->text('featured');
             $table->text('featured_image')->nullable();

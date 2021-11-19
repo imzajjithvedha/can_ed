@@ -8,6 +8,7 @@ hr {
     background-image: -webkit-linear-gradient(top, #CF0411, #660000);
     color: white;
     border: none;
+    font-size: 1.2rem;
 }
 
 .form-control {

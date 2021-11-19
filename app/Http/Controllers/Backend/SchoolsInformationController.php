@@ -35,50 +35,14 @@ class SchoolsInformationController extends Controller
 
     public function schoolInformationUpdate(Request $request) {
 
-        $featured = $request->file('featured_image');
-
-        if($featured != null) {
-            $featured_image = time().'_'.rand(1000,10000).'.'.$featured->getClientOriginalExtension();
-            
-            $featured->move(public_path('images/schools'), $featured_image);
-        } 
-        else {
-            $featured_image = $request->old_image;
-        }
-
-        $images = [];
-
-        if($request->hasFile('new_images'))
-         {
-
-            foreach($request->file('new_images') as $image)
-            {
-                $name= time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-
-                $image->move(public_path('images/schools'), $name); 
-
-                array_push($images, $name); 
-            }
-         }
-        else {
-
-            if($request->old_images != null) {
-                $images = $request->old_images;
-            }
-            else {
-                $images = [];
-            }
-        }
-
-
         $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
                 'website' => $request->website,
                 'country' => $request->country,
                 'school_email' => $request->email,
-                'featured_image' => $featured_image,
-                'images' => json_encode($images),
+                'featured_image' => $request->featured_image,
+                'images' => $request->images,
                 'facebook' => $request->facebook,
                 'instagram' => $request->instagram,
                 'twitter' => $request->twitter,

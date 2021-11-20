@@ -108,7 +108,8 @@ class AizUploadController extends Controller
                     }
                 }
 
-                $path = $request->file('aiz_file')->store('uploads/all', 'local');
+                $path = $request->file('aiz_file')->store('uploads', 'local');
+
                 $size = $request->file('aiz_file')->getSize();
 
                 if($type[$extension] == 'image'){

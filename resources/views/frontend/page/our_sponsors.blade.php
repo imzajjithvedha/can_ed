@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Our Sponsors')
+@section('title', 'Our sponsors')
 
 @push('after-styles')
     <link href="{{ url('css/about_us.css') }}" rel="stylesheet">

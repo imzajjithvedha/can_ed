@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         $school_types = SchoolTypes::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
-        $degree_levels = DegreeLevels::where('status', 'Approved')->orderBy('name', 'asc')->get();
+        $degree_levels = DegreeLevels::where('status', 'Approved')->orderBy('orders', 'asc')->get();
 
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'asc')->get();
 

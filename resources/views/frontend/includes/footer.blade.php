@@ -38,25 +38,6 @@
                 <a href="#">link-6</a><br>
                 <a href="#">link-7</a><br>
             </div>
-
-            <!-- <div class="col-3">
-                <h6 class="p-2 fw-bolder">Subscribe our newsletter</h6>
-                <hr>
-                <div class="row">
-                    <div class="col-7 pe-0">
-                        <input type="email" class="form-control" id="subscribe_email" aria-describedby="email" placeholder="Your email">
-                    </div>
-                    <div class="col-5 ps-0">
-                        <button class="btn text-white" style="background-color: #dc3545">Subscribe</button>
-                    </div>
-                </div>
-            </div> -->
-
-
-            <!-- <div class="col-2 text-center">
-                <a href="{{ route('frontend.index') }}" class="footer-logo"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid mb-3" style="height: 8rem;"></a>
-                <a href="{{ route('frontend.site_map') }}">Site Map</a>
-            </div> -->
         </div>
     </div>
 </div>

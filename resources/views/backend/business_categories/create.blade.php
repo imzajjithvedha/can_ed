@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Create New Business Category | Admin'))
+@section('title', __('Create new business category | Admin'))
 
 @section('content')
 

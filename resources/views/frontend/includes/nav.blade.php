@@ -9,10 +9,10 @@
                     <ul class="me-auto nav justify-content-end">
                         @auth
                             <li class="nav-item border-end px-2 border-end">
-                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a School</a>
+                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a school</a>
                             </li>
                             <li class="nav-item border-end px-2 border-end">
-                                <a class="nav-link text-white" href="{{ route('frontend.business_register') }}">Register a Business</a>
+                                <a class="nav-link text-white" href="{{ route('frontend.business_register') }}">Register a business</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,8 +23,8 @@
                                   @endif
                                   </a>
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ route('frontend.user.account_dashboard') }}">My Account</a>
-                                    <a class="dropdown-item" href="{{route('frontend.auth.logout')}}">Log Out</a>
+                                    <a class="dropdown-item" href="{{ route('frontend.user.account_dashboard') }}">My account</a>
+                                    <a class="dropdown-item" href="{{route('frontend.auth.logout')}}">Log out</a>
                                   </div>
                             </li>
                         @else
@@ -32,13 +32,13 @@
                                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.register') }}">Create Account</a>
                             </li> -->
                             <li class="nav-item border-end px-2 border-end">
-                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.login') }}">Register a School</a>
+                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.login') }}">Register a school</a>
                             </li>
                             <li class="nav-item border-end px-2 border-end">
-                                <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Register a Business</a>
+                                <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Register a business</a>
                             </li>
                             <li class="nav-item ps-2 pe-0">
-                                <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Log In</a>
+                                <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Log in</a>
                             </li>
                         @endauth
                         

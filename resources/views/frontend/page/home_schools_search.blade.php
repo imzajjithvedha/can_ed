@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Schools - Search Results')
+@section('title', 'Schools - search results')
 
 @push('after-styles')
     <link href="{{ url('css/search.css') }}" rel="stylesheet">
@@ -10,7 +10,7 @@
 
     <div class="container mt-5 business">
 
-        <h5 class="fw-bolder">Schools - Search Results</h5>
+        <h4 class="fw-bolder futura">Schools - search results</h4>
 
         <form action="{{ route('frontend.school_search') }}" method="POST">
             {{ csrf_field() }}
@@ -19,7 +19,7 @@
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search Schools" name="keyword">
+                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search schools" name="keyword">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>

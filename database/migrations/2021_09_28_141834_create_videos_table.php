@@ -32,6 +32,6 @@ class CreateVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('featured_videos');
+        Schema::dropIfExists('videos');
     }
 }

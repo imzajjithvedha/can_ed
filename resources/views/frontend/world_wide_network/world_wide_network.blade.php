@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'World Wide Network')
+@section('title', 'World wide network')
 
 @push('after-styles')
     <link href="{{ url('css/world_wide_network.css') }}" rel="stylesheet">

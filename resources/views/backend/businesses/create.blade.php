@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Create New Business | Admin'))
+@section('title', __('Create new business | Admin'))
 
 @section('content')
 
@@ -151,7 +151,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" id="featured" name="featured" placeholder="Featured?">
-                                    <option value="" selected disabled hidden>Do you want to show this article in the homepage? *</option>
+                                    <option value="" selected disabled hidden>Do you want to show this business in the homepage? *</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>

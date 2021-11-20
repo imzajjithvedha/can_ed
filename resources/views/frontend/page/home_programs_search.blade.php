@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Language Programs')
+@section('title', 'Programs - search results')
 
 @push('after-styles')
     <link href="{{ url('css/search.css') }}" rel="stylesheet">
@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
-        <h5 class="fw-bolder">Programs - Search Results</h5>
+        <h4 class="fw-bolder futura">Programs - search results</h4>
         <hr>
     </div>
 
@@ -18,8 +18,8 @@
                 <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                     <thead>
                         <tr class="align-items-center">
-                            <th scope="col">Program Name</th>
-                            <th scope="col">School Name</th>
+                            <th scope="col">Program name</th>
+                            <th scope="col">School name</th>
                             <th scope="col">Description</th>
                             <th scope="col" style="max-width: 150px;"></th>
                         </tr>

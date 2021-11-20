@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Comments/ Suggestions')
+@section('title', 'Comments/ suggestions')
 
 @push('after-styles')
     <link href="{{ url('css/contact_us.css') }}" rel="stylesheet">
@@ -67,13 +67,13 @@
 
     @if(\Session::has('success'))
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#successModal"></button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you very much for your feedback about our website. We will check and let you know as soon as possible.</h4>
+                        <h4 class="mb-0 text-center">Thank you very much for your feedback about our website. We will consider your suggestion and do the changes as soon as possible.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -89,9 +89,6 @@
 
 
 @push('after-scripts')
-    @if(config('access.captcha.contact'))
-        @captchaScripts
-    @endif
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 

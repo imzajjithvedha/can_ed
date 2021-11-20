@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Articles')
+@section('title', 'Articles - search results')
 
 @push('after-styles')
     <link href="{{ url('css/articles.css') }}" rel="stylesheet">
@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h5 class="fw-bolder">Articles: to the students</h5>
+        <h4 class="fw-bolder futura">Articles: to the students</h4>
 
         <form action="{{ route('frontend.article_search') }}"  method="POST">
         {{csrf_field()}}
@@ -32,7 +32,7 @@
         <div class="articles mt-5">
             @if(count($filteredArticles) == 0)
                 @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'Article not found',
+                    'not_found_title' => 'Search results not found',
                     'not_found_description' => 'Please check later.'
                 ])
             @else

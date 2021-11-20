@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Online Business Directory')
+@section('title', 'Online business directory')
 
 @push('after-styles')
     <link href="{{ url('css/online_business_directory.css') }}" rel="stylesheet">
@@ -43,7 +43,7 @@
         <div class="row mt-5">
             @if(count($filteredDirectory) == 0)
                 @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'Directory not found',
+                    'not_found_title' => 'Search results not found',
                     'not_found_description' => 'Please check later.'
                 ])
             @else

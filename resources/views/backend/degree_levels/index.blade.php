@@ -16,13 +16,15 @@
 
                     <a href="{{ route('admin.degree_levels.import_degree_levels') }}" class="btn btn-primary pull-right ml-4">Import degree levels</a>
                    
-                </div><!--card-header-->
+                </div>
 
                 <div class="card-body">
                     <table class="table table-striped table-bordered" id="degree-levels-table" style="width:100%">
                         <thead>
                             <tr>
                                 <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Order</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Options</th>
                             </tr>
@@ -76,9 +78,11 @@
             processing: true,
             ajax: "{{route('admin.degree_levels.get_degree_levels')}}",
             serverSide: true,
-            order: [[0, "asc"]],
+            order: [[2, "asc"]],
             columns: [
                 {data: 'name', name: 'name'},
+                {data: 'icon', name: 'icon'},
+                {data: 'orders', name: 'orders'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Business Categories')
+@section('title', 'Business categories')
 
 @push('after-styles')
     <link href="{{ url('css/business.css') }}" rel="stylesheet">
@@ -31,7 +31,7 @@
         <div class="row mt-5">
             @if(count($categories) == 0)
                     @include('frontend.includes.not_found_title',[
-                        'not_found_title' => 'Business Categories not found',
+                        'not_found_title' => 'Business categories not found',
                         'not_found_description' => 'Please check later.'
                     ])
             @else

@@ -39,6 +39,7 @@ class SchoolsController extends Controller
         $school->country = $request->country;
         $school->school_email = $request->email;
         $school->school_phone = $request->phone;
+        $school->slug = str_replace(" ", "-", $request->name);
         $school->status = 'Pending';
         $school->featured = 'No';
         $school->images = '[]';

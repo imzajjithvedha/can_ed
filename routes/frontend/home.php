@@ -150,7 +150,6 @@ Route::get('videos', [VideoController::class, 'index'])->name('videos');
 
 // Homepage search routes
 Route::get('language-programs', [SchoolTypeController::class, 'languagePrograms'])->name('language_programs');
-Route::get('get-language-programs', [SchoolTypeController::class, 'getLanguagePrograms'])->name('get_language_programs');
 Route::get('community-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('community_schools');
 Route::get('bachelor-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('bachelor_schools');
 Route::get('masters-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('master_schools');

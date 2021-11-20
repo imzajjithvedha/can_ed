@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Contact Us')
+@section('title', 'Contact us')
 
 @push('after-styles')
     <link href="{{ url('css/contact_us.css') }}" rel="stylesheet">
@@ -10,7 +10,7 @@
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5">
             <div class="col-6">
-                <h4 class="fw-bolder futura">Contact Information</h4>
+                <h4 class="fw-bolder futura">Contact information</h4>
                 <hr>
 
                 <p class="gray">We communicate with over 100 countries. please write to us in english. thank you for understanding and sorry for inconvenience.</p>

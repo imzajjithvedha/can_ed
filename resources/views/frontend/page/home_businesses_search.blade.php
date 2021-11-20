@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Businesses - Search results')
+@section('title', 'Businesses - search results')
 
 @push('after-styles')
     <link href="{{ url('css/search.css') }}" rel="stylesheet">
@@ -10,7 +10,7 @@
 
     <div class="container mt-5 business">
 
-        <h5 class="fw-bolder">Businesses - Search Results</h5>
+        <h4 class="fw-bolder futura">Businesses - search results</h4>
         <hr>
 
         <div class="row mt-5">

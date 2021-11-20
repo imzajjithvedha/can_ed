@@ -32,11 +32,17 @@ class DegreeLevelsController extends Controller
     {
         $user_id = auth()->user()->id;
 
+        $image = $request->file('image');
+        $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images/degree_levels'),$imageName);
+
         $type = new DegreeLevels;
 
         $type->user_id = $user_id;
         $type->name = $request->name;
         $type->description = $request->description;
+        $type->icon = $imageName;
+        $type->orders = $request->orders;
         $type->status = 'Approved';
 
         $type->save();
@@ -61,6 +67,17 @@ class DegreeLevelsController extends Controller
                     return $button;
                 })
 
+                ->addColumn('icon', function($data){
+                    if($data->icon != null) {
+                        $img = '<img src="'.url('images/degree_levels', $data->icon).'" style="width: 20%">';
+                    }
+                    else {
+                        $img = '-';
+                    }
+                   
+                    return $img;
+                })
+
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
                         $status = '<span class="badge bg-success">Approved</span>';
@@ -70,7 +87,7 @@ class DegreeLevelsController extends Controller
                     return $status;
                 })
                 
-                ->rawColumns(['action', 'status'])
+                ->rawColumns(['action', 'icon', 'status'])
                 ->make(true);
         }
         
@@ -88,12 +105,24 @@ class DegreeLevelsController extends Controller
 
     public function updateDegreeLevel(Request $request)
     {    
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            
+            $image->move(public_path('images/degree_levels'),$imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
 
         $level = DB::table('degree_levels') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
                 'description' => $request->description,
-                'status' => $request->status
+                'icon' => $imageName,
+                'status' => $request->status,
+                'orders' => $request->orders,
             ]
         );
    

@@ -68,8 +68,13 @@ class BusinessCategoriesController extends Controller
                 })
 
                 ->addColumn('image', function($data){
-                    $img = '<img src="'.url('images/business_categories',$data->image).'" style="width: 70%">';
-                 
+                    if($data->image != null) {
+                        $img = '<img src="'.url('images/business_categories',$data->image).'" style="width: 70%">';
+                    }
+                    else {
+                        $img = '-';
+                    }
+                    
                     return $img;
                 })
 

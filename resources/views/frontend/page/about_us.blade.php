@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'About Us')
+@section('title', 'About us')
 
 @push('after-styles')
     <link href="{{ url('css/about_us.css') }}" rel="stylesheet">
@@ -12,9 +12,9 @@
         <hr>
 
     @if($about->image != null)
-        <img src="{{ url('images/pages', $about->image) }}" alt="" class="img-fluid banner">
+        <img src="{{ url('images/pages', $about->image) }}" alt="about-us-banner" class="img-fluid banner">
     @else
-        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner">
+        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="about-us-banner" class="img-fluid w-100 banner">
     @endif
 
         <div class="gray mt-5" style="text-align: justify;">

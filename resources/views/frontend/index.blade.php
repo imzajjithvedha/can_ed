@@ -38,66 +38,34 @@
         </div>
     </div>
 
-    <div class="container-fluid index-categories">
-        <div class="container">
-            <div class="row p-3">
-                <div class="col text-center">
-                    <a href="{{ route('frontend.language_programs') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/languages.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Language Programs</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.community_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/community.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Community College</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.bachelor_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/degree.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Bachelor Degree</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.master_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/masters.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Masters</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.certificate_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/certificate.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Certificate / short term</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.summer_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/summer.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Summer</p>
-                    </a>
-                </div>
-                <div class="col text-center">
-                    <a href="{{ route('frontend.high_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/highschool.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">High School</p>
-                    </a>
-                </div>
-                <div class="col text-center" style="border:none;">
-                    <a href="{{ route('frontend.online_schools') }}" class="text-decoration-none">
-                        <img src="{{ url('img/frontend/index/summer.png') }}" alt="" class="img-fluid">
-                        <p class="gray mt-2">Online</p>
-                    </a>
+    @if(count($degree_levels) > 0)
+        <div class="container-fluid index-categories">
+            <div class="container">
+                <div class="row p-3">
+                    
+                    @foreach($degree_levels as $degree)
+                        <div class="col text-center">
+                            <a href="{{ route('frontend.language_programs') }}" class="text-decoration-none">
+                                @if($degree->icon != null)
+                                    <img src="{{ url('images/degree_levels', $degree->icon) }}" alt="" class="img-fluid" style="filter: contrast(200%) brightness(45%);">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid">
+                                @endif
+
+                                <p class="gray mt-2">{{ $degree->name }}</p>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 
 
 
     @if(count($featured_schools) > 0)
         <div class="container mt-5 featured-schools">
-            <a href="{{ route('frontend.schools') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured Schools</a>
+            <a href="{{ route('frontend.schools') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured schools</a>
 
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
@@ -123,7 +91,7 @@
 
     @if(count($featured_businesses) > 0)
         <div class="container mt-5 featured-businesses">
-            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured Businesses</a>
+            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured businesses</a>
 
             
             <div class="row mt-4">
@@ -177,7 +145,7 @@
 
     @if(count($videos) > 0)
         <div class="container mt-5 featured-videos">
-            <a href="{{ route('frontend.videos') }}" class="h5 text-decoration-none text-dark fw-bolder">Featured Videos</a>
+            <a href="{{ route('frontend.videos') }}" class="h5 text-decoration-none text-dark fw-bolder">Featured videos</a>
 
             <div class="row mt-4">
                 @foreach($videos as $video)
@@ -197,7 +165,7 @@
 
     @if(count($articles) > 0)
         <div class="container mt-5 recent-articles">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h5 text-decoration-none text-dark">Recent Articles</a>
+            <a href="{{ route('frontend.articles') }}" class="fw-bolder h5 text-decoration-none text-dark">Recent articles</a>
 
             <div class="row mt-4">
                 @foreach($articles as $article)
@@ -226,7 +194,7 @@
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Advanced Search</h5>
+                    <h5 class="modal-title">Advanced search</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -832,7 +832,7 @@
                                     <div class="row mb-5">
                                         <div class="col-12">
                                             <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->programs_title_1 }}</h5>
-                                            <p class="gray">{!! $school->programs_page_paragraph !!}</p>
+                                            <div class="gray">{!! $school->programs_page_paragraph !!}</div>
                                         </div>
                                     </div>
                                 @endif

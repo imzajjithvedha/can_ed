@@ -7,7 +7,7 @@
 
     @include('backend.includes.top_nav')
     <link rel="stylesheet" href="{{ url('css/aiz-core.css') }}">   
-    
+
     <form action="{{ route('admin.schools.school_information_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm();">
         {{csrf_field()}}
 
@@ -299,7 +299,7 @@
 
                             <div class="form-group more-school-images">
                                 <label class="form-label">More school images</label>
-                                <div class="input-group" data-toggle="aizuploader" data-type="video" data-multiple="true">
+                                <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                     </div>

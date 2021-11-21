@@ -75,9 +75,10 @@ Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaim
 
 Route::get('schools', [SchoolController::class, 'index'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
-Route::get('schools/single-school/{id}/{school_name}', [SchoolController::class, 'singleSchool'])->name('single_school');
+Route::get('schools/single-school/{id}/{school_slug}', [SchoolController::class, 'singleSchool'])->name('single_school');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
 Route::post('schools/single-school/favorite', [SchoolController::class, 'favoriteSchool'])->name('favorite_school');
+Route::get('schools/single-school/{id}/{school_slug}/scholarships', [SchoolController::class, 'singleSchoolScholarships'])->name('single_school_scholarships');
 
 
 
@@ -168,8 +169,8 @@ Route::get('home/article-search-results/{keyword}',[HomeController::class,'artic
 
 
 
-Route::post('school-scholarships/search-result', [SchoolController::class, 'schoolScholarshipSearch'])->name('school_scholarship_search');
-Route::get('school-scholarships-search-results/{id}/{keyword}/{award}/{level}/{available}',[SchoolController::class,'schoolScholarshipSearchFunction'])->name('school_scholarship_search_function');
+Route::post('school-scholarship/search-results', [SchoolController::class, 'schoolScholarshipSearch'])->name('school_scholarship_search');
+Route::get('school-scholarship-search-results/{id}/{school_slug}/{keyword}/{award}/{level}/{available}/{scholarship_date}',[SchoolController::class,'schoolScholarshipSearchFunction'])->name('school_scholarship_search_function');
 
 
 

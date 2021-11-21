@@ -58,6 +58,7 @@ class SchoolsScholarshipController extends Controller
         $scholarship->level_of_study = $request->level_of_study;
         $scholarship->image = $featured_image;
         $scholarship->link = $request->link;
+        $scholarship->featured = $request->featured;
 
         $scholarship->save();
 
@@ -128,6 +129,7 @@ class SchoolsScholarshipController extends Controller
                 'level_of_study' => $request->level_of_study,
                 'image' => $featured_image,
                 'link' => $request->link,
+                'featured' => $request->featured
             ]
         );
         

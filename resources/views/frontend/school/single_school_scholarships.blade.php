@@ -8,19 +8,21 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h4 class="fw-bolder futura">{{ $school->name }} scholarships - Search results</h4>
+        <h4 class="fw-bolder futura">{{ $school->name }} scholarships</h4>
         <hr>
 
         <div class="scholarships mt-5">
-            @if(count($filteredScholarships) == 0)
+            @if(count($scholarships) == 0)
                 @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'Scholarshipw not found',
+                    'not_found_title' => 'Scholarships not found',
                     'not_found_description' => 'Please check later.'
                 ])
             @else
+
                 @include('frontend.includes.scholarship_search')
 
-                @foreach($filteredScholarships as $scholarship)
+
+                @foreach($scholarships as $scholarship)
                     <div class="px-3">
                         <div class="row justify-content-between border py-3 px-2 mb-5">
                             <div class="col-5">

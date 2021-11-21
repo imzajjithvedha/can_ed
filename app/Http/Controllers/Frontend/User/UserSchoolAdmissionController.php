@@ -45,6 +45,8 @@ class UserSchoolAdmissionController extends Controller
                 'admission_title_4_paragraph' => $request->admission_title_4_paragraph,
                 'admission_title_5' => $request->admission_title_5,
                 'admission_title_5_paragraph' => $request->admission_title_5_paragraph,
+                'admission_title_6' => $request->admission_title_6,
+                'admission_title_6_paragraph' => $request->admission_title_6_paragraph,
             ]
         );
         

@@ -104,7 +104,17 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <input type="url" class="form-control" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
+                                        <label for="link" class="form-label">Link *</label>
+                                        <input type="url" class="form-control" id="link" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
+                                    </div>
+
+                                    <div>
+                                        <label for="link" class="form-label">Do you want to show this scholarship in the scholarship main page? *</label>
+                                        <select class="form-control" id="featured" name="featured" placeholder="Featured? *" required>
+                                            <option value="" selected disabled hidden>Do you want to show this scholarship in the scholarship main page? *</option>
+                                            <option value="Yes" {{ $scholarship->featured == 'Yes' ? "selected" : "" }}>Yes</option>
+                                            <option value="No" {{ $scholarship->featured == 'No' ? "selected" : "" }}>No</option>
+                                        </select>
                                     </div>
 
                                     <div class="mt-5 text-center">

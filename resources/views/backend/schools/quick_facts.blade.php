@@ -52,7 +52,7 @@
 
                             <div class="mb-3">
                                 <label for="quick_facts_title_2_paragraph" class="form-label mb-1">Title 2 - paragraph</label>
-                                <textarea name="quick_facts_title_2_paragraph" class="form-control" id="quick_facts_title_2_paragraph" rows="5" value="{{ $school->quick_facts_title_2_paragraph }}">{{ $school->quick_facts_title_2_paragraph }}</textarea>
+                                <textarea name="quick_facts_title_2_paragraph" class="ckeditor form-control" id="quick_facts_title_2_paragraph" value="{{ $school->quick_facts_title_2_paragraph }}">{{ $school->quick_facts_title_2_paragraph }}</textarea>
                             </div>
 
                             <div class="mb-3">

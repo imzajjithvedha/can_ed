@@ -71,7 +71,7 @@
 
                             <div class="mb-3">
                                 <label for="overview_title_3_paragraph" class="form-label mb-1">Title 3 - paragraph</label>
-                                <textarea name="overview_title_3_paragraph" class="form-control" id="overview_title_3_paragraph" rows="5" value="{{ $school->overview_title_3_paragraph }}">{{ $school->overview_title_3_paragraph }}</textarea>
+                                <textarea name="overview_title_3_paragraph" class="ckeditor form-control" id="overview_title_3_paragraph" value="{{ $school->overview_title_3_paragraph }}">{{ $school->overview_title_3_paragraph }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -204,7 +204,7 @@
 
                             <div class="mb-3">
                                 <label for="overview_title_9_paragraph" class="form-label mb-1">Title 9 - paragraph</label>
-                                <textarea name="overview_title_9_paragraph" class="form-control" id="overview_title_9_paragraph" rows="5" value="{{ $school->overview_title_9_paragraph }}">{{ $school->overview_title_9_paragraph }}</textarea>
+                                <textarea name="overview_title_9_paragraph" class="ckeditor form-control" id="overview_title_9_paragraph" value="{{ $school->overview_title_9_paragraph }}">{{ $school->overview_title_9_paragraph }}</textarea>
                             </div>
 
                             <div class="mb-3">

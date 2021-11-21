@@ -444,7 +444,7 @@
                                                 <div class="col-6">
                                                     <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->quick_facts_title_2_sub_title }}</h5>
 
-                                                    <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->quick_facts_title_2_paragraph }}</p>
+                                                    <div class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{!! $school->quick_facts_title_2_paragraph !!}</div>
 
                                                     @if($school->quick_facts_title_2_button != null)
                                                         <div class="text-end">
@@ -1205,10 +1205,22 @@
                                 @if($school->admission_title_5 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_5 }}</h5>
+                                            <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_5 }}</h5>
+
+                                            <div class="p-3" style="background-color: #f2f4f8">
+                                                {!! $school->admission_title_5_paragraph !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                @if($school->admission_title_6 != null)
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_6 }}</h5>
 
                                             <div class="gray">
-                                                {!! $school->admission_title_5_paragraph !!}
+                                                {!! $school->admission_title_6_paragraph !!}
                                             </div>
                                         </div>
                                     </div>
@@ -1742,54 +1754,8 @@
                                 </div>
 
                                 @if(count($scholarships) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Search scholarships</h5>
 
-                                            <div class="p-3" style="background-color: #f2f4f8;">
-                                                <form action="{{ route('frontend.school_scholarship_search') }}" method="POST">
-                                                    {{ csrf_field() }}
-                                                    <div class="row mb-3">
-                                                        <div class="col-12">
-                                                            <div class="input-group">
-                                                                <input type="text" name="keyword" class="form-control p-4 rounded-0 border-0 search-input" aria-label="search" placeholder="Search your keyword">
-                                                                <button type="submit" class="btn rounded-0 text-white bg-white border-start"><i class="fas fa-search" style="color: black; font-size: 25px;"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row scholarship-search">
-                                                        <div class="col-4">
-                                                            <select name="award" id="award" class="form-select p-2">
-                                                                <option value="awards">All awards</option>
-                                                                <option value="Admission">Admission</option>
-                                                                <option value="Current students">Current students</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-4">
-                                                            <select name="level_of_study" id="level_of_study" class="form-select p-2">
-                                                                <option value="study-levels">All study levels</option>
-                                                                <option value="Graduate">Graduate</option>
-                                                                <option value="Undergraduate">Undergraduates</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-4">
-                                                            <select name="availability" id="availability" class="form-select p-2">
-                                                                <option value="availability">Available to all</option>
-                                                                <option value="International students">International students</option>
-                                                                <option value="Canadian students">Canadian students</option>
-                                                                <option value="Provincial students">Provincial students</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-
-                                                    <input type="hidden" name="school_id" value="{{ $school->id }}">
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @include('frontend.includes.scholarship_search')
                                 
 
                                     <div class="row mb-5">
@@ -1955,6 +1921,10 @@
                                                     
                                                 </div>
                                             @endforeach
+
+                                            <div class="text-center">
+                                                <a href="{{ route('frontend.single_school_scholarships', [$school->id, $school->slug]) }}" class="btn text-white fw-bold red-btn w-50 py-3">View all scholarships</a>
+                                            </div>
                                         </div>
                                     </div>
 

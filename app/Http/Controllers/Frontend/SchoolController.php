@@ -92,7 +92,7 @@ class SchoolController extends Controller
         return view('frontend.school.schools', ['schools' => $schools]);
     }
 
-    public function singleSchool($id, $school_name)
+    public function singleSchool($id, $school_slug)
     {
         $school = Schools::where('id', $id)->first();
 
@@ -111,7 +111,7 @@ class SchoolController extends Controller
         $master_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 7)->get();
 
 
-        $scholarships = SchoolScholarships::where('school_id', $id)->orderBy('name', 'asc')->get();
+        $scholarships = SchoolScholarships::where('school_id', $id)->where('Featured', 'Yes')->orderBy('name', 'asc')->get();
 
         $scholarship_faqs = SchoolScholarshipsFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
         
@@ -237,13 +237,22 @@ class SchoolController extends Controller
             $availability = request('availability');
         }
 
+        if(request('scholarship_date') == 'all-scholarships') {
+            $scholarship_date = 'all-scholarships';
+        }
+        else {
+            $scholarship_date = request('scholarship_date');
+        }
+
         $school_id = $request->school_id;
 
-        return redirect()->route('frontend.school_scholarship_search_function', [ $school_id, $keyword, $award, $level_of_study, $availability]);
+        $school_slug = Schools::where('id', $school_id)->first()->slug;
+
+        return redirect()->route('frontend.school_scholarship_search_function', [ $school_id, $school_slug, $keyword, $award, $level_of_study, $availability, $scholarship_date]);
 
     }
 
-    public function schoolScholarshipSearchFunction($school_id, $keyword, $award, $level_of_study, $availability)
+    public function schoolScholarshipSearchFunction($school_id, $school_slug, $keyword, $award, $level_of_study, $availability, $scholarship_date)
     {
 
         $scholarships = SchoolScholarships::where('school_id', $school_id);
@@ -271,9 +280,29 @@ class SchoolController extends Controller
             $scholarships->where('availability', 'like', '%' .  $availability . '%');
         }
 
+        if($scholarship_date != 'all-scholarships'){
+            if($scholarship_date == 'expired-scholarships') {
+                $scholarships->where('deadline', '<', date("Y/m/d"));
+            }
+            else {
+                $scholarships->where('deadline', '>', date("Y/m/d"));
+            }
+            
+        }
+
         $filteredScholarships = $scholarships->get();
 
         return view("frontend.school.single_school_scholarship_search", ['filteredScholarships' => $filteredScholarships, 'school' => $school]);
 
+    }
+
+
+    public function singleSchoolScholarships($id, $school_slug)
+    {
+        $school = Schools::where('id', $id)->first();
+
+        $scholarships = SchoolScholarships::where('school_id', $id)->orderBy('name', 'asc')->get();
+
+        return view('frontend.school.single_school_scholarships', ['school' => $school, 'scholarships' => $scholarships]);
     }
 }

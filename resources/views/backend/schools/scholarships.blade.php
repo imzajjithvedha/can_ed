@@ -63,7 +63,7 @@
 
                             <div class="mb-3">
                                 <label for="scholarships_title_2_paragraph" class="form-label mb-1">Title 2 - paragraph</label>
-                                <textarea name="scholarships_title_2_paragraph" class="form-control" id="scholarships_title_2_paragraph" rows="5" value="{{ $school->scholarships_title_2_paragraph }}">{{ $school->scholarships_title_2_paragraph }}</textarea>
+                                <textarea name="scholarships_title_2_paragraph" class="ckeditor form-control" id="scholarships_title_2_paragraph" value="{{ $school->scholarships_title_2_paragraph }}">{{ $school->scholarships_title_2_paragraph }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -125,7 +125,7 @@
 
                             <div class="mb-3">
                                 <label for="scholarships_title_4_paragraph" class="form-label mb-1">Title 4 - paragraph</label>
-                                <textarea name="scholarships_title_4_paragraph" class="form-control" id="scholarships_title_4_paragraph" rows="5" value="{{ $school->scholarships_title_4_paragraph }}">{{ $school->scholarships_title_4_paragraph }}</textarea>
+                                <textarea name="scholarships_title_4_paragraph" class="ckeditor form-control" id="scholarships_title_4_paragraph" value="{{ $school->scholarships_title_4_paragraph }}">{{ $school->scholarships_title_4_paragraph }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -164,9 +164,9 @@
                             <thead>
                                 <tr class="align-items-center">
                                     <th scope="col">Name</th>
-                                    <th scope="col">Availability</th>
                                     <th scope="col">Level of study</th>
                                     <th scope="col">Deadline</th>
+                                    <th scope="col">Featured</th>
                                     <th scope="col" style="max-width: 130px;">Options</th>
                                 </tr>
                             </thead>
@@ -258,6 +258,14 @@
                             <input type="url" class="form-control" name="link" placeholder="Link *" required>
                         </div>
 
+                        <div class="mb-3">
+                            <select class="form-control" id="featured" name="featured" placeholder="Featured? *" required>
+                                <option value="" selected disabled hidden>Do you want to show this scholarship in the scholarship main page? *</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="{{ $school->id }}">
@@ -313,9 +321,9 @@
                 order: [[0, "asc"]],
                 columns: [
                     {data: 'name', name: 'name'},
-                    {data: 'availability', name: 'availability'},
                     {data: 'level_of_study', name: 'level_of_study'},
                     {data: 'deadline', name: 'deadline'},
+                    {data: 'featured', name: 'featured'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
             });

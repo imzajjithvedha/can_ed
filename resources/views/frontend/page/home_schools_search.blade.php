@@ -12,20 +12,7 @@
 
         <h4 class="fw-bolder futura">Schools - search results</h4>
 
-        <form action="{{ route('frontend.school_search') }}" method="POST">
-            {{ csrf_field() }}
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <hr>
-                </div>
-                <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search schools" name="keyword">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>
-        </form>
+        <hr>
 
         <div class="row mt-5">
 
@@ -40,7 +27,7 @@
                         <div class="card">
                             <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="text-decoration-none">
                                 @if($school->featured_image != null)
-                                    <img src="{{ url('images/schools', $school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 10rem; object-fir: cover;" alt="...">
+                                    <img src="{{ uploaded_asset($school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 10rem; object-fir: cover;" alt="...">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif

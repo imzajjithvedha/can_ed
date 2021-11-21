@@ -27,7 +27,7 @@
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="py-3" id="nav-dashboard" role="tabpanel" aria-labelledby="nav-dashboard-tab">
+                        <div class="pt-3" id="nav-dashboard" role="tabpanel" aria-labelledby="nav-dashboard-tab">
                             <div class="row">
                                 <div class="col-4 mb-4">
                                     <div class="card text-center">
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 mb-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $schools) }}</p>
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 mb-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
@@ -84,13 +84,24 @@
                                     </div>
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-4 mb-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
                                         </div>
                                         <div class="card-body">
                                             <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My quotes</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="card text-center">
+                                        <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $suggested_programs) }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ route('frontend.user.suggested_programs') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My suggested programs</a>
                                         </div>
                                     </div>
                                 </div>

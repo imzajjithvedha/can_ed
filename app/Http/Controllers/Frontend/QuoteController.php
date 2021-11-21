@@ -19,7 +19,7 @@ class QuoteController extends Controller
      */
     public function index()
     {
-        $quotes = Quotes::where('status', 'Approved')->orderBy('quote', 'asc')->get();
+        $quotes = Quotes::where('status', 'Approved')->orderBy('id', 'desc')->get();
 
         return view('frontend.quote.quotes', ['quotes' => $quotes]);
     }

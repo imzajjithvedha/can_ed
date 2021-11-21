@@ -16,6 +16,7 @@ use App\Models\Auth\User;
 use App\Models\FavoriteSchools;
 use App\Models\favoriteEvents;
 use App\Models\Schools;
+use App\Models\Programs;
 use App\Mail\Frontend\EventUpdate;
 use App\Mail\Frontend\UserEventUpdate;
 use App\Mail\Frontend\NetworkUpdate;
@@ -37,9 +38,9 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $events = Events::where('user_id', $user_id)->where('status', 'Approved')->count();
+        $events = Events::where('user_id', $user_id)->count();
 
-        $quotes = Quotes::where('user_id', $user_id)->where('status', 'Approved')->count();
+        $quotes = Quotes::where('user_id', $user_id)->count();
 
         $articles = FavoriteArticles::where('user_id', $user_id)->count();
 
@@ -47,10 +48,12 @@ class DashboardController extends Controller
 
         $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
-        $networks = WorldWideNetwork::where('user_id', $user_id)->where('status', 'Approved')->count();
+        $networks = WorldWideNetwork::where('user_id', $user_id)->count();
+
+        $suggested_programs = Programs::where('user_id', $user_id)->count();
 
 
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools, 'suggested_programs' => $suggested_programs]);
     }
 
     

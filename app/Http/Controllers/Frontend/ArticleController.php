@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Articles::OrderBy('updated_at', 'DESC')->get();
+        $articles = Articles::OrderBy('title', 'ASC')->get();
 
         return view('frontend.article.articles', ['articles' => $articles]);
     }

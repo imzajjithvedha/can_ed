@@ -42,7 +42,7 @@
                                     @if(is_favorite_school($school->id, auth()->user()->id))
                                         <div class="row border py-3 mb-3 align-items-center">
                                             <div class="col-4 text-center">
-                                                <img src="{{ url('images/schools', $school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                <img src="{{ uploaded_asset($school->featured_image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
 
                                                 <p class="gray mt-3">Updated: {{ $school->updated_at }}</p>
                                             </div>
@@ -57,7 +57,7 @@
                                                     <div class="col-9">
                                                         <div class="row justify-content-end">
                                                             <div class="col-3">
-                                                                <a href="{{ route('frontend.single_school', $school->id) }}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
+                                                                <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="btn px-3 rounded-0 text-light py-1" style="background-color: #4195E1">View</a>
                                                             </div>
                                                             <div class="col-3 ps-2">
                                                                 <a href="{{ route('frontend.user.favorite_school_delete', $school->id) }}" class="btn px-4 rounded-0 text-light py-1 delete" data-bs-toggle="modal" data-bs-target="#deleteFavorite" style="background-color: #ff2c4b"><i class="fas fa-trash-alt" style="background-color: #ff2c4b!important; padding: 0!important"></i></a>

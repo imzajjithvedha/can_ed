@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit Sponsor | Admin'))
+@section('title', __('Edit sponsor | Admin'))
 
 @section('content')
     

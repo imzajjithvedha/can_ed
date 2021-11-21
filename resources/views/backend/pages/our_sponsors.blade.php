@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Our Sponsors | Admin')
+@section('title', 'Our sponsors | Admin')
 
 @section('content')
     

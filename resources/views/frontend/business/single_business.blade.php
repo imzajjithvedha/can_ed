@@ -55,26 +55,28 @@
                         @endif
                     </div>
                     <div class="col-3">
-                        <p class="fw-bold">Social media</p>
-                        <hr class="my-2">
-                        @if($business->facebook != null)
-                            <a href="{{ $business->facebook }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        @endif
+                        @if($business->facebook != null || $business->twitter != null || $business->you_tube != null || $business->linked_in != null)
+                            <p class="fw-bold">Social media</p>
+                            <hr class=" mt-1 mb-3">
+                            @if($business->facebook != null)
+                                <a href="{{ $business->facebook }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            @endif
 
-                        @if($business->twitter != null)
-                            <a href="{{ $business->twitter }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-twitter"></i></a>
-                        @endif
+                            @if($business->twitter != null)
+                                <a href="{{ $business->twitter }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-twitter"></i></a>
+                            @endif
 
-                        @if($business->you_tube != null)
-                            <a href="{{ $business->you_tube }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        @endif
+                            @if($business->you_tube != null)
+                                <a href="{{ $business->you_tube }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            @endif
 
-                        @if($business->linked_in != null)
-                            <a href="{{ $business->linked_in }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-youtube"></i></a>
+                            @if($business->linked_in != null)
+                                <a href="{{ $business->linked_in }}" class="d-block border mb-2 p-2 text-center school-social text-decoration-none" target="_blank"><i class="fab fa-youtube"></i></a>
+                            @endif
                         @endif
                         
 
-                        <p class="fw-bold mt-3">Contact</p>
+                        <p class="fw-bold">Contact</p>
                         <hr class="my-2">
 
                         @auth

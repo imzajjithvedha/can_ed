@@ -128,19 +128,19 @@ Route::post('programs/request', [ProgramController::class, 'programRequest'])->n
 
 
 
-Route::post('articles/search-result', [ArticleController::class, 'articleSearch'])->name('article_search');
+Route::post('article/search-results', [ArticleController::class, 'articleSearch'])->name('article_search');
 Route::get('article-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
 
-Route::post('business-categories/search-result', [BusinessController::class, 'categorySearch'])->name('category_search');
-Route::get('business-categories-search-results/{keyword}',[BusinessController::class,'categorySearchFunction'])->name('category_search_function');
+Route::post('business-category/search-results', [BusinessController::class, 'categorySearch'])->name('category_search');
+Route::get('business-category-search-results/{keyword}',[BusinessController::class,'categorySearchFunction'])->name('category_search_function');
 
-Route::post('businesses/search-result', [BusinessController::class, 'businessSearch'])->name('business_search');
-Route::get('businesses-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
+Route::post('business/search-results', [BusinessController::class, 'businessSearch'])->name('business_search');
+Route::get('business-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 
-Route::post('schools/search-result', [SchoolController::class, 'schoolSearch'])->name('school_search');
-Route::get('schools-search-results/{keyword}',[SchoolController::class,'schoolSearchFunction'])->name('school_search_function');
+Route::post('school/search-results', [SchoolController::class, 'schoolSearch'])->name('school_search');
+Route::get('school-search-results/{keyword}',[SchoolController::class,'schoolSearchFunction'])->name('school_search_function');
 
-Route::post('directory/search-result', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
+Route::post('directory/search-results', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
 Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[OnlineBusinessDirectoryController::class,'directorySearchFunction'])->name('directory_search_function');
 
 
@@ -160,11 +160,11 @@ Route::get('online-schools', [SchoolTypeController::class, 'schoolsCategory'])->
 
 
 
-Route::post('home/schools/search-result', [HomeController::class, 'homeSearch'])->name('home_search');
-Route::get('home/schools-search-results/{keyword}',[HomeController::class,'schoolSearchFunction'])->name('home_school_search_function');
-Route::get('home/businesses-search-results/{keyword}',[HomeController::class,'businessSearchFunction'])->name('home_business_search_function');
-Route::get('home/programs-search-results/{keyword}',[HomeController::class,'programSearchFunction'])->name('home_program_search_function');
-Route::get('home/articles-search-results/{keyword}',[HomeController::class,'articleSearchFunction'])->name('home_article_search_function');
+Route::post('home/search-results', [HomeController::class, 'homeSearch'])->name('home_search');
+Route::get('home/school-search-results/{keyword}',[HomeController::class,'schoolSearchFunction'])->name('home_school_search_function');
+Route::get('home/business-search-results/{keyword}',[HomeController::class,'businessSearchFunction'])->name('home_business_search_function');
+Route::get('home/program-search-results/{keyword}',[HomeController::class,'programSearchFunction'])->name('home_program_search_function');
+Route::get('home/article-search-results/{keyword}',[HomeController::class,'articleSearchFunction'])->name('home_article_search_function');
 
 
 

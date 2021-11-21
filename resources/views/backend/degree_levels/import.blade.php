@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Import Degree Levels | Admin'))
+@section('title', __('Import degree levels | Admin'))
 
 @section('content')
 

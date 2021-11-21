@@ -156,7 +156,7 @@
                     </div>
 
                     <div class="mb-5 border p-3">
-                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none">Disclaimer</a> and <a href="{{ 'frontend.privacy_policy' }}" class="text-decoration-none">Privacy Policy</a></p>
+                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none">Disclaimer</a> and <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none">Privacy Policy</a></p>
                     </div>
 
                     <div class="row mb-4 justify-content-center">

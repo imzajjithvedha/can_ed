@@ -76,7 +76,7 @@
             processing: true,
             ajax: "{{route('admin.quotes.get_quotes')}}",
             serverSide: true,
-            order: [[0, "desc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},

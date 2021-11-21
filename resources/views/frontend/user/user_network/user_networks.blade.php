@@ -24,7 +24,7 @@
                         'not_found_title' => 'World wide networks not found',
                         'not_found_description' => 'Add your banner in world wide network page',
                         'not_found_button_caption' => 'Explore world wide network',
-                        'url' => 'networks'
+                        'url' => 'world-wide-network'
                     ])
 
                 @else

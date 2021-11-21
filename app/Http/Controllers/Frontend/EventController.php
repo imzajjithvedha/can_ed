@@ -80,7 +80,7 @@ class EventController extends Controller
     public function getEvents(Request $request)
     {
 
-        $data = Events::where('status', 'Approved')->get();
+        $data = Events::where('status', 'Approved')->orderBy('title', 'ASC')->get();
 
         if($request->ajax())
             {
@@ -88,7 +88,7 @@ class EventController extends Controller
                     
                     ->addColumn('action', function($data){
                         
-                        $button = '<a href="'.route('frontend.single_event', $data->id).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none; font-size: 0.9rem;">Read More</a>';
+                        $button = '<a href="'.route('frontend.single_event', $data->id).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none; font-size: 0.9rem;">Read more</a>';
 
                         return $button;
                     })

@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit School Type | Admin'))
+@section('title', __('Edit shool type | Admin'))
 
 @section('content')
     

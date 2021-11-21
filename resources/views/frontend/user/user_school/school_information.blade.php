@@ -321,7 +321,7 @@
 
                                                 <div class="form-group more-school-images">
                                                     <label class="form-label">More school images</label>
-                                                    <div class="input-group" data-toggle="aizuploader" data-type="video" data-multiple="true">
+                                                    <div class="input-group" data-toggle="aizuploader" data-type="image" data-multiple="true">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text bg-soft-secondary font-weight-medium">Browse</div>
                                                         </div>

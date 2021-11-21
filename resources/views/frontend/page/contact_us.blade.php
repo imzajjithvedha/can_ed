@@ -81,7 +81,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send Message</button>
+                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send message</button>
                     </div>
                 </form>
             </div>

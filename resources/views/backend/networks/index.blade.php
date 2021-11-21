@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('World Wide Networks | Admin'))
+@section('title', __('World wide networks | Admin'))
 
 @section('content')
     

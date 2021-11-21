@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Website Information | Admin')
+@section('title', 'Website information | Admin')
 
 @section('content')
     

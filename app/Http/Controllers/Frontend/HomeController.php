@@ -164,7 +164,7 @@ class HomeController extends Controller
                     
                     ->addColumn('action', function($data){
                         
-                        $button = '<a href="'.route('frontend.single_school', [$data->school_id, $data->slug]).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none; font-size: 0.8rem;">Read More</a>';
+                        $button = '<a href="'.route('frontend.single_school', [$data->school_id, Schools::where('id', $data->school_id)->first()->slug]).'" name="read" id="'.$data->id.'" class="btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); color:white; border: none; font-size: 0.8rem;">Read More</a>';
 
                         return $button;
                     })

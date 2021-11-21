@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', __('Edit Video | Admin'))
+@section('title', __('Edit video | Admin'))
 
 @section('content')
     

@@ -161,7 +161,7 @@
                                 @endif
 
                                 @if($school->link_8_name != null)
-                                    <div class="border p-2">
+                                    <div class="border border-top-0 p-2">
                                         <a href="{{ $school->link_8_url }}" class="text-decoration-none" target="_blank">
                                             <p class="text-dark fw-bold text-center" style="font-size: 0.8rem">{{ $school->link_8_name }}</p>
                                         </a>

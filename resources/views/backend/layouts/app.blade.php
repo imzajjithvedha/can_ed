@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/custom_backend.css') }}"/>
     
     <link rel="stylesheet" href="{{ url('css/vendors.css') }}"> 
-    <link rel="stylesheet" href="{{ url('css/aiz-core.css') }}">   
+    <!-- <link rel="stylesheet" href="{{ url('css/aiz-core.css') }}">    -->
 
     
     <!-- Check if the language is set to RTL, so apply the RTL layouts -->

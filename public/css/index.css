@@ -35,6 +35,10 @@
 .index-categories .row div {
     border-right: 1px dotted gray;
 }
+index-categories .row div:last-child {
+    border-right: none!important;
+}
+
 .index-categories a:hover p {
     color:#800;
     font-weight: 600;

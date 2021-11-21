@@ -19,7 +19,7 @@
         </a>
 
         <div class="btn-group btn-group-sm" role="group">
-            <button id="userActions" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button id="userActions" type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 @lang('labels.general.more')
             </button>
             <div class="dropdown-menu" aria-labelledby="userActions">

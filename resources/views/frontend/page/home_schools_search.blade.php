@@ -38,7 +38,7 @@
                 @foreach($filteredSchools as $school)
                     <div class="col-3 mb-4">
                         <div class="card">
-                            <a href="{{ route('frontend.single_school', [$school->id, $school->name]) }}" class="text-decoration-none">
+                            <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="text-decoration-none">
                                 @if($school->featured_image != null)
                                     <img src="{{ url('images/schools', $school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 10rem; object-fir: cover;" alt="...">
                                 @else

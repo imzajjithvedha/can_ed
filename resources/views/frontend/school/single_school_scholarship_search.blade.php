@@ -31,7 +31,7 @@
                                 @endif
 
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn">Apply now</button>
+                                    <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
                                 </div>
                             </div>
 

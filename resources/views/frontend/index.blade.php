@@ -65,7 +65,7 @@
 
     @if(count($featured_schools) > 0)
         <div class="container mt-5 featured-schools">
-            <a href="{{ route('frontend.schools') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured schools</a>
+            <a href="{{ route('frontend.schools') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
 
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
@@ -91,7 +91,7 @@
 
     @if(count($featured_businesses) > 0)
         <div class="container mt-5 featured-businesses">
-            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h5 text-decoration-none text-dark">Featured businesses</a>
+            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured businesses</a>
 
             
             <div class="row mt-4">
@@ -118,7 +118,7 @@
 
     @if(count($featured_articles) > 0)
         <div class="container mt-5 us-education">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h5 text-decoration-none text-dark">Getting started with your u.s. education</a>
+            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your u.s. education</a>
 
             <div class="row mt-4">
                 @foreach($featured_articles as $article)
@@ -145,7 +145,7 @@
 
     @if(count($videos) > 0)
         <div class="container mt-5 featured-videos">
-            <a href="{{ route('frontend.videos') }}" class="h5 text-decoration-none text-dark fw-bolder">Featured videos</a>
+            <a href="{{ route('frontend.videos') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured videos</a>
 
             <div class="row mt-4">
                 @foreach($videos as $video)
@@ -165,7 +165,7 @@
 
     @if(count($articles) > 0)
         <div class="container mt-5 recent-articles">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h5 text-decoration-none text-dark">Recent articles</a>
+            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
 
             <div class="row mt-4">
                 @foreach($articles as $article)

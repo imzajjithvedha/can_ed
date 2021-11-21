@@ -43,6 +43,7 @@ class SchoolsAdmissionController extends Controller
         $employee->name = $request->name;
         $employee->position = $request->position;
         $employee->description = $request->description;
+        $employee->phone = $request->phone;
         $employee->more_1 = $request->more_1;
         $employee->email = $request->email;
         $employee->more_2 = $request->more_2;

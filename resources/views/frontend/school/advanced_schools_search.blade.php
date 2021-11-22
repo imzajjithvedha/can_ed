@@ -10,23 +10,9 @@
 
     <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
-        <h4 class="fw-bolder futura">Schools</h4>
+        <h4 class="fw-bolder futura">Advanced search results - Schools</h4>
 
-        <form action="{{ route('frontend.school_search') }}"  method="POST">
-        {{csrf_field()}}
-            <div class="row align-items-center">
-                <div class="col-8">
-                    <hr>
-                </div>
-                <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" name="keyword" placeholder="Search schools" value="">
-                    <div class="input-group-append">
-                        <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-            </div>    
-        </form>
-
+        <hr>
 
         <div class="row mt-5">
             @if(count($filteredSchools) == 0)

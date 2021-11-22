@@ -22,6 +22,7 @@ use App\Http\Controllers\Frontend\SuggestionController;
 use App\Http\Controllers\Frontend\SchoolTypeController;
 use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\AizUploadController;
+use App\Http\Controllers\Frontend\AdvancedSearchController;
 
 
 
@@ -171,6 +172,10 @@ Route::get('home/article-search-results/{keyword}',[HomeController::class,'artic
 
 Route::post('school-scholarship/search-results', [SchoolController::class, 'schoolScholarshipSearch'])->name('school_scholarship_search');
 Route::get('school-scholarship-search-results/{id}/{school_slug}/{keyword}/{award}/{level}/{available}/{scholarship_date}',[SchoolController::class,'schoolScholarshipSearchFunction'])->name('school_scholarship_search_function');
+
+
+Route::post('schools/advanced-search-results', [AdvancedSearchController::class, 'advancedSearch'])->name('advanced_search');
+Route::get('schools-advanced-search-results/{degree_level}/{field_of_study}/{plan_to_start}/{online_distance}/{become}/{school_type}/{minimum_gpa}/{conditional_admission}/{graduate_program_type}/{under_graduate_program_type}/{study_method}/{delivery_mode}/{tuition_range}/{accommodation}/{work_on_campus}/{work_during_holidays}/{internship}/{co_op_education}/{job_placement}/{financial_aid_domestic}/{financial_aid_international}/{teaching_language}/{research}/{exchange_programs}/{degree_modifier}/{day_care}/{elementary_school}/{immigration_office}/{career_planning}/{pathway_programs}/{employment_rates}/{class_size_undergraduate}/{class_size_masters}/{service_new_students}/{service_new_arrivals}',[AdvancedSearchController::class,'advancedSearchFunction'])->name('advanced_search_function');
 
 
 

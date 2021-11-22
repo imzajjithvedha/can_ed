@@ -250,7 +250,7 @@
                                     <div class="col-3 mb-4">
                                         <div class="single-fact text-center p-3">
                                             <h6 class="fw-bold mb-1">Location</h6>
-                                            @if($school->school_type != null)
+                                            @if($school->location != null)
                                                 <p class="gray">{{ $school->location }}</p>
                                             @else
                                                 <p class="gray">Not defined</p>

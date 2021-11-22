@@ -78,17 +78,9 @@
                                         $str_arr = preg_split ("/\,/", $school->images);
                                     @endphp
                                     @foreach($str_arr as $key => $image)
-                                        @if(App\Models\Upload::where('id', $image)->first()->extension == 'mp4')
-                                            <div class="swiper-slide">
-                                                <video controls style="height: 20.3rem; width: 100%;">
-                                                    <source src="{{ uploaded_asset($image) }}" type="video/mp4">
-                                                </video>
-                                            </div>
-                                        @else
-                                            <div class="swiper-slide">
-                                                <img src="{{ uploaded_asset($image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
-                                            </div>
-                                        @endif
+                                        <div class="swiper-slide">
+                                            <img src="{{ uploaded_asset($image) }}" alt="" class="img-fluid w-100" style="height: 20.3rem;width: 100%; object-fit: cover;">
+                                        </div>
                                     @endforeach
                                 </div>
                                 <div class="swiper-button-next"></div>

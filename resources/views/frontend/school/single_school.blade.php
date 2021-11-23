@@ -263,7 +263,7 @@
                                 @if($school->quick_facts_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->quick_facts_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_1 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->quick_facts_title_1_paragraph !!}
@@ -275,7 +275,7 @@
                                 @if($school->quick_facts_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->quick_facts_title_2 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_2 }}</h4>
 
                                             <div class="row align-items-center">
                                                 <div class="col-6 position-relative">
@@ -303,7 +303,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -346,7 +346,7 @@
                                 @if($school->overview_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_1 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->overview_title_1_paragraph !!}
@@ -369,7 +369,7 @@
                                 @if($school->overview_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->overview_title_2 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_2 }}</h4>
 
                                             <div>
                                                 @foreach(json_decode($school->overview_title_2_bullets) as $bullet)
@@ -417,7 +417,7 @@
                                 @if($school->overview_title_4 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_4 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_4 }}</h4>
 
                                             <div class="gray mb-2">
                                                 {!! $school->overview_title_4_paragraph !!}
@@ -435,7 +435,7 @@
                                 @if($school->overview_title_5 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_5 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_5 }}</h4>
 
                                             <div class="gray mb-2">
                                                 {!! $school->overview_title_5_paragraph !!}
@@ -447,7 +447,7 @@
                                 @if($school->overview_title_6 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_6 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_6 }}</h4>
 
                                             <div class="gray mb-2">
                                                 {!! $school->overview_title_6_paragraph !!}
@@ -469,7 +469,7 @@
                                 @if($school->overview_title_7 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_7 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_7 }}</h4>
 
                                             <div class="gray mb-2">
                                                 {!! $school->overview_title_7_paragraph !!}
@@ -482,7 +482,7 @@
                                 @if($school->overview_title_8 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_8 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_8 }}</h4>
                                                 
                                             <div class="gray mb-2">
                                                 {!! $school->overview_title_8_paragraph !!}
@@ -500,7 +500,7 @@
                                 @if($school->overview_title_9 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_9 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_9 }}</h4>
 
                                             <div class="row align-items-center">
                                                 <div class="col-6 position-relative">
@@ -526,7 +526,7 @@
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="p-3" style="background-color: #f2f4f8;">
-                                                <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_10 }}</h5>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_10 }}</h4>
 
                                                 <div class="gray mb-2">
                                                     {!! $school->overview_title_10_paragraph !!}
@@ -566,7 +566,7 @@
                                 @if($school->overview_title_11 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_11 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_11 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->overview_title_11_paragraph !!}
@@ -575,10 +575,10 @@
                                     </div>
                                 @endif
 
-                                @if($school->overview_title_11 != null)
+                                @if($school->overview_title_12 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->overview_title_12 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_12 }}</h4>
 
                                             <div>
                                                 @foreach(json_decode($school->overview_title_12_bullets) as $bullet)
@@ -593,10 +593,10 @@
                                     </div>
                                 @endif
  
-                                @if($school->overview_title_11 != null)
+                                @if($school->overview_title_13 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_13 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_13 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->overview_title_13_paragraph !!}
@@ -608,7 +608,7 @@
                                 @if(count($overview_faqs) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
 
                                             <div class="accordion" id="accordionExample">
                                                 @foreach($overview_faqs as $overview_faq)
@@ -638,7 +638,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -675,7 +675,7 @@
                                 @if($school->programs_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->programs_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->programs_title_1 }}</h4>
                                             <div class="gray">{!! $school->programs_page_paragraph !!}</div>
                                         </div>
                                     </div>
@@ -776,7 +776,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -823,7 +823,7 @@
                                 @if(count($admission_employees) != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Meet our team</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Meet our team</h4>
 
                                             @foreach($admission_employees as $admission_employee)
                                                 <div class="p-3 mb-4" style="background-color: #f2f4f8;">
@@ -981,7 +981,7 @@
                                 @if($school->admission_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_1 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->admission_title_1_paragraph !!}
@@ -1003,7 +1003,7 @@
                                 @if($school->admission_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->admission_title_2 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_2 }}</h4>
 
                                             <div>
                                                 @foreach(json_decode($school->admission_title_2_bullets) as $bullet)
@@ -1022,7 +1022,7 @@
                                     <div class="row mb-5">
                                         <div class="col-12">
 
-                                            <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_3 }}</h5>
+                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_3 }}</h4>
 
                                             <div class="p-3" style="background-color: #f2f4f8">
                                                 {!! $school->admission_title_3_paragraph !!}
@@ -1036,7 +1036,7 @@
                                     <div class="row mb-5">
                                         <div class="col-12">
 
-                                            <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_4 }}</h5>
+                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_4 }}</h4>
 
                                             <div class="p-3" style="background-color: #f2f4f8">
                                                 {!! $school->admission_title_4_paragraph !!}
@@ -1049,7 +1049,7 @@
                                 @if($school->admission_title_5 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold p-3" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_5 }}</h5>
+                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_5 }}</h4>
 
                                             <div class="p-3" style="background-color: #f2f4f8">
                                                 {!! $school->admission_title_5_paragraph !!}
@@ -1062,7 +1062,7 @@
                                 @if(count($admission_faqs) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
 
                                             <div class="accordion" id="accordionExample">
                                                 @foreach($admission_faqs as $admission_faq)
@@ -1092,7 +1092,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -1129,7 +1129,7 @@
                                 @if($school->financial_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_1 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->financial_title_1_paragraph !!}
@@ -1142,7 +1142,7 @@
                                 @if($school->financial_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-3" style="color: #384058">{{ $school->financial_title_2 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_2 }}</h4>
 
                                             <ul class="nav nav-tabs financial-tabs" id="myTab" role="tablist">
                                                 <li class="nav-item" role="presentation">
@@ -1362,7 +1362,7 @@
                                 @if($school->financial_title_3 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_3 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_3 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->financial_title_3_paragraph !!}
@@ -1382,7 +1382,7 @@
                                         <div class="col-12">
                                             <div class="row py-3" style="background-color: #f2f4f8;">
                                                 <div class="col-12">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_4 }}</h5>
+                                                    <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_4 }}</h4>
 
                                                     <div class="gray">
                                                         {!! $school->financial_title_4_paragraph !!}
@@ -1424,7 +1424,7 @@
                                 @if($school->financial_title_5 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_5 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_5 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->financial_title_5_paragraph !!}
@@ -1438,7 +1438,7 @@
                                         <div class="col-12">
                                             <div class="row py-3" style="background-color: #f2f4f8;">
                                                 <div class="col-12">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->financial_title_6 }}</h5>
+                                                    <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_6 }}</h4>
 
                                                     <div class="gray">
                                                         {!! $school->financial_title_6_paragraph !!}
@@ -1489,7 +1489,7 @@
                                 @if(count($financial_faqs) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
 
                                             <div class="accordion" id="accordionExample">
                                                 @foreach($financial_faqs as $financial_faq)
@@ -1519,7 +1519,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -1556,7 +1556,7 @@
                                 @if($school->scholarships_title_1 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_1 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_1 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->scholarships_title_1_paragraph !!}
@@ -1589,7 +1589,7 @@
 
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Scholarships</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Scholarships</h4>
 
                                             @foreach($scholarships as $scholarship)
                                                 <div class="p-3 mb-4" style="background-color: #f2f4f8;">
@@ -1783,7 +1783,7 @@
                                 @if($school->scholarships_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_2 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_2 }}</h4>
 
                                             <div class="row align-items-center">
                                                 <div class="col-6 position-relative">
@@ -1809,7 +1809,7 @@
                                 @if($school->scholarships_title_3 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_3 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_3 }}</h4>
 
                                             <div class="gray">
                                                 {!! $school->scholarships_title_3_paragraph !!}
@@ -1834,7 +1834,7 @@
                                 @if($school->scholarships_title_4 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_4 }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_4 }}</h4>
 
                                             <div class="row align-items-center">
                                                 <div class="col-6 position-relative">
@@ -1861,7 +1861,7 @@
                                 @if(count($scholarship_faqs) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Frequently asked questions</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
 
                                             <div class="accordion" id="accordionExample">
                                                 @foreach($scholarship_faqs as $scholarship_faq)
@@ -1892,7 +1892,7 @@
 
                                 <div class="row mb-5">
                                     <div class="col-12">
-                                        <h5 class="fw-bold mb-2" style="color: #384058">Related articles</h5>
+                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
                                             @foreach($articles as $article)
@@ -1944,7 +1944,7 @@
                                 @if(count($contacts) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Contact {{ $school->name }}</h5>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Contact {{ $school->name }}</h4>
                                             
                                             @foreach ($contacts as $contact)
                                                 <div class="p-3 mb-4" style="background-color: #f2f4f8;">

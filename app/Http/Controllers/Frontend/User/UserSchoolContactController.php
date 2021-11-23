@@ -39,6 +39,20 @@ class UserSchoolContactController extends Controller
     {
         $user_id = auth()->user()->id;
 
+        $image = $request->file('image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+        
+            $image->move(public_path('images/schools'), $imageName);
+        }
+        else {
+            $imageName = null;
+        }
+
+        
+
+
         $contact = new SchoolContacts;
 
         $contact->user_id = $user_id;
@@ -52,6 +66,7 @@ class UserSchoolContactController extends Controller
         $contact->fax = $request->fax;
         $contact->website = $request->website;
         $contact->orders = $request->orders;
+        $contact->image = $imageName;
 
         $contact->save();
 
@@ -98,6 +113,17 @@ class UserSchoolContactController extends Controller
 
         $user_id = auth()->user()->id;
 
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            
+            $image->move(public_path('images/schools'), $imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
+
         $contact = DB::table('school_contacts') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
@@ -109,6 +135,7 @@ class UserSchoolContactController extends Controller
                 'fax' => $request->fax,
                 'website' => $request->website,
                 'orders' => $request->orders,
+                'image' => $imageName
             ]
         );
         

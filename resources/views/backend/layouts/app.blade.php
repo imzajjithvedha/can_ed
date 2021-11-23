@@ -128,6 +128,17 @@
     <script src="{{url('js/vendors.js')}}"></script>
     <script src="{{url('js/aiz-core.js')}}"></script>
 
+    <script>
+        $('input[type=url]').keyup(function() {
+            string = $(this).val();
+
+            if(!(/^http:\/\//.test(string))){
+                string = "http://" + string;
+            }
+            $(this).val(string);
+        });
+    </script>
+
     @stack('after-scripts')
 </body>
 </html>

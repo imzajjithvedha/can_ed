@@ -2117,14 +2117,26 @@
                                                     @foreach ($contacts as $contact)
                                                         <tr>
                                                             <td>
-                                                                <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
-                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
-                                                                <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-6">
+                                                                        @if($contact->image != null)
+                                                                            <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
+                                                                        @else
+                                                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
+                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
+                                                                        <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
+                                                                    </div>
+                                                                </div>
+                                                                
                                                             </td>
                                                         </tr>
                                                     @endforeach
@@ -2139,9 +2151,7 @@
                                         <a href="#" class="btn text-white fw-bold red-btn w-100 py-3" target="_blank">Let's apply</a>
                                     </div>
                                 </div>
-                                
                             </div>
-                            
                         </div>
                     </div>
                 </div>

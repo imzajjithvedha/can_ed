@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School Contacts' )
+@section('title', 'School contacts' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -81,7 +81,7 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.school_contact_create') }}" method="POST">
+    <form action="{{ route('frontend.user.school_contact_create') }}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="modal fade" id="createContact" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
@@ -373,6 +373,11 @@
 
                         <div class="mb-3">
                             <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image</label>
+                            <input type="file" class="form-control" id="image" name="image">
                         </div>
                     </div>
                     <div class="modal-footer">

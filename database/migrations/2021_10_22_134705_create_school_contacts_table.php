@@ -26,6 +26,7 @@ class CreateSchoolContactsTable extends Migration
             $table->text('fax');
             $table->text('website');
             $table->integer('orders');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

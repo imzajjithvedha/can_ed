@@ -322,9 +322,27 @@
                                 <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website link *" name="website" value="{{ $contact->website }}" required>
                             </div>
 
-                            <div>
+                            <div class="mb-3">
                                 <label for="orders" class="form-label mb-1">Order *</label>
                                 <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $contact->orders }}" required>
+                            </div>
+
+                            <div>
+                                <label class="form-label">Image</label>
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        @if($contact->image != null)
+                                            <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
+                                            <input type="hidden" class="form-control" name="old_image" value="{{$contact->image}}">
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
+                                        @endif
+                                    </div>
+
+                                    <div class="col-12">
+                                        <input type="file" class="form-control" id="image" name="new_image">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="mt-5 text-center">

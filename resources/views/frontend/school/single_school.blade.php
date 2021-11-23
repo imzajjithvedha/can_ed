@@ -1058,17 +1058,6 @@
                                     </div>
                                 @endif
 
-                                @if($school->admission_title_6 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->admission_title_6 }}</h5>
-
-                                            <div class="gray">
-                                                {!! $school->admission_title_6_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
 
                                 @if(count($admission_faqs) > 0)
                                     <div class="row mb-5">

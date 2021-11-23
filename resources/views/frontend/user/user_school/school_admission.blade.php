@@ -99,16 +99,6 @@
                                                 <textarea name="admission_title_5_paragraph" class="ckeditor form-control" id="admission_title_5_paragraph" value="{{ $school->admission_title_5_paragraph }}">{{ $school->admission_title_5_paragraph }}</textarea>
                                             </div>
 
-                                            <div class="mb-3">
-                                                <label for="admission_title_6" class="form-label mb-1">Title 6</label>
-                                                <input type="text" class="form-control" id="admission_title_6" aria-describedby="admission_title_6" name="admission_title_6" value="{{ $school->admission_title_6 }}">
-                                            </div>
-
-                                            <div class="mb-3">
-                                                <label for="admission_title_6_paragraph" class="form-label mb-1">Paragraphs for title 6</label>
-                                                <textarea name="admission_title_6_paragraph" class="ckeditor form-control" id="admission_title_6_paragraph" value="{{ $school->admission_title_6_paragraph }}">{{ $school->admission_title_6_paragraph }}</textarea>
-                                            </div>
-
                                             <div class="text-end">
                                                 <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
                                                 <input type="submit" value="Update admission details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">

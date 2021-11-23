@@ -180,8 +180,8 @@ class CreateSchoolsTable extends Migration
             $table->text('admission_title_4_paragraph')->nullable();
             $table->text('admission_title_5')->nullable();
             $table->text('admission_title_5_paragraph')->nullable();
-            $table->text('admission_title_6')->nullable();
-            $table->text('admission_title_6_paragraph')->nullable();
+            // $table->text('admission_title_6')->nullable();
+            // $table->text('admission_title_6_paragraph')->nullable();
 
             $table->text('financial_title_1')->nullable();
             $table->text('financial_title_1_paragraph')->nullable();

@@ -47,7 +47,7 @@ class SchoolsAdmissionController extends Controller
         $employee->more_1 = $request->more_1;
         $employee->email = $request->email;
         $employee->more_2 = $request->more_2;
-        $employee->featured = $request->featured;
+        // $employee->featured = $request->featured;
         $employee->image = $image_call;
         $employee->orders = $request->orders;
 
@@ -115,7 +115,7 @@ class SchoolsAdmissionController extends Controller
                 'more_1' => $request->more_1,
                 'email' => $request->email,
                 'more_2' => $request->more_2,
-                'featured' => $request->featured,
+                // 'featured' => $request->featured,
                 'image' => $image_call,
                 'orders' => $request->orders,
             ]

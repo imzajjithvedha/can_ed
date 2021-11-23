@@ -87,13 +87,13 @@
                                         <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" value="{{ $employee->orders }}" required>
                                     </div>
 
-                                    <div>
+                                    <!-- <div>
                                         <label for="featured" class="form-label">Do you want to show this employee under meet our team? *</label>
                                         <select class="form-control" name="featured" id="featured" required>
                                             <option value="Yes" {{ $employee->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                             <option value="No" {{ $employee->featured == 'No' ? "selected" : "" }}>No</option>                               
                                         </select>
-                                    </div>
+                                    </div> -->
 
                                     <div class="mt-5 text-center">
                                         <input type="hidden" class="form-control" value="{{ $employee->id }}" name="hidden_id">

@@ -823,21 +823,21 @@
                                 @if(count($admission_employees) != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h5 class="fw-bold mb-2" style="color: #384058">Employees</h5>
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Meet our team</h5>
 
                                             @foreach($admission_employees as $admission_employee)
                                                 <div class="p-3 mb-4" style="background-color: #f2f4f8;">
 
                                                     <div class="row">
-                                                        <div class="col-4">
+                                                        <div class="col-5">
                                                             @if($admission_employee->image != null)
-                                                                <img src="{{ url('images/schools', $admission_employee->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 10rem; object-fit: cover;">
+                                                                <img src="{{ url('images/schools', $admission_employee->image) }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
                                                             @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-3" style="height: 10rem; object-fit: cover;">
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
                                                             @endif
                                                         </div>
 
-                                                        <div class="col-8">
+                                                        <div class="col-7">
                                                             <div class="row align-items-center mb-2">
                                                                 <div class="col-4">
                                                                     <div class="row">
@@ -1069,10 +1069,6 @@
                                         </div>
                                     </div>
                                 @endif
-
-
-                                
-
 
                                 @if(count($admission_faqs) > 0)
                                     <div class="row mb-5">

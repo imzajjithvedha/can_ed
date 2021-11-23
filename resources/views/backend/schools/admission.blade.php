@@ -113,7 +113,7 @@
                                     <th scope="col">Name</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Featured</th>
+                                    <!-- <th scope="col">Featured</th> -->
                                     <th scope="col">Order</th>
                                     <th scope="col" style="max-width: 130px;">Options</th>
                                 </tr>
@@ -176,13 +176,13 @@
                             <input type="number" class="form-control" id="orders" aria-describedby="orders" placeholder="Order *" name="orders" required>
                         </div>
 
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <select class="form-control" id="featured" name="featured" placeholder="Featured?" required>
                                 <option value="" selected disabled hidden>Do you want to show this employee under meet our team? </option>
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>
-                        </div>
+                        </div> -->
 
                     </div>
                     <div class="modal-footer">
@@ -240,7 +240,7 @@
                     {data: 'name', name: 'name'},
                     {data: 'phone', name: 'phone'},
                     {data: 'email', name: 'email'},
-                    {data: 'featured', name: 'featured'},
+                    // {data: 'featured', name: 'featured'},
                     {data: 'orders', name: 'orders'},
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]

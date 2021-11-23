@@ -119,7 +119,7 @@ class SchoolController extends Controller
 
         $admission_employees = SchoolAdmissionEmployees::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
-        $admission_featured_employees = SchoolAdmissionEmployees::where('school_id', $id)->where('featured', 'Yes')->orderBy('orders', 'asc')->take(3)->get();
+        // $admission_featured_employees = SchoolAdmissionEmployees::where('school_id', $id)->where('featured', 'Yes')->orderBy('orders', 'asc')->take(3)->get();
 
         $admission_faqs = SchoolAdmissionFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
@@ -153,7 +153,7 @@ class SchoolController extends Controller
             'scholarship_faqs' => $scholarship_faqs,
             'overview_faqs' => $overview_faqs,
             'admission_employees' => $admission_employees,
-            'admission_featured_employees' => $admission_featured_employees,
+            // 'admission_featured_employees' => $admission_featured_employees,
             'admission_faqs' => $admission_faqs,
             'financial_faqs' => $financial_faqs,
             'marked_facts' => $marked_facts

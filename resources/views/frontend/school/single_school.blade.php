@@ -182,7 +182,7 @@
                                 @if($school->instagram != null)
                                     <div class="border border-top-0 p-2">
                                         <a href="{{ $school->instagram }}" class="text-decoration-none" target="_blank">
-                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><img src="{{ url('img/frontend/instagram.jpg') }}" alt="" class="img-fluid me-2" style="height: 0.9rem;">Instagram</p>
+                                            <p class="text-dark fw-bold" style="font-size: 0.8rem"><i class="fab fa-instagram me-2" style="color: #E1306C;"></i>Instagram</p>
                                         </a>
                                     </div>
                                 @endif
@@ -237,176 +237,28 @@
 
                             <div class="tab-pane fade show active" id="quick-facts" role="tabpanel" aria-labelledby="quick-facts-tab">
 
-                                <div class="row mb-5">
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Location</h6>
-                                            @if($school->location != null)
-                                                <p class="gray">{{ $school->location }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
+                                @if($marked_facts != null)
+                                    <div class="row mb-5">
+                                        @foreach($marked_facts as $marked)
+                                            <div class="col-3 mb-4">
+                                                <div class="single-fact text-center p-3">
+                                                    <h6 class="fw-bold mb-1">{{ str_replace("_", " " , ucfirst($marked)) }}</h6>
+                                                    @if($school->$marked != null)
+                                                        @if($marked == 'school_type')
+                                                            <p class="gray">{{ App\Models\SchoolTypes::where('id', $school->school_type)->first()->name }}</p>
+                                                        @else
+                                                            <p class="gray">{{ $school->$marked }}</p>
+                                                        @endif
+                                                    @else
+                                                        <p class="gray">Not defined</p>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        @endforeach
                                     </div>
+                                @endif
 
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">School type</h6>
-                                            @if($school->school_type != null)
-                                                <p class="gray">{{ App\Models\SchoolTypes::where('id', $school->school_type)->first()->name }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
 
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Language</h6>
-                                            @if($school->language != null)
-                                                <p class="gray">{{ $school->language }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Undergraduates</h6>
-                                            @if($school->undergraduates != null)
-                                                <p class="gray">{{ $school->undergraduates }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Entrance dates</h6>
-                                            @if($school->entrance_dates != null)
-                                                <p class="gray">{{ $school->entrance_dates }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Canadian tuition</h6>
-                                            @if($school->entrance_dates != null)
-                                                <p class="gray">${{ $school->canadian_tuition_fee }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Minimum GPA</h6>
-                                            @if($school->minimum_gpa != null)
-                                                <p class="gray">{{ $school->minimum_gpa }}%</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Email</h6>
-                                            <p class="gray">{{ $school->school_email }}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Phone</h6>
-                                            @if($school->school_phone != null)
-                                                <p class="gray">{{ $school->school_phone }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Fax</h6>
-                                            @if($school->fax != null)
-                                                <p class="gray">{{ $school->fax }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Address</h6>
-                                            @if($school->address != null)
-                                                <p class="gray">{{ $school->address }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Country</h6>
-                                            <p class="gray">{{ $school->country }}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Address</h6>
-                                            @if($school->address != null)
-                                                <p class="gray">{{ $school->address }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Address</h6>
-                                            @if($school->address != null)
-                                                <p class="gray">{{ $school->address }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Address</h6>
-                                            @if($school->address != null)
-                                                <p class="gray">{{ $school->address }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-
-                                    <div class="col-3 mb-4">
-                                        <div class="single-fact text-center p-3">
-                                            <h6 class="fw-bold mb-1">Address</h6>
-                                            @if($school->address != null)
-                                                <p class="gray">{{ $school->address }}</p>
-                                            @else
-                                                <p class="gray">Not defined</p>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
 
                                 @if($school->quick_facts_title_1 != null)
                                     <div class="row mb-5">
@@ -2107,41 +1959,31 @@
                                 @if(count($contacts) > 0)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <table class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="font-size: 1.3rem; font-weight: 800">Contact {{ $school->name }}</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($contacts as $contact)
-                                                        <tr>
-                                                            <td>
-                                                                <div class="row align-items-center">
-                                                                    <div class="col-6">
-                                                                        @if($contact->image != null)
-                                                                            <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
-                                                                        @else
-                                                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
-                                                                        @endif
-                                                                    </div>
-                                                                    <div class="col-6">
-                                                                        <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
-                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
-                                                                        <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
-                                                                    </div>
-                                                                </div>
-                                                                
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
+                                            <h5 class="fw-bold mb-2" style="color: #384058">Contact {{ $school->name }}</h5>
+                                            
+                                            @foreach ($contacts as $contact)
+                                                <div class="p-3 mb-4" style="background-color: #f2f4f8;">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-6">
+                                                            @if($contact->image != null)
+                                                                <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
+                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
+                                                            <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 @endif

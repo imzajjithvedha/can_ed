@@ -21,6 +21,7 @@ class CreateDegreeLevelsTable extends Migration
             $table->text('icon')->nullable();
             $table->text('status');
             $table->integer('orders')->nullable();
+            $table->text('slug');
             $table->timestamps();
         });
     }

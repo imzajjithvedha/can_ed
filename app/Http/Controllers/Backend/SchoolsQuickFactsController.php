@@ -28,12 +28,21 @@ class SchoolsQuickFactsController extends Controller
 
         $school = Schools::where('id', $id)->first();
 
-        return view('backend.schools.quick_facts', ['school' => $school, 'school_types' => $school_types]);
+        $marked_facts = json_decode($school->marked_facts);
+
+        return view('backend.schools.quick_facts', ['school' => $school, 'school_types' => $school_types, 'marked_facts' => $marked_facts]);
 
     }
 
 
     public function schoolQuickFactsUpdate(Request $request) {
+
+        if($request->marked_facts != null) {
+            $marked = json_encode($request->marked_facts);
+        }
+        else {
+            $marked = null;
+        }
 
         $school = DB::table('schools') ->where('id', request('hidden_id'))->update(
             [
@@ -77,6 +86,7 @@ class SchoolsQuickFactsController extends Controller
                 'class_size_masters' => $request->class_size_masters,
                 'service_and_guidance_new_students' => $request->service_and_guidance_new_students,
                 'service_and_guidance_new_arrivals' => $request->service_and_guidance_new_arrivals,
+                'marked_facts' => $marked,
             ]
         );
    

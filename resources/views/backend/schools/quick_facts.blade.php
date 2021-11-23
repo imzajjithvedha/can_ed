@@ -80,11 +80,18 @@
                         <hr class="my-5">
 
 
-                        <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="location" class="form-label mb-1">School location (city)</label>
                                 <input type="text" class="form-control" id="location" aria-describedby="location" name="location" value="{{ $school->location }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="location" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'location' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -99,46 +106,109 @@
                                         @endif
                                     @endforeach
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="school_type" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'school_type' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="language" class="form-label mb-1">Languages (Separate by comma)</label>
                                 <input type="text" class="form-control" id="language" aria-describedby="language" name="language" value="{{ $school->language }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="language" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'language' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="undergraduates" class="form-label mb-1">Total undergraduates</label>
                                 <input type="number" class="form-control" id="undergraduates" aria-describedby="undergraduates" name="undergraduates" value="{{ $school->undergraduates }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="undergraduates" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'undergraduates' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="entrance" class="form-label mb-1">Entrance dates (Separate by comma)</label>
-                                <input type="text" class="form-control" id="entrance" aria-describedby="entrance" name="entrance_dates" value="{{ $school->entrance_dates }}">
+                                <input type="text" class="form-control" id="entrance" aria-describedby="entrance_dates" name="entrance_dates" value="{{ $school->entrance_dates }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="entrance_dates" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'entrance_dates' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="canadian_fee" class="form-label mb-1">Canadian tuition fee (in CAD)</label>
                                 <input type="number" class="form-control" id="canadian_fee" aria-describedby="canadian_fee" name="canadian_tuition_fee" value="{{ $school->canadian_tuition_fee }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="canadian_tuition_fee" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'canadian_tuition_fee' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="international_fee" class="form-label mb-1">International tuition fee (in CAD)</label>
-                                <input type="number" class="form-control" id="international_fee" aria-describedby="international_fee" name="international_tuition_fee" value="{{ $school->international_tuition_fee }}">
+                                <input type="number" class="form-control" id="international_fee" aria-describedby="international_tuition_fee" name="international_tuition_fee" value="{{ $school->international_tuition_fee }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="international_tuition_fee" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'international_tuition_fee' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="telephone" class="form-label mb-1">Telephone</label>
                                 <input type="text" class="form-control" id="telephone" aria-describedby="telephone" name="telephone" value="{{ $school->school_phone }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="telephone" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'telephone' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="fax" class="form-label mb-1">Fax</label>
                                 <input type="text" class="form-control" id="fax" aria-describedby="fax" name="fax" value="{{ $school->fax }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="fax" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'fax' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="address" class="form-label mb-1">School address</label>
                                 <input type="text" class="form-control" id="address" aria-describedby="address" name="address" value="{{ $school->address }}">
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="address" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'address' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -150,6 +220,13 @@
                                     <option value="winter" {{ $school->start_date == 'winter' ? "selected" : "" }}>Winter</option>
                                     <option value="summer" {{ $school->start_date == 'summer' ? "selected" : "" }}>Summer</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="start_date" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'start_date' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -159,6 +236,13 @@
                                     <option value="yes" {{ $school->online_distance_education == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->online_distance_education == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="online_distance_education" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'online_distance_education' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -171,6 +255,13 @@
                                     <option value="80" {{ $school->minimum_gpa == '80' ? "selected" : "" }}>Equivalent to 80%</option>
                                     <option value="90" {{ $school->minimum_gpa == '90' ? "selected" : "" }}>Equivalent to 90%</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="minimum_gpa" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'minimum_gpa' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -180,6 +271,13 @@
                                     <option value="yes" {{ $school->conditional_admission == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->conditional_admission == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="conditional_admission" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'conditional_admission' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -192,6 +290,13 @@
                                     <option value="co-op" {{ $school->graduate_program_type == 'co-op' ? "selected" : "" }}>Co-op</option>
                                     <option value="internship" {{ $school->graduate_program_type == 'internship' ? "selected" : "" }}>Internship</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="graduate_program_type" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'graduate_program_type' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -206,6 +311,13 @@
                                     <option value="minor" {{ $school->under_graduate_program_type == 'minor' ? "selected" : "" }}>Minor</option>
                                     <option value="specialization" {{ $school->under_graduate_program_type == 'specialization' ? "selected" : "" }}>Specialization</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="under_graduate_program_type" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'under_graduate_program_type' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -217,6 +329,13 @@
                                     <option value="part-time" {{ $school->study_method == 'part-time' ? "selected" : "" }}>Part-time</option>
                                     <option value="continuing-education" {{ $school->study_method == 'continuing-education' ? "selected" : "" }}>Continuing education</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="study_method" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'study_method' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -229,6 +348,13 @@
                                     <option value="day-and-evening" {{ $school->delivery_mode == 'day-and-evening' ? "selected" : "" }}>Day and Evening</option>
                                     <option value="weekends" {{ $school->delivery_mode == 'weekends' ? "selected" : "" }}>Weekends</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="delivery_mode" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'delivery_mode' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -243,6 +369,13 @@
                                     <option value="40,001" {{ $school->tuition_range == '40,001' ? "selected" : "" }}>$40,001 to $50,000</option>
                                     <option value="50,000" {{ $school->tuition_range == '50,000' ? "selected" : "" }}>Above $50,001</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="tuition_range" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'tuition_range' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -256,6 +389,13 @@
                                     <option value="shared" {{ $school->accommodation == 'shared' ? "selected" : "" }}>Shared accommodation</option>
                                     <option value="nearby" {{ $school->accommodation == 'nearby' ? "selected" : "" }}>Nearby</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="accommodation" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'accommodation' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -265,6 +405,13 @@
                                     <option value="yes" {{ $school->work_on_campus == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->work_on_campus == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="work_on_campus" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'work_on_campus' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -275,6 +422,13 @@
                                     <option value="summer" {{ $school->work_during_holidays == 'summer' ? "selected" : "" }}>Summer</option>
                                     <option value="winter" {{ $school->work_during_holidays == 'winter' ? "selected" : "" }}>Winter</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="work_during_holidays" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'work_during_holidays' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -284,6 +438,13 @@
                                     <option value="yes" {{ $school->internship == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->internship == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="internship" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'internship' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -293,6 +454,13 @@
                                     <option value="yes" {{ $school->co_op_education == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->co_op_education == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="co_op_education" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'co_op_education' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -302,6 +470,13 @@
                                     <option value="yes" {{ $school->job_placement == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->job_placement == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="job_placement" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'job_placement' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -313,6 +488,13 @@
                                     <option value="scholarships" {{ $school->financial_aid_domestic == 'scholarships' ? "selected" : "" }}>Scholarships</option>
                                     <option value="student-loans" {{ $school->financial_aid_domestic == 'student-loans' ? "selected" : "" }}>Student loans</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="financial_aid_domestic" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'financial_aid_domestic' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -325,6 +507,13 @@
                                     <option value="student-loans-co-signer" {{ $school->financial_aid_international == 'student-loans-co-signer' ? "selected" : "" }}>Student loans with co-signer</option>
                                     <option value="student-loans-without-co-signer" {{ $school->financial_aid_international == 'student-loans-without-co-signer' ? "selected" : "" }}>Student loans without co-signer</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="financial_aid_international" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'financial_aid_international' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -334,6 +523,13 @@
                                     <option value="yes" {{ $school->research == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->research == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="research" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'research' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -343,6 +539,13 @@
                                     <option value="yes" {{ $school->exchange_programs == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->exchange_programs == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="exchange_programs" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'exchange_programs' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -357,6 +560,13 @@
                                     <option value="online" {{ $school->degree_modifier == 'online' ? "selected" : "" }}>Online</option>
                                     <option value="university-transfer" {{ $school->degree_modifier == 'university-transfer' ? "selected" : "" }}>University transfer</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="degree_modifier" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'degree_modifier' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -368,6 +578,13 @@
                                     <option value="school-managed" {{ $school->day_care == 'school-managed' ? "selected" : "" }}>School managed</option>
                                     <option value="private-neighbor" {{ $school->day_care == 'private-neighbor' ? "selected" : "" }}>Private, Neighboring</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="day_care" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'day_care' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -380,6 +597,13 @@
                                     <option value="private-neighbor" {{ $school->elementary_school == 'private-neighbor' ? "selected" : "" }}>Private, Neighboring</option>
                                     <option value="public-neighbor" {{ $school->elementary_school == 'public-neighbor' ? "selected" : "" }}>Public, Neighboring</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="elementary_school" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'elementary_school' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -389,6 +613,13 @@
                                     <option value="yes" {{ $school->immigration_office == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->immigration_office == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="immigration_office" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'immigration_office' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -398,6 +629,13 @@
                                     <option value="yes" {{ $school->career_planning == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->career_planning == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="career_planning" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'career_planning' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -408,6 +646,13 @@
                                     <option value="graduate" {{ $school->pathway_programs == 'graduate' ? "selected" : "" }}>Yes, graduate</option>
                                     <option value="undergraduate" {{ $school->pathway_programs == 'undergraduate' ? "selected" : "" }}>Yes, undergraduate</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="pathway_programs" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'pathway_programs' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -418,6 +663,13 @@
                                     <option value="80" {{ $school->employment_rates == '80' ? "selected" : "" }}>Above 80%</option>
                                     <option value="70" {{ $school->employment_rates == '70' ? "selected" : "" }}>Above 70%</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="employment_rates" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'employment_rates' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -428,6 +680,13 @@
                                     <option value="20" {{ $school->class_size_undergraduate == '20' ? "selected" : "" }}>Under 20</option>
                                     <option value="30" {{ $school->class_size_undergraduate == '30' ? "selected" : "" }}>Under 30</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="class_size_undergraduate" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'class_size_undergraduate' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -438,6 +697,13 @@
                                     <option value="20" {{ $school->class_size_masters == '20' ? "selected" : "" }}>Under 20</option>
                                     <option value="30" {{ $school->class_size_masters == '30' ? "selected" : "" }}>Under 30</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="class_size_masters" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'class_size_masters' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mb-3">
@@ -447,6 +713,13 @@
                                     <option value="yes" {{ $school->service_and_guidance_new_students == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->service_and_guidance_new_students == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="service_and_guidance_new_students" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'service_and_guidance_new_students' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div>
@@ -456,11 +729,18 @@
                                     <option value="yes" {{ $school->service_and_guidance_new_arrivals == 'yes' ? "selected" : "" }}>Yes</option>
                                     <option value="no" {{ $school->service_and_guidance_new_arrivals == 'no' ? "selected" : "" }}>No</option>
                                 </select>
+
+                                <div class="form-check mt-2">
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="service_and_guidance_new_arrivals" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'service_and_guidance_new_arrivals' ) checked @endif @endforeach @endif>
+                                    <label class="form-check-label">
+                                        Featured
+                                    </label>
+                                </div>
                             </div>
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
-                                <input type="submit" value="Update quick facts" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                <button type="submit" value="Update quick facts" class="btn rounded-pill text-light px-5 py-2 submit_btn" style="background-color: #94ca60;">Update quick facts</button>
                             </div>
                         </form>
                     </div>
@@ -477,6 +757,37 @@
         $(document).ready(function () {
             $('.ckeditor').ckeditor();
         });
+    </script>
+
+
+    <script>
+        function validateForm() {
+
+            var count = $('input[name="marked_facts[]"]:checked').length;
+
+            if( count > 16 ) { 
+
+                alert('You are only allowed to add 16 quick facts in the main quick facts page for a school.');
+
+                call();
+
+                return false;
+
+            }
+            else { 
+                return true;
+            }    
+        }
+    </script>
+
+    <script>
+        function call (){
+
+            $('input[type="checkbox"]').on('click',function() {
+                $('.submit_btn').removeAttr('disabled','disabled');
+            });
+        };
+        
     </script>
 
 @endpush

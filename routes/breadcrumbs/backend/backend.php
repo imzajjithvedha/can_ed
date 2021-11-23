@@ -80,23 +80,23 @@ Breadcrumbs::for('admin.careers.how_careers_came_about', function ($trail) {
 });
 
 Breadcrumbs::for('admin.careers.all_careers', function ($trail) {
-    $trail->push('Careers / All Careers', route('admin.careers.all_careers'));
+    $trail->push('Careers / All careers', route('admin.careers.all_careers'));
 });
 
 Breadcrumbs::for('admin.careers.create_career', function ($trail) {
-    $trail->push('Careers / All Careers / Create', route('admin.careers.create_career'));
+    $trail->push('Careers / All careers / Create', route('admin.careers.create_career'));
 });
 
 Breadcrumbs::for('admin.careers.edit_career', function ($trail) {
-    $trail->push('Careers / All Careers / Edit', route('admin.careers.edit_career', 1));
+    $trail->push('Careers / All careers / Edit', route('admin.careers.edit_career', 1));
 });
 
 Breadcrumbs::for('admin.careers.import_careers', function ($trail) {
-    $trail->push('Careers / All Careers / Import', route('admin.careers.import_careers'));
+    $trail->push('Careers / All careers / Import', route('admin.careers.import_careers'));
 });
 
 Breadcrumbs::for('admin.careers.hot_careers', function ($trail) {
-    $trail->push('Careers / Hot Careers', route('admin.careers.hot_careers'));
+    $trail->push('Careers / Hot careers', route('admin.careers.hot_careers'));
 });
 
 
@@ -249,7 +249,7 @@ Breadcrumbs::for('admin.schools.school_admission_faq_edit', function ($trail) {
 });
 
 Breadcrumbs::for('admin.schools.school_quick_facts', function ($trail) {
-    $trail->push('School / Quick Facts', route('admin.schools.school_quick_facts', 1));
+    $trail->push('School / Quick facts', route('admin.schools.school_quick_facts', 1));
 });
 
 Breadcrumbs::for('admin.schools.school_programs', function ($trail) {
@@ -281,7 +281,7 @@ Breadcrumbs::for('admin.schools.school_contacts', function ($trail) {
 });
 
 Breadcrumbs::for('admin.schools.school_contact_edit', function ($trail) {
-    $trail->push('School / Contact/ Edit', route('admin.schools.school_contact_edit', [1, 1]));
+    $trail->push('School / Contact / Edit', route('admin.schools.school_contact_edit', [1, 1]));
 });
 
 Breadcrumbs::for('admin.schools.school_overview', function ($trail) {

@@ -28,9 +28,6 @@
                                   </div>
                             </li>
                         @else
-                            <!-- <li class="nav-item border-end px-2 border-end">
-                                <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.register') }}">Create Account</a>
-                            </li> -->
                             <li class="nav-item border-end px-2 border-end">
                                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.auth.login') }}">Register a school</a>
                             </li>
@@ -50,7 +47,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
         <div class="container">
-          <a class="navbar-brand text-center text-white fw-bold futura" href="{{ route('frontend.index') }}" style="font-size:25px; line-height:0.75; letter-spacing: 2px;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->name) }} <br> <span class="futura" style="font-size:14px; font-style: italic;">{{ strtoupper(App\Models\WebsiteInformation::where('id', 1)->first()->mantra) }}</span></a>
+          <a class="navbar-brand text-center text-white fw-bold futura" href="{{ route('frontend.index') }}" style="font-size:25px; line-height:0.75; letter-spacing: 2px;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->name }} <br> <span class="futura" style="font-size:14px; font-style: italic;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->mantra }}</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -75,56 +72,4 @@
           </div>
         </div>
     </nav>
-
 </div>
-<!-- <div class="container-fluid py-2 text-white top-nav fixed-top">
-    <div class="container p-0">
-        <div class="row justify-content-end" id="navbarSupportedContent">
-            <div class="col-8 text-end">
-                <div class="logo position-relative">
-                    <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid position-absolute"></a>
-                </div>
-                <ul class="me-auto nav justify-content-end">
-                    <li class="nav-item border-end px-2 border-end">
-                        <a class="nav-link text-white" aria-current="page" href="#">Register a Schools</a>
-                    </li>
-                    <li class="nav-item border-end px-2 border-end">
-                        <a class="nav-link text-white" href="#">Register a Business</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-link text-white" href="#">Log In</a>
-                    </li>
-                </ul>
-            </div>
-        </div> 
-    </div>
-</div> -->
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3 fixed-top">
-  <div class="container p-0">
-    <a class="navbar-brand text-center text-white fw-bolder" href="{{ route('frontend.index') }}" style="font-family:futura; font-size:25px; line-height:1.2rem;">STUDY IN CANADA <br> <span style="font-family:futura;font-size:14px;">THE BEST CANADIAN UNIVERSITIES</span></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item border-end border-2">
-          <a class="nav-link text-white" aria-current="page" href="#">Schools</a>
-        </li>
-        <li class="nav-item border-end border-2">
-          <a class="nav-link text-white" href="#">Programs</a>
-        </li>
-        <li class="nav-item border-end border-2">
-          <a class="nav-link text-white" href="#">Businesses</a>
-        </li>
-        <li class="nav-item border-end border-2">
-          <a class="nav-link text-white" href="#">Careers</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="#">Jobs</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav> -->

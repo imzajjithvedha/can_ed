@@ -81,3 +81,9 @@ td {
 .btn {
     font-family: Futura;
 }
+
+
+
+.form-check-input {
+    margin-top: 0.2rem!important;
+}

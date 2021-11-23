@@ -19,7 +19,7 @@ use App\Http\Controllers\Frontend\ProgramController;
 use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\SitemapController;
 use App\Http\Controllers\Frontend\SuggestionController;
-use App\Http\Controllers\Frontend\SchoolTypeController;
+use App\Http\Controllers\Frontend\SchoolDegreeController;
 use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\AdvancedSearchController;
@@ -150,15 +150,8 @@ Route::get('videos', [VideoController::class, 'index'])->name('videos');
 
 
 
-// Homepage search routes
-Route::get('language-programs', [SchoolTypeController::class, 'languagePrograms'])->name('language_programs');
-Route::get('community-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('community_schools');
-Route::get('bachelor-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('bachelor_schools');
-Route::get('masters-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('master_schools');
-Route::get('certificate-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('certificate_schools');
-Route::get('summer-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('summer_schools');
-Route::get('high-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('high_schools');
-Route::get('online-schools', [SchoolTypeController::class, 'schoolsCategory'])->name('online_schools');
+// Degree level search route
+Route::get('levels/{id}/{slug}', [SchoolDegreeController::class, 'index'])->name('degree_level');
 
 
 

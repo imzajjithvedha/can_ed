@@ -38,12 +38,17 @@ class DegreeLevelsController extends Controller
 
         $type = new DegreeLevels;
 
+        $slug_1 = str_replace(" ", "-", $request->name);
+
+        $slug = str_replace("/", "", $slug_1);
+
         $type->user_id = $user_id;
         $type->name = $request->name;
         $type->description = $request->description;
         $type->icon = $imageName;
         $type->orders = $request->orders;
         $type->status = 'Approved';
+        $type->slug = $slug;
 
         $type->save();
 

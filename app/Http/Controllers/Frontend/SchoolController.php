@@ -124,6 +124,17 @@ class SchoolController extends Controller
         $admission_faqs = SchoolAdmissionFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
         $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
+
+
+        if($school->marked_facts != null) {
+
+            $marked_facts = json_decode($school->marked_facts);
+            asort($marked_facts);
+
+        }
+        else {
+            $marked_facts = null;
+        }
         
 
         return view('frontend.school.single_school', [
@@ -145,6 +156,7 @@ class SchoolController extends Controller
             'admission_featured_employees' => $admission_featured_employees,
             'admission_faqs' => $admission_faqs,
             'financial_faqs' => $financial_faqs,
+            'marked_facts' => $marked_facts
         ]);
     }
 

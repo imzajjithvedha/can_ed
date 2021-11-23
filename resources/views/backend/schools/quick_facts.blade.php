@@ -753,13 +753,6 @@
 
 
 @push('after-scripts')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.ckeditor').ckeditor();
-        });
-    </script>
-
-
     <script>
         function validateForm() {
 

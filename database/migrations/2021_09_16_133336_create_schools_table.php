@@ -244,6 +244,8 @@ class CreateSchoolsTable extends Migration
             $table->text('financial_related_programs_6')->nullable();
             $table->text('financial_text_content_1')->nullable();
 
+            $table->text('marked_facts')->nullable();
+
             $table->timestamps();
         });
     }

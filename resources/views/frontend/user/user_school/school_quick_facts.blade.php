@@ -836,9 +836,9 @@
     <script>
         function validate() {
 
-            var count = $('input[name="marked_facts[]"]:checked').length;
+            let mark = $('input[name="marked_facts[]"]:checked').length;
 
-            if( count > 16 ) { 
+            if( mark > 16 ) { 
 
                 alert('You are only allowed to add 16 quick facts in the main quick facts page for a school.');
 

@@ -100,7 +100,7 @@
                                     <hr class="my-5">
 
 
-                                    <form action="{{ route('frontend.user.school_quick_facts_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+                                    <form action="{{ route('frontend.user.school_quick_facts_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validate();">
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="location" class="form-label mb-1">School location (city)</label>
@@ -834,7 +834,7 @@
 
 
     <script>
-        function validateForm() {
+        function validate() {
 
             var count = $('input[name="marked_facts[]"]:checked').length;
 

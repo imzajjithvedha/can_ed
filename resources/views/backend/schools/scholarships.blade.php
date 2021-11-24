@@ -157,6 +157,8 @@
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add scholarship</button>
+
+                                <a href="{{ route('admin.schools.import_scholarships') }}" class="btn btn-primary pull-right ml-4">Import scholarships</a>
                             </div>
                         </div>
 

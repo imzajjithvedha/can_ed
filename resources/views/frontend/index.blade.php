@@ -208,7 +208,7 @@
                                 <select name="degree_level" id="degree_level" class="form-select">
                                     <option value="all">All</option>
                                     @foreach($degree_levels as $degree_level)
-                                        <option value="{{ $degree_level->name }}">{{ $degree_level->name }}</option>
+                                        <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

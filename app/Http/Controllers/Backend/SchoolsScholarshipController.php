@@ -8,10 +8,12 @@ use App\Models\Businesses;
 use DB;
 use DataTables;
 use File;
+use Excel;
 use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolScholarships;
+use App\Imports\SchoolScholarshipsImport;
 
 /**
  * Class SchoolsScholarshipController.
@@ -196,5 +198,18 @@ class SchoolsScholarshipController extends Controller
         );
         
         return back()->withFlashSuccess('Updated Successfully');
+    }
+
+
+    public function importScholarships()
+    {
+        return view('backend.schools.scholarships_import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new SchoolScholarshipsImport, $request->file);
+
+        return redirect()->route('admin.schools.index')->withFlashSuccess('Uploaded Successfully');          
     }
 }

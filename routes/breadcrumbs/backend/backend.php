@@ -256,12 +256,20 @@ Breadcrumbs::for('admin.schools.school_programs', function ($trail) {
     $trail->push('School / Programs', route('admin.schools.school_programs', 1));
 });
 
+Breadcrumbs::for('admin.schools.import_programs', function ($trail) {
+    $trail->push('School / Programs / Import', route('admin.schools.import_programs'));
+});
+
 Breadcrumbs::for('admin.schools.school_program_edit', function ($trail) {
     $trail->push('School / Programs / Edit', route('admin.schools.school_program_edit', [1, 1]));
 });
 
 Breadcrumbs::for('admin.schools.school_scholarships', function ($trail) {
     $trail->push('School / Scholarships', route('admin.schools.school_scholarships', 1));
+});
+
+Breadcrumbs::for('admin.schools.import_scholarships', function ($trail) {
+    $trail->push('School / Scholarships / Import', route('admin.schools.import_scholarships'));
 });
 
 Breadcrumbs::for('admin.schools.school_scholarship_edit', function ($trail) {

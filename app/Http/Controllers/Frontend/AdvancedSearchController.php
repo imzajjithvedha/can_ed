@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 use DataTables;
 use App\Models\Articles;
 use App\Models\Businesses;
@@ -280,8 +281,23 @@ class AdvancedSearchController extends Controller
         $schools = Schools::where('status', 'Approved');
 
 
-        // if($degree_level != 'start-date'){
-        //     $schools->where('start_date', $start_date);
+        // if($degree_level != 'degree-level') {
+
+        //     $school_programs = SchoolPrograms::where('degree_level', $degree_level)->get();
+
+        //     $schools = Schools::where('status', 'Approved')->get();
+
+        //     $data = [];
+
+        //     foreach ($school_programs as $school_program){ 
+        //         foreach($schools as $school) {
+        //             if($school_program->school_id == $school->id) {
+        //                 array_push($data, $school);
+        //             }
+        //         }
+        //     }
+
+        //     $schools = collect(array_unique($data));
         // }
 
         // if($field_of_study != 'start-date'){
@@ -293,6 +309,8 @@ class AdvancedSearchController extends Controller
         }
 
         if($online_distance_education != 'online-distance-education'){
+
+            // dd($schools->all());
             $schools->where('online_distance_education', $online_distance_education);
         }
 
@@ -441,6 +459,8 @@ class AdvancedSearchController extends Controller
         if($service_new_arrivals != 'service-and-guidance-new-arrivals'){
             $schools->where('service_and_guidance_new_arrivals', $service_new_arrivals);
         }
+
+        // dd($schools);
 
 
         $filteredSchools = $schools->get();

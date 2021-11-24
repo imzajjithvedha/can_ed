@@ -38,6 +38,8 @@
                             </div>
                             <div class="col-4 text-end">
                                 <button class="btn create-btn text-white" data-bs-toggle="modal" data-bs-target="#createProgram">Add program</button>
+
+                                <a href="{{ route('admin.schools.import_programs') }}" class="btn btn-primary pull-right ml-4">Import programs</a>
                             </div>
                         </div>
 

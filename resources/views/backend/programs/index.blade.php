@@ -22,6 +22,7 @@
                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                         <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Title</th>
                                 <!-- <th scope="col">Degree level</th> -->
                                 <th scope="col">Status</th>
@@ -79,6 +80,7 @@
             serverSide: true,
             order: [[0, "asc"]],
             columns: [
+                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 // {data: 'degree_level', name: 'degree_level'},
                 {data: 'status', name: 'status'},

@@ -22,6 +22,7 @@
                     <table class="table table-striped table-bordered" id="degree-levels-table" style="width:100%">
                         <thead>
                             <tr>
+                                <th scope="col">ID</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Order</th>
@@ -80,6 +81,7 @@
             serverSide: true,
             order: [[2, "asc"]],
             columns: [
+                {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},
                 {data: 'icon', name: 'icon'},
                 {data: 'orders', name: 'orders'},

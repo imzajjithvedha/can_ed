@@ -73,6 +73,8 @@ class SchoolsOverviewController extends Controller
 
         $international = $request->international;
 
+        $provincial = $request->provincial;
+
         $output = [];
 
 
@@ -87,7 +89,8 @@ class SchoolsOverviewController extends Controller
                     'name' => $program,
                     'length' => $length[$key],
                     'canadian' => $canadian[$key],
-                    'international' => $international[$key]
+                    'international' => $international[$key],
+                    'provincial' => $provincial[$key],
                 ];
     
                 array_push($output, $data);

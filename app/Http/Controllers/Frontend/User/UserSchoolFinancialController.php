@@ -39,7 +39,10 @@ class UserSchoolFinancialController extends Controller
 
         $international4 = $request->international4;
 
+        $provincial4 = $request->provincial4;
+
         $output4 = [];
+
 
         if($programs4 == null) {
             $school = DB::table('schools')->where('id', request('hidden_id'))->update([
@@ -48,14 +51,16 @@ class UserSchoolFinancialController extends Controller
         }
         else {
             foreach($programs4 as $key=>$program4) {
+
                 $data = [
                     'name' => $program4,
                     'length' => $length4[$key],
                     'canadian' => $canadian4[$key],
-                    'international' => $international4[$key]
+                    'international' => $international4[$key],
+                    'provincial' => $provincial4[$key],
                 ];
-    
-                array_push($output4, $data);
+
+                array_push($output4, $data); 
             }
 
             $school = DB::table('schools')->where('id', request('hidden_id'))->update([
@@ -65,38 +70,38 @@ class UserSchoolFinancialController extends Controller
 
 
 
-        $programs6 = $request->programs6;
+        // $programs6 = $request->programs6;
 
-        $length6 = $request->length6;
+        // $length6 = $request->length6;
 
-        $canadian6 = $request->canadian6;
+        // $canadian6 = $request->canadian6;
 
-        $international6 = $request->international6;
+        // $international6 = $request->international6;
 
-        $output6 = [];
+        // $output6 = [];
 
 
-        if($programs6 == null) {
-            $school = DB::table('schools')->where('id', request('hidden_id'))->update([
-                'financial_related_programs_6' => null
-            ]);
-        }
-        else {
-            foreach($programs6 as $key=>$program6) {
-                $data = [
-                    'name' => $program6,
-                    'length' => $length6[$key],
-                    'canadian' => $canadian6[$key],
-                    'international' => $international6[$key]
-                ];
+        // if($programs6 == null) {
+        //     $school = DB::table('schools')->where('id', request('hidden_id'))->update([
+        //         'financial_related_programs_6' => null
+        //     ]);
+        // }
+        // else {
+        //     foreach($programs6 as $key=>$program6) {
+        //         $data = [
+        //             'name' => $program6,
+        //             'length' => $length6[$key],
+        //             'canadian' => $canadian6[$key],
+        //             'international' => $international6[$key]
+        //         ];
     
-                array_push($output6, $data);
-            }
+        //         array_push($output6, $data);
+        //     }
 
-            $school = DB::table('schools')->where('id', request('hidden_id'))->update([
-                'financial_related_programs_6' => json_encode($output6)
-            ]);
-        }
+        //     $school = DB::table('schools')->where('id', request('hidden_id'))->update([
+        //         'financial_related_programs_6' => json_encode($output6)
+        //     ]);
+        // }
 
 
 

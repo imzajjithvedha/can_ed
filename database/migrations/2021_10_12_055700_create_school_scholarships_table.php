@@ -25,9 +25,9 @@ class CreateSchoolScholarshipsTable extends Migration
             $table->date('deadline');
             $table->text('availability');
             $table->text('level_of_study');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->text('link');
-            $table->text('featured');
+            $table->text('featured')->nullable();
             $table->timestamps();
         });
     }

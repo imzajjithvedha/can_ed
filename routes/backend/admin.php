@@ -236,6 +236,9 @@ Route::post('schools/edit-school/programs/update', [SchoolsProgramController::cl
 Route::get('schools/edit-school/{id}/programs/delete/{program_id}', [SchoolsProgramController::class, 'SchoolProgramDelete'])->name('schools.school_program_delete');
 Route::post('schools/edit-school/programs/paragraph/update', [SchoolsProgramController::class, 'schoolProgramsParagraphUpdate'])->name('schools.school_programs_paragraph_update');
 
+Route::get('schools/edit-school/programs/import-programs', [SchoolsProgramController::class, 'importPrograms'])->name('schools.import_programs');
+Route::post('schools/edit-school/programs/import', [SchoolsProgramController::class, 'import'])->name('schools.programs.import');
+
 
 //School scholarships
 Route::get('schools/edit-school/{id}/scholarships', [SchoolsScholarshipController::class, 'schoolScholarships'])->name('schools.school_scholarships');
@@ -245,6 +248,10 @@ Route::get('schools/edit-school/{id}/scholarships/edit/{scholarship_id}', [Schoo
 Route::post('schools/edit-school/scholarships/update', [SchoolsScholarshipController::class, 'schoolScholarshipUpdate'])->name('schools.school_scholarship_update');
 Route::get('schools/edit-school/{id}/scholarships/delete/{scholarship_id}', [SchoolsScholarshipController::class, 'SchoolScholarshipDelete'])->name('schools.school_scholarship_delete');
 Route::post('schools/edit-school/scholarships/paragraph/update', [SchoolsScholarshipController::class, 'schoolScholarshipsParagraphUpdate'])->name('schools.school_scholarships_paragraph_update');
+
+Route::get('schools/edit-school/scholarships/import-scholarships', [SchoolsScholarshipController::class, 'importScholarships'])->name('schools.import_scholarships');
+Route::post('schools/edit-school/scholarships/import', [SchoolsScholarshipController::class, 'import'])->name('schools.scholarships.import');
+
 
 
 Route::get('schools/edit-school/{id}/scholarships-faq', [SchoolsScholarshipFAQController::class, 'schoolScholarshipsFAQ'])->name('schools.school_scholarships_faq');

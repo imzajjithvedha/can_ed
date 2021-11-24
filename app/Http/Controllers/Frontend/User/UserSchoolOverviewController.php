@@ -74,6 +74,8 @@ class UserSchoolOverviewController extends Controller
 
         $international = $request->international;
 
+        $provincial = $request->provincial;
+
         $output = [];
 
 
@@ -88,7 +90,8 @@ class UserSchoolOverviewController extends Controller
                     'name' => $program,
                     'length' => $length[$key],
                     'canadian' => $canadian[$key],
-                    'international' => $international[$key]
+                    'international' => $international[$key],
+                    'provincial' => $provincial[$key],
                 ];
     
                 array_push($output, $data);

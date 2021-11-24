@@ -1402,17 +1402,19 @@
                                                     <tr>
                                                         <th scope="col">Program name</th>
                                                         <th scope="col" class="text-center">Length</th>
-                                                        <th scope="col" class="text-center">Tuition, Canadian student</th>
-                                                        <th scope="col">Tuition, international student</th>
+                                                        <th scope="col">Tuition, International students</th>
+                                                        <th scope="col" class="text-center">Tuition, Canadian students</th>
+                                                        <th scope="col">Tuition, Provincial students</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach(json_decode($school->financial_related_programs_4) as $related4)
                                                         <tr style="font-size: 0.95rem;">
-                                                            <td style="word-break: break-all;">{{ $related4->name }}</td>
+                                                            <td>{{ $related4->name }}</td>
                                                             <td class="text-center">{{ $related4->length }}</td>
-                                                            <td class="text-center fw-bold">${{ $related4->canadian }}</td>
                                                             <td class="text-center fw-bold">${{ $related4->international }}</td>
+                                                            <td class="text-center fw-bold">${{ $related4->canadian }}</td>
+                                                            <td class="text-center fw-bold">${{ $related4->provincial }}</td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>
@@ -1434,9 +1436,9 @@
                                 @endif
 
                                 @if($school->financial_title_6 != null)
-                                    <div class="row px-3">
+                                    <div class="row mb-5">
                                         <div class="col-12">
-                                            <div class="row py-3" style="background-color: #f2f4f8;">
+                                            <div class="row py-3">
                                                 <div class="col-12">
                                                     <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_6 }}</h4>
 
@@ -1449,7 +1451,7 @@
                                     </div>
                                 @endif
 
-                                @if(json_decode($school->financial_related_programs_6) != null)
+                                <!-- @if(json_decode($school->financial_related_programs_6) != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
                                             <table class="table">
@@ -1474,7 +1476,7 @@
                                             </table>
                                         </div>
                                     </div>
-                                @endif
+                                @endif -->
 
                                 @if($school->financial_text_content_1 != null)
                                     <div class="row mb-5">

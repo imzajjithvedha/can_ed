@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use DB;
 use DataTables;
 use File;
+use Excel;
 use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
 use App\Models\DegreeLevels;
+use App\Imports\SchoolProgramsImport;
 
 /**
  * Class SchoolsProgramController.
@@ -147,5 +149,18 @@ class SchoolsProgramController extends Controller
         );
         
         return back()->withFlashSuccess('Updated Successfully');
+    }
+
+
+    public function importPrograms()
+    {
+        return view('backend.schools.programs_import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new SchoolProgramsImport, $request->file);
+
+        return redirect()->route('admin.schools.index')->withFlashSuccess('Uploaded Successfully');          
     }
 }

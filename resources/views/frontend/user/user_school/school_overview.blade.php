@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_overview_update') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('frontend.user.school_overview_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return valForm();">
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="overview_title_1" class="form-label mb-1">Title 1</label>
@@ -279,11 +279,14 @@
                                                         <label for="program-length" class="form-label">Length *</label>
                                                         <input type="text" class="form-control mb-2" name="length[]" placeholder="Length *" value="{{$overview_related_program->length}}" required>
 
+                                                        <label for="program-international-fee" class="form-label">Tuition, International students fee *</label>
+                                                        <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="{{$overview_related_program->international}}" required>
+
                                                         <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
                                                         <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian students fee *" value="{{$overview_related_program->canadian}}" required>
 
-                                                        <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
-                                                        <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="{{$overview_related_program->international}}" required>
+                                                        <label for="program-canadian-fee" class="form-label">Tuition, Provincial students fee *</label>
+                                                        <input type="text" class="form-control mb-2" name="provincial[]" placeholder="Tuition, Provincial students fee *" value="{{$overview_related_program->provincial}}" required>
                                                     </div>
                                                 @endforeach
                                             @endif
@@ -329,7 +332,7 @@
                                     
                                         <div class="text-end">
                                             <input type="hidden" class="form-control" value="{{ $school->id }}" name="hidden_id">
-                                            <input type="submit" value="Update overview details" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                            <input type="submit" value="Update overview details" class="btn rounded-pill text-light px-5 py-2 submit" style="background-color: #94ca60;">
                                         </div>
                                     </form>
                                 </div>
@@ -379,9 +382,12 @@
 
                             <input type="text" class="form-control mb-2" id="program-length" name="length[]" placeholder="Length *" required>
 
+                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international[]" placeholder="Tuition, International students fee *" required>
+
                             <input type="text" class="form-control mb-2" id="program-canadian-fee" name="canadian[]" placeholder="Tuition, Canadian students fee *" required>
 
-                            <input type="text" class="form-control mb-2" id="program-international-fee" name="international[]" placeholder="Tuition, international students fee *" required>
+                            <input type="text" class="form-control mb-2" id="program-provincial-fee" name="provincial[]" placeholder="Tuition, Provincial students fee *" required>
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -414,6 +420,7 @@
             let length = $('#program-length').val();
             let canadian = $('#program-canadian-fee').val();
             let international = $('#program-international-fee').val();
+            let provincial = $('#program-provincial-fee').val();
 
             template = `<div class="mb-3 single-program border p-3">
                             <div class="row mb-3 align-items-center">
@@ -431,11 +438,15 @@
                             <label for="program-length" class="form-label">Length</label>
                             <input type="text" class="form-control mb-2" name="length[]" placeholder="Length *" value="${length}" required>
 
+                            <label for="program-international-fee" class="form-label">Tuition, International students fee *</label>
+                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, International students fee *" value="${international}" required>
+
                             <label for="program-canadian-fee" class="form-label">Tuition, Canadian students fee *</label>
                             <input type="text" class="form-control mb-2" name="canadian[]" placeholder="Tuition, Canadian students fee *" value="${canadian}" required>
 
-                            <label for="program-international-fee" class="form-label">Tuition, international students fee *</label>
-                            <input type="text" class="form-control mb-2" name="international[]" placeholder="Tuition, international students fee *" value="${international}" required>
+                            <label for="program-canadian-fee" class="form-label">Tuition, Provincial students fee *</label>
+                            <input type="text" class="form-control mb-2" name="provincial[]" placeholder="Tuition, Provincial students fee *" value="${provincial}" required>
+
                         </div>`
 
             $('.related-programs').append(template);
@@ -454,6 +465,35 @@
                 $(this).parents('.single-program').remove();
             });
         });
+    </script>
+
+
+    <script>
+        function valForm() {
+            var count = $(".single-program").length;
+
+            if( count > 5 ) { 
+
+                alert('You are only allowed to add 5 related programs for a school.');
+
+                call();
+
+                return false;
+            }
+            else { 
+                return true;
+            }    
+        }
+    </script>
+
+    <script>
+        function call (){
+
+            $('.delete').on('click',function() {
+                $('.submit').removeAttr('disabled','disabled');
+            });
+        };
+        
     </script>
 
 @endpush

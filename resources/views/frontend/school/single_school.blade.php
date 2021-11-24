@@ -544,8 +544,9 @@
                                                     <tr>
                                                         <th scope="col">Program name</th>
                                                         <th scope="col" class="text-center">Length</th>
-                                                        <th scope="col" class="text-center">Tuition, Canadian student</th>
-                                                        <th scope="col">Tuition, international student</th>
+                                                        <th scope="col">Tuition, International students</th>
+                                                        <th scope="col" class="text-center">Tuition, Canadian students</th>
+                                                        <th scope="col">Tuition, Provincial students</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -553,8 +554,9 @@
                                                         <tr style="font-size: 0.95rem;">
                                                             <td style="word-break: break-all;">{{ $related->name }}</td>
                                                             <td class="text-center">{{ $related->length }}</td>
-                                                            <td class="text-center fw-bold">${{ $related->canadian }}</td>
                                                             <td class="text-center fw-bold">${{ $related->international }}</td>
+                                                            <td class="text-center fw-bold">${{ $related->canadian }}</td>
+                                                            <td class="text-center fw-bold">${{ $related->provincial }}</td>
                                                         </tr>
                                                     @endforeach
                                                 </tbody>

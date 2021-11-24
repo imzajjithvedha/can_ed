@@ -58,52 +58,35 @@ p {
 }
 
 
-.navigation-links {
-    background: #f5f5f5;
-}
-.navigation-links a {
-    display: inline-block;
-    text-decoration: none!important;
-    color: gray;
-    font-size: 0.9rem;
-    border-bottom: 2px solid transparent;
-}
-.navigation-links a:hover {
-    border-bottom: 2px solid red;
-    color: #333;
-}
-.navigation-links .footer-logo {
-    border-bottom: 0!important;
-}
-.navigation-links .footer-logo:hover {
-    border-bottom: 0!important;
-}
-.navigation-links h6 {
-    background-color: #ccc;
-    color: #333;
-    font-size: 0.9rem;
-}
-.navigation-links hr {
-    height: 0.8px;
-    background: #b1040e;
-    opacity: 1;
-}
+
+/* footer */
 
 .footer {
     background: #b1040e;
 }
+.footer h5 {
+    background-color: #ccc;
+    color: #333;
+}
+.footer hr {
+    height: 0.8px;
+    background: white;
+    opacity: 1;
+}
 .footer a {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
     color: white;
     text-decoration: none!important;
     border-bottom: 2px solid transparent;
 }
-.footer .footer-top-nav a:hover {
-    color: white;
+.footer .top-footer a:hover {
     border-bottom: 2px solid black;
+    color: white!important;
 }
+
+
 .footer_social {
-    margin-top:23px
+    margin-top: 40px;
 }
 .footer_social ul li {
     display:inline-block;

@@ -140,7 +140,7 @@ class MasterApplicationController extends Controller
             'school_slug' => $request->school_slug,
         ];
 
-        Mail::to(['zajjith@gmail.com'])->send(new MasterApplication($details));
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplication($details));
 
         Mail::to([$request->email])->send(new UserMasterApplication($details));
 

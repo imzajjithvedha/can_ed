@@ -42,7 +42,7 @@
                                 <div class="col-4 text-end">
                                     @if($school->main_button_title != null)
                                         @if($school->main_button_link != null)
-                                            <a href="{{ $school->main_button_link }}" type="button" class="btn text-white continue-article-btn w-75">Apply Now</a>
+                                            <a href="{{ $school->main_button_link }}" type="button" class="btn text-white advanced-btn w-75">Apply Now</a>
                                         @else
                                             <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" type="button" class="btn text-white advanced-btn w-75">Apply Now</a>
                                         @endif

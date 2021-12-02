@@ -638,4 +638,18 @@
             $('#modal-btn').click();
         }
     </script>
+
+    <script>
+        $('.search-drop').on('change', function() {
+            if($(this).val() == 'businesses') {
+                $('.advanced-search').attr('disabled', 'disabled');
+            } else if($(this).val() == 'programs') {
+                $('.advanced-search').attr('disabled', 'disabled');
+            } else if($(this).val() == 'articles') {
+                $('.advanced-search').attr('disabled', 'disabled');
+            } else {
+                $('.advanced-search').removeAttr('disabled');
+            }
+        });
+    </script>
 @endpush

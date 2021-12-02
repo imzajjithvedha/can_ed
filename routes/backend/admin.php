@@ -31,6 +31,7 @@ use App\Http\Controllers\Backend\SchoolsOverviewController;
 use App\Http\Controllers\Backend\SchoolsOverviewFAQController;
 use App\Http\Controllers\Backend\SchoolsFinancialController;
 use App\Http\Controllers\Backend\SchoolsFinancialFAQController;
+use App\Http\Controllers\Backend\MasterApplicationsController;
 
 
 
@@ -340,6 +341,9 @@ Route::post('information/update', [WebsiteInformationController::class, 'informa
 
 
 
-// Route::get('subscribers', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('fqa-management', [SchoolsController::class, 'index'])->name('schools.index');
-// Route::get('clerks', [SchoolsController::class, 'index'])->name('schools.index');
+// Master application routes
+
+Route::get('master-applications', [MasterApplicationsController::class, 'index'])->name('master.index');
+Route::get('master-applications/get-applications', [MasterApplicationsController::class, 'getApplications'])->name('master.get_applications');
+Route::get('master-applications/view-application/{id}', [MasterApplicationsController::class, 'viewApplication'])->name('master.view_application');
+Route::get('master_id/delete-application/{id}', [MasterApplicationsController::class, 'deleteApplication'])->name('master.delete_application');

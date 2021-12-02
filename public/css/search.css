@@ -25,3 +25,11 @@ td {
     color: black;
     border-left: 5px solid #bd2130;
 }
+
+
+/* advanced search css */
+.advanced-btn {
+    background-image: -webkit-linear-gradient(top, #CF0411, #660000);
+    color: white;
+    border: none;
+}

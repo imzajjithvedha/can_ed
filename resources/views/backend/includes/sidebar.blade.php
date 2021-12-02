@@ -195,6 +195,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/master.index'))}}" href="{{ route('admin.master.index') }}">
+                            Master applications
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/schools.index'))}}" href="{{ route('admin.schools.index') }}">
                             Schools profiles
                         </a>

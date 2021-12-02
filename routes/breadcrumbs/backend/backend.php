@@ -383,3 +383,13 @@ Breadcrumbs::for('admin.information.index', function ($trail) {
     $trail->push('Information', route('admin.information.index'));
 });
 
+
+// Master application breadcrumbs
+Breadcrumbs::for('admin.master.index', function ($trail) {
+    $trail->push('Master applications', route('admin.master.index'));
+});
+
+Breadcrumbs::for('admin.master.view_application', function ($trail) {
+    $trail->push('Master applications / View', route('admin.master.view_application', 1));
+});
+

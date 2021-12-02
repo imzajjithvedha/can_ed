@@ -16,6 +16,7 @@ class CreateMastersTable extends Migration
         Schema::create('masters', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id')->nullable();
+            $table->text('school_id');
             $table->text('first_name');
             $table->text('last_name');
             $table->text('dob');

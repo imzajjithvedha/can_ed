@@ -67,7 +67,7 @@ class MasterApplicationController extends Controller
             $application->user_id = null;
         }
 
-
+        $application->school_id = $request->school_id;
         $application->first_name = $request->first_name;
         $application->last_name = $request->last_name;
         $application->dob = $request->dob;

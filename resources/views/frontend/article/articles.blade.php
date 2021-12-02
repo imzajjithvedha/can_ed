@@ -37,7 +37,7 @@
                 ])
             @else
                 @foreach($articles as $article)
-                    <div class="row justify-content-between border py-3 px-2 mb-3">
+                    <div class="row justify-content-between border py-3 mb-3 mx-0">
                         <div class="col-4">
                             @if($article->image != null)
                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
@@ -50,13 +50,13 @@
 
                         <div class="col-8">
                             <h5 class="fw-bolder futura">{{ $article->title }}</h5>
-                            <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
+                            <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{!! $article->description !!}</div>
 
                             <p class="mt-2">By: Admin</p>
 
                             <div class="row align-end mt-3 justify-content-end">
                                 <div class="col-4 text-end">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" type="button" class="btn text-white continue-article-btn">Continue Reading</a>
+                                    <a href="{{ route('frontend.single_article', $article->id) }}" type="button" class="btn text-white continue-article-btn">Continue reading</a>
                                 </div>
                             </div>
                         </div>

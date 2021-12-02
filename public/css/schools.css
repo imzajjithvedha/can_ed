@@ -237,3 +237,12 @@ table {
     position: relative;
     top: 0.1rem;
 }
+
+
+
+/* advanced search css */
+.advanced-btn {
+    background-image: -webkit-linear-gradient(top, #CF0411, #660000);
+    color: white;
+    border: none;
+}

@@ -16,7 +16,7 @@
                     <div class="col-7">
                         <form method="post" action="{{route('frontend.auth.login.post')}}" class="needs-validation" novalidate>
                         {{csrf_field()}}
-                            <h5 class="fw-bolder">Login</h5>
+                            <h4 class="fw-bolder futura">Login</h4>
                             <hr>
                             <div class="mb-3">
                                 <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email or Username" name="email" required>
@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-4 register">
-                <h5 class="fw-bolder text-center">Not Registered yet?</h5>
+                <h4 class="fw-bolder text-center futura">Not Registered yet?</h4>
                 <hr>
 
                 <a href="{{ route('frontend.auth.register') }}" type="button" class="btn w-100">Register my account</a>

@@ -213,3 +213,27 @@ table {
 #myTabContent #contact .table td, .table th {
     border-top: 0px!important;
 }
+
+
+.col-red-btn {
+    background-color: #01468f;
+}
+
+
+/* Master application styles */
+.master-application #submit_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+    font-size: 1.2rem;
+}
+
+.tests-menu .border {
+    padding: .375rem .75rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.tests-menu .border input {
+    position: relative;
+    top: 0.1rem;
+}

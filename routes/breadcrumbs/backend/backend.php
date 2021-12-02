@@ -142,6 +142,11 @@ Breadcrumbs::for('admin.pages.disclaimer', function ($trail) {
     $trail->push('Pages / Disclaimer', route('admin.pages.disclaimer'));
 });
 
+Breadcrumbs::for('admin.pages.suggestions', function ($trail) {
+    $trail->push('Pages / Suggestions', route('admin.pages.suggestions'));
+});
+
+
 
 
 

@@ -18,7 +18,7 @@
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description *</label>
-                                <textarea name="description" class="form-control" id="description" rows="7" value="{{ $event->description }}" placeholder="Description" required>{{ $event->description }}"</textarea>
+                                <textarea name="description" class="form-control" id="description" rows="7" value="{{ $event->description }}" placeholder="Description" required>{{ $event->description }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -330,14 +330,23 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
-                                <input type="hidden" class="form-control" name="old_image" value="{{$event->image}}">
+                                @if($event->image != null)
+                                    <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
+                                    <input type="hidden" class="form-control" name="old_image" value="{{$event->image}}">
+                                
+                                    <div class="form-group mt-5">
+                                        <label for="image" class="form-label">Image</label>
+                                        <input type="file" class="form-control" id="image" name="new_image">
+                                    </div>
 
-                                <div class="form-group mt-5">
-                                    <label for="image" class="form-label">Image</label>
-                                    <input type="file" class="form-control" id="image" name="new_image">
-                                </div>
+                                @else
+                                    <div class="form-group">
+                                        <label for="image" class="form-label">Image</label>
+                                        <input type="file" class="form-control" id="image" name="new_image">
+                                    </div>
+                                @endif
                             </div>
+
                             <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>

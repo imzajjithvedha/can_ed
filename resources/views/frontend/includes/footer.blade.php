@@ -1,4 +1,4 @@
-<div class="container-fluid footer p-5">
+<div class="container-fluid footer p-5" style="margin-top: 5rem;">
     <div class="container">
         <div class="row text-center">
             <div class="col top-footer">

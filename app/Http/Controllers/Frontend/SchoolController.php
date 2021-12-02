@@ -125,6 +125,10 @@ class SchoolController extends Controller
 
         $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
+        $programs = SchoolPrograms::where('school_id', $id)->get();
+
+        $degree_levels = $programs->unique('degree_level');
+
 
         if($school->marked_facts != null) {
 
@@ -156,7 +160,9 @@ class SchoolController extends Controller
             // 'admission_featured_employees' => $admission_featured_employees,
             'admission_faqs' => $admission_faqs,
             'financial_faqs' => $financial_faqs,
-            'marked_facts' => $marked_facts
+            'marked_facts' => $marked_facts,
+            'programs' => $programs,
+            'degree_levels' => $degree_levels
         ]);
     }
 

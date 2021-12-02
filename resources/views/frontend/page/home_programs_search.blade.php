@@ -12,7 +12,7 @@
         <hr>
     </div>
 
-    <div class="container language-programs">
+    <div class="container language-programs" style="margin-bottom: 3rem;">
         <div class="row mt">
             <div class="col-12">
                 <table class="table table-striped table-bordered" id="programs-table" style="width:100%">

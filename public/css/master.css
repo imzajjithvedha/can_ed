@@ -1,0 +1,25 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.tests-menu .border {
+    padding: .375rem .75rem;
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.tests-menu .border input {
+    position: relative;
+    top: 0.1rem;
+}
+
+#submit_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+    font-size: 1.2rem;
+}
+.g-recaptcha {
+    display: inline-block;
+}

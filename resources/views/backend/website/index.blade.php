@@ -12,13 +12,15 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <input type="text" id="name" class="form-control" name="name" value="{{ $information->name }}" placeholder="Website Name" required>
+                                <label for="name" class="form-label">Website name *</label>
+                                <input type="text" id="name" class="form-control" name="name" value="{{ $information->name }}" placeholder="Website name *" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="mantra" class="form-control" name="mantra" value="{{ $information->mantra }}" placeholder="Website Mantra" required>
+                                <label for="mantra" class="form-label">Website mantra *</label>
+                                <input type="text" id="mantra" class="form-control" name="mantra" value="{{ $information->mantra }}" placeholder="Website mantra *" required>
                             </div>
                             <div class="form-group mb-4">
-                                <label class="form-label">Mailing Address</label>
+                                <label class="form-label">Mailing address *</label>
                                 <input type="text" class="form-control mb-2" name="address_1" value="{{ $information->address_1 }}" placeholder="1051 Blvd Decarie" required>
                                 <input type="text" class="form-control mb-2" name="address_2" value="{{ $information->address_2 }}" placeholder="P.O. Box: 53555 NORGATE" required>
                                 <input type="text" class="form-control mb-2" name="address_3" value="{{ $information->address_3 }}" placeholder="Montreal - Qc." required>
@@ -26,28 +28,36 @@
                                 <input type="text" class="form-control mb-2" name="address_5" value="{{ $information->address_5 }}" placeholder="Postal Code: H4L 3M0" required>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="telephone" class="form-control" name="telephone" value="{{ $information->telephone }}" placeholder="Telephone" required>
+                                <label for="telephone" class="form-label">Telephone *</label>
+                                <input type="text" id="telephone" class="form-control" name="telephone" value="{{ $information->telephone }}" placeholder="Telephone *" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" class="form-control" name="email" value="{{ $information->email }}" placeholder="Email" required>
+                                <label for="email" class="form-label">Email *</label>
+                                <input type="email" id="email" class="form-control" name="email" value="{{ $information->email }}" placeholder="Email *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="website_url" class="form-control" name="website_url" value="{{ $information->website_url }}" placeholder="Website URL" required>
+                                <label for="website_url" class="form-label">Website URL *</label>
+                                <input type="url" id="website_url" class="form-control" name="website_url" value="{{ $information->website_url }}" placeholder="Website URL *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="facebook" class="form-control" name="facebook" value="{{ $information->facebook }}" placeholder="Facebook Link" required>
+                                <label for="facebook" class="form-label">Facebook link *</label>
+                                <input type="url" id="facebook" class="form-control" name="facebook" value="{{ $information->facebook }}" placeholder="Facebook link *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="google" class="form-control" name="google" value="{{ $information->google }}" placeholder="Google Link" required>
+                                <label for="google" class="form-label">Google link *</label>
+                                <input type="url" id="google" class="form-control" name="google" value="{{ $information->google }}" placeholder="Google link *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="you-tube" class="form-control" name="you_tube" value="{{ $information->you_tube }}" placeholder="YouTube Link" required>
+                                <label for="you-tube" class="form-label">YouTube link *</label>
+                                <input type="url" id="you-tube" class="form-control" name="you_tube" value="{{ $information->you_tube }}" placeholder="YouTube link *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="instagram" class="form-control" name="instagram" value="{{ $information->instagram }}" placeholder="Instagram Link" required>
+                                <label for="instagram" class="form-label">Instagram link *</label>
+                                <input type="url" id="instagram" class="form-control" name="instagram" value="{{ $information->instagram }}" placeholder="Instagram link *" required>
                             </div>
                             <div class="form-group">
-                                <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter Link" required>
+                                <label for="twitter" class="form-label">Twitter link *</label>
+                                <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter link *" required>
                             </div>
                         </div>
                     </div>

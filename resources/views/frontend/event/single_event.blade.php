@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 single-business">
+    <div class="container mt-5 single-business" style="margin-bottom: 5rem;">
 
         <div class="row">
             <div class="col-8">
@@ -134,7 +134,7 @@
 
                 @foreach($more_events as $more_event)
                     <a href="{{ route('frontend.single_event', $more_event->id) }}" class="text-decoration-none">
-                        <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
+                        <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
                             <div class="col-6">
                                 @if($more_event->image != null)
                                     <img src="{{ url('images/events', $more_event->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">

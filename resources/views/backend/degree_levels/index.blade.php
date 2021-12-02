@@ -79,7 +79,7 @@
             processing: true,
             ajax: "{{route('admin.degree_levels.get_degree_levels')}}",
             serverSide: true,
-            order: [[2, "asc"]],
+            order: [[0, "asc"]],
             columns: [
                 {data: 'id', name: 'id'},
                 {data: 'name', name: 'name'},

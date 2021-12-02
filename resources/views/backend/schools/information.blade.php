@@ -330,9 +330,34 @@
                                 <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" value="{{ $school->you_tube }}">
                             </div>
 
-                            <div class="mb-5">
+                            <div class="mb-3">
                                 <label for="linked-in" class="form-label">LinkedIn</label>
                                 <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" value="{{ $school->linked_in }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="main-button-title" class="form-label">Main button title</label>
+                                <input type="text" class="form-control" id="main-button-title" aria-describedby="main_button_title" name="main_button_title" value="{{ $school->main_button_title }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="main-button-sub-title" class="form-label">Main button sub title</label>
+                                <input type="text" class="form-control" id="main-button-sub-title" aria-describedby="main_button_sub_title" name="main_button_sub_title" value="{{ $school->main_button_sub_title }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="main-button-link" class="form-label">Main button link</label>
+                                <input type="url" class="form-control" id="main-button-link" aria-describedby="main_button_link" name="main_button_link" value="{{ $school->main_button_link }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="other-button-title" class="form-label">Other button title</label>
+                                <input type="text" class="form-control" id="other-button-title" aria-describedby="other_button_title" name="other_button_title" value="{{ $school->other_button_title }}">
+                            </div>
+
+                            <div class="mb-5">
+                                <label for="other-button-link" class="form-label">Other button link</label>
+                                <input type="url" class="form-control" id="other-button-link" aria-describedby="other_button_link" name="other_button_link" value="{{ $school->other_button_link }}">
                             </div>
 
                             <div>

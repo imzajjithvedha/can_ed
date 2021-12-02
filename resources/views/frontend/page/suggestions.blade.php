@@ -10,10 +10,10 @@
     <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5 justify-content-center">
             <div class="col-12 mb-5">
-                <h4 class="fw-bolder futura">Comments / suggestions</h4>
+                <h4 class="fw-bolder futura">{{ $suggestions->title }}</h4>
                 <hr>
 
-                <h6 class="fw-bold mb-2" style="text-align: justify">This page is available only in English and French, the official languages of Canada, because it pertains to Canadian laws.</h6>
+                <!-- <h6 class="fw-bold mb-2" style="text-align: justify">This page is available only in English and French, the official languages of Canada, because it pertains to Canadian laws.</h6>
 
                 <p class="gray">keeping in mind that (the road to success is always under construction - Lily Tomlin): </p>
 
@@ -25,7 +25,11 @@
 
                 <p class="gray fw-bold mt-2">Thank you</p>
 
-                <p class="gray fw-bold">The Canadian team</p>
+                <p class="gray fw-bold">The Canadian team</p> -->
+
+                <div class="gray">
+                    {!! $suggestions->description !!}
+                </div>
             </div>
 
             <div class="col-8">

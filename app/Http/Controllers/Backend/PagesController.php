@@ -221,4 +221,25 @@ class PagesController extends Controller
         return back()->withFlashSuccess('Updated Successfully'); 
     }
 
+
+    public function suggestions()
+    {
+        $suggestions = Pages::where('name', 'suggestions')->first();
+
+        return view('backend.pages.suggestions', ['suggestions' => $suggestions]);
+    }
+
+    public function suggestionsUpdate(Request $request)
+    {
+        $suggestions = DB::table('pages') ->where('name', 'suggestions')->update(
+            [
+                'title' => $request->title,
+                'description' => $request->description,
+            ]
+        );
+
+        return back()->withFlashSuccess('Updated Successfully'); 
+    }
+
+
 }

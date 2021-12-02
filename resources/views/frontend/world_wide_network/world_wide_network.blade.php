@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h4 class="fw-bolder futura">World wide network</h4>
         
         <div class="row align-items-center">
@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="container networks">
+    <div class="container networks" style="margin-bottom: 3rem;">
         @if(count($networks) == 0)
                 @include('frontend.includes.not_found_title',[
                     'not_found_title' => 'World wide networks not found',
@@ -34,8 +34,8 @@
         @else
             <div class="row">
                 @foreach($networks as $network)
-                    <div class="col-6">
-                        <div class="card mb-4">
+                    <div class="col-6 mb-4">
+                        <div class="card">
                             <a href="{{ $network->url }}" class="text-decoration-none" target="_blank">
                                 <img src="{{ url('images/world-wide-network', $network->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem;object-fit: cover;">
                                 <div class="text-center p-2">

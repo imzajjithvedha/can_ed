@@ -87,24 +87,26 @@
                 </div>
             </div>
 
-            <div class="col-4">
-                <h4 class="fw-bolder futura">Helpful articles</h4>
-                <hr>
+            @if(count($more_articles) > 0)
+                <div class="col-4">
+                    <h4 class="fw-bolder futura">Helpful articles</h4>
+                    <hr>
 
-                @foreach($more_articles as $article)
-                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                        <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
-                            <div class="col-6">
-                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
-                            </div>
+                    @foreach($more_articles as $article)
+                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                            <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
+                                <div class="col-6">
+                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                </div>
 
-                            <div class="col-6">
-                                <p class="fw-bold gray">{{ $article->title }}</p>
+                                <div class="col-6">
+                                    <p class="fw-bold gray">{{ $article->title }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
-            </div>
+                        </a>
+                    @endforeach
+                </div>
+            @endif
         </div>
     </div>
 @endsection

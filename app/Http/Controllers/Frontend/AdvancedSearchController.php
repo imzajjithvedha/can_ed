@@ -465,7 +465,7 @@ class AdvancedSearchController extends Controller
 
         $filteredSchools = $schools->get();
 
-        return view("frontend.school.advanced_schools_search", ['filteredSchools' => $filteredSchools]);
+        return view("frontend.page.advanced_schools_search", ['filteredSchools' => $filteredSchools]);
 
     }
 }

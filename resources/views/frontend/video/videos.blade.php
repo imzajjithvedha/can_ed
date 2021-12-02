@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 videos" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container mt-5 videos" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">Videos</h4>
         <hr>

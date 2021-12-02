@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\SchoolDegreeController;
 use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\AdvancedSearchController;
+use App\Http\Controllers\Frontend\MasterApplicationController;
 
 
 
@@ -178,6 +179,12 @@ Route::get('/aiz-uploader/get_uploaded_files', [AizUploadController::class, 'get
 Route::post('/aiz-uploader/get_file_by_ids', [AizUploadController::class, 'get_preview_files']);
 Route::get('/aiz-uploader/download/{id}', [AizUploadController::class, 'attachment_download'])->name('download_attachment');
 Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_content']);
+
+
+
+Route::get('{id}/{slug}/master-application', [MasterApplicationController::class, 'index'])->name('master_application');
+Route::post('master-application/update', [MasterApplicationController::class, 'store'])->name('master_application_store');
+
 
 
 /*

@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 business">
+    <div class="container business" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">Businesses - {{ $category->name }}</h4>
 

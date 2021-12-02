@@ -19,7 +19,9 @@ class DegreeLevelsImport implements ToModel, WithHeadingRow
             'user_id' => '1',
             'name' => $row['name'],
             'description' => $row['description'],
+            'orders' => $row['order'],
             'status' => 'Approved',
+            'slug' => $row['slug'],
         ]);
     }
 }

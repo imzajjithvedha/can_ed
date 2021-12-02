@@ -13,7 +13,7 @@
                 <h4 class="fw-bolder futura">Contact information</h4>
                 <hr>
 
-                <p class="gray">We communicate with over 100 countries. please write to us in english. thank you for understanding and sorry for inconvenience.</p>
+                <p class="gray">We communicate with over 100 countries. Please write to us in english. Thank you for understanding and sorry for inconvenience.</p>
 
                 <div class="row mt-4 mb-2 ps-3">
                     <div class="col-5">

@@ -7,6 +7,7 @@ use App\Mail\Frontend\Suggestion;
 use App\Mail\Frontend\UserSuggestion;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use App\Models\Pages;
 
 /**
  * Class SuggestionController.
@@ -18,7 +19,9 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        return view('frontend.page.suggestions');
+        $suggestions = Pages::where('name', 'suggestions')->first();
+
+        return view('frontend.page.suggestions', ['suggestions' => $suggestions]);
     }
 
     public function send(Request $request)

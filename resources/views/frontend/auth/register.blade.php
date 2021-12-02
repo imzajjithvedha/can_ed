@@ -14,7 +14,7 @@
             <div class="col-7 border py-2">
                 <div class="row align-items-center">
                     <div class="col-12">
-                        <h5 class="fw-bolder">Registration</h5>
+                        <h4 class="fw-bolder futura">Registration</h4>
                         <hr style="background: #bd2130; height: 1px!important; opacity: 1!important;">
 
                         <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-4 register">
-                <h5 class="fw-bolder text-center">Already registered?</h5>
+                <h4 class="fw-bolder text-center futura">Already registered?</h4>
                 <hr>
 
                 <a href="{{ route('frontend.auth.login') }}" type="button" class="btn w-100">Login to your account</a> <br>

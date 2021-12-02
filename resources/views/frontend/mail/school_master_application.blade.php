@@ -1,0 +1,39 @@
+<p>Your school master application form was filled by an user. Below are the master application form details.</p>
+
+<p><strong>First name:</strong> {{ $details['first_name'] }}</p>
+<p><strong>Last name:</strong> {{ $details['last_name'] }}</p>
+<p><strong>Date of birth:</strong> {{ $details['dob'] }}</p>
+<p><strong>Gender:</strong> {{ $details['gender'] }}</p>
+<p><strong>Email:</strong> {{ $details['email'] }}</p>
+<p><strong>Phone:</strong> {{ $details['phone'] }}</p>
+<p><strong>Can schools text:</strong> {{ $details['school_text'] }}</p>
+<p><strong>Messaging apps:</strong> {{ $details['messaging_app'] }}</p>
+<p><strong>Messaging app username:</strong> {{ $details['username'] }}</p>
+<p><strong>Citizenship:</strong> {{ $details['citizenship'] }}</p>
+<p><strong>Do you live in your country of citizenship:</strong> {{ $details['citizenship_live'] }}</p>
+<p><strong>Currently live:</strong> {{ $details['country'] }}</p>
+<p><strong>Status in the country of residence:</strong> {{ $details['status'] }}</p>
+<p><strong>Citizenship country:</strong> {{ $details['citizenship_country'] }}</p>
+<p><strong>Citizenship postal code:</strong> {{ $details['citizenship_postal'] }}</p>
+<p><strong>Residence country:</strong> {{ $details['residence_country'] }}</p>
+<p><strong>Residence postal code:</strong> {{ $details['residence_postal'] }}</p>
+<p><strong>Message:</strong> {{ $details['message'] }}</p>
+<p><strong>High school name:</strong> {{ $details['school_name'] }}</p>
+<p><strong>High school GPA:</strong> {{ $details['gpa'] }}</p>
+<p><strong>High school location - city:</strong> {{ $details['school_city'] }}</p>
+<p><strong>High school location - country:</strong> {{ $details['school_country'] }}</p>
+<p><strong>Start date:</strong> {{ $details['start_date'] }}</p>
+<p><strong>Interested in:</strong> {{ App\Models\DegreeLevels::where('id', $details['interested'])->first()->name }}</p>
+<p><strong>Like to study:</strong> {{ App\Models\Programs::where('id', $details['like_study'])->first()->name }}</p>
+<p><strong>Student type:</strong> {{ $details['student_type_1'] }}</p>
+<p><strong>Student type:</strong> {{ $details['student_type_2'] }}</p>
+<p><strong>Tests Taken:</strong> {{ $details['tests'] }}</p>
+<p><strong>Comments:</strong> {{ $details['comments'] }}</p>
+<p><strong>Questions:</strong> {{ $details['questions'] }}</p>
+<p><strong>Transfer student currently living in Canada?:</strong> {{ $details['transfer_student'] }}</p>
+<p><strong>Already have an F-1 visa from a Canadian embassy?:</strong> {{ $details['visa'] }}</p>
+
+
+<p style="margin-bottom: 2px;">Thanks & Regards,</p>
+<h4 style="margin-top: 0px;">Study in Canada</h4>
+

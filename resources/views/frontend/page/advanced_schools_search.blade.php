@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container mt-5 business" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">Advanced search results - Schools</h4>
 

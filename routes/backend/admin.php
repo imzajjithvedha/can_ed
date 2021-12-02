@@ -136,6 +136,8 @@ Route::get('pages/privacy-policy', [PagesController::class, 'privacyPolicy'])->n
 Route::post('pages/privacy-policy/update', [PagesController::class, 'privacyPolicyUpdate'])->name('pages.privacy_policy_update');
 Route::get('pages/disclaimer', [PagesController::class, 'disclaimer'])->name('pages.disclaimer');
 Route::post('pages/disclaimer/update', [PagesController::class, 'disclaimerUpdate'])->name('pages.disclaimer_update');
+Route::get('pages/suggestions', [PagesController::class, 'suggestions'])->name('pages.suggestions');
+Route::post('pages/suggestions/update', [PagesController::class, 'suggestionsUpdate'])->name('pages.suggestions_update');
 
 
 

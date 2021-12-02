@@ -154,6 +154,12 @@
                             Privacy policy
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/pages.suggestions'))}}" href="{{ route('admin.pages.suggestions') }}">
+                            Suggestions
+                        </a>
+                    </li>
                 </ul>
             </li>
 

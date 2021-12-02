@@ -135,6 +135,11 @@
             if(!(/^http:\/\//.test(string))){
                 string = "http://" + string;
             }
+
+            if(string == 'http://') {
+                string = null;
+            }
+
             $(this).val(string);
         });
     </script>

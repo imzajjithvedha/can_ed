@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h4 class="fw-bolder futura">Quotes</h4>
 
         <div class="row align-items-center">
@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="container quotes">
+    <div class="container quotes" style="margin-bottom: 3rem;">
         @if(count($quotes) == 0)
                     @include('frontend.includes.not_found_title',[
                         'not_found_title' => 'Quotes not found',

@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 single-business">
+    <div class="container single-business" style="margin-top: 5rem; margin-bottom: 5rem;">
 
         <div class="row">
             <div class="col-8">

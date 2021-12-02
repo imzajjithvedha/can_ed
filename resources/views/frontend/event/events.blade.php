@@ -25,7 +25,7 @@
     </div>
 
 
-    <div class="container events">
+    <div class="container events" style="margin-bottom: 5rem;">
         @if(count($events) == 0)
             @include('frontend.includes.not_found_title',[
                 'not_found_title' => 'Events not found',

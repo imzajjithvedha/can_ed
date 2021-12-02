@@ -788,7 +788,7 @@
                                 <select name="interested" id="interested" class="form-select" required>
                                     <option value="" selected disabled hidden>Select</option>
                                     @foreach($degree_levels as $degree_level)
-                                        <option value="{{ $degree_level->id }}">{{ App\Models\DegreeLevels::where('id', $degree_level->id)->first()->name }}</option>
+                                        <option value="{{ $degree_level->degree_level }}">{{ App\Models\DegreeLevels::where('id', $degree_level->degree_level)->first()->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -798,7 +798,7 @@
                                 <select name="like_study" id="like-study" class="form-select" required>
                                     <option value="" selected disabled hidden>Select</option>
                                     @foreach($programs as $program)
-                                        <option value="{{ $program->id }}">{{ App\Models\Programs::where('id', $program->id)->first()->name }}</option>
+                                        <option value="{{ $program->program_id }}">{{ App\Models\Programs::where('id', $program->program_id)->first()->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

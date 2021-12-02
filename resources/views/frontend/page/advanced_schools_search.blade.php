@@ -23,7 +23,7 @@
             @else
                 @foreach($filteredSchools as $school)
                     
-                    <div class="row justify-content-between border mb-3 py-3 mx-0">
+                    <div class="row justify-content-between border mb-4 py-3 mx-0">
                         <div class="col-5 text-center">
                             @if($school->featured_image != null)
                                 <img src="{{ uploaded_asset($school->featured_image) }}" class="card-img-top img-fluid w-100" style="height: 15rem; object-fir: cover;" alt="...">

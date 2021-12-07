@@ -252,6 +252,9 @@ table {
 
 
 
+.datetimepicker {
+    width: 88%;
+}
 .datetimepicker-dummy .datetimepicker-dummy-wrapper .is-hidden {
     visibility: hidden!important;
 }

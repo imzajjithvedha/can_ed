@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit Financial FAQ' )
+@section('title', 'Edit financial FAQ' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">

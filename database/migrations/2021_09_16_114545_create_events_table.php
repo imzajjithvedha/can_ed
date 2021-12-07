@@ -28,6 +28,7 @@ class CreateEventsTable extends Migration
             $table->text('organizer_phone');
             $table->text('url')->nullable();
             $table->text('image')->nullable();
+            $table->text('featured');
             $table->timestamps();
         });
     }

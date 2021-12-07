@@ -1,13 +1,14 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Welcome to Study in Canada')
+@section('title', 'Canadian schools, colleges, and universities')
 
 @push('after-styles')
     <link href="{{ url('css/index.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
-    <div class="container-fluid main-banner">
+
+    <div class="container-fluid main-banner" style="background-image: url('../images/home/{{ $information->main_banner }}')">
         <div class="container" style="margin-top: -12rem;">
             <div class="row justify-content-center search-bar">
                 <div class="col-6">
@@ -15,7 +16,7 @@
                         {{csrf_field()}}
                         <div class="search-box p-2">
                             <div class="input-group">
-                                <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" aria-label="search" placeholder="Search your keyword">
+                                <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" aria-label="search">
                                 <select class="border-0 text-center search-drop border-end" name='type'>
                                     <option value="schools" selected="selected">Schools</option>
                                     <option value="businesses">Businesses</option>
@@ -25,7 +26,7 @@
                                     <!-- <option value="resources">Resources</option> -->
                                 </select>
                                 <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
-                                <button type="button" class="btn text-white advanced-search" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">ADVANCED SEARCH</button>
+                                <button type="button" class="btn text-white advanced-search" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
                             </div>
                         </div>
                     </form>
@@ -63,20 +64,20 @@
 
 
     @if(count($featured_schools) > 0)
-        <div class="container mt-5 featured-schools">
+        <div class="container mt-5 featured-schools red">
             <a href="{{ route('frontend.schools') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
 
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_school', [$featured_school->id, $featured_school->slug]) }}" class="text-decoration-none">
-                            <div class="card">
+                            <div class="card rounded-0">
                                 @if($featured_school->featured_image != null)
                                     <img src="{{ uploaded_asset($featured_school->featured_image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center">
+                                <div class="card-body text-center rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $featured_school->name }}</h6>
                                 </div>
                             </div>
@@ -89,7 +90,7 @@
 
 
     @if(count($featured_businesses) > 0)
-        <div class="container mt-5 featured-businesses">
+        <div class="container mt-5 featured-businesses blue">
             <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured businesses</a>
 
             
@@ -97,13 +98,13 @@
                 @foreach($featured_businesses as $featured_business)
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_business', $featured_business->id) }}" class="text-decoration-none">
-                            <div class="card">
+                            <div class="card rounded-0">
                                 @if($featured_business->image != null)
                                     <img src="{{ url('images/businesses', $featured_business->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center">
+                                <div class="card-body text-center rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
                                 </div>
                             </div>
@@ -116,21 +117,46 @@
 
 
     @if(count($featured_articles) > 0)
-        <div class="container mt-5 us-education">
+        <div class="container mt-5 red">
             <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your u.s. education</a>
 
             <div class="row mt-4">
                 @foreach($featured_articles as $article)
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                            <div class="card">
+                            <div class="card rounded-0">
                                 @if($article->image != null)
                                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center">
+                                <div class="card-body text-center rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_events) > 0)
+        <div class="container mt-5 blue">
+            <a href="{{ route('frontend.events') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured Events</a>
+
+            <div class="row mt-4">
+                @foreach($featured_events as $featured_events)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_event', $featured_events->id) }}" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_events->image != null)
+                                    <img src="{{ url('images/events', $featured_events->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_events->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -142,16 +168,18 @@
     
 
     @if(count($videos) > 0)
-        <div class="container mt-5 featured-videos">
+        <div class="container mt-5 featured-videos red">
             <a href="{{ route('frontend.videos') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured videos</a>
 
             <div class="row mt-4">
                 @foreach($videos as $video)
                     <div class="col-3 mb-4">
-                        <div class="card">
-                            <iframe width="100%" height="200" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="card rounded-0">
+                            <iframe width="100%" height="143" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                            <p class="gray fw-bolder m-3 text-center">{{ $video->title }}</p>
+                            <div class="card-body text-center rounded-0">
+                                <h6 class="card-title fw-bold gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
+                            </div>
                         </div>
                         
                     </div>
@@ -162,20 +190,20 @@
 
 
     @if(count($articles) > 0)
-        <div class="container mt-5 recent-articles">
+        <div class="container mt-5 recent-articles blue">
             <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
 
             <div class="row mt-4">
                 @foreach($articles as $article)
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                            <div class="card">
+                            <div class="card rounded-0">
                                 @if($article->image != null)
                                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center">
+                                <div class="card-body text-center rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
                                 </div>
                             </div>
@@ -185,7 +213,6 @@
             </div>
         </div>
     @endif
-
 
 
     <!-- Advanced search form -->
@@ -557,7 +584,6 @@
             </div>
         </div>
     </form>
-
 
 
     @if(\Session::has('success'))

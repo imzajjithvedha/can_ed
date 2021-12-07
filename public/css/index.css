@@ -1,5 +1,4 @@
 .main-banner {
-    background-image: url('../img/frontend/index/banner.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -12,8 +11,15 @@
     background-color: rgb(255, 255, 255, 0.5);
 }
 .search-drop {
-    outline: none!important;
+    /* outline: none!important; */
     font-size: 0.9rem;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 12px 12px;
+    -webkit-appearance: none;
+    width: 100px;
 }
 .advanced-search {
     background-color: rgb(228, 12, 12);
@@ -22,6 +28,7 @@
 .search-input::placeholder {
     font-size: 0.9rem;
 }
+
 
 
 
@@ -44,15 +51,6 @@
     font-weight: 600;
 }
 
-.us-education .card-body {
-    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);
-    color: white;
-}
-
-.us-education .card-body h6 {
-    color: white;
-}
-
 
 .form-control, .form-select {
     color: black;
@@ -69,4 +67,4 @@
 
 .tooltip-inner {
     white-space: pre-wrap;
-   }
+}

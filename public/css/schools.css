@@ -24,7 +24,6 @@ hr {
 
 
 
-
 /* Single School Styles */
 /* .single-school hr {
     background: #bd2130;
@@ -245,4 +244,37 @@ table {
     background-image: -webkit-linear-gradient(top, #CF0411, #660000);
     color: white;
     border: none;
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #e9ecef;
+    opacity: 0.8!important;
+}
+
+
+
+.datetimepicker-dummy .datetimepicker-dummy-wrapper .is-hidden {
+    visibility: hidden!important;
+}
+.datetimepicker .datepicker-nav .datepicker-nav-next, .datetimepicker .datepicker-nav .datepicker-nav-previous {
+    color: black!important;
+}
+.datetimepicker-header {
+    display: none!important;
+}
+.datetimepicker-footer {
+    display: none!important;
+}
+
+.datetimepicker-dummy-wrapper {
+    color: black!important;
+    border-color: #dbdbdb;
+    border-left: 5px solid #bd2130!important;
+}
+
+.datetimepicker-dummy .datetimepicker-dummy-wrapper::before, .datetimepicker-dummy .datetimepicker-dummy-wrapper:before {
+    top: 0.55rem!important;
+}
+
+.datetimepicker-dummy .datetimepicker-clear-button {
+    margin: 0.2rem 0.2rem 0 0!important;
 }

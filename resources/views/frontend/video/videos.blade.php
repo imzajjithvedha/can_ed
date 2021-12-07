@@ -23,10 +23,14 @@
             @else
                 @foreach($videos as $video)
                     <div class="col-4 mb-4">
-                        <div class="card" style="height: 18rem;">
+                        <div class="card red" style="height: 16rem;">
                             <iframe width="100%" height="200" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                            <p class="gray fw-bolder m-3 text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $video->title }}</p>
+                            <!-- <p class="gray fw-bolder m-3 text-center" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $video->title }}</p> -->
+
+                            <div class="card-body text-center rounded-0">
+                                <h6 class="card-title fw-bold gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
+                            </div>
                         </div>
                         
                     </div>

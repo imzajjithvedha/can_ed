@@ -25,6 +25,18 @@ class WebsiteInformationController extends Controller
 
     public function informationUpdate(Request $request)
     {
+
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+
+            $image->move(public_path('images/home'), $imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
+
         $information = DB::table('website_information') ->where('id', 1)->update(
             [
                 'name' => $request->name,
@@ -42,6 +54,7 @@ class WebsiteInformationController extends Controller
                 'you_tube' => $request->you_tube,
                 'instagram' => $request->instagram,
                 'twitter' => $request->twitter,
+                'main_banner' => $imageName,
             ]
         );
 

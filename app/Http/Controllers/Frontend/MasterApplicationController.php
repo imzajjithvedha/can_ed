@@ -13,6 +13,8 @@ use Illuminate\Support\Collection;
 use App\Mail\Frontend\MasterApplication;
 use App\Mail\Frontend\UserMasterApplication;
 use App\Mail\Frontend\SchoolMasterApplication;
+use App\Models\DegreeLevels;
+use App\Models\Programs;
 
 /**
  * Class MasterApplicationController.
@@ -28,17 +30,54 @@ class MasterApplicationController extends Controller
 
         $programs = SchoolPrograms::where('school_id', $id)->get();
 
-        $degree_levels = $programs->unique('degree_level');
+        $degree = $programs->unique('degree_level');
+
+        $degree_levels = DegreeLevels::get();
+
+        $a = [];
+
+        foreach ($degree as $deg){ 
+            foreach($degree_levels as $degree_level) {
+                if($deg->degree_level == $degree_level->id) {
+                    array_push($a, $degree_level);
+                }
+            }
+        }
+
+        $a = collect($a);
+
+        $data = $a->sortBy('name');
+
+
+        // School programs
+
+        $all_programs = Programs::get();
+
+        $b = [];
+
+        foreach ($programs as $program){ 
+            foreach($all_programs as $all_program) {
+                if($program->program_id == $all_program->id) {
+                    array_push($b, $all_program);
+                }
+            }
+        }
+
+        $b = collect($b);
+
+        $prog = $b->sortBy('name');
 
         return view('frontend.school.master_application', [
             'school' => $school,
-            'programs' => $programs,
-            'degree_levels' => $degree_levels
+            'prog' => $prog,
+            'data' => $data
         ]);
     }
 
     public function store(Request $request)
     {
+        dd($request);
+        
         $application = new Master;
 
         $tests = $request->tests;
@@ -47,14 +86,16 @@ class MasterApplicationController extends Controller
 
         $arr = [];
 
-        foreach($tests as $key=>$test) {
+        if($tests != null) {
+            foreach($tests as $key=>$test) {
 
-            $data = [
-                'test' => $test,
-                'mark' => $marks[$key]
-            ];
-
-            array_push($arr, $data); 
+                $data = [
+                    'test' => $test,
+                    'mark' => $marks[$key]
+                ];
+    
+                array_push($arr, $data); 
+            }
         }
 
 
@@ -81,10 +122,7 @@ class MasterApplicationController extends Controller
         $application->citizenship_live = $request->citizenship_live;
         $application->country = $request->country;
         $application->status = json_encode($request->status);
-        $application->citizenship_country = $request->citizenship_country;
-        $application->citizenship_postal = $request->citizenship_postal;
-        $application->residence_country = $request->residence_country;
-        $application->residence_postal = $request->residence_postal;
+        $application->mailing_address = $request->mailing_address;
         $application->message = $request->message;
         $application->school_name = $request->school_name;
         $application->gpa = $request->gpa;
@@ -93,8 +131,8 @@ class MasterApplicationController extends Controller
         $application->start_date = $request->start_date;
         $application->interested = $request->interested;
         $application->like_study = $request->like_study;
-        $application->student_type_1 = $request->student_type_1;
-        $application->student_type_2 = json_encode($request->student_type_2);
+        $application->student_type = $request->student_type;
+        $application->funding_source = json_encode($request->funding_source);
         $application->tests = json_encode($arr);
         $application->comments = $request->comments;
         $application->questions = $request->questions;
@@ -117,10 +155,7 @@ class MasterApplicationController extends Controller
             'citizenship_live' => $request->citizenship_live,
             'country' => $request->country,
             'status' => json_encode($request->status),
-            'citizenship_country' => $request->citizenship_country,
-            'citizenship_postal' => $request->citizenship_postal,
-            'residence_country' => $request->residence_country,
-            'residence_postal' => $request->residence_postal,
+            'mailing_address' => $request->mailing_address,
             'message' => $request->message,
             'school_name' => $request->school_name,
             'gpa' => $request->gpa,
@@ -129,8 +164,8 @@ class MasterApplicationController extends Controller
             'start_date' => $request->start_date,
             'interested' => $request->interested,
             'like_study' => $request->like_study,
-            'student_type_1' => $request->student_type_1,
-            'student_type_2' => json_encode($request->student_type_2),
+            'student_type' => $request->student_type,
+            'funding_source' => json_encode($request->funding_source),
             'tests' => json_encode($arr),
             'comments' => $request->comments,
             'questions' => $request->questions,
@@ -140,7 +175,7 @@ class MasterApplicationController extends Controller
             'school_slug' => $request->school_slug,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplication($details));
+        Mail::to(['zajjith@gmail.com'])->send(new MasterApplication($details));
 
         Mail::to([$request->email])->send(new UserMasterApplication($details));
 

@@ -18,6 +18,8 @@ use App\Models\SchoolOverviewFAQ;
 use App\Models\SchoolAdmissionEmployees;
 use App\Models\SchoolAdmissionFAQ;
 use App\Models\SchoolFinancialFAQ;
+use App\Models\DegreeLevels;
+use App\Models\Programs;
 
 /**
  * Class SchoolController.
@@ -125,11 +127,50 @@ class SchoolController extends Controller
 
         $financial_faqs = SchoolFinancialFAQ::where('school_id', $id)->orderBy('orders', 'asc')->get();
 
+
+        // School degree levels
         $programs = SchoolPrograms::where('school_id', $id)->get();
 
-        $degree_levels = $programs->unique('degree_level');
+        $degree = $programs->unique('degree_level');
+
+        $degree_levels = DegreeLevels::get();
+
+        $a = [];
+
+        foreach ($degree as $deg){ 
+            foreach($degree_levels as $degree_level) {
+                if($deg->degree_level == $degree_level->id) {
+                    array_push($a, $degree_level);
+                }
+            }
+        }
+
+        $a = collect($a);
+
+        $data = $a->sortBy('name');
 
 
+        // School programs
+
+        $all_programs = Programs::get();
+
+        $b = [];
+
+        foreach ($programs as $program){ 
+            foreach($all_programs as $all_program) {
+                if($program->program_id == $all_program->id) {
+                    array_push($b, $all_program);
+                }
+            }
+        }
+
+        $b = collect($b);
+
+        $prog = $b->sortBy('name');
+
+
+
+        // Marked facts
         if($school->marked_facts != null) {
 
             $marked_facts = json_decode($school->marked_facts);
@@ -161,8 +202,8 @@ class SchoolController extends Controller
             'admission_faqs' => $admission_faqs,
             'financial_faqs' => $financial_faqs,
             'marked_facts' => $marked_facts,
-            'programs' => $programs,
-            'degree_levels' => $degree_levels
+            'prog' => $prog,
+            'data' => $data
         ]);
     }
 

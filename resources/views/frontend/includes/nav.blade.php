@@ -47,7 +47,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
         <div class="container">
-          <a class="navbar-brand text-center text-white fw-bold futura" href="{{ route('frontend.index') }}" style="font-size:25px; line-height:0.75; letter-spacing: 2px;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->name }} <br> <span class="futura" style="font-size:14px; font-style: italic;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->mantra }}</span></a>
+          <a class="navbar-brand text-center text-white fw-bold futura" href="{{ route('frontend.index') }}" style="font-size:35px; line-height:0.75; letter-spacing: 2px;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->name }} <br> <span class="futura" style="font-size:16px;">{{ App\Models\WebsiteInformation::where('id', 1)->first()->mantra }}</span></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

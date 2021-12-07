@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Business Dashboard' )
+@section('title', 'Business dashboard' )
 
 @section('content')
 

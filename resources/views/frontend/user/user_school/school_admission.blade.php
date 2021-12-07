@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School Admission' )
+@section('title', 'School admission' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">

@@ -54,6 +54,7 @@ class EventsController extends Controller
         $event->organizer_phone = $request->phone;
         $event->url = $request->url;
         $event->image = $imageName;
+        $event->featured = $request->featured;
 
         $event->save();
 
@@ -85,8 +86,17 @@ class EventsController extends Controller
                     }   
                     return $status;
                 })
+
+                ->editColumn('featured', function($data){
+                    if($data->featured == 'Yes'){
+                        $featured = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $featured;
+                })
                 
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action','status', 'featured'])
                 ->make(true);
         }
         
@@ -128,7 +138,8 @@ class EventsController extends Controller
                 'organizer_email' => $request->email,
                 'organizer_phone' => $request->phone,
                 'url' => $request->url,
-                'image' => $imageName
+                'image' => $imageName,
+                'featured' => $request->featured,
             ]
         );
    

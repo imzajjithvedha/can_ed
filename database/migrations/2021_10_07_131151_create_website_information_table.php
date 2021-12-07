@@ -30,6 +30,7 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('you_tube');
             $table->text('instagram');
             $table->text('twitter');
+            $table->text('main_banner')->nullable();
             $table->timestamps();
         });
     }

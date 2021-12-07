@@ -102,6 +102,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/pages.cookies'))}}" href="{{ route('admin.pages.cookies') }}">
+                            Cookies policy
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/pages.disclaimer'))}}" href="{{ route('admin.pages.disclaimer') }}">
                             Disclaimer
                         </a>

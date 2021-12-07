@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My Quotes')
+@section('title', 'My quotes')
 
 @section('content')
 

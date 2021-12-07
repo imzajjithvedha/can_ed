@@ -28,12 +28,9 @@ class CreateMastersTable extends Migration
             $table->text('username')->nullable();
             $table->text('citizenship');
             $table->text('citizenship_live');
-            $table->text('country');
+            $table->text('country')->nullable();
             $table->text('status')->nullable();
-            $table->text('citizenship_country');
-            $table->text('citizenship_postal');
-            $table->text('residence_country');
-            $table->text('residence_postal');
+            $table->text('mailing_address');
             $table->text('message')->nullable();
             $table->text('school_name');
             $table->text('gpa');
@@ -42,8 +39,8 @@ class CreateMastersTable extends Migration
             $table->text('start_date');
             $table->text('interested');
             $table->text('like_study');
-            $table->text('student_type_1');
-            $table->text('student_type_2')->nullable();
+            $table->text('student_type');
+            $table->text('funding_source')->nullable();
             $table->text('tests')->nullable();
             $table->text('comments')->nullable();
             $table->text('questions')->nullable();

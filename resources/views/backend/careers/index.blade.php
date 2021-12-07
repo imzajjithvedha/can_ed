@@ -10,11 +10,11 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>All Careers&nbsp;</strong>
+                    <strong>All careers&nbsp;</strong>
 
-                    <a href="{{ route('admin.careers.create_career') }}" class="btn btn-primary pull-right ml-4">Create New</a>
+                    <a href="{{ route('admin.careers.create_career') }}" class="btn btn-primary pull-right ml-4">Create new</a>
 
-                    <a href="{{ route('admin.careers.import_careers') }}" class="btn btn-primary pull-right ml-4">Import Careers</a>
+                    <a href="{{ route('admin.careers.import_careers') }}" class="btn btn-primary pull-right ml-4">Import careers</a>
                    
                 </div><!--card-header-->
 
@@ -23,9 +23,9 @@
                         <thead>
                             <tr>
                                 <th scope="col">Level</th>
-                                <th scope="col">Hierarchical Structure</th>
+                                <th scope="col">Hierarchical</th>
                                 <th scope="col">Code</th>
-                                <th scope="col" style="width:250px;">Title</th>
+                                <th scope="col">Title</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Option</th>
                             </tr>

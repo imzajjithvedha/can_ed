@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My Account Information')
+@section('title', 'My account settings')
 
 @section('content')
 
@@ -38,7 +38,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-4">
-                                            <input type="password" class="form-control" id="old_password" placeholder="Old Password *" aria-describedby="old_password" name="old_password">
+                                            <input type="password" class="form-control" id="old_password" placeholder="Old password *" aria-describedby="old_password" name="old_password">
                                             @if($errors->any('old_password'))
                                                 <span class="text-danger invalid">{{ $errors->first('old_password') }}</span>
                                             @endif
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-4">
-                                            <input type="password" class="form-control" id="new_password" placeholder="New Password *" aria-describedby="new_password" name="new_password">
+                                            <input type="password" class="form-control" id="new_password" placeholder="New password *" aria-describedby="new_password" name="new_password">
                                             @if($errors->any('new_password'))
                                                 <span class="text-danger invalid">{{ $errors->first('new_password') }}</span>
                                             @endif
@@ -55,7 +55,7 @@
 
                                     <div class="col-12">
                                         <div class="mb-4">
-                                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm Password *" aria-describedby="confirm_password">
+                                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirm password *" aria-describedby="confirm_password">
                                             @if($errors->any('confirm_password'))
                                                 <span class="text-danger invalid">{{ $errors->first('confirm_password') }}</span>
                                             @endif
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="mt-3 text-center">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Update Password</button>
+                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Update password</button>
                                     <button type="button" class="btn rounded-pill text-light px-4 py-2 ms-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Close my account</button>
                                 </div>
                             </form>
@@ -99,7 +99,7 @@
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
@@ -107,7 +107,7 @@
                         <h4 class="mb-0 text-center">Your password updated successfully.</h4>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="{{ route('frontend.auth.logout') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
                     </div>
                 </div>
             </div>

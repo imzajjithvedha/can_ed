@@ -241,5 +241,38 @@ class PagesController extends Controller
         return back()->withFlashSuccess('Updated Successfully'); 
     }
 
+    public function cookies()
+    {
+        $cookies = Pages::where('name', 'cookies')->first();
+
+        return view('backend.pages.cookies', ['cookies' => $cookies]);
+    }
+
+    public function cookiesUpdate(Request $request)
+    {
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+
+            $image->move(public_path('images/pages'), $imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
+
+
+        $cookies = DB::table('pages') ->where('name', 'cookies')->update(
+            [
+                'title' => $request->title,
+                'description' => $request->description,
+                'image' => $imageName
+            ]
+        );
+
+        return back()->withFlashSuccess('Updated Successfully'); 
+    }
+    
+
 
 }

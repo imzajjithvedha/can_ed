@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My Account Information')
+@section('title', 'School settings')
 
 @section('content')
 

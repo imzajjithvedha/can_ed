@@ -12,19 +12,24 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="level" aria-describedby="level" placeholder="Level" name="level" value="{{$career->level}}" required>
+                                <label for="level" class="form-label">Level *</label>
+                                <input type="text" class="form-control" id="level" aria-describedby="level" placeholder="Level *" name="level" value="{{$career->level}}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="hierarchical" aria-describedby="hierarchical" placeholder="Hierarchical Structure" name="hierarchical" value="{{$career->hierarchical}}" required>
+                                <label for="hierarchical" class="form-label">Hierarchical structure *</label>
+                                <input type="text" class="form-control" id="hierarchical" aria-describedby="hierarchical" placeholder="Hierarchical structure *" name="hierarchical" value="{{$career->hierarchical}}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="code" aria-describedby="code" placeholder="Code" name="code" value="{{$career->code}}" required>
+                                <label for="code" class="form-label">Code *</label>
+                                <input type="text" class="form-control" id="code" aria-describedby="code" placeholder="Code *" name="code" value="{{$career->code}}" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Class Name" name="title" value="{{$career->title}}" required>
+                                <label for="title" class="form-label">Class name *</label>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Class name *" name="title" value="{{$career->title}}" required>
                             </div>
                             <div class="mb-3">
-                                <textarea name="definition" rows="7" class="form-control" placeholder="Class Definition" value="{{$career->definition}}" required>{{$career->definition}}</textarea>
+                                <label for="definition" class="form-label">Class definition *</label>
+                                <textarea name="definition" id="definition" rows="7" class="form-control" placeholder="Class definition *" value="{{$career->definition}}" required>{{$career->definition}}</textarea>
                             </div>
                         </div>
                     </div>

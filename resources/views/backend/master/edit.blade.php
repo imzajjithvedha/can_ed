@@ -84,23 +84,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Citizenship country</label>
-                                <input type="text" class="form-control" value="{{ $master->citizenship_country }}" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Citizenship country postal code</label>
-                                <input type="text" class="form-control" value="{{ $master->citizenship_postal }}" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Residence country</label>
-                                <input type="text" class="form-control" value="{{ $master->residence_country }}" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Residence country postal code</label>
-                                <input type="text" class="form-control" value="{{ $master->residence_postal }}" disabled>
+                                <label class="form-label">Mailing address</label>
+                                <input type="text" class="form-control" value="{{ $master->mailing_address }}" disabled>
                             </div>
 
                             <div class="form-group">
@@ -145,12 +130,12 @@
 
                             <div class="form-group">
                                 <label class="form-label">Student type</label>
-                                <input type="text" class="form-control" value="{{ $master->student_type_1 }}" disabled>
+                                <input type="text" class="form-control" value="{{ $master->student_type }}" disabled>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Student type</label>
-                                @foreach(json_decode($master->student_type_2) as $student_type)
+                                @foreach(json_decode($master->funding_source) as $student_type)
                                     <input type="text" class="form-control" value="{{ $student_type }}" disabled>
                                 @endforeach
                             </div>

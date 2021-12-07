@@ -7,7 +7,7 @@
     <form action="{{ route('admin.information.update') }}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-7 p-1">
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
@@ -64,11 +64,27 @@
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-5 p-1">
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <div class="text-center">
+
+                            <div class="form-group">
+                                @if($information->main_banner != null)
+                                    <img src="{{ url('images/home', $information->main_banner) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
+                                @endif
+
+                                <input type="hidden" class="form-control" name="old_image" value="{{$information->image}}">
+
+                                <div class="form-group mt-5">
+                                    <label for="image" class="form-label">Image</label>
+                                    <input type="file" class="form-control" id="image" name="new_image">
+                                </div>
+                            </div>
+
+                            <div class="mt-5 text-center">
                                 <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>

@@ -139,6 +139,8 @@ Route::get('pages/disclaimer', [PagesController::class, 'disclaimer'])->name('pa
 Route::post('pages/disclaimer/update', [PagesController::class, 'disclaimerUpdate'])->name('pages.disclaimer_update');
 Route::get('pages/suggestions', [PagesController::class, 'suggestions'])->name('pages.suggestions');
 Route::post('pages/suggestions/update', [PagesController::class, 'suggestionsUpdate'])->name('pages.suggestions_update');
+Route::get('pages/cookies', [PagesController::class, 'cookies'])->name('pages.cookies');
+Route::post('pages/cookies/update', [PagesController::class, 'cookiesUpdate'])->name('pages.cookies_update');
 
 
 

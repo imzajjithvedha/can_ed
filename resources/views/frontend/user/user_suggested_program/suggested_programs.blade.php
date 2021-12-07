@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Suggested Programs')
+@section('title', 'Suggested programs')
 
 @section('content')
 

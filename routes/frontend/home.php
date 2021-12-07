@@ -24,6 +24,7 @@ use App\Http\Controllers\Frontend\VideoController;
 use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\AdvancedSearchController;
 use App\Http\Controllers\Frontend\MasterApplicationController;
+use App\Http\Controllers\Frontend\CookiesController;
 
 
 
@@ -71,6 +72,8 @@ Route::post('suggestions/send', [SuggestionController::class, 'send'])->name('su
 
 Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('privacy_policy');
 Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
+
+Route::get('cookies', [CookiesController::class, 'index'])->name('cookies');
 
 
 

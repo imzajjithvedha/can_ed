@@ -6,6 +6,7 @@
                 <hr>
                 <a href="{{ route('frontend.about_us') }}">About us</a><br>
                 <a href="{{ route('frontend.suggestions') }}">Comments / suggestions</a><br>
+                <a href="{{ route('frontend.cookies') }}">Cookies policy</a><br>
                 <a href="{{ route('frontend.contact_us') }}">Contact us</a><br>
                 <a href="{{ route('frontend.disclaimer') }}">Disclaimer</a><br>
                 <a href="{{ route('frontend.faq') }}">FAQ</a><br>

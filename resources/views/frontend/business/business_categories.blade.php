@@ -19,7 +19,7 @@
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="search_business" aria-describedby="search_business" name="keyword" placeholder="Search by business category" value="">
+                    <input type="text" class="form-control text-center" id="search_business" aria-describedby="search_business" name="keyword" placeholder="Search business categories" value="">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>
@@ -37,7 +37,7 @@
             @else
                 @foreach($categories as $category)
                     <div class="col-3 mb-4">
-                        <div class="card">
+                        <div class="card blue">
                             <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
                                 @if($category->image != null)
                                     <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem; object-fit: cover;">

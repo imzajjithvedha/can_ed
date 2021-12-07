@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit Suggested Program')
+@section('title', 'Edit suggested program')
 
 @push('after-styles')
     <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">

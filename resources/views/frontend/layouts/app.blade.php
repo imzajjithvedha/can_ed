@@ -10,7 +10,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="app-url" content="{{ getBaseURL() }}">
         <meta name="file-base-url" content="{{ getFileBaseURL() }}">
-        <title>@yield('title', app_name())</title>
+        <title>@yield('title', 'Canadian schools, colleges, and universities')</title>
         <link rel="icon" href="{{ url('img/frontend/logo.png') }}"/>
         <meta name="description" content="@yield('meta_description', 'Laravel Boilerplate')">
         <meta name="author" content="@yield('meta_author', 'Anthony Rappa')">
@@ -27,8 +27,9 @@
         <script src="https://kit.fontawesome.com/aa4e69f91b.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css"/>
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-        
 
+        <link href="{{ url('css/bulma-calendar.min.css') }}" rel="stylesheet">
+        
 
         <!-- Check if the language is set to RTL, so apply the RTL layouts -->
         <!-- Otherwise apply the normal LTR layouts -->
@@ -38,6 +39,8 @@
     </head>
     <body>
         @include('includes.partials.read-only')
+
+        @include('cookieConsent::index')
 
         <div id="app" class="position-relative">
             @include('includes.partials.logged-in-as')
@@ -52,11 +55,10 @@
             <div style="position:fixed; bottom: 0.8rem; right:0.8rem">
                 <button class="btn" style="background-color: rgb(255 255 255 / 69%); color: black; cursor: pointer; z-index: 1; border-radius: 30px; padding: 10px 15px;" onclick="to_top()"><i class="fas fa-arrow-up"></i></button>
             </div>
-            
 
             @include('frontend.includes.footer')
 
-        </div><!-- #app -->
+        </div>
 
         <!-- Scripts -->
         @stack('before-scripts')
@@ -70,6 +72,8 @@
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script src="{{ url('js/bulma-calendar.min.js') }}"></script>
 
         <script>
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

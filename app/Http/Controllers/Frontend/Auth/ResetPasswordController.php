@@ -6,16 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\Auth\ResetPasswordRequest;
 use App\Repositories\Frontend\Auth\UserRepository;
 use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Foundation\Auth\ResetsPasswords;
+// use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
+
+use Illuminate\Http\Request;
+use Hash;
+use App\Models\Auth\User;
+use App\Models\Auth\PasswordHistory;
+use Auth;
+use DB;
 
 /**
  * Class ResetPasswordController.
  */
 class ResetPasswordController extends Controller
 {
-    use ResetsPasswords;
+    // use ResetsPasswords;
 
     /**
      * @var UserRepository
@@ -41,79 +48,33 @@ class ResetPasswordController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showResetForm($token = null)
+    public function showResetForm($email)
     {
-        if (! $token) {
-            return redirect()->route('frontend.auth.password.email');
-        }
+        $user = User::where('email', $email)->first();
 
-        $user = $this->userRepository->findByPasswordResetToken($token);
-
-        if ($user && resolve('auth.password.broker')->tokenExists($user, $token)) {
-            return view('frontend.auth.passwords.reset')
-                ->withToken($token)
-                ->withEmail($user->email);
-        }
-
-        return redirect()->route('frontend.auth.password.email')
-            ->withFlashDanger(__('exceptions.frontend.auth.password.reset_problem'));
+        return view('frontend.auth.passwords.reset', ['user' => $user]);
     }
 
-    /**
-     * Reset the given user's password.
-     *
-     * @param  ResetPasswordRequest  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
-     */
-    public function reset(ResetPasswordRequest $request)
+    public function update(Request $request)
     {
-        // Here we will attempt to reset the user's password. If it is successful we
-        // will update the password on an actual user model and persist it to the
-        // database. Otherwise we will parse the error and return the response.
-        $response = $this->broker()->reset(
-            $this->credentials($request),
-            function ($user, $password) {
-                $this->resetPassword($user, $password);
-            }
+        $request->validate([
+            'password' => 'required|min:6|max:100',
+            'confirm_password' => 'required|same:password'
+        ],
+        // [
+        //     'password.required' => 'You have to choose the file!',
+        //     'confirm_password.required' => 'You have to choose type of the file!'
+        // ]
+    );
+
+        $user = DB::table('users') ->where('id', request('hidden_id'))->update(
+            [
+                'password'=> bcrypt($request->password)
+            ]
         );
 
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
-        return $response === Password::PASSWORD_RESET
-            ? $this->sendResetResponse($response)
-            : $this->sendResetFailedResponse($request, $response);
+        return back()->with('success', 'success');
+
     }
 
-    /**
-     * Reset the given user's password.
-     *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-     * @param  string  $password
-     */
-    protected function resetPassword($user, $password)
-    {
-        $user->password = $password;
-
-        $user->password_changed_at = now();
-
-        $user->setRememberToken(Str::random(60));
-
-        $user->save();
-
-        event(new PasswordReset($user));
-
-        $this->guard()->login($user);
-    }
-
-    /**
-     * Get the response for a successful password reset.
-     *
-     * @param  string  $response
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    protected function sendResetResponse($response)
-    {
-        return redirect()->route(home_route())->withFlashSuccess(e(trans($response)));
-    }
 }

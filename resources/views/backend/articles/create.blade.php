@@ -31,6 +31,14 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <select class="form-control" id="color" name="color" placeholder="color *" required>
+                                    <option value="" selected disabled hidden>Color *</option>
+                                    <option value="blue">Blue</option>
+                                    <option value="red">Red</option>
+                                    <option value="gray">Gray</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

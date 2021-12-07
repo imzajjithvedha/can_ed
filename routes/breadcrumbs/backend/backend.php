@@ -146,6 +146,10 @@ Breadcrumbs::for('admin.pages.suggestions', function ($trail) {
     $trail->push('Pages / Suggestions', route('admin.pages.suggestions'));
 });
 
+Breadcrumbs::for('admin.pages.cookies', function ($trail) {
+    $trail->push('Pages / Cookies', route('admin.pages.cookies'));
+});
+
 
 
 

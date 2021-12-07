@@ -41,6 +41,7 @@ class CreateSchoolsTable extends Migration
             $table->text('main_button_link')->nullable();
             $table->text('other_button_title')->nullable();
             $table->text('other_button_link')->nullable();
+            $table->text('category')->nullable();
 
 
 
@@ -144,6 +145,7 @@ class CreateSchoolsTable extends Migration
             $table->text('overview_title_3_link')->nullable();
             $table->text('overview_title_3_image_name')->nullable();
             $table->text('overview_title_3_date')->nullable();
+            $table->text('overview_title_3_button')->nullable();
             $table->text('overview_title_4')->nullable();
             $table->text('overview_title_4_paragraph')->nullable();
             $table->text('overview_title_4_image')->nullable();
@@ -158,6 +160,7 @@ class CreateSchoolsTable extends Migration
             $table->text('overview_title_8')->nullable();
             $table->text('overview_title_8_paragraph')->nullable();
             $table->text('overview_title_8_link')->nullable();
+            $table->text('overview_title_8_button')->nullable();
             $table->text('overview_title_9')->nullable();
             $table->text('overview_title_9_image')->nullable();
             $table->text('overview_title_9_sub_title')->nullable();

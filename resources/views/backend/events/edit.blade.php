@@ -355,6 +355,14 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <label for="featured-article" class="form-label">Do you want to show this event in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured-article" required>
+                                    <option value="Yes" {{ $event->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $event->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $event->id }}"/>
                                 <a href="{{ route('admin.events.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>

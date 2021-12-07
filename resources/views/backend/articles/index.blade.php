@@ -24,6 +24,7 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Featured</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Color</th>
                                 <th scope="col">Options</th>
                             </tr>
                         </thead>
@@ -81,6 +82,7 @@
                 {data: 'image', name: 'image'},
                 {data: 'featured', name: 'featured'},
                 {data: 'status', name: 'status'},
+                {data: 'color', name: 'color'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

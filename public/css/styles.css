@@ -35,7 +35,7 @@ p {
 }
 .top-nav {
     background-color: #333;
-    border-bottom:1px solid white;
+    /* border-bottom:1px solid white; */
 }
 .top-nav img {
     width: 4.6rem;
@@ -47,14 +47,29 @@ p {
     font-size: 0.9rem;
 }
 .bottom-nav {
-    background-color: #800000;
+    background-color: #b1040e;
     -webkit-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.75);
     box-shadow: 0px 4px 7px 0px rgba(0,0,0,0.75);
+    height: 70px;
 }
 .bottom-nav a {
     font-size: 1.0625rem;
     padding: 0 0.1rem;
+}
+
+.red .card-body {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);
+    /* color: white; */
+}
+
+.blue .card-body {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgb(34 23 203) 67%, rgb(0 31 255) 100%);
+    /* color: white; */
+}
+
+.red .card-body h6, .blue .card-body h6 {
+    color: white;
 }
 
 
@@ -80,7 +95,7 @@ p {
     border-bottom: 2px solid transparent;
 }
 .footer .top-footer a:hover {
-    border-bottom: 2px solid black;
+    /* border-bottom: 2px solid black; */
     color: white!important;
 }
 
@@ -168,3 +183,49 @@ p {
     color: #76777a;
 }
 
+
+
+
+/* cookie consent */
+.cookie-consent {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center;
+    padding: 25px 0px;
+    background-color: rgb(250, 228, 220);
+    color: rgb(62, 62, 62);
+    font-size: 17px;
+    opacity: 0.98;
+    border-top: 1px solid rgb(204, 204, 204);
+    z-index: 1;
+}
+
+.cookie-consent__agree {
+    font-family: Futura;
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 0.2rem 1rem;
+    font-size: 1.1rem;
+}
+
+
+
+
+/* Article colors */
+.article-blue {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgb(34 23 203) 67%, rgb(0 31 255) 100%);
+    color: white;
+}
+
+.article-red {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);
+    color: white;
+}
+
+.article-gray {
+    background: linear-gradient(98deg, rgb(205 193 193) 19%, rgb(139 138 143) 67%, rgb(105 105 106) 100%);
+    color: black;
+}

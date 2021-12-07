@@ -30,16 +30,81 @@
 
         
         <div class="row mt-5">
-            <div class="col-8">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true" style="width:206px; height: 100%;">{{ $how_careers->title }}</button>
+            @if(count($articles) > 0)
+                <div class="col-3 more-articles">
+                    <h6 class="fw-bold related-articles futura mb-4">Helpful articles</h6>
+                    
+                    <div class="row align-items-center">
+
+                        @foreach($articles as $article)
+                        
+                            @if($article->color == 'blue')
+
+                                <div class="col-12 mb-3">
+                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                        <div class="card border-0">
+                                            @if($article->image != null)
+                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @else
+                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            <div class="card-body text-center p-3 article-blue rounded-0">
+                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            @elseif($article->color == 'red')
+
+                                <div class="col-12 mb-3">
+                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                        <div class="card border-0">
+                                            @if($article->image != null)
+                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @else
+                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            <div class="card-body text-center p-3 article-red rounded-0">
+                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            @elseif($article->color == 'gray')
+
+                                <div class="col-12 mb-3">
+                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                        <div class="card border-0">
+                                            @if($article->image != null)
+                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @else
+                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            <div class="card-body text-center p-3 article-gray rounded-0">
+                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            @endif
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            <div class="col-9">
+                <ul class="nav nav-pills mb-3 main-nav" id="pills-tab" role="tablist">
+                    <li class="nav-item w-100" role="presentation">
+                        <a href="#how-careers-came" class="nav-link active futura" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true">{{ $how_careers->title }}</a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false" style="width:206px; height: 100%;">All careers</button>
+                    <li class="nav-item w-100" role="presentation">
+                        <a href="#all-careers" class="nav-link futura" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false">All careers</a>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false" style="width:206px; height: 100%;">{{ $hot_careers->title }}</button>
+                    <li class="nav-item w-100" role="presentation">
+                        <a href="#hot-careers" class="nav-link futura" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false">{{ $hot_careers->title }}</a>
                     </li>
                 </ul>
 
@@ -52,33 +117,101 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+                        
+                        @foreach($careers as $career)
 
-                            <h6 class="fw-bold" style="font-size: 1.1rem;">Major group 06 middle management occupations in retail and wholesale trade and customer services</h6>
+                            <div class="mb-3 border-bottom p-3">
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Level</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                            <div class="mt-2">
-                                <p class="fw-bold mb-2">060 corporate sales managers</p>
+                                    <div class="col-8">
+                                        <h6 class="gray">{{ $career->level }}</h6>
+                                    </div>
+                                </div>
 
-                                <p class="gray">0601 corporate sales managers</p>
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Hierarchical structure</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-8">
+                                        <p class="gray">{{ $career->hierarchical }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Code</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray">{{ $career->code }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Title</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray">{{ $career->title }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Definition</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray">{{ $career->definition }}</p>
+                                    </div>
+                                </div>
                             </div>
+                        
+                        @endforeach
 
-                            <div class="mt-2">
-                                <p class="fw-bold mb-2">062 retail and wholesale trade managers</p>
-
-                                <p class="gray">0621 retail and wholesale trade managers</p>
-                                
-                            </div>
-
-                            <div class="mt-2">
-                                <p class="fw-bold mb-2">063 managers in food service and accommodation</p>
-
-                                <p class="gray">0631 restaurant and food service managers</p>
-                                <p class="gray">0632 accommodation service managers</p>
-                                
-                            </div>
-
+                        {{ $careers->fragment('all-careers')->links() }}
                     </div>
-
+                        
                     <div class="tab-pane fade" id="pills-hot" role="tabpanel" aria-labelledby="pills-hot-tab">
                         <div class="gray mt-2" style="text-align: justify;">
                             {!! $hot_careers->description !!}
@@ -86,27 +219,47 @@
                     </div>
                 </div>
             </div>
-
-            @if(count($more_articles) > 0)
-                <div class="col-4">
-                    <h4 class="fw-bolder futura">Helpful articles</h4>
-                    <hr>
-
-                    @foreach($more_articles as $article)
-                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                            <div class="row align-items-center border py-2" style="margin: 0 0rem; margin-bottom: 1rem;">
-                                <div class="col-6">
-                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
-                                </div>
-
-                                <div class="col-6">
-                                    <p class="fw-bold gray">{{ $article->title }}</p>
-                                </div>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
-            @endif
         </div>
     </div>
 @endsection
+
+
+@push('after-scripts')
+    <script type='text/javascript'>
+
+        var hash = location.hash.replace(/^#/, '');
+
+        if (hash) {
+            $('.main-nav a[href="#' + hash + '"]').tab('show');
+        } 
+
+
+        $('.main-nav a').on('shown.bs.tab', function (e) {
+            window.location.hash = e.target.hash;
+
+            // window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        })
+
+        $(document).ready(function() {
+            $('.main-nav').children('li').each(function () {
+                if($(this).find('a').hasClass('active')) {
+                    let id = $(this).find('a').attr('id');
+
+                    $('#pills-tabContent').children('div').each(function () {
+                        if($(this).attr('aria-labelledby') == id) {
+                            $(this).addClass('active');
+                            $(this).addClass('show')
+                        }
+                        else {
+                            $(this).removeClass('active');
+                            $(this).removeClass('show');
+                        }
+                    });
+                }
+            });
+        });
+        
+    </script>
+
+@endpush

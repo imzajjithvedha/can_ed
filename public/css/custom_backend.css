@@ -87,3 +87,26 @@ td {
 .form-check-input {
     margin-top: 0.2rem!important;
 }
+
+
+.app-footer {
+    background: #b1040e!important;
+}
+
+
+
+/* Article colors */
+.article-blue {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgb(34 23 203) 67%, rgb(0 31 255) 100%);
+    color: white;
+}
+
+.article-red {
+    background: linear-gradient(98deg, rgba(41, 38, 38, 1) 19%, rgba(194, 13, 54, 1) 67%, rgba(194, 13, 54, 1) 100%);
+    color: white;
+}
+
+.article-gray {
+    background: linear-gradient(98deg, rgb(205 193 193) 19%, rgb(139 138 143) 67%, rgb(105 105 106) 100%);
+    color: black;
+}

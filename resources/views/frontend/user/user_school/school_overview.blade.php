@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School Overview' )
+@section('title', 'School overview' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -91,6 +91,11 @@
                                         <div class="mb-3">
                                             <label for="overview_title_3_paragraph" class="form-label mb-1">Title 3 - paragraph</label>
                                             <textarea name="overview_title_3_paragraph" class="ckeditor form-control" id="overview_title_3_paragraph" value="{{ $school->overview_title_3_paragraph }}">{{ $school->overview_title_3_paragraph }}</textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="overview_title_3_button" class="form-label mb-1">Title 3 - button</label>
+                                            <input type="text" class="form-control" id="overview_title_3_button" aria-describedby="overview_title_3_button" name="overview_title_3_button" value="{{ $school->overview_title_3_button }}">
                                         </div>
 
                                         <div class="mb-3">
@@ -185,6 +190,11 @@
                                         <div class="mb-3">
                                             <label for="overview_title_8_paragraph" class="form-label mb-1">Title 8 - paragraph</label>
                                             <textarea name="overview_title_8_paragraph" class="ckeditor form-control" id="overview_title_8_paragraph" value="{{ $school->overview_title_8_paragraph }}">{{ $school->overview_title_8_paragraph }}</textarea>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="overview_title_8_button" class="form-label mb-1">Title 8 - button</label>
+                                            <input type="text" class="form-control" id="overview_title_8_button" aria-describedby="overview_title_8_button" name="overview_title_8_button" value="{{ $school->overview_title_8_button }}">
                                         </div>
 
                                         <div class="mb-3">

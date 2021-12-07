@@ -8,15 +8,36 @@ hr {
     color: #fff!important;
     background-color: #bd2130!important;
 }
-.careers .nav-item button {
+.careers .nav-item a {
     border-radius: 0!important;
     color: black!important;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 1.2rem;
 }
 .careers .nav-item {
     border: 2px solid black;
 }
 
+.careers .nav {
+    flex-wrap: initial!important;
+}
+
 
 .tab-content .gray {
     font-size: 0.875rem!important;
+}
+
+
+.related-articles {
+    background: #b1040e;
+    padding: 0.8rem;
+    text-align: center;
+    color: white;
+}
+
+.pagination {
+    justify-content: center!important;
+    margin-top: 2rem!important;
 }

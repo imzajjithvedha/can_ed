@@ -12,10 +12,12 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group mb-3">
-                                <input type="text" id="title" class="form-control" name="title" value="{{ $career->title }}" placeholder="Title" required>
+                                <label for="title" class="form-label">Title *</label>
+                                <input type="text" id="title" class="form-control" name="title" value="{{ $career->title }}" placeholder="Title *" required>
                             </div>
                             <div class="form-group">
-                                <textarea type="text" class="ckeditor form-control mt-2" name="description" value="{{ $career->description }}" required>{!! $career->description !!}</textarea>
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea type="text" class="ckeditor form-control mt-2" name="description" id="description" value="{{ $career->description }}" required>{!! $career->description !!}</textarea>
                             </div>
                         </div>
                     </div>

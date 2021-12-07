@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Forgot Password')
+@section('title', 'Forgot password')
 
 
 @push('after-styles')
@@ -14,10 +14,10 @@
         <div class="row justify-content-center">
             <div class="col-5 border p-0">
                 <div style="background-color: #333">
-                    <h5 class="text-center text-white p-3">Forgot Password</h5>
+                    <h4 class="text-center text-white p-3 futura">Forgot password</h4>
                 </div>
                 
-                <form action="{{route('frontend.auth.password.email.post')}}" method="post">
+                <form action="{{ route('frontend.auth.password.email') }}" method="post">
                 {{csrf_field()}}
 
                     <div class="row mt-4 justify-content-center">
@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="text-center mt-4">
-                                <button type="submit" class="btn w-100 text-white" id="submit_btn" disabled>Send Password Reset Link</button>
+                                <button type="submit" class="btn w-100 text-white" id="submit_btn" disabled>Send password reset link</button>
                             </div>
                         </div>
                     </div>
@@ -41,6 +41,46 @@
             </div>
         </div>
     </div>
+
+    @if(\Session::has('error'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#errorModal"></button>
+
+        <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Email does not exist in our database</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
+
+    @if(\Session::has('success'))
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#successModal"></button>
+
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="errorModal" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-body" style="padding: 5rem 1rem;">
+                        <h4 class="mb-0 text-center">Reset code sent successfully to your email</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endif
     
 @endsection
 
@@ -51,5 +91,11 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        if(document.getElementById("modal-btn")){
+            $('#modal-btn').click();
+        }
     </script>
 @endpush

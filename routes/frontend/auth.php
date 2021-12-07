@@ -54,10 +54,10 @@ Route::group(['namespace' => 'Auth', 'as' => 'auth.'], function () {
         Route::get('account/confirm/resend/{uuid}', [ConfirmAccountController::class, 'sendConfirmationEmail'])->name('account.confirm.resend');
 
         // Password Reset Routes
-        Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.email');
-        Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email.post');
+        Route::get('password/forgot', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.forgot');
+        Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
-        Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset.form');
-        Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset');
+        Route::get('password/reset/{email}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+        Route::post('password/update', [ResetPasswordController::class, 'update'])->name('password.update');
     });
 });

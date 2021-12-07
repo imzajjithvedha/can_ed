@@ -21,12 +21,12 @@
                         <thead>
                             <tr>
                                 <th scope="col">Event title</th>
-                                <th scope="col">Event type</th>
                                 <th scope="col">Event date</th>
                                 <th scope="col">Event time</th>
                                 <th scope="col">City</th>
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Featured</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -81,12 +81,12 @@
             order: [[0, "asc"]],
             columns: [
                 {data: 'title', name: 'title'},
-                {data: 'type', name: 'type'},
                 {data: 'date', name: 'date'},
                 {data: 'time', name: 'time'},
                 {data: 'city', name: 'city'},
                 {data: 'country', name: 'country'},
                 {data: 'status', name: 'status'},
+                {data: 'featured', name: 'featured'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

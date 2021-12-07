@@ -13,6 +13,8 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\DegreeLevels;
 use App\Models\SchoolPrograms;
+use App\Models\WebsiteInformation;
+use App\Models\Events;
 
 /**
  * Class HomeController.
@@ -32,6 +34,8 @@ class HomeController extends Controller
 
         $featured_schools = Schools::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
+        $featured_events = Events::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
+
         $school_types = SchoolTypes::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
         $degree_levels = DegreeLevels::where('status', 'Approved')->orderBy('orders', 'asc')->get();
@@ -41,6 +45,7 @@ class HomeController extends Controller
 
         $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->orderBy('updated_at', 'desc')->get();
 
+        $information = WebsiteInformation::where('id', 1)->first();
 
         return view('frontend.index', 
         [
@@ -48,10 +53,12 @@ class HomeController extends Controller
             'featured_articles' => $featured_articles,
             'featured_businesses' => $featured_businesses,
             'featured_schools' => $featured_schools,
+            'featured_events' => $featured_events,
             'videos' => $videos,
             'school_types' => $school_types,
             'programs' => $programs,
-            'degree_levels' => $degree_levels
+            'degree_levels' => $degree_levels,
+            'information' => $information,
         ]);
     }
 

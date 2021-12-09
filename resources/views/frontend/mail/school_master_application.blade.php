@@ -11,10 +11,13 @@
 <p><strong>Messaging app username:</strong> {{ $details['username'] }}</p>
 <p><strong>Citizenship:</strong> {{ $details['citizenship'] }}</p>
 <p><strong>Do you live in your country of citizenship:</strong> {{ $details['citizenship_live'] }}</p>
-<p><strong>Currently live:</strong> {{ $details['country'] }}</p>
-<p><strong>Status in the country of residence:</strong> {{ $details['status'] }}</p>
+
+@if($details['citizenship_live'] != 'Yes')
+    <p><strong>Currently live:</strong> {{ $details['country'] }}</p>
+    <p><strong>Status in the country of residence:</strong> {{ $details['status'] }}</p>
+@endif
+
 <p><strong>Mailing address:</strong> {{ $details['mailing_address'] }}</p>
-<p><strong>Message:</strong> {{ $details['message'] }}</p>
 <p><strong>High school name:</strong> {{ $details['school_name'] }}</p>
 <p><strong>High school GPA:</strong> {{ $details['gpa'] }}</p>
 <p><strong>High school location - city:</strong> {{ $details['school_city'] }}</p>
@@ -23,7 +26,7 @@
 <p><strong>Interested in:</strong> {{ App\Models\DegreeLevels::where('id', $details['interested'])->first()->name }}</p>
 <p><strong>Like to study:</strong> {{ App\Models\Programs::where('id', $details['like_study'])->first()->name }}</p>
 <p><strong>Student type:</strong> {{ $details['student_type'] }}</p>
-<p><strong>Student type:</strong> {{ $details['funding_source'] }}</p>
+<p><strong>Tuition funding source:</strong> {{ $details['funding_source'] }}</p>
 <p><strong>Tests Taken:</strong> {{ $details['tests'] }}</p>
 <p><strong>Comments:</strong> {{ $details['comments'] }}</p>
 <p><strong>Questions:</strong> {{ $details['questions'] }}</p>

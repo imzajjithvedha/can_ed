@@ -16,8 +16,12 @@
             <form action="{{ route('frontend.master_application_store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="row">
+                    <div class="col-12">
+                        <p class="mb-2 required fw-bold text-end">* Indicates required fields</p>
+                    </div>
+
                     <div class="col-12 mb-3">
-                        <label for="first-name" class="form-label">First name</label>
+                        <label for="first-name" class="form-label">First name *</label>
                         <input type="text" class="form-control" id="first-name" name="first_name" required>
                     </div>
 
@@ -26,17 +30,19 @@
                     </div> -->
 
                     <div class="col-12 mb-3">
-                        <label for="last-name" class="form-label">Last name</label>
+                        <label for="last-name" class="form-label">Last name *</label>
                         <input type="text" class="form-control" id="last-name" name="last_name" required>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="dob" class="form-label">Date of birth</label>
-                        <input type="date" class="form-control" id="dob" name="dob" required>
+                        <label for="dob" class="form-label">Date of birth *</label>
+                        <!-- <input type="text" class="form-control" id="dob" name="dob" placeholder="YYYY-MM-DD" readonly="readonly"  maxlength="10"  autocomplete="off" required> -->
+                        <input type="date" class="dob" name="dob" required>
+                        <!-- <input id="birthday" class="form-control" name="birthday" autocomplete="off" readonly="readonly" type="text" placeholder="YYYY-MM-DD" maxlength="10"> -->
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="gender" class="form-label">Gender</label>
+                        <label for="gender" class="form-label">Gender *</label>
                         <select name="gender" id="gender" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Female">Female</option>
@@ -46,23 +52,23 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="email" class="form-label">Email address</label>
+                        <label for="email" class="form-label">Email address *</label>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="confirm-email" class="form-label">Confirm email address</label>
+                        <label for="confirm-email" class="form-label">Confirm email address *</label>
                         <input type="email" class="form-control" id="confirm-email" name="confirm_email" required>
                         <p class="d-none mt-2 text-center fw-bold email-warning" style="color: red;">Emails do not match</p>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="phone" class="form-label">Phone number</label>
+                        <label for="phone" class="form-label">Phone number *</label>
                         <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="school-text" class="form-label">Can schools text you</label>
+                        <label for="school-text" class="form-label">Can schools text you *</label>
                         <select name="school_text" id="school-text" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Allow">Allow</option>
@@ -142,6 +148,18 @@
                                         <label class="form-check-label" for="whatsapp">Whatsapp</label>
                                     </div>
                                     <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="messaging_app[]" value="Microsoft Teams" id="microsoft">
+                                        <label class="form-check-label" for="microsoft">Microsoft Teams</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="messaging_app[]" value="Google Meet" id="google-meet">
+                                        <label class="form-check-label" for="google-meet">Google Meet</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="messaging_app[]" value="Zoom" id="zoom">
+                                        <label class="form-check-label" for="zoom">Zoom</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
                                         <input type="checkbox" class="me-1" name="messaging_app[]" id="other" value="Other">
                                         <label class="form-check-label" for="other">Other</label>
                                     </div>
@@ -155,11 +173,11 @@
 
                     <div class="col-12 mb-3">
                         <label for="username" class="form-label">Messaging app username</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <input type="text" class="form-control" id="username" name="username">
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="citizenship" class="form-label">Citizenship</label>
+                        <label for="citizenship" class="form-label">Country of citizenship *</label>
                         <select name="citizenship" id="citizenship" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Afganistan">Afghanistan</option>
@@ -412,7 +430,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="citizenship-live" class="form-label">Do you live in your country of citizenship?</label>
+                        <label for="citizenship-live" class="form-label">Do you live in your country of citizenship? *</label>
                         <select name="citizenship_live" id="citizenship-live" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Yes">Yes</option>
@@ -719,68 +737,28 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <div class="col-12 text-center">
-                            <label class="form-label fw-bold">Mailing address in the country of citizenship</label>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <label for="citizenship-country" class="form-label">Country name</label>
-                                <input type="text" class="form-control" id="citizenship-country" name="citizenship_country" required>
-                            </div>
-
-                            <div class="col-12 mb-3">
-                                <label for="citizenship-postal" class="form-label">Postal code</label>
-                                <input type="text" class="form-control" id="citizenship-postal" name="citizenship_postal" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12">
-                        <div class="col-12 text-center">
-                            <label class="form-label fw-bold">Mailing address in the country of residence</label>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12 mb-3">
-                                <label for="residence-country" class="form-label">Country name</label>
-                                <input type="text" class="form-control" id="residence-country" name="residence_country" required>
-                            </div>
-
-                            <div class="col-12 mb-3">
-                                <label for="residence-postal" class="form-label">Postal code</label>
-                                <input type="text" class="form-control" id="residence-postal" name="residence_postal" required>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 text-center mb-3">
-                        <input type="checkbox" class="me-1 same">Same as above
+                        <label for="mailing-address" class="form-label">Mailing address *</label>
+                        <textarea class="form-control" name="mailing_address" id="mailing-address" rows="3" placeholder="Complete with country name, postal code or ZIP code as applicable" required></textarea>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="message" class="form-label">Write the message</label>
-                        <textarea name="message" id="message" class="form-control" rows="4"></textarea>
-                    </div>
-
-                    <div class="col-12 mb-3">
-                        <label for="school-name" class="form-label">High school name</label>
+                        <label for="school-name" class="form-label">High school name *</label>
                         <input type="text" class="form-control" id="school-name" name="school_name" required>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="gpa" class="form-label">High school GPA</label>
+                        <label for="gpa" class="form-label">High school GPA *</label>
                         <input type="text" class="form-control" id="gpa" name="gpa" placeholder="e.g. 75%, or 3.4 of 4" required>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="school-city" class="form-label">High school location - city</label>
+                        <label for="school-city" class="form-label">High school location - city *</label>
                         <input type="text" class="form-control" id="school-city" name="school_city" required>
                     </div>
 
                     
                     <div class="col-12 mb-3">
-                        <label for="school-country" class="form-label">High school location - country</label>
+                        <label for="school-country" class="form-label">High school location - country *</label>
                         <select class="form-control form-select" id="school-country" name="school_country" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Afganistan">Afghanistan</option>
@@ -1033,12 +1011,21 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="start-date" class="form-label">When are you planning to start</label>
-                        <input type="month" class="form-control" id="start-date" name="start_date" required>
+                        <label for="start-date" class="form-label">When are you planning to start *</label>
+                        <select name="start_date" id="start-date" class="form-select form-control" required>
+                            <option value="" selected disabled hidden>Select</option>
+                            <option value="I am not sure">I am not sure</option>
+                            <option value="Fall of next year">Fall of next year</option>
+                            <option value="Fall of this year">Fall of this year</option>
+                            <option value="Summer of next year">Summer of next year</option>
+                            <option value="Summer of this year">Summer of this year</option>
+                            <option value="Winter of next year">Winter of next year</option>
+                            <option value="Winter of this year">Winter of this year</option>
+                        </select>
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="interested" class="form-label">I am interested in</label>
+                        <label for="interested" class="form-label">I am interested in *</label>
                         <select name="interested" id="interested" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="I am not sure">I am not sure</option>
@@ -1049,7 +1036,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="like-study" class="form-label">I would like to study</label>
+                        <label for="like-study" class="form-label">I would like to study *</label>
                         <select name="like_study" id="like-study" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             @foreach($prog as $pro)
@@ -1059,7 +1046,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="student-type" class="form-label">My student type is</label>
+                        <label for="student-type" class="form-label">My student type is *</label>
                         <select name="student_type" id="student-type" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Exchange student">Exchange student</option>
@@ -1071,7 +1058,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="funding-source" class="form-label">Tuition Funding Source</label>
+                        <label for="funding-source" class="form-label">Tuition funding source</label>
                         <div class="dropdown">
                             <button class="form-select form-control text-left" type="button" id="funding-source" data-bs-toggle="dropdown">Select</button>
                             
@@ -1098,7 +1085,7 @@
                                         <label class="form-check-label" for="organization" style="display: inline">Sponsored by not-for-profit organization</label>
                                     </div>
                                     <div class="col-12 mb-1">
-                                        <input type="checkbox" class="me-1" name="funding_source[]" id="funding-source-other" value="Other">
+                                        <input type="checkbox" class="me-1" id="funding-source-other" value="Other">
                                         <label class="form-check-label" for="funding-source-other">Other</label>
                                     </div>
                                     <div class="col-12">
@@ -1128,8 +1115,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="ACT" id="act">
-                                            <label class="form-check-label" for="act">ACT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="ACT: American College Testing" id="act">
+                                            <label class="form-check-label" for="act">ACT: American College Testing</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1140,8 +1127,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="DAT" id="dat">
-                                            <label class="form-check-label" for="dat">DAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="DAT: Dental Admission Testing Program" id="dat">
+                                            <label class="form-check-label" for="dat">DAT: Dental Admission Testing Program</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1152,8 +1139,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="ESL" id="esl">
-                                            <label class="form-check-label" for="esl">ESL</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="ESL: English as a Second Language" id="esl">
+                                            <label class="form-check-label" for="esl">ESL: English as a Second Language</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1164,8 +1151,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="GMAT" id="gmat">
-                                            <label class="form-check-label" for="gmat">GMAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="GMAT: Graduate Management Admission Test" id="gmat">
+                                            <label class="form-check-label" for="gmat">GMAT: Graduate Management Admission Test</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1176,8 +1163,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="GRE" id="gre">
-                                            <label class="form-check-label" for="gre">GRE</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="GRE: Graduate Record Examinations" id="gre">
+                                            <label class="form-check-label" for="gre">GRE: Graduate Record Examinations</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1188,8 +1175,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="IELTS" id="ielts">
-                                            <label class="form-check-label" for="ielts">IELTS</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="IELTS: International English Language Testing System" id="ielts">
+                                            <label class="form-check-label" for="ielts">IELTS: International English Language Testing System</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1200,8 +1187,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="LSAT" id="lsat">
-                                            <label class="form-check-label" for="lsat">LSAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="LSAT: Law School Admission Testing Program" id="lsat">
+                                            <label class="form-check-label" for="lsat">LSAT: Law School Admission Testing Program</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1212,8 +1199,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="MCAT" id="mcat">
-                                            <label class="form-check-label" for="mcat">MCAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="MCAT: Medical College Admission Test" id="mcat">
+                                            <label class="form-check-label" for="mcat">MCAT: Medical College Admission Test</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1224,8 +1211,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="OAT" id="oat">
-                                            <label class="form-check-label" for="oat">OAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="OAT: Optometry Admission Testing Program" id="oat">
+                                            <label class="form-check-label" for="oat">OAT: Optometry Admission Testing Program</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1236,8 +1223,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="PCAT" id="pcat">
-                                            <label class="form-check-label" for="pcat">PCAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="PCAT: Pharmacy College Admission Test" id="pcat">
+                                            <label class="form-check-label" for="pcat">PCAT: Pharmacy College Admission Test</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1248,8 +1235,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="SAT" id="sat">
-                                            <label class="form-check-label" for="sat">SAT</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="SAT: Scholastic Assessment Test" id="sat">
+                                            <label class="form-check-label" for="sat">SAT: Scholastic Assessment Test</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1260,8 +1247,8 @@
                                 <div class="row px-2 align-items-center mb-2">
                                     <div class="col-7 test">
                                         <div class="border">
-                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="TOEFL" id="toefl">
-                                            <label class="form-check-label" for="toefl">TOEFL</label>
+                                            <input type="checkbox" class="me-2 test-box" name="tests[]" value="TOEFL: Test of English as a Foreign Language" id="toefl">
+                                            <label class="form-check-label" for="toefl">TOEFL: Test of English as a Foreign Language</label>
                                         </div>
                                     </div>
                                     <div class="col-5 marks">
@@ -1269,6 +1256,75 @@
                                     </div>
                                 </div>
 
+                                <div class="row px-2 align-items-center mb-2">
+                                    <div class="col-7 test">
+                                        <div class="input-group">
+                                            <div class="input-group-text" style="width: 40px;">
+                                                <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-1: Please type" id="other1" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 marks">
+                                        <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                    </div>
+                                </div>
+
+                                <div class="row px-2 align-items-center mb-2">
+                                    <div class="col-7 test">
+                                        <div class="input-group">
+                                            <div class="input-group-text" style="width: 40px;">
+                                                <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-2: Please type" id="other2" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 marks">
+                                        <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                    </div>
+                                </div>
+
+                                <div class="row px-2 align-items-center mb-2">
+                                    <div class="col-7 test">
+                                        <div class="input-group">
+                                            <div class="input-group-text" style="width: 40px;">
+                                                <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-3: Please type" id="other3" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 marks">
+                                        <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                    </div>
+                                </div>
+
+                                <div class="row px-2 align-items-center mb-2">
+                                    <div class="col-7 test">
+                                        <div class="input-group">
+                                            <div class="input-group-text" style="width: 40px;">
+                                                <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-4: Please type" id="other4" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 marks">
+                                        <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                    </div>
+                                </div>
+
+                                <div class="row px-2 align-items-center mb-2">
+                                    <div class="col-7 test">
+                                        <div class="input-group">
+                                            <div class="input-group-text" style="width: 40px;">
+                                                <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                            </div>
+                                            <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-5: Please type" id="other5" disabled required>
+                                        </div>
+                                    </div>
+                                    <div class="col-5 marks">
+                                        <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1284,7 +1340,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="transfer-student" class="form-label">Are you a transfer student currently living in Canada?</label>
+                        <label for="transfer-student" class="form-label">Are you a transfer student currently living in Canada? *</label>
                         <select name="transfer_student" id="transfer-student" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Yes">Yes</option>
@@ -1293,7 +1349,7 @@
                     </div>
 
                     <div class="col-12 mb-3">
-                        <label for="visa" class="form-label">Do you already have a study permit (a student visa) from a Canadian embassy?</label>
+                        <label for="visa" class="form-label">Do you already have a study permit (a student visa) from a Canadian embassy? *</label>
                         <select name="visa" id="visa" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Yes">Yes</option>
@@ -1318,6 +1374,7 @@
 
                 </div>
             </form>
+            
         </div>
     </div>
 @endsection
@@ -1345,6 +1402,8 @@
 
 
 @push('after-scripts')
+
+<!-- Master application scripts -->
 
 <script>
         $('#other').click(function() {
@@ -1470,6 +1529,43 @@
     <script>
         $(".dropdown-menu").click(function(e){
             e.stopPropagation();
+        })
+    </script>
+
+
+    <!-- calender -->
+    <script>
+       // Initialize all input of type date
+        var dob = bulmaCalendar.attach('.dob',{
+            type: 'date',
+            dateFormat: 'yyyy/MM/dd'
+        });
+
+        var startDate = bulmaCalendar.attach('.start-date',{
+            type: 'date',
+            dateFormat: 'yyyy/MM/dd'
+        });
+
+    
+        $('.datetimepicker-dummy .datetimepicker-dummy-wrapper .is-hidden').attr('type', 'hidden');
+    </script>
+
+    <script>
+        $('.more-test-check').click(function() {
+            if(this.checked) {
+                $(this).parents('.input-group-text').next().removeAttr('disabled');
+            } else {
+                $(this).parents('.input-group-text').next().attr('disabled', 'disabled');
+            }
+        });
+
+        $(".more-test").on("change keyup paste", function(){
+            if($(this).val() != ''){
+                $(this).parents('.test').next().find('input').removeAttr('disabled');
+            }
+            else {
+                $(this).parents('.test').next().find('input').attr('disabled', 'disabled');
+            }
         })
     </script>
 

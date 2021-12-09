@@ -97,34 +97,6 @@ class BusinessController extends Controller
     }
 
 
-    public function categorySearch(Request $request)
-    {
-        if(request('keyword') != null) {
-            $category = request('keyword');
-        }
-        else {
-            $category = 'category';
-        }
-
-        return redirect()->route('frontend.category_search_function', [$category]);
-
-    }
-
-    public function categorySearchFunction($category)
-    {
-        $categories = BusinessCategories::where('status', 'Approved');
-
-        if($category != 'category'){
-            $categories->where('name', 'like', '%' .  $category . '%');
-        }
-
-        $filteredCategories = $categories->get();
-
-        return view('frontend.business.business_categories_search', ['filteredCategories' => $filteredCategories]);
-
-    }
-
-
     public function businesses($id)
     {
         $category = businessCategories::where('id', $id)->first();
@@ -150,8 +122,6 @@ class BusinessController extends Controller
 
     public function businessSearch(Request $request)
     {
-        $category_id = $request->category_id;
-
         if(request('keyword') != null) {
             $business = request('keyword');
         }
@@ -159,15 +129,15 @@ class BusinessController extends Controller
             $business = 'business';
         }
 
-        return redirect()->route('frontend.business_search_function', [$category_id, $business]);
+        return redirect()->route('frontend.business_search_function', [$business]);
 
     }
 
-    public function businessSearchFunction($category_id, $business)
+    public function businessSearchFunction($business)
     {
         $businesses = Businesses::where('status', 'Approved');
 
-        $category = businessCategories::where('id', $category_id)->first();
+        // $category = businessCategories::where('id', $category_id)->first();
 
         if($business != 'business'){
             $businesses->where('name', 'like', '%' .  $business . '%');
@@ -175,7 +145,7 @@ class BusinessController extends Controller
 
         $filteredBusinesses = $businesses->get();
 
-        return view('frontend.business.businesses_search', ['category' => $category, 'filteredBusinesses' => $filteredBusinesses]);
+        return view('frontend.business.businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
 
     }
 

@@ -9,6 +9,7 @@ use App\Mail\Frontend\Program;
 use App\Mail\Frontend\UserProgram;
 use Illuminate\Support\Facades\Mail;
 use App\Models\DegreeLevels;
+use App\Models\Pages;
 
 /**
  * Class ProgramController.
@@ -24,7 +25,9 @@ class ProgramController extends Controller
 
         $degree_levels = DegreeLevels::where('status', 'Approved')->get();
 
-        return view('frontend.page.programs', ['programs' => $programs, 'degree_levels' => $degree_levels]);
+        $paragraph = Pages::where('name', 'programs')->first();
+
+        return view('frontend.page.programs', ['programs' => $programs, 'degree_levels' => $degree_levels, 'paragraph' => $paragraph]);
     }
 
     public function programRequest(Request $request)

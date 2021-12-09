@@ -59,6 +59,30 @@
                                 <label for="twitter" class="form-label">Twitter link *</label>
                                 <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter link *" required>
                             </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured school description *</label>
+                                <textarea name="featured_schools_description" class="form-control" id="featured_schools_description" rows="3"  value="{{ $information->featured_schools_description }}" placeholder="Featured school description *" required>{{ $information->featured_schools_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured businesses description *</label>
+                                <textarea name="featured_businesses_description" class="form-control" id="featured_businesses_description" rows="3"  value="{{ $information->featured_businesses_description }}" placeholder="Featured businesses description *" required>{{ $information->featured_businesses_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured articles description *</label>
+                                <textarea name="featured_articles_description" class="form-control" id="featured_articles_description" rows="3"  value="{{ $information->featured_articles_description }}" placeholder="Featured articles description *" required>{{ $information->featured_articles_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured events description *</label>
+                                <textarea name="featured_events_description" class="form-control" id="featured_events_description" rows="3" value="{{ $information->featured_events_description }}" placeholder="Featured events description *" required>{{ $information->featured_events_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured videos description *</label>
+                                <textarea name="featured_videos_description" class="form-control" id="featured_videos_description" rows="3" value="{{ $information->featured_videos_description }}" placeholder="Featured videos description *" required>{{ $information->featured_videos_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Recent articles description *</label>
+                                <textarea name="recent_articles_description" class="form-control" id="recent_articles_description" rows="3"  value="{{ $information->recent_articles_description }}" placeholder="Featured articles description *" required>{{ $information->recent_articles_description }}</textarea>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +100,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
                                 @endif
 
-                                <input type="hidden" class="form-control" name="old_image" value="{{$information->image}}">
+                                <input type="hidden" class="form-control" name="old_image" value="{{$information->main_banner}}">
 
                                 <div class="form-group mt-5">
                                     <label for="image" class="form-label">Image</label>

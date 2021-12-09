@@ -122,6 +122,7 @@ Route::post('programs/update-program', [ProgramsController::class, 'updateProgra
 Route::get('programs/delete-program/{id}', [ProgramsController::class, 'deleteProgram'])->name('programs.delete_program');
 Route::get('programs/import-programs', [ProgramsController::class, 'importPrograms'])->name('programs.import_programs');
 Route::post('programs/import', [ProgramsController::class, 'import'])->name('programs.import');
+Route::post('programs/paragraph/update', [ProgramsController::class, 'programsParagraphUpdate'])->name('pages.programs_paragraph_update');
 
 
 
@@ -141,6 +142,7 @@ Route::get('pages/suggestions', [PagesController::class, 'suggestions'])->name('
 Route::post('pages/suggestions/update', [PagesController::class, 'suggestionsUpdate'])->name('pages.suggestions_update');
 Route::get('pages/cookies', [PagesController::class, 'cookies'])->name('pages.cookies');
 Route::post('pages/cookies/update', [PagesController::class, 'cookiesUpdate'])->name('pages.cookies_update');
+
 
 
 

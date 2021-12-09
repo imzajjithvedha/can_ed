@@ -19,6 +19,22 @@
                 </div>
 
                 <div class="card-body">
+                    <div class="border p-3">
+                        <form action="{{ route('admin.pages.programs_paragraph_update') }}" method="POST">
+                            {{csrf_field()}}
+                            <div class="form-group">
+                                <label for="description" class="form-label">Description *</label>
+                                <textarea type="text" class="ckeditor form-control mt-2" name="description" value="{{ $paragraph->description }}" required>{!! $paragraph->description !!}</textarea>
+                            </div>
+
+                            <div class="text-end">
+                                <input type="submit" value="Update paragraph" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
+                            </div>
+                        </form>
+                    </div>
+
+                    <hr class="my-5">
+
                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                         <thead>
                             <tr>

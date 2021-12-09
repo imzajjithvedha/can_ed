@@ -55,6 +55,12 @@ class WebsiteInformationController extends Controller
                 'instagram' => $request->instagram,
                 'twitter' => $request->twitter,
                 'main_banner' => $imageName,
+                'featured_schools_description' => $request->featured_schools_description,
+                'featured_businesses_description' => $request->featured_businesses_description,
+                'featured_articles_description' => $request->featured_articles_description,
+                'featured_events_description' => $request->featured_events_description,
+                'featured_videos_description' => $request->featured_videos_description,
+                'recent_articles_description' => $request->recent_articles_description,
             ]
         );
 

@@ -11,7 +11,7 @@
         <h4 class="fw-bolder futura">Jobs in Canada</h4>
         <hr>
 
-        <p class="gray">We follow the canadian national occupational classification (noc) developed by employment and social development canada <a href="https://noc.esdc.gc.ca/Home/AboutTheNoc/be5dedb6d2cb44b48b41662382fb28ab" class="text-decoration-none">read more about the noc</a></p>
+        <p class="gray">We follow the canadian national occupational classification (NOC) developed by employment and social development Canada. <a href="https://noc.esdc.gc.ca/Home/AboutTheNoc/be5dedb6d2cb44b48b41662382fb28ab" class="text-decoration-none">Read more about the NOC</a></p>
 
         <!-- <div class="row justify-content-between mt-5 align-items-center">
             <div class="col-6">

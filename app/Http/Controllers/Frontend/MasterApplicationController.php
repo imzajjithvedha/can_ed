@@ -76,8 +76,6 @@ class MasterApplicationController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
-        
         $application = new Master;
 
         $tests = $request->tests;
@@ -123,7 +121,6 @@ class MasterApplicationController extends Controller
         $application->country = $request->country;
         $application->status = json_encode($request->status);
         $application->mailing_address = $request->mailing_address;
-        $application->message = $request->message;
         $application->school_name = $request->school_name;
         $application->gpa = $request->gpa;
         $application->school_city = $request->school_city;
@@ -156,7 +153,6 @@ class MasterApplicationController extends Controller
             'country' => $request->country,
             'status' => json_encode($request->status),
             'mailing_address' => $request->mailing_address,
-            'message' => $request->message,
             'school_name' => $request->school_name,
             'gpa' => $request->gpa,
             'school_city' => $request->school_city,

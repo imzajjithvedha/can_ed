@@ -31,7 +31,6 @@ class CreateMastersTable extends Migration
             $table->text('country')->nullable();
             $table->text('status')->nullable();
             $table->text('mailing_address');
-            $table->text('message')->nullable();
             $table->text('school_name');
             $table->text('gpa');
             $table->text('school_city');

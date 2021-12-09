@@ -31,6 +31,12 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('instagram');
             $table->text('twitter');
             $table->text('main_banner')->nullable();
+            $table->text('featured_schools_description');
+            $table->text('featured_businesses_description');
+            $table->text('featured_articles_description');
+            $table->text('featured_events_description');
+            $table->text('featured_videos_description');
+            $table->text('recent_articles_description');
             $table->timestamps();
         });
     }

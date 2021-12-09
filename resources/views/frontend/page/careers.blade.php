@@ -31,7 +31,7 @@
         
         <div class="row mt-5">
             @if(count($articles) > 0)
-                <div class="col-3 more-articles">
+                <div class="col-3 more-articles" style="padding-top: 4.45rem;">
                     <h6 class="fw-bold related-articles futura mb-4">Helpful articles</h6>
                     
                     <div class="row align-items-center">
@@ -96,17 +96,19 @@
             @endif
 
             <div class="col-9">
-                <ul class="nav nav-pills mb-3 main-nav" id="pills-tab" role="tablist">
-                    <li class="nav-item w-100" role="presentation">
-                        <a href="#how-careers-came" class="nav-link active futura" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true">{{ $how_careers->title }}</a>
-                    </li>
-                    <li class="nav-item w-100" role="presentation">
-                        <a href="#all-careers" class="nav-link futura" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false">All careers</a>
-                    </li>
-                    <li class="nav-item w-100" role="presentation">
-                        <a href="#hot-careers" class="nav-link futura" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false">{{ $hot_careers->title }}</a>
-                    </li>
-                </ul>
+                <div class="tab-frame p-3 mb-3">
+                    <ul class="nav nav-pills main-nav" id="pills-tab" role="tablist">
+                        <li class="nav-item w-100" role="presentation">
+                            <a href="#how-careers-came" class="nav-link active futura" id="pills-career-tab" data-bs-toggle="pill" data-bs-target="#pills-career" type="button" role="tab" aria-controls="pills-career" aria-selected="true">{{ $how_careers->title }}</a>
+                        </li>
+                        <li class="nav-item w-100" role="presentation">
+                            <a href="#all-careers" class="nav-link futura" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false">All careers</a>
+                        </li>
+                        <li class="nav-item w-100" role="presentation">
+                            <a href="#hot-careers" class="nav-link futura" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false">{{ $hot_careers->title }}</a>
+                        </li>
+                    </ul>
+                </div>
 
 
                 <div class="tab-content" id="pills-tabContent">

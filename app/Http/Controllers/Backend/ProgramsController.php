@@ -10,6 +10,7 @@ use Excel;
 use App\Models\Programs; 
 use App\Imports\ProgramsImport;
 use App\Models\DegreeLevels;
+use App\Models\Pages; 
 
 /**
  * Class ProgramsController.
@@ -21,7 +22,9 @@ class ProgramsController extends Controller
      */
     public function index()
     {
-        return view('backend.programs.index');
+        $paragraph = Pages::where('name', 'programs')->first();
+
+        return view('backend.programs.index', ['paragraph' => $paragraph]);
     }
 
     public function createProgram()
@@ -150,6 +153,20 @@ class ProgramsController extends Controller
         Excel::import(new ProgramsImport, $request->file);
 
         return redirect()->route('admin.programs.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+
+
+    // Programs paragraph
+    public function programsParagraphUpdate(Request $request)
+    {
+        $paragraph = DB::table('pages') ->where('name', 'programs')->update(
+            [
+                'description' => $request->description,
+            ]
+        );
+
+        return back()->withFlashSuccess('Updated Successfully'); 
     }
 
 }

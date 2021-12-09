@@ -210,6 +210,18 @@
                                                 <label class="form-check-label" for="whatsapp">Whatsapp</label>
                                             </div>
                                             <div class="col-12 mb-1">
+                                                <input type="checkbox" class="me-1" name="messaging_app[]" value="Microsoft Teams" id="microsoft">
+                                                <label class="form-check-label" for="microsoft">Microsoft Teams</label>
+                                            </div>
+                                            <div class="col-12 mb-1">
+                                                <input type="checkbox" class="me-1" name="messaging_app[]" value="Google Meet" id="google-meet">
+                                                <label class="form-check-label" for="google-meet">Google Meet</label>
+                                            </div>
+                                            <div class="col-12 mb-1">
+                                                <input type="checkbox" class="me-1" name="messaging_app[]" value="Zoom" id="zoom">
+                                                <label class="form-check-label" for="zoom">Zoom</label>
+                                            </div>
+                                            <div class="col-12 mb-1">
                                                 <input type="checkbox" class="me-1" name="messaging_app[]" id="other" value="Other">
                                                 <label class="form-check-label" for="other">Other</label>
                                             </div>
@@ -227,7 +239,7 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="citizenship" class="form-label">Citizenship *</label>
+                                <label for="citizenship" class="form-label">Country of citizenship *</label>
                                 <select name="citizenship" id="citizenship" class="form-select form-control" required>
                                     <option value="" selected disabled hidden>Select</option>
                                     <option value="Afganistan">Afghanistan</option>
@@ -792,11 +804,6 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="message" class="form-label">Write the message</label>
-                                <textarea name="message" id="message" class="form-control" rows="4"></textarea>
-                            </div>
-
-                            <div class="col-12 mb-3">
                                 <label for="school-name" class="form-label">High school name *</label>
                                 <input type="text" class="form-control" id="school-name" name="school_name" required>
                             </div>
@@ -1067,8 +1074,16 @@
 
                             <div class="col-12 mb-3">
                                 <label for="start-date" class="form-label">When are you planning to start *</label>
-                                <!-- <input type="month" class="form-control" id="start-date" name="start_date" required> -->
-                                <input type="date" class="start-date" name="start_date" required>
+                                <select name="start_date" id="start-date" class="form-select form-control" required>
+                                    <option value="" selected disabled hidden>Select</option>
+                                    <option value="I am not sure">I am not sure</option>
+                                    <option value="Fall of next year">Fall of next year</option>
+                                    <option value="Fall of this year">Fall of this year</option>
+                                    <option value="Summer of next year">Summer of next year</option>
+                                    <option value="Summer of this year">Summer of this year</option>
+                                    <option value="Winter of next year">Winter of next year</option>
+                                    <option value="Winter of this year">Winter of this year</option>
+                                </select>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -1105,7 +1120,7 @@
                             </div>
 
                             <div class="col-12 mb-3">
-                                <label for="funding-source" class="form-label">Tuition Funding Source</label>
+                                <label for="funding-source" class="form-label">Tuition funding source</label>
                                 <div class="dropdown">
                                     <button class="form-select form-control text-left" type="button" id="funding-source" data-bs-toggle="dropdown">Select</button>
                                     
@@ -1132,7 +1147,7 @@
                                                 <label class="form-check-label" for="organization" style="display: inline">Sponsored by not-for-profit organization</label>
                                             </div>
                                             <div class="col-12 mb-1">
-                                                <input type="checkbox" class="me-1" name="funding_source[]" id="funding-source-other" value="Other">
+                                                <input type="checkbox" class="me-1" id="funding-source-other" value="Other">
                                                 <label class="form-check-label" for="funding-source-other">Other</label>
                                             </div>
                                             <div class="col-12">
@@ -1300,6 +1315,76 @@
                                             </div>
                                             <div class="col-5 marks">
                                                 <input type="number" class="form-control me-1" name="marks[]" disabled>
+                                            </div>
+                                        </div>
+
+                                        <div class="row px-2 align-items-center mb-2">
+                                            <div class="col-7 test">
+                                                <div class="input-group">
+                                                    <div class="input-group-text" style="width: 40px;">
+                                                        <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                                    </div>
+                                                    <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-1: Please type" id="other1" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 marks">
+                                                <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row px-2 align-items-center mb-2">
+                                            <div class="col-7 test">
+                                                <div class="input-group">
+                                                    <div class="input-group-text" style="width: 40px;">
+                                                        <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                                    </div>
+                                                    <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-2: Please type" id="other2" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 marks">
+                                                <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row px-2 align-items-center mb-2">
+                                            <div class="col-7 test">
+                                                <div class="input-group">
+                                                    <div class="input-group-text" style="width: 40px;">
+                                                        <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                                    </div>
+                                                    <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-3: Please type" id="other3" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 marks">
+                                                <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row px-2 align-items-center mb-2">
+                                            <div class="col-7 test">
+                                                <div class="input-group">
+                                                    <div class="input-group-text" style="width: 40px;">
+                                                        <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                                    </div>
+                                                    <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-4: Please type" id="other4" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 marks">
+                                                <input type="number" class="form-control me-1" name="marks[]" disabled required>
+                                            </div>
+                                        </div>
+
+                                        <div class="row px-2 align-items-center mb-2">
+                                            <div class="col-7 test">
+                                                <div class="input-group">
+                                                    <div class="input-group-text" style="width: 40px;">
+                                                        <input class="form-check-input mt-0 ms-0 more-test-check" type="checkbox">
+                                                    </div>
+                                                    <input type="text" class="form-control more-test" name="tests[]" placeholder="Other-5: Please type" id="other5" disabled required>
+                                                </div>
+                                            </div>
+                                            <div class="col-5 marks">
+                                                <input type="number" class="form-control me-1" name="marks[]" disabled required>
                                             </div>
                                         </div>
 
@@ -4017,6 +4102,7 @@
     </script>
 
 
+
     <!-- Master application scripts -->
 
     <script>
@@ -4148,18 +4234,7 @@
 
 
     <!-- calender -->
-    <!-- <script>
-       
-       const calendars = bulmaCalendar.attach('[type="date"]', {
-            type: 'date',
-            dateFormat: 'yyyy/MM/dd',
-            showButtons: false,
-            showTodayButton: false,
-       });
-
-   </script> -->
-
-   <script>
+    <script>
        // Initialize all input of type date
         var dob = bulmaCalendar.attach('.dob',{
             type: 'date',
@@ -4173,6 +4248,25 @@
 
     
         $('.datetimepicker-dummy .datetimepicker-dummy-wrapper .is-hidden').attr('type', 'hidden');
-   </script>
+    </script>
+
+    <script>
+        $('.more-test-check').click(function() {
+            if(this.checked) {
+                $(this).parents('.input-group-text').next().removeAttr('disabled');
+            } else {
+                $(this).parents('.input-group-text').next().attr('disabled', 'disabled');
+            }
+        });
+
+        $(".more-test").on("change keyup paste", function(){
+            if($(this).val() != ''){
+                $(this).parents('.test').next().find('input').removeAttr('disabled');
+            }
+            else {
+                $(this).parents('.test').next().find('input').attr('disabled', 'disabled');
+            }
+        })
+    </script>
 
 @endpush

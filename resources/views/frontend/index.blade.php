@@ -66,6 +66,7 @@
     @if(count($featured_schools) > 0)
         <div class="container mt-5 featured-schools red">
             <a href="{{ route('frontend.schools') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_schools_description }}</p>
 
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
@@ -92,6 +93,7 @@
     @if(count($featured_businesses) > 0)
         <div class="container mt-5 featured-businesses blue">
             <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured businesses</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_businesses_description }}</p>
 
             
             <div class="row mt-4">
@@ -119,6 +121,7 @@
     @if(count($featured_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your u.s. education</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_articles_description }}</p>
 
             <div class="row mt-4">
                 @foreach($featured_articles as $article)
@@ -144,6 +147,7 @@
     @if(count($featured_events) > 0)
         <div class="container mt-5 blue">
             <a href="{{ route('frontend.events') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured Events</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_events_description }}</p>
 
             <div class="row mt-4">
                 @foreach($featured_events as $featured_events)
@@ -170,6 +174,7 @@
     @if(count($videos) > 0)
         <div class="container mt-5 featured-videos red">
             <a href="{{ route('frontend.videos') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured videos</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_videos_description }}</p>
 
             <div class="row mt-4">
                 @foreach($videos as $video)
@@ -192,6 +197,7 @@
     @if(count($articles) > 0)
         <div class="container mt-5 recent-articles blue">
             <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->recent_articles_description }}</p>
 
             <div class="row mt-4">
                 @foreach($articles as $article)

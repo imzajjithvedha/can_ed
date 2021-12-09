@@ -4,6 +4,10 @@ hr {
     opacity: 1;
 }
 
+.tab-frame {
+    background-color: rgb(187, 187, 187, 0.5);
+}
+
 .careers .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: #fff!important;
     background-color: #bd2130!important;

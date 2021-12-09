@@ -137,11 +137,8 @@ Route::post('programs/request', [ProgramController::class, 'programRequest'])->n
 Route::post('article/search-results', [ArticleController::class, 'articleSearch'])->name('article_search');
 Route::get('article-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
 
-Route::post('business-category/search-results', [BusinessController::class, 'categorySearch'])->name('category_search');
-Route::get('business-category-search-results/{keyword}',[BusinessController::class,'categorySearchFunction'])->name('category_search_function');
-
 Route::post('business/search-results', [BusinessController::class, 'businessSearch'])->name('business_search');
-Route::get('business-search-results/{category}/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
+Route::get('business-search-results/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
 
 Route::post('school/search-results', [SchoolController::class, 'schoolSearch'])->name('school_search');
 Route::get('school-search-results/{keyword}',[SchoolController::class,'schoolSearchFunction'])->name('school_search_function');

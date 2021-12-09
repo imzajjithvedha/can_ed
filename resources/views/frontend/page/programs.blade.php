@@ -23,7 +23,11 @@
             </div>
         </div>
 
-        <div class="row mt-4">
+        <div class="gray mt-4" style="text-align: justify;">
+            {!! $paragraph->description !!}
+        </div>
+
+        <div class="row mt-5">
             @if(count($programs) == 0)
                 @include('frontend.includes.not_found_title',[
                     'not_found_title' => 'Programs not found',

@@ -1363,7 +1363,7 @@
                     </div>
 
                     <div class="col-12 text-center mb-3">
-                        <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR" style="transform:scale(0.73);-webkit-transform:scale(0.73); transform-origin:0 0; -webkit-transform-origin:0 0;">></div>
+                        <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                     </div>
 
                     <div class="col-12 text-center">

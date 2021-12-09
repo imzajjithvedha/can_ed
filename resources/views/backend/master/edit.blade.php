@@ -78,9 +78,13 @@
 
                             <div class="form-group">
                                 <label class="form-label">Status in the country of residence</label>
-                                @foreach(json_decode($master->status) as $status)
-                                    <input type="text" class="form-control" value="{{ $status }}" disabled>
-                                @endforeach
+                                @if($master->status == 'null')
+                                    <input type="text" class="form-control" disabled>
+                                @else
+                                    @foreach(json_decode($master->status) as $status)
+                                        <input type="text" class="form-control" value="{{ $status }}" disabled>
+                                    @endforeach
+                                @endif
                             </div>
 
                             <div class="form-group">
@@ -134,7 +138,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Student type</label>
+                                <label class="form-label">Tuition funding source</label>
                                 @foreach(json_decode($master->funding_source) as $student_type)
                                     <input type="text" class="form-control" value="{{ $student_type }}" disabled>
                                 @endforeach

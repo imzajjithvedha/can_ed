@@ -82,7 +82,6 @@ class MasterApplicationsController extends Controller
 
     public function viewApplication($id)
     {
-
         $master = Master::where('id', $id)->first();
 
         return view('backend.master.edit', ['master' => $master]);

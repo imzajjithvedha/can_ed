@@ -8,12 +8,12 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
-        <h4 class="fw-bolder futura">Master application - {{ $school->name }}</h4>
+        <h4 class="fw-bolder futura">Master application</h4>
         <hr>
 
         <div class="card mt-5 p-4">
 
-            <form action="{{ route('frontend.master_application_store') }}" method="post">
+            <form action="{{ route('frontend.master_application_normal_store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-12">
@@ -1029,8 +1029,8 @@
                         <select name="interested" id="interested" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="I am not sure">I am not sure</option>
-                            @foreach($data as $da)
-                                <option value="{{ $da->id }}">{{ $da->name }}</option>
+                            @foreach($degrees as $degree)
+                                <option value="{{ $degree->id }}">{{ $degree->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -1039,8 +1039,8 @@
                         <label for="like-study" class="form-label">I would like to study *</label>
                         <select name="like_study" id="like-study" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
-                            @foreach($prog as $pro)
-                                <option value="{{ $pro->id }}">{{ $pro->name }}</option>
+                            @foreach($programs as $program)
+                                <option value="{{ $program->id }}">{{ $program->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -1368,8 +1368,6 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <input type="hidden" class="form-control" name="school_id" value="{{ $school->id }}">
-                        <input type="hidden" class="form-control" name="school_slug" value="{{ $school->slug }}">
                         <button type="submit" class="btn btn-primary px-5 py-3 text-white w-100" id="submit_btn" disabled>Submit</button>
                     </div>
 
@@ -1391,7 +1389,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you very much for your application. School will contact you as soon as possible.</h4>
+                        <h4 class="mb-0 text-center">Thank you very much for your application. One of our member will contact you as soon as possible</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

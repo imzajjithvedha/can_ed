@@ -31,6 +31,7 @@
                                 <label for="definition" class="form-label">Class definition *</label>
                                 <textarea name="definition" id="definition" rows="7" class="form-control" placeholder="Class definition *" value="{{$career->definition}}" required>{{$career->definition}}</textarea>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -45,6 +46,14 @@
                                 <select class="form-control" name="status" required>
                                     <option value="Approved" {{ $career->status == 'Approved' ? "selected" : "" }}>Approve</option>
                                     <option value="Pending" {{ $career->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="featured" class="form-label">Do you want to show this career in the hot career? *</label>
+                                <select class="form-control" name="featured" id="featured" required>
+                                    <option value="Yes" {{ $career->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $career->featured == 'No' ? "selected" : "" }}>No</option>                               
                                 </select>
                             </div>
 

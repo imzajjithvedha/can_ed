@@ -22,7 +22,8 @@ class CareersImport implements ToModel, WithHeadingRow
             'code' => $row['code'],
             'title' => $row['class'],
             'definition' => $row['definition'],
-            'status' => 'Approved'
+            'status' => 'Approved',
+            'featured' => 'No',
         ]);
     }
 }

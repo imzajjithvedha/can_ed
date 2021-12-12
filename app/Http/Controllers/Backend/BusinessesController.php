@@ -61,12 +61,12 @@ class BusinessesController extends Controller
         $business->you_tube = $request->you_tube;
         $business->linked_in = $request->linked_in;
         $business->package = $request->package;
-        $business->featured = $featured;
+        $business->featured = $request->featured;
         $business->status = 'Approved';
+        $business->student_service = $request->student_service;
 
         $business->save();
 
-        
         return redirect()->route('admin.businesses.index')->withFlashSuccess('Created Successfully');                      
     }
 
@@ -143,7 +143,8 @@ class BusinessesController extends Controller
                 'linked_in' => $request->linked_in,
                 'status' => $request->status,
                 'image' => $imageName,
-                'featured' => $request->featured
+                'featured' => $request->featured,
+                'student_service' => $request->student_service,
             ]
         );
    

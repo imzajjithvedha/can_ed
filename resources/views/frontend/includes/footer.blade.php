@@ -10,6 +10,7 @@
                 <a href="{{ route('frontend.contact_us') }}">Contact us</a><br>
                 <a href="{{ route('frontend.disclaimer') }}">Disclaimer</a><br>
                 <a href="{{ route('frontend.faq') }}">FAQ</a><br>
+                <a href="{{ route('frontend.master_application_normal') }}">Master application</a><br>
                 <a href="{{ route('frontend.meet_our_team') }}">Meet our team</a><br>
                 <a href="{{ route('frontend.our_sponsors') }}">Our sponsors</a><br>
                 <a href="{{ route('frontend.privacy_policy') }}">Privacy policy</a><br>

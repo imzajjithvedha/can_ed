@@ -33,6 +33,7 @@ class CreateBusinessesTable extends Migration
             $table->text('package');
             $table->text('status');
             $table->text('featured');
+            $table->text('student_service');
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@
 }
 .advanced-search {
     background-color: rgb(228, 12, 12);
-    font-size: 0.7rem;
+    font-size: 1rem;
 }
 .search-input::placeholder {
     font-size: 0.9rem;

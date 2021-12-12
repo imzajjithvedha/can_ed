@@ -31,65 +31,27 @@
         
         <div class="row mt-5">
             @if(count($articles) > 0)
-                <div class="col-3 more-articles" style="padding-top: 4.45rem;">
+                <div class="col-3 more-articles" style="padding-top: 5rem;">
                     <h6 class="fw-bold related-articles futura mb-4">Helpful articles</h6>
                     
                     <div class="row align-items-center">
 
-                        @foreach($articles as $article)
-                        
-                            @if($article->color == 'blue')
+                        @foreach($articles as $key => $article)
 
-                                <div class="col-12 mb-3">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                        <div class="card border-0">
-                                            @if($article->image != null)
-                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @else
-                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @endif
-                                            <div class="card-body text-center p-3 article-blue rounded-0">
-                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                            </div>
+                            <div class="col-12 mb-3">
+                                <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                    <div class="card border-0">
+                                        @if($article->image != null)
+                                            <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        @endif
+                                        <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                            <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                         </div>
-                                    </a>
-                                </div>
-
-                            @elseif($article->color == 'red')
-
-                                <div class="col-12 mb-3">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                        <div class="card border-0">
-                                            @if($article->image != null)
-                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @else
-                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @endif
-                                            <div class="card-body text-center p-3 article-red rounded-0">
-                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            @elseif($article->color == 'gray')
-
-                                <div class="col-12 mb-3">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                        <div class="card border-0">
-                                            @if($article->image != null)
-                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @else
-                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                            @endif
-                                            <div class="card-body text-center p-3 article-gray rounded-0">
-                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            @endif
+                                    </div>
+                                </a>
+                            </div>
                         @endforeach
                     </div>
                 </div>
@@ -105,7 +67,7 @@
                             <a href="#all-careers" class="nav-link futura" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="false">All careers</a>
                         </li>
                         <li class="nav-item w-100" role="presentation">
-                            <a href="#hot-careers" class="nav-link futura" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false">{{ $hot_careers->title }}</a>
+                            <a href="#hot-careers" class="nav-link futura" id="pills-hot-tab" data-bs-toggle="pill" data-bs-target="#pills-hot" type="button" role="tab" aria-controls="pills-hot" aria-selected="false">Hot careers</a>
                         </li>
                     </ul>
                 </div>
@@ -123,6 +85,57 @@
                         @foreach($careers as $career)
 
                             <div class="mb-3 border-bottom p-3">
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Title</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray fw-bold">{{ $career->title }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Definition</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray" style="text-align: justify">{{ $career->definition }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">Hierarchical structure</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray">{{ $career->hierarchical }}</p>
+                                    </div>
+                                </div>
+
                                 <div class="row align-items-center mb-2">
                                     <div class="col-4">
                                         <div class="row">
@@ -144,23 +157,6 @@
                                     <div class="col-4">
                                         <div class="row">
                                             <div class="col-10">
-                                                <p class="fw-bold">Hierarchical structure</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $career->hierarchical }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
                                                 <p class="fw-bold">Code</p>
                                             </div>
                                             <div class="col-1 p-0">
@@ -174,39 +170,6 @@
                                     </div>
                                 </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Title</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $career->title }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Definition</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $career->definition }}</p>
-                                    </div>
-                                </div>
                             </div>
                         
                         @endforeach
@@ -215,9 +178,104 @@
                     </div>
                         
                     <div class="tab-pane fade" id="pills-hot" role="tabpanel" aria-labelledby="pills-hot-tab">
-                        <div class="gray mt-2" style="text-align: justify;">
-                            {!! $hot_careers->description !!}
-                        </div>
+                        @if(count($hot_careers) == 0)
+                            @include('frontend.includes.not_found_title',[
+                                'not_found_title' => 'Hot careers not found',
+                                'not_found_description' => 'Please check later.'
+                            ])
+                        @else
+                            @foreach($hot_careers as $hot_career)
+                                <div class="mb-3 border-bottom p-3">
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Title</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray fw-bold">{{ $hot_career->title }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Definition</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $hot_career->definition }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Hierarchical structure</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $hot_career->hierarchical }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Level</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <h6 class="gray">{{ $hot_career->level }}</h6>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Code</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $hot_career->code }}</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endforeach
+
+                            {{ $hot_careers->fragment('hot-careers')->links() }}
+                        @endif
                     </div>
                 </div>
             </div>

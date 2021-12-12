@@ -15,6 +15,8 @@ use App\Mail\Frontend\UserMasterApplication;
 use App\Mail\Frontend\SchoolMasterApplication;
 use App\Models\DegreeLevels;
 use App\Models\Programs;
+use App\Mail\Frontend\MasterApplicationNormal;
+use App\Mail\Frontend\UserMasterApplicationNormal;
 
 /**
  * Class MasterApplicationController.
@@ -32,6 +34,8 @@ class MasterApplicationController extends Controller
 
         $degree = $programs->unique('degree_level');
 
+
+        //Degree levels
         $degree_levels = DegreeLevels::get();
 
         $a = [];
@@ -66,6 +70,7 @@ class MasterApplicationController extends Controller
         $b = collect($b);
 
         $prog = $b->sortBy('name');
+
 
         return view('frontend.school.master_application', [
             'school' => $school,
@@ -179,4 +184,120 @@ class MasterApplicationController extends Controller
 
         return redirect()->route('frontend.single_school', [$request->school_id, $request->school_slug])->with('success', 'success');
     }
+
+
+    //Master application normal
+    public function masterApplicationNormal()
+    {
+        $programs = Programs::where('status', 'Approved')->get();
+
+        $degrees = DegreeLevels::where('status', 'Approved')->get();
+
+        return view('frontend.school.master_application_normal', [
+            'programs' => $programs,
+            'degrees' => $degrees,
+        ]);
+    }
+
+    public function masterApplicationNormalStore(Request $request)
+    {
+        $application = new Master;
+
+        $tests = $request->tests;
+
+        $marks = $request->marks;
+
+        $arr = [];
+
+        if($tests != null) {
+            foreach($tests as $key=>$test) {
+
+                $data = [
+                    'test' => $test,
+                    'mark' => $marks[$key]
+                ];
+    
+                array_push($arr, $data); 
+            }
+        }
+
+
+        if($user = Auth::user()){
+
+            $application->user_id = auth()->user()->id;
+        }
+
+        else {
+            $application->user_id = null;
+        }
+
+        $application->first_name = $request->first_name;
+        $application->last_name = $request->last_name;
+        $application->dob = $request->dob;
+        $application->gender = $request->gender;
+        $application->email = $request->email;
+        $application->phone = $request->phone;
+        $application->school_text = $request->school_text;
+        $application->messaging_app = json_encode($request->messaging_app);
+        $application->username = $request->username;
+        $application->citizenship = $request->citizenship;
+        $application->citizenship_live = $request->citizenship_live;
+        $application->country = $request->country;
+        $application->status = json_encode($request->status);
+        $application->mailing_address = $request->mailing_address;
+        $application->school_name = $request->school_name;
+        $application->gpa = $request->gpa;
+        $application->school_city = $request->school_city;
+        $application->school_country = $request->school_country;
+        $application->start_date = $request->start_date;
+        $application->interested = $request->interested;
+        $application->like_study = $request->like_study;
+        $application->student_type = $request->student_type;
+        $application->funding_source = json_encode($request->funding_source);
+        $application->tests = json_encode($arr);
+        $application->comments = $request->comments;
+        $application->questions = $request->questions;
+        $application->transfer_student = $request->transfer_student;
+        $application->visa = $request->visa;
+
+        $application->save();
+
+        $details = [
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'dob' => $request->dob,
+            'gender' => $request->gender,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'school_text' => $request->school_text,
+            'messaging_app' => json_encode($request->messaging_app),
+            'username' => $request->username,
+            'citizenship' => $request->citizenship,
+            'citizenship_live' => $request->citizenship_live,
+            'country' => $request->country,
+            'status' => json_encode($request->status),
+            'mailing_address' => $request->mailing_address,
+            'school_name' => $request->school_name,
+            'gpa' => $request->gpa,
+            'school_city' => $request->school_city,
+            'school_country' => $request->school_country,
+            'start_date' => $request->start_date,
+            'interested' => $request->interested,
+            'like_study' => $request->like_study,
+            'student_type' => $request->student_type,
+            'funding_source' => json_encode($request->funding_source),
+            'tests' => json_encode($arr),
+            'comments' => $request->comments,
+            'questions' => $request->questions,
+            'transfer_student' => $request->transfer_student,
+            'visa' => $request->visa,
+        ];
+
+        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplicationNormal($details));
+
+        Mail::to([$request->email])->send(new UserMasterApplicationNormal($details));
+
+        return redirect()->route('frontend.master_application_normal')->with('success', 'success');
+    }
+
 }

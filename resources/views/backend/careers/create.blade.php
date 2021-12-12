@@ -28,6 +28,14 @@
                             <div class="mb-3">
                                 <textarea name="definition" rows="7" class="form-control" placeholder="Class definition *" required></textarea>
                             </div>
+
+                            <div class="mb-3">
+                                <select class="form-control" id="featured" name="featured" placeholder="Featured? *" required>
+                                    <option value="" selected disabled hidden>Do you want to show this career in the hot career? *</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>

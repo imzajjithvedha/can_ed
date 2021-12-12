@@ -95,11 +95,6 @@ Breadcrumbs::for('admin.careers.import_careers', function ($trail) {
     $trail->push('Careers / All careers / Import', route('admin.careers.import_careers'));
 });
 
-Breadcrumbs::for('admin.careers.hot_careers', function ($trail) {
-    $trail->push('Careers / Hot careers', route('admin.careers.hot_careers'));
-});
-
-
 
 
 

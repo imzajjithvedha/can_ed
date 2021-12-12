@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         $featured_schools = Schools::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
-        $featured_events = Events::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
+        $featured_events = Events::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
         $school_types = SchoolTypes::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
@@ -42,10 +42,11 @@ class HomeController extends Controller
 
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
-
         $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->orderBy('updated_at', 'desc')->get();
 
         $information = WebsiteInformation::where('id', 1)->first();
+
+        $student_services = Businesses::where('status', 'Approved')->where('student_service', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
         return view('frontend.index', 
         [
@@ -59,6 +60,7 @@ class HomeController extends Controller
             'programs' => $programs,
             'degree_levels' => $degree_levels,
             'information' => $information,
+            'student_services' => $student_services,
         ]);
     }
 

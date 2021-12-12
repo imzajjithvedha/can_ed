@@ -84,6 +84,7 @@ class CareersController extends Controller
         $career->title = $request->title;
         $career->definition = $request->definition;
         $career->status = 'Approved';
+        $career->featured = $request->featured;
 
 
         $career->save();
@@ -143,6 +144,7 @@ class CareersController extends Controller
                 'title' => $request->title,
                 'definition' => $request->definition,
                 'status' => $request->status,
+                'featured' => $request->featured,
             ]
         );
    

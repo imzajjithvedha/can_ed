@@ -254,6 +254,7 @@ table {
 
 .datetimepicker {
     width: 88%;
+    top: 4.4rem!important;
 }
 .datetimepicker-dummy-input {
     cursor: pointer;
@@ -283,4 +284,7 @@ table {
 
 .datetimepicker-dummy .datetimepicker-clear-button {
     margin: 0.2rem 0.2rem 0 0!important;
+}
+.datetimepicker.is-datetimepicker-default .datetimepicker-container:before {
+    display: none!important;
 }

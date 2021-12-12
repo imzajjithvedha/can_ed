@@ -87,13 +87,41 @@ class SchoolController extends Controller
         }
     }
 
-    public function index()
+    public function schoolDegreeLevels()
     {
-        $schools = Schools::where('status', 'Approved')->orderBy('name', 'asc')->get();
+        $degrees = DegreeLevels::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
-        return view('frontend.school.schools', ['schools' => $schools]);
+        return view('frontend.school.school_degree_levels', ['degrees' => $degrees]);
     }
 
+    public function schools($id)
+    {
+        $degree = DegreeLevels::where('id', $id)->first();
+
+        $school_programs = SchoolPrograms::where('degree_level', $id)->get();
+
+        $programs = $school_programs->unique('school_id');
+
+        $all_schools = Schools::where('status', 'Approved')->get();
+
+        $data = [];
+
+        foreach ($programs as $program){ 
+            foreach($all_schools as $all_school) {
+                if($program->school_id == $all_school->id) {
+                    array_push($data, $all_school);
+                }
+            }
+        }
+
+        $data = collect($data);
+
+        $schools = $data->sortBy('name');
+
+        return view('frontend.school.schools', ['schools' => $schools, 'degree' => $degree]);
+    }
+
+    
     public function singleSchool($id, $school_slug)
     {
         $school = Schools::where('id', $id)->first();

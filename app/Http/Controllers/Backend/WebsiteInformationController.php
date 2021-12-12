@@ -61,6 +61,8 @@ class WebsiteInformationController extends Controller
                 'featured_events_description' => $request->featured_events_description,
                 'featured_videos_description' => $request->featured_videos_description,
                 'recent_articles_description' => $request->recent_articles_description,
+                'student_services_description' => $request->student_services_description,
+                'advanced_search_description' => $request->advanced_search_description,
             ]
         );
 

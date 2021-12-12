@@ -86,11 +86,6 @@ Route::get('careers/import-career', [CareersController::class, 'importCareers'])
 Route::post('careers/import', [CareersController::class, 'import'])->name('careers.import');
 
 
-Route::get('careers/hot-careers', [CareersController::class, 'hotCareers'])->name('careers.hot_careers');
-Route::post('careers/hot-careers/update', [CareersController::class, 'hotCareersUpdate'])->name('careers.hot_careers_update');
-
-
-
 Route::get('events', [EventsController::class, 'index'])->name('events.index');
 Route::get('events/create-event', [EventsController::class, 'createEvent'])->name('events.create_event');
 Route::post('events/store-event', [EventsController::class, 'storeEvent'])->name('events.store_event');

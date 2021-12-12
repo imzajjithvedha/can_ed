@@ -229,3 +229,7 @@ p {
     background: linear-gradient(98deg, rgb(205 193 193) 19%, rgb(139 138 143) 67%, rgb(105 105 106) 100%);
     color: black;
 }
+
+.card-padding {
+    padding: 0.7rem!important;
+}

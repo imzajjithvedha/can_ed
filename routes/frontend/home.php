@@ -78,7 +78,8 @@ Route::get('cookies', [CookiesController::class, 'index'])->name('cookies');
 
 
 
-Route::get('schools', [SchoolController::class, 'index'])->name('schools');
+Route::get('school-degree-levels', [SchoolController::class, 'schoolDegreeLevels'])->name('school_degree_levels');
+Route::get('school-degree-levels/{id}/schools', [SchoolController::class, 'schools'])->name('schools');
 Route::get('school-register', [SchoolController::class, 'schoolRegister'])->name('school_register');
 Route::get('schools/single-school/{id}/{school_slug}', [SchoolController::class, 'singleSchool'])->name('single_school');
 Route::post('school-register/request', [SchoolController::class, 'schoolRegisterRequest'])->name('school_register_request');
@@ -184,6 +185,10 @@ Route::get('uploads/all/{file_name}',[AizUploadController::class,'get_image_cont
 
 Route::get('{id}/{slug}/master-application', [MasterApplicationController::class, 'index'])->name('master_application');
 Route::post('master-application/update', [MasterApplicationController::class, 'store'])->name('master_application_store');
+
+// Master application normal
+Route::get('master-application', [MasterApplicationController::class, 'masterApplicationNormal'])->name('master_application_normal');
+Route::post('master-application-normal/update', [MasterApplicationController::class, 'masterApplicationNormalStore'])->name('master_application_normal_store');
 
 
 

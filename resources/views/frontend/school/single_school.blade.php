@@ -15,61 +15,26 @@
                 <h6 class="fw-bold related-articles futura mb-4">Related articles</h6>
                 
                 <div class="row align-items-center">
-                    @foreach($articles as $article)
-                        @if($article->color == 'blue')
 
-                            <div class="col-12 mb-3">
-                                <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                    <div class="card border-0">
-                                        @if($article->image != null)
-                                            <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @else
-                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @endif
-                                        <div class="card-body text-center p-3 article-blue rounded-0">
-                                            <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                        </div>
+                    @foreach($articles as $key => $article)
+
+                        <div class="col-12 mb-3">
+                            <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                <div class="card border-0">
+                                    @if($article->image != null)
+                                        <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                        <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                     </div>
-                                </a>
-                            </div>
-
-                        @elseif($article->color == 'red')
-
-                            <div class="col-12 mb-3">
-                                <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                    <div class="card border-0">
-                                        @if($article->image != null)
-                                            <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @else
-                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @endif
-                                        <div class="card-body text-center p-3 article-red rounded-0">
-                                            <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                        @elseif($article->color == 'gray')
-
-                            <div class="col-12 mb-3">
-                                <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                    <div class="card border-0">
-                                        @if($article->image != null)
-                                            <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @else
-                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                        @endif
-                                        <div class="card-body text-center p-3 article-gray rounded-0">
-                                            <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                        @endif
+                                </div>
+                            </a>
+                        </div>
                     @endforeach
                 </div>
+                
 
                 <h4 class="fw-bold futura mt-5 p-3 text-center" style="background-color: #dbdbdb;">Master application</h4>
 
@@ -150,7 +115,7 @@
                                                 <label class="form-check-label" for="facebook-messenger">Facebook Messenger</label>
                                             </div>
                                             <div class="col-12 mb-1">
-                                                <input type="checkbox" class="me-1" name="messaging_app[]" value="Google Hangouts" id="google-chat">
+                                                <input type="checkbox" class="me-1" name="messaging_app[]" value="Google Chat" id="google-chat">
                                                 <label class="form-check-label" for="google-chat">Google Chat</label>
                                             </div>
                                             <div class="col-12 mb-1">
@@ -810,7 +775,7 @@
 
                             <div class="col-12 mb-3">
                                 <label for="gpa" class="form-label">High school GPA *</label>
-                                <input type="text" class="form-control" id="gpa" name="gpa" placeholder="e.g. 75%, or 3.4 of 4" required>
+                                <input type="text" class="form-control" id="gpa" name="gpa" placeholder="e.g. (75%), or (3.4 of 4)" required>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -1077,12 +1042,12 @@
                                 <select name="start_date" id="start-date" class="form-select form-control" required>
                                     <option value="" selected disabled hidden>Select</option>
                                     <option value="I am not sure">I am not sure</option>
-                                    <option value="Fall of next year">Fall of next year</option>
-                                    <option value="Fall of this year">Fall of this year</option>
-                                    <option value="Summer of next year">Summer of next year</option>
-                                    <option value="Summer of this year">Summer of this year</option>
-                                    <option value="Winter of next year">Winter of next year</option>
                                     <option value="Winter of this year">Winter of this year</option>
+                                    <option value="Summer of this year">Summer of this year</option>
+                                    <option value="Fall of this year">Fall of this year</option>
+                                    <option value="Winter of next year">Winter of next year</option>
+                                    <option value="Summer of next year">Summer of next year</option>
+                                    <option value="Fall of next year">Fall of next year</option>
                                 </select>
                             </div>
 
@@ -1810,59 +1775,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -2250,59 +2178,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -2457,59 +2348,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -2873,59 +2727,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -3399,59 +3216,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -3871,59 +3651,22 @@
                                         <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                         <div class="row align-items-center">
-                                            @foreach($articles as $article)
-                                                @if($article->color == 'blue')
+                                            @foreach($articles as $key => $article)
 
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-blue rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
+                                                <div class="col-4">
+                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <div class="card border-0">
+                                                            @if($article->image != null)
+                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @else
+                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                            @endif
+                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                                             </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'red')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-red rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @elseif($article->color == 'gray')
-
-                                                    <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                            <div class="card border-0">
-                                                                @if($article->image != null)
-                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @else
-                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                                @endif
-                                                                <div class="card-body text-center p-3 article-gray rounded-0">
-                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-
-                                                @endif
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -4267,6 +4010,24 @@
                 $(this).parents('.test').next().find('input').attr('disabled', 'disabled');
             }
         })
+    </script>
+
+
+    <script>
+        $('.dropdown-menu input[type="checkbox"]').on('click', function() {
+            let count = $(this).parents('.dropdown-menu').find('input:checkbox:checked').length;
+
+            if(count == 1) {
+                let value = $(this).parents('.dropdown-menu').find('input:checkbox:checked').val();
+                $(this).parents('.dropdown-menu').prev().text(value);
+            } 
+            else if (count > 1) {
+                $(this).parents('.dropdown-menu').prev().text('Selected');
+            }
+            else {
+                $(this).parents('.dropdown-menu').prev().text('Select');
+            }
+        });
     </script>
 
 @endpush

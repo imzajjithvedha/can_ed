@@ -36,13 +36,12 @@
             @else
                 @foreach($programs as $program)
                     <div class="col-3 mb-2">
-                        <!-- <p style="color: #800000;"><i class="fas fa-star"></i> {{ $program->name }}</p> -->
-                        <div class="row">
-                            <div class="col-2">
-                                <i class="fas fa-star" style="color: #800000;"></i>
+                        <div class="row align-items-center">
+                            <div class="col-1">
+                                <i class="fas fa-star" style="color: #800000; font-size: 0.5rem; position: relative; top: -0.2rem;"></i>
                             </div>
                             <div class="col-10">
-                                <p style="color: #800000;">{{ $program->name }}</p>
+                                <p>{{ $program->name }}</p>
                             </div>
                         </div>
                     </div>

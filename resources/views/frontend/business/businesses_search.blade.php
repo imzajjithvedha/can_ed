@@ -45,7 +45,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
                                 </div>
                             </a>

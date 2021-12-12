@@ -11,12 +11,12 @@
     <div class="container-fluid main-banner" style="background-image: url('../images/home/{{ $information->main_banner }}')">
         <div class="container" style="margin-top: -12rem;">
             <div class="row justify-content-center search-bar">
-                <div class="col-6">
+                <div class="col-7">
                     <form action="{{ route('frontend.home_search') }}"  method="POST">
                         {{csrf_field()}}
                         <div class="search-box p-2">
                             <div class="input-group">
-                                <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" aria-label="search">
+                                <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" placeholder="Search by school name" aria-label="search">
                                 <select class="border-0 text-center search-drop border-end" name='type'>
                                     <option value="schools" selected="selected">Schools</option>
                                     <option value="businesses">Businesses</option>
@@ -26,14 +26,10 @@
                                     <!-- <option value="resources">Resources</option> -->
                                 </select>
                                 <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
-                                <button type="button" class="btn text-white advanced-search" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
+                                <button type="button" class="btn text-white advanced-search rounded-0" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
                             </div>
                         </div>
                     </form>
-
-                    <!-- <div class="advanced-search text-center">
-                        <button class="btn text-white w-100" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced Search</button>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -65,7 +61,7 @@
 
     @if(count($featured_schools) > 0)
         <div class="container mt-5 featured-schools red">
-            <a href="{{ route('frontend.schools') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
+            <a href="{{ route('frontend.school_degree_levels') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_schools_description }}</p>
 
             <div class="row mt-4">
@@ -78,7 +74,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $featured_school->name }}</h6>
                                 </div>
                             </div>
@@ -106,7 +102,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
                                 </div>
                             </div>
@@ -133,7 +129,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
                                 </div>
                             </div>
@@ -159,8 +155,34 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $featured_events->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($student_services) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Student services</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->student_services_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($student_services as $student_service)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_business', $student_service->id) }}" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($student_service->image != null)
+                                    <img src="{{ url('images/businesses', $student_service->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -172,7 +194,7 @@
     
 
     @if(count($videos) > 0)
-        <div class="container mt-5 featured-videos red">
+        <div class="container mt-5 featured-videos blue">
             <a href="{{ route('frontend.videos') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured videos</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_videos_description }}</p>
 
@@ -182,7 +204,7 @@
                         <div class="card rounded-0">
                             <iframe width="100%" height="143" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                            <div class="card-body text-center rounded-0">
+                            <div class="card-body text-center card-padding rounded-0">
                                 <h6 class="card-title fw-bold gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
                             </div>
                         </div>
@@ -195,7 +217,7 @@
 
 
     @if(count($articles) > 0)
-        <div class="container mt-5 recent-articles blue">
+        <div class="container mt-5 recent-articles red">
             <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->recent_articles_description }}</p>
 
@@ -209,7 +231,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
                                 </div>
                             </div>
@@ -233,7 +255,9 @@
                     </div>
                     <div class="modal-body">
                         <div class="row mb-4">
-
+                            <div class="col-12 mb-4">
+                                <p class="gray" style="text-align:justify;">{{ $information->advanced_search_description}}</p>
+                            </div>
                             <div class="col-6 mb-3">
                                 <label for="degree_level" class="form-label">Degree level</label>
                                 <select name="degree_level" id="degree_level" class="form-select">
@@ -675,12 +699,16 @@
         $('.search-drop').on('change', function() {
             if($(this).val() == 'businesses') {
                 $('.advanced-search').attr('disabled', 'disabled');
+                $('.search-input').attr('placeholder', '');
             } else if($(this).val() == 'programs') {
                 $('.advanced-search').attr('disabled', 'disabled');
+                $('.search-input').attr('placeholder', '');
             } else if($(this).val() == 'articles') {
                 $('.advanced-search').attr('disabled', 'disabled');
+                $('.search-input').attr('placeholder', '');
             } else {
                 $('.advanced-search').removeAttr('disabled');
+                $('.search-input').attr('placeholder', 'Search by school name');
             }
         });
     </script>

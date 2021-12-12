@@ -59,9 +59,6 @@
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/careers.all_careers'))}}" href="{{ route('admin.careers.all_careers') }}">All careers</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{active_class(Route::is('admin/careers.hot_careers'))}}" href="{{ route('admin.careers.hot_careers') }}">Hot careers</a>
-                    </li>
                     <li>
                         <a class="nav-link {{active_class(Route::is('admin/careers.how_careers_came_about'))}}" href="{{ route('admin.careers.how_careers_came_about') }}">
                             How came

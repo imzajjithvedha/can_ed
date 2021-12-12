@@ -55,16 +55,6 @@
                                 </select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="color" class="form-label">Color *</label>
-                                <select class="form-control" id="color" name="color" placeholder="color *" required>
-                                    <option value="" selected disabled hidden>Color *</option>
-                                    <option value="blue">Blue</option>
-                                    <option value="red">Red</option>
-                                    <option value="gray">Gray</option>
-                                </select>
-                            </div>
-
                             <div class="mt-4 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $article->id }}"/>
                                 <a href="{{ route('admin.articles.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
@@ -83,18 +73,6 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.ckeditor').ckeditor();
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            let value = <?php echo json_encode ($article->color) ?>
-
-            $('#color option').each(function(i){
-                if($(this).val() == value) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
         });
     </script>
 @endpush

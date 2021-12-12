@@ -48,7 +48,6 @@ class ArticlesController extends Controller
         $article->featured = $featured;
         $article->status = 'Approved';
         $article->image = $imageName;
-        $article->color = $request->color;
 
         $article->save();
 
@@ -87,21 +86,7 @@ class ArticlesController extends Controller
                     return $status;
                 })
 
-                ->editColumn('color', function($data){
-                    if($data->color == 'blue'){
-                        $color = '<span class="badge article-blue">Blue</span>';
-                    }
-                    else if($data->color == 'red') {
-                        $color = '<span class="badge article-red">Red</span>';
-                    }
-                    else if($data->color == 'gray'){
-                        $color = '<span class="badge article-gray">Gray</span>';
-                    }
-
-                    return $color;
-                })
-                
-                ->rawColumns(['action','image', 'status', 'color'])
+                ->rawColumns(['action','image', 'status'])
                 ->make(true);
         }
         
@@ -138,7 +123,6 @@ class ArticlesController extends Controller
                 'featured' => $request->featured,
                 'image' => $imageName,
                 'status' => $request->status,
-                'color' => $request->color,
             ]
         );
    

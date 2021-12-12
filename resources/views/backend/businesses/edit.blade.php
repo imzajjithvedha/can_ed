@@ -122,6 +122,14 @@
                                 </select>
                             </div>
 
+                            <div class="form-group">
+                                <label for="status" class="form-label">Do you want to show this business under student services? *</label>
+                                <select class="form-control" name="student_service" id="student-service" required>
+                                    <option value="Yes" {{ $business->student_service == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $business->student_service == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $business->id }}"/>
                                 <a href="{{ route('admin.businesses.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>

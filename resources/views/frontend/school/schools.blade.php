@@ -10,7 +10,7 @@
 
     <div class="container mt-5 schools">
 
-        <h4 class="fw-bolder futura">Schools</h4>
+        <h4 class="fw-bolder futura">Schools - {{ $degree->name }}</h4>
 
         <form action="{{ route('frontend.school_search') }}" method="POST">
             {{ csrf_field() }}
@@ -43,7 +43,7 @@
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
-                                <div class="card-body text-center rounded-0">
+                                <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $school->name }}</h6>
                                 </div>
                             </a>

@@ -81,7 +81,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="twitter" class="form-label">Recent articles description *</label>
-                                <textarea name="recent_articles_description" class="form-control" id="recent_articles_description" rows="3"  value="{{ $information->recent_articles_description }}" placeholder="Featured articles description *" required>{{ $information->recent_articles_description }}</textarea>
+                                <textarea name="recent_articles_description" class="form-control" id="recent_articles_description" rows="3"  value="{{ $information->recent_articles_description }}" placeholder="Recent articles description *" required>{{ $information->recent_articles_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Student services description *</label>
+                                <textarea name="student_services_description" class="form-control" id="student_services_description" rows="3"  value="{{ $information->student_services_description }}" placeholder="Student services description *" required>{{ $information->student_services_description }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Advanced search description *</label>
+                                <textarea name="advanced_search_description" class="form-control" id="advanced_search_description" rows="3"  value="{{ $information->advanced_search_description }}" placeholder="Advanced search  description *" required>{{ $information->advanced_search_description }}</textarea>
                             </div>
                         </div>
                     </div>

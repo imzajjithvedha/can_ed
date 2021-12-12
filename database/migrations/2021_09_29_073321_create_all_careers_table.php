@@ -22,6 +22,7 @@ class CreateAllCareersTable extends Migration
             $table->text('title');
             $table->text('definition');
             $table->text('status');
+            $table->text('featured');
             $table->timestamps();
         });
     }

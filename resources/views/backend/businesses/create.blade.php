@@ -150,8 +150,16 @@
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control" id="featured" name="featured" placeholder="Featured?">
+                                <select class="form-control" id="featured" name="featured" placeholder="Featured?" required>
                                     <option value="" selected disabled hidden>Do you want to show this business in the homepage? *</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" id="student-service" name="student_service" placeholder="Do you want to show this business under student services? *" required>
+                                    <option value="" selected disabled hidden>Do you want to show this business under student services? *</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>

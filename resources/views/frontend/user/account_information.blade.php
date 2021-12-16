@@ -71,7 +71,8 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="dob" class="form-label">Date of birth *</label>
-                                        <input value="{{ $user->dob }}" type="date" class="form-control" id="dob" aria-describedby="dob" placeholder="Date of birth *" name="dob">
+                                        <!-- <input value="{{ $user->dob }}" type="date" class="form-control" id="dob" aria-describedby="dob" placeholder="Date of birth *" name="dob"> -->
+                                        <input type="date" class="dob" name="dob" value="{{ $user->dob }}" required>
                                     </div>
                                 </div>
 
@@ -82,6 +83,7 @@
                                             <option value="" selected hidden disabled></option>
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
+                                            <option value="prefer_not_to_say">Prefer not to say</option>
                                         </select>
                                     </div>
                                     <div class="col-6">
@@ -463,4 +465,28 @@
             $('#modal-btn').click();
         }
     </script>
+
+    <!-- calender -->
+    <script>
+       // Initialize all input of type date
+        var dob = bulmaCalendar.attach('.dob',{
+            type: 'date',
+            dateFormat: 'yyyy-MM-dd'
+        });
+
+        var startDate = bulmaCalendar.attach('.start-date',{
+            type: 'date',
+            dateFormat: 'yyyy-MM-dd'
+        });
+
+    
+        $('.datetimepicker-dummy .datetimepicker-dummy-wrapper .is-hidden').attr('type', 'hidden');
+    </script>
+
+
+    <!-- <script>
+        $(document).ready(function() {
+            $('.datetimepicker-dummy-input').text("fsdfsdf");
+        });
+    </script> -->
 @endpush

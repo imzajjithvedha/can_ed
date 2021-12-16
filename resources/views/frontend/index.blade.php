@@ -8,32 +8,66 @@
 
 @section('content')
 
-    <div class="container-fluid main-banner" style="background-image: url('../images/home/{{ $information->main_banner }}')">
-        <div class="container" style="margin-top: -12rem;">
-            <div class="row justify-content-center search-bar">
-                <div class="col-7">
-                    <form action="{{ route('frontend.home_search') }}"  method="POST">
-                        {{csrf_field()}}
-                        <div class="search-box p-2">
-                            <div class="input-group">
-                                <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" placeholder="Search by school name" aria-label="search">
-                                <select class="border-0 text-center search-drop border-end" name='type'>
-                                    <option value="schools" selected="selected">Schools</option>
-                                    <option value="businesses">Businesses</option>
-                                    <option value="programs">Programs</option>
-                                    <!-- <option value="careers">Careers</option> -->
-                                    <option value="articles">Articles</option>
-                                    <!-- <option value="resources">Resources</option> -->
-                                </select>
-                                <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
-                                <button type="button" class="btn text-white advanced-search rounded-0" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
+    @if($information->main_banner != null)
+
+        <div class="container-fluid main-banner" style="background-image: url('../images/home/{{ $information->main_banner }}')">
+            <div class="container" style="margin-top: -12rem;">
+                <div class="row justify-content-center search-bar">
+                    <div class="col-7">
+                        <form action="{{ route('frontend.home_search') }}"  method="POST">
+                            {{csrf_field()}}
+                            <div class="search-box p-2">
+                                <div class="input-group">
+                                    <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" placeholder="Search by school name" aria-label="search">
+                                    <select class="border-0 text-center search-drop border-end" name='type'>
+                                        <option value="schools" selected="selected">Schools</option>
+                                        <option value="businesses">Businesses</option>
+                                        <option value="programs">Programs</option>
+                                        <!-- <option value="careers">Careers</option> -->
+                                        <option value="articles">Articles</option>
+                                        <!-- <option value="resources">Resources</option> -->
+                                    </select>
+                                    <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
+                                    <button type="button" class="btn text-white advanced-search rounded-0" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    @else
+        <div class="container-fluid main-banner" style="background-image: url('../img/frontend/no_image.jpg')">
+            <div class="container" style="margin-top: -12rem;">
+                <div class="row justify-content-center search-bar">
+                    <div class="col-7">
+                        <form action="{{ route('frontend.home_search') }}"  method="POST">
+                            {{csrf_field()}}
+                            <div class="search-box p-2">
+                                <div class="input-group">
+                                    <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" placeholder="Search by school name" aria-label="search">
+                                    <select class="border-0 text-center search-drop border-end" name='type'>
+                                        <option value="schools" selected="selected">Schools</option>
+                                        <option value="businesses">Businesses</option>
+                                        <option value="programs">Programs</option>
+                                        <!-- <option value="careers">Careers</option> -->
+                                        <option value="articles">Articles</option>
+                                        <!-- <option value="resources">Resources</option> -->
+                                    </select>
+                                    <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
+                                    <button type="button" class="btn text-white advanced-search rounded-0" data-bs-toggle="modal" data-bs-target="#advanced-search-modal">Advanced search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
+
+    
 
     @if(count($degree_levels) > 0)
         <div class="container-fluid index-categories">

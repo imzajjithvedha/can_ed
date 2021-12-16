@@ -32,7 +32,7 @@
         <div class="articles mt-5">
             @if(count($filteredArticles) == 0)
                 @include('frontend.includes.not_found_title',[
-                    'not_found_title' => 'Article not found',
+                    'not_found_title' => 'Articles not found',
                     'not_found_description' => 'Please check later.'
                 ])
             @else

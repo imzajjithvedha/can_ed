@@ -24,7 +24,7 @@
                         'not_found_title' => 'Favorite schools not found',
                         'not_found_description' => 'Add schools to your favorite list',
                         'not_found_button_caption' => 'Explore schools',
-                        'url' => 'schools'
+                        'url' => 'school-degree-levels'
                     ])
 
                 @else

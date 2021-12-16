@@ -86,7 +86,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn rounded text-white" style="background-color: red;">Close my account</button>
+                        <button type="submit" class="btn rounded text-white" style="background-color: red;" disabled>Close my account</button>
                     </div>
                 </div>
             </div>

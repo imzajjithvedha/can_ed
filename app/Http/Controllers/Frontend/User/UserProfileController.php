@@ -54,11 +54,19 @@ class UserProfileController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $history = PasswordHistory::where('user_id', $user_id)->delete();
+        // dd($user_id);
 
-        $user = User::where('id', $user_id)->delete();
+        // $history = PasswordHistory::where('user_id', $user_id)->delete();
 
-        // return view('frontend.index')->with('account_deleted', 'account_deleted');
+        $user = User::find(Auth::user()->id);
+
+        Auth::logout();
+
+        $user->roles()->detach();
+
+        $user->delete();
+
         return redirect()->route('frontend.auth.login');
+
     }
 }

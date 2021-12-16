@@ -81,98 +81,107 @@
                     </div>
 
                     <div class="tab-pane fade" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+
+                        @if(count($careers) == 0)
+                            @include('frontend.includes.not_found_title',[
+                                'not_found_title' => 'Careers not found',
+                                'not_found_description' => 'Please check later.'
+                            ])
+                        @else
                         
-                        @foreach($careers as $career)
+                            @foreach($careers as $career)
 
-                            <div class="mb-3 border-bottom p-3">
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Title</p>
+                                <div class="mb-3 border-bottom p-3">
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Title</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
                                             </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray fw-bold">{{ $career->title }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray fw-bold">{{ $career->title }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Definition</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Definition</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray" style="text-align: justify">{{ $career->definition }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray" style="text-align: justify">{{ $career->definition }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Hierarchical structure</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Hierarchical structure</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray">{{ $career->hierarchical }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $career->hierarchical }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Level</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Level</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <h6 class="gray">{{ $career->level }}</h6>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <h6 class="gray">{{ $career->level }}</h6>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Code</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Code</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray">{{ $career->code }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $career->code }}</p>
-                                    </div>
                                 </div>
+                            
+                            @endforeach
 
-                            </div>
-                        
-                        @endforeach
+                        @endif
 
                         {{ $careers->fragment('all-careers')->links() }}
                     </div>

@@ -1387,7 +1387,7 @@
 
 
                             <div class="col-12 mt-4 mb-5 gray" style="font-size: 0.9rem">
-                                <input type="checkbox" class="me-2 agree" id="exampleCheck1">By submitting this form, I agree to receiving emails about educational services from 4R Business Services, Study in Canada, and its partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none" target="_blank" style="color: #b1040e">Privacy policy</a>
+                                <label class="form-label">By submitting this form, I agree to receiving emails about educational services from 4R Business Services, Study in Canada, and its partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none" target="_blank" style="color: #b1040e">Privacy policy</a>
                             </div>
 
                             <div class="col-12 text-center mb-3">

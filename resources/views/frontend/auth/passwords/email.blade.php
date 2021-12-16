@@ -72,7 +72,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Reset code sent successfully to your email</h4>
+                        <h4 class="mb-0 text-center">We’ve sent a password reset link to your email</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

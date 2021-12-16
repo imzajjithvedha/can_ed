@@ -104,10 +104,10 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Your password updated successfully.</h4>
+                        <h4 class="mb-0 text-center">Your password was successfully updated</h4>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ route('frontend.auth.logout') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
+                    <div class="modal-footer justify-content-center">
+                        <a href="{{ route('frontend.user.account_dashboard') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 3rem 1rem;">
-                        <h4 class="mb-0 text-center" >Your old password is wrong.</h4>
+                        <h4 class="mb-0 text-center">Your old password is wrong.</h4>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

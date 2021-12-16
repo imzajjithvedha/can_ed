@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School Registration Request')
+@section('title', 'School registration request')
 
 @push('after-styles')
     <link href="{{ url('css/schools.css') }}" rel="stylesheet">
@@ -464,23 +464,43 @@
         </form>
     </div>
 
+    @auth
+        @if(is_school_registered(auth()->user()->id) || \Session::has('warning'))
+            <button type="button" class="btn btn-primary invisible" id="warning-btn" data-bs-toggle="modal" data-bs-target="#warningModal"></button>
 
-    @if(is_school_registered(auth()->user()->id) || \Session::has('warning'))
+            <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-body" style="padding: 5rem 1rem;">
+                            <h4 class="mb-0 text-center">You already requested or registered a school in our site. You can't register more than one school. If you want to add a new school please delete the old school from your dashboard or edit your school details. We are very sorry for the inconvenience.</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
+    @else
         <button type="button" class="btn btn-primary invisible" id="warning-btn" data-bs-toggle="modal" data-bs-target="#warningModal"></button>
 
         <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">You already requested or registered a school in our site. You can't register more than one school. If you want to add a new school please delete the old school from your dashboard or edit your school details. We are very sorry for the inconvenience.</h4>
+                    <div class="modal-body" style="padding: 4rem 1rem;">
+                        <h4 class="mb-0 text-center">Please login before register a school</h4>
                     </div>
                     <div class="modal-footer">
                         <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
+                        <a href="{{ route('frontend.auth.login') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Login</a>
                     </div>
                 </div>
             </div>
         </div>
-    @endif
+    @endauth
+
+
+   
 
 @endsection
 

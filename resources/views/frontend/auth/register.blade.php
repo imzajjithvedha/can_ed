@@ -14,34 +14,33 @@
             <div class="col-7 border py-2">
                 <div class="row align-items-center">
                     <div class="col-12">
-                        <h4 class="fw-bolder futura">Registration</h4>
+                        <h4 class="fw-bolder futura">Create a new account</h4>
                         <hr style="background: #bd2130; height: 1px!important; opacity: 1!important;">
 
-                        <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation">
                         {{ csrf_field() }}
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="first_name" aria-describedby="first_name" placeholder="Enter first name" name="first_name" required>
+                                <input type="text" class="form-control" id="first_name" aria-describedby="first_name" placeholder="First name" name="first_name" required>
                             </div>
                             <div class="mb-3">
-                                <input type="text" class="form-control" id="last_name" aria-describedby="last_name" placeholder="Enter last name" name="last_name" required>
+                                <input type="text" class="form-control" id="last_name" aria-describedby="last_name" placeholder="Last name" name="last_name" required>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address" name="email" required>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email" name="email" required>
                             </div>
                             <!-- <div class="mb-3">
                                 <input type="text" class="form-control" id="user_name" aria-describedby="user_name" placeholder="Enter a user name" name="user_name" required>
                             </div> -->
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password1" aria-describedby="password" placeholder="Enter your password" name="password" required>
+                                <input type="password" class="form-control" id="password1" aria-describedby="password" placeholder="Password" name="password" required>
                             </div>
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password2" aria-describedby="password" placeholder="Confirm your password" name="password_confirmation" required>
+                                <input type="password" class="form-control" id="password2" aria-describedby="password" placeholder="Confirm password" name="password_confirmation" required>
                             </div>
 
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <div class="mb-3 text-center">
                                 <label class="form-check-label gray" for="flexCheckDefault" style="font-size: 0.8rem;">
-                                    By clicking Register, you agree to our <a href="{{ route('frontend.disclaimer') }}" style="color: #800000;">Disclaimer</a>, <a href="#" style="color: #800000;">terms of use</a> and <a href="{{ route('frontend.privacy_policy') }}" style="color: #800000;">Privacy policy</a>
+                                    By clicking submit, you agree to our <a href="{{ route('frontend.disclaimer') }}" class="fw-bold" style="color: black;">Disclaimer</a>, <a href="{{ route('frontend.terms_of_use') }}" class="fw-bold" style="color: black;">Terms of use</a> and <a href="{{ route('frontend.privacy_policy') }}" class="fw-bold" style="color: black;">Privacy policy</a>
                                 </label>
                             </div>
 
@@ -68,8 +67,8 @@
 
                 <div class="border p-3">
                     <p class="gray fw-bold"><i class="fas fa-shield-alt" style="color: orange;"></i> Protect your account</p>
-                    <p>Whenever you sign in study in canada website ensure that the web address in the browser start with:</p>
-                    <a href="{{ route('frontend.index') }}" class="text-decoration-none" style="font-size: 0.9rem;">https://www.studyingincanada.org</a>
+                    <p>Whenever you sign in study in canada website ensure that the web address in the browser start with: <a href="{{ route('frontend.index') }}" class="text-decoration-none" style="font-size: 0.9rem;">https://www.studyingincanada.org</a></p>
+                    
                 </div>
             </div>
         </diw>

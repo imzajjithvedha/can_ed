@@ -7,7 +7,7 @@
                         <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid position-absolute"></a>
                     </div> -->
                     <ul class="me-auto nav justify-content-end">
-                        @auth
+                        <!-- @auth
                             <li class="nav-item border-end px-2 border-end">
                                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a school</a>
                             </li>
@@ -34,6 +34,34 @@
                             <li class="nav-item border-end px-2 border-end">
                                 <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Register a business</a>
                             </li>
+                            <li class="nav-item ps-2 pe-0">
+                                <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Log in</a>
+                            </li>
+                        @endauth -->
+
+                        
+                        <li class="nav-item border-end px-2 border-end">
+                            <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a school</a>
+                        </li>
+                        <li class="nav-item border-end px-2 border-end">
+                            <a class="nav-link text-white" href="{{ route('frontend.business_register') }}">Register a business</a>
+                        </li>
+
+                        @auth
+                            <li class="nav-item ">
+                                <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  @if(auth()->user()->display_name != null)
+                                    <span class="text-white user-name">{{auth()->user()->display_name}}</span>
+                                  @else
+                                    <span class="text-white user-name">{{auth()->user()->first_name}}</span>
+                                  @endif
+                                  </a>
+                                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('frontend.user.account_dashboard') }}">My account</a>
+                                    <a class="dropdown-item" href="{{route('frontend.auth.logout')}}">Log out</a>
+                                  </div>
+                            </li>
+                        @else
                             <li class="nav-item ps-2 pe-0">
                                 <a class="nav-link text-white" href="{{ route('frontend.auth.login') }}">Log in</a>
                             </li>

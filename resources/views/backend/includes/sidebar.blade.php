@@ -163,6 +163,12 @@
                             Suggestions
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/pages.terms_of_use'))}}" href="{{ route('admin.pages.terms_of_use') }}">
+                            Terms of use
+                        </a>
+                    </li>
                 </ul>
             </li>
 

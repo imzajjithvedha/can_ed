@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\AizUploadController;
 use App\Http\Controllers\Frontend\AdvancedSearchController;
 use App\Http\Controllers\Frontend\MasterApplicationController;
 use App\Http\Controllers\Frontend\CookiesController;
+use App\Http\Controllers\Frontend\TermsOfUseController;
 
 
 
@@ -74,6 +75,8 @@ Route::get('privacy-policy', [PrivacyPolicyController::class, 'index'])->name('p
 Route::get('disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
 
 Route::get('cookies', [CookiesController::class, 'index'])->name('cookies');
+
+Route::get('terms-of-use', [TermsOfUseController::class, 'index'])->name('terms_of_use');
 
 
 

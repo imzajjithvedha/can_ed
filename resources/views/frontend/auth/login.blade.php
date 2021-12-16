@@ -75,8 +75,8 @@
 
                 <div class="border p-3">
                     <p class="gray fw-bold"><i class="fas fa-shield-alt" style="color: orange;"></i> Protect your account</p>
-                    <p>Whenever you sign in study in canada website ensure that the web address in the browser start with:</p>
-                    <a href="{{ route('frontend.index') }}" class="text-decoration-none" style="font-size: 0.9rem;">https://www.studyingincanada.org</a>
+                    <p>Whenever you sign in study in canada website ensure that the web address in the browser start with: <a href="{{ route('frontend.index') }}" class="text-decoration-none" style="font-size: 0.9rem;">https://www.studyingincanada.org</a></p>
+                    
                 </div>
             </div>
         </diw>

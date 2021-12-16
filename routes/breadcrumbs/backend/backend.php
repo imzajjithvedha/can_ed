@@ -145,6 +145,11 @@ Breadcrumbs::for('admin.pages.cookies', function ($trail) {
     $trail->push('Pages / Cookies', route('admin.pages.cookies'));
 });
 
+Breadcrumbs::for('admin.pages.terms_of_use', function ($trail) {
+    $trail->push('Pages / Terms of use', route('admin.pages.terms_of_use'));
+});
+
+
 
 
 

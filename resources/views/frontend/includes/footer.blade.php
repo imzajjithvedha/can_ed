@@ -14,6 +14,7 @@
                 <a href="{{ route('frontend.meet_our_team') }}">Meet our team</a><br>
                 <a href="{{ route('frontend.our_sponsors') }}">Our sponsors</a><br>
                 <a href="{{ route('frontend.privacy_policy') }}">Privacy policy</a><br>
+                <a href="{{ route('frontend.terms_of_use') }}">Terms of use</a><br>
             </div>
 
             <div class="col top-footer">

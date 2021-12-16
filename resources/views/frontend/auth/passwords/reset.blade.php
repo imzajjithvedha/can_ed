@@ -14,7 +14,7 @@
         <div class="row justify-content-center">
             <div class="col-5 border p-0">
                 <div style="background-color: #333">
-                    <h5 class="text-center text-white p-3">Reset Password</h5>
+                    <h5 class="text-center text-white p-3">Reset password</h5>
                 </div>
                 
                 <form action="{{route('frontend.auth.password.update')}}" method="post" id="reset-password-form">
@@ -45,7 +45,7 @@
 
                             <div class="col-12 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $user->id }}">
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 update" style="background-color: #94ca60;">Update password</button>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 update" style="background-image: linear-gradient(to bottom, #CF0411, #660000); border: none;">Update password</button>
                             </div>
                         </div>
                     </div>

@@ -36,7 +36,7 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Standard Ad, Expires in 30 days- Free</p>
+                                <p class="gray fw-bold">Standard ad, expires in 30 days - Free</p>
                                 <p class="gray fw-bold">One business category</p>
                             </div>
                             
@@ -55,7 +55,7 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Up to 4x views</p>
+                                <p class="gray fw-bold">Up to 4x more views</p>
                                 <p class="gray fw-bold">Three business categories</p>
                                 <p class="gray fw-bold">Link to your website</p>
                                 <p class="gray fw-bold">Top ad and bump up every week</p>
@@ -76,7 +76,7 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Up to 20x views</p>
+                                <p class="gray fw-bold">Up to 20x more views</p>
                                 <p class="gray fw-bold">Three business categories</p>
                                 <p class="gray fw-bold">Link to your website</p>
                                 <p class="gray fw-bold">Top ad and bump up every week</p>
@@ -113,16 +113,16 @@
                     </div>
 
                     <div class="mb-3">
-                        <textarea name="description" class="form-control" rows="7" placeholder="Business description *" required></textarea>
+                        <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact name *" required>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business email *" required>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Email *" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business phone *" required>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Phone *" required>
                     </div>
                     <div class="mb-3">
                         <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
@@ -156,7 +156,7 @@
                     </div>
 
                     <div class="mb-5 border p-3">
-                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none">Disclaimer</a> and <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none">Privacy Policy</a></p>
+                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none">Disclaimer</a> and <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none">Privacy policy</a></p>
                     </div>
 
                     <div class="row mb-4 justify-content-center">
@@ -193,6 +193,28 @@
             </div>
         </div>
     @endif
+
+
+
+    @auth
+        
+    @else
+        <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#warningModal"></button>
+
+        <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="padding: 4rem 1rem;">
+                        <h4 class="mb-0 text-center">Please login before register a business</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
+                        <a href="{{ route('frontend.auth.login') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @endauth
 
 @endsection
 

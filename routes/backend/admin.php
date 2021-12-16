@@ -137,6 +137,8 @@ Route::get('pages/suggestions', [PagesController::class, 'suggestions'])->name('
 Route::post('pages/suggestions/update', [PagesController::class, 'suggestionsUpdate'])->name('pages.suggestions_update');
 Route::get('pages/cookies', [PagesController::class, 'cookies'])->name('pages.cookies');
 Route::post('pages/cookies/update', [PagesController::class, 'cookiesUpdate'])->name('pages.cookies_update');
+Route::get('pages/terms-of-use', [PagesController::class, 'termsOfUse'])->name('pages.terms_of_use');
+Route::post('pages/terms-of-use/update', [PagesController::class, 'termsOfUseUpdate'])->name('pages.terms_of_use_update');
 
 
 

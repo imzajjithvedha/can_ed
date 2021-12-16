@@ -14,7 +14,7 @@ use App\Models\WorldWideNetwork;
 use App\Models\FavoriteBusinesses;
 use App\Models\Auth\User;
 use App\Models\FavoriteSchools;
-use App\Models\favoriteEvents;
+use App\Models\FavoriteEvents;
 use App\Models\Schools;
 use App\Models\Programs;
 use App\Mail\Frontend\EventUpdate;

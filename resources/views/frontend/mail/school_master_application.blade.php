@@ -34,6 +34,6 @@
 <p><strong>Already have an F-1 visa from a Canadian embassy?:</strong> {{ $details['visa'] }}</p>
 
 
-<p style="margin-bottom: 2px;">Thanks & Regards,</p>
+<p style="margin-bottom: 2px;">Thank you</p>
 <h4 style="margin-top: 0px;">Study in Canada</h4>
 

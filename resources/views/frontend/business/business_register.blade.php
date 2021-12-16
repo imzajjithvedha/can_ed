@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <select class="form-control" id="category_1" name="category_1" placeholder="Business category" required>
+                        <select class="form-control form-select" id="category_1" name="category_1" placeholder="Business category" required>
                             <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="mb-3 category_2 d-none">
-                        <select class="form-control" id="category_2" name="category_2" placeholder="Business category">
+                        <select class="form-control form-select" id="category_2" name="category_2" placeholder="Business category">
                             <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -104,7 +104,7 @@
                     </div>
 
                     <div class="mb-3 category_3 d-none">
-                        <select class="form-control" id="category_3" name="category_3" placeholder="Business category">
+                        <select class="form-control form-select" id="category_3" name="category_3" placeholder="Business category">
                             <option value="" selected disabled hidden>Business category *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>

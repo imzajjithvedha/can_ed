@@ -199,7 +199,7 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $favorite = favoriteArticles::where('user_id', $user_id)->get();
+        $favorite = FavoriteArticles::where('user_id', $user_id)->get();
 
         $articles = Articles::orderBy('updated_at', 'DESC')->get();
 
@@ -219,7 +219,7 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $favorite = favoriteSchools::where('user_id', $user_id)->get();
+        $favorite = FavoriteSchools::where('user_id', $user_id)->get();
 
         $schools = Schools::orderBy('updated_at', 'DESC')->get();
 
@@ -228,7 +228,7 @@ class DashboardController extends Controller
 
     public function favoriteSchoolDelete($id)
     {
-        $favorite = favoriteSchools::where('school_id', $id)->delete();
+        $favorite = FavoriteSchools::where('school_id', $id)->delete();
 
         return back();
     }
@@ -239,7 +239,7 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $favorite = favoriteEvents::where('user_id', $user_id)->get();
+        $favorite = FavoriteEvents::where('user_id', $user_id)->get();
 
         $events = Events::orderBy('updated_at', 'DESC')->get();
 
@@ -248,7 +248,7 @@ class DashboardController extends Controller
 
     public function favoriteEventDelete($id)
     {
-        $favorite = favoriteEvents::where('event_id', $id)->delete();
+        $favorite = FavoriteEvents::where('event_id', $id)->delete();
 
         return back();
     }

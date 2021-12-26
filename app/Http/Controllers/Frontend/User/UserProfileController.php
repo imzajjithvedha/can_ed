@@ -17,18 +17,17 @@ class UserProfileController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function settingsDashboard()
+    public function userPassword()
     {
-        return view('frontend.user.user_settings');
+        return view('frontend.user.user_password');
     }
 
     
 
-    public function settingsUpdate(Request $request)
+    public function userUpdatePassword(Request $request)
     {
         $request->validate([
-            'old_password' => 'required|min:6|max:100',
-            'new_password' => 'required|min:6|max:100',
+            'new_password' => 'required|string|min:8|max:100|regex:/[a-z]/|regex:/[A-Z]/|regex:/[0-9]/|regex:/[@$!%*#?&]/',
             'confirm_password' => 'required|same:new_password'
         ]);
 
@@ -50,7 +49,15 @@ class UserProfileController extends Controller
     }
 
 
-    public function accountDelete(Request $request)
+
+
+    public function userAccount()
+    {
+        return view('frontend.user.user_account');
+    }
+
+
+    public function userAccountClose(Request $request)
     {
         $user_id = auth()->user()->id;
 

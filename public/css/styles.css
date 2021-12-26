@@ -38,10 +38,13 @@ p {
     /* border-bottom:1px solid white; */
 }
 .top-nav img {
-    width: 4.6rem;
+    /* width: 4.6rem;
     left: 9rem;
     z-index: 1;
-    top:0.8rem;
+    top:0.8rem; */
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 3rem;
 }
 .top-nav a {
     font-size: 0.9rem;

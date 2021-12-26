@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
 
-                                <div class="row">
+                                <div class="row mb-4">
                                     <div class="col-6">
                                         <label for="display_name" class="form-label">Display name *</label>
                                         <input type="text" class="form-control" id="display_name" name="display_name" placeholder="Display name *" aria-describedby="display_name" value="{{ $user->display_name }}">
@@ -52,6 +52,34 @@
                                     <div class="col-6">
                                         <label for="email" class="form-label">Email *</label>
                                         <input type="email" value="{{ $user->email }}" class="form-control" id="email" aria-describedby="email" placeholder="Email *" name="email" required>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="row align-items-center">
+                                            <div class="col-6">
+                                                <label for="image" class="form-label">Profile image</label>
+                                            </div>
+                                            @if($user->image != null)
+                                                <div class="col-6 text-end mb-3">
+                                                    <button class="btn bg-danger delete-image" type="button"><i class="far fa-trash-alt text-white"></i></button>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        
+                                        @if($user->image != null)
+                                            <img src="{{ url('images/users', $user->image) }}" alt="" class="img-fluid w-100 old-image" style="height: 20rem; object-fit: cover;">
+                                            <input type="hidden" class="form-control old-image-input" name="old_image" value="{{ $user->image }}">
+
+                                            <div class="form-group mt-3">
+                                                <input type="file" class="form-control" id="image" name="new_image">
+                                            </div>
+                                        @else
+                                            <div class="form-group">
+                                                <input type="file" class="form-control" id="image" name="new_image">
+                                            </div>
+                                        @endif
                                     </div>
                                 </div>
                                     
@@ -489,4 +517,11 @@
             $('.datetimepicker-dummy-input').text("fsdfsdf");
         });
     </script> -->
+
+    <script>
+        $('.delete-image').on('click', function() {
+            $('.old-image').addClass('d-none');
+            $('.old-image-input').attr('disabled', true);
+        });
+    </script>
 @endpush

@@ -28,7 +28,7 @@
 
 
     @if(is_business_registered(auth()->user()->id))
-        <h5 class="px-3 mt-4 pb-2 mb-0">Businesses</h5>
+        <h4 class="px-3 mt-4 pb-2 mb-0 futura">Businesses</h4>
 
         <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'business-dashboard' ? 'active' : null }} futura" id="nav-business-tab" href="{{ route('frontend.user.business_dashboard') }}" type="button" role="tab" aria-controls="nav-business" aria-selected="true">Business dashboard</a>
 
@@ -38,7 +38,7 @@
 
 
     @if(is_school_registered(auth()->user()->id))
-        <h5 class="px-3 mt-4 pb-2 mb-0">School dashboard</h5>
+        <h4 class="px-3 mt-4 pb-2 mb-0 futura">School dashboard</h4>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-admission' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.school_admission') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Admission</a>
 
@@ -70,9 +70,11 @@
 
     
 
-        <h5 class="px-3 mt-4 pb-2 mb-0">Settings</h5>
+        <h4 class="px-3 mt-4 pb-2 mb-0 futura">Account settings</h4>
 
-        <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'user-settings' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_settings') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Account settings</a>
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'user-settings' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_password') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Update password</a>
+
+        <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'user-settings' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_account') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Close my account</a>
     </div>
 </div>
 

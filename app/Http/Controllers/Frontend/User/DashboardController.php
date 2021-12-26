@@ -83,6 +83,17 @@ class DashboardController extends Controller
         $home_phone = request('home_phone');
         $mobile_phone = request('mobile_phone');
 
+        $image = $request->file('new_image');
+
+        if($image != null) {
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            
+            $image->move(public_path('images/users'),$imageName);
+        } 
+        else {
+            $imageName = $request->old_image;
+        }
+
         $users = DB::table('users') ->where('id', request('hidden_id'))->update(
             [
                 'first_name' => $first_name,
@@ -99,8 +110,8 @@ class DashboardController extends Controller
                 'postal_code' => $postal_code,
                 'home_phone' => $home_phone,
                 'mobile_phone' => $mobile_phone,
+                'image' => $imageName,
                 
-
             ]
         );
 

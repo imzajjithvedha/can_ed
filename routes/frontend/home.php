@@ -361,10 +361,13 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
         //Settings Route
-        Route::get('user-settings', [UserProfileController::class, 'settingsDashboard'])->name('user_settings');
-        Route::post('user-settings/update', [UserProfileController::class, 'settingsUpdate'])->name('settings_update');
+        Route::get('user-password', [UserProfileController::class, 'userPassword'])->name('user_password');
+        Route::post('user-password/update', [UserProfileController::class, 'userUpdatePassword'])->name('user_password_update');
 
-        Route::post('user-account/delete', [UserProfileController::class, 'accountDelete'])->name('account_delete');
+        Route::get('user-account', [UserProfileController::class, 'userAccount'])->name('user_account');
+        Route::post('user-account/close', [UserProfileController::class, 'userAccountClose'])->name('user_account_close');
+
+        // Route::post('user-account/delete', [UserProfileController::class, 'accountDelete'])->name('account_delete');
 
     });
 });

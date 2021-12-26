@@ -6,7 +6,7 @@
                     <!-- <div class="logo position-relative">
                         <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid position-absolute"></a>
                     </div> -->
-                    <ul class="me-auto nav justify-content-end">
+                    <ul class="me-auto nav justify-content-end align-items-center">
                         <!-- @auth
                             <li class="nav-item border-end px-2 border-end">
                                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a school</a>
@@ -50,12 +50,28 @@
                         @auth
                             <li class="nav-item ">
                                 <a class="nav-link dropdown-toggle" href="{{route('frontend.auth.login')}}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
                                   @if(auth()->user()->display_name != null)
-                                    <span class="text-white user-name">{{auth()->user()->display_name}}</span>
+                                    <span class="text-white user-name">
+                                      @if(auth()->user()->image != null)
+                                        <img src="{{ url('images/users', auth()->user()->image) }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+                                      @else
+                                        <img src="{{ url('img/frontend/no_person.jpg') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+                                      @endif
+                                    </span>
+
                                   @else
-                                    <span class="text-white user-name">{{auth()->user()->first_name}}</span>
+                                    <span class="text-white user-name">
+                                      @if(auth()->user()->image != null)
+                                        <img src="{{ url('images/users', auth()->user()->image) }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+                                      @else
+                                        <img src="{{ url('img/frontend/no_person.jpg') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+                                      @endif
+                                    </span>
                                   @endif
-                                  </a>
+
+                                </a>
+
                                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="{{ route('frontend.user.account_dashboard') }}">My account</a>
                                     <a class="dropdown-item" href="{{route('frontend.auth.logout')}}">Log out</a>

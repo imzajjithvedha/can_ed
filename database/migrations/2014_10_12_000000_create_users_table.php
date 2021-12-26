@@ -45,6 +45,7 @@ class CreateUsersTable extends Migration
             $table->text('postal_code')->nullable();
             $table->text('home_phone')->nullable();
             $table->text('mobile_phone')->nullable();
+            $table->text('image')->nullable();
         });
     }
 

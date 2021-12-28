@@ -199,7 +199,15 @@
                         </div>
 
                         <div class="mb-3">
+                            <input type="text" class="form-control" name="provider" placeholder="Scholarship provider">
+                        </div>
+
+                        <div class="mb-3">
                             <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
                         </div>
 
                         <div class="mb-3">
@@ -221,14 +229,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="text" class="form-control" name="action" placeholder="Action *" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="eligibility" class="form-label">Deadline *</label>
-                            <input type="date" class="form-control" name="deadline" placeholder="Deadline *" required>
-                        </div>
-
-                        <div class="mb-3">
                             <select name="availability" id="availability" class="form-control" required>
                                 <option value="" selected disabled hidden>Availability *</option>
                                 <option value="All students">All students</option>
@@ -247,17 +247,32 @@
                             </select>
                         </div>
 
-                        <!-- <div class="mb-3">
-                            <input type="text" class="form-control" name="school_name" placeholder="School Name *">
-                        </div> -->
-
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured image *</label>
-                            <input type="file" class="form-control" name="featured_image" required>
+                            <input type="text" class="form-control" name="action" placeholder="Action *" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" name="link" placeholder="Link *" required>
+                            <label for="date_posted" class="form-label">Date posted</label>
+                            <input type="date" class="form-control" name="date_posted" placeholder="Date posted">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="expiry_date" class="form-label">Expiry date</label>
+                            <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="deadline" class="form-label">Deadline</label>
+                            <input type="date" class="form-control" name="deadline" placeholder="Deadline">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="featured_image" class="form-label">Featured image</label>
+                            <input type="file" class="form-control" name="featured_image">
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="url" class="form-control" name="link" placeholder="Link">
                         </div>
 
                         <div class="mb-3">

@@ -346,6 +346,24 @@ Breadcrumbs::for('admin.types.import_school_types', function ($trail) {
 
 
 
+Breadcrumbs::for('admin.scholarships.index', function ($trail) {
+    $trail->push('Scholarships', route('admin.scholarships.index'));
+});
+
+Breadcrumbs::for('admin.scholarships.create_scholarship', function ($trail) {
+    $trail->push('Scholarships / Create', route('admin.scholarships.create_scholarship'));
+});
+
+Breadcrumbs::for('admin.scholarships.edit_scholarship', function ($trail) {
+    $trail->push('Scholarships / Edit', route('admin.scholarships.edit_scholarship', 1));
+});
+
+Breadcrumbs::for('admin.scholarships.import_scholarships', function ($trail) {
+    $trail->push('Scholarships / Import', route('admin.scholarships.import_scholarships'));
+});
+
+
+
 
 Breadcrumbs::for('admin.degree_levels.index', function ($trail) {
     $trail->push('Degree levels', route('admin.degree_levels.index'));

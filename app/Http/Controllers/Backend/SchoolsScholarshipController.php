@@ -49,15 +49,19 @@ class SchoolsScholarshipController extends Controller
         $scholarship = new SchoolScholarships;
 
         $scholarship->user_id = $user_id;
-        $scholarship->school_id = $request->hidden_id;
         $scholarship->name = $request->name;
+        $scholarship->provider = $request->provider;
         $scholarship->summary = $request->summary;
+        $scholarship->amount = $request->amount;
+        $scholarship->school_id = $request->hidden_id;
         $scholarship->eligibility = json_encode($request->eligibility);
         $scholarship->award = $request->award;
-        $scholarship->action = $request->action;
-        $scholarship->deadline = $request->deadline;
         $scholarship->availability = $request->availability;
         $scholarship->level_of_study = $request->level_of_study;
+        $scholarship->action = $request->action;
+        $scholarship->date_posted = $request->date_posted;
+        $scholarship->expiry_date = $request->expiry_date;
+        $scholarship->deadline = $request->deadline;
         $scholarship->image = $featured_image;
         $scholarship->link = $request->link;
         $scholarship->featured = $request->featured;
@@ -120,18 +124,20 @@ class SchoolsScholarshipController extends Controller
         $program = DB::table('school_scholarships') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                // 'provider' => $request->provider,
+                'provider' => $request->provider,
                 'summary' => $request->summary,
-                // 'amount' => $request->amount,
+                'amount' => $request->amount,
                 'eligibility' => json_encode($request->eligibility),
                 'award' => $request->award,
-                'action' => $request->action,
-                'deadline' => $request->deadline,
                 'availability' => $request->availability,
                 'level_of_study' => $request->level_of_study,
+                'action' => $request->action,
+                'date_posted' => $request->date_posted,
+                'expiry_date' => $request->expiry_date,
+                'deadline' => $request->deadline,
                 'image' => $featured_image,
                 'link' => $request->link,
-                'featured' => $request->featured
+                'featured' => $request->featured,
             ]
         );
         

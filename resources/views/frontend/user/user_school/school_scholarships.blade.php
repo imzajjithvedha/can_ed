@@ -212,15 +212,16 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Add Scholarship</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Add scholarship</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <div class="text-end">
-                            <p class="mb-2 required fw-bold">* Indicates required fields</p>
-                        </div> -->
                         <div class="mb-3">
                             <input type="text" class="form-control" name="name" placeholder="Scholarship name *" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="provider" placeholder="Scholarship provider">
                         </div>
 
                         <div class="mb-3">
@@ -228,12 +229,16 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="eligibility" class="form-label">Basic Eligibility</label>
+                            <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="eligibility" class="form-label">Basic eligibility *</label>
                             <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
                         </div>
 
                         <div class="mb-3">
@@ -243,14 +248,6 @@
                                 <option value="Current students">Current students</option>
                                 <option value="Admission and current students">Admission and current students</option>
                             </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="action" placeholder="Action *" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="eligibility" class="form-label">Deadline *</label>
-                            <input type="date" class="form-control" name="deadline" placeholder="Deadline *" required>
                         </div>
 
                         <div class="mb-3">
@@ -273,12 +270,31 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured image *</label>
-                            <input type="file" class="form-control" name="featured_image" required>
+                            <input type="text" class="form-control" name="action" placeholder="Action *" required>
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" name="link" placeholder="Link *" required>
+                            <label for="date_posted" class="form-label">Date posted</label>
+                            <input type="date" class="form-control" name="date_posted" placeholder="Date posted">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="expiry_date" class="form-label">Expiry date</label>
+                            <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="deadline" class="form-label">Deadline</label>
+                            <input type="date" class="form-control" name="deadline" placeholder="Deadline">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="featured_image" class="form-label">Featured image</label>
+                            <input type="file" class="form-control" name="featured_image">
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="url" class="form-control" name="link" placeholder="Link">
                         </div>
 
                         <div class="mb-3">

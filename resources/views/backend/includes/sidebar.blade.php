@@ -216,6 +216,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/scholarships.index'))}}" href="{{ route('admin.scholarships.index') }}">
+                            Schools scholarships
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/types.index'))}}" href="{{ route('admin.types.index') }}">
                             School types
                         </a>

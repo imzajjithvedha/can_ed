@@ -33,8 +33,18 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label for="provider" class="form-label">Scholarship provider</label>
+                                        <input type="text" class="form-control" name="provider" placeholder="Scholarship provider" value="{{ $scholarship->provider }}" >
+                                    </div>
+
+                                    <div class="mb-3">
                                         <label for="summary" class="form-label">Summary *</label>
                                         <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" value="{{ $scholarship->summary }}" required>{{ $scholarship->summary }}</textarea>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="amount" class="form-label">Scholarship amount</label>
+                                        <input type="number" class="form-control" name="amount" placeholder="Scholarship amount" value="{{ $scholarship->amount }}">
                                     </div>
 
                                     <div class="mb-3">
@@ -52,15 +62,6 @@
                                             <option value="Current students" {{ $scholarship->award == 'Current students' ? "selected" : "" }}>Current students</option>
                                             <option value="Admission and current students" {{ $scholarship->award == 'Admission and current students' ? "selected" : "" }}>Admission and current students</option>
                                         </select>
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="action" class="form-label">Action *</label>
-                                        <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="deadline" class="form-label">Deadline *</label>
-                                        <input type="date" class="form-control" name="deadline" placeholder="Deadline *" value="{{ $scholarship->deadline }}" required>
                                     </div>
 
                                     <div class="mb-3">
@@ -85,6 +86,31 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label for="action" class="form-label">Action *</label>
+                                        <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="date_posted" class="form-label">Date posted</label>
+                                        <input type="date" class="form-control" name="date_posted" placeholder="Date posted" value="{{ $scholarship->date_posted }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="expiry_date" class="form-label">Expiry date</label>
+                                        <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date" value="{{ $scholarship->expiry_date }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="deadline" class="form-label">Deadline</label>
+                                        <input type="date" class="form-control" name="deadline" placeholder="Deadline" value="{{ $scholarship->deadline }}">
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="link" class="form-label">Link *</label>
+                                        <input type="url" class="form-control" id="link" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
+                                    </div>
+
+                                    <div class="mb-3">
                                         @if($scholarship->image != null)
                                             <div class="row justify-content-center mb-3">
                                                 <div class="col-12">
@@ -97,15 +123,10 @@
                                             <input type="file" class="form-control" name="featured_image">
 
                                         @else
-                                            <label for="featured_image" class="form-label">Featured Image *</label>
+                                            <label for="featured_image" class="form-label">Featured image *</label>
                                             <input type="file" class="form-control" name="featured_image" required>
                                         @endif
 
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="link" class="form-label">Link *</label>
-                                        <input type="url" class="form-control" id="link" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
                                     </div>
 
                                     <div>
@@ -119,7 +140,7 @@
 
                                     <div class="mt-5 text-center">
                                         <input type="hidden" class="form-control" value="{{ $scholarship->id }}" name="hidden_id">
-                                        <input type="hidden" class="form-control" value="{{ $school->id }}" name="school_id">
+                                        <input type="hidden" class="form-control" value="{{ $scholarship->school_id }}" name="school_id">
                                         <input type="submit" value="Update scholarship" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                     </div>
                                 </form>

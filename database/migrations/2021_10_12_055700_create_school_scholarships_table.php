@@ -16,17 +16,21 @@ class CreateSchoolScholarshipsTable extends Migration
         Schema::create('school_scholarships', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
-            $table->text('school_id')->nullable();
             $table->text('name');
+            $table->text('provider')->nullable();
             $table->text('summary');
+            $table->text('amount')->nullable();
+            $table->text('school_id')->nullable();
             $table->text('eligibility');
             $table->text('award');
-            $table->text('action');
-            $table->date('deadline');
             $table->text('availability');
             $table->text('level_of_study');
+            $table->text('action');
+            $table->date('date_posted')->nullable();
+            $table->date('expiry_date')->nullable();
+            $table->date('deadline')->nullable();
             $table->text('image')->nullable();
-            $table->text('link');
+            $table->text('link')->nullable();
             $table->text('featured')->nullable();
             $table->timestamps();
         });

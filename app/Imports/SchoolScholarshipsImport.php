@@ -27,6 +27,10 @@ class SchoolScholarshipsImport implements ToModel, WithHeadingRow
             'availability' => $row['availability'],
             'level_of_study' => $row['level_of_study'],
             'link' => $row['link'],
+            'provider' => $row['provider'],
+            'amount' => $row['amount'],
+            'date_posted' => $row['date_posted'],
+            'expiry_date' => $row['expiry_date'],
         ]);
     }
 }

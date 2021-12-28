@@ -32,6 +32,7 @@ use App\Http\Controllers\Backend\SchoolsOverviewFAQController;
 use App\Http\Controllers\Backend\SchoolsFinancialController;
 use App\Http\Controllers\Backend\SchoolsFinancialFAQController;
 use App\Http\Controllers\Backend\MasterApplicationsController;
+use App\Http\Controllers\Backend\AllScholarshipsController;
 
 
 
@@ -321,6 +322,20 @@ Route::post('school-types/update-school-type', [SchoolTypesController::class, 'u
 Route::get('school-types/delete-school-type/{id}', [SchoolTypesController::class, 'deleteSchoolType'])->name('types.delete_school_type');
 Route::get('school-types/import-school-types', [SchoolTypesController::class, 'importSchoolTypes'])->name('types.import_school_types');
 Route::post('school-types/import', [SchoolTypesController::class, 'import'])->name('types.import');
+
+
+
+
+//all scholarships
+Route::get('all-scholarships', [AllScholarshipsController::class, 'index'])->name('scholarships.index');
+Route::get('all-scholarships/create-scholarship', [AllScholarshipsController::class, 'createScholarship'])->name('scholarships.create_scholarship');
+Route::post('all-scholarships/store-scholarship', [AllScholarshipsController::class, 'storeScholarship'])->name('scholarships.store_scholarship');
+Route::get('all-scholarships/get-scholarships', [AllScholarshipsController::class, 'getScholarships'])->name('scholarships.get_scholarships');
+Route::get('all-scholarships/edit-scholarship/{id}', [AllScholarshipsController::class, 'editScholarship'])->name('scholarships.edit_scholarship');
+Route::post('all-scholarships/update-scholarship', [AllScholarshipsController::class, 'updateScholarship'])->name('scholarships.update_scholarship');
+Route::get('all-scholarships/delete-scholarship/{id}', [AllScholarshipsController::class, 'deleteScholarship'])->name('scholarships.delete_scholarship');
+Route::get('all-scholarships/import-scholarships', [AllScholarshipsController::class, 'importScholarships'])->name('scholarships.import_scholarships');
+Route::post('all-scholarships/import', [AllScholarshipsController::class, 'import'])->name('scholarships.import');
 
 
 

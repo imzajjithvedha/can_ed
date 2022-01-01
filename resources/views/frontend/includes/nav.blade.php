@@ -20,21 +20,48 @@
 
                                   @if(auth()->user()->display_name != null)
                                     <span class="text-white user-name">
+
                                       @if(auth()->user()->image != null)
                                         <img src="{{ url('images/users', auth()->user()->image) }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
-                                      @else
-                                        <img src="{{ url('img/frontend/no_person.jpg') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
-                                      @endif
-                                    </span>
 
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'male')
+                                        <img src="{{ url('img/frontend/male_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'female')
+                                        <img src="{{ url('img/frontend/female_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'prefer_not_to_say')
+                                        <img src="{{ url('img/frontend/neutral_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == null)
+                                        <img src="{{ url('img/frontend/neutral_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->display_name}}
+
+                                      @endif
+
+                                    </span>
+                                    
                                   @else
                                     <span class="text-white user-name">
+
                                       @if(auth()->user()->image != null)
                                         <img src="{{ url('images/users', auth()->user()->image) }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
-                                      @else
-                                        <img src="{{ url('img/frontend/no_person.jpg') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'male')
+                                        <img src="{{ url('img/frontend/male_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'female')
+                                        <img src="{{ url('img/frontend/female_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == 'prefer_not_to_say')
+                                        <img src="{{ url('img/frontend/neutral_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+
+                                      @elseif (auth()->user()->image == null AND auth()->user()->gender == null)
+                                        <img src="{{ url('img/frontend/neutral_image.png') }}" alt="" class="img-fluid me-2"> {{auth()->user()->first_name}}
+
                                       @endif
+
                                     </span>
+                                    
                                   @endif
 
                                 </a>

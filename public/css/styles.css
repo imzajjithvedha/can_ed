@@ -47,7 +47,7 @@ p {
 .top-nav .user img {
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
 }
 .top-nav a {
     font-size: 0.9rem;

@@ -38,12 +38,12 @@
             @else
                 @foreach($categories as $category)
                     <div class="col-3 mb-5">
-                        <div class="card blue rounded-0">
+                        <div class="card blue rounded-0 text-center">
                             <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
                                 @if($category->image != null)
                                     <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top w-100" alt="..." style="height: 16rem; object-fit: cover;">
                                 @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 16rem; object-fit: cover;">
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid p-3" style="height: 13rem;">
                                 @endif
                                 
                                 <div class="card-body text-center card-padding rounded-0">

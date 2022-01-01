@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row text-center">
             <div class="col top-footer">
-                <h5 class="p-2 fw-bolder futura">Study in Canada</h5>
-                <hr>
+                <h5 class="p-2 fw-bolder futura mb-4">Study in Canada</h5>
+                <!-- <hr> -->
                 <a href="{{ route('frontend.about_us') }}">About us</a><br>
                 <a href="{{ route('frontend.suggestions') }}">Comments / suggestions</a><br>
                 <a href="{{ route('frontend.cookies') }}">Cookies policy</a><br>
@@ -17,8 +17,8 @@
             </div>
 
             <div class="col top-footer">
-                <h5 class="p-2 fw-bolder futura">Resources</h5>
-                <hr>
+                <h5 class="p-2 fw-bolder futura mb-4">Resources</h5>
+                <!-- <hr> -->
                 <a href="{{ route('frontend.articles') }}">Articles</a><br>
                 <a href="{{ route('frontend.events') }}">Events</a><br>
                 <a href="{{ route('frontend.master_application_normal') }}">Master application</a><br>
@@ -29,8 +29,8 @@
             </div>
 
             <div class="col top-footer">
-                <h5 class="p-2 fw-bolder futura">More links</h5>
-                <hr>
+                <h5 class="p-2 fw-bolder futura mb-4">More links</h5>
+                <!-- <hr> -->
                 <a href="{{ route('frontend.site_map') }}">Site map</a><br>
                 <a href="#">link-2</a><br>
                 <a href="#">link-3</a><br>

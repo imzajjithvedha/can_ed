@@ -88,6 +88,7 @@ p {
 .footer h5 {
     background-color: #ccc;
     color: #333;
+    border: 1px solid black;
 }
 .footer hr {
     height: 0.8px;

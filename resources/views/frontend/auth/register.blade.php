@@ -10,7 +10,7 @@
 
 @include('includes.partials.messages')
     <div class="container student-register" style="margin-bottom: 7rem;">
-        <diw class="row justify-content-between">
+        <div class="row justify-content-between">
             <div class="col-7 border py-2">
                 <div class="row align-items-center">
                     <div class="col-12">
@@ -71,7 +71,7 @@
                     
                 </div>
             </div>
-        </diw>
+        </div>
     </div>
 @endsection
 
@@ -86,6 +86,28 @@
         function checked() {
             $('#submit_btn').removeAttr('disabled');
         };
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // if($('input').hasAttribute('required')) {
+            //     // $(this).attr('oninvalid', "this.setCustomValidity('This field is required')");
+            //     $(this).removeAttr('placeholder');
+
+            //     // oninvalid="this.setCustomValidity('This field is required')" oninput="this.setCustomValidity('')"
+            // }
+
+            $("form").each(function(){
+
+                if( $(this).find(':input').attr('required') ) {
+                    // $(this).attr('oninvalid', "this.setCustomValidity('This field is required')");
+
+                    $(this).find(':input').removeAttr('placeholder');
+
+                    // oninvalid="this.setCustomValidity('This field is required')" oninput="this.setCustomValidity('')"
+                }
+            });
+        });
     </script>
 
 @endpush

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Register a Business')
+@section('title', 'Register a business')
 
 @push('after-styles')
     <link href="{{ url('css/business.css') }}" rel="stylesheet">
@@ -27,7 +27,7 @@
                     <div class="row align-items-center mb-4">
                         <div class="col-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="package" value="basic" required>
+                                <input class="form-check-input basic" type="radio" name="package" value="basic" required>
                                 <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                     Basic
                                 </label>
@@ -46,7 +46,7 @@
                     <div class="row align-items-center mb-4">
                         <div class="col-4">
                             <div class="form-check">
-                                <input class="form-check-input extra" type="radio" name="package" value="premium">
+                                <input class="form-check-input premium extra" type="radio" name="package" value="premium">
                                 <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                     Premium
                                 </label>
@@ -67,7 +67,7 @@
                     <div class="row align-items-center mb-5">
                         <div class="col-4">
                             <div class="form-check">
-                                <input class="form-check-input extra" type="radio" name="package" value="featured">
+                                <input class="form-check-input featured extra" type="radio" name="package" value="featured">
                                 <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                     Featured
                                 </label>
@@ -127,9 +127,20 @@
                     <div class="mb-3">
                         <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                     </div>
-                    <div class="mb-3">
-                        <label for="image" class="form-label">Business image *</label>
-                        <input class="form-control" type="file" id="image" name="image" required>
+
+                    <div class="mb-3 basic-image">
+                        <label for="image" class="form-label">Basic business image *</label>
+                        <input class="form-control" type="file" id="basic-image" name="image">
+                    </div>
+
+                    <div class="mb-3 d-none premium-images">
+                        <label for="image" class="form-label">Premium business images *</label>
+                        <input class="form-control" type="file" id="premium-images" name="image[]" multiple>
+                    </div>
+
+                    <div class="mb-3 d-none featured-images">
+                        <label for="image" class="form-label">Featured business images *</label>
+                        <input class="form-control" type="file" id="featured-images" name="image[]" multiple>
                     </div>
 
 
@@ -224,7 +235,11 @@
 
     <script>
         function checked() {
-            $('#submit_btn').removeAttr('disabled');
+            if($("#basic-image")[0].files.length < 2 || $("#premium-images")[0].files.length < 6 || $("#featured-images")[0].files.length < 11) {
+                $('#submit_btn').removeAttr('disabled');
+            }
+
+            // $('#submit_btn').removeAttr('disabled');
         };
     </script>
 
@@ -243,6 +258,51 @@
                 $('.category_2').addClass('d-none');
                 $('.category_3').addClass('d-none');
             }
+        });
+
+        $('.form-check-input').on('click', function() {
+            if($(this).hasClass('premium')) {
+                $('.premium-images').removeClass('d-none');
+                $('.basic-image').addClass('d-none');
+                $('.featured-images').addClass('d-none');
+            } else if ($(this).hasClass('featured')) {
+                $('.featured-images').removeClass('d-none');
+                $('.basic-image').addClass('d-none');
+                $('.premium-images').addClass('d-none');
+            }
+            else if ($(this).hasClass('basic')) {
+                $('.basic-image').removeClass('d-none');
+                $('.premium-images').addClass('d-none');
+                $('.featured-images').addClass('d-none');
+            }
+        });
+
+
+
+        $("#premium-images").on("change", function() {
+            if ($("#premium-images")[0].files.length > 5) {
+                alert("You can select only 5 images for a premium business");
+                $('#submit_btn').attr('disabled', 'disabled');
+            } else {
+                
+                if(grecaptcha && grecaptcha.getResponse().length !== 0){
+                    $('#submit_btn').removeAttr('disabled');
+                }
+            }
+                
+        });
+
+        $("#featured-images").on("change", function() {
+            if ($("#premium-images")[0].files.length > 10) {
+                alert("You can select only 10 images for a featured business");
+                $('#submit_btn').attr('disabled', 'disabled');
+            } else {
+                
+                if(grecaptcha && grecaptcha.getResponse().length !== 0){
+                    $('#submit_btn').removeAttr('disabled');
+                }
+            }
+                
         });
     </script>
 @endpush

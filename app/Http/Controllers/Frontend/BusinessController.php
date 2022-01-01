@@ -33,11 +33,25 @@ class BusinessController extends Controller
 
     public function businessRegisterRequest(Request $request)
     {
+        // dd($request->file('image'));
+
         $user_id = auth()->user()->id;
 
-        $image = $request->file('image');
-        $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images/businesses'),$imageName);
+        $data = [];
+
+        if($request->hasFile('image')) {
+            foreach($request->file('image') as $image)
+            {
+                $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+                $image->move(public_path('images/businesses'),$imageName);
+                array_push($data, $imageName);
+            }
+        }
+
+
+        // $image = $request->file('image');
+        // $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+        // $image->move(public_path('images/businesses'),$imageName);
 
         $business = new Businesses;
 
@@ -51,7 +65,7 @@ class BusinessController extends Controller
         $business->email = $request->email;
         $business->phone = $request->phone;
         $business->address = $request->address;
-        $business->image = $imageName;
+        $business->image = json_encode($data);
         $business->facebook = $request->facebook;
         $business->twitter = $request->twitter;
         $business->you_tube = $request->you_tube;
@@ -59,6 +73,7 @@ class BusinessController extends Controller
         $business->package = $request->package;
         $business->status = 'Pending';
         $business->featured = 'No';
+        $business->student_service = 'No';
 
         $business->save();
 

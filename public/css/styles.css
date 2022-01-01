@@ -44,10 +44,10 @@ p {
     top:0.8rem;
 }
 
-.top-nav .user {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 3rem;
+.top-nav .user img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
 }
 .top-nav a {
     font-size: 0.9rem;

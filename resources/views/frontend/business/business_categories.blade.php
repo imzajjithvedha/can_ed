@@ -37,7 +37,7 @@
                     ])
             @else
                 @foreach($categories as $category)
-                    <div class="col-3 mb-4">
+                    <div class="col-3 mb-5">
                         <div class="card blue rounded-0">
                             <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
                                 @if($category->image != null)

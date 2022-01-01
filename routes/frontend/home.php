@@ -335,9 +335,9 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::post('school-contacts/paragraph/update', [UserSchoolContactController::class, 'schoolContactsParagraphUpdate'])->name('school_contacts_paragraph_update');
 
 
-        Route::get('school/settings', [UserSchoolSettingsController::class, 'SchoolSettings'])->name('school_settings');
+        Route::get('school-settings', [UserSchoolSettingsController::class, 'SchoolSettings'])->name('school_settings');
 
-        Route::post('school/delete', [UserSchoolSettingsController::class, 'schoolDelete'])->name('school_delete');
+        Route::post('school-delete', [UserSchoolSettingsController::class, 'schoolDelete'])->name('school_delete');
 
 
 

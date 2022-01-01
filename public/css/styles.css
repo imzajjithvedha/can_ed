@@ -37,11 +37,14 @@ p {
     background-color: #333;
     /* border-bottom:1px solid white; */
 }
-.top-nav img {
-    /* width: 4.6rem;
+.top-nav .logo img {
+    width: 4.6rem;
     left: 9rem;
     z-index: 1;
-    top:0.8rem; */
+    top:0.8rem;
+}
+
+.top-nav .user {
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 3rem;

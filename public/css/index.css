@@ -37,7 +37,7 @@
 }
 .index-categories img {
    width: 3.125rem;
-   /* filter: contrast(200%) brightness(45%); */
+   height: 3rem;
 }
 .index-categories .row div {
     border-right: 1px dotted gray;

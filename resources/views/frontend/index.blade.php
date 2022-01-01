@@ -78,7 +78,7 @@
                         <div class="col text-center">
                             <a href="{{ route('frontend.degree_level', [ $degree->id, $degree->slug ]) }}" class="text-decoration-none">
                                 @if($degree->icon != null)
-                                    <img src="{{ url('images/degree_levels', $degree->icon) }}" alt="" class="img-fluid" style="filter: contrast(200%) brightness(45%);">
+                                    <img src="{{ url('images/degree_levels', $degree->icon) }}" alt="" class="img-fluid">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid">
                                 @endif

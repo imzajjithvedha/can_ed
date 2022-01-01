@@ -16,6 +16,10 @@
     border: none;
 }
 
+.business .card .card-img-top {
+    width: auto!important;
+}
+
 
 /* Single Business Styles */
 .single-business hr {

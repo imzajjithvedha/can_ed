@@ -41,7 +41,14 @@
                                 @foreach($events as $event)
                                     <div class="row border py-3 mb-3">
                                         <div class="col-4 text-center">
-                                            <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+
+                                            @if($event->image != null)
+                                                <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                            @else
+                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                            @endif
+
+                                            
 
                                             <div class="mt-2">
                                                 @if($event->status == 'Approved')

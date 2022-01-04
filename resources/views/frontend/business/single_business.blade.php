@@ -168,8 +168,8 @@
                 @foreach($more_businesses as $more_business)
                     <div class="card mb-4">
                         <a href="{{ route('frontend.single_business', $more_business->id) }}" class="text-decoration-none">
-                            @if($business->image != null)
-                                @foreach(json_decode($business->image) as $index => $im)
+                            @if($more_business->image != null)
+                                @foreach(json_decode($more_business->image) as $index => $im)
 
                                     @if ($index == 0)
                                         <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">

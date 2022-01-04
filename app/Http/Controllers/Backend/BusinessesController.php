@@ -33,9 +33,16 @@ class BusinessesController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $image = $request->file('image');
-        $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images/businesses'), $imageName);
+        $data = [];
+
+        if($request->hasFile('image')) {
+            foreach($request->file('image') as $image)
+            {
+                $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+                $image->move(public_path('images/businesses'),$imageName);
+                array_push($data, $imageName);
+            }
+        }
 
         if($request->featured != null) {
             $featured = $request->featured;
@@ -55,7 +62,7 @@ class BusinessesController extends Controller
         $business->email = $request->email;
         $business->phone = $request->phone;
         $business->address = $request->address;
-        $business->image = $imageName;
+        $business->image = json_encode($data);
         $business->facebook = $request->facebook;
         $business->twitter = $request->twitter;
         $business->you_tube = $request->you_tube;
@@ -115,15 +122,32 @@ class BusinessesController extends Controller
 
     public function updateBusiness(Request $request)
     {    
-        $image = $request->file('new_image');
+        $images = $request->file('new_image');
 
-        if($image != null) {
-            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+        $data = [];
 
-            $image->move(public_path('images/businesses'), $imageName);
-        } 
+        if($images != null) {
+            foreach($images as $image)
+            {
+                $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+                $image->move(public_path('images/businesses'),$imageName);
+                array_push($data, $imageName);
+            }
+
+            $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
+                [
+                    'image' => $data,
+                ]
+            );
+
+        }
         else {
-            $imageName = $request->old_image;
+
+            $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
+                [
+                    'image' => $request->old_image,
+                ]
+            );
         }
         
         $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
@@ -142,7 +166,6 @@ class BusinessesController extends Controller
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
                 'status' => $request->status,
-                'image' => $imageName,
                 'featured' => $request->featured,
                 'student_service' => $request->student_service,
             ]

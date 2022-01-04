@@ -25,8 +25,8 @@
                             <div class="row align-items-center mb-4">
                                 <div class="col-4">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="package" value="basic" id="basic" required>
-                                        <label class="form-check-label fw-bold" for="basic">
+                                        <input class="form-check-input basic" type="radio" name="package" value="basic" required>
+                                        <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                             Basic
                                         </label>
                                     </div>
@@ -34,7 +34,7 @@
 
                                 <div class="col-8">
                                     <div class="border p-3">
-                                        <p class="gray fw-bold">Standard Ad, Expires in 30 days- Free</p>
+                                        <p class="gray fw-bold">Standard ad, expires in 30 days - Free</p>
                                         <p class="gray fw-bold">One business category</p>
                                     </div>
                                     
@@ -44,7 +44,7 @@
                             <div class="row align-items-center mb-4">
                                 <div class="col-4">
                                     <div class="form-check">
-                                        <input class="form-check-input extra" type="radio" name="package" value="premium">
+                                        <input class="form-check-input premium extra" type="radio" name="package" value="premium">
                                         <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                             Premium
                                         </label>
@@ -53,7 +53,7 @@
 
                                 <div class="col-8">
                                     <div class="border p-3">
-                                        <p class="gray fw-bold">Up to 4x views</p>
+                                        <p class="gray fw-bold">Up to 4x more views</p>
                                         <p class="gray fw-bold">Three business categories</p>
                                         <p class="gray fw-bold">Link to your website</p>
                                         <p class="gray fw-bold">Top ad and bump up every week</p>
@@ -65,7 +65,7 @@
                             <div class="row align-items-center mb-5">
                                 <div class="col-4">
                                     <div class="form-check">
-                                        <input class="form-check-input extra" type="radio" name="package" value="featured">
+                                        <input class="form-check-input featured extra" type="radio" name="package" value="featured">
                                         <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                             Featured
                                         </label>
@@ -74,7 +74,7 @@
 
                                 <div class="col-8">
                                     <div class="border p-3">
-                                        <p class="gray fw-bold">Up to 20x views</p>
+                                        <p class="gray fw-bold">Up to 20x more views</p>
                                         <p class="gray fw-bold">Three business categories</p>
                                         <p class="gray fw-bold">Link to your website</p>
                                         <p class="gray fw-bold">Top ad and bump up every week</p>
@@ -125,9 +125,20 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="image" class="form-label">Image *</label>
-                                <input class="form-control" type="file" id="image" name="image" required>
+
+                            <div class="mb-3 basic-image">
+                                <label for="image" class="form-label">Basic business image *</label>
+                                <input class="form-control" type="file" id="basic-image" name="image">
+                            </div>
+
+                            <div class="mb-3 d-none premium-images">
+                                <label for="image" class="form-label">Premium business images *</label>
+                                <input class="form-control" type="file" id="premium-images" name="image[]" multiple>
+                            </div>
+
+                            <div class="mb-3 d-none featured-images">
+                                <label for="image" class="form-label">Featured business images *</label>
+                                <input class="form-control" type="file" id="featured-images" name="image[]" multiple>
                             </div>
 
 
@@ -169,7 +180,7 @@
                 </div>
 
                 <div class="text-center mb-5">
-                    <button type="submit" class="btn btn-success">Create new</button><br>
+                    <button type="submit" class="btn btn-success" id="submit_btn" disabled>Create new</button><br>
                 </div>
             </div>    
         </div>
@@ -179,7 +190,7 @@
 
 
 @push('after-scripts')
-    <script>
+<script>
         $('.form-check-input').on('click', function() {
             if($(this).hasClass('extra')) {
                 $('.category_2').removeClass('d-none');
@@ -188,6 +199,51 @@
                 $('.category_2').addClass('d-none');
                 $('.category_3').addClass('d-none');
             }
+        });
+
+        $('.form-check-input').on('click', function() {
+            if($(this).hasClass('premium')) {
+                $('.premium-images').removeClass('d-none');
+                $('.basic-image').addClass('d-none');
+                $('.featured-images').addClass('d-none');
+            } else if ($(this).hasClass('featured')) {
+                $('.featured-images').removeClass('d-none');
+                $('.basic-image').addClass('d-none');
+                $('.premium-images').addClass('d-none');
+            }
+            else if ($(this).hasClass('basic')) {
+                $('.basic-image').removeClass('d-none');
+                $('.premium-images').addClass('d-none');
+                $('.featured-images').addClass('d-none');
+            }
+        });
+
+
+
+        $("#premium-images").on("change", function() {
+            if ($("#premium-images")[0].files.length > 5) {
+                alert("You can select only 5 images for a premium business");
+                $('#submit_btn').attr('disabled', 'disabled');
+            } else {
+                
+
+                    $('#submit_btn').removeAttr('disabled');
+
+            }
+                
+        });
+
+        $("#featured-images").on("change", function() {
+            if ($("#premium-images")[0].files.length > 10) {
+                alert("You can select only 10 images for a featured business");
+                $('#submit_btn').attr('disabled', 'disabled');
+            } else {
+                
+ 
+                    $('#submit_btn').removeAttr('disabled');
+
+            }
+                
         });
     </script>
 @endpush

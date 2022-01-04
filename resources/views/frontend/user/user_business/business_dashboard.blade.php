@@ -31,7 +31,19 @@
                             @foreach($businesses as $business)
                                 <div class="row border py-3 mb-3">
                                     <div class="col-4 text-center">
-                                        <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+
+                                        @if($business->image != null)
+                                            @foreach(json_decode($business->image) as $index => $im)
+
+                                                @if ($index == 0)
+                                                    <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                @endif
+                                                
+                                            @endforeach
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        @endif
+                                        
 
                                         <div class="mt-2">
                                             @if($business->status == 'Approved')

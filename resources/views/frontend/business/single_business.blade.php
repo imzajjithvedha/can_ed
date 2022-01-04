@@ -48,11 +48,23 @@
 
                 <div class="row">
                     <div class="col-9">
+
                         @if($business->image != null)
-                            <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                            <div class="swiper mySwiper">
+                                <div class="swiper-wrapper">
+                                    @foreach(json_decode($business->image) as $im)
+                                        <div class="swiper-slide">
+                                            <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                            </div>
                         @else
                             <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 20rem; object-fit: cover;">
                         @endif
+
                     </div>
                     <div class="col-3">
                         @if($business->facebook != null || $business->twitter != null || $business->you_tube != null || $business->linked_in != null)
@@ -156,11 +168,18 @@
                 @foreach($more_businesses as $more_business)
                     <div class="card mb-4">
                         <a href="{{ route('frontend.single_business', $more_business->id) }}" class="text-decoration-none">
-                            @if($more_business->image != null)
-                                <img src="{{ url('images/businesses', $more_business->image) }}" class="card-img-top" alt="..." style="height: 8rem; object-fit: cover;">
+                            @if($business->image != null)
+                                @foreach(json_decode($business->image) as $index => $im)
+
+                                    @if ($index == 0)
+                                        <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                                    @endif
+                                        
+                                @endforeach
                             @else
                                 <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
                             @endif
+
                             <div class="card-body text-center">
                                 <h6 class="card-title fw-bold gray futura">{{ $more_business->name }}</h6>
                             </div>
@@ -254,6 +273,17 @@
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
         }
+    </script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        // loop : true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
     </script>
 
 @endpush

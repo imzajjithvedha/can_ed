@@ -41,15 +41,33 @@ class UserBusinessController extends Controller
 
     public function userBusinessUpdate(Request $request)
     {
-        $image = $request->file('new_image');
 
-        if($image != null) {
-            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-            
-            $image->move(public_path('images/businesses'), $imageName);
-        } 
+        $images = $request->file('new_image');
+
+        $data = [];
+
+        if($images != null) {
+            foreach($images as $image)
+            {
+                $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+                $image->move(public_path('images/businesses'),$imageName);
+                array_push($data, $imageName);
+            }
+
+            $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
+                [
+                    'image' => $data,
+                ]
+            );
+
+        }
         else {
-            $imageName = $request->old_image;
+
+            $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
+                [
+                    'image' => $request->old_image,
+                ]
+            );
         }
         
         $business = DB::table('businesses') ->where('id', request('hidden_id'))->update(
@@ -68,7 +86,6 @@ class UserBusinessController extends Controller
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
                 'status' => 'Pending',
-                'image' => $imageName
             ]
         );
 

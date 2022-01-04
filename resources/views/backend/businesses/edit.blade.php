@@ -97,13 +97,26 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
-                                <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
-                                <input type="hidden" class="form-control" name="old_image" value="{{$business->image}}">
+                                <div class="row">
 
-                                <div class="form-group mt-5">
-                                    <label for="image" class="form-label">Image</label>
-                                    <input type="file" class="form-control" id="image" name="new_image">
+                                    @if($business->image != null)
+                                        @foreach(json_decode($business->image) as $index => $im)
+
+                                        <div class="col-4 mb-3">
+                                            <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                                            
+                                        </div>
+                                                
+                                        @endforeach
+                                        <input type="hidden" class="form-control" name="old_image" value="{{$business->image}}">
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                                    @endif
                                 </div>
+
+                                
+                                <input type="file" class="form-control" id="image" name="new_image[]" value="">
+                                
                             </div>
 
                             <div class="form-group">
@@ -133,7 +146,7 @@
                             <div class="mt-5 text-center">
                                 <input type="hidden" name="hidden_id" value="{{ $business->id }}"/>
                                 <a href="{{ route('admin.businesses.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
-                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
+                                <button type="submit" id="update-btn" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>
                     </div>
@@ -157,6 +170,48 @@
                 $('.category_3').addClass('d-none');
             }
         });
+
+
+
+        $(document).ready(function() {
+            if($('#package').val() == 'premium') {
+                $('#image').attr('multiple', true);
+            }
+            else if($('#package').val() == 'featured') {
+                $('#image').attr('multiple', true);
+            }
+        });
+        
+
+
+        $("#image").on("change", function() {
+
+            if($('#package').val() == 'premium') {
+
+                if ($("#image")[0].files.length > 5) {
+                    alert("You can select only 5 images for a premium business");
+                    $('#update-btn').attr('disabled', 'disabled');
+
+                } else {
+                
+                    $('#update-btn').removeAttr('disabled');
+
+                }
+            } 
+
+            else if ($('#package').val() == 'featured') {
+
+                if ($("#image")[0].files.length > 10) {
+                    alert("You can select only 10 images for a featured business");
+                    $('#update-btn').attr('disabled', 'disabled');
+
+                } else {
+
+                    $('#update-btn').removeAttr('disabled');
+
+                }
+            }
+            });
         
     </script>
 

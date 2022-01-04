@@ -40,11 +40,19 @@
                     <div class="col-3 mb-4">
                         <div class="card blue rounded-0">
                             <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
+                                
                                 @if($business->image != null)
-                                    <img src="{{ url('images/businesses', $business->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                    @foreach(json_decode($business->image) as $index => $im)
+
+                                        @if ($index == 0)
+                                            <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                        @endif
+                                        
+                                    @endforeach
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
+
                                 <div class="card-body text-center card-padding rounded-0">
                                     <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
                                 </div>

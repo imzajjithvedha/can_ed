@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <form action="{{ route('frontend.user.user_business_update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('frontend.user.user_business_update') }}" method="post" enctype="multipart/form-data" onSubmit="return valid()">
                     {{csrf_field()}}
                         <div class="row">
                             <div class="col-12 border py-3">
@@ -112,21 +112,40 @@
                                 <div>
                                     <label class="form-label">Business image *</label>
                                     <div class="row">
-                                        <div class="col-12 mb-3">
+                                        <!-- <div class="col-12 mb-3">
                                             <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
                                             <input type="hidden" class="form-control" name="old_image" value="{{$business->image}}">
                                         </div>
 
                                         <div class="col-12">
                                             <input type="file" class="form-control" id="image" name="new_image" value="">
+                                        </div> -->
+
+                                        @if($business->image != null)
+                                            @foreach(json_decode($business->image) as $index => $im)
+
+                                            <div class="col-4 mb-3">
+                                                <img src="{{ url('images/businesses', $im) }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                                                
+                                            </div>
+                                                    
+                                            @endforeach
+                                            <input type="hidden" class="form-control" name="old_image" value="{{$business->image}}">
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 8rem; object-fit: cover;">
+                                        @endif
+
+                                        <div class="col-12">
+                                            <input type="file" class="form-control" id="image" name="new_image[]" value="">
                                         </div>
                                     </div>
+                                    
                                 </div>
 
                                 <div class="mt-5 text-center">
                                     <input type="hidden" class="form-control" value="{{$business->id}}" name="hidden_id">
                                     <input type="hidden" class="form-control" value="{{$business->status}}" name="status">
-                                    <input type="submit" value="Update" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                    <input type="submit" value="Update" id="update-btn" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
                                 </div>
                             </div>
                         </div>
@@ -175,5 +194,50 @@
             }
         });
         
+    </script>
+
+
+    <script>
+
+        $(document).ready(function() {
+            if($('#package').val() == 'premium') {
+                $('#image').attr('multiple', true);
+            }
+            else if($('#package').val() == 'featured') {
+                $('#image').attr('multiple', true);
+            }
+        });
+
+
+
+
+        $("#image").on("change", function() {
+
+            if($('#package').val() == 'premium') {
+
+                if ($("#image")[0].files.length > 5) {
+                    alert("You can select only 5 images for a premium business");
+                    $('#update-btn').attr('disabled', 'disabled');
+
+                } else {
+                
+                    $('#update-btn').removeAttr('disabled');
+
+                }
+            } 
+
+            else if ($('#package').val() == 'featured') {
+
+                if ($("#image")[0].files.length > 10) {
+                    alert("You can select only 10 images for a featured business");
+                    $('#update-btn').attr('disabled', 'disabled');
+
+                } else {
+
+                    $('#update-btn').removeAttr('disabled');
+
+                }
+            }
+        });
     </script>
 @endpush

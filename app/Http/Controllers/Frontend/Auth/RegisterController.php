@@ -8,6 +8,10 @@ use App\Http\Requests\Frontend\Auth\RegisterRequest;
 use App\Repositories\Frontend\Auth\UserRepository;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\Frontend\RegisterAccount;
+
 /**
  * Class RegisterController.
  */
@@ -80,6 +84,14 @@ class RegisterController extends Controller
         auth()->login($user);
 
         event(new UserRegistered($user));
+
+
+        $details = [
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+        ];
+
+        Mail::to([$request->email])->send(new RegisterAccount($details));
 
         return redirect($this->redirectPath());
     }

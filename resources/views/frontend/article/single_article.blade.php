@@ -55,11 +55,11 @@
             </div>
 
             <div class="col-4 more-articles">
-                <h4 class="fw-bolder futura">More articlevvvs</h4>
+                <h4 class="fw-bolder futura">More articles</h4>
                 <hr>
 
                 @foreach($more_articles as $article)
-                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                    <!-- <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none"> -->
                         <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
                             <div class="col-6">
                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
@@ -70,7 +70,7 @@
                                 <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{!! $article->description !!}</div>
                             </div>
                         </div>
-                    </a>
+                    <!-- </a> -->
                 @endforeach
             </div>
         </div>

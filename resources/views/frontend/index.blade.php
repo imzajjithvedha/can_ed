@@ -131,8 +131,20 @@
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_business', $featured_business->id) }}" class="text-decoration-none">
                             <div class="card rounded-0">
-                                @if($featured_business->image != null)
+                                <!-- @if($featured_business->image != null)
                                     <img src="{{ url('images/businesses', $featured_business->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif -->
+
+                                @if($featured_business->image != null)
+                                    @foreach(json_decode($featured_business->image) as $index => $im)
+
+                                        @if ($index == 0)
+                                            <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                        @endif
+                                        
+                                    @endforeach
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif

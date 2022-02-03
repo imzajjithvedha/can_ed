@@ -5,6 +5,7 @@ namespace App\Http\Requests\Frontend\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
+use Request;
 
 /**
  * Class RegisterRequest.
@@ -42,8 +43,13 @@ class RegisterRequest extends FormRequest
      */
     public function messages()
     {
+        $input = Request::old('first_name', 'last_name', 'email', 'password', 'password_confirmation');
+
+        // dd($input);
+
         return [
             'g-recaptcha-response.required_if' => __('validation.required', ['attribute' => 'captcha']),
+            'input' => $input
         ];
     }
 }

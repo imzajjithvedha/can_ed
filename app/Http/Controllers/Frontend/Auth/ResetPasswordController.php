@@ -61,10 +61,11 @@ class ResetPasswordController extends Controller
             'password' => 'required|min:6|max:100',
             'confirm_password' => 'required|same:password'
         ],
-        // [
-        //     'password.required' => 'You have to choose the file!',
-        //     'confirm_password.required' => 'You have to choose type of the file!'
-        // ]
+        [
+            'password.min' => 'The password must be at least 6 characters',
+            'password.max' => 'The password must be maximum 100 characters',
+            'confirm_password.same' => 'Passwords do not match'
+        ]
     );
 
         $user = DB::table('users') ->where('id', request('hidden_id'))->update(

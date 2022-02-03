@@ -70,12 +70,14 @@
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="errorModal" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">We’ve sent a password reset link to your email</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>

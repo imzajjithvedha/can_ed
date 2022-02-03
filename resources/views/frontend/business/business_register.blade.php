@@ -216,11 +216,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body" style="padding: 4rem 1rem;">
-                        <h4 class="mb-0 text-center">Please login before register a business</h4>
+                        <h4 class="mb-0 text-center">You must be logged in to register a business</h4>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
-                        <a href="{{ route('frontend.auth.login') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Login</a>
+                    <div class="modal-footer justify-content-center">
+                        <a href="{{ route('frontend.auth.register') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Create a new account</a>
+                        <a href="{{ route('frontend.auth.login') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Log in</a>
                     </div>
                 </div>
             </div>

@@ -83,7 +83,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid">
                                 @endif
 
-                                <p class="gray mt-2">{{ $degree->name }}</p>
+                                <p class="text-black mt-2">{{ $degree->name }}</p>
                             </a>
                         </div>
                     @endforeach

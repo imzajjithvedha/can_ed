@@ -14,6 +14,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\DegreeLevels;
 use App\Models\SchoolPrograms;
+use App\Models\WebsiteInformation;
 
 /**
  * Class AdvancedSearchController.
@@ -23,6 +24,22 @@ class AdvancedSearchController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+
+    public function index() {
+
+        $information = WebsiteInformation::where('id', 1)->first();
+        $degree_levels = DegreeLevels::where('status', 'Approved')->orderBy('orders', 'asc')->get();
+        $programs = Programs::where('status', 'Approved')->orderBy('name', 'asc')->get();
+        $school_types = SchoolTypes::where('status', 'Approved')->orderBy('name', 'asc')->get();
+
+        return view('frontend.page.advanced_search', [
+            'information' => $information,
+            'degree_levels' => $degree_levels,
+            'programs' => $programs,
+            'school_types' => $school_types,
+    ]);
+    }
+
     public function advancedSearch(Request $request)
     {
         if(request('degree_level') != 'all') {

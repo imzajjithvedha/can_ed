@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Schools')
+@section('title', 'Advanced search results')
 
 @push('after-styles')
     <link href="{{ url('css/schools.css') }}" rel="stylesheet">

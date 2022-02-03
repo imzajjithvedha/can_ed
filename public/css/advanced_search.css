@@ -1,0 +1,15 @@
+hr {
+    background: #bd2130;
+    height: 1px;
+    opacity: 1;
+}
+
+.form-select {
+    color: black;
+    border-left: 5px solid #bd2130;
+}
+
+.form-control {
+    color: black;
+    border-left: 5px solid #bd2130;
+}

@@ -150,7 +150,7 @@
 
     @if(count($featured_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your u.s. education</a>
+            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_articles_description }}</p>
 
             <div class="row mt-4">

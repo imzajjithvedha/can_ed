@@ -51,6 +51,7 @@ class EventController extends Controller
         $event->organizer_phone = $request->phone;
         $event->url = $request->url;
         $event->image = $imageName;
+        $event->featured = 'No';
 
         $event->save();
 

@@ -367,7 +367,7 @@
                         </div>
 
                         <div class="mb-3 form-group">
-                            <label for="image" class="form-label">Event banner image</label>
+                            <label for="image" class="form-label">Event banner image *</label>
                             <input type="file" class="form-control" id="image" name="image" required>
                         </div>
 

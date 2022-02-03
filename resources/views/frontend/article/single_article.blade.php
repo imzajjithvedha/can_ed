@@ -61,6 +61,7 @@
                 @foreach($more_articles as $article)
                     <!-- <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none"> -->
                         <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
+                            <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
                             <div class="col-6">
                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                             </div>
@@ -69,6 +70,7 @@
                                 <h6 class="fw-bold gray futura">{{ $article->title }}</h6>
                                 <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{!! $article->description !!}</div>
                             </div>
+                            </a>
                         </div>
                     <!-- </a> -->
                 @endforeach

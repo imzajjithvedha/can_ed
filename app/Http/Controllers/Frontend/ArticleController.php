@@ -17,7 +17,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Articles::OrderBy('title', 'ASC')->get();
+        $articles = Articles::where('status', 'Approved')->OrderBy('title', 'ASC')->get();
 
         return view('frontend.article.articles', ['articles' => $articles]);
     }
@@ -80,6 +80,9 @@ class ArticleController extends Controller
 
         if($article != 'article'){
             $articles->where('title', 'like', '%' .  $article . '%');
+        }
+        else {
+            $articles->orderBy('title', 'asc');
         }
 
         $filteredArticles = $articles->get();

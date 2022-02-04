@@ -38,7 +38,7 @@
                                 <img src="{{ url('images/our_team', $member->image) }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit:cover;">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$member->image}}">
 
-                                <div class="form-group mt-5">
+                                <div class="form-group mt-3">
                                     <label for="image" class="form-label">Image</label>
                                     <input type="file" class="form-control" id="image" name="new_image">
                                 </div>

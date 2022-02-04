@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Events; 
+use Carbon\Carbon;
 
 /**
  * Class EventsController.
@@ -151,6 +152,7 @@ class EventsController extends Controller
                 'image' => $imageName,
                 'featured' => $request->featured,
                 'advertised' => $request->advertised,
+                'updated_at' => Carbon::now(),
             ]
         );
    

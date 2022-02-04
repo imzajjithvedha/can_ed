@@ -282,8 +282,6 @@
 
                                 </div>
                             @endforeach
-
-                            {{ $hot_careers->fragment('hot-careers')->links() }}
                         @endif
                     </div>
                 </div>

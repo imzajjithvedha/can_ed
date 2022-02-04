@@ -15,6 +15,7 @@ use App\Models\SchoolPrograms;
 use App\Mail\Frontend\SchoolUpdate;
 use App\Mail\Frontend\UserSchoolUpdate;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolInformationController.
@@ -76,7 +77,8 @@ class UserSchoolInformationController extends Controller
                 'link_7_url' => $request->link_7_url,
                 'link_8_name' => $request->link_8_name,
                 'link_8_url' => $request->link_8_url,
-                'status' => 'Pending'
+                'status' => 'Pending',
+                'updated_at' => Carbon::now(),
             ]
         );
 

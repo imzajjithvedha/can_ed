@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Programs; 
-use App\Models\Pages; 
+use App\Models\Pages;
+use Carbon\Carbon;
 
 /**
  * Class PagesController.
@@ -42,7 +43,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -77,7 +79,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -112,7 +115,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -146,7 +150,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -179,7 +184,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -214,7 +220,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -235,6 +242,7 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -266,7 +274,8 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -299,13 +308,11 @@ class PagesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
         return back()->withFlashSuccess('Updated Successfully'); 
     }
-    
-
-
 }

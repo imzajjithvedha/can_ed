@@ -1368,7 +1368,7 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-100" id="submit_btn" disabled>Submit</button>
+                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-25" id="submit_btn" disabled>Submit</button>
                     </div>
 
                 </div>
@@ -1388,11 +1388,12 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Thank you very much for your application. One of our member will contact you as soon as possible</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal"  style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>
@@ -1449,17 +1450,21 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <script>
-        function checked() {
-            if($("#exampleCheck1").is(':checked')) {
-                $('#submit_btn').removeAttr('disabled');
-            }
-        };
+        // function checked() {
+        //     if($("#exampleCheck1").is(':checked')) {
+        //         $('#submit_btn').removeAttr('disabled');
+        //     }
+        // };
 
-        $('#exampleCheck1').on('click', function() {
-            if(grecaptcha && grecaptcha.getResponse().length > 0){
-                $('#submit_btn').removeAttr('disabled');
-            }
-        })
+        // $('#exampleCheck1').on('click', function() {
+        //     if(grecaptcha && grecaptcha.getResponse().length > 0){
+        //         $('#submit_btn').removeAttr('disabled');
+        //     }
+        // })
+
+        function checked() {
+            $('#submit_btn').removeAttr('disabled');
+        }
     </script>
 
     <script>

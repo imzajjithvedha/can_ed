@@ -8,7 +8,8 @@ use DataTables;
 use DB;
 use App\Models\DegreeLevels;
 use Excel;
-use App\Imports\DegreeLevelsImport; 
+use App\Imports\DegreeLevelsImport;
+use Carbon\Carbon;
 
 /**
  * Class DegreeLevelsController.
@@ -128,6 +129,7 @@ class DegreeLevelsController extends Controller
                 'icon' => $imageName,
                 'status' => $request->status,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
    

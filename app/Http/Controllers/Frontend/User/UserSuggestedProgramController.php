@@ -16,6 +16,7 @@ use App\Mail\Frontend\ProgramUpdate;
 use App\Mail\Frontend\UserProgramUpdate;
 use App\Models\DegreeLevels;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 
 /**
  * Class UserSuggestedProgramController.
@@ -53,7 +54,8 @@ class UserSuggestedProgramController extends Controller
                 'name' => $request->name,
                 'degree_level' => $request->degree_level,
                 'description' => $request->description,
-                'status' => 'Pending'
+                'status' => 'Pending',
+                'updated_at' => Carbon::now(),
             ]
         );
 

@@ -43,14 +43,27 @@
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a question</a>
                 <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
                 <a href="{{route('frontend.school_degree_levels')}}" class="gray text-decoration-none">Schools</a>
-                <a href="{{route('frontend.user.school_information')}}" class="gray text-decoration-none">School dashboard</a>
+
+                @auth
+                    @if(is_school_registered(auth()->user()->id))
+                        <a href="{{route('frontend.user.school_information')}}" class="gray text-decoration-none">School dashboard</a>
+                    @endif
+                @elseguest
+                    <a href="{{route('frontend.user.school_information')}}" class="gray text-decoration-none">School dashboard</a>
+                @endauth
             </div>
 
             <div class="col-3">
                 <h5 class="fw-bold mb-2 futura">For businesses</h5>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a question</a>
                 <a href="{{route('frontend.business_categories')}}" class="gray text-decoration-none">Business categories</a>
-                <a href="{{route('frontend.user.business_dashboard')}}" class="gray text-decoration-none">Business dashboard</a>
+                @auth
+                    @if(is_business_registered(auth()->user()->id))
+                        <a href="{{route('frontend.user.business_dashboard')}}" class="gray text-decoration-none">Business dashboard</a>
+                    @endif
+                @elseguest
+                    <a href="{{route('frontend.user.business_dashboard')}}" class="gray text-decoration-none">Business dashboard</a>
+                @endauth
                 <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
             </div>
         </div>

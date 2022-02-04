@@ -128,7 +128,7 @@
             
             <div class="row mt-4">
                 @foreach($featured_businesses as $featured_business)
-                    @if($featured_business->advertised == 'Yes')
+                    @if($featured_business->advertised == 'Yes' && $featured_business->url != null)
                         <div class="col-3 mb-4">
                             <a href="{{ $featured_business->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
@@ -171,8 +171,6 @@
                             </a>
                         </div>
                     @endif
-
-
                 @endforeach
             </div>
         </div>
@@ -212,7 +210,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_events as $featured_event)
-                    @if($featured_event->advertised == 'Yes')
+                    @if($featured_event->advertised == 'Yes' && $featured_event->url != null)
                         <div class="col-3 mb-4">
                             <a href="{{ $featured_event->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
@@ -255,27 +253,51 @@
 
             <div class="row mt-4">
                 @foreach($student_services as $student_service)
-                    <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_business', $student_service->id) }}" class="text-decoration-none">
-                            <div class="card rounded-0">
-                                @if($student_service->image != null)
-                                    @foreach(json_decode($student_service->image) as $index => $im)
+                    @if($student_service->advertised == 'Yes' && $student_service->url != null)
+                        <div class="col-3 mb-4">
+                            <a href="{{ $student_service->url }}" class="text-decoration-none">
+                                <div class="card rounded-0">
+                                    @if($student_service->image != null)
+                                        @foreach(json_decode($student_service->image) as $index => $im)
 
-                                        @if ($index == 0)
-                                            <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
-                                        @endif
-                                        
-                                    @endforeach
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                @endif
+                                            @if ($index == 0)
+                                                <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            
+                                        @endforeach
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
 
-                                <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @else
+                        <div class="col-3 mb-4">
+                            <a href="{{ route('frontend.single_business', $student_service->id) }}" class="text-decoration-none">
+                                <div class="card rounded-0">
+                                    @if($student_service->image != null)
+                                        @foreach(json_decode($student_service->image) as $index => $im)
+
+                                            @if ($index == 0)
+                                                <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            
+                                        @endforeach
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 @endforeach
             </div>
         </div>
@@ -340,11 +362,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Thank you for your school request. We will contact you as soon as possible.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
+                    <div class="modal-footer justify-content-center">
+                        <a href="{{ route('frontend.index') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
                     </div>
                 </div>
             </div>
@@ -361,11 +383,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Your account successfully deleted.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal"  style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>
@@ -382,11 +404,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Your school successfully deleted.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal"  style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>

@@ -457,7 +457,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn" disabled>Submit</button>
+                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50" id="submit_btn" disabled>Submit</button>
                     </div>
                 </div>
             </div>
@@ -471,11 +471,11 @@
             <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"  data-bs-backdrop="static" data-bs-keyboard="false">
                 <div class="modal-dialog modal-lg modal-dialog-centered">
                     <div class="modal-content">
-                        <div class="modal-body" style="padding: 5rem 1rem;">
+                        <div class="modal-body" style="padding: 3rem 1rem;">
                             <h4 class="mb-0 text-center">You already requested or registered a school in our site. You can't register more than one school. If you want to add a new school please delete the old school from your dashboard or edit your school details. We are very sorry for the inconvenience.</h4>
                         </div>
-                        <div class="modal-footer">
-                            <a href="{{ route('frontend.index') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
+                        <div class="modal-footer justify-content-center">
+                            <a href="{{ URL::previous() }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
                         </div>
                     </div>
                 </div>

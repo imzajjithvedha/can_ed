@@ -10,6 +10,7 @@ use App\Models\Businesses;
 use App\Models\BusinessCategories;
 use Excel;
 use App\Imports\CategoriesImport; 
+use Carbon\Carbon;
 
 /**
  * Class BusinessCategoriesController.
@@ -120,7 +121,8 @@ class BusinessCategoriesController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'status' => $request->status,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
    

@@ -27,6 +27,7 @@
                                 <th scope="col">Code</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Hot career</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -86,6 +87,7 @@
                 {data: 'code', name: 'code'},
                 {data: 'title', name: 'title'},
                 {data: 'status', name: 'status'},
+                {data: 'featured', name: 'featured'},
                 {data: 'action', name: 'action', orderable: false, searchable: false}
             ]
         });

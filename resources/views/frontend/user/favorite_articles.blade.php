@@ -87,9 +87,9 @@
                 <div class="modal-body">
                     Do you want to delete this article from your favorite list?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="" class="btn btn-danger">Delete</a>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                    <a href="" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Delete</a>
                 </div>
             </div>
         </div>

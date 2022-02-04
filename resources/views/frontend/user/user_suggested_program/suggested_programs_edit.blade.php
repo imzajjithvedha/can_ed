@@ -56,7 +56,7 @@
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{$program->id}}" name="hidden_id">
                                 <input type="hidden" class="form-control" value="{{$program->status}}" name="status">
-                                <input type="submit" value="Update program" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                <input type="submit" value="Update program" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
                             </div>
                         </div>
                     </div>
@@ -79,8 +79,8 @@
                 <div class="modal-body" style="padding: 2rem 1rem;">
                     <h6 class="mb-0 text-center text-info">If you want to update the already approved program, then we have to approve again. Please consider this before update your suggested program.</h6>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                 </div>
             </div>
         </div>

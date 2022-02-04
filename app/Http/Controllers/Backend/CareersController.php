@@ -11,6 +11,7 @@ use App\Models\Programs;
 use App\Models\Pages;
 use App\Models\AllCareers;
 use App\Imports\CareersImport; 
+use Carbon\Carbon;
 
 /**
  * Class CareersController.
@@ -33,33 +34,14 @@ class CareersController extends Controller
         $career = DB::table('pages') ->where('name', 'how_these_career_came_about')->update(
             [
                 'title' => $request->title,
-                'description' => $request->description
+                'description' => $request->description,
+                'updated_at' => Carbon::now(),
             ]
         );
 
         return back()->withFlashSuccess('Updated Successfully'); 
     }
 
-
-    public function hotCareers()
-    {
-        $career = Pages::where('name', 'hot_careers')->first();
-
-        return view('backend.careers.hot_careers', ['career' => $career]);
-    }
-
-    public function hotCareersUpdate(Request $request)
-    {
-
-        $career = DB::table('pages') ->where('name', 'hot_careers')->update(
-            [
-                'title' => $request->title,
-                'description' => $request->description
-            ]
-        );
-
-        return back()->withFlashSuccess('Updated Successfully'); 
-    }
 
     public function allCareers()
     {
@@ -117,8 +99,17 @@ class CareersController extends Controller
                     }   
                     return $status;
                 })
+
+                ->editColumn('featured', function($data){
+                    if($data->featured == 'Yes'){
+                        $featured = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $featured;
+                })
                 
-                ->rawColumns(['action','status'])
+                ->rawColumns(['action','status', 'featured'])
                 ->make(true);
         }
         
@@ -145,6 +136,7 @@ class CareersController extends Controller
                 'definition' => $request->definition,
                 'status' => $request->status,
                 'featured' => $request->featured,
+                'updated_at' => Carbon::now(),
             ]
         );
    

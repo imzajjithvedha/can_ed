@@ -8,7 +8,8 @@ use DataTables;
 use DB;
 use Excel;
 use App\Models\OnlineBusinessDirectory; 
-use App\Imports\DirectoryImport; 
+use App\Imports\DirectoryImport;
+use Carbon\Carbon;
 
 /**
  * Class DirectoryController.
@@ -106,6 +107,7 @@ class DirectoryController extends Controller
                 'fax' => $request->fax,
                 'industry' => $request->industry,
                 'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

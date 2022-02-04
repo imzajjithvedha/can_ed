@@ -10,6 +10,7 @@ use File;
 use App\Models\SchoolAdmissionEmployees;
 use App\Models\SchoolAdmissionFAQ;
 use App\Models\Schools;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsAdmissionFAQController.
@@ -95,6 +96,7 @@ class SchoolsAdmissionFAQController extends Controller
                 'question' => $request->question,
                 'answer' => $request->answer,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
         

@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\OurSponsors; 
+use App\Models\OurSponsors;
+use Carbon\Carbon; 
 
 /**
  * Class SponsorsController.
@@ -116,7 +117,8 @@ class SponsorsController extends Controller
                 'country' => $request->country,
                 'url' => $request->url,
                 'image' => $imageName,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

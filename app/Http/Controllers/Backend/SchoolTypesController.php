@@ -9,6 +9,7 @@ use DB;
 use App\Models\SchoolTypes;
 use Excel;
 use App\Imports\SchoolTypesImport; 
+use Carbon\Carbon;
 
 /**
  * Class SchoolTypesController.
@@ -93,7 +94,8 @@ class SchoolTypesController extends Controller
             [
                 'name' => $request->name,
                 'description' => $request->description,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

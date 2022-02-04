@@ -14,6 +14,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolScholarships;
 use App\Imports\SchoolScholarshipsImport;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsScholarshipController.
@@ -138,6 +139,7 @@ class SchoolsScholarshipController extends Controller
                 'image' => $featured_image,
                 'link' => $request->link,
                 'featured' => $request->featured,
+                'updated_at' => Carbon::now(),
             ]
         );
         
@@ -200,6 +202,7 @@ class SchoolsScholarshipController extends Controller
                 'scholarships_title_4_button' => $request->scholarships_title_4_button,
                 'scholarships_title_4_link' => $request->scholarships_title_4_link,
                 'scholarships_title_4_image_name' => $request->scholarships_title_4_image_name,
+                'updated_at' => Carbon::now(),
             ]
         );
         

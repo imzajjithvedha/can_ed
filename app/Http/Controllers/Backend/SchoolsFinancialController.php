@@ -8,6 +8,7 @@ use DB;
 use DataTables;
 use File;
 use App\Models\Schools;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsFinancialController.
@@ -45,7 +46,7 @@ class SchoolsFinancialController extends Controller
 
         if($programs4 == null) {
             $school = DB::table('schools')->where('id', request('hidden_id'))->update([
-                'financial_related_programs_4' => null
+                'financial_related_programs_4' => null,
             ]);
         }
         else {
@@ -63,7 +64,7 @@ class SchoolsFinancialController extends Controller
             }
 
             $school = DB::table('schools')->where('id', request('hidden_id'))->update([
-                'financial_related_programs_4' => json_encode($output4)
+                'financial_related_programs_4' => json_encode($output4),
             ]);
         }
 
@@ -165,6 +166,7 @@ class SchoolsFinancialController extends Controller
                 'financial_title_6' => $request->financial_title_6,
                 'financial_title_6_paragraph' => $request->financial_title_6_paragraph,
                 'financial_text_content_1' => $request->financial_text_content_1,
+                'updated_at' => Carbon::now(),
             ]
         );
         

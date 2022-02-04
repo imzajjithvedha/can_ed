@@ -313,10 +313,10 @@
                             </div>
 
                             <div class="mb-3 form-group">
-                                <label class="form-label">Event banner image</label>
+                                <label class="form-label">Event banner image *</label>
                                 <div class="row">
                                     <div class="col-5">
-                                        <input type="file" class="form-control" id="image" name="image">
+                                        <input type="file" class="form-control" id="image" name="image" required>
                                     </div>
                                 </div>
                             </div>

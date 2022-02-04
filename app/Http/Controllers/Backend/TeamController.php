@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\OurTeam; 
+use App\Models\OurTeam;
+use Carbon\Carbon;
 
 /**
  * Class TeamController.
@@ -116,7 +117,8 @@ class TeamController extends Controller
                 'title' => $request->title,
                 'description' => $request->description,
                 'image' => $imageName,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

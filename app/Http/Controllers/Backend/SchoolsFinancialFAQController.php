@@ -9,6 +9,7 @@ use DataTables;
 use File;
 use App\Models\SchoolFinancialFAQ;
 use App\Models\Schools;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsFinancialFAQController.
@@ -94,6 +95,7 @@ class SchoolsFinancialFAQController extends Controller
                 'question' => $request->question,
                 'answer' => $request->answer,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
         

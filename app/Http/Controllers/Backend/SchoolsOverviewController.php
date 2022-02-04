@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Schools;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsOverviewController.
@@ -146,6 +147,7 @@ class SchoolsOverviewController extends Controller
                 "overview_title_12_bullets" => json_encode($request->overview_title_12_bullets),
                 "overview_title_13" => $request->overview_title_13,
                 "overview_title_13_paragraph" => $request->overview_title_13_paragraph,
+                'updated_at' => Carbon::now(),
             ]
         );
         

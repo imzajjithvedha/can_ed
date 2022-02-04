@@ -29,7 +29,7 @@
                     <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                             <div class="text-center">
-                                <button type="button" class="btn rounded-pill text-light px-4 py-2 ms-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Close my account</button>
+                                <button type="button" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;" data-bs-toggle="modal" data-bs-target="#confirmClose">Close my account</button>
                             </div>
                         </div>
                     </div>
@@ -47,9 +47,9 @@
                     <div class="modal-body" style="padding: 5rem 1rem;">
                         <h4 class="mb-0 text-center">Do you want to close your account?</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn rounded text-white" style="background-color: red;" disabled>Close my account</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                        <button type="submit" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;" disabled>Close my account</button>
                     </div>
                 </div>
             </div>

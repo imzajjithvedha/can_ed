@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\Articles; 
+use App\Models\Articles;
+use Carbon\Carbon;
 
 /**
  * Class ArticlesController.
@@ -86,7 +87,16 @@ class ArticlesController extends Controller
                     return $status;
                 })
 
-                ->rawColumns(['action','image', 'status'])
+                ->editColumn('featured', function($data){
+                    if($data->featured == 'Yes'){
+                        $featured = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $featured;
+                })
+
+                ->rawColumns(['action','image', 'status', 'featured'])
                 ->make(true);
         }
         
@@ -123,6 +133,7 @@ class ArticlesController extends Controller
                 'featured' => $request->featured,
                 'image' => $imageName,
                 'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

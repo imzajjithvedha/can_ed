@@ -10,6 +10,7 @@ use App\Models\SchoolScholarships;
 use App\Models\Schools;
 use Excel;
 use App\Imports\SchoolScholarshipsImport; 
+use Carbon\Carbon;
 
 /**
  * Class AllScholarshipsController.
@@ -134,6 +135,7 @@ class AllScholarshipsController extends Controller
                 'image' => $featured_image,
                 'link' => $request->link,
                 'featured' => $request->featured,
+                'updated_at' => Carbon::now(),
             ]
         );
         

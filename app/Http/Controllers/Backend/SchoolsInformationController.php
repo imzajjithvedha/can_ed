@@ -11,6 +11,7 @@ use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsInformationController.
@@ -71,6 +72,7 @@ class SchoolsInformationController extends Controller
                 'link_8_url' => $request->link_8_url,
                 'featured' => $request->featured,
                 'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

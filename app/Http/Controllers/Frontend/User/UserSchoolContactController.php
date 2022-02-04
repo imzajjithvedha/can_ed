@@ -13,6 +13,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolContacts;
 use App\Models\ProgramCategories;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolContactController.
@@ -135,7 +136,8 @@ class UserSchoolContactController extends Controller
                 'fax' => $request->fax,
                 'website' => $request->website,
                 'orders' => $request->orders,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
         

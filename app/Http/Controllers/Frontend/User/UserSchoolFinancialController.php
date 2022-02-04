@@ -8,6 +8,7 @@ use DB;
 use DataTables;
 use File;
 use App\Models\Schools;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolFinancialController.
@@ -166,6 +167,7 @@ class UserSchoolFinancialController extends Controller
                 'financial_title_6' => $request->financial_title_6,
                 'financial_title_6_paragraph' => $request->financial_title_6_paragraph,
                 'financial_text_content_1' => $request->financial_text_content_1,
+                'updated_at' => Carbon::now(),
             ]
         );
         

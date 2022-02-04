@@ -23,7 +23,7 @@ class CareerController extends Controller
 
         $articles = Articles::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
 
-        $hot_careers = AllCareers::where('status', 'Approved')->where('featured', 'Yes')->orderBy('level', 'asc')->paginate(20);
+        $hot_careers = AllCareers::where('status', 'Approved')->where('featured', 'Yes')->orderBy('level', 'asc')->get();
 
         return view('frontend.page.careers', ['how_careers' => $how_careers, 'hot_careers' => $hot_careers, 'careers' => $careers, 'articles' => $articles ]);
     }

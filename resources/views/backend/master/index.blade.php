@@ -10,7 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Master applications&nbsp;</strong>
+                    <strong>Master applications</strong>
 
                     <!-- <button class="btn btn-primary ms-4" data-bs-toggle="modal" data-bs-target="#createVideo">Create new</button> -->
                    

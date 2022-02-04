@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\Videos; 
+use App\Models\Videos;
+use Carbon\Carbon;
 
 /**
  * Class VideosController.
@@ -34,6 +35,7 @@ class VideosController extends Controller
         $video->user_id = $user_id;
         $video->title = $request->title;
         $video->link = $new_link;
+        $video->description = $request->description;
         $video->featured = $request->featured;
         $video->status = 'Approved';
 
@@ -105,7 +107,8 @@ class VideosController extends Controller
                 'link' => $new_link,
                 'description' => $request->description,
                 'featured' => $request->featured,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

@@ -89,11 +89,12 @@
 
                         <p class="mt-3 text-info">Note: If you want to update the already approved quote then we have to approve again. Please consider this before update your quote.</p>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer justify-content-center">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="">
                         <input type="hidden" name="status" id="status" value="">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success">Update quote</button>
+
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                        <button type="submit" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Update quote</button>
                     </div>
                 </div>
             </div>
@@ -110,11 +111,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Quote updated successfully.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>
@@ -132,9 +133,9 @@
                 <div class="modal-body">
                     Do you want to delete this quote?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="" class="btn btn-danger">Delete</a>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                    <a href="" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Delete</a>
                 </div>
             </div>
         </div>

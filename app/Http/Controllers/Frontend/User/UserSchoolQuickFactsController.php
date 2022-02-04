@@ -12,6 +12,7 @@ use App\Models\Schools;
 use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolQuickFactsController.
@@ -89,6 +90,7 @@ class UserSchoolQuickFactsController extends Controller
                 'service_and_guidance_new_students' => $request->service_and_guidance_new_students,
                 'service_and_guidance_new_arrivals' => $request->service_and_guidance_new_arrivals,
                 'marked_facts' => $marked,
+                'updated_at' => Carbon::now(),
             ]
         );
    
@@ -119,6 +121,7 @@ class UserSchoolQuickFactsController extends Controller
                 'quick_facts_title_2_button' => $request->quick_facts_title_2_button,
                 'quick_facts_title_2_link' => $request->quick_facts_title_2_link,
                 'quick_facts_title_2_image_name' => $request->quick_facts_title_2_image_name,
+                'updated_at' => Carbon::now(),
             ]
         );
         

@@ -8,6 +8,7 @@ use Hash;
 use App\Models\Auth\User;
 use App\Models\Auth\PasswordHistory;
 use Auth;
+use Carbon\Carbon;
 
 /**
  * Class UserProfileController.
@@ -36,7 +37,8 @@ class UserProfileController extends Controller
         if(Hash::check($request->old_password, $user->password)) {
 
             $user->update([
-                'password'=> bcrypt($request->new_password)
+                'password'=> bcrypt($request->new_password),
+                'updated_at' => Carbon::now(),
             ]);
 
             return back()->with('success', 'success');

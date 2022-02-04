@@ -151,7 +151,7 @@
                                 <div class="mt-5 text-center">
                                     <input type="hidden" class="form-control" value="{{$business->id}}" name="hidden_id">
                                     <input type="hidden" class="form-control" value="{{$business->status}}" name="status">
-                                    <input type="submit" value="Update" id="update-btn" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">
+                                    <input type="submit" value="Update" id="update-btn" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
                                 </div>
                             </div>
                         </div>
@@ -173,8 +173,8 @@
                 <div class="modal-body" style="padding: 2rem 1rem;">
                     <h6 class="mb-0 text-center text-info">If you want to update the already approved business, then we have to approve again. Please consider this before update your business.</h6>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                 </div>
             </div>
         </div>

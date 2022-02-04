@@ -9,6 +9,7 @@ use DataTables;
 use File;
 use App\Models\Schools;
 use App\Models\SchoolAdmissionEmployees;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsAdmissionController.
@@ -118,6 +119,7 @@ class SchoolsAdmissionController extends Controller
                 // 'featured' => $request->featured,
                 'image' => $image_call,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
         
@@ -147,6 +149,7 @@ class SchoolsAdmissionController extends Controller
                 'admission_title_4_paragraph' => $request->admission_title_4_paragraph,
                 'admission_title_5' => $request->admission_title_5,
                 'admission_title_5_paragraph' => $request->admission_title_5_paragraph,
+                'updated_at' => Carbon::now(),
                 // 'admission_title_6' => $request->admission_title_6,
                 // 'admission_title_6_paragraph' => $request->admission_title_6_paragraph,
             ]

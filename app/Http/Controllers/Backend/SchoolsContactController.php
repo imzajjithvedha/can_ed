@@ -13,6 +13,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolContacts;
 use App\Models\ProgramCategories;
+use Carbon\Carbon;
 
 /**
  * Class SchoolsContactController.
@@ -106,6 +107,7 @@ class SchoolsContactController extends Controller
                 'fax' => $request->fax,
                 'website' => $request->website,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
         

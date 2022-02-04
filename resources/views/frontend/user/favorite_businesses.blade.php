@@ -42,11 +42,13 @@
                                     @if(is_favorite_business( $business->id, auth()->user()->id))
                                         <div class="row border py-3 mb-3">
                                             <div class="col-4 text-center">
-                                                @if($business->image != null)
-                                                    <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                @else
-                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                @endif
+                                                @foreach(json_decode($business->image) as $index => $im)
+
+                                                    @if ($index == 0)
+                                                        <img src="{{ url('images/businesses', $im) }}" class="img-fluid w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                                    @endif
+                                                    
+                                                @endforeach
 
                                                 <p class="gray mt-3">Updated: {{ $business->updated_at }}</p>
                                             </div>
@@ -93,9 +95,9 @@
                 <div class="modal-body">
                     Do you want to delete this business from your favorite list?
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="" class="btn btn-danger">Delete</a>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                    <a href="" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Delete</a>
                 </div>
             </div>
         </div>

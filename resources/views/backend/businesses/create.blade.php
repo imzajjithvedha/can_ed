@@ -126,7 +126,7 @@
                                 <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                             </div>
                             <div class="mb-3">
-                                <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" required>
+                                <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link">
                             </div>
 
                             <div class="mb-3 basic-image">
@@ -231,16 +231,22 @@
         });
 
 
+        $("#basic-image").on("change", function() {
+            if ($("#basic-image")[0].files.length != 1) {
+                $('#submit_btn').attr('disabled', 'disabled');
+            } else {
+                $('#submit_btn').removeAttr('disabled');
+            }
+                
+        });
+
 
         $("#premium-images").on("change", function() {
             if ($("#premium-images")[0].files.length > 5) {
                 alert("You can select only 5 images for a premium business");
                 $('#submit_btn').attr('disabled', 'disabled');
             } else {
-                
-
-                    $('#submit_btn').removeAttr('disabled');
-
+                $('#submit_btn').removeAttr('disabled');
             }
                 
         });
@@ -250,10 +256,7 @@
                 alert("You can select only 10 images for a featured business");
                 $('#submit_btn').attr('disabled', 'disabled');
             } else {
-                
- 
-                    $('#submit_btn').removeAttr('disabled');
-
+                $('#submit_btn').removeAttr('disabled');
             }
                 
         });

@@ -60,13 +60,11 @@ class MasterApplicationsController extends Controller
                 })
 
                 ->editColumn('name', function($data){
-                    if($data->featured == 'Yes'){
-                        $featured = '<span class="badge bg-success">Yes</span>';
+                    if($data->school_id != null){
+                        $name = Schools::where('id', $data->school_id)->first()->name;
                     }else{
-                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                        $name = '-';
                     }  
-
-                    $name = Schools::where('id', $data->school_id)->first()->name;
 
                     return $name;
                 })

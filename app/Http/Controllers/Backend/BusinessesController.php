@@ -8,6 +8,7 @@ use DataTables;
 use DB;
 use App\Models\Businesses; 
 use App\Models\BusinessCategories;
+use Carbon\Carbon;
 
 /**
  * Class BusinessesController.
@@ -199,6 +200,7 @@ class BusinessesController extends Controller
                 'featured' => $request->featured,
                 'student_service' => $request->student_service,
                 'advertised' => $request->advertised,
+                'updated_at' => Carbon::now(),
             ]
         );
    

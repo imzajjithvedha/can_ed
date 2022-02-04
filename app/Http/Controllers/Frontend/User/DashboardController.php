@@ -24,6 +24,7 @@ use App\Mail\Frontend\UserNetworkUpdate;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Frontend\QuoteUpdate;
 use App\Mail\Frontend\UserQuoteUpdate;
+use Carbon\Carbon;
 
 /**
  * Class DashboardController.
@@ -111,7 +112,7 @@ class DashboardController extends Controller
                 'home_phone' => $home_phone,
                 'mobile_phone' => $mobile_phone,
                 'image' => $imageName,
-                
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -166,7 +167,8 @@ class DashboardController extends Controller
                 'organizer_email' => $request->email,
                 'organizer_phone' => $request->phone,
                 'url' => $request->url,
-                'image' => $imageName
+                'image' => $imageName,
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -292,7 +294,8 @@ class DashboardController extends Controller
         $quote = DB::table('quotes') ->where('id', request('hidden_id'))->update(
             [
                 'quote' => $request->quote,
-                'status' => 'Pending'
+                'status' => 'Pending',
+                'updated_at' => Carbon::now(),
             ]
         );
 
@@ -367,7 +370,8 @@ class DashboardController extends Controller
                 'country' => $request->country,
                 'our_banner_url' => $request->our_banner_url,
                 'image' => $imageName,
-                'status' => 'Pending'
+                'status' => 'Pending',
+                'updated_at' => Carbon::now(),
             ]
         );
 

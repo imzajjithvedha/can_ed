@@ -415,7 +415,7 @@
                                 
                                 <div class="mt-5 text-center">
                                     <input type="hidden" class="form-control" value="{{ $user->id }}" name="hidden_id">
-                                    <button type="submit" class="btn rounded-pill text-light px-5 py-2" style="background-color: #94ca60;">Update information</button>
+                                    <button type="submit" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Update information</button>
                                 </div>
                             </form>
                         </div>
@@ -435,11 +435,11 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Your information updated successfully.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>

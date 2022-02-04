@@ -55,13 +55,13 @@
                     </div>
 
                     <div class="row mb-4 justify-content-center">
-                        <div class="col-md-6 text-center">
+                        <div class="col-md-8 text-center">
                             <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                         </div>
                     </div>
 
-                    <div>
-                        <button type="submit" class="btn btn-primary w-100" id="submit_btn" disabled>Send message</button>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-25" id="submit_btn" disabled>Send message</button>
                     </div>
                 </form>
             </div>
@@ -76,11 +76,12 @@
         <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Thank you very much for your feedback about our website. We will consider your suggestion and do the changes as soon as possible.</h4>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal"  style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                     </div>
                 </div>
             </div>

@@ -10,12 +10,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <strong>Programs&nbsp;</strong>
-
-                    <a href="{{ route('admin.programs.create_program') }}" class="btn btn-primary pull-right ml-4">Create new</a>
-
-                    <a href="{{ route('admin.programs.import_programs') }}" class="btn btn-primary pull-right ml-4">Import programs</a>
-                   
+                    <strong>Programs</strong>
                 </div>
 
                 <div class="card-body">
@@ -34,6 +29,14 @@
                     </div>
 
                     <hr class="my-5">
+
+                    <div class="text-end mb-4">
+                        <a href="{{ route('admin.programs.create_program') }}" class="btn btn-primary pull-right me-4">Create new</a>
+
+                        <a href="{{ route('admin.programs.import_programs') }}" class="btn btn-primary pull-right">Import programs</a>
+                    </div>
+
+                    
 
                     <table class="table table-striped table-bordered" id="programs-table" style="width:100%">
                         <thead>

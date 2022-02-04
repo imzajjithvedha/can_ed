@@ -10,7 +10,8 @@ use Excel;
 use App\Models\Programs; 
 use App\Imports\ProgramsImport;
 use App\Models\DegreeLevels;
-use App\Models\Pages; 
+use App\Models\Pages;
+use Carbon\Carbon;
 
 /**
  * Class ProgramsController.
@@ -127,7 +128,8 @@ class ProgramsController extends Controller
                 'name' => $request->title,
                 'degree_level' => $degree_level,
                 'description' => $request->description,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    
@@ -163,6 +165,7 @@ class ProgramsController extends Controller
         $paragraph = DB::table('pages') ->where('name', 'programs')->update(
             [
                 'description' => $request->description,
+                'updated_at' => Carbon::now(),
             ]
         );
 

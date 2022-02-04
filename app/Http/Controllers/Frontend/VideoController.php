@@ -15,7 +15,7 @@ class VideoController extends Controller
      */
     public function index()
     {
-        $videos = Videos::where('status', 'Approved')->get();
+        $videos = Videos::where('status', 'Approved')->orderBy('title', 'asc')->get();
 
         return view('frontend.video.videos', ['videos' => $videos]);
     }

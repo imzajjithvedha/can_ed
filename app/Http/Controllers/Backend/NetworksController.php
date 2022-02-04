@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\WorldWideNetwork; 
+use App\Models\WorldWideNetwork;
+use Carbon\Carbon;
 
 /**
  * Class NetworksController.
@@ -129,7 +130,8 @@ class NetworksController extends Controller
                 'country' => $request->country,
                 'our_banner_url' => $request->our_banner_url,
                 'image' => $imageName,
-                'status' => $request->status
+                'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

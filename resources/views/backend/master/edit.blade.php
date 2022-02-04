@@ -9,10 +9,18 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
-                            <div class="form-group">
-                                <label class="form-label">School name</label>
-                                <input type="text" class="form-control" value="{{ App\Models\Schools::where('id', $master->school_id)->first()->name }}" disabled>
-                            </div>
+                            @if($master->school_id != null)
+                                <div class="form-group">
+                                    <label class="form-label">School name</label>
+                                    <input type="text" class="form-control" value="{{ App\Models\Schools::where('id', $master->school_id)->first()->name }}" disabled>
+                                </div>
+                            @else
+                                <div class="form-group">
+                                    <label class="form-label">School name</label>
+                                    <input type="text" class="form-control" value="-" disabled>
+                                </div>
+
+                            @endif
 
                             <div class="form-group">
                                 <label class="form-label">First name</label>
@@ -52,7 +60,7 @@
                             <div class="form-group">
                                 <label class="form-label">Messaging apps</label>
                                 @foreach(json_decode($master->messaging_app) as $messaging_app)
-                                    <input type="text" class="form-control" value="{{ $messaging_app }}" disabled>
+                                    <input type="text" class="form-control mb-2" value="{{ $messaging_app }}" disabled>
                                 @endforeach
                             </div>
 
@@ -82,7 +90,7 @@
                                     <input type="text" class="form-control" disabled>
                                 @else
                                     @foreach(json_decode($master->status) as $status)
-                                        <input type="text" class="form-control" value="{{ $status }}" disabled>
+                                        <input type="text" class="form-control mb-2" value="{{ $status }}" disabled>
                                     @endforeach
                                 @endif
                             </div>
@@ -90,11 +98,6 @@
                             <div class="form-group">
                                 <label class="form-label">Mailing address</label>
                                 <input type="text" class="form-control" value="{{ $master->mailing_address }}" disabled>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label">Message</label>
-                                <input type="text" class="form-control" value="{{ $master->message }}" disabled>
                             </div>
 
                             <div class="form-group">
@@ -140,14 +143,14 @@
                             <div class="form-group">
                                 <label class="form-label">Tuition funding source</label>
                                 @foreach(json_decode($master->funding_source) as $student_type)
-                                    <input type="text" class="form-control" value="{{ $student_type }}" disabled>
+                                    <input type="text" class="form-control mb-2" value="{{ $student_type }}" disabled>
                                 @endforeach
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Tests</label>
                                 @foreach(json_decode($master->tests) as $test)
-                                    <input type="text" class="form-control" value="{{ $test->test }} - {{ $test->mark }}" disabled>
+                                    <input type="text" class="form-control mb-2" value="{{ $test->test }} - {{ $test->mark }}" disabled>
                                 @endforeach
                             </div>
 

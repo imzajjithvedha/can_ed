@@ -11,6 +11,7 @@ use App\Models\FavoriteBusinesses;
 use App\Mail\Frontend\BusinessUpdate;
 use App\Mail\Frontend\UserBusinessUpdate;
 use Illuminate\Support\Facades\Mail;
+use Carbon\Carbon;
 /**
  * Class UserBusinessController.
  */
@@ -87,6 +88,7 @@ class UserBusinessController extends Controller
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
                 'status' => 'Pending',
+                'updated_at' => Carbon::now(),
             ]
         );
 

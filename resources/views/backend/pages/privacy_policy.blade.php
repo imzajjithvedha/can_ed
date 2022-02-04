@@ -37,7 +37,7 @@
 
                             <input type="hidden" class="form-control" name="old_image" value="{{$privacy->image}}">
 
-                            <div class="form-group mt-5">
+                            <div class="form-group mt-3">
                                 <label for="image" class="form-label">Image</label>
                                 <input type="file" class="form-control" id="inputGroupFile02" name="new_image">
                             </div>

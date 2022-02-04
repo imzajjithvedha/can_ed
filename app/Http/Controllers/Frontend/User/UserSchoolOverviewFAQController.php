@@ -13,6 +13,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolScholarships;
 use App\Models\SchoolOverviewFAQ;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolOverviewFAQController.
@@ -100,6 +101,7 @@ class UserSchoolOverviewFAQController extends Controller
                 'question' => $request->question,
                 'answer' => $request->answer,
                 'orders' => $request->orders,
+                'updated_at' => Carbon::now(),
             ]
         );
         

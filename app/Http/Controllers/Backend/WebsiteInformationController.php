@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use DB;
-use App\Models\WebsiteInformation; 
+use App\Models\WebsiteInformation;
+use Carbon\Carbon;
 
 /**
  * Class WebsiteInformationController.
@@ -63,6 +64,7 @@ class WebsiteInformationController extends Controller
                 'recent_articles_description' => $request->recent_articles_description,
                 'student_services_description' => $request->student_services_description,
                 'advanced_search_description' => $request->advanced_search_description,
+                'updated_at' => Carbon::now(),
             ]
         );
 

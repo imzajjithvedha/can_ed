@@ -44,7 +44,7 @@
                                 </div>
                                 
                                 <div class="text-center">
-                                    <button type="button" class="btn rounded-pill text-light px-5 py-2" data-bs-toggle="modal" data-bs-target="#confirmClose" style="background-color: red;">Delete my school</button>
+                                    <button type="button" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Delete my school</button>
                                 </div>
                             </div>
                         </div>

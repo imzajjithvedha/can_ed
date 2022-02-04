@@ -61,7 +61,7 @@ class OnlineBusinessDirectoryController extends Controller
 
     public function directorySearchFunction($name, $city, $province, $industry)
     {
-        $directory = OnlineBusinessDirectory::where('status', 'Approved');
+        $directory = OnlineBusinessDirectory::where('status', 'Approved')->orderBy('name', 'asc');
 
         if($name != 'name'){
             $directory->where('name', 'like', '%' .  $name . '%');

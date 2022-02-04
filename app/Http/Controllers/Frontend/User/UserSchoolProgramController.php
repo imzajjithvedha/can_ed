@@ -13,6 +13,7 @@ use App\Models\SchoolTypes;
 use App\Models\Programs;
 use App\Models\SchoolPrograms;
 use App\Models\DegreeLevels;
+use Carbon\Carbon;
 
 /**
  * Class UserSchoolProgramController.
@@ -128,7 +129,8 @@ class UserSchoolProgramController extends Controller
             [
                 'degree_level' => $request->degree_level,
                 'program_id' => $request->title,
-                'sub_title' => $request->sub_title
+                'sub_title' => $request->sub_title,
+                'updated_at' => Carbon::now(),
             ]
         );
         
@@ -151,6 +153,7 @@ class UserSchoolProgramController extends Controller
             [
                 'programs_title_1' => $request->title_1,
                 'programs_page_paragraph' => $request->paragraph,
+                'updated_at' => Carbon::now(),
             ]
         );
         

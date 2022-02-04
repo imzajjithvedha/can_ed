@@ -74,9 +74,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn text-white" id="submit_btn" disabled>Submit</button>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
+                        <button type="submit" class="btn text-white w-25" id="submit_btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;" disabled>Submit</button>
                     </div>
                 </div>
             </div>
@@ -93,11 +94,11 @@
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
 
-                    <div class="modal-body" style="padding: 5rem 1rem;">
+                    <div class="modal-body" style="padding: 3rem 1rem;">
                         <h4 class="mb-0 text-center">Thank you for your quote. It will appear here once approved</h4>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ route('frontend.quotes') }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
+                    <div class="modal-footer justify-content-center">
+                        <a href="{{ route('frontend.quotes') }}" class="btn  text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</a>
                     </div>
                 </div>
             </div>

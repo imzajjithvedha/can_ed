@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use DataTables;
 use DB;
 use App\Models\Quotes;
-use App\Models\Auth\User; 
+use App\Models\Auth\User;
+use Carbon\Carbon; 
 
 /**
  * Class QuotesController.
@@ -101,6 +102,7 @@ class QuotesController extends Controller
             [
                 'quote' => $request->quote,
                 'status' => $request->status,
+                'updated_at' => Carbon::now(),
             ]
         );
    

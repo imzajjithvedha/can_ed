@@ -63,7 +63,7 @@
                                 </div>
 
                                 <div class="mt-3 text-center">
-                                    <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2" style="background-color: #94ca60;">Update password</button>
+                                    <button type="submit" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Update password</button>
                                 </div>
                             </form>
                         </div>

@@ -52,6 +52,7 @@ class EventController extends Controller
         $event->url = $request->url;
         $event->image = $imageName;
         $event->featured = 'No';
+        $event->advertised = 'No';
 
         $event->save();
 

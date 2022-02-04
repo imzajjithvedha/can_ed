@@ -29,6 +29,7 @@ class CreateEventsTable extends Migration
             $table->text('url')->nullable();
             $table->text('image')->nullable();
             $table->text('featured');
+            $table->text('advertised');
             $table->timestamps();
         });
     }

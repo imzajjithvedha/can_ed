@@ -64,6 +64,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="url" class="form-label">Link</label>
+                                <input type="text" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" value="{{ $business->url }}">
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="facebook" class="form-label">Facebook</label>
                                 <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $business->facebook }}">
                             </div>
@@ -120,14 +125,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="featured" class="form-label">Do you want to show this business in the homepage? *</label>
-                                <select class="form-control" name="featured" id="featured" required>
-                                    <option value="Yes" {{ $business->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
-                                    <option value="No" {{ $business->featured == 'No' ? "selected" : "" }}>No</option>                               
-                                </select>
-                            </div>
-
-                            <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
                                     <option value="Approved" {{ $business->status == 'Approved' ? "selected" : "" }}>Approve</option>   
@@ -136,10 +133,26 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="featured" class="form-label">Do you want to show this business in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured" required>
+                                    <option value="Yes" {{ $business->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $business->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="status" class="form-label">Do you want to show this business under student services? *</label>
                                 <select class="form-control" name="student_service" id="student-service" required>
                                     <option value="Yes" {{ $business->student_service == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $business->student_service == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="advertised" class="form-label">Do you want to redirect this event to advertiser site?*</label>
+                                <select class="form-control" name="advertised" id="advertised" required>
+                                    <option value="Yes" {{ $business->advertised == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $business->advertised == 'No' ? "selected" : "" }}>No</option>                               
                                 </select>
                             </div>
 

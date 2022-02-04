@@ -24,9 +24,11 @@
                                 <th scope="col">Contact name</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Phone</th>
-                                <th scope="col">Featured</th>
                                 <th scope="col">Package</th>
                                 <th scope="col">Status</th>
+                                <th scope="col">Featured</th>
+                                <th scope="col">Student service</th>
+                                <th scope="col">Advertised</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -84,9 +86,11 @@
                 {data: 'contact_name', name: 'contact_name'},
                 {data: 'email', name: 'email'},
                 {data: 'phone', name: 'phone'},
-                {data: 'featured', name: 'featured'},
                 {data: 'package', name: 'package'},
                 {data: 'status', name: 'status'},
+                {data: 'featured', name: 'featured'},
+                {data: 'student_service', name: 'student_service'},
+                {data: 'advertised', name: 'advertised'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

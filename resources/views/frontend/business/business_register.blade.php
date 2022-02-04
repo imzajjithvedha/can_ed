@@ -128,9 +128,13 @@
                         <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                     </div>
 
+                    <div class="mb-3">
+                        <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link">
+                    </div>
+
                     <div class="mb-3 basic-image">
                         <label for="image" class="form-label">Basic business image *</label>
-                        <input class="form-control" type="file" id="basic-image" name="image">
+                        <input class="form-control" type="file" id="basic-image" name="single_image">
                     </div>
 
                     <div class="mb-3 d-none premium-images">
@@ -219,6 +223,7 @@
                         <h4 class="mb-0 text-center">You must be logged in to register a business</h4>
                     </div>
                     <div class="modal-footer justify-content-center">
+                        <a href="{{ URL::previous() }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
                         <a href="{{ route('frontend.auth.register') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Create a new account</a>
                         <a href="{{ route('frontend.auth.login') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Log in</a>
                     </div>

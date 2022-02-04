@@ -31,9 +31,11 @@ class CreateBusinessesTable extends Migration
             $table->text('you_tube')->nullable();
             $table->text('linked_in')->nullable();
             $table->text('package');
+            $table->text('url')->nullable();
             $table->text('status');
             $table->text('featured');
             $table->text('student_service');
+            $table->text('advertised');
             $table->timestamps();
         });
     }

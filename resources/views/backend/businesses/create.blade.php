@@ -125,6 +125,9 @@
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" required>
                             </div>
+                            <div class="mb-3">
+                                <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" required>
+                            </div>
 
                             <div class="mb-3 basic-image">
                                 <label for="image" class="form-label">Basic business image *</label>
@@ -175,6 +178,15 @@
                                     <option value="No">No</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <select class="form-control" id="advertised" name="advertised" placeholder="Advertised? *" required>
+                                    <option value="" selected disabled hidden>Do you want to redirect this business to advertiser site?*</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
                         </div>
                     </div>
                 </div>

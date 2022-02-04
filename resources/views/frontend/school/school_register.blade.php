@@ -491,6 +491,7 @@
                         <h4 class="mb-0 text-center">You must be logged in to register a school</h4>
                     </div>
                     <div class="modal-footer justify-content-center">
+                        <a href="{{ URL::previous() }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Back</a>
                         <a href="{{ route('frontend.auth.register') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Create a new account</a>
                         <a href="{{ route('frontend.auth.login') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Log in</a>
                     </div>

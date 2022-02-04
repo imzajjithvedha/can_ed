@@ -128,26 +128,51 @@
             
             <div class="row mt-4">
                 @foreach($featured_businesses as $featured_business)
-                    <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_business', $featured_business->id) }}" class="text-decoration-none">
-                            <div class="card rounded-0">
-                                @if($featured_business->image != null)
-                                    @foreach(json_decode($featured_business->image) as $index => $im)
+                    @if($featured_business->advertised == 'Yes')
+                        <div class="col-3 mb-4">
+                            <a href="{{ $featured_business->url }}" class="text-decoration-none" target="_blank">
+                                <div class="card rounded-0">
+                                    @if($featured_business->image != null)
+                                        @foreach(json_decode($featured_business->image) as $index => $im)
 
-                                        @if ($index == 0)
-                                            <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
-                                        @endif
-                                        
-                                    @endforeach
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                @endif
-                                <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
+                                            @if ($index == 0)
+                                                <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            
+                                        @endforeach
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @else
+                        <div class="col-3 mb-4">
+                            <a href="{{ route('frontend.single_business', $featured_business->id) }}" class="text-decoration-none">
+                                <div class="card rounded-0">
+                                    @if($featured_business->image != null)
+                                        @foreach(json_decode($featured_business->image) as $index => $im)
+
+                                            @if ($index == 0)
+                                                <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 10rem; object-fit: cover;">
+                                            @endif
+                                            
+                                        @endforeach
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
+
+
                 @endforeach
             </div>
         </div>
@@ -186,21 +211,38 @@
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_events_description }}</p>
 
             <div class="row mt-4">
-                @foreach($featured_events as $featured_events)
-                    <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_event', $featured_events->id) }}" class="text-decoration-none">
-                            <div class="card rounded-0">
-                                @if($featured_events->image != null)
-                                    <img src="{{ url('images/events', $featured_events->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                @endif
-                                <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_events->title }}</h6>
+                @foreach($featured_events as $featured_event)
+                    @if($featured_event->advertised == 'Yes')
+                        <div class="col-3 mb-4">
+                            <a href="{{ $featured_event->url }}" class="text-decoration-none" target="_blank">
+                                <div class="card rounded-0">
+                                    @if($featured_event->image != null)
+                                        <img src="{{ url('images/events', $featured_event->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $featured_event->title }}</h6>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @else
+                        <div class="col-3 mb-4">
+                            <a href="{{ route('frontend.single_event', $featured_event->id) }}" class="text-decoration-none">
+                                <div class="card rounded-0">
+                                    @if($featured_event->image != null)
+                                        <img src="{{ url('images/events', $featured_event->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                    @endif
+                                    <div class="card-body text-center card-padding rounded-0">
+                                        <h6 class="card-title fw-bold gray">{{ $featured_event->title }}</h6>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endif
                 @endforeach
             </div>
         </div>

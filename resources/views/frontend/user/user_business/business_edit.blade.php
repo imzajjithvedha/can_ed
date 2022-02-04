@@ -68,44 +68,50 @@
                                     <textarea name="description" class="form-control" rows="7" placeholder="Business description *" value="{{ $business->description }}" id="description" required>{{ $business->description }}</textarea>
                                 </div>
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Contact name *</label>
+                                    <label for="contact_name" class="form-label">Contact name *</label>
                                     <input type="text" class="form-control" id="contact_name" aria-describedby="contact_name" name="contact_name" placeholder="Contact name *" value="{{ $business->contact_name }}" required>
                                 </div>
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Business email *</label>
+                                <label for="email" class="form-label">Business email *</label>
                                     <input type="email" class="form-control" id="email" aria-describedby="email" name="email" placeholder="Business email *" value="{{ $business->email }}" required>
                                 </div>
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Business phone *</label>
+                                    <label for="phone" class="form-label">Business phone *</label>
                                     <input type="text" class="form-control" id="phone" aria-describedby="phone" name="phone" placeholder="Business phone *" value="{{ $business->phone }}" required>
                                 </div>
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Address *</label>
+                                    <label for="address" class="form-label">Address *</label>
                                     <input type="text" class="form-control" id="address" aria-describedby="address" name="address" placeholder="Address *" value="{{ $business->address }}" required>
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Facebook</label>
+                                    <label for="url" class="form-label">Link</label>
+                                    <input type="text" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" value="{{ $business->url }}">
+                                </div>
+
+
+                                <div class="mb-3">
+                                    <label for="facebook" class="form-label">Facebook</label>
                                     <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook" value="{{ $business->facebook }}">
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Twitter</label>
+                                    <label for="twitter" class="form-label">Twitter</label>
                                     <input type="url" class="form-control" id="twitter" aria-describedby="twitter" name="twitter" placeholder="Twitter" value="{{ $business->twitter }}">
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="description" class="form-label">YouTube</label>
+                                    <label for="you-tube" class="form-label">YouTube</label>
                                     <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" placeholder="YouTube" value="{{ $business->you_tube }}">
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="description" class="form-label">LinkedIn</label>
+                                    <label for="linked-in" class="form-label">LinkedIn</label>
                                     <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" placeholder="LinkedIn" value="{{ $business->linked_in }}">
                                 </div>
 
                                 <div class="mb-3">
-                                <label for="description" class="form-label">Package *</label>
+                                    <label for="package" class="form-label">Package *</label>
                                     <input type="text" class="form-control" id="package" aria-describedby="package" name="package" placeholder="Package *" value="{{ $business->package }}" disabled>
                                 </div>
 

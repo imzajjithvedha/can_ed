@@ -27,6 +27,7 @@
                                 <th scope="col">Country</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Featured</th>
+                                <th scope="col">Advertised</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>
@@ -87,6 +88,7 @@
                 {data: 'country', name: 'country'},
                 {data: 'status', name: 'status'},
                 {data: 'featured', name: 'featured'},
+                {data: 'advertised', name: 'advertised'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
             ]
         });

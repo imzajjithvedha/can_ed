@@ -62,6 +62,7 @@ class BusinessesController extends Controller
         $business->email = $request->email;
         $business->phone = $request->phone;
         $business->address = $request->address;
+        $business->url = $request->url;
         $business->image = json_encode($data);
         $business->facebook = $request->facebook;
         $business->twitter = $request->twitter;
@@ -71,6 +72,7 @@ class BusinessesController extends Controller
         $business->featured = $request->featured;
         $business->status = 'Approved';
         $business->student_service = $request->student_service;
+        $business->advertised = $request->advertised;
 
         $business->save();
 
@@ -93,6 +95,15 @@ class BusinessesController extends Controller
                     return $button;
                 })
 
+                ->editColumn('student_service', function($data){
+                    if($data->student_service == 'Yes'){
+                        $student_service = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $student_service = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $student_service;
+                })
+
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
                         $status = '<span class="badge bg-success">Approved</span>';
@@ -101,8 +112,26 @@ class BusinessesController extends Controller
                     }   
                     return $status;
                 })
+
+                ->editColumn('featured', function($data){
+                    if($data->featured == 'Yes'){
+                        $featured = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $featured;
+                })
+
+                ->editColumn('advertised', function($data){
+                    if($data->advertised == 'Yes'){
+                        $advertised = '<span class="badge bg-success">Yes</span>';
+                    }else{
+                        $advertised = '<span class="badge bg-warning text-dark">No</span>';
+                    }   
+                    return $advertised;
+                })
                 
-                ->rawColumns(['action','status', 'category'])
+                ->rawColumns(['action','status', 'category', 'advertised', 'featured', 'student_service'])
                 ->make(true);
         }
         
@@ -161,6 +190,7 @@ class BusinessesController extends Controller
                 'email' => $request->email,
                 'phone' => $request->phone,
                 'address' => $request->address,
+                'url' => $request->url,
                 'facebook' => $request->facebook,
                 'twitter' => $request->twitter,
                 'you_tube' => $request->you_tube,
@@ -168,6 +198,7 @@ class BusinessesController extends Controller
                 'status' => $request->status,
                 'featured' => $request->featured,
                 'student_service' => $request->student_service,
+                'advertised' => $request->advertised,
             ]
         );
    

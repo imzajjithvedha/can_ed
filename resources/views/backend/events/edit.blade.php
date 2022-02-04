@@ -356,10 +356,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="featured-article" class="form-label">Do you want to show this event in the homepage? *</label>
-                                <select class="form-control" name="featured" id="featured-article" required>
+                                <label for="featured" class="form-label">Do you want to show this event in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured" required>
                                     <option value="Yes" {{ $event->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $event->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="advertised" class="form-label">Do you want to redirect this event to advertiser site?*</label>
+                                <select class="form-control" name="advertised" id="advertised" required>
+                                    <option value="Yes" {{ $event->advertised == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $event->advertised == 'No' ? "selected" : "" }}>No</option>                               
                                 </select>
                             </div>
 

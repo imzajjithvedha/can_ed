@@ -228,7 +228,9 @@ class BusinessController extends Controller
             'email' => $request->email,
             'message' => $request->message,
             'business_id' => $request->business_id,
+            'email_copy' => $request->email_copy,
         ];
+
 
         Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SingleBusinessAdmin($details));
 

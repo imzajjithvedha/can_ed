@@ -217,6 +217,13 @@
                             <textarea class="form-control" rows="7" placeholder="Your message *" name="message" required></textarea>
                         </div>
 
+                        <div class="mb-4 form-check">
+                            <input class="form-check-input" type="checkbox" name="email_copy">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Send me a copy
+                            </label>
+                        </div>
+
                         <div class="row justify-content-center">
                             <div class="col-md-8 text-center">
                                 <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>

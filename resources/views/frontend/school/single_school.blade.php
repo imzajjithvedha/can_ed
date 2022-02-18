@@ -1376,7 +1376,7 @@
                                 </select>
                             </div>
 
-                            <div class="col-12 mb-3">
+                            <div class="col-12 mb-4">
                                 <label for="visa" class="form-label">Do you already have a study permit (a student visa) from a Canadian embassy? *</label>
                                 <select name="visa" id="visa" class="form-select form-control" required>
                                     <option value="" selected disabled hidden>Select</option>
@@ -1385,8 +1385,15 @@
                                 </select>
                             </div>
 
+                            <div class="col-12 form-check" style="padding-left: 2.25rem;">
+                                <input class="form-check-input" type="checkbox" name="email_copy">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Send me a copy
+                                </label>
+                            </div>
 
-                            <div class="col-12 mt-4 mb-5 gray" style="font-size: 0.9rem">
+
+                            <div class="col-12 mt-4 mb-3 gray" style="font-size: 0.9rem">
                                 <label class="form-label">By submitting this form, I agree to receiving emails about educational services from 4R Business Services, Study in Canada, and its partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none" target="_blank" style="color: #b1040e">Privacy policy</a>
                             </div>
 
@@ -3894,16 +3901,8 @@
 
     <script>
         function checked() {
-            if($("#exampleCheck1").is(':checked')) {
-                $('#submit_btn').removeAttr('disabled');
-            }
+            $('#submit_btn').removeAttr('disabled');
         };
-
-        $('#exampleCheck1').on('click', function() {
-            if(grecaptcha && grecaptcha.getResponse().length > 0){
-                $('#submit_btn').removeAttr('disabled');
-            }
-        })
     </script>
 
     <script>

@@ -174,6 +174,7 @@ class MasterApplicationController extends Controller
             'visa' => $request->visa,
             'school_id' => $request->school_id,
             'school_slug' => $request->school_slug,
+            'email_copy' => $request->email_copy,
         ];
 
         Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplication($details));
@@ -291,6 +292,7 @@ class MasterApplicationController extends Controller
             'questions' => $request->questions,
             'transfer_student' => $request->transfer_student,
             'visa' => $request->visa,
+            'email_copy' => $request->email_copy,
         ];
 
         Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplicationNormal($details));

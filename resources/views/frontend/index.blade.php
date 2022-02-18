@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Canadian schools, colleges, and universities')
+@section('title', 'Proxima Study - Your future begins here')
 
 @push('after-styles')
     <link href="{{ url('css/index.css') }}" rel="stylesheet">

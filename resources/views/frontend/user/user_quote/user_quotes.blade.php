@@ -87,7 +87,7 @@
                         <label for="quote" class="form-label">Quote *</label>
                         <textarea name="quote" class="form-control" id="quote" rows="7" value="" required></textarea>
 
-                        <p class="mt-3 text-info">Note: If you want to update the already approved quote then we have to approve again. Please consider this before update your quote.</p>
+                        <p class="mt-3 text-info">Note: Updates will have to be approved before they go live</p>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <input type="hidden" name="hidden_id" id="hidden_id" value="">

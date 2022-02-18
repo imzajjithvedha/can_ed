@@ -171,7 +171,7 @@
                 </div>
 
                 <div class="modal-body" style="padding: 2rem 1rem;">
-                    <h6 class="mb-0 text-center text-info">If you want to update the already approved business, then we have to approve again. Please consider this before update your business.</h6>
+                    <h6 class="mb-0 text-center text-info">Updates will have to be approved before they go live</h6>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>

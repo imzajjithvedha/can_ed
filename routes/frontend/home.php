@@ -26,6 +26,7 @@ use App\Http\Controllers\Frontend\AdvancedSearchController;
 use App\Http\Controllers\Frontend\MasterApplicationController;
 use App\Http\Controllers\Frontend\CookiesController;
 use App\Http\Controllers\Frontend\TermsOfUseController;
+use App\Http\Controllers\Frontend\ScholarshipController;
 
 
 
@@ -135,6 +136,12 @@ Route::post('contact/send', [ContactController::class, 'send'])->name('contact_s
 
 Route::get('programs', [ProgramController::class, 'index'])->name('programs');
 Route::post('programs/request', [ProgramController::class, 'programRequest'])->name('program_request');
+
+
+
+Route::get('scholarships', [ScholarshipController::class, 'index'])->name('scholarships');
+Route::post('scholarships/search-results', [ScholarshipController::class, 'scholarshipSearch'])->name('scholarship_search');
+Route::get('scholarships-search-results/{keyword}',[ScholarshipController::class,'scholarshipSearchFunction'])->name('scholarship_search_function');
 
 
 

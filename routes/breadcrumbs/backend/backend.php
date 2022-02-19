@@ -233,6 +233,10 @@ Breadcrumbs::for('admin.schools.index', function ($trail) {
     $trail->push('Schools', route('admin.schools.index'));
 });
 
+Breadcrumbs::for('admin.schools.import_schools', function ($trail) {
+    $trail->push('Schools / Import', route('admin.schools.import_schools'));
+});
+
 Breadcrumbs::for('admin.schools.create_school', function ($trail) {
     $trail->push('Schools / Create', route('admin.schools.create_school'));
 });

@@ -226,6 +226,13 @@
                             School types
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/schools.import_schools'))}}" href="{{ route('admin.schools.import_schools') }}">
+                            Schools bulk upload
+                        </a>
+                    </li>
+
                 </ul>
             </li>
 

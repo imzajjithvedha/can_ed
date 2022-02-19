@@ -41,7 +41,7 @@ class CreateSchoolsTable extends Migration
             $table->text('main_button_link')->nullable();
             $table->text('other_button_title')->nullable();
             $table->text('other_button_link')->nullable();
-            $table->text('category')->nullable();
+            // $table->text('category')->nullable();
 
 
 

@@ -9,6 +9,8 @@ use DB;
 use App\Models\Schools; 
 use App\Models\Auth\User; 
 use Carbon\Carbon;
+use Excel;
+use App\Imports\SchoolsImport;
 
 /**
  * Class SchoolsController.
@@ -89,4 +91,19 @@ class SchoolsController extends Controller
     {
         $school = Schools::where('id', $id)->delete();
     }
+
+
+
+    public function importSchools()
+    {
+        return view('backend.schools.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new SchoolsImport, $request->file);
+
+        return redirect()->route('admin.schools.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
 }

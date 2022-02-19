@@ -201,6 +201,10 @@ Route::get('schools/get-schools', [SchoolsController::class, 'getSchools'])->nam
 Route::get('schools/delete-school/{id}', [SchoolsController::class, 'deleteSchool'])->name('schools.delete_school');
 
 
+Route::get('schools/import-school', [SchoolsController::class, 'importSchools'])->name('schools.import_schools');
+Route::post('schools/import', [SchoolsController::class, 'import'])->name('schools.import');
+
+
 //School Information
 Route::get('schools/edit-school/{id}/information', [SchoolsInformationController::class, 'schoolInformation'])->name('schools.school_information');
 Route::post('schools/edit-school/information/update', [SchoolsInformationController::class, 'schoolInformationUpdate'])->name('schools.school_information_update');

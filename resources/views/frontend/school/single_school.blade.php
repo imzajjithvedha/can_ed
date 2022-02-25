@@ -1661,7 +1661,7 @@
                                 <a href="#tab-scholarships" class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</a>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <a href="#tab-contact" class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                                <a href="#tab-contact" class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contacts</a>
                             </li>
                         </ul>
                         

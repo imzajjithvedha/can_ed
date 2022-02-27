@@ -314,13 +314,17 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-6 text-center">
-                        <a href="{{ $single_scholarship->link }}" type="button" class="btn btn-primary py-2 w-50 text-white" id="apply_btn" target="_blank">Apply now</a>
-                    </div>
+                    @if($single_scholarship->link != null)
+                        <div class="col-6 text-center">
+                            <a href="{{ $single_scholarship->link }}" type="button" class="btn btn-primary py-2 w-50 text-white" id="apply_btn" target="_blank">Apply now</a>
+                        </div>
+                    @endif
 
-                    <div class="col-6 text-center">
-                        <a href="{{ $single_scholarship->more_info }}" type="button" class="btn btn-primary py-2 w-50 text-white" id="more_info_btn" target="_blank">More info</a>
-                    </div>
+                    @if($single_scholarship->more_info != null)
+                        <div class="col-6 text-center">
+                            <a href="{{ $single_scholarship->more_info }}" type="button" class="btn btn-primary py-2 w-50 text-white" id="more_info_btn" target="_blank">More info</a>
+                        </div>
+                    @endif
                 </div>
 
             </div>

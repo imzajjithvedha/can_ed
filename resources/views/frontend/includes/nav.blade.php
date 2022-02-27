@@ -96,7 +96,7 @@
                 <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_degree_levels') }}">Schools</a>
               </li>
               <li class="nav-item border-end border-2">
-                <a class="nav-link text-white" href="{{ route('frontend.programs') }}">Programs</a>
+                <a class="nav-link text-white" href="{{ route('frontend.scholarships') }}">Scholarships</a>
               </li>
               <li class="nav-item border-end border-2">
                 <a class="nav-link text-white" href="{{ route('frontend.business_categories') }}">Businesses</a>

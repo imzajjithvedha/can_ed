@@ -23,8 +23,8 @@
                 <a href="{{ route('frontend.events') }}">Events</a><br>
                 <a href="{{ route('frontend.master_application_normal') }}">Master application</a><br>
                 <a href="{{ route('frontend.online_business_directory') }}">Online business directory</a><br>
+                <a href="{{ route('frontend.programs') }}">Programs</a><br>
                 <a href="{{ route('frontend.quotes') }}">Quotes</a><br>
-                <a href="{{ route('frontend.scholarships') }}">Scholarships</a><br>
                 <a href="{{ route('frontend.videos') }}">Videos</a><br>
                 <a href="{{ route('frontend.world_wide_network') }}">World wide networks</a><br>
             </div>

@@ -14,6 +14,8 @@
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-events' ? 'active' : null }} futura" id="nav-favorite-events-tab" href="{{ route('frontend.user.favorite_events') }}" type="button" role="tab" aria-controls="nav-favorite-events" aria-selected="false">Favorite events</a>
 
+        <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-scholarships' ? 'active' : null }} futura" id="nav-favorite-scholarships-tab" href="{{ route('frontend.user.favorite_scholarships') }}" type="button" role="tab" aria-controls="nav-favorite-scholarships" aria-selected="false">Favorite scholarships</a>
+
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'favorite-schools' ? 'active' : null }} futura" id="nav-favorite-schools-tab" href="{{ route('frontend.user.favorite_schools') }}" type="button" role="tab" aria-controls="nav-favorite-schools" aria-selected="false">Favorite schools</a>
 
         <a class="nav-link bg-white border-0 ps-5 w-100 {{ Request::segment(1) == 'user-events' ? 'active' : null }} futura" id="nav-events-tab" href="{{ route('frontend.user.user_events') }}" type="button" role="tab" aria-controls="nav-events" aria-selected="false">My events</a>
@@ -63,6 +65,8 @@
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships</a>
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'school-scholarships-faq' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.school_scholarships_faq') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Scholarships FAQ</a>
+
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'open-days' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.open_days') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Open days</a>
 
         <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'school-settings' ? 'active' : null }} futura" id="nav-settings-tab" href="{{ route('frontend.user.school_settings') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">School settings</a>
 

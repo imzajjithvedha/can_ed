@@ -163,6 +163,11 @@ table {
     border: none;
 }
 
+#more_info_btn {
+    background-image: linear-gradient(to bottom, #CF0411, #660000);
+    border: none;
+}
+
 #overview .table thead th {
     border: none!important;
     background-color: #01468f;
@@ -287,4 +292,9 @@ table {
 }
 .datetimepicker.is-datetimepicker-default .datetimepicker-container:before {
     display: none!important;
+}
+
+
+.pagination {
+    justify-content: center;
 }

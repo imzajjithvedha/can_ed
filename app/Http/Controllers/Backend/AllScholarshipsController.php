@@ -53,15 +53,18 @@ class AllScholarshipsController extends Controller
         $scholarship->amount = $request->amount;
         $scholarship->school_id = $request->school;
         $scholarship->eligibility = json_encode($request->eligibility);
+        $scholarship->province = $request->province;
         $scholarship->award = $request->award;
         $scholarship->availability = $request->availability;
         $scholarship->level_of_study = $request->level_of_study;
         $scholarship->action = $request->action;
+        $scholarship->duration = $request->duration;
         $scholarship->date_posted = $request->date_posted;
         $scholarship->expiry_date = $request->expiry_date;
         $scholarship->deadline = $request->deadline;
         $scholarship->image = $featured_image;
         $scholarship->link = $request->link;
+        $scholarship->more_info = $request->more_info;
         $scholarship->featured = $request->featured;
 
         $scholarship->save();
@@ -127,13 +130,16 @@ class AllScholarshipsController extends Controller
                 'eligibility' => json_encode($request->eligibility),
                 'award' => $request->award,
                 'availability' => $request->availability,
+                'province' => $request->province,
                 'level_of_study' => $request->level_of_study,
                 'action' => $request->action,
+                'duration' => $request->duration,
                 'date_posted' => $request->date_posted,
                 'expiry_date' => $request->expiry_date,
                 'deadline' => $request->deadline,
                 'image' => $featured_image,
                 'link' => $request->link,
+                'more_info' => $request->more_info,
                 'featured' => $request->featured,
                 'updated_at' => Carbon::now(),
             ]

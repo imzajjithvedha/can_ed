@@ -15,6 +15,8 @@ use App\Models\FavoriteBusinesses;
 use App\Models\Auth\User;
 use App\Models\FavoriteSchools;
 use App\Models\FavoriteEvents;
+use App\Models\FavoriteScholarships;
+use App\Models\SchoolScholarships;
 use App\Models\Schools;
 use App\Models\Programs;
 use App\Mail\Frontend\EventUpdate;
@@ -49,12 +51,14 @@ class DashboardController extends Controller
 
         $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
+        $scholarships = FavoriteScholarships::where('user_id', $user_id)->count();
+
         $networks = WorldWideNetwork::where('user_id', $user_id)->count();
 
         $suggested_programs = Programs::where('user_id', $user_id)->count();
 
 
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools, 'suggested_programs' => $suggested_programs]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools, 'scholarships' => $scholarships, 'suggested_programs' => $suggested_programs]);
     }
 
     
@@ -265,6 +269,26 @@ class DashboardController extends Controller
 
         return back();
     }
+
+
+     // favorite scholarships
+     public function favoriteScholarships()
+     {
+         $user_id = auth()->user()->id;
+ 
+         $favorite = FavoriteScholarships::where('user_id', $user_id)->get();
+ 
+         $scholarships = SchoolScholarships::orderBy('updated_at', 'DESC')->get();
+ 
+         return view('frontend.user.favorite_scholarships', ['favorite' => $favorite, 'scholarships' => $scholarships]);
+     }
+ 
+     public function favoriteScholarshipDelete($id)
+     {
+         $favorite = FavoriteScholarships::where('scholarship_id', $id)->delete();
+ 
+         return back();
+     }
 
 
 

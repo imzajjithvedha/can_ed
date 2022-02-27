@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class SchoolScholarships extends Model
 {
-    protected $fillable = ['user_id', 'school_id', 'name', 'summary', 'eligibility', 'award', 'action', 'deadline', 'availability', 'level_of_study', 'link', 'provider', 'amount', 'date_posted', 'expiry_date',];
+    protected $fillable = ['user_id', 'school_id', 'name', 'summary', 'eligibility', 'province', 'award', 'action', 'duration', 'deadline', 'availability', 'level_of_study', 'link', 'more_info', 'provider', 'amount', 'date_posted', 'expiry_date',];
 }

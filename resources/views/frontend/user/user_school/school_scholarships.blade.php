@@ -242,8 +242,24 @@
                         </div>
 
                         <div class="mb-3">
+                            <select name="province" id="province" class="form-control" required>
+                                <option value="" selected disabled>Province *</option>
+                                <option value="Alberta">Alberta</option>
+                                <option value="British Columbia">British Columbia</option>
+                                <option value="Manitoba">Manitoba</option>
+                                <option value="New Brunswick">New Brunswick</option>
+                                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                <option value="Nova Scotia">Nova Scotia</option>
+                                <option value="Ontario">Ontario</option>
+                                <option value="Prince Edward Island">Prince Edward Island</option>
+                                <option value="Quebec">Quebec</option>
+                                <option value="Saskatchewan">Saskatchewan</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
                             <select name="award" id="award" class="form-control" required>
-                                <option value="" selected disabled hidden>Awards *</option>
+                                <option value="" selected disabled>Awards *</option>
                                 <option value="Admission">Admission</option>
                                 <option value="Current students">Current students</option>
                                 <option value="Admission and current students">Admission and current students</option>
@@ -252,7 +268,7 @@
 
                         <div class="mb-3">
                             <select name="availability" id="availability" class="form-control" required>
-                                <option value="" selected disabled hidden>Availability *</option>
+                                <option value="" selected disabled>Availability *</option>
                                 <option value="All students">All students</option>
                                 <option value="International students">International students</option>
                                 <option value="Canadian students">Canadian students</option>
@@ -262,7 +278,7 @@
 
                         <div class="mb-3">
                             <select name="level_of_study" id="level_of_study" class="form-control" required>
-                                <option value="" selected disabled hidden>Level of study *</option>
+                                <option value="" selected disabled>Level of study *</option>
                                 <option value="Graduate">Graduate</option>
                                 <option value="Undergraduate">Undergraduate</option>
                                 <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
@@ -271,6 +287,14 @@
 
                         <div class="mb-3">
                             <input type="text" class="form-control" name="action" placeholder="Action *" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <select name="duration" id="duration" class="form-control" required>
+                                <option value="" selected disabled>Duration *</option>
+                                <option value="Full time">Full time</option>
+                                <option value="Part time">Part time</option>
+                            </select>
                         </div>
 
                         <div class="mb-3">
@@ -294,7 +318,11 @@
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" name="link" placeholder="Link">
+                            <input type="url" class="form-control" name="link" placeholder="Scholarship link">
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="url" class="form-control" name="more_info" placeholder="More info link">
                         </div>
 
                         <div class="mb-3">

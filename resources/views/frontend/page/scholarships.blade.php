@@ -13,10 +13,15 @@
         <form action="{{ route('frontend.scholarship_search') }}"  method="POST">
         {{csrf_field()}}
             <div class="row align-items-center">
-                <div class="col-8">
+                <div class="col-7">
                     <hr>
                 </div>
-                <div class="col-4 input-group">
+
+                <div class="col-2 input-group">
+                    <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#advancedSearch" style="font-size: 0.95rem">Advanced search</button>
+                </div>
+
+                <div class="col-3 input-group">
                     <input type="text" class="form-control text-center" id="search_scholarship" aria-describedby="search_scholarship" name="keyword">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
@@ -35,7 +40,7 @@
 
                 @foreach($scholarships as $scholarship)
                     <div class="px-3">
-                        <div class="row justify-content-between border py-3 px-2 mb-5">
+                        <div class="row justify-content-between border py-3 px-2 mb-5 align-items-center">
                             <div class="col-5">
                                 @if($scholarship->image != null)
                                     <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 15rem; object-fit: cover;">
@@ -66,6 +71,23 @@
                                     </div>
                                 </div>
 
+                                <div class="row align-items-center mb-2">
+                                    <div class="col-4">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <p class="fw-bold">School</p>
+                                            </div>
+                                            <div class="col-1 p-0">
+                                                <p class="fw-bold">:</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
+                                    </div>
+                                </div>
+
                                 <div class="row mb-2">
                                     <div class="col-4">
                                         <div class="row">
@@ -79,7 +101,7 @@
                                     </div>
 
                                     <div class="col-8">
-                                        <p class="gray">{{ $scholarship->summary }}</p>
+                                        <p class="gray" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{ $scholarship->summary }}</p>
                                     </div>
                                 </div>
 
@@ -87,7 +109,7 @@
                                     <div class="col-4">
                                         <div class="row">
                                             <div class="col-10">
-                                                <p class="fw-bold">Basic Eligibility</p>
+                                                <p class="fw-bold">Province</p>
                                             </div>
                                             <div class="col-1 p-0">
                                                 <p class="fw-bold">:</p>
@@ -96,43 +118,7 @@
                                     </div>
 
                                     <div class="col-8">
-                                        @foreach(json_decode($scholarship->eligibility) as $eligibility)
-                                            <p class="gray">{{ $eligibility }}</p>
-                                        @endforeach
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Award</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->award }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Action</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->action }}</p>
+                                        <p class="gray">{{ $scholarship->province }}</p>
                                     </div>
                                 </div>
 
@@ -157,7 +143,7 @@
                                     <div class="col-4">
                                         <div class="row">
                                             <div class="col-10">
-                                                <p class="fw-bold">Level of study</p>
+                                                <p class="fw-bold">Duration</p>
                                             </div>
                                             <div class="col-1 p-0">
                                                 <p class="fw-bold">:</p>
@@ -166,31 +152,115 @@
                                     </div>
 
                                     <div class="col-8">
-                                        <p class="gray">{{ $scholarship->level_of_study }}</p>
+                                        <p class="gray">{{ $scholarship->duration }}</p>
                                     </div>
                                 </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Availability</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->availability }}</p>
+                                <div class="row">
+                                    <div class="col-12 text-end">
+                                        <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Learn more</a>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 @endforeach
+
+                {{ $scholarships->links() }}
             @endif
         </div>
     </div>
+
+    
+
+    <!-- Modal -->
+    <form action="{{ route('frontend.scholarships_advanced_search') }}" method="POST" id="advanced-search-form">
+        {{ csrf_field() }}
+        <div class="modal fade" id="advancedSearch" tabindex="-1" aria-labelledby="advancedSearch" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Advanced scholarship search</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="school" class="form-label">School</label>
+                                <input type="text" name="school" id="school" class="form-control">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="province" class="form-label">Province</label>
+                                <select name="province" id="province" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                    <option value="Quebec">Quebec</option>
+                                    <option value="Saskatchewan">Saskatchewan</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="award" class="form-label">Award</label>
+                                <select name="award" id="award" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Admission">Admission</option>
+                                    <option value="Current students">Current students</option>
+                                    <option value="Admission and current students">Admission and current students</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="action" class="form-label">Action</label>
+                                <input type="text" class="form-control" name="action">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="provider" class="form-label">Provider</label>
+                                <input type="text" class="form-control" name="provider">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="min_amount" class="form-label">Minimum Amount</label>
+                                <input type="text" class="form-control" name="min_amount">
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="max_amount" class="form-label">Maximum Amount</label>
+                                <input type="text" class="form-control" name="max_amount">
+                            </div>
+
+                            <div class="col-12">
+                                <label for="duration" class="form-label">Duration</label>
+                                <select name="duration" id="duration" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Full time">Full time</option>
+                                    <option value="Part time">Part time</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary w-25 p-2" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn w-25 text-white p-2" id="submit_btn" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 @endsection

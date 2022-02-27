@@ -65,6 +65,17 @@
                                 <div class="col-4 mb-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $scholarships) }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ route('frontend.user.favorite_scholarships') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite scholarships</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mb-4">
+                                    <div class="card text-center">
+                                        <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $schools) }}</p>
                                         </div>
                                         <div class="card-body">

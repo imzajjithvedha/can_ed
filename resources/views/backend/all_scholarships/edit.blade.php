@@ -50,6 +50,23 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="province" class="form-label">Province *</label>
+                                <select name="province" id="province" class="form-control" required>
+                                    <option value="" selected disabled>Province *</option>
+                                    <option value="Alberta">Alberta</option>
+                                    <option value="British Columbia">British Columbia</option>
+                                    <option value="Manitoba">Manitoba</option>
+                                    <option value="New Brunswick">New Brunswick</option>
+                                    <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                                    <option value="Nova Scotia">Nova Scotia</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Prince Edward Island">Prince Edward Island</option>
+                                    <option value="Quebec">Quebec</option>
+                                    <option value="Saskatchewan">Saskatchewan</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="award" class="form-label">Award *</label>
                                 <select name="award" id="award" class="form-control" required>
                                     <option value="" selected disabled hidden>Awards *</option>
@@ -86,6 +103,15 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="duration" class="form-label">Duration *</label>
+                                <select name="duration" id="duration" class="form-control" required>
+                                    <option value="" selected disabled hidden>Duration *</option>
+                                    <option value="Full time" {{ $scholarship->duration == 'full_time' ? "selected" : "" }}>Full time</option>
+                                    <option value="Part time" {{ $scholarship->duration == 'part_time' ? "selected" : "" }}>Part time</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="date_posted" class="form-label">Date posted</label>
                                 <input type="date" class="form-control" name="date_posted" placeholder="Date posted" value="{{ $scholarship->date_posted }}">
                             </div>
@@ -103,6 +129,11 @@
                             <div class="mb-3">
                                 <label for="link" class="form-label">Link *</label>
                                 <input type="url" class="form-control" id="link" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="more_info" class="form-label">More info link *</label>
+                                <input type="url" class="form-control" name="more_info" value="{{$scholarship->more_info}}">
                             </div>
 
                         </div>

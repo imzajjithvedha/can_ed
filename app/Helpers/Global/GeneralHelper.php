@@ -7,6 +7,7 @@ use App\Models\FavoriteArticles;
 use App\Models\FavoriteBusinesses;
 use App\Models\FavoriteSchools;
 use App\Models\FavoriteEvents;
+use App\Models\FavoriteScholarships;
 
 
 if (! function_exists('app_name')) {
@@ -175,6 +176,30 @@ if (! function_exists('is_favorite_event')) {
 
         $favorite = FavoriteEvents::where('user_id', $user_id)
             ->where('event_id', $event_id)
+            ->first();
+
+        if($favorite)
+        {
+            return $favorite;
+        }
+        else {
+            return null;
+        }
+    }
+}
+
+
+if (! function_exists('is_favorite_scholarship')) {
+    /**
+     * Return the route to the "home" page depending on authentication/authorization status.
+     *
+     * @return string
+     */
+    function is_favorite_scholarship($scholarship_id, $user_id)
+    {
+
+        $favorite = FavoriteScholarships::where('user_id', $user_id )
+            ->where('scholarship_id', $scholarship_id)
             ->first();
 
         if($favorite)

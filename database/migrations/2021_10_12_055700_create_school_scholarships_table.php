@@ -22,15 +22,18 @@ class CreateSchoolScholarshipsTable extends Migration
             $table->text('amount')->nullable();
             $table->text('school_id')->nullable();
             $table->text('eligibility');
+            $table->text('province');
             $table->text('award');
             $table->text('availability');
             $table->text('level_of_study');
             $table->text('action');
+            $table->text('duration');
             $table->date('date_posted')->nullable();
             $table->date('expiry_date')->nullable();
             $table->date('deadline')->nullable();
             $table->text('image')->nullable();
             $table->text('link')->nullable();
+            $table->text('more_info')->nullable();
             $table->text('featured')->nullable();
             $table->timestamps();
         });

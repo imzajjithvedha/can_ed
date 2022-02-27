@@ -48,6 +48,7 @@ use App\Http\Controllers\Frontend\User\UserSchoolAdmissionFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolSettingsController;
+use App\Http\Controllers\Frontend\User\UserOpenDaysController;
 
 /*
  * Frontend Controllers
@@ -140,8 +141,12 @@ Route::post('programs/request', [ProgramController::class, 'programRequest'])->n
 
 
 Route::get('scholarships', [ScholarshipController::class, 'index'])->name('scholarships');
+Route::get('scholarships/{id}', [ScholarshipController::class, 'singleScholarship'])->name('single_scholarship');
 Route::post('scholarships/search-results', [ScholarshipController::class, 'scholarshipSearch'])->name('scholarship_search');
 Route::get('scholarships-search-results/{keyword}',[ScholarshipController::class,'scholarshipSearchFunction'])->name('scholarship_search_function');
+Route::post('scholarships/single-scholarship/favorite', [ScholarshipController::class, 'favoriteScholarship'])->name('favorite_scholarship');
+Route::post('scholarships/advanced-search-results', [ScholarshipController::class, 'advancedSearch'])->name('scholarships_advanced_search');
+Route::get('scholarships-advanced-search-results/{name}/{school}/{province}/{award}/{action}/{provider}/{min_amount}/{max_amount}/{duration}',[ScholarshipController::class,'advancedSearchFunction'])->name('scholarship_advanced_search_function');
 
 
 
@@ -246,6 +251,10 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
         Route::get('favorite-schools', [DashboardController::class, 'favoriteSchools'])->name('favorite_schools');
         Route::get('favorite-schools/delete/{id}', [DashboardController::class, 'favoriteSchoolDelete'])->name('favorite_school_delete');
+
+
+        Route::get('favorite-scholarships', [DashboardController::class, 'favoriteScholarships'])->name('favorite_scholarships');
+        Route::get('favorite-scholarships/delete/{id}', [DashboardController::class, 'favoriteScholarshipDelete'])->name('favorite_scholarship_delete');
 
 
 
@@ -356,6 +365,15 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('suggested-programs/edit/{id}', [UserSuggestedProgramController::class, 'suggestedProgramEdit'])->name('suggested_program_edit');
         Route::post('suggested-programs/update', [UserSuggestedProgramController::class, 'suggestedProgramUpdate'])->name('suggested_program_update');
         Route::get('suggested-programs/delete/{id}', [UserSuggestedProgramController::class, 'suggestedProgramDelete'])->name('suggested_program_delete');
+
+
+        //Open Days Routes
+        Route::get('open-days', [UserOpenDaysController::class, 'openDays'])->name('open_days');
+        Route::get('open-days/create-open-day', [UserOpenDaysController::class, 'createOpenDay'])->name('create_open_day');
+        Route::post('open-days/store-open-day', [UserOpenDaysController::class, 'storeOpenDay'])->name('store_open_day');
+        Route::get('open-days/edit/{id}', [UserOpenDaysController::class, 'openDayEdit'])->name('open_day_edit');
+        Route::post('open-days/update', [UserOpenDaysController::class, 'OpenDayUpdate'])->name('open_day_update');
+        Route::get('open-days/delete/{id}', [UserOpenDaysController::class, 'openDayDelete'])->name('open_day_delete');
 
 
 

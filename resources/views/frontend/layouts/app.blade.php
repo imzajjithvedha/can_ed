@@ -125,10 +125,10 @@
             string = $(this).val();
 
             if(!(/^http:\/\//.test(string))){
-                string = "http://" + string;
+                string = "https://" + string;
             }
 
-            if(string == 'http://') {
+            if(string == 'https://') {
                 string = null;
             }
             

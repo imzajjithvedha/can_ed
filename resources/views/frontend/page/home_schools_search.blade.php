@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="col-7">
-                            <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="text-decoration-none"><h4 class="fw-bolder futura">{{ $school->name }}</h4></a>
+                            <a href="{{ route('frontend.single_school', [$school->id, $school->slug]) }}" class="text-decoration-none"><h4 class="fw-bolder futura text-black">{{ $school->name }}</h4></a>
                             <div class="gray mt-2" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 9; -webkit-box-orient: vertical;">{!! $school->quick_facts_title_1_paragraph !!}</div>
 
                             <div class="row align-end mt-4 justify-content-end">

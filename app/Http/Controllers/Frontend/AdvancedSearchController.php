@@ -126,12 +126,12 @@ class AdvancedSearchController extends Controller
             $delivery_mode = 'delivery-mode';
         }
 
-        if(request('tuition_range') != 'all') {
-            $tuition_range = request('tuition_range');
-        }
-        else {
-            $tuition_range = 'tuition-range';
-        }
+        // if(request('tuition_range') != 'all') {
+        //     $tuition_range = request('tuition_range');
+        // }
+        // else {
+        //     $tuition_range = 'tuition-range';
+        // }
 
         if(request('accommodation') != 'all') {
             $accommodation = request('accommodation');
@@ -288,11 +288,11 @@ class AdvancedSearchController extends Controller
         }
 
 
-        return redirect()->route('frontend.advanced_search_function', [ $degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $tuition_range, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals ]);
+        return redirect()->route('frontend.advanced_search_function', [ $degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals ]);
 
     }
 
-    public function advancedSearchFunction($degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $tuition_range, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals)
+    public function advancedSearchFunction($degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals)
     {
 
         $schools = Schools::where('status', 'Approved');
@@ -385,9 +385,9 @@ class AdvancedSearchController extends Controller
             $schools->where('delivery_mode', $delivery_mode);
         }
 
-        if($tuition_range != 'tuition-range'){
-            $schools->where('tuition_range', $tuition_range);
-        }
+        // if($tuition_range != 'tuition-range'){
+        //     $schools->where('tuition_range', $tuition_range);
+        // }
 
         if($accommodation != 'accommodation'){
             $schools->where('accommodation', $accommodation);

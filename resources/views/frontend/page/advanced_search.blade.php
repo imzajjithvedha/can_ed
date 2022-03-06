@@ -148,7 +148,7 @@
                     </select>
                 </div> -->
 
-                <div class="col-6 mb-3">
+                <!-- <div class="col-6 mb-3">
                     <label for="tuition_range" class="form-label">Tuition range</label>
                     <select name="tuition_range" id="tuition_range" class="form-select">
                         <option value="all">All</option>
@@ -159,7 +159,7 @@
                         <option value="40,001">$40,001 to $50,000</option>
                         <option value="50,000">Above $50,000</option>
                     </select>
-                </div>
+                </div> -->
 
                 <div class="col-6 mb-3">
                     <label for="accommodation" class="form-label">Housing / accommodation</label>

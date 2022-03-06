@@ -83,7 +83,7 @@ class SchoolsImport implements ToModel, WithHeadingRow
             'under_graduate_program_type' => $row['under_graduate_program_type'],
             'study_method' => $row['study_method'],
             'delivery_mode' => $row['delivery_mode'],
-            'tuition_range' => $row['tuition_range'],
+            // 'tuition_range' => $row['tuition_range'],
             'accommodation' => $row['accommodation'],
             'work_on_campus' => $row['work_on_campus'],
             'work_during_holidays' => $row['work_during_holidays'],

@@ -59,7 +59,7 @@ class Schools extends Model
         'under_graduate_program_type',
         'study_method',
         'delivery_mode',
-        'tuition_range',
+        // 'tuition_range',
         'accommodation',
         'work_on_campus',
         'work_during_holidays',

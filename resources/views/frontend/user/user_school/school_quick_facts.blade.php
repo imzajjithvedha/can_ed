@@ -377,7 +377,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="mb-3">
+                                        <!-- <div class="mb-3">
                                             <label for="tuition-range" class="form-label mb-1">Tuition range</label>
                                             <select class="form-control" id="tuition-range" name="tuition_range">
                                                 <option value="" selected disabled hidden></option>
@@ -396,7 +396,7 @@
                                                     Featured
                                                 </label>
                                             </div>
-                                        </div>
+                                        </div> -->
 
                                         <div class="mb-3">
                                             <label for="accommodation" class="form-label mb-1">Accommodation</label>

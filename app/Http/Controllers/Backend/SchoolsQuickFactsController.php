@@ -65,7 +65,7 @@ class SchoolsQuickFactsController extends Controller
                 'under_graduate_program_type' => $request->under_graduate_program_type,
                 'study_method' => $request->study_method,
                 'delivery_mode' => $request->delivery_mode,
-                'tuition_range' => $request->tuition_range,
+                // 'tuition_range' => $request->tuition_range,
                 'accommodation' => $request->accommodation,
                 'work_on_campus' => $request->work_on_campus,
                 'work_during_holidays' => $request->work_during_holidays,

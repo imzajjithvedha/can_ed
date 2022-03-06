@@ -78,7 +78,7 @@ class CreateSchoolsTable extends Migration
             $table->text('under_graduate_program_type')->nullable();
             $table->text('study_method')->nullable();
             $table->text('delivery_mode')->nullable();
-            $table->text('tuition_range')->nullable();
+            // $table->text('tuition_range')->nullable();
             $table->text('accommodation')->nullable();
             $table->text('work_on_campus')->nullable();
             $table->text('work_during_holidays')->nullable();

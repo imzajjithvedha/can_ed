@@ -49,6 +49,7 @@ class SchoolsInformationController extends Controller
                 'twitter' => $request->twitter,
                 'you_tube' => $request->you_tube,
                 'linked_in' => $request->linked_in,
+                'vk' => $request->vk,
                 'main_button_title' => $request->main_button_title,
                 'main_button_sub_title' => $request->main_button_sub_title,
                 'main_button_link' => $request->main_button_link,

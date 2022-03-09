@@ -21,6 +21,7 @@ class Schools extends Model
         'twitter',
         'you_tube',
         'linked_in',
+        'vk',
         'main_button_title',
         'main_button_sub_title',
         'main_button_link',

@@ -336,6 +336,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="vk" class="form-label mb-1">VK</label>
+                                <input type="url" class="form-control" id="vk" aria-describedby="vk" name="vk" value="{{ $school->vk }}">
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="main-button-title" class="form-label">Main button title</label>
                                 <input type="text" class="form-control" id="main-button-title" aria-describedby="main_button_title" name="main_button_title" value="{{ $school->main_button_title }}">
                             </div>

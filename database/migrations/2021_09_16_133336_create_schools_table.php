@@ -36,6 +36,7 @@ class CreateSchoolsTable extends Migration
             $table->text('twitter')->nullable();
             $table->text('you_tube')->nullable();
             $table->text('linked_in')->nullable();
+            $table->text('vk')->nullable();
             $table->text('main_button_title')->nullable();
             $table->text('main_button_sub_title')->nullable();
             $table->text('main_button_link')->nullable();

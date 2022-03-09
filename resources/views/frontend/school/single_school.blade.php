@@ -1632,6 +1632,27 @@
                                                 </div>
                                             </div>
                                         </a>
+
+                                        
+                                    </div>
+                                @endif
+
+
+                                @if($school->vk != null)
+                                    <div class="border border-top-0 p-2">
+                                    
+                                        <a href="{{ $school->vk }}" class="text-decoration-none" target="_blank">
+                                            <div class="row align-items-center">
+                                                <div class="col-2">
+                                                    <i class="fa-brands fa-vk text-primary"></i>
+                                                </div>
+                                                <div class="col-8 ps-2 pe-1">
+                                                    <p class="text-dark fw-bold" style="font-size: 0.7rem">VK</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        
                                     </div>
                                 @endif
                             </div>

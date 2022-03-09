@@ -352,9 +352,14 @@
                                                     <input type="url" class="form-control" id="you-tube" aria-describedby="you-tube" name="you_tube" value="{{ $school->you_tube }}">
                                                 </div>
 
-                                                <div class="mb-5">
+                                                <div class="mb-3">
                                                     <label for="linked-in" class="form-label mb-1">LinkedIn</label>
                                                     <input type="url" class="form-control" id="linked-in" aria-describedby="linked-in" name="linked_in" value="{{ $school->linked_in }}">
+                                                </div>
+
+                                                <div class="mb-5">
+                                                    <label for="vk" class="form-label mb-1">VK</label>
+                                                    <input type="url" class="form-control" id="vk" aria-describedby="vk" name="vk" value="{{ $school->vk }}">
                                                 </div>
 
                                                 <div class="mb-3">

@@ -1642,168 +1642,190 @@
                 <div class="row">
                     <div class="col-12">
                         <ul class="nav nav-tabs justify-content-between mb-3 main-nav" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-quick-facts" class="nav-link active futura" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-overview" class="nav-link futura" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-programs" class="nav-link futura" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-admissions" class="nav-link futura" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-financial" class="nav-link futura" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financials</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-scholarships" class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a href="#tab-contact" class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contacts</a>
-                            </li>
+                            @if($school->quick_facts_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-quick-facts" class="nav-link active futura" id="quick-facts-tab" data-bs-toggle="tab" data-bs-target="#quick-facts" type="button" role="tab" aria-controls="quick-facts" aria-selected="true">Quick facts</a>
+                                </li>
+                            @endif
+
+                            @if($school->overview_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-overview" class="nav-link futura" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview" type="button" role="tab" aria-controls="overview" aria-selected="false">Overview</a>
+                                </li>
+                            @endif
+
+                            @if($school->programs_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-programs" class="nav-link futura" id="programs-tab" data-bs-toggle="tab" data-bs-target="#programs" type="button" role="tab" aria-controls="programs" aria-selected="false">Programs</a>
+                                </li>
+                            @endif
+
+                            @if($school->admissions_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-admissions" class="nav-link futura" id="admissions-tab" data-bs-toggle="tab" data-bs-target="#admissions" type="button" role="tab" aria-controls="admissions" aria-selected="false">Admissions</a>
+                                </li>
+                            @endif
+
+                            @if($school->financial_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-financial" class="nav-link futura" id="financial-tab" data-bs-toggle="tab" data-bs-target="#financial" type="button" role="tab" aria-controls="financial" aria-selected="false">Financials</a>
+                                </li>
+                            @endif
+
+                            @if($school->scholarships_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-scholarships" class="nav-link futura" id="scholarships-tab" data-bs-toggle="tab" data-bs-target="#scholarships" type="button" role="tab" aria-controls="scholarships" aria-selected="false">Scholarships</a>
+                                </li>
+                            @endif
+
+                            @if($school->contacts_status == 'Yes')
+                                <li class="nav-item" role="presentation">
+                                    <a href="#tab-contact" class="nav-link futura" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contacts</a>
+                                </li>
+                            @endif
                         </ul>
                         
                         <div class="tab-content" id="myTabContent" style="text-align: justify;">
 
-                            <div class="tab-pane fade show active" id="quick-facts" role="tabpanel" aria-labelledby="quick-facts-tab">
+                            @if($school->quick_facts_status == 'Yes')
+                                <div class="tab-pane fade show active" id="quick-facts" role="tabpanel" aria-labelledby="quick-facts-tab">
 
-                                @if($marked_facts != null)
-                                    <div class="row mb-5">
-                                        @foreach($marked_facts as $marked)
-                                            <div class="col-3 mb-4">
-                                                <div class="single-fact text-center p-3">
-                                                    <h6 class="fw-bold mb-1">{{ str_replace("_", " " , ucfirst($marked)) }}</h6>
-                                                    @if($school->$marked != null)
-                                                        @if($marked == 'school_type')
-                                                            <p class="gray">{{ App\Models\SchoolTypes::where('id', $school->school_type)->first()->name }}</p>
+                                    @if($marked_facts != null)
+                                        <div class="row mb-5">
+                                            @foreach($marked_facts as $marked)
+                                                <div class="col-3 mb-4">
+                                                    <div class="single-fact text-center p-3">
+                                                        <h6 class="fw-bold mb-1">{{ str_replace("_", " " , ucfirst($marked)) }}</h6>
+                                                        @if($school->$marked != null)
+                                                            @if($marked == 'school_type')
+                                                                <p class="gray">{{ App\Models\SchoolTypes::where('id', $school->school_type)->first()->name }}</p>
+                                                            @else
+                                                                <p class="gray">{{ $school->$marked }}</p>
+                                                            @endif
                                                         @else
-                                                            <p class="gray">{{ $school->$marked }}</p>
+                                                            <p class="gray">Not defined</p>
                                                         @endif
-                                                    @else
-                                                        <p class="gray">Not defined</p>
-                                                    @endif
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                @endif
-
-                                @if($school->quick_facts_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_1 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->quick_facts_title_1_paragraph !!}
-                                            </div>
+                                            @endforeach
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if($school->quick_facts_title_2 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_2 }}</h4>
-
-                                            <div class="row align-items-center">
-                                                <div class="col-6 position-relative">
-                                                    @if($school->quick_facts_title_2_image != null)
-                                                        <img src="{{ url('images/schools', $school->quick_facts_title_2_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
-                                                    @endif
-
-                                                    <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->quick_facts_title_2_image_name }}</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->quick_facts_title_2_sub_title }}</h5>
-
-                                                    <div class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{!! $school->quick_facts_title_2_paragraph !!}</div>
-
-                                                    @if($school->quick_facts_title_2_button != null)
-                                                        <div class="text-end">
-                                                            <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->quick_facts_title_2_button }}</a>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
+                                    @if($school->quick_facts_title_1 != null)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_1 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->quick_facts_title_1_paragraph !!}
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
-                                @endif
 
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+                                    @if($school->quick_facts_title_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->quick_facts_title_2 }}</h4>
 
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
+                                                <div class="row align-items-center">
+                                                    <div class="col-6 position-relative">
+                                                        @if($school->quick_facts_title_2_image != null)
+                                                            <img src="{{ url('images/schools', $school->quick_facts_title_2_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+                                                        @endif
 
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                        <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->quick_facts_title_2_image_name }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->quick_facts_title_2_sub_title }}</h5>
+
+                                                        <div class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{!! $school->quick_facts_title_2_paragraph !!}</div>
+
+                                                        @if($school->quick_facts_title_2_button != null)
+                                                            <div class="text-end">
+                                                                <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->quick_facts_title_2_button }}</a>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </div>
-                                            @endforeach
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+
+                                            <div class="row align-items-center">
+                                                @foreach($articles as $key => $article)
+
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
+                                </div>
+                            @endif
 
                             <div class="tab-pane fade" id="overview" role="tabpanel" aria-labelledby="overview-tab">
 

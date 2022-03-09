@@ -62,6 +62,13 @@ class SchoolController extends Controller
             $school->slug = str_replace(" ", "-", $request->name);
             $school->status = 'Pending';
             $school->featured = 'No';
+            $school->quick_facts_status = 'No';
+            $school->overview_status = 'No';
+            $school->programs_status = 'No';
+            $school->admissions_status = 'No';
+            $school->financial_status = 'No';
+            $school->scholarships_status = 'No';
+            $school->contacts_status = 'No';
             $school->overview_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null]';
             $school->overview_title_12_bullets = '[null, null, null, null, null, null, null, null, null, null]';
             $school->admission_title_2_bullets = '[null, null, null, null, null, null, null, null, null, null]';

@@ -377,9 +377,65 @@
                                                     <input type="text" class="form-control" id="other-button-title" aria-describedby="other_button_title" name="other_button_title" value="{{ $school->other_button_title }}">
                                                 </div>
 
-                                                <div class="mb-5">
+                                                <div class="mb-3">
                                                     <label for="other-button-link" class="form-label">Other button link</label>
                                                     <input type="url" class="form-control" id="other-button-link" aria-describedby="other_button_link" name="other_button_link" value="{{ $school->other_button_link }}">
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="quick_facts_status" class="form-label">Quick facts status</label>
+                                                    <select class="form-control" name="quick_facts_status" id="quick_facts_status" required>
+                                                        <option value="Yes" {{ $school->quick_facts_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->quick_facts_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="overview_status" class="form-label">Overview status</label>
+                                                    <select class="form-control" name="overview_status" id="overview_status" required>
+                                                        <option value="Yes" {{ $school->overview_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->overview_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="programs_status" class="form-label">Programs status</label>
+                                                    <select class="form-control" name="programs_status" id="programs_status" required>
+                                                        <option value="Yes" {{ $school->programs_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->programs_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="admissions_status" class="form-label">Admission status</label>
+                                                    <select class="form-control" name="admissions_status" id="admissions_status" required>
+                                                        <option value="Yes" {{ $school->admissions_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->admissions_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="financial_status" class="form-label">Financial status</label>
+                                                    <select class="form-control" name="financial_status" id="financial_status" required>
+                                                        <option value="Yes" {{ $school->financial_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->financial_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="scholarships_status" class="form-label">Scholarships status</label>
+                                                    <select class="form-control" name="scholarships_status" id="scholarships_status" required>
+                                                        <option value="Yes" {{ $school->scholarships_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->scholarships_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-5">
+                                                    <label for="contacts_status" class="form-label">Contacts status</label>
+                                                    <select class="form-control" name="contacts_status" id="contacts_status" required>
+                                                        <option value="Yes" {{ $school->contacts_status == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                                        <option value="No" {{ $school->contacts_status == 'No' ? "selected" : "" }}>No</option>                               
+                                                    </select>
                                                 </div>
 
                                                 <div class="mb-3">

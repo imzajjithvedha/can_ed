@@ -121,7 +121,7 @@
     <script src="{{url('js/aiz-core.js')}}"></script>
 
     <script>
-        $('input[type=url]').keyup(function() {
+        $('input[type=url]').click(function() {
             string = $(this).val();
 
             if(!(/^http:\/\//.test(string))){

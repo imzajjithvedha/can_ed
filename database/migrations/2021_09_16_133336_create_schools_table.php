@@ -42,7 +42,13 @@ class CreateSchoolsTable extends Migration
             $table->text('other_button_title')->nullable();
             $table->text('other_button_link')->nullable();
             // $table->text('category')->nullable();
-
+            $table->text('quick_facts_status');
+            $table->text('overview_status');
+            $table->text('programs_status');
+            $table->text('admissions_status');
+            $table->text('financial_status');
+            $table->text('scholarships_status');
+            $table->text('contacts_status');
 
 
             $table->text('location')->nullable();

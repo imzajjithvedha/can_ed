@@ -8,7 +8,7 @@
 
         <!-- <strong>@lang('labels.general.copyright') &copy; {{ date('Y') }}
             <a href="{{ route('frontend.index') }}">
-                Study in Canada
+                Proxima Study
             </a>
         </strong> @lang('strings.backend.general.all_rights_reserved') -->
 

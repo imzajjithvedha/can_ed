@@ -31,6 +31,6 @@ class UserQuoteUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Quote update request - Study in Canada')->view('frontend.mail.user_update_quote');
+        return $this->subject('Quote update request - Proxima Study')->view('frontend.mail.user_update_quote');
     }
 }

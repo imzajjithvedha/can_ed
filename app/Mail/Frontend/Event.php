@@ -33,6 +33,6 @@ class Event extends Mailable
      */
     public function build()
     {
-        return $this->subject('Event request - Study in Canada')->view('frontend.mail.event_request');
+        return $this->subject('Event request - Proxima Study')->view('frontend.mail.event_request');
     }
 }

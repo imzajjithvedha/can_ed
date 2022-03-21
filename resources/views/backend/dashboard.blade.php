@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
 
-@section('title', 'Study in Canada | Admin')
+@section('title', 'Proxima Study | Admin')
 
 @section('content')
     <div class="row">

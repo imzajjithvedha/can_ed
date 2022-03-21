@@ -13,7 +13,7 @@
 
         <div class="row">
             <div class="col-3">
-                <h5 class="fw-bold mb-2 futura">Study in Canada</h5>
+                <h5 class="fw-bold mb-2 futura">Proxima Study</h5>
                 <a href="{{route('frontend.about_us')}}" class="gray text-decoration-none">About us</a>
                 <a href="{{route('frontend.articles')}}" class="gray text-decoration-none">Articles</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Contact us</a>

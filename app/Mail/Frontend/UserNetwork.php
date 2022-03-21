@@ -31,6 +31,6 @@ class UserNetwork extends Mailable
      */
     public function build()
     {
-        return $this->subject('World wide network submission - Study in Canada')->view('frontend.mail.user_network');
+        return $this->subject('World wide network submission - Proxima Study')->view('frontend.mail.user_network');
     }
 }

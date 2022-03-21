@@ -31,6 +31,6 @@ class UserProgram extends Mailable
      */
     public function build()
     {
-        return $this->subject('Program suggestion - Study in Canada')->view('frontend.mail.user_program');
+        return $this->subject('Program suggestion - Proxima Study')->view('frontend.mail.user_program');
     }
 }

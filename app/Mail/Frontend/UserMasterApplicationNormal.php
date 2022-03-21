@@ -33,6 +33,6 @@ class UserMasterApplicationNormal extends Mailable
      */
     public function build()
     {
-        return $this->subject('Master Application - Study in Canada')->view('frontend.mail.user_master_application_normal');
+        return $this->subject('Master Application - Proxima Study')->view('frontend.mail.user_master_application_normal');
     }
 }

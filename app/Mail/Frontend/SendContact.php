@@ -30,6 +30,6 @@ class SendContact extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact message - Study in Canada')->view('frontend.mail.contact');
+        return $this->subject('Contact message - Proxima Study')->view('frontend.mail.contact');
     }
 }

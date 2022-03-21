@@ -30,6 +30,6 @@ class UserSchool extends Mailable
      */
     public function build()
     {
-        return $this->subject('School submission - Study in Canada')->view('frontend.mail.user_school');
+        return $this->subject('School submission - Proxima Study')->view('frontend.mail.user_school');
     }
 }

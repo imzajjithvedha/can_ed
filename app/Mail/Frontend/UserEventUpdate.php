@@ -33,6 +33,6 @@ class UserEventUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Event update request - Study in Canada')->view('frontend.mail.user_update_event');
+        return $this->subject('Event update request - Proxima Study')->view('frontend.mail.user_update_event');
     }
 }

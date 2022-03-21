@@ -177,7 +177,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplication($details));
+        Mail::to(['zajjith@gmail.com'])->send(new MasterApplication($details));
 
         Mail::to([$request->email])->send(new UserMasterApplication($details));
 
@@ -295,7 +295,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new MasterApplicationNormal($details));
+        Mail::to(['zajjith@gmail.com'])->send(new MasterApplicationNormal($details));
 
         Mail::to([$request->email])->send(new UserMasterApplicationNormal($details));
 

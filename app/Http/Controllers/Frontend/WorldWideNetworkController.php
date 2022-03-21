@@ -58,7 +58,7 @@ class WorldWideNetworkController extends Controller
             'our_banner_url' => $request->our_banner_url
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Network($details));
+        Mail::to(['zajjith@gmail.com'])->send(new Network($details));
 
         Mail::to([$request->email])->send(new UserNetwork($details));
 

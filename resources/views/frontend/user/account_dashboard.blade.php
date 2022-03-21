@@ -27,7 +27,7 @@
 
                 <div class="row">
                     <div class="col-12 border">
-                        <div class="pt-3" id="nav-dashboard" role="tabpanel" aria-labelledby="nav-dashboard-tab">
+                        <div class="py-3" id="nav-dashboard" role="tabpanel" aria-labelledby="nav-dashboard-tab">
                             <div class="row">
                                 <div class="col-4 mb-4">
                                     <div class="card text-center">
@@ -35,7 +35,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $events) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My events</a>
+                                            <a href="{{ route('frontend.user.user_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Events</a>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +46,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $articles) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.favorite_articles') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite articles</a>
+                                            <a href="{{ route('frontend.user.favorite_articles') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Favorite articles</a>
                                         </div>
                                     </div>
                                 </div>
@@ -57,7 +57,18 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $businesses) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.favorite_businesses') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite businesses</a>
+                                            <a href="{{ route('frontend.user.favorite_businesses') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Favorite businesses</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4 mb-4">
+                                    <div class="card text-center">
+                                        <div class="card-img-top text-center">
+                                            <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $favorite_events) }}</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <a href="{{ route('frontend.user.favorite_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Favorite events</a>
                                         </div>
                                     </div>
                                 </div>
@@ -68,7 +79,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $scholarships) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.favorite_scholarships') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite scholarships</a>
+                                            <a href="{{ route('frontend.user.favorite_scholarships') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Favorite scholarships</a>
                                         </div>
                                     </div>
                                 </div>
@@ -79,29 +90,29 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $schools) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.favorite_schools') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My favorite schools</a>
+                                            <a href="{{ route('frontend.user.favorite_schools') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Favorite schools</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-4 mb-4">
+                                <div class="col-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_networks') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My Networks</a>
+                                            <a href="{{ route('frontend.user.user_networks') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Networks</a>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-4 mb-4">
+                                <div class="col-4">
                                     <div class="card text-center">
                                         <div class="card-img-top text-center">
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My quotes</a>
+                                            <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Quotes</a>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +123,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $suggested_programs) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.suggested_programs') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My suggested programs</a>
+                                            <a href="{{ route('frontend.user.suggested_programs') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Suggested programs</a>
                                         </div>
                                     </div>
                                 </div>

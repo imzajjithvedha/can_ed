@@ -107,7 +107,7 @@ class BusinessController extends Controller
             'package' => $request->package
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Business($details));
+        Mail::to(['zajjith@gmail.com'])->send(new Business($details));
 
         Mail::to([$request->email])->send(new UserBusiness($details));
 
@@ -232,7 +232,7 @@ class BusinessController extends Controller
         ];
 
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new SingleBusinessAdmin($details));
+        Mail::to(['zajjith@gmail.com'])->send(new SingleBusinessAdmin($details));
 
         Mail::to([$request->email])->send(new SingleBusinessUser($details));
 

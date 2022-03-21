@@ -30,6 +30,6 @@ class UserContact extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact message - Study in Canada')->view('frontend.mail.user_contact');
+        return $this->subject('Contact message - Proxima Study')->view('frontend.mail.user_contact');
     }
 }

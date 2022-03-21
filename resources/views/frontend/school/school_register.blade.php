@@ -446,7 +446,7 @@
                     <!-- <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
                         <label class="form-check-label gray" for="flexCheckDefault" style="font-size: 0.9rem;">
-                            I agree to receive email from this school, study in canada and other partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" style="color: #800000;">Privacy policy</a>.
+                            I agree to receive email from this school, proxima study and other partners according to the guidelines set out in our <a href="{{ route('frontend.privacy_policy') }}" style="color: #800000;">Privacy policy</a>.
                         </label>
                     </div> -->
 

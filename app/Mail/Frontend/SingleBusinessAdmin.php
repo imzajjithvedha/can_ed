@@ -31,6 +31,6 @@ class SingleBusinessAdmin extends Mailable
      */
     public function build()
     {
-        return $this->subject('Business contact - Study in Canada')->view('frontend.mail.single_business_admin');
+        return $this->subject('Business contact - Proxima Study')->view('frontend.mail.single_business_admin');
     }
 }

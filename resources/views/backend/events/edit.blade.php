@@ -334,7 +334,7 @@
                                     <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid">
                                     <input type="hidden" class="form-control" name="old_image" value="{{$event->image}}">
                                 
-                                    <div class="form-group mt-5">
+                                    <div class="form-group mt-3">
                                         <label for="image" class="form-label">Image</label>
                                         <input type="file" class="form-control" id="image" name="new_image">
                                     </div>

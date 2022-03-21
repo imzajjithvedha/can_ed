@@ -31,6 +31,6 @@ class SingleBusinessOwner extends Mailable
      */
     public function build()
     {
-        return $this->subject('Business contact - Study in Canada')->view('frontend.mail.single_business_owner');
+        return $this->subject('Business contact - Proxima Study')->view('frontend.mail.single_business_owner');
     }
 }

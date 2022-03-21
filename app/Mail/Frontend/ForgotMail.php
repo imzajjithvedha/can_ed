@@ -30,6 +30,6 @@ class ForgotMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Password reset - Study in Canada')->view('frontend.mail.forgot_mail');
+        return $this->subject('Password reset - Proxima Study')->view('frontend.mail.forgot_mail');
     }
 }

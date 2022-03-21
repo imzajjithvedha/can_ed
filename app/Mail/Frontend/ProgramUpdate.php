@@ -31,6 +31,6 @@ class ProgramUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Suggested program update request - Study in Canada')->view('frontend.mail.program_update_request');
+        return $this->subject('Suggested program update request - Proxima Study')->view('frontend.mail.program_update_request');
     }
 }

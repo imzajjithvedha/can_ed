@@ -87,8 +87,8 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="conditional_admission" class="form-label">Conditional admission available</label>
-                    <select name="conditional_admission" id="conditional_admission" class="form-select">
+                    <label for="conditional_acceptance" class="form-label">Conditional admission available</label>
+                    <select name="conditional_acceptance" id="conditional_acceptance" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
                     </select>

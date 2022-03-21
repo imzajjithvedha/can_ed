@@ -33,7 +33,7 @@ class SuggestionController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Suggestion($details));
+        Mail::to(['zajjith@gmail.com'])->send(new Suggestion($details));
 
         Mail::to([$request->email])->send(new UserSuggestion($details));
 

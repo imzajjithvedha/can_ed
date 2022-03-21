@@ -31,6 +31,6 @@ class QuoteUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Quote update request - Study in Canada')->view('frontend.mail.quote_update_request');
+        return $this->subject('Quote update request - Proxima Study')->view('frontend.mail.quote_update_request');
     }
 }

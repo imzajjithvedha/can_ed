@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col top-footer">
-                <h5 class="p-2 fw-bolder futura mb-4">Study in Canada</h5>
+                <h5 class="p-2 fw-bolder futura mb-4">Proxima Study</h5>
                 <!-- <hr> -->
                 <a href="{{ route('frontend.about_us') }}">About us</a><br>
                 <a href="{{ route('frontend.suggestions') }}">Comments / suggestions</a><br>

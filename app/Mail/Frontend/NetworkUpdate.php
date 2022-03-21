@@ -31,6 +31,6 @@ class NetworkUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('World wide network update request - Study in Canada')->view('frontend.mail.network_update_request');
+        return $this->subject('World wide network update request - Proxima Study')->view('frontend.mail.network_update_request');
     }
 }

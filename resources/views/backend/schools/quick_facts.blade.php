@@ -266,14 +266,14 @@
 
                             <div class="mb-3">
                                 <label for="conditional-admission" class="form-label mb-1">Conditional admission</label>
-                                <select class="form-control" id="conditional-admission" name="conditional_admission">
+                                <select class="form-control" id="conditional-admission" name="conditional_acceptance">
                                     <option value="" selected disabled hidden></option>
-                                    <option value="yes" {{ $school->conditional_admission == 'yes' ? "selected" : "" }}>Yes</option>
-                                    <option value="no" {{ $school->conditional_admission == 'no' ? "selected" : "" }}>No</option>
+                                    <option value="yes" {{ $school->conditional_acceptance == 'yes' ? "selected" : "" }}>Yes</option>
+                                    <option value="no" {{ $school->conditional_acceptance == 'no' ? "selected" : "" }}>No</option>
                                 </select>
 
                                 <div class="form-check mt-2">
-                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="conditional_admission" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'conditional_admission' ) checked @endif @endforeach @endif>
+                                    <input class="form-check-input" type="checkbox" name="marked_facts[]" value="conditional_acceptance" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'conditional_acceptance' ) checked @endif @endforeach @endif>
                                     <label class="form-check-label">
                                         Featured
                                     </label>

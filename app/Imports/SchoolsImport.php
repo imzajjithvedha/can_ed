@@ -86,7 +86,7 @@ class SchoolsImport implements ToModel, WithHeadingRow
             'start_date' => $row['start_date'],
             'online_distance_education' => $row['online_distance_education'],
             'minimum_gpa' => $row['minimum_gpa'],
-            'conditional_admission' => $row['conditional_admission'],
+            'conditional_acceptance' => $row['conditional_acceptance'],
             'graduate_program_type' => $row['graduate_program_type'],
             'under_graduate_program_type' => $row['under_graduate_program_type'],
             'study_method' => $row['study_method'],

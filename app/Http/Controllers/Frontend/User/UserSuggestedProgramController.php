@@ -68,7 +68,7 @@ class UserSuggestedProgramController extends Controller
                 'description' => $request->description,
             ];
     
-            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new ProgramUpdate($details));
+            Mail::to(['zajjith@gmail.com'])->send(new ProgramUpdate($details));
     
             Mail::to(auth()->user()->email)->send(new UserProgramUpdate());
         }

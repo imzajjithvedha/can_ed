@@ -91,11 +91,11 @@ class AdvancedSearchController extends Controller
             $minimum_gpa = 'minimum-gpa';
         }
 
-        if(request('conditional_admission') != 'all') {
-            $conditional_admission = request('conditional_admission');
+        if(request('conditional_acceptance') != 'all') {
+            $conditional_acceptance = request('conditional_acceptance');
         }
         else {
-            $conditional_admission = 'conditional-admission';
+            $conditional_acceptance = 'conditional-admission';
         }
 
         if(request('graduate_program_type') != 'all') {
@@ -288,11 +288,11 @@ class AdvancedSearchController extends Controller
         }
 
 
-        return redirect()->route('frontend.advanced_search_function', [ $degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals ]);
+        return redirect()->route('frontend.advanced_search_function', [ $degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_acceptance, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals ]);
 
     }
 
-    public function advancedSearchFunction($degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_admission, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals)
+    public function advancedSearchFunction($degree_level, $field_of_study, $start_date, $online_distance_education, $become, $school_type, $minimum_gpa, $conditional_acceptance, $graduate_program_type, $under_graduate_program_type, $study_method, $delivery_mode, $accommodation, $work_on_campus, $work_during_holidays, $internship, $co_op_education, $job_placement, $financial_aid_domestic, $financial_aid_international, $teaching_language, $research, $exchange_programs, $degree_modifier, $day_care, $elementary_school, $immigration_office, $career_planning, $pathway_programs, $employment_rates, $class_size_undergraduate, $class_size_masters, $service_new_students, $service_new_arrivals)
     {
 
         $schools = Schools::where('status', 'Approved');
@@ -365,8 +365,8 @@ class AdvancedSearchController extends Controller
             $schools->where('minimum_gpa', $minimum_gpa);
         }
 
-        if($conditional_admission != 'conditional-admission'){
-            $schools->where('conditional_admission', $conditional_admission);
+        if($conditional_acceptance != 'conditional-admission'){
+            $schools->where('conditional_acceptance', $conditional_acceptance);
         }
 
         if($graduate_program_type != 'graduate-program-type'){

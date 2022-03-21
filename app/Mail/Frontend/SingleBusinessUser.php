@@ -31,6 +31,6 @@ class SingleBusinessUser extends Mailable
      */
     public function build()
     {
-        return $this->subject('Business contact message - Study in Canada')->view('frontend.mail.single_business_user');
+        return $this->subject('Business contact message - Proxima Study')->view('frontend.mail.single_business_user');
     }
 }

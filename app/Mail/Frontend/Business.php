@@ -30,6 +30,6 @@ class Business extends Mailable
      */
     public function build()
     {
-        return $this->subject('Business request - Study in Canada')->view('frontend.mail.business_request');
+        return $this->subject('Business request - Proxima Study')->view('frontend.mail.business_request');
     }
 }

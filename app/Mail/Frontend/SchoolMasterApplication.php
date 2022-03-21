@@ -33,6 +33,6 @@ class SchoolMasterApplication extends Mailable
      */
     public function build()
     {
-        return $this->subject('Master Application - Study in Canada')->view('frontend.mail.school_master_application');
+        return $this->subject('Master Application - Proxima Study')->view('frontend.mail.school_master_application');
     }
 }

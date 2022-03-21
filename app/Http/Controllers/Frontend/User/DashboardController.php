@@ -51,6 +51,8 @@ class DashboardController extends Controller
 
         $schools = FavoriteSchools::where('user_id', $user_id)->count();
 
+        $favorite_events = FavoriteEvents::where('user_id', $user_id)->count();
+
         $scholarships = FavoriteScholarships::where('user_id', $user_id)->count();
 
         $networks = WorldWideNetwork::where('user_id', $user_id)->count();
@@ -58,7 +60,7 @@ class DashboardController extends Controller
         $suggested_programs = Programs::where('user_id', $user_id)->count();
 
 
-        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools, 'scholarships' => $scholarships, 'suggested_programs' => $suggested_programs]);
+        return view('frontend.user.account_dashboard', ['events' => $events, 'quotes' => $quotes, 'articles' => $articles, 'networks' => $networks, 'businesses' => $businesses, 'schools' => $schools, 'scholarships' => $scholarships, 'suggested_programs' => $suggested_programs, 'favorite_events' => $favorite_events]);
     }
 
     
@@ -130,7 +132,7 @@ class DashboardController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        $events = Events::where('user_id', $user_id)->orderBy('updated_at', 'DESC')->get();
+        $events = Events::where('user_id', $user_id)->orderBy('title', 'ASC')->get();
 
         return view('frontend.user.user_event.user_events', ['events' => $events]);
     }
@@ -192,7 +194,7 @@ class DashboardController extends Controller
                 'user_id' => $user_id,
             ];
     
-            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new EventUpdate($details));
+            Mail::to(['zajjith@gmail.com'])->send(new EventUpdate($details));
     
             Mail::to([$request->email])->send(new UserEventUpdate($details));
         }
@@ -330,7 +332,7 @@ class DashboardController extends Controller
                 'quote' => $request->quote,
             ];
     
-            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new QuoteUpdate($details));
+            Mail::to(['zajjith@gmail.com'])->send(new QuoteUpdate($details));
     
             Mail::to([auth()->user()->email])->send(new UserQuoteUpdate($details));
         }
@@ -411,7 +413,7 @@ class DashboardController extends Controller
                 'our_banner_url' => $request->our_banner_url
             ];
     
-            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new NetworkUpdate($details));
+            Mail::to(['zajjith@gmail.com'])->send(new NetworkUpdate($details));
     
             Mail::to([$request->email])->send(new UserNetworkUpdate($details));
         }

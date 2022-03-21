@@ -31,6 +31,6 @@ class Network extends Mailable
      */
     public function build()
     {
-        return $this->subject('World wide network request - Study in Canada')->view('frontend.mail.network_request');
+        return $this->subject('World wide network request - Proxima Study')->view('frontend.mail.network_request');
     }
 }

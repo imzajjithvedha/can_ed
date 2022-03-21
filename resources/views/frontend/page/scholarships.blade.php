@@ -180,7 +180,7 @@
     <form action="{{ route('frontend.scholarships_advanced_search') }}" method="POST" id="advanced-search-form">
         {{ csrf_field() }}
         <div class="modal fade" id="advancedSearch" tabindex="-1" aria-labelledby="advancedSearch" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Advanced scholarship search</h5>

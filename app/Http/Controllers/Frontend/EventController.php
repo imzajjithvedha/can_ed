@@ -70,7 +70,7 @@ class EventController extends Controller
             'user_id' => $user_id,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Event($details));
+        Mail::to(['zajjith@gmail.com'])->send(new Event($details));
 
         Mail::to([$request->email])->send(new UserEvent($details));
 
@@ -107,7 +107,7 @@ class EventController extends Controller
     {
         $event = Events::where('id', $id)->first();
 
-        $more_events = Events::where('status', 'Approved')->inRandomOrder()->limit(5)->get();
+        $more_events = Events::where('status', 'Approved')->where('id', '!=', $id)->inRandomOrder()->limit(5)->get();
 
         return view('frontend.event.single_event', ['event' => $event, 'more_events' => $more_events]);
     }

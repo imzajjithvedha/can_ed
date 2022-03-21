@@ -51,7 +51,7 @@ class ProgramController extends Controller
             'description' => $request->description,
         ];
 
-        Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new Program($details));
+        Mail::to(['zajjith@gmail.com'])->send(new Program($details));
 
         Mail::to(auth()->user()->email)->send(new UserProgram());
 

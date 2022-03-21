@@ -30,6 +30,6 @@ class RegisterAccount extends Mailable
      */
     public function build()
     {
-        return $this->subject('New account created - Study in Canada')->view('frontend.mail.register_account');
+        return $this->subject('New account created - Proxima Study')->view('frontend.mail.register_account');
     }
 }

@@ -31,6 +31,6 @@ class Program extends Mailable
      */
     public function build()
     {
-        return $this->subject('Program suggestion - Study in Canada')->view('frontend.mail.program_request');
+        return $this->subject('Program suggestion - Proxima Study')->view('frontend.mail.program_request');
     }
 }

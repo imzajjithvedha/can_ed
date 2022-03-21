@@ -55,7 +55,7 @@ class Schools extends Model
         'start_date',
         'online_distance_education',
         'minimum_gpa',
-        'conditional_admission',
+        'conditional_acceptance',
         'graduate_program_type',
         'under_graduate_program_type',
         'study_method',

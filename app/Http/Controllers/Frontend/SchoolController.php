@@ -86,7 +86,7 @@ class SchoolController extends Controller
                 'message' => $request->message
             ];
     
-            Mail::to(['zajjith@gmail.com', 'ccaned@gmail.com'])->send(new School($details));
+            Mail::to(['zajjith@gmail.com'])->send(new School($details));
 
             Mail::to([$request->email])->send(new UserSchool($details));
 

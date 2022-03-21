@@ -13,7 +13,7 @@ class WebsiteInformationSeeder extends Seeder
     public function run()
     {
         DB::table('website_information')->insert([
-           'name' => 'Study in Canada',
+           'name' => 'Proxima Study',
            'mantra' => 'The best Canadian universities',
            'address_1' => '1051 Blvd Decarie',
            'address_2' => 'P.O. Box: 53555 NORGATE',

@@ -121,16 +121,20 @@
     <script src="{{url('js/aiz-core.js')}}"></script>
 
     <script>
-        $('input[type=url]').click(function() {
+        $('input[type=url]').on('click', function() {
             string = $(this).val();
 
-            if(!(/^http:\/\//.test(string))){
+            if(!(/^https:\/\//.test(string))){
                 string = "https://" + string;
             }
 
-            if(string == 'https://') {
-                string = null;
+            if(string == '') {
+                string = "https://";
             }
+
+            // if(string == 'https://') {
+            //     string = null;
+            // }
             
             $(this).val(string);
         });

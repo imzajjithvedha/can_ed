@@ -30,6 +30,6 @@ class BusinessUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Business update request - Study in Canada')->view('frontend.mail.business_update_request');
+        return $this->subject('Business update request - Proxima Study')->view('frontend.mail.business_update_request');
     }
 }

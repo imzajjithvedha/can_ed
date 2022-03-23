@@ -69,28 +69,34 @@
                     </div>
 
                     <div class="col-8">
-                        <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->name }}</p>
+                        @if($single_scholarship->school_id != null)
+                            <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->name }}</p>
+                        @else
+                            <p class="gray">{{ $single_scholarship->name }}</p>
+                        @endif
                     </div>
                 </div>
 
-                <div class="row mb-3">
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col-10">
-                                <p class="fw-bold">Basic eligibility</p>
-                            </div>
-                            <div class="col-1 p-0">
-                                <p class="fw-bold">:</p>
+                @if(json_decode($single_scholarship->eligibility) != null)
+                    <div class="row mb-3">
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-10">
+                                    <p class="fw-bold">Basic eligibility</p>
+                                </div>
+                                <div class="col-1 p-0">
+                                    <p class="fw-bold">:</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-8">
-                        @foreach(json_decode($single_scholarship->eligibility) as $eligibility)
-                            <p class="gray">{{ $eligibility }}</p>
-                        @endforeach
+                        <div class="col-8">
+                            @foreach(json_decode($single_scholarship->eligibility) as $eligibility)
+                                <p class="gray">{{ $eligibility }}</p>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
+                @endif
 
                 <div class="row mb-3">
                     <div class="col-4">
@@ -292,7 +298,9 @@
                     </div>
 
                     <div class="col-8">
-                        <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->school_email }}</p>
+                        @if($single_scholarship->school_id != null)
+                            <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->school_email }}</p>
+                        @endif
                     </div>
                 </div>
 
@@ -309,7 +317,9 @@
                     </div>
 
                     <div class="col-8">
-                        <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->school_phone }}</p>
+                        @if($single_scholarship->school_id != null)
+                            <p class="gray">{{ App\Models\Schools::where('id', $single_scholarship->school_id)->first()->school_phone }}</p>
+                        @endif
                     </div>
                 </div>
 

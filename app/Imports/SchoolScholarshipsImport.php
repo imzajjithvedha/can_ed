@@ -15,22 +15,27 @@ class SchoolScholarshipsImport implements ToModel, WithHeadingRow
     */
     public function model(array $row)
     {
+        // dd($row);
+
         return new SchoolScholarships([
             'user_id' => '1',
             'school_id' => $row['school_id'],
+            'school_name' => $row['school_name'],
+            'province' => $row['province'],
             'name' => $row['name'],
+            'award' => $row['awarded_to'],
             'summary' => $row['summary'],
+            'amount' => $row['amount'],
             'eligibility' => $row['eligibility'],
-            'award' => $row['award'],
             'action' => $row['action'],
+            'date_posted' => $row['date_posted'],
+            'expiry_date' => $row['expiry_date'],
             'deadline' => $row['deadline'],
             'availability' => $row['availability'],
             'level_of_study' => $row['level_of_study'],
-            'link' => $row['link'],
-            'provider' => $row['provider'],
-            'amount' => $row['amount'],
-            'date_posted' => $row['date_posted'],
-            'expiry_date' => $row['expiry_date'],
+            'duration' => $row['full_time_part_time'],
+            'more_info' => $row['more_info'],
+            'link' => $row['apply_now'],
         ]);
     }
 }

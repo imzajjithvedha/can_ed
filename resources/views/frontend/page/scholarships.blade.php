@@ -84,7 +84,11 @@
                                     </div>
 
                                     <div class="col-8">
-                                        <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
+                                        @if($scholarship->school_id != null)
+                                            <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
+                                        @else
+                                            <p class="gray">{{ $scholarship->name }}</p>
+                                        @endif
                                     </div>
                                 </div>
 

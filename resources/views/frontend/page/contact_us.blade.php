@@ -129,6 +129,26 @@
         if(document.getElementById("modal-btn")){
             $('#modal-btn').click();
         }
+
+        $(document).ready(function() {
+            $("#submit_btn").click(function() {
+                $("form input").each(function() {
+                    $val = $(this).val();
+                    if ($val != 1) {      
+                        $(this).popover({
+                        content: "Invalid"
+                        });
+                        $(this).popover('show');
+                    }
+                })
+
+                $('body').on('click', function() {
+                    $(".popover:visible").popover( "hide" );
+                    })
+                });
+            })
+            
+            
     </script>
 
 @endpush

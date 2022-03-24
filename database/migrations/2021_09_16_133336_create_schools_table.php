@@ -25,6 +25,7 @@ class CreateSchoolsTable extends Migration
             $table->text('school_email')->nullable();
             $table->text('school_phone')->nullable();
             $table->text('country');
+            $table->text('province');
             $table->text('message')->nullable();
             $table->text('slug');
             $table->text('status');

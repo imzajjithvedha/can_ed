@@ -1879,13 +1879,15 @@
                                             <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_2 }}</h4>
 
                                             <div>
-                                                @foreach(json_decode($school->overview_title_2_bullets) as $bullet)
-                                                    @if($bullet != null)
-                                                        
-                                                        <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
+                                                @if(json_decode($school->overview_title_2_bullets) != null)
+                                                    @foreach(json_decode($school->overview_title_2_bullets) as $bullet)
+                                                        @if($bullet != null)
                                                             
-                                                    @endif
-                                                @endforeach
+                                                            <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
+                                                                
+                                                        @endif
+                                                    @endforeach
+                                                @endif
                                             </div>
                                         </div>
                                     </div>

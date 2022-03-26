@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Open days')
+@section('title', 'Proxima Study | Open days')
 
 @section('content')
 

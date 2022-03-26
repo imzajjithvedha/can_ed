@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Site map')
+@section('title', 'Proxima Study | Site map')
 
 @push('after-styles')
     <link href="{{ url('css/site_map.css') }}" rel="stylesheet">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit business')
+@section('title', 'Proxima Study | Edit business')
 
 @push('after-styles')
     <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <div>
-                                    <label class="form-label">Business image *</label>
+                                    <label class="form-label">Business image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                     <div class="row">
                                         <!-- <div class="col-12 mb-3">
                                             <img src="{{ url('images/businesses', $business->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">

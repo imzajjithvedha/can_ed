@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My account information')
+@section('title', 'Proxima Study | My account information')
 
 @section('content')
 
@@ -59,7 +59,7 @@
                                     <div class="col-6">
                                         <div class="row align-items-center">
                                             <div class="col-6">
-                                                <label for="image" class="form-label">Profile image</label>
+                                                <label for="image" class="form-label">Profile image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                             </div>
                                             @if($user->image != null)
                                                 <div class="col-6 text-end mb-3">

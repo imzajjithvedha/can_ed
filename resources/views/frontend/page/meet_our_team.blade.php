@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Meet our team')
+@section('title', 'Proxima Study | Meet our team')
 
 @push('after-styles')
     <link href="{{ url('css/about_us.css') }}" rel="stylesheet">

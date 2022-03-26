@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School overview' )
+@section('title', 'Proxima Study | School overview' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -65,7 +65,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-3-image" class="form-label">Title 3 - image</label>
+                                            <label for="title-3-image" class="form-label">Title 3 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->overview_title_3_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -124,7 +124,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-4-image" class="form-label">Title 4 - image</label>
+                                            <label for="title-4-image" class="form-label">Title 4 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->overview_title_4_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -208,7 +208,7 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="title-9-image" class="form-label">Title 9 - image</label>
+                                            <label for="title-9-image" class="form-label">Title 9 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->overview_title_9_image != null)
                                                 <div class="row justify-content-center mb-3">

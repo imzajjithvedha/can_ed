@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit contact' )
+@section('title', 'Proxima Study | Edit contact' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -328,7 +328,7 @@
                             </div>
 
                             <div>
-                                <label class="form-label">Image</label>
+                                <label class="form-label">Image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         @if($contact->image != null)

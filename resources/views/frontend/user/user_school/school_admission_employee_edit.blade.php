@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit employee' )
+@section('title', 'Proxima Study | Edit employee' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -65,7 +65,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="featured_image" class="form-label">Employee image *</label>
+                                <label for="featured_image" class="form-label">Employee image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                 @if($employee->image != null)
                                     <div class="row justify-content-center mb-3">

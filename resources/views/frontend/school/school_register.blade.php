@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School registration request')
+@section('title', 'Proxima Study | School registration request')
 
 @push('after-styles')
     <link href="{{ url('css/schools.css') }}" rel="stylesheet">

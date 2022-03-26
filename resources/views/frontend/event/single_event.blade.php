@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Events: '.$event->title)
+@section('title', 'Proxima Study | Events: '.$event->title)
 
 @push('after-styles')
     <link href="{{ url('css/events.css') }}" rel="stylesheet">

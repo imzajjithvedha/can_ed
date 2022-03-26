@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Close my account')
+@section('title', 'Proxima Study | Close my account')
 
 @section('content')
 

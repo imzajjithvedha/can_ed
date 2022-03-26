@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit scholarship' )
+@section('title', 'Proxima Study | Edit scholarship' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -162,7 +162,7 @@
                                         <input type="file" class="form-control" name="featured_image">
 
                                     @else
-                                        <label for="featured_image" class="form-label">Featured image *</label>
+                                        <label for="featured_image" class="form-label">Featured image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                         <input type="file" class="form-control" name="featured_image" required>
                                     @endif
 

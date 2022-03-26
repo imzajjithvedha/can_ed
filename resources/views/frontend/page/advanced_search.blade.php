@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Advanced search')
+@section('title', 'Proxima Study | Advanced search')
 
 @push('after-styles')
     <link href="{{ url('css/advanced_search.css') }}" rel="stylesheet">

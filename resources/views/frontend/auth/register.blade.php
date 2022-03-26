@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Register')
+@section('title', 'Proxima Study | Register')
 
 @push('after-styles')
     <link href="{{ url('css/auth.css') }}" rel="stylesheet">

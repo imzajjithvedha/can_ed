@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Quotes')
+@section('title', 'Proxima Study | Quotes')
 
 @push('after-styles')
     <link href="{{ url('css/quotes.css') }}" rel="stylesheet">

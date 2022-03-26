@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Register a business')
+@section('title', 'Proxima Study | Register a business')
 
 @push('after-styles')
     <link href="{{ url('css/business.css') }}" rel="stylesheet">
@@ -133,17 +133,17 @@
                     </div>
 
                     <div class="mb-3 basic-image">
-                        <label for="image" class="form-label">Basic business image *</label>
+                        <label for="image" class="form-label">Basic business image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                         <input class="form-control" type="file" id="basic-image" name="single_image">
                     </div>
 
                     <div class="mb-3 d-none premium-images">
-                        <label for="image" class="form-label">Premium business images *</label>
+                        <label for="image" class="form-label">Premium business images * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                         <input class="form-control" type="file" id="premium-images" name="image[]" multiple>
                     </div>
 
                     <div class="mb-3 d-none featured-images">
-                        <label for="image" class="form-label">Featured business images *</label>
+                        <label for="image" class="form-label">Featured business images * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                         <input class="form-control" type="file" id="featured-images" name="image[]" multiple>
                     </div>
 

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School quick facts' )
+@section('title', 'Proxima Study | School quick facts' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -49,7 +49,7 @@
                                             <input type="text" class="form-control" id="quick_facts_title_2" aria-describedby="quick_facts_title_2" name="quick_facts_title_2" value="{{ $school->quick_facts_title_2 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-2-image" class="form-label">Title 2 - image</label>
+                                            <label for="title-2-image" class="form-label">Title 2 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->quick_facts_title_2_image != null)
                                                 <div class="row justify-content-center mb-3">

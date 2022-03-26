@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'My favorite articles')
+@section('title', 'Proxima Study | My favorite articles')
 
 @section('content')
 

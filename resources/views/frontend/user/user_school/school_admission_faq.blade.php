@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School admission FAQ' )
+@section('title', 'Proxima Study | School admission FAQ' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'World wide network')
+@section('title', 'Proxima Study | World wide network')
 
 @push('after-styles')
     <link href="{{ url('css/world_wide_network.css') }}" rel="stylesheet">
@@ -364,7 +364,7 @@
 
                         <div class="row mb-4">
                             <div class="col-12">
-                                <label class="form-label">Upload your banner *</label>
+                                <label class="form-label">Upload your banner * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                 <input class="form-control" type="file" id="image" name="image" placeholder="Upload your banner" title="Upload your banner" required>
                             </div>
                         </div>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Business dashboard' )
+@section('title', 'Proxima Study | Business dashboard' )
 
 @section('content')
 

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'School scholarships' )
+@section('title', 'Proxima Study | School scholarships' )
 
 @push('after-styles')
     <link rel="stylesheet" href="{{ url('css/profile-settings.css') }}">
@@ -61,7 +61,7 @@
                                             <input type="text" class="form-control" id="scholarships_title_2" aria-describedby="scholarships_title_2" name="scholarships_title_2" value="{{ $school->scholarships_title_2 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-2-image" class="form-label">Title 2 - image</label>
+                                            <label for="title-2-image" class="form-label">Title 2 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->scholarships_title_2_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -123,7 +123,7 @@
                                             <input type="text" class="form-control" id="scholarships_title_4" aria-describedby="scholarships_title_4" name="scholarships_title_4" value="{{ $school->scholarships_title_4 }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="title-4-image" class="form-label">Title 4 - image</label>
+                                            <label for="title-4-image" class="form-label">Title 4 - image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
 
                                             @if($school->scholarships_title_4_image != null)
                                                 <div class="row justify-content-center mb-3">
@@ -313,7 +313,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured image</label>
+                            <label for="featured_image" class="form-label">Featured image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                             <input type="file" class="form-control" name="featured_image">
                         </div>
 

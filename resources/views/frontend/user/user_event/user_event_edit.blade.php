@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Edit event')
+@section('title', 'Proxima Study | Edit event')
 
 @push('after-styles')
     <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
@@ -343,7 +343,7 @@
                             </div>
 
                             <div>
-                                <label class="form-label">Event banner image *</label>
+                                <label class="form-label">Event banner image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Cookies policy')
+@section('title', 'Proxima Study | Cookies policy')
 
 @push('after-styles')
     <link href="{{ url('css/cookies.css') }}" rel="stylesheet">

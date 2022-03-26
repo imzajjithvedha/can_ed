@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Create open day')
+@section('title', 'Proxima Study | Create an open day')
 
 @section('content')
 
@@ -328,7 +328,7 @@
                                 </div>
 
                                 <div class="mb-3 form-group">
-                                    <label class="form-label">Image *</label>
+                                    <label class="form-label">Image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                     <input type="file" class="form-control" id="image" name="image" required>
                                 </div>
 

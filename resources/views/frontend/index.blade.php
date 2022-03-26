@@ -25,6 +25,7 @@
                                         <option value="programs">Programs</option>
                                         <!-- <option value="careers">Careers</option> -->
                                         <option value="articles">Articles</option>
+                                        <option value="scholarships">Scholarships</option>
                                         <!-- <option value="resources">Resources</option> -->
                                     </select>
                                     <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
@@ -446,6 +447,18 @@
             } else {
                 $('.advanced-search').removeAttr('disabled');
                 $('.search-input').attr('placeholder', 'Search by school name');
+            }
+        });
+    </script>
+
+    <script>
+        $('.search-drop').on('change', function() {
+            val = $( this ).val();
+
+            let link = "{{ route('frontend.scholarships') }}";
+
+            if(val == 'scholarships') {
+                window.open(link, '_self');
             }
         });
     </script>

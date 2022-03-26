@@ -10,6 +10,11 @@ use App\Mail\Frontend\UserProgram;
 use Illuminate\Support\Facades\Mail;
 use App\Models\DegreeLevels;
 use App\Models\Pages;
+use App\Models\SchoolPrograms;
+use App\Models\Schools;
+use Illuminate\Support\Collection;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * Class ProgramController.
@@ -57,5 +62,45 @@ class ProgramController extends Controller
 
         return back()->with('success', 'success'); 
 
+    }
+
+
+    public function programSchools($id)
+    {
+        $program_schools = SchoolPrograms::where('program_id', $id)->get();
+
+        $schools = Schools::where('status', 'Approved')->get();
+
+        $data = [];
+
+        foreach ($program_schools as $program_school){ 
+            foreach($schools as $school) {
+                if($program_school->school_id == $school->id) {
+                    array_push($data, $school);
+                }
+            }
+        }
+
+
+        $collection = collect($data);
+
+        $data_1 = $collection->sortBy('name');
+
+        $perPage       = 10;
+        $currentPage   = Paginator::resolveCurrentPage() ?? 1;
+        $itemsOnPage   = $data_1->skip(10 * ($currentPage-1))->take($perPage);
+        $paginatorPath = Paginator::resolveCurrentPath();
+
+        $filtered_schools     = new LengthAwarePaginator(
+                $itemsOnPage,
+                $collection->count(),
+                $perPage,
+                $currentPage,
+                ['path' => $paginatorPath]
+            );
+ 
+        // $filtered_schools->values()->all();
+
+        return view('frontend.page.program_schools', ['filtered_schools' => $filtered_schools]);
     }
 }

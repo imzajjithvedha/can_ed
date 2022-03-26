@@ -41,7 +41,7 @@
                                 <i class="fas fa-star" style="color: #800000; font-size: 0.5rem; position: relative; top: -0.2rem;"></i>
                             </div>
                             <div class="col-10">
-                                <p>{{ $program->name }}</p>
+                                <a href="{{ route('frontend.program_schools', $program->id) }}" class="link">{{ $program->name }}</a>
                             </div>
                         </div>
                     </div>

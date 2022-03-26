@@ -24,3 +24,26 @@ hr {
     background-image: linear-gradient(to bottom, #CF0411, #660000);
     border: none;
 }
+
+.link {
+    color: #4f4d49;
+    font-size: 0.9rem;
+}
+.link:hover {
+    color: #4f4d49;
+}
+
+
+
+
+.program-schools nav {
+    margin-top: 50px;
+}
+.program-schools nav ul {
+    justify-content: center;
+}
+.advanced-btn {
+    background-image: -webkit-linear-gradient(top, #CF0411, #660000);
+    color: white;
+    border: none;
+}

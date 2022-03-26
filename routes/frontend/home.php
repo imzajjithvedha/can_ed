@@ -137,6 +137,7 @@ Route::post('contact/send', [ContactController::class, 'send'])->name('contact_s
 
 Route::get('programs', [ProgramController::class, 'index'])->name('programs');
 Route::post('programs/request', [ProgramController::class, 'programRequest'])->name('program_request');
+Route::get('program-schools/{id}', [ProgramController::class, 'programSchools'])->name('program_schools');
 
 
 

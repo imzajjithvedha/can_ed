@@ -5,6 +5,7 @@ namespace App\Providers;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Class AppServiceProvider.
@@ -84,5 +85,6 @@ class AppServiceProvider extends ServiceProvider
             return session()->has($session_identifier);
         });
 
+        Schema::defaultStringLength(191);
     }
 }

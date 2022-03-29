@@ -32,7 +32,7 @@
                                     <option value="academic_help_before_applying" {{ $article->type == 'academic_help_before_applying' ? "selected" : "" }}>For students who need academic help before applying</option>
                                     <option value="financial_help_before_applying" {{ $article->type == 'financial_help_before_applying' ? "selected" : "" }}>For students who need financial help before applying</option>
                                     <option value="immigration_questions" {{ $article->type == 'immigration_questions' ? "selected" : "" }}>Immigration questions/matters/concerns</option>
-                                    <option value="proxima_study_in_coming_to_you" {{ $article->type == 'proxima_study_in_coming_to_you' ? "selected" : "" }}>Proxima Study in coming to you</option>
+                                    <option value="proxima_study_in_coming_to_you" {{ $article->type == 'proxima_study_in_coming_to_you' ? "selected" : "" }}>Proxima study in coming to you</option>
                                     <option value="need_more_help" {{ $article->type == 'need_more_help' ? "selected" : "" }}>Need more help?</option>
                                 </select>
                             </div>

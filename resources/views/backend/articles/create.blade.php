@@ -35,7 +35,7 @@
                                     <option value="academic_help_before_applying">For students who need academic help before applying</option>
                                     <option value="financial_help_before_applying">For students who need financial help before applying</option>
                                     <option value="immigration_questions">Immigration questions/matters/concerns</option>
-                                    <option value="proxima_study_in_coming_to_you">Proxima Study in coming to you</option>
+                                    <option value="proxima_study_in_coming_to_you">Proxima study in coming to you</option>
                                     <option value="need_more_help">Need more help?</option>
                                 </select>
                             </div>

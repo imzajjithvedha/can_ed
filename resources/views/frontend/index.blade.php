@@ -330,7 +330,7 @@
 
     @if(count($featured_need_help_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles', 'need-more-help') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Need more</a>
+            <a href="{{ route('frontend.articles', 'need-more-help') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Need more help</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_need_help_articles_description }}</p>
 
             <div class="row mt-4">

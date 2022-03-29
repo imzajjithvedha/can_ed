@@ -120,6 +120,240 @@
         </div>
     @endif
 
+    @if(count($featured_international_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'financial-help-for-international-students') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Financial help for international students</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_international_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_international_articles as $featured_international_article)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_article', [$featured_international_article->type, $featured_international_article->id]) }}" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_international_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_international_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_international_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_canadian_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'financial-help-for-canadian-students') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Financial help for Canadian students</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_canadian_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_canadian_articles as $featured_canadian_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_canadian_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_canadian_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_canadian_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_work_study_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while study</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_work_study_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_work_study_articles as $featured_work_study_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_work_study_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_work_study_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_work_study_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_financial_planning_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'financial-planning') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Financial planning</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_financial_planning_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_financial_planning_articles as $featured_financial_planning_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_financial_planning_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_financial_planning_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_financial_planning_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_academic_help_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'academic-help-before-applying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">For students who need academic help before applying</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_academic_help_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_academic_help_articles as $featured_academic_help_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_academic_help_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_academic_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_academic_help_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_financial_help_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'financial-help-before-applying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">For students who need financial help before applying</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_financial_help_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_financial_help_articles as $featured_financial_help_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_financial_help_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_financial_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_financial_help_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_immigration_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'immigration-questions') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Immigration questions</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_immigration_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_immigration_articles as $featured_immigration_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_immigration_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_immigration_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_immigration_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_proxima_study_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'proxima-study-in-coming-to-you') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Proxima study coming to you</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_proxima_study_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_proxima_study_articles as $featured_proxima_study_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_proxima_study_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_proxima_study_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_proxima_study_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_need_help_articles) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.articles', 'need-more-help') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Need more</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_need_help_articles_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_need_help_articles as $featured_need_help_article)
+                    <div class="col-3 mb-4">
+                        <a href="" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_need_help_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_need_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_need_help_article->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
 
     @if(count($featured_businesses) > 0)
         <div class="container mt-5 featured-businesses blue">
@@ -178,23 +412,23 @@
     @endif
 
 
-    @if(count($featured_articles) > 0)
+    @if(count($featured_basic_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
+            <a href="{{ route('frontend.articles', 'basic-articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_articles_description }}</p>
 
             <div class="row mt-4">
-                @foreach($featured_articles as $article)
+                @foreach($featured_basic_articles as $featured_basic_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="card rounded-0">
-                                @if($article->image != null)
-                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @if($featured_basic_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_basic_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                    <h6 class="card-title fw-bold gray">{{ $featured_basic_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -330,13 +564,13 @@
 
     @if(count($articles) > 0)
         <div class="container mt-5 recent-articles red">
-            <a href="{{ route('frontend.articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
+            <a href="{{ route('frontend.articles', 'basic-articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->recent_articles_description }}</p>
 
             <div class="row mt-4">
                 @foreach($articles as $article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                        <a href="" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($article->image != null)
                                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">

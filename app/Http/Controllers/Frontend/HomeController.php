@@ -28,7 +28,25 @@ class HomeController extends Controller
     {
         $articles = Articles::where('status', 'Approved')->orderBy('id', 'desc')->take(4)->get();
 
-        $featured_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
+        $featured_basic_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'basic_articles')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_international_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'financial_help_for_international_students')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_canadian_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'financial_help_for_canadian_students')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_work_study_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'work_while_studying')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_financial_planning_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'financial_planning')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_academic_help_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'academic_help_before_applying')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_financial_help_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'financial_help_before_applying')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_immigration_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'immigration_questions')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_proxima_study_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'proxima_study_in_coming_to_you')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_need_help_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'proxima_study_in_coming_to_you')->orderBy('updated_at', 'desc')->take(4)->get();
 
         $featured_businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
@@ -51,7 +69,16 @@ class HomeController extends Controller
         return view('frontend.index', 
         [
             'articles' => $articles,
-            'featured_articles' => $featured_articles,
+            'featured_basic_articles' => $featured_basic_articles,
+            'featured_international_articles' => $featured_international_articles,
+            'featured_canadian_articles' => $featured_canadian_articles,
+            'featured_work_study_articles' => $featured_work_study_articles,
+            'featured_financial_planning_articles' => $featured_financial_planning_articles,
+            'featured_academic_help_articles' => $featured_academic_help_articles,
+            'featured_financial_help_articles' => $featured_financial_help_articles,
+            'featured_immigration_articles' => $featured_immigration_articles,
+            'featured_proxima_study_articles' => $featured_proxima_study_articles,
+            'featured_need_help_articles' => $featured_need_help_articles,
             'featured_businesses' => $featured_businesses,
             'featured_schools' => $featured_schools,
             'featured_events' => $featured_events,

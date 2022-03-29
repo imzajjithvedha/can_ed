@@ -19,7 +19,7 @@
             <div class="col top-footer">
                 <h5 class="p-2 fw-bolder futura mb-4">Resources</h5>
                 <!-- <hr> -->
-                <a href="{{ route('frontend.articles') }}">Articles</a><br>
+                <a href="{{ route('frontend.articles', 'basic-articles') }}">Articles</a><br>
                 <a href="{{ route('frontend.events') }}">Events</a><br>
                 <a href="{{ route('frontend.master_application_normal') }}">Master application</a><br>
                 <a href="{{ route('frontend.online_business_directory') }}">Online business directory</a><br>

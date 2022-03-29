@@ -46,6 +46,7 @@ class ArticlesController extends Controller
         $article->user_id = $user_id;
         $article->title = $request->title;
         $article->description = $request->description;
+        $article->type = $request->type;
         $article->featured = $featured;
         $article->status = 'Approved';
         $article->image = $imageName;
@@ -130,6 +131,7 @@ class ArticlesController extends Controller
             [
                 'title' => $request->title,
                 'description' => $request->description,
+                'type' => $request->type,
                 'featured' => $request->featured,
                 'image' => $imageName,
                 'status' => $request->status,

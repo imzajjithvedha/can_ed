@@ -56,8 +56,8 @@ use App\Http\Controllers\Frontend\User\UserOpenDaysController;
  */
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::get('articles', [ArticleController::class, 'index'])->name('articles');
-Route::get('articles/single-article/{id}', [ArticleController::class, 'singleArticle'])->name('single_article');
+Route::get('articles/{type}', [ArticleController::class, 'index'])->name('articles');
+Route::get('articles/{type}/single-article/{id}', [ArticleController::class, 'singleArticle'])->name('single_article');
 Route::post('articles/single-article/favorite', [ArticleController::class, 'favoriteArticle'])->name('favorite_article');
 
 

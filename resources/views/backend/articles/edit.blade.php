@@ -22,6 +22,22 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="type" class="form-label">Article type *</label>
+                                <select class="form-control" id="type" name="type" required>
+                                    <option value="basic_article" {{ $article->type == 'basic_article' ? "selected" : "" }}>Basic article</option>
+                                    <option value="financial_help_for_international_students" {{ $article->type == 'financial_help_for_international_students' ? "selected" : "" }}>Financial help for international students</option>
+                                    <option value="financial_help_for_canadian_students" {{ $article->type == 'financial_help_for_canadian_students' ? "selected" : "" }}>Financial help for Canadian students</option>
+                                    <option value="work_while_studying" {{ $article->type == 'work_while_studying' ? "selected" : "" }}>Work while studying</option>
+                                    <option value="financial_planning" {{ $article->type == 'financial_planning' ? "selected" : "" }}>Financial planning</option>
+                                    <option value="academic_help_before_applying" {{ $article->type == 'academic_help_before_applying' ? "selected" : "" }}>For students who need academic help before applying</option>
+                                    <option value="financial_help_before_applying" {{ $article->type == 'financial_help_before_applying' ? "selected" : "" }}>For students who need financial help before applying</option>
+                                    <option value="immigration_questions" {{ $article->type == 'immigration_questions' ? "selected" : "" }}>Immigration questions/matters/concerns</option>
+                                    <option value="proxima_study_in_coming_to_you" {{ $article->type == 'proxima_study_in_coming_to_you' ? "selected" : "" }}>Proxima Study in coming to you</option>
+                                    <option value="need_more_help" {{ $article->type == 'need_more_help' ? "selected" : "" }}>Need more help?</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="featured-article" class="form-label">Do you want to show this article in the homepage? *</label>
                                 <select class="form-control" name="featured" id="featured-article" required>
                                     <option value="Yes" {{ $article->featured == 'Yes' ? "selected" : "" }}>Yes</option>   

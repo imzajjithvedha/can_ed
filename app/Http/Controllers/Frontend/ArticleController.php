@@ -15,18 +15,20 @@ class ArticleController extends Controller
     /**
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index($type)
     {
-        $articles = Articles::where('status', 'Approved')->OrderBy('title', 'ASC')->get();
+        $text = str_replace('-', '_', $type);
+
+        $articles = Articles::where('status', 'Approved')->where('type', $text)->OrderBy('title', 'ASC')->get();
 
         return view('frontend.article.articles', ['articles' => $articles]);
     }
 
-    public function singleArticle($id)
+    public function singleArticle($type, $id)
     {
         $article = Articles::where('id', $id)->first();
 
-        $more_articles = Articles::where('status', 'Approved')->where('id', '!=', $id)->inRandomOrder()->limit(10)->get();
+        $more_articles = Articles::where('status', 'Approved')->where('id', '!=', $id)->where('type', $type)->inRandomOrder()->limit(10)->get();
 
         return view('frontend.article.single_article', ['article' => $article, 'more_articles' => $more_articles]);
     }

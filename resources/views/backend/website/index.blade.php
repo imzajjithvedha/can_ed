@@ -67,10 +67,57 @@
                                 <label for="twitter" class="form-label">Featured businesses description *</label>
                                 <textarea name="featured_businesses_description" class="form-control" id="featured_businesses_description" rows="3"  value="{{ $information->featured_businesses_description }}" placeholder="Featured businesses description *" required>{{ $information->featured_businesses_description }}</textarea>
                             </div>
+
                             <div class="form-group">
-                                <label for="twitter" class="form-label">Featured articles description *</label>
-                                <textarea name="featured_articles_description" class="form-control" id="featured_articles_description" rows="3"  value="{{ $information->featured_articles_description }}" placeholder="Featured articles description *" required>{{ $information->featured_articles_description }}</textarea>
+                                <label for="twitter" class="form-label">Featured basic articles description *</label>
+                                <textarea name="featured_basic_articles_description" class="form-control" id="featured_basic_articles_description" rows="3"  value="{{ $information->featured_basic_articles_description }}" placeholder="Featured basic articles description *" required>{{ $information->featured_basic_articles_description }}</textarea>
                             </div>
+                            
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured financial help for international students articles description *</label>
+                                <textarea name="featured_international_articles_description" class="form-control" id="featured_international_articles_description" rows="3"  value="{{ $information->featured_international_articles_description }}" placeholder="Featured financial help for international students articles description *" required>{{ $information->featured_international_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured financial help for Canadian students articles description *</label>
+                                <textarea name="featured_canadian_articles_description" class="form-control" id="featured_canadian_articles_description" rows="3"  value="{{ $information->featured_canadian_articles_description }}" placeholder="Featured financial help for Canadian students articles description *" required>{{ $information->featured_canadian_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured work while study articles description *</label>
+                                <textarea name="featured_work_study_articles_description" class="form-control" id="featured_work_study_articles_description" rows="3"  value="{{ $information->featured_work_study_articles_description }}" placeholder="Featured work while study articles description *" required>{{ $information->featured_work_study_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured financial planning articles description *</label>
+                                <textarea name="featured_financial_planning_articles_description" class="form-control" id="featured_financial_planning_articles_description" rows="3"  value="{{ $information->featured_financial_planning_articles_description }}" placeholder="Featured financial planning articles description *" required>{{ $information->featured_financial_planning_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured for students who need academic help before applying articles description *</label>
+                                <textarea name="featured_academic_help_articles_description" class="form-control" id="featured_academic_help_articles_description" rows="3"  value="{{ $information->featured_academic_help_articles_description }}" placeholder="Featured for students who need academic help before applying articles description *" required>{{ $information->featured_academic_help_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured for students who need financial help before applying articles description *</label>
+                                <textarea name="featured_financial_help_articles_description" class="form-control" id="featured_financial_help_articles_description" rows="3"  value="{{ $information->featured_financial_help_articles_description }}" placeholder="Featured for students who need academic help before applying articles description *" required>{{ $information->featured_financial_help_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured immigration questions articles description *</label>
+                                <textarea name="featured_immigration_articles_description" class="form-control" id="featured_immigration_articles_description" rows="3"  value="{{ $information->featured_immigration_articles_description }}" placeholder="Featured immigration questions articles description *" required>{{ $information->featured_immigration_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured proxima study coming to you articles description *</label>
+                                <textarea name="featured_proxima_study_articles_description" class="form-control" id="featured_proxima_study_articles_description" rows="3"  value="{{ $information->featured_proxima_study_articles_description }}" placeholder="Featured proxima study coming to you articles description *" required>{{ $information->featured_proxima_study_articles_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="twitter" class="form-label">Featured need more help articles description *</label>
+                                <textarea name="featured_need_help_articles_description" class="form-control" id="featured_need_help_articles_description" rows="3"  value="{{ $information->featured_need_help_articles_description }}" placeholder="Featured need more help articles description *" required>{{ $information->featured_need_help_articles_description }}</textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="twitter" class="form-label">Featured events description *</label>
                                 <textarea name="featured_events_description" class="form-control" id="featured_events_description" rows="3" value="{{ $information->featured_events_description }}" placeholder="Featured events description *" required>{{ $information->featured_events_description }}</textarea>

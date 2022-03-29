@@ -33,7 +33,16 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('main_banner')->nullable();
             $table->text('featured_schools_description');
             $table->text('featured_businesses_description');
-            $table->text('featured_articles_description');
+            $table->text('featured_basic_articles_description');
+            $table->text('featured_international_articles_description');
+            $table->text('featured_canadian_articles_description');
+            $table->text('featured_work_study_articles_description');
+            $table->text('featured_financial_planning_articles_description');
+            $table->text('featured_academic_help_articles_description');
+            $table->text('featured_financial_help_articles_description');
+            $table->text('featured_immigration_articles_description');
+            $table->text('featured_proxima_study_articles_description');
+            $table->text('featured_need_help_articles_description');
             $table->text('featured_events_description');
             $table->text('featured_videos_description');
             $table->text('recent_articles_description');

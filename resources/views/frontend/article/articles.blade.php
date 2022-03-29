@@ -13,11 +13,8 @@
         <form action="{{ route('frontend.article_search') }}"  method="POST">
         {{csrf_field()}}
             <div class="row align-items-center">
-                <div class="col-7">
+                <div class="col-9">
                     <hr>
-                </div>
-                <div class="col-2 input-group">
-                    <a href="{{ route('frontend.articles') }}" type="text" class="form-control text-center text-decoration-none" style="font-size: 0.95rem">All articles</a>
                 </div>
                 <div class="col-3 input-group">
                     <input type="text" class="form-control text-center" id="keyword" name="keyword" aria-describedby="search_article" placeholder="Search articles">
@@ -56,7 +53,7 @@
 
                             <div class="row align-end mt-3 justify-content-end">
                                 <div class="col-4 text-end">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" type="button" class="btn text-white continue-article-btn">Continue reading</a>
+                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" type="button" class="btn text-white continue-article-btn">Continue reading</a>
                                 </div>
                             </div>
                         </div>

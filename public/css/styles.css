@@ -269,3 +269,12 @@ p {
     background-color: transparent;
     color: white;
 }
+
+
+
+.dataTables_paginate .previous .page-link {
+    width: 70px;
+}
+.dataTables_paginate .next .page-link {
+    width: 70px;
+}

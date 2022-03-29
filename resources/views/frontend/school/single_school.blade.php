@@ -19,7 +19,7 @@
                     @foreach($articles as $key => $article)
 
                         <div class="col-12 mb-3">
-                            <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                            <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                 <div class="card border-0">
                                     @if($article->image != null)
                                         <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -1827,7 +1827,7 @@
                                                 @foreach($articles as $key => $article)
 
                                                     <div class="col-4">
-                                                        <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                             <div class="card border-0">
                                                                 @if($article->image != null)
                                                                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -2235,7 +2235,7 @@
                                             @foreach($articles as $key => $article)
 
                                                 <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                         <div class="card border-0">
                                                             @if($article->image != null)
                                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -2405,7 +2405,7 @@
                                             @foreach($articles as $key => $article)
 
                                                 <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                         <div class="card border-0">
                                                             @if($article->image != null)
                                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -2786,7 +2786,7 @@
                                             @foreach($articles as $key => $article)
 
                                                 <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                         <div class="card border-0">
                                                             @if($article->image != null)
                                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -3275,7 +3275,7 @@
                                             @foreach($articles as $key => $article)
 
                                                 <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                         <div class="card border-0">
                                                             @if($article->image != null)
                                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
@@ -3710,7 +3710,7 @@
                                             @foreach($articles as $key => $article)
 
                                                 <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', $article->id) }}" class="text-decoration-none">
+                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                                         <div class="card border-0">
                                                             @if($article->image != null)
                                                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">

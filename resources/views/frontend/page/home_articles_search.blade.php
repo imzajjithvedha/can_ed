@@ -56,7 +56,7 @@
 
                             <div class="row align-end mt-3 justify-content-end">
                                 <div class="col-4 text-end">
-                                    <a href="{{ route('frontend.single_article', $article->id) }}" type="button" class="btn text-white continue-article-btn">Continue Reading</a>
+                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" type="button" class="btn text-white continue-article-btn">Continue Reading</a>
                                 </div>
                             </div>
                         </div>

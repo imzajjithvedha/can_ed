@@ -95,6 +95,18 @@ Breadcrumbs::for('admin.careers.import_careers', function ($trail) {
     $trail->push('Careers / All careers / Import', route('admin.careers.import_careers'));
 });
 
+Breadcrumbs::for('admin.logos.index', function ($trail) {
+    $trail->push('Jobs logos', route('admin.logos.index'));
+});
+
+Breadcrumbs::for('admin.logos.create_logo', function ($trail) {
+    $trail->push('Jobs logos / Create', route('admin.logos.create_logo'));
+});
+
+Breadcrumbs::for('admin.logos.edit_logo', function ($trail) {
+    $trail->push('Jobs logos / Edit', route('admin.logos.edit_logo', 1));
+});
+
 
 
 

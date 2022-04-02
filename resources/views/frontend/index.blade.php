@@ -68,7 +68,6 @@
 
     @endif
 
-    
 
     @if(count($degree_levels) > 0)
         <div class="container-fluid index-categories">
@@ -120,6 +119,7 @@
         </div>
     @endif
 
+
     @if(count($featured_international_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'financial-help-for-international-students') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Financial help for international students</a>
@@ -145,6 +145,7 @@
             </div>
         </div>
     @endif
+
 
     @if(count($featured_canadian_articles) > 0)
         <div class="container mt-5 red">
@@ -172,12 +173,29 @@
         </div>
     @endif
 
+
     @if(count($featured_work_study_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while study</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_work_study_articles_description }}</p>
 
             <div class="row mt-4">
+                @if(count($jobs_logos) > 0)
+                    <div class="col-6">
+                        <div class="swiper logo-sliders" style="padding-bottom: 50px;">
+                            <div class="swiper-wrapper align-items-center">
+                                @foreach($jobs_logos as $jobs_logo)
+                                    <div class="swiper-slide">
+                                        <a href="{{ route('frontend.jobs') }}" class="text-decoration-none"><img src="{{ url('images/logos', $jobs_logo->image) }}" alt="" class="img-fluid logo"></a>
+                                    </div>
+                                @endforeach
+                                
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                @endif
+
                 @foreach($featured_work_study_articles as $featured_work_study_article)
                     <div class="col-3 mb-4">
                         <a href="{{ route('frontend.single_article', [$featured_work_study_article->type, $featured_work_study_article->id]) }}" class="text-decoration-none">
@@ -224,6 +242,7 @@
         </div>
     @endif
 
+
     @if(count($featured_academic_help_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'academic-help-before-applying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">For students who need academic help before applying</a>
@@ -249,6 +268,7 @@
             </div>
         </div>
     @endif
+
 
     @if(count($featured_financial_help_articles) > 0)
         <div class="container mt-5 red">
@@ -276,6 +296,7 @@
         </div>
     @endif
 
+
     @if(count($featured_immigration_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'immigration-questions') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Immigration questions</a>
@@ -302,6 +323,7 @@
         </div>
     @endif
 
+
     @if(count($featured_proxima_study_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'proxima-study-in-coming-to-you') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Proxima study coming to you</a>
@@ -327,6 +349,7 @@
             </div>
         </div>
     @endif
+
 
     @if(count($featured_need_help_articles) > 0)
         <div class="container mt-5 red">
@@ -438,6 +461,7 @@
         </div>
     @endif
 
+
     @if(count($featured_events) > 0)
         <div class="container mt-5 blue">
             <a href="{{ route('frontend.events') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured Events</a>
@@ -480,6 +504,7 @@
             </div>
         </div>
     @endif
+
 
     @if(count($student_services) > 0)
         <div class="container mt-5 red">
@@ -588,6 +613,7 @@
         </div>
     @endif
 
+
     @if(\Session::has('success'))
 
         <!-- Button trigger modal -->
@@ -694,6 +720,18 @@
             if(val == 'scholarships') {
                 window.open(link, '_self');
             }
+        });
+    </script>
+
+
+    <script>
+        var swiper = new Swiper(".logo-sliders", {
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            slidesPerView: 3,
+            spaceBetween: 20,
         });
     </script>
 @endpush

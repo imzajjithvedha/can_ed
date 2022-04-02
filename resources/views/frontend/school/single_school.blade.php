@@ -2271,6 +2271,39 @@
                                         <div class="col-12">
                                             <table class="table table-striped table-bordered">
                                                 <tbody>
+                                                    @if(count($bachelor_programs) > 0)
+                                                        <tr>
+                                                            <td>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Bachelor degree</h5>
+                                                                @foreach($bachelor_programs as $bachelor_program)
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
+                                                                @endforeach
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                    
+                                                    @if(count($certificate_programs) > 0)
+                                                        <tr>
+                                                            <td>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Certificate / short term</h5>
+                                                                @foreach($certificate_programs as $certificate_program)
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
+                                                                @endforeach
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+
+                                                    @if(count($community_programs) > 0)
+                                                        <tr>
+                                                            <td>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Community college</h5>
+                                                                @foreach($community_programs as $community_program)
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
+                                                                @endforeach
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+
                                                     @if(count($high_school_programs) > 0)
                                                         <tr>
                                                             <td>
@@ -2288,50 +2321,6 @@
                                                                 <h5 class="mb-2 fw-bold futura" style="color: #384058;">Language programs</h5>
                                                                 @foreach($language_programs as $language_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($certificate_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Certificate / short term</h5>
-                                                                @foreach($certificate_programs as $certificate_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($summer_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Summer</h5>
-                                                                @foreach($summer_programs as $summer_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($community_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Community college</h5>
-                                                                @foreach($community_programs as $community_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($bachelor_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Bachelor degree</h5>
-                                                                @foreach($bachelor_programs as $bachelor_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
                                                                 @endforeach
                                                             </td>
                                                         </tr>
@@ -2358,6 +2347,19 @@
                                                             </td>
                                                         </tr>
                                                     @endif
+
+                                            
+                                                    @if(count($summer_programs) > 0)
+                                                        <tr>
+                                                            <td>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Summer</h5>
+                                                                @foreach($summer_programs as $summer_program)
+                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
+                                                                @endforeach
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+
                                                 </tbody>
                                             </table>
                                         </div>

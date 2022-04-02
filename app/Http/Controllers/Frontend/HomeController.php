@@ -15,6 +15,7 @@ use App\Models\DegreeLevels;
 use App\Models\SchoolPrograms;
 use App\Models\WebsiteInformation;
 use App\Models\Events;
+use App\Models\JobsLogos;
 
 /**
  * Class HomeController.
@@ -66,6 +67,8 @@ class HomeController extends Controller
 
         $student_services = Businesses::where('status', 'Approved')->where('student_service', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
+        $jobs_logos = JobsLogos::where('status', 'Approved')->orderBy('orders', 'asc')->get();
+
         return view('frontend.index', 
         [
             'articles' => $articles,
@@ -88,6 +91,7 @@ class HomeController extends Controller
             'degree_levels' => $degree_levels,
             'information' => $information,
             'student_services' => $student_services,
+            'jobs_logos' => $jobs_logos,
         ]);
     }
 

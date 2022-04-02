@@ -84,7 +84,7 @@ class SchoolsAdmissionController extends Controller
 
     public function schoolAdmissionEdit($id, $employee__id)
     {
-        $employee = SchoolAdmissionEmployees::where('id', $employee__id)->first();
+        $employee = SchoolAdmissionEmployees::where('id', $employee_id)->first();
 
         $school = Schools::where('id', $id)->first();
 

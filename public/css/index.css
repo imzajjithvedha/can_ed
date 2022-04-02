@@ -68,3 +68,9 @@
 .tooltip-inner {
     white-space: pre-wrap;
 }
+
+
+
+.logo-sliders .swiper-pagination-clickable .swiper-pagination-bullet {
+    background-color: #b1040e;
+}

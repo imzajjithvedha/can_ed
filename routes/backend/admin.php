@@ -33,6 +33,7 @@ use App\Http\Controllers\Backend\SchoolsFinancialController;
 use App\Http\Controllers\Backend\SchoolsFinancialFAQController;
 use App\Http\Controllers\Backend\MasterApplicationsController;
 use App\Http\Controllers\Backend\AllScholarshipsController;
+use App\Http\Controllers\Backend\JobsLogosController;
 
 
 
@@ -85,6 +86,15 @@ Route::post('careers/update-career', [CareersController::class, 'updateCareer'])
 Route::get('careers/delete-career/{id}', [CareersController::class, 'deleteCareer'])->name('careers.delete_career');
 Route::get('careers/import-career', [CareersController::class, 'importCareers'])->name('careers.import_careers');
 Route::post('careers/import', [CareersController::class, 'import'])->name('careers.import');
+
+
+Route::get('logos', [JobsLogosController::class, 'index'])->name('logos.index');
+Route::get('logos/create-logo', [JobsLogosController::class, 'createLogo'])->name('logos.create_logo');
+Route::post('logos/store-logo', [JobsLogosController::class, 'storeLogo'])->name('logos.store_logo');
+Route::get('logos/get-logos', [JobsLogosController::class, 'getLogos'])->name('logos.get_logos');
+Route::get('logos/edit-logo/{id}', [JobsLogosController::class, 'editLogo'])->name('logos.edit_logo');
+Route::post('logos/update-logo', [JobsLogosController::class, 'updateLogo'])->name('logos.update_logo');
+Route::get('logos/delete-logo/{id}', [JobsLogosController::class, 'deleteLogo'])->name('logos.delete_logo');
 
 
 Route::get('events', [EventsController::class, 'index'])->name('events.index');

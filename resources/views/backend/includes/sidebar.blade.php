@@ -64,6 +64,9 @@
                             How came
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/logos.index'))}}" href="{{ route('admin.logos.index') }}">Jobs logos</a>
+                    </li>
                 </ul>
             </li>
 

@@ -36,6 +36,10 @@ Breadcrumbs::for('admin.businesses.edit_business', function ($trail) {
     $trail->push('Businesses / Edit', route('admin.businesses.edit_business', 1));
 });
 
+Breadcrumbs::for('admin.businesses.import_businesses', function ($trail) {
+    $trail->push('Businesses / Import', route('admin.businesses.import_businesses'));
+});
+
 
 
 Breadcrumbs::for('admin.categories.index', function ($trail) {

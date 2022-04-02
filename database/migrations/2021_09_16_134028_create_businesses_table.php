@@ -25,7 +25,7 @@ class CreateBusinessesTable extends Migration
             $table->text('email');
             $table->text('phone');
             $table->text('address');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->text('facebook')->nullable();
             $table->text('twitter')->nullable();
             $table->text('you_tube')->nullable();

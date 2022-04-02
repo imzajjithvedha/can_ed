@@ -12,7 +12,9 @@
                 <div class="card-header">
                     <strong>Businesses&nbsp;</strong>
 
-                    <a href="{{ route('admin.businesses.create_business') }}" class="btn btn-primary pull-right ml-4">Create new</a>
+                    <a href="{{ route('admin.businesses.create_business') }}" class="btn btn-primary pull-right me-4">Create new</a>
+
+                    <a href="{{ route('admin.businesses.import_businesses') }}" class="btn btn-primary pull-right">Import businesses</a>
                    
                 </div>
 

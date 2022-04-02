@@ -9,6 +9,8 @@ use DB;
 use App\Models\Businesses; 
 use App\Models\BusinessCategories;
 use Carbon\Carbon;
+use App\Imports\BusinessesImport;
+use Excel;
 
 /**
  * Class BusinessesController.
@@ -211,6 +213,19 @@ class BusinessesController extends Controller
     public function deleteBusiness($id)
     {
         $business = Businesses::where('id', $id)->delete();
+    }
+
+
+    public function importBusinesses()
+    {
+        return view('backend.businesses.import');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new BusinessesImport, $request->file);
+
+        return redirect()->route('admin.businesses.index')->withFlashSuccess('Uploaded Successfully');          
     }
 
 }

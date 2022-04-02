@@ -59,6 +59,8 @@ Route::get('businesses/get-businesses', [BusinessesController::class, 'getBusine
 Route::get('businesses/edit-business/{id}', [BusinessesController::class, 'editBusiness'])->name('businesses.edit_business');
 Route::post('businesses/update-business', [BusinessesController::class, 'updateBusiness'])->name('businesses.update_business');
 Route::get('businesses/delete-business/{id}', [BusinessesController::class, 'deleteBusiness'])->name('businesses.delete_business');
+Route::get('businesses/import-businesses', [BusinessesController::class, 'importBusinesses'])->name('businesses.import_businesses');
+Route::post('businesses/import', [BusinessesController::class, 'import'])->name('businesses.import');
 
 
 Route::get('business-categories', [BusinessCategoriesController::class, 'index'])->name('categories.index');

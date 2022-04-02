@@ -9,6 +9,7 @@
 <p><strong>Can schools text:</strong> {{ $details['school_text'] }}</p>
 <p><strong>Messaging apps:</strong> {{ $details['messaging_app'] }}</p>
 <p><strong>Messaging app username:</strong> {{ $details['username'] }}</p>
+<p><strong>Study location/s:</strong> {{ $details['study_location'] }}</p>
 <p><strong>Citizenship:</strong> {{ $details['citizenship'] }}</p>
 <p><strong>Do you live in your country of citizenship:</strong> {{ $details['citizenship_live'] }}</p>
 

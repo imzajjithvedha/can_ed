@@ -26,6 +26,7 @@ class CreateMastersTable extends Migration
             $table->text('school_text');
             $table->text('messaging_app')->nullable();
             $table->text('username')->nullable();
+            $table->text('study_location')->nullable();
             $table->text('citizenship');
             $table->text('citizenship_live');
             $table->text('country')->nullable();

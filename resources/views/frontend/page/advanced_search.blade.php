@@ -52,6 +52,26 @@
                 </div>
 
                 <div class="col-6 mb-3">
+                    <label for="study_location" class="form-label">Where do you want to study</label>
+                    <select name="study_location" id="study_location" class="form-select form-control" required>
+                        <option value="all" selected>All</option>
+                        <option value="Alberta">Alberta</option>
+                        <option value="British Columbia">British Columbia</option>
+                        <option value="Manitoba">Manitoba</option>
+                        <option value="New Brunswick">New Brunswick</option>
+                        <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                        <option value="Nova Scotia">Nova Scotia</option>
+                        <option value="Ontario">Ontario</option>
+                        <option value="Prince Edward Island">Prince Edward Island</option>
+                        <option value="Quebec">Quebec</option>
+                        <option value="Saskatchewan">Saskatchewan</option>
+                        <option value="Northwest Territories">Northwest Territories</option>
+                        <option value="Nunavut">Nunavut</option>
+                        <option value="Yukon">Yukon</option>
+                    </select>
+                </div>
+
+                <div class="col-6 mb-3">
                     <label for="online_distance_education" class="form-label">Online / distance education</label>
                     <select name="online_distance_education" id="online_distance_education" class="form-select">
                         <option value="all">All</option>

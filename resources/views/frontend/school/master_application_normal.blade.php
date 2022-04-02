@@ -176,6 +176,72 @@
                         <input type="text" class="form-control" id="username" name="username">
                     </div>
 
+
+                    <div class="col-12 mb-3">
+                        <label for="study_location" class="form-label">Where do you want to study?</label>
+                        <div class="dropdown">
+                            <button class="form-select form-control text-left" type="button" id="study_location" data-bs-toggle="dropdown">Select</button>
+                            
+                            <div class="dropdown-menu" style="width: 100%;">
+                                <div class="row px-2">
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Alberta" id="alberta">
+                                        <label class="form-check-label" for="alberta">Alberta</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="British Columbia" id="british-columbia">
+                                        <label class="form-check-label" for="british-columbia">British Columbia</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Manitoba" id="manitoba">
+                                        <label class="form-check-label" for="manitoba">Manitoba</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="New Brunswick" id="new-brunswick">
+                                        <label class="form-check-label" for="new-brunswick">New Brunswick</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Newfoundland and Labrador" id="newfoundland-and-labrador">
+                                        <label class="form-check-label" for="newfoundland-and-labrador">Newfoundland and Labrador</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Nova Scotia" id="nova-scotia">
+                                        <label class="form-check-label" for="nova-scotia">Nova Scotia</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Ontario" id="ontario">
+                                        <label class="form-check-label" for="ontario">Ontario</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Prince Edward Island" id="prince-edward-island">
+                                        <label class="form-check-label" for="prince-edward-island">Prince Edward Island</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Quebec" id="quebec">
+                                        <label class="form-check-label" for="quebec">Quebec</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Saskatchewan" id="saskatchewan">
+                                        <label class="form-check-label" for="saskatchewan">Saskatchewan</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Northwest Territories" id="northwest-territories">
+                                        <label class="form-check-label" for="northwest-territories">Northwest Territories</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Nunavut" id="nunavut">
+                                        <label class="form-check-label" for="nunavut">Nunavut</label>
+                                    </div>
+                                    <div class="col-12 mb-1">
+                                        <input type="checkbox" class="me-1" name="study_location[]" value="Yukon" id="yukon">
+                                        <label class="form-check-label" for="yukon">Yukon</label>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="col-12 mb-3">
                         <label for="citizenship" class="form-label">Country of citizenship *</label>
                         <select name="citizenship" id="citizenship" class="form-select form-control" required>

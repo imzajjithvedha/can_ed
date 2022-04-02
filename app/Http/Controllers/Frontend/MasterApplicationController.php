@@ -241,6 +241,7 @@ class MasterApplicationController extends Controller
         $application->school_text = $request->school_text;
         $application->messaging_app = json_encode($request->messaging_app);
         $application->username = $request->username;
+        $application->study_location = json_encode($request->study_location);
         $application->citizenship = $request->citizenship;
         $application->citizenship_live = $request->citizenship_live;
         $application->country = $request->country;
@@ -273,6 +274,7 @@ class MasterApplicationController extends Controller
             'school_text' => $request->school_text,
             'messaging_app' => json_encode($request->messaging_app),
             'username' => $request->username,
+            'study_location' => json_encode($request->messaging_app),
             'citizenship' => $request->citizenship,
             'citizenship_live' => $request->citizenship_live,
             'country' => $request->country,

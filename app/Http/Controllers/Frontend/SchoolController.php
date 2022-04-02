@@ -146,6 +146,7 @@ class SchoolController extends Controller
         $community_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 5)->get();
         $bachelor_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 6)->get();
         $master_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 7)->get();
+        $online_programs = SchoolPrograms::where('school_id', $id)->where('degree_level', 8)->get();
 
 
         $scholarships = SchoolScholarships::where('school_id', $id)->where('Featured', 'Yes')->orderBy('name', 'asc')->get();

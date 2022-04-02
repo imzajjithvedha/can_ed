@@ -2351,7 +2351,7 @@
                                                     @if(count($online_programs) > 0)
                                                         <tr>
                                                             <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Masters</h5>
+                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Online</h5>
                                                                 @foreach($online_programs as $online_program)
                                                                     <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$online_program->program_id)->first()->name }}</p>
                                                                 @endforeach

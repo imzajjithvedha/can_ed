@@ -139,28 +139,6 @@
                     </select>
                 </div>
 
-                <!-- <div class="col-6 mb-3">
-                    <label for="" class="form-label">Location</label>
-                    <select name="" class="form-select">
-                        <option value="all">All</option>
-                        <option value="50%">City</option>
-                        <option value="60%">Province</option>
-                    </select>
-                </div> -->
-
-                <!-- <div class="col-6 mb-3">
-                    <label for="tuition_range" class="form-label">Tuition range</label>
-                    <select name="tuition_range" id="tuition_range" class="form-select">
-                        <option value="all">All</option>
-                        <option value="10,000">Below $10,000</option>
-                        <option value="10,001">$10,001 to $20,000</option>
-                        <option value="20,001">$20,001 to $30,000</option>
-                        <option value="30,001">$30,001 to $40,000</option>
-                        <option value="40,001">$40,001 to $50,000</option>
-                        <option value="50,000">Above $50,000</option>
-                    </select>
-                </div> -->
-
                 <div class="col-6 mb-3">
                     <label for="accommodation" class="form-label">Housing / accommodation</label>
                     <select name="accommodation" id="accommodation" class="form-select">

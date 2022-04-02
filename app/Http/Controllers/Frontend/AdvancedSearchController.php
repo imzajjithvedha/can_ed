@@ -126,13 +126,6 @@ class AdvancedSearchController extends Controller
             $delivery_mode = 'delivery-mode';
         }
 
-        // if(request('tuition_range') != 'all') {
-        //     $tuition_range = request('tuition_range');
-        // }
-        // else {
-        //     $tuition_range = 'tuition-range';
-        // }
-
         if(request('accommodation') != 'all') {
             $accommodation = request('accommodation');
         }
@@ -384,10 +377,6 @@ class AdvancedSearchController extends Controller
         if($delivery_mode != 'delivery-mode'){
             $schools->where('delivery_mode', $delivery_mode);
         }
-
-        // if($tuition_range != 'tuition-range'){
-        //     $schools->where('tuition_range', $tuition_range);
-        // }
 
         if($accommodation != 'accommodation'){
             $schools->where('accommodation', $accommodation);

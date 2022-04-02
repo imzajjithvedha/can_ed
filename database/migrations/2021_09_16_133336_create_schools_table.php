@@ -82,11 +82,16 @@ class CreateSchoolsTable extends Migration
             $table->text('online_distance_education')->nullable();
             $table->text('minimum_gpa')->nullable();
             $table->text('conditional_acceptance')->nullable();
-            $table->text('graduate_program_type')->nullable();
-            $table->text('under_graduate_program_type')->nullable();
+
+            $table->integer('number_of_programs')->nullable();
+            $table->integer('number_of_graduate_programs')->nullable();
+            $table->integer('number_of_undergraduate_programs')->nullable();
+            $table->integer('number_of_students')->nullable();
+            $table->integer('number_of_graduate_students')->nullable();
+            $table->integer('number_of_undergraduate_students')->nullable();
+            
             $table->text('study_method')->nullable();
             $table->text('delivery_mode')->nullable();
-            // $table->text('tuition_range')->nullable();
             $table->text('accommodation')->nullable();
             $table->text('work_on_campus')->nullable();
             $table->text('work_during_holidays')->nullable();

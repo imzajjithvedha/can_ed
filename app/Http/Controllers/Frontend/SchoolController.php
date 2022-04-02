@@ -230,6 +230,7 @@ class SchoolController extends Controller
             'community_programs' => $community_programs,
             'bachelor_programs' => $bachelor_programs,
             'master_programs' => $master_programs,
+            'online_programs' => $online_programs,
             'scholarships' => $scholarships,
             'scholarship_faqs' => $scholarship_faqs,
             'overview_faqs' => $overview_faqs,

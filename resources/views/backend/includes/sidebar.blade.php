@@ -213,6 +213,12 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/open_days.index'))}}" href="{{ route('admin.open_days.index') }}">
+                            Schools open days
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/schools.index'))}}" href="{{ route('admin.schools.index') }}">
                             Schools profiles
                         </a>
@@ -227,6 +233,12 @@
                     <li class="nav-item">
                         <a class="nav-link {{active_class(Route::is('admin/types.index'))}}" href="{{ route('admin.types.index') }}">
                             School types
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {{active_class(Route::is('admin/virtual_tours.index'))}}" href="{{ route('admin.virtual_tours.index') }}">
+                            Schools virtual tours
                         </a>
                     </li>
 

@@ -48,6 +48,8 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('recent_articles_description');
             $table->text('student_services_description');
             $table->text('advanced_search_description');
+            $table->text('featured_open_days_description');
+            $table->text('featured_virtual_tours_description');
             $table->timestamps();
         });
     }

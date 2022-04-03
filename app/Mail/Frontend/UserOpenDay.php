@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class UserProgramUpdate extends Mailable
+class UserOpenDay extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -19,10 +19,10 @@ class UserProgramUpdate extends Mailable
      *
      * @return void
      */
-    // public function __construct($details)
-    // {
-    //     $this->details = $details;
-    // }
+    public function __construct($details)
+    {
+        $this->details = $details;
+    }
 
     /**
      * Build the message.
@@ -31,6 +31,6 @@ class UserProgramUpdate extends Mailable
      */
     public function build()
     {
-        return $this->subject('Suggested program update request - Proxima Study')->view('frontend.mail.user_update_program');
+        return $this->subject('Open day request - Proxima Study')->view('frontend.mail.user_open_day_request');
     }
 }

@@ -34,6 +34,8 @@ use App\Http\Controllers\Backend\SchoolsFinancialFAQController;
 use App\Http\Controllers\Backend\MasterApplicationsController;
 use App\Http\Controllers\Backend\AllScholarshipsController;
 use App\Http\Controllers\Backend\JobsLogosController;
+use App\Http\Controllers\Backend\SchoolsOpenDaysController;
+use App\Http\Controllers\Backend\SchoolsVirtualToursController;
 
 
 
@@ -326,6 +328,27 @@ Route::post('schools/edit-school/financial-faq/update', [SchoolsFinancialFAQCont
 Route::get('schools/edit-school/{id}/financial-faq/delete/{faq_id}', [SchoolsFinancialFAQController::class, 'SchoolFinancialFAQDelete'])->name('schools.school_financial_faq_delete');
 
 
+
+
+// School open days
+Route::get('schools/open-days', [SchoolsOpenDaysController::class, 'index'])->name('open_days.index');
+Route::get('schools/create-open-day', [SchoolsOpenDaysController::class, 'createOpenDay'])->name('open_days.create_open_day');
+Route::post('schools/store-open-day', [SchoolsOpenDaysController::class, 'storeOpenDay'])->name('open_days.store_open_day');
+Route::get('schools/get-open-days', [SchoolsOpenDaysController::class, 'getOpenDays'])->name('open_days.get_open_days');
+Route::get('schools/edit-open-day/{id}', [SchoolsOpenDaysController::class, 'editOpenDay'])->name('open_days.edit_open_day');
+Route::post('schools/update-open-day', [SchoolsOpenDaysController::class, 'updateOpenDay'])->name('open_days.update_open_day');
+Route::get('schools/delete-open-day/{id}', [SchoolsOpenDaysController::class, 'deleteOpenDay'])->name('open_days.delete_open_day');
+
+
+
+// School virtual tours
+Route::get('schools/virtual-tours', [SchoolsVirtualToursController::class, 'index'])->name('virtual_tours.index');
+Route::get('schools/create-virtual-tour', [SchoolsVirtualToursController::class, 'createVirtualTour'])->name('virtual_tours.create_virtual_tour');
+Route::post('schools/store-virtual-tour', [SchoolsVirtualToursController::class, 'storeVirtualTour'])->name('virtual_tours.store_virtual_tour');
+Route::get('schools/get-virtual-tours', [SchoolsVirtualToursController::class, 'getVirtualTours'])->name('virtual_tours.get_virtual_tours');
+Route::get('schools/edit-virtual-tour/{id}', [SchoolsVirtualToursController::class, 'editVirtualTour'])->name('virtual_tours.edit_virtual_tour');
+Route::post('schools/update-virtual-tour', [SchoolsVirtualToursController::class, 'updateVirtualTour'])->name('virtual_tours.update_virtual_tour');
+Route::get('schools/delete-virtual-tour/{id}', [SchoolsVirtualToursController::class, 'deleteVirtualTour'])->name('virtual_tours.delete_virtual_tour');
 
 
 

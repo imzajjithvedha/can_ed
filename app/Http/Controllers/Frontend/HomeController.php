@@ -16,6 +16,8 @@ use App\Models\SchoolPrograms;
 use App\Models\WebsiteInformation;
 use App\Models\Events;
 use App\Models\JobsLogos;
+use App\Models\OpenDays;
+use App\Models\VirtualTours;
 
 /**
  * Class HomeController.
@@ -69,6 +71,10 @@ class HomeController extends Controller
 
         $jobs_logos = JobsLogos::where('status', 'Approved')->orderBy('orders', 'asc')->get();
 
+        $featured_open_days = OpenDays::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
+
+        $featured_virtual_tours = VirtualTours::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
+
         return view('frontend.index', 
         [
             'articles' => $articles,
@@ -92,6 +98,8 @@ class HomeController extends Controller
             'information' => $information,
             'student_services' => $student_services,
             'jobs_logos' => $jobs_logos,
+            'featured_open_days' => $featured_open_days,
+            'featured_virtual_tours' => $featured_virtual_tours,
         ]);
     }
 

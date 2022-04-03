@@ -1,41 +1,31 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 
-@section('title', 'Proxima Study | Edit open day')
-
-@push('after-styles')
-    <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
-@endpush
+@section('title', 'Edit open day | Admin')
 
 @section('content')
- 
-
-
-    <div class="container user-settings" style="margin-top:8rem;">
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        @include('frontend.includes.profile-settings-links')
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-8">
-
-                <div class="row justify-content-between">
-                    <div class="col-8 p-0">
-                        <h4 class="user-settings-head">Edit open day</h4>
-                    </div>
-                </div>
-
-                <form action="{{ route('frontend.user.open_day_update') }}" method="post" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <div class="row">
-                        <div class="col-12 border py-3">
-
+    
+    <form action="{{route('admin.open_days.update_open_day')}}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="row">
+            <div class="col-md-7 p-1">
+                <div class="card quote">
+                    <div class="card-body border">
+                        <div class="border p-3">
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title *</label>
                                 <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Title *" name="title" value="{{$open_day->title}}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="school" class="form-label">School *</label>
+                                <select class="form-control" id="school" name="school" required>
+                                    <option value="" selected hidden disabled>School *</option>
+
+                                    @foreach($schools as $school)
+                                        <option value="{{ $school->id }}">{{ $school->name }}</option>
+                                    @endforeach
+                                    
+                                </select>
                             </div>
 
                             <div class="mb-3">
@@ -339,8 +329,17 @@
                                 <label for="url" class="form-label">Open day URL</label>
                                 <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Open day URL" name="url" value="{{$open_day->url}}"> 
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <div>
+            <div class="col-md-5 p-1">
+                <div class="card">
+                    <div class="card-body border">
+                        <div class="border p-3">
+
+                            <div class="form-group">
                                 <label class="form-label">Image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                 <div class="row">
                                     <div class="col-12 mb-3">
@@ -354,54 +353,56 @@
                                 </div>
                             </div>
 
-                               
+                            <div class="form-group">
+                                <label for="website_name" class="form-label">Status *</label>
+                                <select class="form-control" name="status" id="status" required>
+                                    <option value="Approved" {{ $open_day->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Pending" {{ $open_day->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="featured-open-day" class="form-label">Do you want to show this open day in the homepage? *</label>
+                                <select class="form-control" name="featured" id="featured-open-day" required>
+                                    <option value="Yes" {{ $open_day->featured == 'Yes' ? "selected" : "" }}>Yes</option>   
+                                    <option value="No" {{ $open_day->featured == 'No' ? "selected" : "" }}>No</option>                               
+                                </select>
+                            </div>
+
                             <div class="mt-5 text-center">
-                                <input type="hidden" class="form-control" value="{{$open_day->id}}" name="hidden_id">
-                                <input type="hidden" class="form-control" value="{{$open_day->status}}" name="status">
-                                <input type="submit" value="Update open day" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
+                                <input type="hidden" name="hidden_id" value="{{ $open_day->id }}"/>
+                                <a href="{{ route('admin.open_days.index') }}" type="button" class="btn rounded-pill text-light px-4 py-2 me-2 btn-primary">Back</a>
+                                <button type="submit" class="btn rounded-pill text-light px-4 py-2 ms-2 btn-success">Update</button>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-danger">Warning</h4>
-                </div>
-
-                <div class="modal-body" style="padding: 2rem 1rem;">
-                    <h6 class="mb-0 text-center text-info">Updates will have to be approved before they go live</h6>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
 @endsection
 
-@push('after-scripts')
-    <script>
-        $(document).ready(function() {
-            $('#info-btn').click();
-        });
-    </script>
 
+@push('after-scripts')
     <script>
         $(document).ready(function() {
             let value = <?php echo json_encode ($open_day->country) ?>
 
             $('#country option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($open_day->school_id) ?>
+
+            $('#school option').each(function(i){
                 if($(this).val() == value) {
                     $(this).attr('selected', 'selected');
                 }

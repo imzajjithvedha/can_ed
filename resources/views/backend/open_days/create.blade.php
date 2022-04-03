@@ -1,61 +1,47 @@
-@extends('frontend.layouts.app')
+@extends('backend.layouts.app')
 
-@section('title', 'Proxima Study | Edit open day')
-
-@push('after-styles')
-    <link href="{{ url('css/profile-settings.css') }}" rel="stylesheet">
-@endpush
+@section('title', __('Create new open day | Admin'))
 
 @section('content')
- 
 
 
-    <div class="container user-settings" style="margin-top:8rem;">
-        <div class="row justify-content-between">
-            <div class="col-4">
-                <div class="row">
-                    <div class="col-12">
-                        @include('frontend.includes.profile-settings-links')
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-8">
-
-                <div class="row justify-content-between">
-                    <div class="col-8 p-0">
-                        <h4 class="user-settings-head">Edit open day</h4>
-                    </div>
-                </div>
-
-                <form action="{{ route('frontend.user.open_day_update') }}" method="post" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <div class="row">
-                        <div class="col-12 border py-3">
-
+    <form action="{{ route('admin.open_days.store_open_day') }}" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body border">
+                        <div class="border p-3">
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title *</label>
-                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Title *" name="title" value="{{$open_day->title}}" required>
+                                <input type="text" class="form-control" id="title" aria-describedby="title" placeholder="Title *" name="title" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="description" class="form-label">Description *</label>
-                                <textarea name="description" class="form-control" rows="7" placeholder="Description *" value="{{$open_day->description}}" required>{{$open_day->description}}</textarea>
+                                <select class="form-control" id="school" name="school" required>
+                                    <option value="" selected hidden disabled>School *</option>
+
+                                    @foreach($schools as $school)
+                                        <option value="{{ $school->id }}">{{ $school->name }}</option>
+                                    @endforeach
+                                    
+                                </select>
                             </div>
 
                             <div class="mb-3">
-                                <label for="address" class="form-label">Address *</label>
-                                <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address *" name="address" value="{{$open_day->address}}" required>
+                                <textarea name="description" class="form-control" rows="7" placeholder="Description *" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="address" aria-describedby="address" placeholder="Address *" name="address" required>
                             </div>
 
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                        <label for="city" class="form-label">City *</label>
-                                        <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" value="{{$open_day->city}}" required>
+                                        <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" required>
                                     </div>
                                     <div class="col-6">
-                                        <label for="country" class="form-label">Country *</label>
                                         <select class="form-control" id="country" name="country" required>
                                             <option value="" selected hidden disabled>Country *</option>
                                             <option value="Afganistan">Afghanistan</option>
@@ -312,12 +298,10 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                    <label for="date" class="form-label">Date *</label>
-                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Date *" name="date" value="{{$open_day->date}}" required>
+                                        <input type="date" class="form-control" id="date" aria-describedby="date" placeholder="Date *" name="date" required>
                                     </div>
                                     <div class="col-6">
-                                    <label for="time" class="form-label">Time *</label>
-                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Time *" name="time" value="{{$open_day->time}}" required>
+                                        <input type="time" class="form-control" id="time" aria-describedby="time" placeholder="Time *" name="time" required>
                                     </div>
                                 </div>
                             </div>
@@ -325,87 +309,40 @@
                             <div class="mb-3">
                                 <div class="row">
                                     <div class="col-6">
-                                    <label for="email" class="form-label">School email *</label>
-                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="School email *" name="email" value="{{$open_day->school_email}}" required>
+                                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="School email *" name="email" required>
                                     </div>
                                     <div class="col-6">
-                                    <label for="phone" class="form-label">School phone *</label>
-                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="School phone *" name="phone" value="{{$open_day->school_phone}}" required>
+                                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="School phone *" name="phone" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="mb-3">
-                                <label for="url" class="form-label">Open day URL</label>
-                                <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Open day URL" name="url" value="{{$open_day->url}}"> 
+                                <input type="url" class="form-control" id="url" aria-describedby="url" placeholder="Open day URL" name="url"> 
                             </div>
 
-                            <div>
+                            <div class="mb-3 form-group">
                                 <label class="form-label">Image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
-                                <div class="row">
-                                    <div class="col-12 mb-3">
-                                        <img src="{{ url('images/open_days', $open_day->image) }}" alt="" class="img-fluid w-100" style="height: 23rem; object-fit: cover;">
-                                        <input type="hidden" class="form-control" name="old_image" value="{{$open_day->image}}">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <input type="file" class="form-control" id="image" name="new_image" value="">
-                                    </div>
-                                </div>
+                                <input type="file" class="form-control" id="image" name="image" required>
                             </div>
 
-                               
-                            <div class="mt-5 text-center">
-                                <input type="hidden" class="form-control" value="{{$open_day->id}}" name="hidden_id">
-                                <input type="hidden" class="form-control" value="{{$open_day->status}}" name="status">
-                                <input type="submit" value="Update open day" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
+                            <div class="form-group">
+                                <select class="form-control" id="featured" name="featured" placeholder="Featured? *" required>
+                                    <option value="" selected disabled hidden>Do you want to show this open day in the homepage? *</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
                             </div>
+
                         </div>
                     </div>
-                </form>
-            </div>
+                </div>
+
+                <div class="text-center mb-5">
+                    <button type="submit" class="btn btn-success">Create new</button><br>
+                </div>
+            </div>    
         </div>
-    </div>
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary invisible" id="info-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-danger">Warning</h4>
-                </div>
-
-                <div class="modal-body" style="padding: 2rem 1rem;">
-                    <h6 class="mb-0 text-center text-info">Updates will have to be approved before they go live</h6>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    </form>
 
 @endsection
-
-@push('after-scripts')
-    <script>
-        $(document).ready(function() {
-            $('#info-btn').click();
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            let value = <?php echo json_encode ($open_day->country) ?>
-
-            $('#country option').each(function(i){
-                if($(this).val() == value) {
-                    $(this).attr('selected', 'selected');
-                }
-            });
-        });
-    </script>
-@endpush

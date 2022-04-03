@@ -346,6 +346,33 @@ Breadcrumbs::for('admin.schools.school_financial_faq_edit', function ($trail) {
 });
 
 
+Breadcrumbs::for('admin.open_days.index', function ($trail) {
+    $trail->push('Open days', route('admin.open_days.index'));
+});
+
+Breadcrumbs::for('admin.open_days.create_open_day', function ($trail) {
+    $trail->push('Open days / Create', route('admin.open_days.create_open_day'));
+});
+
+Breadcrumbs::for('admin.open_days.edit_open_day', function ($trail) {
+    $trail->push('Open days / Edit', route('admin.open_days.edit_open_day', 1));
+});
+
+
+
+Breadcrumbs::for('admin.virtual_tours.index', function ($trail) {
+    $trail->push('Virtual tours', route('admin.virtual_tours.index'));
+});
+
+Breadcrumbs::for('admin.virtual_tours.create_virtual_tour', function ($trail) {
+    $trail->push('Virtual tours / Create', route('admin.virtual_tours.create_virtual_tour'));
+});
+
+Breadcrumbs::for('admin.virtual_tours.edit_virtual_tour', function ($trail) {
+    $trail->push('Virtual tours / Edit', route('admin.virtual_tours.edit_virtual_tour', 1));
+});
+
+
 
 
 Breadcrumbs::for('admin.types.index', function ($trail) {

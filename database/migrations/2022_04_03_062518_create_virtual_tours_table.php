@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOpenDaysTable extends Migration
+class CreateVirtualToursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,17 @@ class CreateOpenDaysTable extends Migration
      */
     public function up()
     {
-        Schema::create('open_days', function (Blueprint $table) {
+        Schema::create('virtual_tours', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
             $table->text('school_id');
-            $table->text('title');
-            $table->text('description');
-            $table->text('address');
             $table->text('city');
+            $table->text('province');
             $table->text('country');
-            $table->date('date');
-            $table->time('time');
+            $table->text('link');
+            $table->text('color');
+            $table->text('image');
             $table->text('status');
-            $table->text('school_email');
-            $table->text('school_phone');
-            $table->text('url')->nullable();
-            $table->text('image')->nullable();
             $table->text('featured');
             $table->timestamps();
         });
@@ -41,6 +36,6 @@ class CreateOpenDaysTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('open_days');
+        Schema::dropIfExists('virtual_tours');
     }
 }

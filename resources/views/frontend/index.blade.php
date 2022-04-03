@@ -378,6 +378,68 @@
     @endif
 
 
+    @if(count($featured_open_days) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.all_open_days') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured open days</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_open_days_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_open_days as $featured_open_day)
+                    <div class="col-3 mb-4">
+                        <a href="{{ route('frontend.single_open_day', $featured_open_day->id) }}" class="text-decoration-none">
+                            <div class="card rounded-0">
+                                @if($featured_open_day->image != null)
+                                    <img src="{{ url('images/open_days', $featured_open_day->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                @endif
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ $featured_open_day->title }}</h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+    @if(count($featured_virtual_tours) > 0)
+        <div class="container mt-5 red">
+            <a href="{{ route('frontend.all_virtual_tours') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured virtual tours</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_virtual_tours_description }}</p>
+
+            <div class="row mt-4">
+                @foreach($featured_virtual_tours as $featured_virtual_tour)
+                    <div class="col-3 mb-4">
+                        <div class="card rounded-0 position-relative">
+                            <a href="{{ $featured_virtual_tour->link }}" class="text-decoration-none" target="_blank">
+
+                                <div class="card-body text-center card-padding rounded-0">
+                                    <h6 class="card-title fw-bold gray">{{ App\Models\Schools::where('id', $featured_virtual_tour->school_id)->first()->name }}</h6>
+                                </div>
+
+                                @if($featured_virtual_tour->image != null)
+                                    <img src="{{ url('images/virtual_tours', $featured_virtual_tour->image) }}" class="w-100" alt="..." style="height: 15rem; object-fit: cover;">
+                                        
+                                @else
+                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                                @endif
+
+
+                                <div class="position-absolute virtual-box">
+                                    <p class="text-decoration-none" style="color: {{ $featured_virtual_tour->color }}">We are in {{ $featured_virtual_tour->city }}, {{ $featured_virtual_tour->province }}, {{ $featured_virtual_tour->country }}</p>
+                                </div>
+                                
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+
     @if(count($featured_businesses) > 0)
         <div class="container mt-5 featured-businesses blue">
             <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured businesses</a>

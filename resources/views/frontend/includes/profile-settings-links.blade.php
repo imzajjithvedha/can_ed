@@ -68,6 +68,8 @@
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'open-days' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.open_days') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Open days</a>
 
+        <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'virtual-tours' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.virtual_tours') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Virtual tours</a>
+
         <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'school-settings' ? 'active' : null }} futura" id="nav-settings-tab" href="{{ route('frontend.user.school_settings') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">School settings</a>
 
     @endif

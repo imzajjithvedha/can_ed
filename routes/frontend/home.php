@@ -27,6 +27,8 @@ use App\Http\Controllers\Frontend\MasterApplicationController;
 use App\Http\Controllers\Frontend\CookiesController;
 use App\Http\Controllers\Frontend\TermsOfUseController;
 use App\Http\Controllers\Frontend\ScholarshipController;
+use App\Http\Controllers\Frontend\OpenDayController;
+use App\Http\Controllers\Frontend\VirtualTourController;
 
 
 
@@ -48,7 +50,8 @@ use App\Http\Controllers\Frontend\User\UserSchoolAdmissionFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialController;
 use App\Http\Controllers\Frontend\User\UserSchoolFinancialFAQController;
 use App\Http\Controllers\Frontend\User\UserSchoolSettingsController;
-use App\Http\Controllers\Frontend\User\UserOpenDaysController;
+use App\Http\Controllers\Frontend\User\UserSchoolOpenDaysController;
+use App\Http\Controllers\Frontend\User\UserSchoolVirtualToursController;
 
 /*
  * Frontend Controllers
@@ -147,7 +150,15 @@ Route::post('scholarships/search-results', [ScholarshipController::class, 'schol
 Route::get('scholarships-search-results/{keyword}',[ScholarshipController::class,'scholarshipSearchFunction'])->name('scholarship_search_function');
 Route::post('scholarships/single-scholarship/favorite', [ScholarshipController::class, 'favoriteScholarship'])->name('favorite_scholarship');
 Route::post('scholarships/advanced-search-results', [ScholarshipController::class, 'advancedSearch'])->name('scholarships_advanced_search');
-Route::get('scholarships-advanced-search-results/{name}/{school}/{province}/{award}/{action}/{provider}/{min_amount}/{max_amount}/{duration}',[ScholarshipController::class,'advancedSearchFunction'])->name('scholarship_advanced_search_function');
+Route::get('scholarships-advanced-search-results/{name}/{school}/F{province}/{award}/{action}/{provider}/{min_amount}/{max_amount}/{duration}',[ScholarshipController::class,'advancedSearchFunction'])->name('scholarship_advanced_search_function');
+
+
+Route::get('all-open-days', [OpenDayController::class, 'index'])->name('all_open_days');
+Route::get('all-open-days/single-open-day/{id}', [OpenDayController::class, 'singleOpenDay'])->name('single_open_day');
+
+
+Route::get('all-virtual-tours', [VirtualTourController::class, 'index'])->name('all_virtual_tours');
+Route::get('all-virtual-tours/single-virtual-tour/{id}', [VirtualTourController::class, 'singleVirtualTour'])->name('single_virtual_tour');
 
 
 
@@ -368,13 +379,22 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
         Route::get('suggested-programs/delete/{id}', [UserSuggestedProgramController::class, 'suggestedProgramDelete'])->name('suggested_program_delete');
 
 
-        //Open Days Routes
-        Route::get('open-days', [UserOpenDaysController::class, 'openDays'])->name('open_days');
-        Route::get('open-days/create-open-day', [UserOpenDaysController::class, 'createOpenDay'])->name('create_open_day');
-        Route::post('open-days/store-open-day', [UserOpenDaysController::class, 'storeOpenDay'])->name('store_open_day');
-        Route::get('open-days/edit/{id}', [UserOpenDaysController::class, 'openDayEdit'])->name('open_day_edit');
-        Route::post('open-days/update', [UserOpenDaysController::class, 'OpenDayUpdate'])->name('open_day_update');
-        Route::get('open-days/delete/{id}', [UserOpenDaysController::class, 'openDayDelete'])->name('open_day_delete');
+    //Open Days Routes
+        Route::get('open-days', [UserSchoolOpenDaysController::class, 'openDays'])->name('open_days');
+        Route::get('open-days/create-open-day', [UserSchoolOpenDaysController::class, 'createOpenDay'])->name('create_open_day');
+        Route::post('open-days/store-open-day', [UserSchoolOpenDaysController::class, 'storeOpenDay'])->name('store_open_day');
+        Route::get('open-days/edit/{id}', [UserSchoolOpenDaysController::class, 'openDayEdit'])->name('open_day_edit');
+        Route::post('open-days/update', [UserSchoolOpenDaysController::class, 'OpenDayUpdate'])->name('open_day_update');
+        Route::get('open-days/delete/{id}', [UserSchoolOpenDaysController::class, 'openDayDelete'])->name('open_day_delete');
+
+
+    //Virtual tours Routes
+    Route::get('virtual-tours', [UserSchoolVirtualToursController::class, 'virtualTours'])->name('virtual_tours');
+    Route::get('virtual-tours/create-virtual-tour', [UserSchoolVirtualToursController::class, 'createVirtualTour'])->name('create_virtual_tour');
+    Route::post('virtual-tours/store-virtual-tour', [UserSchoolVirtualToursController::class, 'storeVirtualTour'])->name('store_virtual_tour');
+    Route::get('virtual-tours/edit/{id}', [UserSchoolVirtualToursController::class, 'virtualTourEdit'])->name('virtual_tour_edit');
+    Route::post('virtual-tours/update', [UserSchoolVirtualToursController::class, 'virtualTourUpdate'])->name('virtual_tour_update');
+    Route::get('virtual-tours/delete/{id}', [UserSchoolVirtualToursController::class, 'virtualTourDelete'])->name('virtual_tour_delete');
 
 
 

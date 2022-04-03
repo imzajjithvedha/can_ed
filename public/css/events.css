@@ -66,3 +66,15 @@ hr {
     background-color: #800f0e;
     color: white;
 }
+
+
+
+
+.virtual-box {
+    bottom: 20px;
+    width: 100%;
+}
+.virtual-box p {
+    text-align: center;
+    font-size: 20px;
+}

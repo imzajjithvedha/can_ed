@@ -94,24 +94,26 @@
                 <h4 class="fw-bolder futura">More open days</h4>
                 <hr>
 
-                @foreach($more_open_days as $more_open_day)
-                    <a href="{{ route('frontend.single_open_day', $more_open_day->id) }}" class="text-decoration-none">
-                        <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
-                            <div class="col-6">
-                                @if($more_open_day->image != null)
-                                    <img src="{{ url('images/open_days', $more_open_day->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
-                                @endif
-                            </div>
+                @if(count($more_open_days) > 0)
+                    @foreach($more_open_days as $more_open_day)
+                        <a href="{{ route('frontend.single_open_day', $more_open_day->id) }}" class="text-decoration-none">
+                            <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
+                                <div class="col-6">
+                                    @if($more_open_day->image != null)
+                                        <img src="{{ url('images/open_days', $more_open_day->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                    @else
+                                        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
+                                    @endif
+                                </div>
 
-                            <div class="col-6">
-                                <h6 class="fw-bold gray futura">{{ $more_open_day->title }}</h6>
-                                <p class="gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $more_open_day->description }}</p>
+                                <div class="col-6">
+                                    <h6 class="fw-bold gray futura">{{ $more_open_day->title }}</h6>
+                                    <p class="gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $more_open_day->description }}</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                @endforeach
+                        </a>
+                    @endforeach
+                @endif
             </div>
         </div>
     </div>
@@ -131,7 +133,7 @@
                         </div>
 
                         <div class="col-6">
-                            <h6 class="fw-normal gray ms-3">{{ $more_open_day->school_email }}</h6>
+                            <h6 class="fw-normal gray ms-3">{{ $open_day->school_email }}</h6>
                         </div>
                     </div>
 
@@ -141,7 +143,7 @@
                         </div>
 
                         <div class="col-6">
-                            <h6 class="fw-normal gray ms-3">{{ $more_open_day->school_phone }}</h6>
+                            <h6 class="fw-normal gray ms-3">{{ $open_day->school_phone }}</h6>
                         </div>
                     </div>
                 </div>

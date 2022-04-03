@@ -30,7 +30,7 @@
                                 <div class="col-7">
                                 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                         <label class="form-check-label gray" for="flexCheckDefault" style="font-size: 0.8rem;">
                                             Keep me logged in
                                         </label>

@@ -28,6 +28,8 @@
         <script src="https://kit.fontawesome.com/31844209f8.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css"/>
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+        <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
+        <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.default.min.css" rel="stylesheet" />
 
         <link href="{{ url('css/bulma-calendar.min.css') }}" rel="stylesheet">
         
@@ -73,6 +75,9 @@
         <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
         <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+        <script src="http://kendo.cdn.telerik.com/2014.2.716/js/jquery.min.js"></script>
+        <script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>
 
         <script src="{{ url('js/bulma-calendar.min.js') }}"></script>
 
@@ -139,6 +144,70 @@
             
             $(this).val(string);
         });
+    </script>
+
+
+    <!-- JavaScript for disabling form submissions if there are invalid fields -->
+    <script>
+        $( "form" ).each(function() {
+    var form = this;
+
+    // Suppress the default bubbles
+    form.addEventListener( "invalid", function( event ) {
+        event.preventDefault();
+    }, true );
+
+    // Support Safari, iOS Safari, and the Android browser—each of which do not prevent
+    // form submissions by default
+    $( form ).on( "submit", function( event ) {
+        if ( !this.checkValidity() ) {
+            event.preventDefault();
+        }
+    });
+
+    $( "input, select, textarea", form )
+        // Destroy the tooltip on blur if the field contains valid data
+        .on( "blur", function() {
+            var field = $( this );
+            if ( field.data( "kendoTooltip" ) ) {
+                if ( this.validity.valid ) {
+                    field.kendoTooltip( "destroy" );
+                } else {
+                    field.kendoTooltip( "hide" );
+                }
+            }
+        })
+        // Show the tooltip on focus
+        .on( "focus", function() {
+            var field = $( this );
+            if ( field.data( "kendoTooltip" ) ) {
+                field.kendoTooltip( "show" );
+            }
+        });
+
+    $( "button:not([type=button]), input[type=submit]", form ).on( "click", function( event ) {
+        // Destroy any tooltips from previous runs
+        $( "input, select, textarea", form ).each( function() {
+            var field = $( this );
+            if ( field.data( "kendoTooltip" ) ) {
+                field.kendoTooltip( "destroy" );
+            }
+        });
+
+        // Add a tooltip to each invalid field
+        var invalidFields = $( ":invalid", form ).each(function() {
+            var field = $( this ).kendoTooltip({
+                content: function() {
+                    return field[ 0 ].validationMessage;
+                },
+                position:'bottom',
+            });
+        });
+
+        // If there are errors, give focus to the first invalid field
+        invalidFields.first().trigger( "focus" ).eq( 0 ).focus();
+    });
+});
     </script>
 
         @stack('after-scripts')

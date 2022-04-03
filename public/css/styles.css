@@ -278,3 +278,27 @@ p {
 .dataTables_paginate .next .page-link {
     width: 70px;
 }
+
+
+
+.k-tooltip{
+    background: #0094d4!important;
+    border-color: #0094d4!important;
+    color: white!important;
+    font-size: 14px!important;
+    padding: 10px!important;
+    text-align:left;
+    left: 0;
+}
+.k-tooltip-content {
+    text-align:left;
+}
+.tooltip.top .tooltip-arrow {
+    border-top-color: red!important;
+    }
+    .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: green!important;
+    }
+    .tooltip.left .tooltip-arrow {
+    border-left-color: yellow!important;
+    }

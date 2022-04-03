@@ -16,6 +16,7 @@ class CreateJobsLogosTable extends Migration
         Schema::create('jobs_logos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->text('user_id');
+            $table->text('name');
             $table->text('image');
             $table->text('status');
             $table->integer('orders');

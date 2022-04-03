@@ -71,9 +71,48 @@
 
 
 
-.logo-sliders .swiper-pagination-clickable .swiper-pagination-bullet {
+.logo-sliders {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.logo-sliders .swiper-slide {
+    text-align: center;
+}
+.logo-sliders img {
+    height: 100px;
+    width: 100%;
+    object-fit: contain;
+}
+
+.logo-sliders .swiper-button-next:after, .logo-sliders .swiper-button-prev:after {
+    content: 'next';
+    font-size: 12px;
+    background-color: #284162;
+    padding: 10px 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.logo-sliders .swiper-button-prev:after {
+    content: 'prev';
+    font-size: 12px;
+    background-color: #284162;
+    padding: 10px 13px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.logo-sliders .swiper-button-next:hover::after {
     background-color: #b1040e;
 }
+.logo-sliders .swiper-button-prev:hover::after {
+    background-color: #b1040e;
+}
+
 
 
 

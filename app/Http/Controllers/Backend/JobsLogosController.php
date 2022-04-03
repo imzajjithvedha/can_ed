@@ -39,6 +39,7 @@ class JobsLogosController extends Controller
         $jobs_logo = new JobsLogos;
 
         $jobs_logo->user_id = $user_id;
+        $jobs_logo->name = $request->name;
         $jobs_logo->image = $imageName;
         $jobs_logo->status = 'Approved';
         $jobs_logo->orders = $request->orders;
@@ -112,6 +113,7 @@ class JobsLogosController extends Controller
         
         $logo = DB::table('jobs_logos') ->where('id', request('hidden_id'))->update(
             [
+                'name' => $request->name,
                 'image' => $imageName,
                 'status' => $request->status,
                 'orders' => $request->orders,

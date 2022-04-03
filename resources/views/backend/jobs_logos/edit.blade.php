@@ -13,6 +13,11 @@
                         <div class="border p-3">
 
                             <div class="form-group">
+                                <label for="name" class="form-label">Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name *" value="{{ $logo->name }}" required>
+                            </div>
+
+                            <div class="form-group">
                                 <img src="{{ url('images/logos', $logo->image) }}" alt="" class="img-fluid w-25" style="height: 13rem; object-fit: cover;">
                                 <input type="hidden" class="form-control" name="old_image" value="{{$logo->image}}">
 

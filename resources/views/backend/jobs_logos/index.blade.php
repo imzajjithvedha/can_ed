@@ -20,6 +20,7 @@
                     <table class="table table-striped table-bordered" id="logos-table" style="width:100%">
                         <thead>
                             <tr>
+                                <th scope="col">Name</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Order</th>
                                 <th scope="col">Status</th>
@@ -74,8 +75,9 @@
             processing: true,
             ajax: "{{route('admin.logos.get_logos')}}",
             serverSide: true,
-            order: [[0, "asc"]],
+            order: [[2, "asc"]],
             columns: [
+                {data: 'name', name: 'name'},
                 {data: 'image', name: 'image'},
                 {data: 'orders', name: 'orders'},
                 {data: 'status', name: 'status'},

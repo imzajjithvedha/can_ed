@@ -12,6 +12,10 @@
                     <div class="card-body border">
                         <div class="border p-3">
                             <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name *" required>
+                            </div>
+
+                            <div class="form-group">
                                 <label class="form-label">Jobs logo image *</label>
                                 <input type="file" class="form-control" id="image" name="image" required>
                             </div>

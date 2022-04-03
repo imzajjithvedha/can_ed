@@ -179,19 +179,27 @@
             <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while study</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_work_study_articles_description }}</p>
 
-            <div class="row mt-4">
+            <div class="row mt-4 align-items-center">
                 @if(count($jobs_logos) > 0)
                     <div class="col-6">
-                        <div class="swiper logo-sliders" style="padding-bottom: 50px;">
+                        <div class="swiper logo-sliders">
                             <div class="swiper-wrapper align-items-center">
                                 @foreach($jobs_logos as $jobs_logo)
                                     <div class="swiper-slide">
-                                        <a href="{{ route('frontend.jobs') }}" class="text-decoration-none"><img src="{{ url('images/logos', $jobs_logo->image) }}" alt="" class="img-fluid logo"></a>
+                                        <a href="{{ route('frontend.jobs') }}" class="text-decoration-none">
+                                            <img src="{{ url('images/logos', $jobs_logo->image) }}" alt="" class="img-fluid logo mb-4">
+
+                                            <p class="gray">{{ $jobs_logo->name }}</p>
+                                        
+                                        </a>
+
+
                                     </div>
                                 @endforeach
                                 
                             </div>
-                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
                 @endif
@@ -788,9 +796,9 @@
 
     <script>
         var swiper = new Swiper(".logo-sliders", {
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             slidesPerView: 3,
             spaceBetween: 20,

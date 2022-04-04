@@ -44,11 +44,11 @@
 
                 <hr>
 
-                @if($single_scholarship->image != null)
+                <!-- @if($single_scholarship->image != null)
                     <img src="{{ url('images/schools', $single_scholarship->image) }}" alt="" class="img-fluid mb-4 w-100" style="height: 25rem; object-fit: cover;">
                 @else
                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-4" style="height: 25rem; object-fit: cover;">
-                @endif
+                @endif -->
 
                 <div class="row mb-3">
                     <div class="col-12">
@@ -346,7 +346,7 @@
                 @foreach($more_scholarships as $scholarship)
                     
                         <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
-                            <div class="col-6">
+                            <!-- <div class="col-6">
                                 <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="text-decoration-none">
                                     @if($scholarship->image != null)
                                         <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
@@ -354,11 +354,13 @@
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                                     @endif
                                 </a>
-                            </div>
+                            </div> -->
 
-                            <div class="col-6">
-                                <h6 class="fw-bold gray futura">{{ $scholarship->name }}</h6>
-                                <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $scholarship->summary }}</div>
+                            <div class="col-12">
+                                <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="text-decoration-none">
+                                    <h6 class="fw-bold gray futura mb-2">{{ $scholarship->name }}</h6>
+                                    <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $scholarship->summary }}</div>
+                                </a>
                             </div>
                         </div>
                     

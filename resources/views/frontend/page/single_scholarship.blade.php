@@ -356,7 +356,7 @@
                                 </a>
                             </div> -->
 
-                            <div class="col-12">
+                            <div class="col-12">\
                                 <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="text-decoration-none">
                                     <h6 class="fw-bold gray futura mb-2">{{ $scholarship->name }}</h6>
                                     <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $scholarship->summary }}</div>

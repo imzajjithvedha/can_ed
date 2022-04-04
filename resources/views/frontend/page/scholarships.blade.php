@@ -41,7 +41,7 @@
                 @foreach($scholarships as $scholarship)
                     <div class="px-3">
                         <div class="row justify-content-between border py-3 px-2 mb-5 align-items-center">
-                            <div class="col-5">
+                            <!-- <div class="col-5">
                                 @if($scholarship->image != null)
                                     <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 15rem; object-fit: cover;">
                                 @else
@@ -51,9 +51,9 @@
                                 <div class="text-center">
                                     <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="col-7">
+                            <div class="col-12">
                                 <div class="row align-items-center mb-2">
                                     <div class="col-4">
                                         <div class="row">
@@ -164,6 +164,8 @@
 
                                 <div class="row">
                                     <div class="col-12 text-end">
+                                        <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary px-4 text-white me-3" id="apply_btn" target="_blank">Apply now</a>
+
                                         <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Learn more</a>
                                     </div>
                                 </div>

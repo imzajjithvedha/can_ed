@@ -51,7 +51,7 @@ class WebsiteInformationController extends Controller
                 'email' => $request->email,
                 'website_url' => $request->website_url,
                 'facebook' => $request->facebook,
-                'google' => $request->google,
+                'linked_in' => $request->linked_in,
                 'you_tube' => $request->you_tube,
                 'instagram' => $request->instagram,
                 'twitter' => $request->twitter,

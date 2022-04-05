@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         $featured_need_help_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'proxima_study_in_coming_to_you')->orderBy('updated_at', 'desc')->take(4)->get();
 
-        $featured_businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
+        $featured_businesses = Businesses::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
         $featured_schools = Schools::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(8)->get();
 
@@ -63,7 +63,7 @@ class HomeController extends Controller
 
         $programs = Programs::where('status', 'Approved')->orderBy('name', 'asc')->get();
 
-        $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->orderBy('updated_at', 'desc')->get();
+        $videos = Videos::where('featured', 'Yes')->where('status', 'Approved')->orderBy('updated_at', 'desc')->take(4)->get();
 
         $information = WebsiteInformation::where('id', 1)->first();
 

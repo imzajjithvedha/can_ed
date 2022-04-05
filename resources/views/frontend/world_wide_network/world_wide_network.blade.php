@@ -69,7 +69,7 @@
                             <h6 class="fw-bold mb-2">1. Place our banner on your website</h6>
 
                             <div class="col-7">
-                                <textarea class="form-control" rows="3" readonly>&lt;a href="http://www.studyingincanada.org/"&gt;&lt;img src="https://www.studyingincanada.org/images/468x60.gif" alt="Proxima Study" &gt;&lt;/a&gt;</textarea>
+                                <textarea class="form-control" rows="3" readonly>&lt;a href="https://www.proximastudy.com/"&gt;&lt;img src="https://www.proximastudy.com/images/468x60.gif" alt="Proxima Study" &gt;&lt;/a&gt;</textarea>
                             </div>
 
                             <div class="col-5">

@@ -44,8 +44,8 @@
                                 <input type="url" id="facebook" class="form-control" name="facebook" value="{{ $information->facebook }}" placeholder="Facebook link *" required>
                             </div>
                             <div class="form-group">
-                                <label for="google" class="form-label">Google link *</label>
-                                <input type="url" id="google" class="form-control" name="google" value="{{ $information->google }}" placeholder="Google link *" required>
+                                <label for="linked_in" class="form-label">Linkedin link *</label>
+                                <input type="url" id="linked_in" class="form-control" name="linked_in" value="{{ $information->linked_in }}" placeholder="Linkedin link *" required>
                             </div>
                             <div class="form-group">
                                 <label for="you-tube" class="form-label">YouTube link *</label>

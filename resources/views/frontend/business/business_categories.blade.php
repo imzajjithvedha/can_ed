@@ -38,7 +38,7 @@
             @else
                 @foreach($categories as $category)
                     <div class="col-3 mb-4">
-                        <div class="card blue rounded-0 text-center">
+                        <div class="card red rounded-0 text-center">
                             <a href="{{ route('frontend.businesses', $category->id) }}" class="text-decoration-none">
                                 @if($category->image != null)
                                     <img src="{{ url('images/business_categories', $category->image) }}" class="card-img-top p-3" alt="..." style="height: 13rem;">

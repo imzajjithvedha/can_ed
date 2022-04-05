@@ -224,6 +224,7 @@
         </div>
     @endif
 
+
     @if(count($featured_financial_planning_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'financial-planning') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Financial planning</a>
@@ -412,6 +413,7 @@
         </div>
     @endif
 
+    
     @if(count($featured_virtual_tours) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.all_virtual_tours') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured virtual tours</a>
@@ -449,7 +451,7 @@
 
 
     @if(count($featured_businesses) > 0)
-        <div class="container mt-5 featured-businesses blue">
+        <div class="container mt-5 featured-businesses red">
             <a href="{{ route('frontend.business_categories') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured businesses</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_businesses_description }}</p>
 
@@ -533,7 +535,7 @@
 
 
     @if(count($featured_events) > 0)
-        <div class="container mt-5 blue">
+        <div class="container mt-5 red">
             <a href="{{ route('frontend.events') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured Events</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_events_description }}</p>
 
@@ -635,7 +637,7 @@
     
 
     @if(count($videos) > 0)
-        <div class="container mt-5 featured-videos blue">
+        <div class="container mt-5 featured-videos red">
             <a href="{{ route('frontend.videos') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured videos</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_videos_description }}</p>
 
@@ -766,16 +768,16 @@
     <script>
         $('.search-drop').on('change', function() {
             if($(this).val() == 'businesses') {
-                $('.advanced-search').attr('disabled', 'disabled');
+                $('.advanced-search').addClass('advanced-disabled');
                 $('.search-input').attr('placeholder', '');
             } else if($(this).val() == 'programs') {
-                $('.advanced-search').attr('disabled', 'disabled');
+                $('.advanced-search').addClass('advanced-disabled');
                 $('.search-input').attr('placeholder', '');
             } else if($(this).val() == 'articles') {
-                $('.advanced-search').attr('disabled', 'disabled');
+                $('.advanced-search').addClass('advanced-disabled');
                 $('.search-input').attr('placeholder', '');
             } else {
-                $('.advanced-search').removeAttr('disabled');
+                $('.advanced-search').removeClass('advanced-disabled');
                 $('.search-input').attr('placeholder', 'Search by school name');
             }
         });

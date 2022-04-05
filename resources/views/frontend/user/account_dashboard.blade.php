@@ -35,7 +35,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $events) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Events</a>
+                                            <a href="{{ route('frontend.user.user_events') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My events</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $networks) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_networks') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Networks</a>
+                                            <a href="{{ route('frontend.user.user_networks') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My networks</a>
                                         </div>
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
                                             <p class="display-3 mt-4 p-4 account-dashboard-cards">{{ sprintf("%02d", $quotes) }}</p>
                                         </div>
                                         <div class="card-body">
-                                            <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">Quotes</a>
+                                            <a href="{{ route('frontend.user.user_quotes') }}" class="card-title text-decoration-none" style="color: #0d6efd;">My quotes</a>
                                         </div>
                                     </div>
                                 </div>

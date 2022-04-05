@@ -26,7 +26,7 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('email');
             $table->text('website_url');
             $table->text('facebook');
-            $table->text('google');
+            $table->text('linked_in');
             $table->text('you_tube');
             $table->text('instagram');
             $table->text('twitter');

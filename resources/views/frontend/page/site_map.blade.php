@@ -15,7 +15,7 @@
             <div class="col-3">
                 <h5 class="fw-bold mb-2 futura">Proxima Study</h5>
                 <a href="{{route('frontend.about_us')}}" class="gray text-decoration-none">About us</a>
-                <a href="{{route('frontend.articles')}}" class="gray text-decoration-none">Articles</a>
+                <a href="{{ route('frontend.articles', 'basic-articles') }}" class="gray text-decoration-none">Articles</a>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Contact us</a>
                 <a href="{{route('frontend.disclaimer')}}" class="gray text-decoration-none">Disclaimer</a>
                 <a href="{{route('frontend.faq')}}" class="gray text-decoration-none">Frequently asked questions</a>

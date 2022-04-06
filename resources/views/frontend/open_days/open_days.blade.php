@@ -12,22 +12,25 @@
 
         <h4 class="fw-bolder futura">Open days</h4>
 
-        @if(is_school_registered(auth()->user()->id))
-            <div class="row align-items-center">
-                <div class="col-10 pe-0">
-                    <hr>
+        @auth
+            @if(is_school_registered(auth()->user()->id))
+                <div class="row align-items-center">
+                    <div class="col-10 pe-0">
+                        <hr>
+                    </div>
+                    <div class="col-2 text-end ps-0">
+                        <a href="{{ route('frontend.user.open_days') }}" type="button" class="btn text-white post-btn">Post your open day</a>
+                    </div>
                 </div>
-                <div class="col-2 text-end ps-0">
-                    <a href="{{ route('frontend.user.open_days') }}" type="button" class="btn text-white post-btn">Post your open day</a>
-                </div>
-            </div>
+            @endif
         @else
-            <div class="row align-items-center">
-                <div class="col-12">
-                    <hr>
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <hr>
+                    </div>
                 </div>
-            </div>
-        @endif
+        @endauth
+        
 
         <div class="row mt-5">
 

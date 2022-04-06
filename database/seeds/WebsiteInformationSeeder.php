@@ -21,7 +21,7 @@ class WebsiteInformationSeeder extends Seeder
            'address_4' => 'Canada',
            'address_5' => 'Postal Code: H4L 3M0',
            'telephone' => '+1-514-557-7856 (From the rest of the world)',
-           'email' => 'info@studyingincanada.org',
+           'email' => 'info@proximastudy.org',
            'website_url' => 'https://www.proximastudy.com',
            'facebook' => 'https://www.facebook.com',
            'linked_in' => 'https://www.linkedin.com',

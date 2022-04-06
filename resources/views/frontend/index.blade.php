@@ -128,7 +128,7 @@
             <div class="row mt-4">
                 @foreach($featured_international_articles as $featured_international_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_international_article->type, $featured_international_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_international_articles->type), $featured_international_articles->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_international_article->image != null)
                                     <img src="{{ url('images/articles', $featured_international_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -155,7 +155,7 @@
             <div class="row mt-4">
                 @foreach($featured_canadian_articles as $featured_canadian_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_canadian_article->type, $featured_canadian_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_canadian_articles->type), $featured_canadian_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_canadian_article->image != null)
                                     <img src="{{ url('images/articles', $featured_canadian_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -206,7 +206,7 @@
 
                 @foreach($featured_work_study_articles as $featured_work_study_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_work_study_article->type, $featured_work_study_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_work_study_article->type), $featured_work_study_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_work_study_article->image != null)
                                     <img src="{{ url('images/articles', $featured_work_study_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -233,7 +233,7 @@
             <div class="row mt-4">
                 @foreach($featured_financial_planning_articles as $featured_financial_planning_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_financial_planning_article->type, $featured_financial_planning_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_financial_planning_article->type), $featured_financial_planning_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_financial_planning_article->image != null)
                                     <img src="{{ url('images/articles', $featured_financial_planning_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -260,7 +260,7 @@
             <div class="row mt-4">
                 @foreach($featured_academic_help_articles as $featured_academic_help_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_academic_help_article->type, $featured_academic_help_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_academic_help_article->type), $featured_academic_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_academic_help_article->image != null)
                                     <img src="{{ url('images/articles', $featured_academic_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -287,7 +287,7 @@
             <div class="row mt-4">
                 @foreach($featured_financial_help_articles as $featured_financial_help_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_financial_help_article->type, $featured_financial_help_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_financial_help_article->type), $featured_financial_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_financial_help_article->image != null)
                                     <img src="{{ url('images/articles', $featured_financial_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -314,7 +314,7 @@
             <div class="row mt-4">
                 @foreach($featured_immigration_articles as $featured_immigration_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_immigration_article->type, $featured_immigration_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_immigration_article->type), $featured_immigration_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_immigration_article->image != null)
                                     <img src="{{ url('images/articles', $featured_immigration_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -341,7 +341,7 @@
             <div class="row mt-4">
                 @foreach($featured_proxima_study_articles as $featured_proxima_study_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_proxima_study_article->type, $featured_proxima_study_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_proxima_study_article->type), $featured_proxima_study_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_proxima_study_article->image != null)
                                     <img src="{{ url('images/articles', $featured_proxima_study_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -368,7 +368,7 @@
             <div class="row mt-4">
                 @foreach($featured_need_help_articles as $featured_need_help_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_need_help_article->type, $featured_need_help_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_need_help_article->type), $featured_need_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_need_help_article->image != null)
                                     <img src="{{ url('images/articles', $featured_need_help_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -515,7 +515,7 @@
             <div class="row mt-4">
                 @foreach($featured_basic_articles as $featured_basic_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$featured_basic_article->type, $featured_basic_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_basic_article->type), $featured_basic_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_basic_article->image != null)
                                     <img src="{{ url('images/articles', $featured_basic_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -667,7 +667,7 @@
             <div class="row mt-4">
                 @foreach($articles as $article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [$article->type, $article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($article->image != null)
                                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">

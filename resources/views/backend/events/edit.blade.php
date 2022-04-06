@@ -364,7 +364,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="advertised" class="form-label">Do you want to redirect this event to advertiser site?*</label>
+                                <label for="advertised" class="form-label">Do you want to redirect this event to the advertiser site?*</label>
                                 <select class="form-control" name="advertised" id="advertised" required>
                                     <option value="Yes" {{ $event->advertised == 'Yes' ? "selected" : "" }}>Yes</option>   
                                     <option value="No" {{ $event->advertised == 'No' ? "selected" : "" }}>No</option>                               

@@ -31,7 +31,7 @@
                         @else
                             <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit:cover;">
                         @endif
-                        <div class="card-body text-center p-2">
+                        <div class="card-body text-center p-2" style="height: 150px;">
                             <h6 class="fw-bold">{{ $member->name }}</h6>
                             <p class="gray">{{ $member->title }}</p>
                             <p class="gray mt-2" style="font-size: 0.85rem;">{{ $member->description }}</p>

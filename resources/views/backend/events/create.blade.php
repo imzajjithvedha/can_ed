@@ -331,7 +331,7 @@
 
                             <div class="form-group">
                                 <select class="form-control" id="advertised" name="advertised" placeholder="Advertised? *" required>
-                                    <option value="" selected disabled hidden>Do you want to redirect this event to advertiser site?*</option>
+                                    <option value="" selected disabled hidden>Do you want to redirect this event to the advertiser site?*</option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                 </select>

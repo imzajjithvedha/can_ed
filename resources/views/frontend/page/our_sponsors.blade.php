@@ -47,7 +47,7 @@
                             <div class="card-body text-center p-3">
                                 <h6 class="fw-bold text-dark">{{ $sponsor->name }}</h6>
                                 <p class="gray">{{ $sponsor->country }}</p>
-                            </div> style="height:15rem; object-fit: cover;"
+                            </div>
                         @endif
                     </div>
                 </div>

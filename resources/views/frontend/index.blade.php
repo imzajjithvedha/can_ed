@@ -128,7 +128,7 @@
             <div class="row mt-4">
                 @foreach($featured_international_articles as $featured_international_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_international_articles->type), $featured_international_articles->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_international_article->type), $featured_international_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_international_article->image != null)
                                     <img src="{{ url('images/articles', $featured_international_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -155,7 +155,7 @@
             <div class="row mt-4">
                 @foreach($featured_canadian_articles as $featured_canadian_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_canadian_articles->type), $featured_canadian_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_canadian_article->type), $featured_canadian_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_canadian_article->image != null)
                                     <img src="{{ url('images/articles', $featured_canadian_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
@@ -510,7 +510,7 @@
     @if(count($featured_basic_articles) > 0)
         <div class="container mt-5 red">
             <a href="{{ route('frontend.articles', 'basic-articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
-            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_articles_description }}</p>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_basic_articles_description }}</p>
 
             <div class="row mt-4">
                 @foreach($featured_basic_articles as $featured_basic_article)

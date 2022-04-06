@@ -24,11 +24,20 @@ class ArticleController extends Controller
         return view('frontend.article.articles', ['articles' => $articles]);
     }
 
+    public function allArticles()
+    {
+        $articles = Articles::where('status', 'Approved')->OrderBy('title', 'ASC')->paginate(10);
+
+        return view('frontend.article.articles', ['articles' => $articles]);
+    }
+
     public function singleArticle($type, $id)
     {
+        $type = str_replace('-', '_', $type);
+
         $article = Articles::where('id', $id)->first();
 
-        $more_articles = Articles::where('status', 'Approved')->where('id', '!=', $id)->where('type', $type)->inRandomOrder()->limit(10)->get();
+        $more_articles = Articles::where('status', 'Approved')->where('id', '!=', $id)->where('type', '=', $type)->inRandomOrder()->limit(10)->get();
 
         return view('frontend.article.single_article', ['article' => $article, 'more_articles' => $more_articles]);
     }
@@ -87,7 +96,7 @@ class ArticleController extends Controller
             $articles->orderBy('title', 'asc');
         }
 
-        $filteredArticles = $articles->get();
+        $filteredArticles = $articles->paginate(10);
 
         return view('frontend.article.articles_search', ['filteredArticles' => $filteredArticles]);
 

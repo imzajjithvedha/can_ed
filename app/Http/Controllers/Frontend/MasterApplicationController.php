@@ -297,7 +297,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@gmail.com'])->send(new MasterApplicationNormal($details));
+        Mail::to(['zajjith@yopmail.com'])->send(new MasterApplicationNormal($details));
 
         Mail::to([$request->email])->send(new UserMasterApplicationNormal($details));
 

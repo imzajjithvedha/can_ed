@@ -48,7 +48,7 @@
                 ])
             @else
                
-                <div class="col-12">
+                <div class="col-12 directory">
                     <table class="table">
                         <thead>
                             <tr>
@@ -77,6 +77,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $filteredDirectory->links() }}
                 </div>
             @endif
         </div>

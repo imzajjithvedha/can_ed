@@ -33,7 +33,7 @@ class ContactController extends Controller
             'message' => $request->message
         ];
 
-        Mail::to(['zajjith@gmail.com'])->send(new SendContact($details));
+        Mail::to(['ccaned@gmail.com'])->send(new SendContact($details));
 
         Mail::to([$request->email])->send(new UserContact($details));
 

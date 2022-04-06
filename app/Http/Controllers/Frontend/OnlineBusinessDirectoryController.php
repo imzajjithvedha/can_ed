@@ -79,7 +79,7 @@ class OnlineBusinessDirectoryController extends Controller
             $directory->where('industry', 'like', '%' .  $industry . '%');
         }
 
-        $filteredDirectory = $directory->get();
+        $filteredDirectory = $directory->paginate(10);
 
         return view('frontend.directory.online_business_directory_search', ['filteredDirectory' => $filteredDirectory]);
 

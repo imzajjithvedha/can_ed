@@ -41,136 +41,257 @@
                 @foreach($scholarships as $scholarship)
                     <div class="px-3">
                         <div class="row justify-content-between border py-3 px-2 mb-5 align-items-center">
-                            <!-- <div class="col-5">
-                                @if($scholarship->image != null)
-                                    <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 15rem; object-fit: cover;">
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-3" style="height: 15rem; object-fit: cover;">
-                                @endif
-
-                                <div class="text-center">
-                                    <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
+                            
+                            @if($scholarship->image != null)
+                                <div class="col-5">
+                                    
+                                        <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 15rem; object-fit: cover;">
+                                    
+                                    <!-- <div class="text-center">
+                                        <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
+                                    </div> -->
                                 </div>
-                            </div> -->
 
-                            <div class="col-12">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Name</p>
+                                <div class="col-7">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Name</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
                                             </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <h6 class="fw-bolder">{{ $scholarship->name }}</h6>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <h6 class="fw-bolder">{{ $scholarship->name }}</h6>
-                                    </div>
-                                </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">School</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">School</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            @if($scholarship->school_id != null)
+                                                <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
+                                            @else
+                                                <p class="gray">{{ $scholarship->name }}</p>
+                                            @endif
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        @if($scholarship->school_id != null)
-                                            <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
-                                        @else
-                                            <p class="gray">{{ $scholarship->name }}</p>
-                                        @endif
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Summary</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Summary</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{ $scholarship->summary }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{ $scholarship->summary }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Province</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Province</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->province }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->province }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Deadline</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Deadline</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->deadline }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->deadline }}</p>
-                                    </div>
-                                </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Duration</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Duration</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->duration }}</p>
                                         </div>
                                     </div>
 
-                                    <div class="col-8">
-                                        <p class="gray">{{ $scholarship->duration }}</p>
+                                    
+
+                                    <div class="row">
+                                        <div class="col-12 text-end">
+                                            <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary px-4 text-white me-3" id="apply_btn" target="_blank">Apply now</a>
+
+                                            <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Learn more</a>
+                                        </div>
                                     </div>
+
                                 </div>
 
-                                
+                            @else
+                                <div class="col-12">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Name</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                <div class="row">
-                                    <div class="col-12 text-end">
-                                        <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary px-4 text-white me-3" id="apply_btn" target="_blank">Apply now</a>
-
-                                        <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Learn more</a>
+                                        <div class="col-8">
+                                            <h6 class="fw-bolder">{{ $scholarship->name }}</h6>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">School</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            @if($scholarship->school_id != null)
+                                                <p class="gray">{{ App\Models\Schools::where('id', $scholarship->school_id)->first()->name }}</p>
+                                            @else
+                                                <p class="gray">{{ $scholarship->name }}</p>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Summary</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical;">{{ $scholarship->summary }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Province</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->province }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Deadline</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->deadline }}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-2">
+                                        <div class="col-4">
+                                            <div class="row">
+                                                <div class="col-10">
+                                                    <p class="fw-bold">Duration</p>
+                                                </div>
+                                                <div class="col-1 p-0">
+                                                    <p class="fw-bold">:</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-8">
+                                            <p class="gray">{{ $scholarship->duration }}</p>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-12 text-end">
+                                            <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary px-4 text-white me-3" id="apply_btn" target="_blank">Apply now</a>
+
+                                            <a href="{{ route('frontend.single_scholarship', $scholarship->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Learn more</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
                         </div>
                     </div>
                 @endforeach

@@ -72,7 +72,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <select name="degree_level" class="form-control">
+                                    <select name="degree_level" class="form-control" required>
                                         <option value="" selected disabled hidden>Degree level</option>
                                         @foreach($degree_levels as $degree_level)
                                             <option value="{{ $degree_level->id }}">{{ $degree_level->name }}</option>

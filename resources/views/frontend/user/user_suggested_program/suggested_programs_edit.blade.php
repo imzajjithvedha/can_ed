@@ -39,7 +39,7 @@
 
                             <div class="mb-3">
                                 <label for="degree_level" class="form-label">Degree level</label>
-                                <select name="degree_level" class="form-control" id="degree_level">
+                                <select name="degree_level" class="form-control" id="degree_level" required>
                                     <option value="" selected disabled hidden></option>
                                     @foreach($degree_levels as $degree_level)
                                         <option value="{{ $degree_level->id }}" {{ $degree_level->id == App\Models\Programs::where('id', $program->id)->first()->degree_level ? "selected" : "" }}>{{ $degree_level->name }}</option>

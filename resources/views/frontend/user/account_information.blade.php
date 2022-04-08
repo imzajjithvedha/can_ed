@@ -436,7 +436,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 3rem 1rem;">
-                        <h4 class="mb-0 text-center">Your information updated successfully.</h4>
+                        <h4 class="mb-0 text-center">Your information updated successfully</h4>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>

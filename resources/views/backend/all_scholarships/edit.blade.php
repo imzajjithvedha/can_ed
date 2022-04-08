@@ -48,7 +48,14 @@
                                     @foreach(json_decode($scholarship->eligibility) as $eligibility)
                                         <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" value="{{ $eligibility }}">
                                     @endforeach
+                                @else
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
                                 @endif
+
                             </div>
 
                             <div class="mb-3">

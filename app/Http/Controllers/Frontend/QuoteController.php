@@ -40,7 +40,7 @@ class QuoteController extends Controller
             'quote' => $request->quote,
         ];
 
-        Mail::to(['zajjith@yopmail.com'])->send(new Quote($details));
+        Mail::to(['ccaned@gmail.com'])->send(new Quote($details));
 
         Mail::to([auth()->user()->email])->send(new UserQuote($details));
 

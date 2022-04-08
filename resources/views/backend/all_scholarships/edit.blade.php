@@ -44,9 +44,11 @@
 
                             <div class="mb-3">
                                 <label for="eligibility" class="form-label">Basic eligibility *</label>
-                                @foreach(json_decode($scholarship->eligibility) as $eligibility)
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" value="{{ $eligibility }}">
-                                @endforeach
+                                @if(json_decode($scholarship->eligibility) != null)
+                                    @foreach(json_decode($scholarship->eligibility) as $eligibility)
+                                        <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" value="{{ $eligibility }}">
+                                    @endforeach
+                                @endif
                             </div>
 
                             <div class="mb-3">

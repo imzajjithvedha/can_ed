@@ -29,8 +29,8 @@ class CreateMastersTable extends Migration
             $table->text('study_location')->nullable();
             $table->text('citizenship');
             $table->text('citizenship_live');
-            $table->text('country')->nullable();
-            $table->text('status')->nullable();
+            $table->text('residence_country')->nullable();
+            $table->text('residence_status')->nullable();
             $table->text('mailing_address');
             $table->text('school_name');
             $table->text('gpa');

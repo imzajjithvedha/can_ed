@@ -45,8 +45,8 @@
                         <label for="gender" class="form-label">Gender *</label>
                         <select name="gender" id="gender" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
-                            <option value="Female">Female</option>
                             <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                             <option value="Not to say">Prefer not to say</option>
                         </select>
                     </div>
@@ -72,7 +72,7 @@
                         <select name="school_text" id="school-text" class="form-select form-control" required>
                             <option value="" selected disabled hidden>Select</option>
                             <option value="Allow">Allow</option>
-                            <option value="Do not Allow">Do not Allow</option>
+                            <option value="Do not allow">Do not allow</option>
                         </select>
                     </div>
 

@@ -19,7 +19,7 @@
                             <div class="mb-3">
                                 <label for="school" class="form-label">School *</label>
                                 <select class="form-control" id="school" name="school" required>
-                                    <option value="" selected hidden disabled>School *</option>
+                                    <!-- <option value="" selected hidden disabled>School *</option> -->
 
                                     @foreach($schools as $school)
                                         <option value="{{ $school->id }}">{{ $school->name }}</option>
@@ -401,6 +401,8 @@
     <script>
         $(document).ready(function() {
             let value = <?php echo json_encode ($open_day->school_id) ?>
+
+            console.log(value);
 
             $('#school option').each(function(i){
                 if($(this).val() == value) {

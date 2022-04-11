@@ -110,3 +110,22 @@ td {
     background: linear-gradient(98deg, rgb(205 193 193) 19%, rgb(139 138 143) 67%, rgb(105 105 106) 100%);
     color: black;
 }
+
+
+
+
+
+
+
+.k-tooltip{
+    background: #0094d4!important;
+    border-color: #0094d4!important;
+    color: white!important;
+    font-size: 14px!important;
+    padding: 10px!important;
+    text-align:left;
+    left: 0;
+}
+.k-tooltip-content {
+    text-align:left;
+}

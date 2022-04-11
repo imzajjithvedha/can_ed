@@ -293,12 +293,3 @@ p {
 .k-tooltip-content {
     text-align:left;
 }
-.tooltip.top .tooltip-arrow {
-    border-top-color: red!important;
-    }
-    .tooltip.bottom .tooltip-arrow {
-    border-bottom-color: green!important;
-    }
-    .tooltip.left .tooltip-arrow {
-    border-left-color: yellow!important;
-    }

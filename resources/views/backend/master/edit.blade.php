@@ -59,9 +59,11 @@
 
                             <div class="form-group">
                                 <label class="form-label">Messaging apps</label>
-                                @foreach(json_decode($master->messaging_app) as $messaging_app)
-                                    <input type="text" class="form-control mb-2" value="{{ $messaging_app }}" disabled>
-                                @endforeach
+                                @if(json_decode($master->messaging_app) != null)
+                                    @foreach(json_decode($master->messaging_app) as $messaging_app)
+                                        <input type="text" class="form-control mb-2" value="{{ $messaging_app }}" disabled>
+                                    @endforeach
+                                @endif
                             </div>
 
                             <div class="form-group">
@@ -80,16 +82,16 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Country</label>
-                                <input type="text" class="form-control" value="{{ $master->country }}" disabled>
+                                <label class="form-label">Residence country</label>
+                                <input type="text" class="form-control" value="{{ $master->residence_country }}" disabled>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Status in the country of residence</label>
-                                @if($master->status == 'null')
+                                @if($master->residence_status == 'null')
                                     <input type="text" class="form-control" disabled>
                                 @else
-                                    @foreach(json_decode($master->status) as $status)
+                                    @foreach(json_decode($master->residence_status) as $status)
                                         <input type="text" class="form-control mb-2" value="{{ $status }}" disabled>
                                     @endforeach
                                 @endif
@@ -156,12 +158,12 @@
 
                             <div class="form-group">
                                 <label class="form-label">Comments</label>
-                                <input type="text" class="form-control" value="{{ $master->comments }}" disabled>
+                                <textarea rows="3" class="form-control" value="{{ $master->comments }}" disabled>{{ $master->comments }}</textarea>
                             </div>
 
                             <div class="form-group">
                                 <label class="form-label">Questions</label>
-                                <input type="text" class="form-control" value="{{ $master->questions }}" disabled>
+                                <textarea rows="3" class="form-control" value="{{ $master->questions }}" disabled>{{ $master->questions }}</textarea>
                             </div>
 
                             <div class="form-group">

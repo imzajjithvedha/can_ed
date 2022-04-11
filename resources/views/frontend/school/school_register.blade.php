@@ -183,6 +183,9 @@
                         </div>
                     </div>
                     <div class="mb-3">
+                        <input type="text" class="form-control" id="province" aria-describedby="province" placeholder="Province *" name="province" required>
+                    </div>
+                    <div class="mb-3">
                         <select class="form-control" id="country" name="country" required>
                             <option value="" selected disabled hidden>Country *</option>
                             <option value="Afganistan">Afghanistan</option>

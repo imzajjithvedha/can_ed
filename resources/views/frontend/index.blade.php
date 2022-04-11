@@ -587,7 +587,7 @@
                 @foreach($student_services as $student_service)
                     @if($student_service->advertised == 'Yes' && $student_service->url != null)
                         <div class="col-3 mb-4">
-                            <a href="{{ $student_service->url }}" class="text-decoration-none">
+                            <a href="{{ $student_service->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
                                     @if($student_service->image != null)
                                         @foreach(json_decode($student_service->image) as $index => $im)

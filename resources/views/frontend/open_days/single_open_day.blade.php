@@ -41,6 +41,26 @@
                         <div class="col-8">
                             <div class="row">
                                 <div class="col-6">
+                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">School</h6>
+                                </div>
+
+                                <div class="col-6">
+                                    <h6 class="fw-normal gray ms-3">{{ App\Models\Schools::where('id', $open_day->school_id)->first()->name }}</h6>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h6 class="fw-bold mb-3" style="color: #800f0e;">Address</h6>
+                                </div>
+
+                                <div class="col-6">
+                                    <h6 class="fw-normal gray ms-3">{{ $open_day->address }}</h6>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
                                     <h6 class="fw-bold mb-3" style="color: #800f0e;">Open day date & time</h6>
                                 </div>
 

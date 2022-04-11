@@ -23,6 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url('css/custom_backend.css') }}"/>
     
     <link rel="stylesheet" href="{{ url('css/vendors.css') }}"> 
+
+    <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="http://kendo.cdn.telerik.com/2014.2.716/styles/kendo.default.min.css" rel="stylesheet" />
    
 
     
@@ -91,9 +94,11 @@
     {!! script(mix('js/backend.js')) !!}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+    
+    
     <script src="//cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+    
 
     
 
@@ -128,6 +133,11 @@
     <script src="{{url('js/vendors.js')}}"></script>
     <script src="{{url('js/aiz-core.js')}}"></script>
 
+    <script src="http://kendo.cdn.telerik.com/2014.2.716/js/jquery.min.js"></script>
+    <script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+
     <script>
         $('input[type=url]').on('click', function() {
             string = $(this).val();
@@ -145,6 +155,69 @@
             // }
 
             $(this).val(string);
+        });
+    </script>
+
+    <!-- JavaScript for disabling form submissions if there are invalid fields -->
+    <script>
+        $( "form" ).each(function() {
+            var form = this;
+
+            // Suppress the default bubbles
+            form.addEventListener( "invalid", function( event ) {
+                event.preventDefault();
+            }, true );
+
+            // Support Safari, iOS Safari, and the Android browser—each of which do not prevent
+            // form submissions by default
+            $( form ).on( "submit", function( event ) {
+                if ( !this.checkValidity() ) {
+                    event.preventDefault();
+                }
+            });
+
+            $( "input, select, textarea", form )
+                // Destroy the tooltip on blur if the field contains valid data
+                .on( "blur", function() {
+                    var field = $( this );
+                    if ( field.data( "kendoTooltip" ) ) {
+                        if ( this.validity.valid ) {
+                            field.kendoTooltip( "destroy" );
+                        } else {
+                            field.kendoTooltip( "hide" );
+                        }
+                    }
+                })
+                // Show the tooltip on focus
+                .on( "focus", function() {
+                    var field = $( this );
+                    if ( field.data( "kendoTooltip" ) ) {
+                        field.kendoTooltip( "show" );
+                    }
+                });
+
+            $( "button:not([type=button]), input[type=submit]", form ).on( "click", function( event ) {
+                // Destroy any tooltips from previous runs
+                $( "input, select, textarea", form ).each( function() {
+                    var field = $( this );
+                    if ( field.data( "kendoTooltip" ) ) {
+                        field.kendoTooltip( "destroy" );
+                    }
+                });
+
+                // Add a tooltip to each invalid field
+                var invalidFields = $( ":invalid", form ).each(function() {
+                    var field = $( this ).kendoTooltip({
+                        content: function() {
+                            return field[ 0 ].validationMessage;
+                        },
+                        position:'bottom',
+                    });
+                });
+
+                // If there are errors, give focus to the first invalid field
+                invalidFields.first().trigger( "focus" ).eq( 0 ).focus();
+            });
         });
     </script>
 

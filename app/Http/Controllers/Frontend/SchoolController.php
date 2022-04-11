@@ -56,6 +56,7 @@ class SchoolController extends Controller
             $school->reach_time = $request->reach_time;
             $school->time_zone = $request->time_zone;
             $school->country = $request->country;
+            $school->province = $request->province;
             $school->user_email = $request->email;
             $school->user_phone = $request->phone;
             $school->message = $request->message;
@@ -80,13 +81,14 @@ class SchoolController extends Controller
                 'website' => $request->website,
                 'reach_time' => $request->reach_time,
                 'time_zone' => $request->time_zone,
+                'province' => $request->province,
                 'country' => $request->country,
                 'user_email' => $request->email,
                 'user_phone' => $request->phone,
                 'message' => $request->message
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new School($details));
+            Mail::to(['ccaned@gmail.com'])->send(new School($details));
 
             Mail::to([$request->email])->send(new UserSchool($details));
 

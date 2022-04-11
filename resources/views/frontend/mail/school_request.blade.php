@@ -2,6 +2,7 @@
 
 <p><strong>School name:</strong> {{ $details['name'] }}</p>
 <p><strong>Website URL:</strong> {{ $details['website'] }}</p>
+<p><strong>Province:</strong> {{ $details['province'] }}</p>
 <p><strong>Country:</strong> {{ $details['country'] }}</p>
 <p><strong>User name:</strong> {{ auth()->user()->name }}</p>
 <p><strong>Email:</strong> {{ $details['user_email'] }}</p>

@@ -32,6 +32,11 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="province" class="form-label">Province *</label>
+                                <input type="text" class="form-control" id="province" aria-describedby="province" name="province" value="{{ $school->province }}" required>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="country" class="form-label">Country *</label>
                                 <select class="form-control" id="country" name="country" required>
                                     <option value="" disabled hidden></option>

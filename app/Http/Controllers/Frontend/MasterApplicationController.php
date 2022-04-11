@@ -121,10 +121,11 @@ class MasterApplicationController extends Controller
         $application->school_text = $request->school_text;
         $application->messaging_app = json_encode($request->messaging_app);
         $application->username = $request->username;
+        $application->study_location = json_encode($request->study_location);
         $application->citizenship = $request->citizenship;
         $application->citizenship_live = $request->citizenship_live;
-        $application->country = $request->country;
-        $application->status = json_encode($request->status);
+        $application->residence_country = $request->country;
+        $application->residence_status = json_encode($request->status);
         $application->mailing_address = $request->mailing_address;
         $application->school_name = $request->school_name;
         $application->gpa = $request->gpa;
@@ -153,10 +154,11 @@ class MasterApplicationController extends Controller
             'school_text' => $request->school_text,
             'messaging_app' => json_encode($request->messaging_app),
             'username' => $request->username,
+            'study_location' => json_encode($request->study_location),
             'citizenship' => $request->citizenship,
             'citizenship_live' => $request->citizenship_live,
-            'country' => $request->country,
-            'status' => json_encode($request->status),
+            'residence_country' => $request->country,
+            'residence_status' => json_encode($request->status),
             'mailing_address' => $request->mailing_address,
             'school_name' => $request->school_name,
             'gpa' => $request->gpa,
@@ -177,7 +179,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@gmail.com'])->send(new MasterApplication($details));
+        Mail::to(['zajjith@yopmail.com'])->send(new MasterApplication($details));
 
         Mail::to([$request->email])->send(new UserMasterApplication($details));
 
@@ -202,6 +204,7 @@ class MasterApplicationController extends Controller
 
     public function masterApplicationNormalStore(Request $request)
     {
+
         $application = new Master;
 
         $tests = $request->tests;
@@ -244,8 +247,8 @@ class MasterApplicationController extends Controller
         $application->study_location = json_encode($request->study_location);
         $application->citizenship = $request->citizenship;
         $application->citizenship_live = $request->citizenship_live;
-        $application->country = $request->country;
-        $application->status = json_encode($request->status);
+        $application->residence_country = $request->country;
+        $application->residence_status = json_encode($request->status);
         $application->mailing_address = $request->mailing_address;
         $application->school_name = $request->school_name;
         $application->gpa = $request->gpa;
@@ -274,11 +277,11 @@ class MasterApplicationController extends Controller
             'school_text' => $request->school_text,
             'messaging_app' => json_encode($request->messaging_app),
             'username' => $request->username,
-            'study_location' => json_encode($request->messaging_app),
+            'study_location' => json_encode($request->study_location),
             'citizenship' => $request->citizenship,
             'citizenship_live' => $request->citizenship_live,
-            'country' => $request->country,
-            'status' => json_encode($request->status),
+            'residence_country' => $request->country,
+            'residence_status' => json_encode($request->status),
             'mailing_address' => $request->mailing_address,
             'school_name' => $request->school_name,
             'gpa' => $request->gpa,
@@ -297,7 +300,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@yopmail.com'])->send(new MasterApplicationNormal($details));
+        Mail::to(['ccaned@gmail.com'])->send(new MasterApplicationNormal($details));
 
         Mail::to([$request->email])->send(new UserMasterApplicationNormal($details));
 

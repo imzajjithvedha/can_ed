@@ -107,7 +107,7 @@ class BusinessController extends Controller
             'package' => $request->package
         ];
 
-        Mail::to(['zajjith@gmail.com'])->send(new Business($details));
+        Mail::to(['ccaned@gmail.com'])->send(new Business($details));
 
         Mail::to([$request->email])->send(new UserBusiness($details));
 
@@ -139,7 +139,7 @@ class BusinessController extends Controller
     {
         $business = Businesses::where('id', $id)->first();
 
-        $more_businesses = Businesses::inRandomOrder()->limit(4)->get();
+        $more_businesses = Businesses::where('id', '!=', $id)->inRandomOrder()->limit(4)->get();
 
         return view('frontend.business.single_business', ['business' => $business, 'more_businesses' => $more_businesses]);
     }

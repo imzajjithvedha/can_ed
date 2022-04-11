@@ -54,6 +54,11 @@
                                                 </div>
 
                                                 <div class="mb-3">
+                                                    <label for="province" class="form-label">Province *</label>
+                                                    <input type="text" class="form-control" id="province" aria-describedby="province" name="province" value="{{ $school->province }}" required>
+                                                </div>
+
+                                                <div class="mb-3">
                                                     <label for="country" class="form-label mb-1">Country *</label>
                                                     <select class="form-control" id="country" name="country" required>
                                                         <option value="" disabled hidden></option>
@@ -490,7 +495,7 @@
                                                 <div class="mt-5 text-center">
                                                     <input type="hidden" class="form-control" value="{{$school->id}}" name="hidden_id">
                                                     <input type="hidden" class="form-control" value="{{$school->status}}" name="status">
-                                                    <input type="submit" value="Update school information" class="btn text-white px-5 py-2" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
+                                                    <input type="submit" value="Update school information" class="btn text-white px-5 py-2 submit" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">
                                                 </div>
                                             </div>
                                         </div>

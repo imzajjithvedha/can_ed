@@ -38,12 +38,24 @@ class BusinessesController extends Controller
 
         $data = [];
 
-        if($request->hasFile('image')) {
+        if($request->hasFile('single_image')) {
+            $image = $request->file('single_image');
+            $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images/businesses'), $imageName);
+
+            array_push($data, $imageName);
+
+            $image_name = json_encode($data);
+        }
+
+        else if($request->hasFile('image')) {
             foreach($request->file('image') as $image)
             {
                 $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
                 $image->move(public_path('images/businesses'),$imageName);
                 array_push($data, $imageName);
+
+                $image_name = json_encode($data);
             }
         }
 

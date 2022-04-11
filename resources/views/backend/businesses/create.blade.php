@@ -131,7 +131,7 @@
 
                             <div class="mb-3 basic-image">
                                 <label for="image" class="form-label">Basic business image *</label>
-                                <input class="form-control" type="file" id="basic-image" name="image">
+                                <input class="form-control" type="file" id="basic-image" name="single_image">
                             </div>
 
                             <div class="mb-3 d-none premium-images">

@@ -1,4 +1,4 @@
-<p>Hello {{ $details['name'] }},</p>
+<p>Hello {{ auth()->user()->name }},</p>
 
 <p style="margin-bottom: 2px;">Thank you very much for your network request. We will check and approve as soon as possible.</p>
 

@@ -14,8 +14,8 @@
 <p><strong>Do you live in your country of citizenship:</strong> {{ $details['citizenship_live'] }}</p>
 
 @if($details['citizenship_live'] != 'Yes')
-    <p><strong>Currently live:</strong> {{ $details['country'] }}</p>
-    <p><strong>Status in the country of residence:</strong> {{ $details['status'] }}</p>
+    <p><strong>Currently live:</strong> {{ $details['residence_country'] }}</p>
+    <p><strong>Status in the country of residence:</strong> {{ $details['residence_status'] }}</p>
 @endif
 
 <p><strong>Mailing address:</strong> {{ $details['mailing_address'] }}</p>

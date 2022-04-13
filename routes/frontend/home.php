@@ -151,7 +151,7 @@ Route::post('scholarships/search-results', [ScholarshipController::class, 'schol
 Route::get('scholarships-search-results/{keyword}',[ScholarshipController::class,'scholarshipSearchFunction'])->name('scholarship_search_function');
 Route::post('scholarships/single-scholarship/favorite', [ScholarshipController::class, 'favoriteScholarship'])->name('favorite_scholarship');
 Route::post('scholarships/advanced-search-results', [ScholarshipController::class, 'advancedSearch'])->name('scholarships_advanced_search');
-Route::get('scholarships-advanced-search-results/{name}/{school}/F{province}/{award}/{action}/{provider}/{min_amount}/{max_amount}/{duration}',[ScholarshipController::class,'advancedSearchFunction'])->name('scholarship_advanced_search_function');
+Route::get('scholarships-advanced-search-results/{name}/{school}/{province}/{award}/{action}/{min_amount}/{max_amount}/{duration}',[ScholarshipController::class,'advancedSearchFunction'])->name('scholarship_advanced_search_function');
 
 
 Route::get('all-open-days', [OpenDayController::class, 'index'])->name('all_open_days');

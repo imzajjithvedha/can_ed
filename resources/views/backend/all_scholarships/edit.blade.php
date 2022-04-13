@@ -19,43 +19,13 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="provider" class="form-label">Scholarship provider</label>
-                                <input type="text" class="form-control" name="provider" placeholder="Scholarship provider" value="{{ $scholarship->provider }}" >
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="summary" class="form-label">Summary *</label>
-                                <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" value="{{ $scholarship->summary }}" required>{{ $scholarship->summary }}</textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="amount" class="form-label">Scholarship amount</label>
-                                <input type="number" class="form-control" name="amount" placeholder="Scholarship amount" value="{{ $scholarship->amount }}">
-                            </div>
-
-                            <div class="mb-3">
-                                <select name="school" id="school" class="form-control" id="school">
+                                <label for="school" class="form-label">School *</label>
+                                <select name="school" id="school" class="form-control">
                                     <option value="">School</option>
                                     @foreach($schools as $school)
                                         <option value="{{ $school->id }}">{{ $school->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="eligibility" class="form-label">Basic eligibility *</label>
-                                @if(json_decode($scholarship->eligibility) != null)
-                                    @foreach(json_decode($scholarship->eligibility) as $eligibility)
-                                        <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" value="{{ $eligibility }}">
-                                    @endforeach
-                                @else
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                @endif
-
                             </div>
 
                             <div class="mb-3">
@@ -86,6 +56,54 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="summary" class="form-label">Summary *</label>
+                                <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" value="{{ $scholarship->summary }}" required>{{ $scholarship->summary }}</textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Scholarship amount</label>
+                                <input type="number" class="form-control" name="amount" placeholder="Scholarship amount" value="{{ $scholarship->amount }}">
+                            </div>
+
+                            
+                            <div class="mb-3">
+                                <label for="eligibility" class="form-label">Basic eligibility *</label>
+                                @if(json_decode($scholarship->eligibility) != null)
+                                    @foreach(json_decode($scholarship->eligibility) as $eligibility)
+                                        <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" value="{{ $eligibility }}">
+                                    @endforeach
+                                @else
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                    <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                @endif
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="action" class="form-label">Action *</label>
+                                <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date_posted" class="form-label">Date posted</label>
+                                <input type="date" class="form-control" name="date_posted" placeholder="Date posted" value="{{ $scholarship->date_posted }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="expiry_date" class="form-label">Expiry date</label>
+                                <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date" value="{{ $scholarship->expiry_date }}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="deadline" class="form-label">Deadline</label>
+                                <input type="date" class="form-control" name="deadline" placeholder="Deadline" value="{{ $scholarship->deadline }}">
+                            </div>
+
+
+                            <div class="mb-3">
                                 <label for="availability" class="form-label">Availability *</label>
                                 <select name="availability" id="availability" class="form-control" required>
                                     <option value="" selected disabled hidden>Availability *</option>
@@ -106,11 +124,7 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="action" class="form-label">Action *</label>
-                                <input type="text" class="form-control" name="action" placeholder="Action *" value="{{ $scholarship->action }}" required>
-                            </div>
-
+                            
                             <div class="mb-3">
                                 <label for="duration" class="form-label">Duration *</label>
                                 <select name="duration" id="duration" class="form-control" required>
@@ -120,29 +134,15 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="date_posted" class="form-label">Date posted</label>
-                                <input type="date" class="form-control" name="date_posted" placeholder="Date posted" value="{{ $scholarship->date_posted }}">
-                            </div>
 
                             <div class="mb-3">
-                                <label for="expiry_date" class="form-label">Expiry date</label>
-                                <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date" value="{{ $scholarship->expiry_date }}">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="deadline" class="form-label">Deadline</label>
-                                <input type="date" class="form-control" name="deadline" placeholder="Deadline" value="{{ $scholarship->deadline }}">
+                                <label for="more_info" class="form-label">More info link *</label>
+                                <input type="url" class="form-control" name="more_info" value="{{$scholarship->more_info}}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="link" class="form-label">Link *</label>
                                 <input type="url" class="form-control" id="link" name="link" placeholder="Link *" value="{{$scholarship->link}}" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="more_info" class="form-label">More info link *</label>
-                                <input type="url" class="form-control" name="more_info" value="{{$scholarship->more_info}}">
                             </div>
 
                         </div>
@@ -205,6 +205,26 @@
             let value = <?php echo json_encode ($scholarship->school_id) ?>;
 
             $('#school option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($scholarship->province) ?>;
+
+            $('#province option').each(function(i){
+                if($(this).val() == value) {
+                    $(this).attr('selected', 'selected');
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            let value = <?php echo json_encode ($scholarship->duration) ?>;
+
+            $('#duration option').each(function(i){
                 if($(this).val() == value) {
                     $(this).attr('selected', 'selected');
                 }

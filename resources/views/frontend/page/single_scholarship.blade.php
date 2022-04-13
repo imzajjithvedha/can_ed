@@ -44,11 +44,9 @@
 
                 <hr>
 
-                <!-- @if($single_scholarship->image != null)
+                @if($single_scholarship->image != null)
                     <img src="{{ url('images/schools', $single_scholarship->image) }}" alt="" class="img-fluid mb-4 w-100" style="height: 25rem; object-fit: cover;">
-                @else
-                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-4" style="height: 25rem; object-fit: cover;">
-                @endif -->
+                @endif
 
                 <div class="row mb-3">
                     <div class="col-12">
@@ -112,23 +110,6 @@
 
                     <div class="col-8">
                         <p class="gray">{{ $single_scholarship->province }}</p>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-4">
-                        <div class="row">
-                            <div class="col-10">
-                                <p class="fw-bold">Provider</p>
-                            </div>
-                            <div class="col-1 p-0">
-                                <p class="fw-bold">:</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-8">
-                        <p class="gray">{{ $single_scholarship->provider }}</p>
                     </div>
                 </div>
 

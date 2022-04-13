@@ -80,7 +80,7 @@ class UserSchoolVirtualToursController extends Controller
         ];
 
 
-        Mail::to(['zajjith@gmail.com'])->send(new VirtualTour($details));
+        Mail::to(['ccaned@gmail.com'])->send(new VirtualTour($details));
     
         Mail::to(auth()->user()->email)->send(new UserVirtualTour($details));
 

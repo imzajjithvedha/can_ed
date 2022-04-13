@@ -76,9 +76,7 @@
 
         
 
-        <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
-        <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+       
         <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
         <script src="{{ url('js/bulma-calendar.min.js') }}"></script>
@@ -130,6 +128,10 @@
 
     <script src="http://kendo.cdn.telerik.com/2014.2.716/js/jquery.min.js"></script>
     <script src="http://kendo.cdn.telerik.com/2014.2.716/js/kendo.ui.core.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
     <script>
         $('input[type=url]').on('click', function() {

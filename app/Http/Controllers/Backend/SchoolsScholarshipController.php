@@ -51,10 +51,10 @@ class SchoolsScholarshipController extends Controller
 
         $scholarship->user_id = $user_id;
         $scholarship->name = $request->name;
-        $scholarship->provider = $request->provider;
+        $scholarship->province = $request->province;
         $scholarship->summary = $request->summary;
         $scholarship->amount = $request->amount;
-        $scholarship->school_id = $request->hidden_id;
+        $scholarship->school_id = $request->school_id;
         $scholarship->eligibility = json_encode($request->eligibility);
         $scholarship->province = $request->province;
         $scholarship->award = $request->award;
@@ -128,7 +128,8 @@ class SchoolsScholarshipController extends Controller
         $program = DB::table('school_scholarships') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                'provider' => $request->provider,
+                'school_id' => $request->school_id,
+                'province' => $request->province,
                 'summary' => $request->summary,
                 'amount' => $request->amount,
                 'eligibility' => json_encode($request->eligibility),

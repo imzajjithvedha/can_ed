@@ -17,7 +17,6 @@ class CreateSchoolScholarshipsTable extends Migration
             $table->bigIncrements('id');
             $table->text('user_id');
             $table->text('school_id')->nullable();
-            $table->text('school_name')->nullable();
             $table->text('province')->nullable();
             $table->text('name');
             $table->text('award')->nullable();

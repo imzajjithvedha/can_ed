@@ -17,33 +17,12 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="provider" placeholder="Scholarship provider">
-                            </div>
-
-                            <div class="mb-3">
-                                <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
-                            </div>
-
-                            <div class="mb-3">
                                 <select name="school" id="school" class="form-control">
                                     <option value="" selected disabled hidden>School</option>
                                     @foreach($schools as $school)
                                         <option value="{{ $school->id }}">{{ $school->name }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="eligibility" class="form-label">Basic eligibility *</label>
-                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
                             </div>
 
                             <div class="mb-3">
@@ -72,6 +51,42 @@
                             </div>
 
                             <div class="mb-3">
+                                <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="eligibility" class="form-label">Basic eligibility *</label>
+                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
+                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                                <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="action" placeholder="Action *" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="date_posted" class="form-label">Date posted</label>
+                                <input type="date" class="form-control" name="date_posted" placeholder="Date posted">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="expiry_date" class="form-label">Expiry date</label>
+                                <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="deadline" class="form-label">Deadline</label>
+                                <input type="date" class="form-control" name="deadline" placeholder="Deadline">
+                            </div>
+                            
+                            <div class="mb-3">
                                 <select name="availability" id="availability" class="form-control" required>
                                     <option value="" selected disabled hidden>Availability *</option>
                                     <option value="All students">All students</option>
@@ -91,30 +106,11 @@
                             </div>
 
                             <div class="mb-3">
-                                <input type="text" class="form-control" name="action" placeholder="Action *" required>
-                            </div>
-
-                            <div class="mb-3">
                                 <select name="duration" id="duration" class="form-control" required>
                                     <option value="" selected disabled>Duration *</option>
                                     <option value="Full time">Full time</option>
                                     <option value="Part time">Part time</option>
                                 </select>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="date_posted" class="form-label">Date posted</label>
-                                <input type="date" class="form-control" name="date_posted" placeholder="Date posted">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="expiry_date" class="form-label">Expiry date</label>
-                                <input type="date" class="form-control" name="expiry_date" placeholder="Expiry date">
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="deadline" class="form-label">Deadline</label>
-                                <input type="date" class="form-control" name="deadline" placeholder="Deadline">
                             </div>
 
                             <div class="mb-3">

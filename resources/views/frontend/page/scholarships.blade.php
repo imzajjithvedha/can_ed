@@ -307,7 +307,7 @@
     <form action="{{ route('frontend.scholarships_advanced_search') }}" method="POST" id="advanced-search-form">
         {{ csrf_field() }}
         <div class="modal fade" id="advancedSearch" tabindex="-1" aria-labelledby="advancedSearch" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Advanced scholarship search</h5>
@@ -322,7 +322,12 @@
 
                             <div class="col-12 mb-3">
                                 <label for="school" class="form-label">School</label>
-                                <input type="text" name="school" id="school" class="form-control">
+                                <select name="school" id="school" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    @foreach($schools as $school)
+                                        <option value="{{ $school->id }}">{{ $school->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="col-12 mb-3">
@@ -355,11 +360,6 @@
                             <div class="col-12 mb-3">
                                 <label for="action" class="form-label">Action</label>
                                 <input type="text" class="form-control" name="action">
-                            </div>
-
-                            <div class="col-12 mb-3">
-                                <label for="provider" class="form-label">Provider</label>
-                                <input type="text" class="form-control" name="provider">
                             </div>
 
                             <div class="col-12 mb-3">

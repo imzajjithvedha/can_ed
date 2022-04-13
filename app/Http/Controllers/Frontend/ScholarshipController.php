@@ -21,7 +21,9 @@ class ScholarshipController extends Controller
     {
         $scholarships = SchoolScholarships::orderBy('name', 'ASC')->paginate(10);
 
-        return view('frontend.page.scholarships', ['scholarships' => $scholarships]);
+        $schools = Schools::where('status', 'Approved')->orderBy('name', 'asc')->get();
+
+        return view('frontend.page.scholarships', ['scholarships' => $scholarships, 'schools' => $schools]);
     }
 
 
@@ -59,7 +61,9 @@ class ScholarshipController extends Controller
 
         $filteredScholarships = $scholarships->paginate(10);
 
-        return view('frontend.page.scholarships_search', ['filteredScholarships' => $filteredScholarships]);
+        $schools = Schools::where('status', 'Approved')->orderBy('name', 'asc')->get();
+
+        return view('frontend.page.scholarships_search', ['filteredScholarships' => $filteredScholarships, 'schools' => $schools]);
 
     }
 
@@ -134,12 +138,6 @@ class ScholarshipController extends Controller
             $action = 'action';
         }
 
-        if(request('provider') != null) {
-            $provider = request('provider');
-        }
-        else {
-            $provider = 'provider';
-        }
 
         if(request('min_amount') != null) {
             $min_amount = request('min_amount');
@@ -168,7 +166,6 @@ class ScholarshipController extends Controller
             $province,
             $award,
             $action,
-            $provider,
             $min_amount,
             $max_amount,
             $duration
@@ -176,7 +173,7 @@ class ScholarshipController extends Controller
 
     }
 
-    public function advancedSearchFunction($name, $school, $province, $award, $action, $provider, $min_amount,
+    public function advancedSearchFunction($name, $school, $province, $award, $action, $min_amount,
     $max_amount, $duration)
     {
         if($name != 'name'){
@@ -184,15 +181,7 @@ class ScholarshipController extends Controller
         }
 
         if($school != 'school'){
-
-            $school_id = Schools::where('name', 'like', '%' .  $school . '%')->first();
-
-            if($school_id) {
-                $scholarships = SchoolScholarships::where('school_id', $school_id->id);
-            }
-            else {
-                $scholarships = SchoolScholarships::where('school_id', '==' , null);
-            }
+            $scholarships = SchoolScholarships::where('school_id', $school);
         }
 
         if($province != 'province'){
@@ -205,10 +194,6 @@ class ScholarshipController extends Controller
 
         if($action != 'action'){
             $scholarships = SchoolScholarships::where('action', 'like', '%' .  $action . '%');
-        }
-
-        if($provider != 'provider'){
-            $scholarships = SchoolScholarships::where('provider', $provider);
         }
 
         if($min_amount != 'min-amount' && $max_amount != 'max-amount'){
@@ -234,7 +219,9 @@ class ScholarshipController extends Controller
             $filteredScholarships = $scholarships->paginate(10);
         }
 
-        return view('frontend.page.scholarships_search', ['filteredScholarships' => $filteredScholarships]);
+        $schools = Schools::where('status', 'Approved')->orderBy('name', 'asc')->get();
+
+        return view('frontend.page.scholarships_search', ['filteredScholarships' => $filteredScholarships, 'schools' => $schools]);
 
     }
 }

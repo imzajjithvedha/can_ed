@@ -216,29 +216,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+
                         <div class="mb-3">
                             <input type="text" class="form-control" name="name" placeholder="Scholarship name *" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="provider" placeholder="Scholarship provider">
-                        </div>
-
-                        <div class="mb-3">
-                            <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="eligibility" class="form-label">Basic eligibility *</label>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
-                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
                         </div>
 
                         <div class="mb-3">
@@ -259,7 +239,7 @@
 
                         <div class="mb-3">
                             <select name="award" id="award" class="form-control" required>
-                                <option value="" selected disabled>Awards *</option>
+                                <option value="" selected disabled hidden>Awards *</option>
                                 <option value="Admission">Admission</option>
                                 <option value="Current students">Current students</option>
                                 <option value="Admission and current students">Admission and current students</option>
@@ -267,34 +247,24 @@
                         </div>
 
                         <div class="mb-3">
-                            <select name="availability" id="availability" class="form-control" required>
-                                <option value="" selected disabled>Availability *</option>
-                                <option value="All students">All students</option>
-                                <option value="International students">International students</option>
-                                <option value="Canadian students">Canadian students</option>
-                                <option value="Provincial students">Provincial students</option>
-                            </select>
+                            <textarea name="summary" class="form-control" id="summary" rows="5" placeholder="Summary *" required></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <select name="level_of_study" id="level_of_study" class="form-control" required>
-                                <option value="" selected disabled>Level of study *</option>
-                                <option value="Graduate">Graduate</option>
-                                <option value="Undergraduate">Undergraduate</option>
-                                <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
-                            </select>
+                            <input type="number" class="form-control" name="amount" placeholder="Scholarship amount">
                         </div>
 
+                        <div class="mb-3">
+                            <label for="eligibility" class="form-label">Basic eligibility *</label>
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria *" required>
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                            <input type="text" class="form-control mb-2" name="eligibility[]" placeholder="Criteria">
+                        </div>
+                        
                         <div class="mb-3">
                             <input type="text" class="form-control" name="action" placeholder="Action *" required>
-                        </div>
-
-                        <div class="mb-3">
-                            <select name="duration" id="duration" class="form-control" required>
-                                <option value="" selected disabled>Duration *</option>
-                                <option value="Full time">Full time</option>
-                                <option value="Part time">Part time</option>
-                            </select>
                         </div>
 
                         <div class="mb-3">
@@ -311,18 +281,45 @@
                             <label for="deadline" class="form-label">Deadline</label>
                             <input type="date" class="form-control" name="deadline" placeholder="Deadline">
                         </div>
+                        
+                        <div class="mb-3">
+                            <select name="availability" id="availability" class="form-control" required>
+                                <option value="" selected disabled hidden>Availability *</option>
+                                <option value="All students">All students</option>
+                                <option value="International students">International students</option>
+                                <option value="Canadian students">Canadian students</option>
+                                <option value="Provincial students">Provincial students</option>
+                            </select>
+                        </div>
 
                         <div class="mb-3">
-                            <label for="featured_image" class="form-label">Featured image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
+                            <select name="level_of_study" id="level_of_study" class="form-control" required>
+                                <option value="" selected disabled hidden>Level of study *</option>
+                                <option value="Graduate">Graduate</option>
+                                <option value="Undergraduate">Undergraduate</option>
+                                <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <select name="duration" id="duration" class="form-control" required>
+                                <option value="" selected disabled>Duration *</option>
+                                <option value="Full time">Full time</option>
+                                <option value="Part time">Part time</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="featured_image" class="form-label">Featured image *</label>
                             <input type="file" class="form-control" name="featured_image">
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" name="link" placeholder="Scholarship link">
+                            <input type="url" class="form-control" name="link" placeholder="Link *">
                         </div>
 
                         <div class="mb-3">
-                            <input type="url" class="form-control" name="more_info" placeholder="More info link">
+                            <input type="url" class="form-control" name="more_info" placeholder="More info link *">
                         </div>
 
                         <div class="mb-3">

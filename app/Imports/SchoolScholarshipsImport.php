@@ -36,6 +36,7 @@ class SchoolScholarshipsImport implements ToModel, WithHeadingRow
             'duration' => $row['full_time_part_time'],
             'more_info' => $row['more_info'],
             'link' => $row['apply_now'],
+            'featured' => 'No',
         ]);
     }
 }

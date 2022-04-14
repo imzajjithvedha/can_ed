@@ -169,7 +169,7 @@ class UserSchoolOpenDaysController extends Controller
                 'url' => $request->url,
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new OpenDayUpdate($details));
+            Mail::to(['ccaned@gmail.com'])->send(new OpenDayUpdate($details));
     
             Mail::to(auth()->user()->email)->send(new UserOpenDayUpdate($details));
         }

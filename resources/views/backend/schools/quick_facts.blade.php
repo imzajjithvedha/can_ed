@@ -282,7 +282,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_programs" class="form-label mb-1">Number of programs</label>
-                                <input type="number" class="form-control" id="number_of_programs" aria-describedby="number_of_programs" placeholder="Number of programs *" name="number_of_programs" value="{{ $school->number_of_programs }}"  required>
+                                <input type="number" class="form-control" id="number_of_programs" aria-describedby="number_of_programs" placeholder="Number of programs *" name="number_of_programs" value="{{ $school->number_of_programs }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_programs" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_programs' ) checked @endif @endforeach @endif>
@@ -294,7 +294,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_graduate_programs" class="form-label mb-1">Number of graduate programs</label>
-                                <input type="number" class="form-control" id="number_of_graduate_programs" aria-describedby="number_of_graduate_programs" placeholder="Number of graduate programs *" name="number_of_graduate_programs" value="{{ $school->number_of_graduate_programs }}" required>
+                                <input type="number" class="form-control" id="number_of_graduate_programs" aria-describedby="number_of_graduate_programs" placeholder="Number of graduate programs *" name="number_of_graduate_programs" value="{{ $school->number_of_graduate_programs }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_graduate_programs" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_graduate_programs' ) checked @endif @endforeach @endif>
@@ -306,7 +306,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_undergraduate_programs" class="form-label mb-1">Number of undergraduate programs</label>
-                                <input type="number" class="form-control" id="number_of_undergraduate_programs" aria-describedby="number_of_graduate_programs" placeholder="Number of undergraduate programs *" name="number_of_undergraduate_programs" value="{{ $school->number_of_undergraduate_programs }}" required>
+                                <input type="number" class="form-control" id="number_of_undergraduate_programs" aria-describedby="number_of_graduate_programs" placeholder="Number of undergraduate programs *" name="number_of_undergraduate_programs" value="{{ $school->number_of_undergraduate_programs }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_undergraduate_programs" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_undergraduate_programs' ) checked @endif @endforeach @endif>
@@ -318,7 +318,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_students" class="form-label mb-1">Number of students</label>
-                                <input type="number" class="form-control" id="number_of_students" aria-describedby="number_of_students" placeholder="Number of students *" name="number_of_students" value="{{ $school->number_of_students }}" required>
+                                <input type="number" class="form-control" id="number_of_students" aria-describedby="number_of_students" placeholder="Number of students *" name="number_of_students" value="{{ $school->number_of_students }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_students" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_students' ) checked @endif @endforeach @endif>
@@ -330,7 +330,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_graduate_students" class="form-label mb-1">Number of graduate students</label>
-                                <input type="number" class="form-control" id="number_of_graduate_students" aria-describedby="number_of_graduate_students" placeholder="Number of graduate students *" name="number_of_graduate_students" value="{{ $school->number_of_graduate_students }}" required>
+                                <input type="number" class="form-control" id="number_of_graduate_students" aria-describedby="number_of_graduate_students" placeholder="Number of graduate students *" name="number_of_graduate_students" value="{{ $school->number_of_graduate_students }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_graduate_students" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_graduate_students' ) checked @endif @endforeach @endif>
@@ -342,7 +342,7 @@
 
                             <div class="mb-3">
                                 <label for="number_of_undergraduate_students" class="form-label mb-1">Number of undergraduate students</label>
-                                <input type="number" class="form-control" id="number_of_undergraduate_students" aria-describedby="number_of_graduate_students" placeholder="Number of undergraduate students *" name="number_of_undergraduate_students" value="{{ $school->number_of_undergraduate_students }}" required>
+                                <input type="number" class="form-control" id="number_of_undergraduate_students" aria-describedby="number_of_graduate_students" placeholder="Number of undergraduate students *" name="number_of_undergraduate_students" value="{{ $school->number_of_undergraduate_students }}">
 
                                 <div class="form-check mt-2">
                                     <input class="form-check-input" type="checkbox" name="marked_facts[]" value="number_of_undergraduate_students" @if($marked_facts != null) @foreach ($marked_facts as $fact) @if($fact == 'number_of_undergraduate_students' ) checked @endif @endforeach @endif>

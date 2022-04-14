@@ -188,6 +188,7 @@
 
                             <div class="mt-5 text-center">
                                 <input type="hidden" class="form-control" value="{{ $scholarship->id }}" name="hidden_id">
+                                <input type="hidden" class="form-control" value="{{ $scholarship->school_id }}" name="school_id">
                                 <input type="submit" value="Update scholarship" class="btn rounded-pill text-light px-4 py-2" style="background-color: #94ca60;">
                             </div>
                         </form>

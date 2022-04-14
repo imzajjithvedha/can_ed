@@ -313,8 +313,8 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="fax" class="form-label mb-1">Fax *</label>
-                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax *" name="fax" value="{{ $contact->fax }}" required>
+                                <label for="fax" class="form-label mb-1">Fax</label>
+                                <input type="text" class="form-control" id="fax" aria-describedby="fax" placeholder="Fax" name="fax" value="{{ $contact->fax }}">
                             </div>
 
                             <div class="mb-3">

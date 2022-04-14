@@ -130,7 +130,7 @@ class UserSchoolScholarshipController extends Controller
         $program = DB::table('school_scholarships') ->where('id', request('hidden_id'))->update(
             [
                 'name' => $request->name,
-                'school_id' => $request->hidden_id,
+                'school_id' => $request->school_id,
                 'province' => $request->province,
                 'summary' => $request->summary,
                 'amount' => $request->amount,

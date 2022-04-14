@@ -36,8 +36,10 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Standard ad, expires in 30 days - Free</p>
-                                <p class="gray fw-bold">One business category</p>
+                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
+                                    <li>Standard ad, expires in 30 days - Free</li>
+                                    <li>One business category</li>
+                                </ul>
                             </div>
                             
                         </div>
@@ -55,11 +57,13 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Up to 4x more views</p>
-                                <p class="gray fw-bold">Three business categories</p>
-                                <p class="gray fw-bold">Link to your website</p>
-                                <p class="gray fw-bold">Top ad and bump up every week</p>
-                                <p class="gray fw-bold">$9.99</p>
+                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
+                                    <li>Up to 4x more views</li>
+                                    <li>Three business categories</li>
+                                    <li>Link to your website</li>
+                                    <li>Top ad and bump up every month</li>
+                                    <li>$9.99</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -76,18 +80,21 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <p class="gray fw-bold">Up to 20x more views</p>
-                                <p class="gray fw-bold">Three business categories</p>
-                                <p class="gray fw-bold">Link to your website</p>
-                                <p class="gray fw-bold">Top ad and bump up every week</p>
-                                <p class="gray fw-bold">$129.99</p>
+                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
+                                    <li>Up to 20x more views</li>
+                                    <li>Three business categories</li>
+                                    <li>Link to your website</li>
+                                    <li>Top ad and bump up every week</li>
+                                    <li>You ad appears on the home page</li>
+                                    <li>$129.99</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <div class="mb-3">
                         <select class="form-control form-select" id="category_1" name="category_1" placeholder="Business category" required>
-                            <option value="" selected disabled hidden>Business category *</option>
+                            <option value="" selected disabled hidden>Business category 1 *</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -96,7 +103,7 @@
 
                     <div class="mb-3 category_2 d-none">
                         <select class="form-control form-select" id="category_2" name="category_2" placeholder="Business category">
-                            <option value="" selected disabled hidden>Business category *</option>
+                            <option value="" selected disabled hidden>Business category 2</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -105,7 +112,7 @@
 
                     <div class="mb-3 category_3 d-none">
                         <select class="form-control form-select" id="category_3" name="category_3" placeholder="Business category">
-                            <option value="" selected disabled hidden>Business category *</option>
+                            <option value="" selected disabled hidden>Business category 3</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                             @endforeach
@@ -129,7 +136,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link">
+                        <h6 class="fw-bold mt-4 mb-3" style="font-size: 1rem;">Media (optional)</h6>
+                        <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Website URL">
                     </div>
 
                     <div class="mb-3 basic-image">
@@ -148,7 +156,7 @@
                     </div>
 
 
-                    <h6 class="fw-bold mt-5 mb-4" style="font-size: 1.15rem;">Social media (optional)</h6>
+                    <h6 class="fw-bold mt-5 mb-4" style="font-size: 1rem;">Social media (optional)</h6>
                     
                     <div class="mb-3">
                         <input type="url" class="form-control" id="facebook" aria-describedby="facebook" name="facebook" placeholder="Facebook">

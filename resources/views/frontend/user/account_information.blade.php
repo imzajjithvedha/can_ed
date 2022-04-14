@@ -22,7 +22,7 @@
                 <div class="row justify-content-between">
                     <div class="col-8 p-0">
                         <h4 class="user-settings-head">Account information</h4>
-                        <h6 class="user-settings-sub">Here you can customize your basic account set-up information.</h6>
+                        <h6 class="user-settings-sub">Here you can edit your account information</h6>
                     </div>
                 </div>
 
@@ -73,6 +73,7 @@
                                             <input type="hidden" class="form-control old-image-input" name="old_image" value="{{ $user->image }}">
 
                                             <div class="form-group mt-3">
+                                                <label for="image" class="form-label">Do you want to change your profile photo?</label>
                                                 <input type="file" class="form-control" id="image" name="new_image">
                                             </div>
                                         @else
@@ -85,7 +86,6 @@
                                     
 
                                 <h4 class="fw-bold mt-4 mb-1 futura">More about you</h4>
-                                <p class="mb-2 gray">Tell us more about you.</p>
 
                                 <div class="row mb-3">
                                     <div class="col-6">
@@ -129,7 +129,7 @@
 
 
                                 <h4 class="fw-bold mt-4 mb-1 futura">Contact information</h4>
-                                <p class="mb-2 gray">Keep your contact details up to date.</p>
+                                <p class="mb-2 gray">Keep your contact details up to date</p>
 
                                 <div class="row mb-3">
                                     <div class="col-6">

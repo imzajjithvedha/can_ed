@@ -19,24 +19,24 @@
                         <p class="mb-2 required fw-bold">* Indicates required fields</p>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your school name *" name="name" required>
+                        <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="School name *" name="name" required>
                     </div>
                     <div class="mb-3">
-                        <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Enter your school website *" name="website" required>
+                        <input type="url" class="form-control" id="website" aria-describedby="website" placeholder="Website *" name="website" required>
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" required>
+                        <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Email *" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Enter your phone number *" name="phone" required>
+                        <input type="text" class="form-control" id="phone" aria-describedby="phone" placeholder="Phone number *" name="phone" required>
                     </div>
                     <div class="mb-3">
                         <div class="row">
                             <div class="col-8 pe-0">
-                                <input type="text" class="form-control" id="reach_time" aria-describedby="name" placeholder="Best time to reach you HH:MM (eg. 15:30)" name="reach_time" required>
+                                <input type="text" class="form-control" id="reach_time" aria-describedby="name" placeholder="Best time to reach you" name="reach_time" required>
                             </div>
                             <div class="col-4 ps-1">
-                                <select class="form-control" id="timezone" name="time_zone" required>
+                                <select class="form-control form-select" id="timezone" name="time_zone" required>
                                     <option value="" selected disabled hidden>Time zone *</option>
                                     <option value="GMT-10:00">(GMT-10:00) Hawaii</option>
                                     <option>(GMT-09:00) Alaska</option>
@@ -441,9 +441,11 @@
                     </div>
                     <div class="mb-3 border p-3">
                         <p class="gray fw-bold">Protecting your privacy is fundamental to our mission and business</p>
-                        <p class="gray fw-bold">We never sell your data or information</p>
-                        <p class="gray fw-bold">We never send you junk email</p>
-                        <p class="gray fw-bold">We don't own the content you add to our website</p>
+                        <ul class="gray mb-0" style="font-size: 0.9rem">
+                            <li>We never sell your data or information</li>
+                            <li>We never send you junk email</li>
+                            <li>We don't own the content you add to our website</li>
+                        </ul>
                     </div>
 
                     <!-- <div class="form-check mb-3">

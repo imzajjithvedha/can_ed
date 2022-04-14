@@ -10,6 +10,8 @@ use App\Models\Auth\PasswordHistory;
 use Auth;
 use App\Models\Schools;
 use Carbon\Carbon;
+use App\Mail\Frontend\SchoolDelete;
+use Illuminate\Support\Facades\Mail;
 
 
 /**
@@ -39,6 +41,12 @@ class UserSchoolSettingsController extends Controller
         if($school) {
 
             $school = Schools::where('user_id', $user_id)->delete();
+
+            $details = [
+                'name' => auth()->user()->name
+            ];
+
+            Mail::to(auth()->user()->email)->send(new SchoolDelete($details));
 
             return redirect()->route('frontend.index')->with('school_deleted', 'school_deleted');
         }

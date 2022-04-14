@@ -54,7 +54,7 @@ class SchoolsScholarshipController extends Controller
         $scholarship->province = $request->province;
         $scholarship->summary = $request->summary;
         $scholarship->amount = $request->amount;
-        $scholarship->school_id = $request->school_id;
+        $scholarship->school_id = $request->hidden_id;
         $scholarship->eligibility = json_encode($request->eligibility);
         $scholarship->province = $request->province;
         $scholarship->award = $request->award;
@@ -93,7 +93,16 @@ class SchoolsScholarshipController extends Controller
                         return $button;
                     })
 
-                    ->rawColumns(['action'])
+                    ->editColumn('featured', function($data){
+                        if($data->featured == 'Yes'){
+                            $featured = '<span class="badge bg-success">Yes</span>';
+                        }else{
+                            $featured = '<span class="badge bg-warning text-dark">No</span>';
+                        }   
+                        return $featured;
+                    })
+
+                    ->rawColumns(['action', 'featured'])
                     ->make(true);
             }
             

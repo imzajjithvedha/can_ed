@@ -1719,9 +1719,9 @@
                                                         <h6 class="fw-bold mb-1">{{ str_replace("_", " " , ucfirst($marked)) }}</h6>
                                                         @if($school->$marked != null)
                                                             @if($marked == 'school_type')
-                                                                <p class="gray">{{ App\Models\SchoolTypes::where('id', $school->school_type)->first()->name }}</p>
+                                                                <p class="gray">{{ ucfirst(App\Models\SchoolTypes::where('id', $school->school_type)->first()->name) }}</p>
                                                             @else
-                                                                <p class="gray">{{ $school->$marked }}</p>
+                                                                <p class="gray">{{ ucfirst($school->$marked) }}</p>
                                                             @endif
                                                         @else
                                                             <p class="gray">Not defined</p>
@@ -1848,1988 +1848,2006 @@
                                 </div>
                             @endif
 
-                            <div class="tab-pane fade" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                            @if($school->overview_status == 'Yes')
+                                <div class="tab-pane fade" id="overview" role="tabpanel" aria-labelledby="overview-tab">
 
-                                @if($school->overview_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_1 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->overview_title_1_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_text_content_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->overview_text_content_1 !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-
-                                @if($school->overview_title_2 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_2 }}</h4>
-
-                                            <div>
-                                                @if(json_decode($school->overview_title_2_bullets) != null)
-                                                    @foreach(json_decode($school->overview_title_2_bullets) as $bullet)
-                                                        @if($bullet != null)
-                                                            
-                                                            <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
-                                                                
-                                                        @endif
-                                                    @endforeach
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_3_sub_title != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-
-                                            <div class="row align-items-center">
-                                                <div class="col-7 position-relative">
-                                                    <img src="{{ url('images/schools', $school->overview_title_3_image) }}" alt="" class="img-fluid w-100" style="height: 18rem; object-fit: cover;">
-
-                                                    <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->overview_title_3_image_name }}</p>
-                                                </div>
-                                                <div class="col-5">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{$school->overview_title_3_sub_title }}</h5>
-
-                                                    <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_3_paragraph }}</p>
-
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            <p class="gray">{{ $school->overview_title_3_date }}</p>
-                                                        </div>
-                                                        <!-- <div class="col-2 text-end">
-                                                            <a href="{{ $school->overview_title_3_link }}" class="gray" target="_blank"><i class="fas fa-long-arrow-alt-right"></i></a>
-                                                        </div> -->
-                                                        <div class="col-6 text-end">
-                                                            <a href="{{ $school->overview_title_3_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_3_button }}</a>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_4 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_4 }}</h4>
-
-                                            <div class="gray mb-2">
-                                                {!! $school->overview_title_4_paragraph !!}
-                                            </div>
-
-                                            <div class="row justify-content-center">
-                                                <div class="col-8">
-                                                    <img src="{{ url('images/schools', $school->overview_title_4_image) }}" alt="" class="img-fluid w-100" style="height: 18rem; object-fit: cover;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_5 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_5 }}</h4>
-
-                                            <div class="gray mb-2">
-                                                {!! $school->overview_title_5_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_6 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_6 }}</h4>
-
-                                            <div class="gray mb-2">
-                                                {!! $school->overview_title_6_paragraph !!}
-                                            </div>
-
-                                            <!-- <div class="text-end">
-                                                <a href="{{ $school->overview_title_6_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem" target="_blank"><span style="color: red;">{{ $school->overview_title_6_button }}</span><i class="fas fa-long-arrow-alt-right gray ms-3"></i></a>
-                                            </div> -->
-
-                                            <div class="text-end">
-                                                <a href="{{ $school->overview_title_6_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_6_button }}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
+                                    @if($school->overview_title_1 != null)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_1 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->overview_title_1_paragraph !!}
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
-                                @endif -->
 
-                                @if($school->overview_title_7 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_7 }}</h4>
-
-                                            <div class="gray mb-2">
-                                                {!! $school->overview_title_7_paragraph !!}
+                                    @if($school->overview_text_content_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->overview_text_content_1 !!}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
 
-                                @if($school->overview_title_8 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_8 }}</h4>
-                                                
-                                            <div class="gray mb-2">
-                                                {!! $school->overview_title_8_paragraph !!}
-                                            </div>
+                                    @if($school->overview_title_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_2 }}</h4>
 
-                                            <!-- <div class="row justify-content-end">
-                                                <div class="col-3 text-end">
-                                                    <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;" target="_blank">Read more</a>
+                                                <div>
+                                                    @if(json_decode($school->overview_title_2_bullets) != null)
+                                                        @foreach(json_decode($school->overview_title_2_bullets) as $bullet)
+                                                            @if($bullet != null)
+                                                                
+                                                                <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
+                                                                    
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
                                                 </div>
-                                            </div> -->
-
-                                            <div class="text-end">
-                                                <a href="{{ $school->overview_title_8_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_8_button }}</a>
                                             </div>
-
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if($school->overview_title_9 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_9 }}</h4>
+                                    @if($school->overview_title_3_sub_title != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
 
-                                            <div class="row align-items-center">
-                                                <div class="col-6 position-relative">
-                                                    <img src="{{ url('images/schools', $school->overview_title_9_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+                                                <div class="row align-items-center">
+                                                    <div class="col-7 position-relative">
+                                                        <img src="{{ url('images/schools', $school->overview_title_3_image) }}" alt="" class="img-fluid w-100" style="height: 18rem; object-fit: cover;">
 
-                                                    <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->overview_title_9_image_name }}</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_9_sub_title }}</h5>
+                                                        <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->overview_title_3_image_name }}</p>
+                                                    </div>
+                                                    <div class="col-5">
+                                                        <h5 class="fw-bold mb-2" style="color: #384058">{{$school->overview_title_3_sub_title }}</h5>
 
-                                                    <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_9_paragraph }}</p>
+                                                        <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_3_paragraph }}</p>
 
-                                                    <div class="text-end">
-                                                        <a href="{{ $school->overview_title_9_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_9_button }}</a>
+                                                        <div class="row align-items-center">
+                                                            <div class="col-6">
+                                                                <p class="gray">{{ $school->overview_title_3_date }}</p>
+                                                            </div>
+                                                            <!-- <div class="col-2 text-end">
+                                                                <a href="{{ $school->overview_title_3_link }}" class="gray" target="_blank"><i class="fas fa-long-arrow-alt-right"></i></a>
+                                                            </div> -->
+                                                            <div class="col-6 text-end">
+                                                                <a href="{{ $school->overview_title_3_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_3_button }}</a>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if($school->overview_title_10 != null)
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="p-3" style="background-color: #f2f4f8;">
-                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_10 }}</h4>
+                                    @if($school->overview_title_4 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_4 }}</h4>
 
                                                 <div class="gray mb-2">
-                                                    {!! $school->overview_title_10_paragraph !!}
+                                                    {!! $school->overview_title_4_paragraph !!}
+                                                </div>
+
+                                                <div class="row justify-content-center">
+                                                    <div class="col-8">
+                                                        <img src="{{ url('images/schools', $school->overview_title_4_image) }}" alt="" class="img-fluid w-100" style="height: 18rem; object-fit: cover;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if(json_decode($school->overview_related_programs) != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Program name</th>
-                                                        <th scope="col" class="text-center">Length</th>
-                                                        <th scope="col">Tuition, International students</th>
-                                                        <th scope="col" class="text-center">Tuition, Canadian students</th>
-                                                        <th scope="col">Tuition, Provincial students</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach(json_decode($school->overview_related_programs) as $related)
-                                                        <tr style="font-size: 0.95rem;">
-                                                            <td style="word-break: break-all;">{{ $related->name }}</td>
-                                                            <td class="text-center">{{ $related->length }}</td>
-                                                            <td class="text-center fw-bold">${{ $related->international }}</td>
-                                                            <td class="text-center fw-bold">${{ $related->canadian }}</td>
-                                                            <td class="text-center fw-bold">${{ $related->provincial }}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_11 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_11 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->overview_title_11_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->overview_title_12 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_12 }}</h4>
-
-                                            <div>
-                                            @if(json_decode($school->overview_title_12_bullets) != null)
-                                                @foreach(json_decode($school->overview_title_12_bullets) as $bullet)
-                                                    @if($bullet != null)
-                                                        
-                                                        <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.8rem;"></i>{{ $bullet }}</p>
-                                                            
-                                                    @endif
-                                                @endforeach
-                                            @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
- 
-                                @if($school->overview_title_13 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_13 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->overview_title_13_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if(count($overview_faqs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
-
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach($overview_faqs as $overview_faq)
-                                                    <div class="accordion-item mb-3 rounded-0 border-0">
-                                                        <h2 class="accordion-header border" id="heading-{{ $overview_faq->id }}">
-                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $overview_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $overview_faq->id }}" style="color: #384058; font-weight: 700">
-                                                                {{ $overview_faq->question }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse-{{ $overview_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $overview_faq->id }}" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body gray">
-                                                                <p class="gray">{{ $overview_faq->answer }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
+                                    @if($school->overview_title_5 != null)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_5 }}</h4>
+
+                                                <div class="gray mb-2">
+                                                    {!! $school->overview_title_5_paragraph !!}
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
-                                @endif
 
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+                                    @if($school->overview_title_6 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_6 }}</h4>
 
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
+                                                <div class="gray mb-2">
+                                                    {!! $school->overview_title_6_paragraph !!}
+                                                </div>
 
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                <!-- <div class="text-end">
+                                                    <a href="{{ $school->overview_title_6_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem" target="_blank"><span style="color: red;">{{ $school->overview_title_6_button }}</span><i class="fas fa-long-arrow-alt-right gray ms-3"></i></a>
+                                                </div> -->
+
+                                                <div class="text-end">
+                                                    <a href="{{ $school->overview_title_6_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_6_button }}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </div>
-                                            @endforeach
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif -->
+
+                                    @if($school->overview_title_7 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_7 }}</h4>
+
+                                                <div class="gray mb-2">
+                                                    {!! $school->overview_title_7_paragraph !!}
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endif
 
-                            </div>
 
-                            <div class="tab-pane fade" id="programs" role="tabpanel" aria-labelledby="programs-tab">
-
-                                @if($school->programs_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->programs_title_1 }}</h4>
-                                            <div class="gray">{!! $school->programs_page_paragraph !!}</div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if(count($total_programs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <table class="table table-striped table-bordered">
-                                                <tbody>
-                                                    @if(count($bachelor_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Bachelor degree</h5>
-                                                                @foreach($bachelor_programs as $bachelor_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
+                                    @if($school->overview_title_8 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_8 }}</h4>
                                                     
-                                                    @if(count($certificate_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Certificate / short term</h5>
-                                                                @foreach($certificate_programs as $certificate_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
+                                                <div class="gray mb-2">
+                                                    {!! $school->overview_title_8_paragraph !!}
+                                                </div>
 
-                                                    @if(count($community_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Community college</h5>
-                                                                @foreach($community_programs as $community_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($high_school_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058;">High school</h5>
-                                                                @foreach($high_school_programs as $high_school_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($language_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058;">Language programs</h5>
-                                                                @foreach($language_programs as $language_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($master_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Masters</h5>
-                                                                @foreach($master_programs as $master_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$master_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                    @if(count($online_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Online</h5>
-                                                                @foreach($online_programs as $online_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$online_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                            
-                                                    @if(count($summer_programs) > 0)
-                                                        <tr>
-                                                            <td>
-                                                                <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Summer</h5>
-                                                                @foreach($summer_programs as $summer_program)
-                                                                    <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
-                                                                @endforeach
-                                                            </td>
-                                                        </tr>
-                                                    @endif
-
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
+                                                <!-- <div class="row justify-content-end">
+                                                    <div class="col-3 text-end">
+                                                        <a href="{{ $school->overview_title_8_link }}" class="text-decoration-none fw-bold" style="font-size: 0.8rem; color: red;" target="_blank">Read more</a>
                                                     </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                </div> -->
+
+                                                <div class="text-end">
+                                                    <a href="{{ $school->overview_title_8_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_8_button }}</a>
+                                                </div>
+
                                             </div>
                                         </div>
                                     @endif
-                                @endif
 
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+                                    @if($school->overview_title_9 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_9 }}</h4>
 
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
+                                                <div class="row align-items-center">
+                                                    <div class="col-6 position-relative">
+                                                        <img src="{{ url('images/schools', $school->overview_title_9_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
 
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
+                                                        <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->overview_title_9_image_name }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->overview_title_9_sub_title }}</h5>
 
-                            </div>
+                                                        <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->overview_title_9_paragraph }}</p>
 
-                            <div class="tab-pane fade" id="admissions" role="tabpanel" aria-labelledby="admissions-tab">
-
-                                @if($school->admission_paragraph != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="gray">
-                                                {!! $school->admission_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if(count($admission_employees) != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Meet our team</h4>
-
-                                            @foreach($admission_employees as $admission_employee)
-                                                <div class="p-3 mb-4" style="background-color: #f2f4f8;">
-
-                                                    <div class="row">
-                                                        <div class="col-5">
-                                                            @if($admission_employee->image != null)
-                                                                <img src="{{ url('images/schools', $admission_employee->image) }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
-                                                            @endif
-                                                        </div>
-
-                                                        <div class="col-7">
-                                                            <div class="row align-items-center mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Name</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <h6 class="fw-bolder">{{ $admission_employee->name }}</h6>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Position</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->position }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Description</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->description }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Phone</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->phone }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">More 1</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->more_1 }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Email</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->email }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">More 2</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $admission_employee->more_2 }}</p>
-                                                                </div>
-                                                            </div>
-
+                                                        <div class="text-end">
+                                                            <a href="{{ $school->overview_title_9_link }}" class="btn red-btn text-white" target="_blank">{{ $school->overview_title_9_button }}</a>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
                                             </div>
                                         </div>
                                     @endif
-                                @endif -->
 
+                                    @if($school->overview_title_10 != null)
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="p-3" style="background-color: #f2f4f8;">
+                                                    <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_10 }}</h4>
 
-                                @if($school->admission_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_1 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->admission_title_1_paragraph !!}
+                                                    <div class="gray mb-2">
+                                                        {!! $school->overview_title_10_paragraph !!}
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if($school->admission_text_content_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->admission_text_content_1 !!}
+                                    @if(json_decode($school->overview_related_programs) != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Program name</th>
+                                                            <th scope="col" class="text-center">Length</th>
+                                                            <th scope="col">Tuition, International students</th>
+                                                            <th scope="col" class="text-center">Tuition, Canadian students</th>
+                                                            <th scope="col">Tuition, Provincial students</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach(json_decode($school->overview_related_programs) as $related)
+                                                            <tr style="font-size: 0.95rem;">
+                                                                <td style="word-break: break-all;">{{ $related->name }}</td>
+                                                                <td class="text-center">{{ $related->length }}</td>
+                                                                <td class="text-center fw-bold">${{ $related->international }}</td>
+                                                                <td class="text-center fw-bold">${{ $related->canadian }}</td>
+                                                                <td class="text-center fw-bold">${{ $related->provincial }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-                                @if($school->admission_title_2 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_2 }}</h4>
+                                    @if($school->overview_title_11 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_11 }}</h4>
 
-                                            <div>
-                                                @if(json_decode($school->admission_title_2_bullets) != null)
-                                                    @foreach(json_decode($school->admission_title_2_bullets) as $bullet)
+                                                <div class="gray">
+                                                    {!! $school->overview_title_11_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->overview_title_12 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_12 }}</h4>
+
+                                                <div>
+                                                @if(json_decode($school->overview_title_12_bullets) != null)
+                                                    @foreach(json_decode($school->overview_title_12_bullets) as $bullet)
                                                         @if($bullet != null)
                                                             
-                                                            <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
+                                                            <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.8rem;"></i>{{ $bullet }}</p>
                                                                 
                                                         @endif
                                                     @endforeach
                                                 @endif
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
+    
+                                    @if($school->overview_title_13 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->overview_title_13 }}</h4>
 
-                                @if($school->admission_title_3 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-
-                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_3 }}</h4>
-
-                                            <div class="p-3" style="background-color: #f2f4f8">
-                                                {!! $school->admission_title_3_paragraph !!}
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->admission_title_4 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-
-                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_4 }}</h4>
-
-                                            <div class="p-3" style="background-color: #f2f4f8">
-                                                {!! $school->admission_title_4_paragraph !!}
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->admission_title_5 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_5 }}</h4>
-
-                                            <div class="p-3" style="background-color: #f2f4f8">
-                                                {!! $school->admission_title_5_paragraph !!}
+                                                <div class="gray">
+                                                    {!! $school->overview_title_13_paragraph !!}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
+                                    @if(count($overview_faqs) > 0)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
 
-                                @if(count($admission_faqs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
-
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach($admission_faqs as $admission_faq)
-                                                    <div class="accordion-item mb-3 rounded-0 border-0">
-                                                        <h2 class="accordion-header border" id="heading-{{ $admission_faq->id }}">
-                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $admission_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $admission_faq->id }}" style="color: #384058; font-weight: 700">
-                                                                {{ $admission_faq->question }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse-{{ $admission_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $admission_faq->id }}" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body gray">
-                                                                <p class="gray">{{ $admission_faq->answer }}</p>
+                                                <div class="accordion" id="accordionExample">
+                                                    @foreach($overview_faqs as $overview_faq)
+                                                        <div class="accordion-item mb-3 rounded-0 border-0">
+                                                            <h2 class="accordion-header border" id="heading-{{ $overview_faq->id }}">
+                                                                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $overview_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $overview_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                    {{ $overview_faq->question }}
+                                                                </button>
+                                                            </h2>
+                                                            <div id="collapse-{{ $overview_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $overview_faq->id }}" data-bs-parent="#accordionExample">
+                                                                <div class="accordion-body gray">
+                                                                    <p class="gray">{{ $overview_faq->answer }}</p>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+
+                                            <div class="row align-items-center">
+                                                @foreach($articles as $key => $article)
+
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
                                                     </div>
                                                 @endforeach
                                             </div>
                                         </div>
                                     </div>
-                                @endif
 
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endif
-
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
-
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
-
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
                                 </div>
+                            @endif
 
-                            </div>
+                            @if($school->programs_status == 'Yes')
+                                <div class="tab-pane fade" id="programs" role="tabpanel" aria-labelledby="programs-tab">
 
-                            <div class="tab-pane fade" id="financial" role="tabpanel" aria-labelledby="financial-tab">
-
-                                @if($school->financial_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_1 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->financial_title_1_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-
-                                @if($school->financial_title_2 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_2 }}</h4>
-
-                                            <ul class="nav nav-tabs financial-tabs" id="myTab" role="tablist">
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link active" id="financial-tab-tab1" data-bs-toggle="tab" data-bs-target="#financial-tab1" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $school->financial_title_2_tab_1 }}</button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="financial-tab-tab2" data-bs-toggle="tab" data-bs-target="#financial-tab2" type="button" role="tab" aria-controls="profile" aria-selected="false">{{ $school->financial_title_2_tab_2 }}</button>
-                                                </li>
-                                                <li class="nav-item" role="presentation">
-                                                    <button class="nav-link" id="financial-tab-tab3" data-bs-toggle="tab" data-bs-target="#financial-tab3" type="button" role="tab" aria-controls="contact" aria-selected="false">{{ $school->financial_title_2_tab_3 }}</button>
-                                                </li>
-                                            </ul>
-                                            <div class="tab-content">
-
-                                                <div class="tab-pane fade show active" id="financial-tab1" role="tabpanel" aria-labelledby="financial-tab-tab1">
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_1 }}</h6>
-
-                                                    <div class="row p-3">
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet }}</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet_price }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_2 }}</h6>
-
-                                                    <div class="gray p-3">
-                                                        {!! $school->financial_tab_1_sub_title_2_paragraph !!}
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_3 }}</h6>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                        {!! $school->financial_tab_1_sub_title_3_paragraph !!}
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="tab-pane fade" id="financial-tab2" role="tabpanel" aria-labelledby="financial-tab-tab2">
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_1 }}</h6>
-
-                                                    <div class="row p-3">
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet }}</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet_price }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_2 }}</h6>
-
-                                                    <div class="gray p-3">
-                                                        {!! $school->financial_tab_2_sub_title_2_paragraph !!}
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_3 }}</h6>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                        {!! $school->financial_tab_2_sub_title_3_paragraph !!}
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="tab-pane fade" id="financial-tab3" role="tabpanel" aria-labelledby="financial-tab-tab3">
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_1 }}</h6>
-
-                                                    <div class="row p-3">
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet }}</p>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet_price }}</p>
-                                                        </div>
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_2 }}</h6>
-
-                                                    <div class="gray p-3">
-                                                        {!! $school->financial_tab_3_sub_title_2_paragraph !!}
-                                                    </div>
-
-                                                    <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_3 }}</h6>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="row px-3">
-                                                        <div class="col-12 py-3 border-bottom">
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3 }}</p>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3_price }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                        {!! $school->financial_tab_3_sub_title_3_paragraph !!}
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->financial_title_3 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_3 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->financial_title_3_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
+                                    @if($school->programs_title_1 != null)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->programs_title_1 }}</h4>
+                                                <div class="gray">{!! $school->programs_page_paragraph !!}</div>
                                             </div>
                                         </div>
                                     @endif
-                                @endif -->
 
-                                @if($school->financial_title_4 != null)
-                                    <div class="row px-3">
-                                        <div class="col-12">
-                                            <div class="row py-3" style="background-color: #f2f4f8;">
-                                                <div class="col-12">
-                                                    <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_4 }}</h4>
-
-                                                    <div class="gray">
-                                                        {!! $school->financial_title_4_paragraph !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-
-                                @if(json_decode($school->financial_related_programs_4) != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Program name</th>
-                                                        <th scope="col" class="text-center">Length</th>
-                                                        <th scope="col">Tuition, International students</th>
-                                                        <th scope="col" class="text-center">Tuition, Canadian students</th>
-                                                        <th scope="col">Tuition, Provincial students</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach(json_decode($school->financial_related_programs_4) as $related4)
-                                                        <tr style="font-size: 0.95rem;">
-                                                            <td>{{ $related4->name }}</td>
-                                                            <td class="text-center">{{ $related4->length }}</td>
-                                                            <td class="text-center fw-bold">${{ $related4->international }}</td>
-                                                            <td class="text-center fw-bold">${{ $related4->canadian }}</td>
-                                                            <td class="text-center fw-bold">${{ $related4->provincial }}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->financial_title_5 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_5 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->financial_title_5_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->financial_title_6 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="row py-3">
-                                                <div class="col-12">
-                                                    <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_6 }}</h4>
-
-                                                    <div class="gray">
-                                                        {!! $school->financial_title_6_paragraph !!}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- @if(json_decode($school->financial_related_programs_6) != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col">Program name</th>
-                                                        <th scope="col" class="text-center">Length</th>
-                                                        <th scope="col" class="text-center">Tuition, Canadian student</th>
-                                                        <th scope="col">Tuition, international student</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach(json_decode($school->financial_related_programs_6) as $related6)
-                                                        <tr style="font-size: 0.95rem;">
-                                                            <td style="word-break: break-all;">{{ $related6->name }}</td>
-                                                            <td class="text-center">{{ $related6->length }}</td>
-                                                            <td class="text-center fw-bold">${{ $related6->canadian }}</td>
-                                                            <td class="text-center fw-bold">${{ $related6->international }}</td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                @endif -->
-
-                                @if($school->financial_text_content_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->financial_text_content_1 !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if(count($financial_faqs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
-
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach($financial_faqs as $financial_faq)
-                                                    <div class="accordion-item mb-3 rounded-0 border-0">
-                                                        <h2 class="accordion-header border" id="heading-{{ $financial_faq->id }}">
-                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $financial_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $financial_faq->id }}" style="color: #384058; font-weight: 700">
-                                                                {{ $financial_faq->question }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse-{{ $financial_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $financial_faq->id }}" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body gray">
-                                                                <p class="gray">{{ $financial_faq->answer }}</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
+                                    @if(count($total_programs) > 0)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @endif
-
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
-
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
-
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="tab-pane fade" id="scholarships" role="tabpanel" aria-labelledby="scholarships-tab">
-
-                                @if($school->scholarships_title_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_1 }}</h4>
-
-                                            <div class="gray">
-                                                {!! $school->scholarships_title_1_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->scholarships_text_content_1 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->scholarships_text_content_1 !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif -->
-
-                                @if(count($scholarships) > 0)
-
-                                    @include('frontend.includes.scholarship_search')
-                                
-
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Scholarships</h4>
-
-                                            @foreach($scholarships as $scholarship)
-                                                <div class="p-3 mb-4" style="background-color: #f2f4f8;">
-
-                                                    <div class="row">
-                                                        <div class="col-4">
-                                                            @if($scholarship->image != null)
-                                                                <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-3" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-
-                                                            <div class="text-center">
-                                                                <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-8">
-                                                            <div class="row align-items-center mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Name</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <h6 class="fw-bolder">{{ $scholarship->name }}</h6>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Summary</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->summary }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Basic Eligibility</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    @foreach(json_decode($scholarship->eligibility) as $eligibility)
-                                                                        <p class="gray">{{ $eligibility }}</p>
+                                                <table class="table table-striped table-bordered">
+                                                    <tbody>
+                                                        @if(count($bachelor_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Bachelor degree</h5>
+                                                                    @foreach($bachelor_programs as $bachelor_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$bachelor_program->program_id)->first()->name }}</p>
                                                                     @endforeach
-                                                                </div>
-                                                            </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                        
+                                                        @if(count($certificate_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Certificate / short term</h5>
+                                                                    @foreach($certificate_programs as $certificate_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$certificate_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Award</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                        @if(count($community_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Community college</h5>
+                                                                    @foreach($community_programs as $community_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$community_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->award }}</p>
-                                                                </div>
-                                                            </div>
+                                                        @if(count($high_school_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058;">High school</h5>
+                                                                    @foreach($high_school_programs as $high_school_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$high_school_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Action</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                        @if(count($language_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058;">Language programs</h5>
+                                                                    @foreach($language_programs as $language_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$language_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->action }}</p>
-                                                                </div>
-                                                            </div>
+                                                        @if(count($master_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Masters</h5>
+                                                                    @foreach($master_programs as $master_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$master_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Deadline</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+                                                        @if(count($online_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Online</h5>
+                                                                    @foreach($online_programs as $online_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$online_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->deadline }}</p>
-                                                                </div>
-                                                            </div>
+                                                
+                                                        @if(count($summer_programs) > 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <h5 class="mb-2 fw-bold futura" style="color: #384058; ">Summer</h5>
+                                                                    @foreach($summer_programs as $summer_program)
+                                                                        <p><i class="fas fa-circle me-2" style="color: #384058"></i>{{ App\Models\Programs::where('id',$summer_program->program_id)->first()->name }}</p>
+                                                                    @endforeach
+                                                                </td>
+                                                            </tr>
+                                                        @endif
 
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Level of study</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->level_of_study }}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row mb-2">
-                                                                <div class="col-4">
-                                                                    <div class="row">
-                                                                        <div class="col-10">
-                                                                            <p class="fw-bold">Availability</p>
-                                                                        </div>
-                                                                        <div class="col-1 p-0">
-                                                                            <p class="fw-bold">:</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-8">
-                                                                    <p class="gray">{{ $scholarship->availability }}</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                </div>
-                                            @endforeach
-
-                                            <div class="text-center">
-                                                <a href="{{ route('frontend.single_school_scholarships', [$school->id, $school->slug]) }}" class="btn text-white fw-bold red-btn w-50 py-3">View all scholarships</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                @endif
-
-                                
-
-                                <!-- @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-8 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     @endif
-                                @endif -->
 
-
-                                @if($school->scholarships_text_content_2 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->scholarships_text_content_2 !!}
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
 
-                                @if($school->scholarships_title_2 != null)
                                     <div class="row mb-5">
                                         <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_2 }}</h4>
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
                                             <div class="row align-items-center">
-                                                <div class="col-6 position-relative">
-                                                    <img src="{{ url('images/schools', $school->scholarships_title_2_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+                                                @foreach($articles as $key => $article)
 
-                                                    <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->scholarships_title_2_image_name }}</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_2_sub_title }}</h5>
-
-                                                    <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_2_paragraph }}</p>
-
-                                                    <div class="text-end">
-                                                        <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_2_button }}</a>
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
                                                     </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
+                            @if($school->admissions_status == 'Yes')
+                                <div class="tab-pane fade" id="admissions" role="tabpanel" aria-labelledby="admissions-tab">
+
+                                    @if($school->admission_paragraph != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="gray">
+                                                    {!! $school->admission_paragraph !!}
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
+                                    @if(count($admission_employees) != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Meet our team</h4>
 
-                                @if($school->scholarships_title_3 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_3 }}</h4>
+                                                @foreach($admission_employees as $admission_employee)
+                                                    <div class="p-3 mb-4" style="background-color: #f2f4f8;">
 
-                                            <div class="gray">
-                                                {!! $school->scholarships_title_3_paragraph !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                                        <div class="row align-items-center">
+                                                            <div class="col-5">
+                                                                @if($admission_employee->image != null)
+                                                                    <img src="{{ url('images/schools', $admission_employee->image) }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                                                @endif
+                                                            </div>
 
+                                                            <div class="col-7">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Name</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                @if($school->scholarships_text_content_3 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            
-                                            <div class="gray p-3" style="background-color: #f2f4f8;">
-                                                {!! $school->scholarships_text_content_3 !!}
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                                                    <div class="col-8">
+                                                                        <h6 class="fw-bolder">{{ $admission_employee->name }}</h6>
+                                                                    </div>
+                                                                </div>
 
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Position</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                @if($school->scholarships_title_4 != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_4 }}</h4>
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $admission_employee->position }}</p>
+                                                                    </div>
+                                                                </div>
 
-                                            <div class="row align-items-center">
-                                                <div class="col-6 position-relative">
-                                                    <img src="{{ url('images/schools', $school->scholarships_title_4_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Description</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                                    <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->scholarships_title_4_image_name }}</p>
-                                                </div>
-                                                <div class="col-6">
-                                                    <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_4_sub_title }}</h5>
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $admission_employee->description }}</p>
+                                                                    </div>
+                                                                </div>
 
-                                                    <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_4_paragraph }}</p>
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Phone</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
 
-                                                    <div class="text-end">
-                                                        <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_4_button }}</a>
-                                                    </div>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endif
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $admission_employee->phone }}</p>
+                                                                    </div>
+                                                                </div>
 
+                                                                @if($admission_employee->more_1 != null)
+                                                                    <div class="row mb-2">
+                                                                        <div class="col-4">
+                                                                            <div class="row">
+                                                                                <div class="col-10">
+                                                                                    <p class="fw-bold">More 1</p>
+                                                                                </div>
+                                                                                <div class="col-1 p-0">
+                                                                                    <p class="fw-bold">:</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
 
-                                @if(count($scholarship_faqs) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
+                                                                        <div class="col-8">
+                                                                            <p class="gray">{{ $admission_employee->more_1 }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
 
-                                            <div class="accordion" id="accordionExample">
-                                                @foreach($scholarship_faqs as $scholarship_faq)
-                                                    <div class="accordion-item mb-3 rounded-0 border-0">
-                                                        <h2 class="accordion-header border" id="heading-{{ $scholarship_faq->id }}">
-                                                            <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $scholarship_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $scholarship_faq->id }}" style="color: #384058; font-weight: 700">
-                                                                {{ $scholarship_faq->question }}
-                                                            </button>
-                                                        </h2>
-                                                        <div id="collapse-{{ $scholarship_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $scholarship_faq->id }}" data-bs-parent="#accordionExample">
-                                                            <div class="accordion-body gray">
-                                                                <p class="gray">{{ $scholarship_faq->answer }}</p>
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Email</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $admission_employee->email }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                @if($admission_employee->more_2 != null)
+                                                                    <div class="row">
+                                                                        <div class="col-4">
+                                                                            <div class="row">
+                                                                                <div class="col-10">
+                                                                                    <p class="fw-bold">More 2</p>
+                                                                                </div>
+                                                                                <div class="col-1 p-0">
+                                                                                    <p class="fw-bold">:</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="col-8">
+                                                                            <p class="gray">{{ $admission_employee->more_2 }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+
                                                             </div>
                                                         </div>
                                                     </div>
                                                 @endforeach
                                             </div>
                                         </div>
-                                    </div>
-                                @endif
+                                    @endif
 
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @else
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                    <!-- @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank">{{ $school->other_button_title}}</a>
                                             </div>
                                         </div>
                                     @endif
-                                @endif
 
-                                <div class="row mb-5">
-                                    <div class="col-12">
-                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
 
-                                        <div class="row align-items-center">
-                                            @foreach($articles as $key => $article)
-
-                                                <div class="col-4">
-                                                    <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
-                                                        <div class="card border-0">
-                                                            @if($article->image != null)
-                                                                <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
-                                                            @endif
-                                                            <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
-                                                                <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
                                                             </div>
                                                         </div>
                                                     </a>
                                                 </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-
-                                @if($school->contacts_page_paragraph != null)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <div class="gray">{!! $school->contacts_page_paragraph !!}</div>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if(count($contacts) > 0)
-                                    <div class="row mb-5">
-                                        <div class="col-12">
-                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Contact {{ $school->name }}</h4>
-                                            
-                                            @foreach ($contacts as $contact)
-                                                <div class="p-3 mb-4" style="background-color: #f2f4f8;">
-                                                    <div class="row align-items-center">
-                                                        <div class="col-6">
-                                                            @if($contact->image != null)
-                                                                <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
-                                                            @else
-                                                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
-                                                            @endif
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <h6 class="fw-bold mb-2" style="color: #384058">{{ $contact->name }}</h6>
-                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->department }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->address }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->city_province_postal_code }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">{{ $contact->country }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
-                                                            <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->other_button_title != null)
-                                    <div class="row justify-content-center mb-5">
-                                        <div class="col-7 text-center">
-                                            <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                @if($school->main_button_title != null)
-                                    @if($school->main_button_link != null)
-                                        <div class="row mb-5">
-                                            <div class="col-12">
-                                                <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
                                             </div>
-                                        </div>
-                                    @else
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif -->
+
+
+                                    @if($school->admission_title_1 != null)
                                         <div class="row mb-5">
                                             <div class="col-12">
-                                                <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
-                                                    <div class="row red-btn rounded">
-                                                        <div class="col-1" style="max-width: 0.333333%;"></div>
-                                                        <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
-                                                        </div>
-                                                        <div class="col-7 py-3">
-                                                            <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_1 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->admission_title_1_paragraph !!}
+                                                </div>
                                             </div>
                                         </div>
                                     @endif
-                                @endif
 
-                            </div>
+                                    @if($school->admission_text_content_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->admission_text_content_1 !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->admission_title_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->admission_title_2 }}</h4>
+
+                                                <div>
+                                                    @if(json_decode($school->admission_title_2_bullets) != null)
+                                                        @foreach(json_decode($school->admission_title_2_bullets) as $bullet)
+                                                            @if($bullet != null)
+                                                                
+                                                                <p class="gray mb-3"><i class="fas fa-stop me-3" style="transform: rotate(45deg); color: #01468f; font-size: 0.6rem; bottom: 0.07rem;position: relative;"></i>{{ $bullet }}</p>
+                                                                    
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->admission_title_3 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+
+                                                <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_3 }}</h4>
+
+                                                <div class="p-3" style="background-color: #f2f4f8">
+                                                    {!! $school->admission_title_3_paragraph !!}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->admission_title_4 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+
+                                                <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_4 }}</h4>
+
+                                                <div class="p-3" style="background-color: #f2f4f8">
+                                                    {!! $school->admission_title_4_paragraph !!}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->admission_title_5 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold p-3 futura" style="color: #384058; background-color: #dee3ed;">{{ $school->admission_title_5 }}</h4>
+
+                                                <div class="p-3" style="background-color: #f2f4f8">
+                                                    {!! $school->admission_title_5_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if(count($admission_faqs) > 0)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
+
+                                                <div class="accordion" id="accordionExample">
+                                                    @foreach($admission_faqs as $admission_faq)
+                                                        <div class="accordion-item mb-3 rounded-0 border-0">
+                                                            <h2 class="accordion-header border" id="heading-{{ $admission_faq->id }}">
+                                                                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $admission_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $admission_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                    {{ $admission_faq->question }}
+                                                                </button>
+                                                            </h2>
+                                                            <div id="collapse-{{ $admission_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $admission_faq->id }}" data-bs-parent="#accordionExample">
+                                                                <div class="accordion-body gray">
+                                                                    <p class="gray">{{ $admission_faq->answer }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+
+                                            <div class="row align-items-center">
+                                                @foreach($articles as $key => $article)
+
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
+                            @if($school->financial_status == 'Yes')
+                                <div class="tab-pane fade" id="financial" role="tabpanel" aria-labelledby="financial-tab">
+
+                                    @if($school->financial_title_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_1 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->financial_title_1_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->financial_title_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_2 }}</h4>
+
+                                                <ul class="nav nav-tabs financial-tabs" id="myTab" role="tablist">
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" id="financial-tab-tab1" data-bs-toggle="tab" data-bs-target="#financial-tab1" type="button" role="tab" aria-controls="home" aria-selected="true">{{ $school->financial_title_2_tab_1 }}</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="financial-tab-tab2" data-bs-toggle="tab" data-bs-target="#financial-tab2" type="button" role="tab" aria-controls="profile" aria-selected="false">{{ $school->financial_title_2_tab_2 }}</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="financial-tab-tab3" data-bs-toggle="tab" data-bs-target="#financial-tab3" type="button" role="tab" aria-controls="contact" aria-selected="false">{{ $school->financial_title_2_tab_3 }}</button>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content">
+
+                                                    <div class="tab-pane fade show active" id="financial-tab1" role="tabpanel" aria-labelledby="financial-tab-tab1">
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_1 }}</h6>
+
+                                                        <div class="row p-3">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_1_sub_title_1_bullet_price }}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_2 }}</h6>
+
+                                                        <div class="gray p-3">
+                                                            {!! $school->financial_tab_1_sub_title_2_paragraph !!}
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_1_sub_title_3 }}</h6>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_1_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_2_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_1_sub_title_3_bullet_3_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                            {!! $school->financial_tab_1_sub_title_3_paragraph !!}
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="tab-pane fade" id="financial-tab2" role="tabpanel" aria-labelledby="financial-tab-tab2">
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_1 }}</h6>
+
+                                                        <div class="row p-3">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_2_sub_title_1_bullet_price }}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_2 }}</h6>
+
+                                                        <div class="gray p-3">
+                                                            {!! $school->financial_tab_2_sub_title_2_paragraph !!}
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_2_sub_title_3 }}</h6>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_1_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_2_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_2_sub_title_3_bullet_3_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                            {!! $school->financial_tab_2_sub_title_3_paragraph !!}
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="tab-pane fade" id="financial-tab3" role="tabpanel" aria-labelledby="financial-tab-tab3">
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_1 }}</h6>
+
+                                                        <div class="row p-3">
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet }}</p>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <p class="fw-bold">{{ $school->financial_tab_3_sub_title_1_bullet_price }}</p>
+                                                            </div>
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_2 }}</h6>
+
+                                                        <div class="gray p-3">
+                                                            {!! $school->financial_tab_3_sub_title_2_paragraph !!}
+                                                        </div>
+
+                                                        <h6 class="fw-bold p-3 border-bottom" style="background-color: #f2f4f8;">{{ $school->financial_tab_3_sub_title_3 }}</h6>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_1_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom" style="background-color: #f2f4f8;">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_2_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row px-3">
+                                                            <div class="col-12 py-3 border-bottom">
+                                                                <div class="row">
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3 }}</p>
+                                                                    </div>
+                                                                    <div class="col-6">
+                                                                        <p class="fw-bold">{{ $school->financial_tab_3_sub_title_3_bullet_3_price }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                            {!! $school->financial_tab_3_sub_title_3_paragraph !!}
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->financial_title_3 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_3 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->financial_title_3_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif -->
+
+                                    @if($school->financial_title_4 != null)
+                                        <div class="row px-3">
+                                            <div class="col-12">
+                                                <div class="row py-3" style="background-color: #f2f4f8;">
+                                                    <div class="col-12">
+                                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_4 }}</h4>
+
+                                                        <div class="gray">
+                                                            {!! $school->financial_title_4_paragraph !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if(json_decode($school->financial_related_programs_4) != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Program name</th>
+                                                            <th scope="col" class="text-center">Length</th>
+                                                            <th scope="col">Tuition, International students</th>
+                                                            <th scope="col" class="text-center">Tuition, Canadian students</th>
+                                                            <th scope="col">Tuition, Provincial students</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach(json_decode($school->financial_related_programs_4) as $related4)
+                                                            <tr style="font-size: 0.95rem;">
+                                                                <td>{{ $related4->name }}</td>
+                                                                <td class="text-center">{{ $related4->length }}</td>
+                                                                <td class="text-center fw-bold">${{ $related4->international }}</td>
+                                                                <td class="text-center fw-bold">${{ $related4->canadian }}</td>
+                                                                <td class="text-center fw-bold">${{ $related4->provincial }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->financial_title_5 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_5 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->financial_title_5_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->financial_title_6 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="row py-3">
+                                                    <div class="col-12">
+                                                        <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->financial_title_6 }}</h4>
+
+                                                        <div class="gray">
+                                                            {!! $school->financial_title_6_paragraph !!}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- @if(json_decode($school->financial_related_programs_6) != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Program name</th>
+                                                            <th scope="col" class="text-center">Length</th>
+                                                            <th scope="col" class="text-center">Tuition, Canadian student</th>
+                                                            <th scope="col">Tuition, international student</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach(json_decode($school->financial_related_programs_6) as $related6)
+                                                            <tr style="font-size: 0.95rem;">
+                                                                <td style="word-break: break-all;">{{ $related6->name }}</td>
+                                                                <td class="text-center">{{ $related6->length }}</td>
+                                                                <td class="text-center fw-bold">${{ $related6->canadian }}</td>
+                                                                <td class="text-center fw-bold">${{ $related6->international }}</td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    @endif -->
+
+                                    @if($school->financial_text_content_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->financial_text_content_1 !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if(count($financial_faqs) > 0)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
+
+                                                <div class="accordion" id="accordionExample">
+                                                    @foreach($financial_faqs as $financial_faq)
+                                                        <div class="accordion-item mb-3 rounded-0 border-0">
+                                                            <h2 class="accordion-header border" id="heading-{{ $financial_faq->id }}">
+                                                                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $financial_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $financial_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                    {{ $financial_faq->question }}
+                                                                </button>
+                                                            </h2>
+                                                            <div id="collapse-{{ $financial_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $financial_faq->id }}" data-bs-parent="#accordionExample">
+                                                                <div class="accordion-body gray">
+                                                                    <p class="gray">{{ $financial_faq->answer }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+
+                                            <div class="row align-items-center">
+                                                @foreach($articles as $key => $article)
+
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
+                            @if($school->scholarships_status == 'Yes')
+                                <div class="tab-pane fade" id="scholarships" role="tabpanel" aria-labelledby="scholarships-tab">
+
+                                    @if($school->scholarships_title_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_1 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->scholarships_title_1_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->scholarships_text_content_1 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->scholarships_text_content_1 !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif -->
+
+                                    @if(count($scholarships) > 0)
+
+                                        @include('frontend.includes.scholarship_search')
+                                    
+
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Scholarships</h4>
+
+                                                @foreach($scholarships as $scholarship)
+                                                    <div class="p-3 mb-4" style="background-color: #f2f4f8;">
+
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                @if($scholarship->image != null)
+                                                                    <img src="{{ url('images/schools', $scholarship->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 mb-3" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+
+                                                                <div class="text-center">
+                                                                    <a href="{{ $scholarship->link }}" type="button" class="btn btn-primary py-2 w-100 text-white" id="apply_btn" target="_blank">Apply now</a>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-8">
+                                                                <div class="row align-items-center mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Name</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <h6 class="fw-bolder">{{ $scholarship->name }}</h6>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Summary</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->summary }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Basic Eligibility</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        @foreach(json_decode($scholarship->eligibility) as $eligibility)
+                                                                            <p class="gray">{{ $eligibility }}</p>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Award</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->award }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Action</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->action }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Deadline</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->deadline }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Level of study</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->level_of_study }}</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb-2">
+                                                                    <div class="col-4">
+                                                                        <div class="row">
+                                                                            <div class="col-10">
+                                                                                <p class="fw-bold">Availability</p>
+                                                                            </div>
+                                                                            <div class="col-1 p-0">
+                                                                                <p class="fw-bold">:</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-8">
+                                                                        <p class="gray">{{ $scholarship->availability }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                @endforeach
+
+                                                <div class="text-center">
+                                                    <a href="{{ route('frontend.single_school_scholarships', [$school->id, $school->slug]) }}" class="btn text-white fw-bold red-btn w-50 py-3">View all scholarships</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    @endif
+
+                                    
+
+                                    <!-- @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-4 py-3 col-red-btn" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-8 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif -->
+
+
+                                    @if($school->scholarships_text_content_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->scholarships_text_content_2 !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->scholarships_title_2 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_2 }}</h4>
+
+                                                <div class="row align-items-center">
+                                                    <div class="col-6 position-relative">
+                                                        <img src="{{ url('images/schools', $school->scholarships_title_2_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+
+                                                        <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->scholarships_title_2_image_name }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_2_sub_title }}</h5>
+
+                                                        <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_2_paragraph }}</p>
+
+                                                        <div class="text-end">
+                                                            <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_2_button }}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->scholarships_title_3 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_3 }}</h4>
+
+                                                <div class="gray">
+                                                    {!! $school->scholarships_title_3_paragraph !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->scholarships_text_content_3 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                
+                                                <div class="gray p-3" style="background-color: #f2f4f8;">
+                                                    {!! $school->scholarships_text_content_3 !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->scholarships_title_4 != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">{{ $school->scholarships_title_4 }}</h4>
+
+                                                <div class="row align-items-center">
+                                                    <div class="col-6 position-relative">
+                                                        <img src="{{ url('images/schools', $school->scholarships_title_4_image) }}" alt="" class="img-fluid w-100" style="height: 15rem; width: 100%; object-fit: cover;">
+
+                                                        <p class="text-white fw-bold position-absolute" style="bottom: 0.5rem; left: 2rem;">{{ $school->scholarships_title_4_image_name }}</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <h5 class="fw-bold mb-2" style="color: #384058">{{ $school->scholarships_title_4_sub_title }}</h5>
+
+                                                        <p class="gray mb-3" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 7; -webkit-box-orient: vertical;">{{ $school->scholarships_title_4_paragraph }}</p>
+
+                                                        <div class="text-end">
+                                                            <a href="{{ $school->quick_facts_title_2_link }}" class="btn red-btn text-white" target="_blank">{{ $school->scholarships_title_4_button }}</a>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if(count($scholarship_faqs) > 0)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Frequently asked questions</h4>
+
+                                                <div class="accordion" id="accordionExample">
+                                                    @foreach($scholarship_faqs as $scholarship_faq)
+                                                        <div class="accordion-item mb-3 rounded-0 border-0">
+                                                            <h2 class="accordion-header border" id="heading-{{ $scholarship_faq->id }}">
+                                                                <button class="accordion-button collapsed rounded-0" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ $scholarship_faq->id }}" aria-expanded="true" aria-controls="collapse-{{ $scholarship_faq->id }}" style="color: #384058; font-weight: 700">
+                                                                    {{ $scholarship_faq->question }}
+                                                                </button>
+                                                            </h2>
+                                                            <div id="collapse-{{ $scholarship_faq->id }}" class="accordion-collapse collapse" aria-labelledby="heading-{{ $scholarship_faq->id }}" data-bs-parent="#accordionExample">
+                                                                <div class="accordion-body gray">
+                                                                    <p class="gray">{{ $scholarship_faq->answer }}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                    <div class="row mb-5">
+                                        <div class="col-12">
+                                            <h4 class="fw-bold mb-2 futura" style="color: #384058">Related articles</h4>
+
+                                            <div class="row align-items-center">
+                                                @foreach($articles as $key => $article)
+
+                                                    <div class="col-4">
+                                                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
+                                                            <div class="card border-0">
+                                                                @if($article->image != null)
+                                                                    <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
+                                                                @endif
+                                                                <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                                                    <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            @endif
+
+                            @if($school->contacts_status == 'Yes')
+                                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+
+                                    @if($school->contacts_page_paragraph != null)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <div class="gray">{!! $school->contacts_page_paragraph !!}</div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if(count($contacts) > 0)
+                                        <div class="row mb-5">
+                                            <div class="col-12">
+                                                <h4 class="fw-bold mb-2 futura" style="color: #384058">Contact {{ $school->name }}</h4>
+                                                
+                                                @foreach ($contacts as $contact)
+                                                    <div class="p-3 mb-4" style="background-color: #f2f4f8;">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-6">
+                                                                @if($contact->image != null)
+                                                                    <img src="{{ url('images/schools', $contact->image) }}" alt="" class="img-fluid" style="height: 14rem; object-fit: cover;">
+                                                                @else
+                                                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 14rem; object-fit: cover;">
+                                                                @endif
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <h6 class="fw-bold mb-2" style="color: #384058">Name : {{ $contact->name }}</h6>
+                                                                <p class="gray mb-1" style="color: #384058">Department : {{ $contact->department }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Address : {{ $contact->address }}</p>
+                                                                <p class="gray mb-1" style="color: #384058"> Postal code : {{ $contact->city_province_postal_code }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Country : {{ $contact->country }}</p>
+                                                                <p class="gray mb-1" style="color: #384058">Tel: {{ $contact->phone }}</p>
+                                                                @if($contact->fax != null)
+                                                                    <p class="gray mb-1" style="color: #384058">Fax: {{ $contact->fax }}</p>
+                                                                @endif
+                                                                <p class="gray mb-1" style="color: #384058">Website: <a href="" class="text-decoration-none" style="color: #bd2130" target="_blank">{{ $contact->website }}</a></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->other_button_title != null)
+                                        <div class="row justify-content-center mb-5">
+                                            <div class="col-7 text-center">
+                                                <a href="{{ $school->other_button_link }}" class="btn text-white red-btn w-100 py-3" target="_blank" style="font-size: 1.1rem;">{{ $school->other_button_title}}</a>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    @if($school->main_button_title != null)
+                                        @if($school->main_button_link != null)
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ $school->main_button_link }}" class="btn text-white fw-bold w-100" target="_blank">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @else
+                                            <div class="row mb-5">
+                                                <div class="col-12">
+                                                    <a href="{{ route('frontend.master_application', [$school->id, $school->slug]) }}" class="btn text-white fw-bold w-100">
+                                                        <div class="row red-btn rounded">
+                                                            <div class="col-1" style="max-width: 0.333333%;"></div>
+                                                            <div class="col-4 py-3 col-red-btn rounded-0" style="border-top-left-radius: 0.25rem; border-bottom-left-radius: 0.25rem;">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_sub_title }}</p>
+                                                            </div>
+                                                            <div class="col-7 py-3">
+                                                                <p class="futura" style="font-size: 1.1rem;">{{ $school->main_button_title }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endif
+
+                                </div>
+                            @endif
 
                         </div>
                     </div>

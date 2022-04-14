@@ -112,7 +112,7 @@ class UserBusinessController extends Controller
                 'package' => $request->package
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new BusinessUpdate($details));
+            Mail::to(['ccaned@gmail.com'])->send(new BusinessUpdate($details));
     
             Mail::to([$request->email])->send(new UserBusinessUpdate($details));
         }

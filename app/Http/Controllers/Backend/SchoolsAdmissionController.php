@@ -82,7 +82,7 @@ class SchoolsAdmissionController extends Controller
             return back();
     }
 
-    public function schoolAdmissionEdit($id, $employee__id)
+    public function schoolAdmissionEdit($id, $employee_id)
     {
         $employee = SchoolAdmissionEmployees::where('id', $employee_id)->first();
 

@@ -8,7 +8,11 @@ use Hash;
 use App\Models\Auth\User;
 use App\Models\Auth\PasswordHistory;
 use Auth;
+use DB;
 use Carbon\Carbon;
+use App\Mail\Frontend\PasswordUpdate;
+use App\Mail\Frontend\AccountClose;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class UserProfileController.
@@ -41,6 +45,12 @@ class UserProfileController extends Controller
                 'updated_at' => Carbon::now(),
             ]);
 
+            $details = [
+                'name' => auth()->user()->name
+            ];
+
+            Mail::to([auth()->user()->email])->send(new PasswordUpdate($details));
+
             return back()->with('success', 'success');
 
         } else {
@@ -63,17 +73,21 @@ class UserProfileController extends Controller
     {
         $user_id = auth()->user()->id;
 
-        // dd($user_id);
+        // $user = DB::table('users') ->where('id', $user_id)->delete();
 
-        // $history = PasswordHistory::where('user_id', $user_id)->delete();
+        $user = DB::table('users') ->where('id', $user_id)->update(
+            [
+                'active' => 0
+            ]
+        );
+        
+        $details = [
+            'name' => auth()->user()->name
+        ];
 
-        $user = User::find(Auth::user()->id);
+        Mail::to([auth()->user()->email])->send(new AccountClose($details));
 
         Auth::logout();
-
-        $user->roles()->detach();
-
-        $user->delete();
 
         return redirect()->route('frontend.auth.login');
 

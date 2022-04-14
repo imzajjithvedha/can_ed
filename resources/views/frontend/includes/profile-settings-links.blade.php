@@ -80,7 +80,7 @@
 
         <a class="nav-link border-0 bg-white ps-5 w-100 {{ Request::segment(1) == 'user-password' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_password') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Update password</a>
 
-        <a class="nav-link border-bottom bg-white ps-5 w-100 {{ Request::segment(1) == 'user-account' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_account') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Close my account</a>
+        <a class="nav-link bg-white ps-5 w-100 {{ Request::segment(1) == 'user-account' ? 'active' : null }} futura" id="nav-school-tab" href="{{ route('frontend.user.user_account') }}" type="button" role="tab" aria-controls="nav-school" aria-selected="true">Close my account</a>
     </div>
 </div>
 

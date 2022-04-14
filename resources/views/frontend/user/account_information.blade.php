@@ -56,13 +56,13 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="row align-items-center">
-                                            <div class="col-6">
+                                            <div class="col-11">
                                                 <label for="image" class="form-label">Profile image (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                                             </div>
                                             @if($user->image != null)
-                                                <div class="col-6 text-end mb-3">
+                                                <div class="col-1 text-end mb-3">
                                                     <button class="btn bg-danger delete-image" type="button"><i class="far fa-trash-alt text-white"></i></button>
                                                 </div>
                                             @endif
@@ -84,7 +84,7 @@
                                 </div>
                                     
 
-                                <h4 class="fw-bold mt-5 mb-1 futura">More about you</h4>
+                                <h4 class="fw-bold mt-4 mb-1 futura">More about you</h4>
                                 <p class="mb-2 gray">Tell us more about you.</p>
 
                                 <div class="row mb-3">
@@ -128,7 +128,7 @@
                                 </div>
 
 
-                                <h4 class="fw-bold mt-5 mb-1 futura">Contact information</h4>
+                                <h4 class="fw-bold mt-4 mb-1 futura">Contact information</h4>
                                 <p class="mb-2 gray">Keep your contact details up to date.</p>
 
                                 <div class="row mb-3">

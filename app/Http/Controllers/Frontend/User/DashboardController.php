@@ -194,7 +194,7 @@ class DashboardController extends Controller
                 'user_id' => $user_id,
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new EventUpdate($details));
+            Mail::to(['ccaned@gmail.com'])->send(new EventUpdate($details));
     
             Mail::to([$request->email])->send(new UserEventUpdate($details));
         }
@@ -332,7 +332,7 @@ class DashboardController extends Controller
                 'quote' => $request->quote,
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new QuoteUpdate($details));
+            Mail::to(['ccaned@gmail.com'])->send(new QuoteUpdate($details));
     
             Mail::to([auth()->user()->email])->send(new UserQuoteUpdate($details));
         }
@@ -413,7 +413,7 @@ class DashboardController extends Controller
                 'our_banner_url' => $request->our_banner_url
             ];
     
-            Mail::to(['zajjith@gmail.com'])->send(new NetworkUpdate($details));
+            Mail::to(['ccaned@gmail.com'])->send(new NetworkUpdate($details));
     
             Mail::to([$request->email])->send(new UserNetworkUpdate($details));
         }

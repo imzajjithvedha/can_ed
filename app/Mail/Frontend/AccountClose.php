@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class RegisterAccount extends Mailable
+class AccountClose extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,6 +30,6 @@ class RegisterAccount extends Mailable
      */
     public function build()
     {
-        return $this->subject('Welcome mail - Proxima Study')->view('frontend.mail.register_account');
+        return $this->subject('Account closed - Proxima Study')->view('frontend.mail.account_closed');
     }
 }

@@ -390,12 +390,12 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
 
 
     //Virtual tours Routes
-    Route::get('virtual-tours', [UserSchoolVirtualToursController::class, 'virtualTours'])->name('virtual_tours');
-    Route::get('virtual-tours/create-virtual-tour', [UserSchoolVirtualToursController::class, 'createVirtualTour'])->name('create_virtual_tour');
-    Route::post('virtual-tours/store-virtual-tour', [UserSchoolVirtualToursController::class, 'storeVirtualTour'])->name('store_virtual_tour');
-    Route::get('virtual-tours/edit/{id}', [UserSchoolVirtualToursController::class, 'virtualTourEdit'])->name('virtual_tour_edit');
-    Route::post('virtual-tours/update', [UserSchoolVirtualToursController::class, 'virtualTourUpdate'])->name('virtual_tour_update');
-    Route::get('virtual-tours/delete/{id}', [UserSchoolVirtualToursController::class, 'virtualTourDelete'])->name('virtual_tour_delete');
+        Route::get('virtual-tours', [UserSchoolVirtualToursController::class, 'virtualTours'])->name('virtual_tours');
+        Route::get('virtual-tours/create-virtual-tour', [UserSchoolVirtualToursController::class, 'createVirtualTour'])->name('create_virtual_tour');
+        Route::post('virtual-tours/store-virtual-tour', [UserSchoolVirtualToursController::class, 'storeVirtualTour'])->name('store_virtual_tour');
+        Route::get('virtual-tours/edit/{id}', [UserSchoolVirtualToursController::class, 'virtualTourEdit'])->name('virtual_tour_edit');
+        Route::post('virtual-tours/update', [UserSchoolVirtualToursController::class, 'virtualTourUpdate'])->name('virtual_tour_update');
+        Route::get('virtual-tours/delete/{id}', [UserSchoolVirtualToursController::class, 'virtualTourDelete'])->name('virtual_tour_delete');
 
 
 

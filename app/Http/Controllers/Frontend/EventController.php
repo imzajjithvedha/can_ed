@@ -70,7 +70,7 @@ class EventController extends Controller
             'user_id' => $user_id,
         ];
 
-        Mail::to(['zajjith@yopmail.com'])->send(new Event($details));
+        Mail::to(['ccaned@gmail.com'])->send(new Event($details));
 
         Mail::to([$request->email])->send(new UserEvent($details));
 

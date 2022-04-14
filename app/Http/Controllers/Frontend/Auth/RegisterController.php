@@ -8,9 +8,8 @@ use App\Http\Requests\Frontend\Auth\RegisterRequest;
 use App\Repositories\Frontend\Auth\UserRepository;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-use Illuminate\Support\Facades\Mail;
-
 use App\Mail\Frontend\RegisterAccount;
+use Illuminate\Support\Facades\Mail;
 
 /**
  * Class RegisterController.

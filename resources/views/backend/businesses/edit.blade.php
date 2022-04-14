@@ -65,7 +65,7 @@
 
                             <div class="mb-3">
                                 <label for="url" class="form-label">Link</label>
-                                <input type="text" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" value="{{ $business->url }}">
+                                <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Link" value="{{ $business->url }}">
                             </div>
 
                             <div class="mb-3">
@@ -120,7 +120,7 @@
                                 </div>
 
                                 
-                                <input type="file" class="form-control" id="image" name="new_image[]" value="">
+                                <input type="file" class="form-control mt-4" id="image" name="new_image[]" value="" multiple>
                                 
                             </div>
 

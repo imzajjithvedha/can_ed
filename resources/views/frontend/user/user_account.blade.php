@@ -49,7 +49,7 @@
                     </div>
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close</button>
-                        <button type="submit" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;" disabled>Close my account</button>
+                        <button type="submit" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Close my account</button>
                     </div>
                 </div>
             </div>

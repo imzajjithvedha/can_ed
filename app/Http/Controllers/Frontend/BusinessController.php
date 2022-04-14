@@ -232,7 +232,7 @@ class BusinessController extends Controller
         ];
 
 
-        Mail::to(['zajjith@gmail.com'])->send(new SingleBusinessAdmin($details));
+        Mail::to(['ccaned@gmail.com'])->send(new SingleBusinessAdmin($details));
 
         Mail::to([$request->email])->send(new SingleBusinessUser($details));
 

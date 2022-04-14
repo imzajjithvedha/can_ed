@@ -1,6 +1,6 @@
 <p>Hello {{ $details['name'] }},</p>
 
-<p>Thank you very much for contacting <a href="{{ route('frontend.single_business', $details['business_id']) }}" class="text-decoration-none">{{ App\Models\Businesses::where('id', $details['business_id'])->first()->name }}</a> business. That business owner will contact you as soon as possible.</p>
+<p>Thank you very much for contacting <a href="{{ route('frontend.single_business', $details['business_id']) }}" class="text-decoration-none">{{ App\Models\Businesses::where('id', $details['business_id'])->first()->name }}</a> business. The business owner will contact you as soon as possible.</p>
 
 @if($details['email_copy'] == 'on')
 

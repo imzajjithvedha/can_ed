@@ -23,7 +23,7 @@ class CreateSchoolContactsTable extends Migration
             $table->text('city_province_postal_code');
             $table->text('country');
             $table->text('phone');
-            $table->text('fax');
+            $table->text('fax')->nullable();
             $table->text('website');
             $table->integer('orders');
             $table->text('image')->nullable();

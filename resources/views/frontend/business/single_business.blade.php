@@ -251,7 +251,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 5rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for contacting a business. Business owner will contact you as soon as possible.</h4>
+                        <h4 class="mb-0 text-center">Thank you for contacting this business. Business owner will contact you as soon as possible.</h4>
                     </div>
                     <div class="modal-footer">
                         <a href="{{ route('frontend.single_business', $business->id) }}" class="btn text-white" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>

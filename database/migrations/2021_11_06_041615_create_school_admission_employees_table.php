@@ -21,9 +21,9 @@ class CreateSchoolAdmissionEmployeesTable extends Migration
             $table->text('position');
             $table->text('description');
             $table->text('phone');
-            $table->text('more_1');
+            $table->text('more_1')->nullable();
             $table->text('email');
-            $table->text('more_2');
+            $table->text('more_2')->nullable();
             $table->text('image');
             // $table->text('featured');
             $table->integer('orders');

@@ -652,7 +652,7 @@
                             <iframe width="100%" height="143" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <div class="card-body text-center card-padding rounded-0">
-                                <h6 class="card-title futura gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
+                                <h6 class="card-title futura gray">{{ $video->title }}</h6>
                             </div>
                         </div>
                         

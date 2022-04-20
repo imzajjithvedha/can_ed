@@ -16,7 +16,7 @@
                     <div class="col-7">
                         <form action="{{ route('frontend.home_search') }}"  method="POST">
                             {{csrf_field()}}
-                            <div class="search-box p-2">
+                            <div class="search-box p-2 mb-3">
                                 <div class="input-group">
                                     <input type="text" name="keyword" class="form-control p-3 rounded-0 border-start-0 border-top-0 border-bottom-0 border-end search-input" placeholder="Search by school name" aria-label="search">
                                     <select class="border-0 text-center search-drop border-end" name='type' style="cursor: pointer">
@@ -28,9 +28,13 @@
                                         <option value="scholarships">Scholarships</option>
                                         <!-- <option value="resources">Resources</option> -->
                                     </select>
-                                    <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
-                                    <a href="{{ route('frontend.advance_search') }}" type="button" class="btn text-white advanced-search rounded-0">Advanced search</a>
+                                    <button type="submit" class="btn rounded-0 text-white bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
+                                    
                                 </div>
+                            </div>
+
+                            <div class="text-center advance-box">
+                                <a href="{{ route('frontend.advance_search') }}" type="button" class="btn text-white advanced-search rounded-0">Advanced search</a>
                             </div>
                         </form>
                     </div>
@@ -109,7 +113,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_school->name }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_school->name }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -136,7 +140,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_international_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_international_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -163,7 +167,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_canadian_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_canadian_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -214,7 +218,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_work_study_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_work_study_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -241,7 +245,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_financial_planning_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_financial_planning_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -268,7 +272,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_academic_help_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_academic_help_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -295,7 +299,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_financial_help_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_financial_help_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -322,7 +326,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_immigration_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_immigration_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -349,7 +353,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_proxima_study_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_proxima_study_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -376,7 +380,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_need_help_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_need_help_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -403,7 +407,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_open_day->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_open_day->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -426,7 +430,7 @@
                             <a href="{{ $featured_virtual_tour->link }}" class="text-decoration-none" target="_blank">
 
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ App\Models\Schools::where('id', $featured_virtual_tour->school_id)->first()->name }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ App\Models\Schools::where('id', $featured_virtual_tour->school_id)->first()->name }}</h6>
                                 </div>
 
                                 @if($featured_virtual_tour->image != null)
@@ -474,7 +478,7 @@
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @endif
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $featured_business->name }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -495,7 +499,7 @@
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @endif
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $featured_business->name }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $featured_business->name }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -523,7 +527,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $featured_basic_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_basic_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -551,7 +555,7 @@
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @endif
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $featured_event->title }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $featured_event->title }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -566,7 +570,7 @@
                                         <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                     @endif
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $featured_event->title }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $featured_event->title }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -602,7 +606,7 @@
                                     @endif
 
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $student_service->name }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -624,7 +628,7 @@
                                     @endif
 
                                     <div class="card-body text-center card-padding rounded-0">
-                                        <h6 class="card-title fw-bold gray">{{ $student_service->name }}</h6>
+                                        <h6 class="card-title futura fw-bold gray">{{ $student_service->name }}</h6>
                                     </div>
                                 </div>
                             </a>
@@ -648,7 +652,7 @@
                             <iframe width="100%" height="143" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                             <div class="card-body text-center card-padding rounded-0">
-                                <h6 class="card-title fw-bold gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
+                                <h6 class="card-title futura gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $video->title }}</h6>
                             </div>
                         </div>
                         
@@ -675,7 +679,7 @@
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $article->title }}</h6>
                                 </div>
                             </div>
                         </a>

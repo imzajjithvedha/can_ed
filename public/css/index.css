@@ -10,6 +10,12 @@
 .search-box {
     background-color: rgb(255, 255, 255, 0.5);
 }
+.advance-box {
+    background-color: rgb(255, 255, 255, 0.5);
+    padding: 12px 0;
+    width: 150px;
+    margin: auto;
+}
 .search-drop {
     /* outline: none!important; */
     font-size: 0.9rem;
@@ -49,6 +55,16 @@
 .index-categories a:hover p {
     color:#800;
     font-weight: 600;
+}
+
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    letter-spacing: 1.5px;
+    font-size: 16px;
 }
 
 

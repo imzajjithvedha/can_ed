@@ -133,7 +133,7 @@
     <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 
-    <script>
+    <!-- <script>
         $('input[type=url]').on('click', function() {
             string = $(this).val();
 
@@ -144,14 +144,9 @@
             if(string == '') {
                 string = "https://";
             }
-
-            // if(string == 'https://') {
-            //     string = null;
-            // }
-            
             $(this).val(string);
         });
-    </script>
+    </script> -->
 
 
     <!-- JavaScript for disabling form submissions if there are invalid fields -->

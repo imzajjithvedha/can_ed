@@ -138,7 +138,7 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
 
-    <script>
+    <!-- <script>
         $('input[type=url]').on('click', function() {
             string = $(this).val();
 
@@ -150,13 +150,9 @@
                 string = "https://";
             }
 
-            // if(string == 'https://') {
-            //     string = null;
-            // }
-
             $(this).val(string);
         });
-    </script>
+    </script> -->
 
     <!-- JavaScript for disabling form submissions if there are invalid fields -->
     <script>

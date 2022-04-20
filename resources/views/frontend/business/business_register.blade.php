@@ -57,8 +57,8 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
-                                    <li>Up to 4x more views</li>
+                                <ul class="gray fw-bold mb-0 position-relative" style="font-size: 0.9rem">
+                                    <li>Up to 4x more views <span class="number">(1)</span></li>
                                     <li>Three business categories</li>
                                     <li>Link to your website</li>
                                     <li>Top ad and bump up every month</li>
@@ -80,8 +80,8 @@
 
                         <div class="col-8">
                             <div class="border p-3">
-                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
-                                    <li>Up to 20x more views</li>
+                                <ul class="gray fw-bold mb-0 position-relative" style="font-size: 0.9rem">
+                                    <li>Up to 20x more views <span class="number">(1)</span></li>
                                     <li>Three business categories</li>
                                     <li>Link to your website</li>
                                     <li>Top ad and bump up every week</li>
@@ -175,7 +175,7 @@
                     </div>
 
                     <div class="mb-4 border p-3">
-                        <p class="gray fw-bold">Based on our analysis, compared to the basic package. We do not guarantee any number of visitors, views, impressions, replies, conversion or bounce rats.</p>
+                        <p class="gray fw-bold"><span style="font-size: 11px; color: #b1040e; position: relative; bottom: 2px;">(1)</span> Based on our analysis, compared to the basic package. We do not guarantee any number of visitors, views, impressions, replies, conversion or bounce rats.</p>
                     </div>
 
                     <div class="mb-5 border p-3">

@@ -29,6 +29,7 @@ use App\Http\Controllers\Frontend\TermsOfUseController;
 use App\Http\Controllers\Frontend\ScholarshipController;
 use App\Http\Controllers\Frontend\OpenDayController;
 use App\Http\Controllers\Frontend\VirtualTourController;
+use App\Http\Controllers\Frontend\PaymentController;
 
 
 
@@ -124,7 +125,10 @@ Route::get('business-register', [BusinessController::class, 'businessRegister'])
 Route::get('businesses/single-business/{id}', [BusinessController::class, 'singleBusiness'])->name('single_business');
 Route::post('businesses/single-business/favorite', [BusinessController::class, 'favoriteBusiness'])->name('favorite_business');
 Route::post('business-register/request', [BusinessController::class, 'businessRegisterRequest'])->name('business_register_request');
-Route::post('businesses/single-business/contact', [BusinessController::class, 'BusinessSingleContact'])->name('business_single_contact');
+Route::post('businesses/single-business/contact', [BusinessController::class, 'businessSingleContact'])->name('business_single_contact');
+// Payment routes
+Route::get('businesses/single-business/payment/success/{name}/{category_1}/{category_2}/{category_3}/{description}/{contact_name}/{email}/{phone}/{address}/{link}/{facebook}/{twitter}/{you_tube}/{linked_in}/{package}/{image_name}', [BusinessController::class, 'businessPaymentSuccess'])->name('business_payment_success');
+Route::post('businesses/single-business/payment/error', [BusinessController::class, 'businessPaymentError'])->name('business_payment_error');
 
 
 

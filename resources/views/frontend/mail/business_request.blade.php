@@ -21,10 +21,6 @@
 <p><strong>Email:</strong> {{ $details['email'] }}</p>
 <p><strong>Phone:</strong> {{ $details['phone'] }}</p>
 <p><strong>Address:</strong> {{ $details['address'] }}</p>
-<p><strong>Facebook:</strong> {{ $details['facebook'] }}</p>
-<p><strong>Twitter:</strong> {{ $details['twitter'] }}</p>
-<p><strong>YouTube:</strong> {{ $details['you_tube'] }}</p>
-<p><strong>LinkedIn:</strong> {{ $details['linked_in'] }}</p>
 <p><strong>Package:</strong> {{ ucfirst($details['package']) }}</p>
 
 

@@ -14,6 +14,8 @@ use App\Mail\Frontend\SingleBusinessUser;
 use App\Mail\Frontend\SingleBusinessOwner;
 use Illuminate\Support\Facades\Mail;
 use App\Models\SingleBusinessContact;
+use Omnipay\Omnipay;
+use App\Models\Payments;
 
 /**
  * Class BusinessController.
@@ -23,17 +25,132 @@ class BusinessController extends Controller
     /**
      * @return \Illuminate\View\View
      */
+
+    private $gateway;
+
+    public function __construct() {
+        $this->gateway = Omnipay::create('PayPal_Rest');
+        $this->gateway->setClientId(env('PAYPAL_CLIENT_ID'));
+        $this->gateway->setSecret(env('PAYPAL_CLIENT_SECRET'));
+        $this->gateway->setTestMode(true);
+    }
+
     
     public function businessRegister()
     {
         $categories = BusinessCategories::where('status', 'Approved')->get();
 
-        return view('frontend.business.business_register', ['categories' => $categories]);
+        return view('frontend.business.business_register', ['categories' => $categories, 'success' => false]);
     }
 
     public function businessRegisterRequest(Request $request)
     {
-        $user_id = auth()->user()->id;
+        if($request->name != null) {
+            $name = $request->name;
+        }
+        else {
+            $name = 'name';
+        }
+
+        if($request->category_1 != null) {
+            $category_1 = $request->category_1;
+        }
+        else {
+            $category_1 = 'category_1';
+        }
+
+        if($request->category_2 != null) {
+            $category_2 = $request->category_2;
+        }
+        else {
+            $category_2 = 'category_2';
+        }
+
+        if($request->category_3 != null) {
+            $category_3 = $request->category_3;
+        }
+        else {
+            $category_3 = 'category_3';
+        }
+
+        if($request->description != null) {
+            $description = $request->description;
+        }
+        else {
+            $description = 'description';
+        }
+
+        if($request->contact_name != null) {
+            $contact_name = $request->contact_name;
+        }
+        else {
+            $contact_name = 'contact_name';
+        }
+
+        if($request->email != null) {
+            $email = $request->email;
+        }
+        else {
+            $email = 'email';
+        }
+
+        if($request->phone != null) {
+            $phone = $request->phone;
+        }
+        else {
+            $phone = 'phone';
+        }
+
+        if($request->address != null) {
+            $address = $request->address;
+        }
+        else {
+            $address = 'address';
+        }
+
+        if($request->url != null) {
+            $url = str_replace('/',' ',$request->url);
+        }
+        else {
+            $url = 'url';
+        }
+
+        if($request->facebook != null) {
+            $facebook = str_replace('/',' ',$request->facebook);
+        }
+        else {
+            $facebook = 'facebook';
+        }
+
+        if($request->twitter != null) {
+            $twitter = str_replace('/',' ',$request->twitter);
+        }
+        else {
+            $twitter = 'twitter';
+        }
+
+        if($request->you_tube != null) {
+            $you_tube = str_replace('/',' ',$request->you_tube);
+        }
+        else {
+            $you_tube = 'you_tube';
+        }
+
+        if($request->linked_in != null) {
+            $linked_in = str_replace('/',' ',$request->linked_in);
+        }
+        else {
+            $linked_in = 'linked_in';
+        }
+
+        if($request->package != null) {
+            $package = $request->package;
+        }
+        else {
+            $package = 'package';
+        }
+
+
 
         $data = [];
 
@@ -59,61 +176,178 @@ class BusinessController extends Controller
         }
 
 
-        // $image = $request->file('image');
-        // $imageName = time().'_'.rand(1000,10000).'.'.$image->getClientOriginalExtension();
-        // $image->move(public_path('images/businesses'),$imageName);
 
-        $business = new Businesses;
+        try {
+            
+            $response = $this->gateway->purchase(
+                array(
+                    'amount' => $request->amount,
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'returnUrl' => url('businesses/single-business/payment/success', [$name, $category_1, $category_2, $category_3, $description, $contact_name, $email, $phone, $address, $url, $facebook, $twitter, $you_tube, $linked_in, $package, $image_name]),
+                    'cancelURL' => url('businesses/single-business/payment/error')
+                )
+            )->send();
 
-        $business->user_id = $user_id;
-        $business->name = $request->name;
-        $business->category_1 = $request->category_1;
-        $business->category_2 = $request->category_2;
-        $business->category_3 = $request->category_3;
-        $business->description = $request->description;
-        $business->contact_name = $request->contact_name;
-        $business->email = $request->email;
-        $business->phone = $request->phone;
-        $business->address = $request->address;
-        $business->url = $request->url;
-        $business->image = $image_name;
-        $business->facebook = $request->facebook;
-        $business->twitter = $request->twitter;
-        $business->you_tube = $request->you_tube;
-        $business->linked_in = $request->linked_in;
-        $business->package = $request->package;
-        $business->status = 'Pending';
-        $business->featured = 'No';
-        $business->student_service = 'No';
-        $business->advertised = 'No';
+            if($response->isRedirect()) {
+                $response->redirect();
+            }
+            else {
+                return $response->getMessage();
+            }
 
-        $business->save();
-
-
-        $details = [
-            'name' => $request->name,
-            'category_1' => $request->category_1,
-            'category_2' => $request->category_2,
-            'category_3' => $request->category_3,
-            'description' => $request->description,
-            'contact_name' => $request->contact_name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'facebook' => $request->facebook,
-            'twitter' => $request->twitter,
-            'you_tube' => $request->you_tube,
-            'linked_in' => $request->linked_in,
-            'package' => $request->package
-        ];
-
-        Mail::to(['ccaned@gmail.com'])->send(new Business($details));
-
-        Mail::to([$request->email])->send(new UserBusiness($details));
-
-        return back()->with('success', 'success');    
-
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
+
+    public function businessPaymentSuccess(Request $request, $name, $category_1, $category_2, $category_3, $description, $contact_name, $email, $phone, $address, $url, $facebook, $twitter, $you_tube, $linked_in, $package, $image_name) {
+
+        if($request->input('paymentId') && $request->input('PayerID')) {
+            $transaction = $this->gateway->completePurchase(
+                array(
+                    'payer_id' => $request->input('PayerID'),
+                    'transactionReference' => $request->input('paymentId')
+                )
+            );
+
+            $response = $transaction->send();
+
+
+            if($response->isSuccessful()){
+
+                $arr = $response->getData();
+
+                $payment = new Payments();
+
+                $payment->payment_id = $arr['id'];
+                $payment->payer_id = $arr['payer']['payer_info']['payer_id'];
+                $payment->payer_email = $arr['payer']['payer_info']['email'];
+                $payment->user_id = auth()->user()->id;
+                $payment->purpose = 'business';
+                $payment->amount = $arr['transactions'][0]['amount']['total'];
+                $payment->currency = env('PAYPAL_CURRENCY');
+                $payment->payment_status = $arr['state'];
+
+
+                $payment->save();
+
+
+
+
+                $user_id = auth()->user()->id;
+                
+        
+                $business = new Businesses;
+        
+                $business->user_id = $user_id;
+                $business->name = $name;
+                $business->category_1 = $category_1;
+
+                if($category_2 != 'category_2') {
+                    $business->category_2 = $category_2;
+                }
+                else {
+                    $business->category_2 = null;
+                    $category_2 = null;
+                }
+                
+                if($category_3 != 'category_3') {
+                    $business->category_3 = $category_3;
+                }
+                else {
+                    $business->category_3 = null;
+                    $category_3 = null;
+                }
+
+                $business->description = $description;
+                $business->contact_name = $contact_name;
+                $business->email = $email;
+                $business->phone = $phone;
+                $business->address = $address;
+                $business->image = $image_name;
+
+                if($url != 'url') {
+                    $business->url = preg_replace('/\s+/', '/', $url);
+                }
+                else {
+                    $business->url = null;
+                }
+
+                if($facebook != 'facebook') {
+                    $business->facebook = preg_replace('/\s+/', '/', $facebook);
+                }
+                else {
+                    $business->facebook = null;
+                }
+
+                if($twitter != 'twitter') {
+                    $business->twitter = preg_replace('/\s+/', '/', $twitter);
+                }
+                else {
+                    $business->twitter = null;
+                }
+
+                if($you_tube != 'you_tube') {
+                    $business->you_tube = preg_replace('/\s+/', '/', $you_tube);
+                }
+                else {
+                    $business->you_tube = null;
+                }
+
+                if($linked_in != 'linked_in') {
+                    $business->linked_in = preg_replace('/\s+/', '/', $linked_in);
+                }
+                else {
+                    $business->linked_in = null;
+                }
+
+                $business->package = $package;
+                $business->status = 'Pending';
+                $business->featured = 'No';
+                $business->student_service = 'No';
+                $business->advertised = 'No';
+        
+                $business->save();
+        
+        
+                $details = [
+                    'name' => $name,
+                    'category_1' => $category_1,
+                    'category_2' => $category_2,
+                    'category_3' => $category_3,
+                    'description' => $description,
+                    'contact_name' => $contact_name,
+                    'email' => $email,
+                    'phone' => $phone,
+                    'address' => $address,
+                    'package' => $package
+                ];
+        
+                Mail::to(['zajjith@gmail.com'])->send(new Business($details));
+        
+                Mail::to([$request->email])->send(new UserBusiness($details));
+                
+
+                $categories = BusinessCategories::where('status', 'Approved')->get();
+
+                return view('frontend.business.business_register', ['categories' => $categories, 'success' => true])->with('success', 'success');
+        
+                // return back()->with('success', 'success');
+            }
+            else {
+                return $response->getMessage();
+            }
+        }
+        else {
+            return 'Payment declined!';
+        }
+    }
+
+
+    public function businessPaymentError() {
+        return 'User declined the payment!';
+    }
+
 
 
     public function businessCategories()
@@ -207,7 +441,7 @@ class BusinessController extends Controller
 
 
 
-    public function BusinessSingleContact(Request $request)
+    public function businessSingleContact(Request $request)
     {
         $user_id = auth()->user()->id;
 

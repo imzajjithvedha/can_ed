@@ -212,8 +212,10 @@
         });
     </script>
 
+
         @stack('after-scripts')
 
         @include('includes.partials.ga')
+        
     </body>
 </html>

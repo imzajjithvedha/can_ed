@@ -189,15 +189,24 @@
                     </div>
 
                     <div class="text-center">
+                        <input type="hidden" name="amount" class="amount" value="0.00">
                         <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50" id="submit_btn" disabled>Submit</button>
                     </div>
                 </div>
             </div>
         </form>
+
+        <form action="" method="POST">
+
+            {{csrf_field()}}
+
+            <input type="hidden" name="amount" class="amount" value="0.00">
+            <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50 d-none" id="subsmit_btn">Pay now</button>
+        </form>
     </div>
 
 
-    @if(\Session::has('success'))
+    @if($success)
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary invisible" id="modal-btn" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>
@@ -248,11 +257,11 @@
 
     <script>
         function checked() {
-            if($("#basic-image")[0].files.length < 2 || $("#premium-images")[0].files.length < 6 || $("#featured-images")[0].files.length < 11) {
+            if($("#basic-image")[0].files.length > 0 && $("#basic-image")[0].files.length < 2 || $("#premium-images")[0].files.length < 6 || $("#featured-images")[0].files.length < 11) {
                 $('#submit_btn').removeAttr('disabled');
             }
 
-            // $('#submit_btn').removeAttr('disabled');
+            // $('#submit_btn').removeAttr('isabled');
         };
     </script>
 
@@ -278,15 +287,42 @@
                 $('.premium-images').removeClass('d-none');
                 $('.basic-image').addClass('d-none');
                 $('.featured-images').addClass('d-none');
+
+
+                $('#basic-image').attr('required', false);
+                $('#premium-images').attr('required', true);
+                $('#featured-images').attr('required', false);
+
+
+                $('.amount').attr('value', '9.99');
+                $('#submit_btn').removeClass('d-none');
+
             } else if ($(this).hasClass('featured')) {
                 $('.featured-images').removeClass('d-none');
                 $('.basic-image').addClass('d-none');
                 $('.premium-images').addClass('d-none');
+
+
+                $('#basic-image').attr('required', false);
+                $('#premium-images').attr('required', false);
+                $('#featured-images').attr('required', true);
+
+
+                $('.amount').attr('value', '129.99');
+                $('#submit_btn').removeClass('d-none');
             }
             else if ($(this).hasClass('basic')) {
                 $('.basic-image').removeClass('d-none');
                 $('.premium-images').addClass('d-none');
                 $('.featured-images').addClass('d-none');
+
+
+                $('#basic-image').attr('required', true);
+                $('#premium-images').attr('required', false);
+                $('#featured-images').attr('required', false);
+
+                $('.amount').attr('value', '0.00');
+                $('#submit_btn').addClass('d-none');
             }
         });
 

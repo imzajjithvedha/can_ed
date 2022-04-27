@@ -37,6 +37,7 @@ class SchoolsImport implements ToModel, WithHeadingRow
             'school_email' => $row['school_email'],
             'school_phone' => $row['school_phone'],
             'country' => $row['country'],
+            'province' => $row['province'],
             'slug' => $row['slug'],
             'featured_image' => $row['featured_image'],
             'images' => null,

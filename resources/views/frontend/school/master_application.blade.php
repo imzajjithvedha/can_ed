@@ -11,6 +11,10 @@
         <h4 class="fw-bolder futura">Master application - {{ $school->name }}</h4>
         <hr>
 
+        <div class="gray mt-4" style="text-align: justify;">
+            {{ $information->master_application_description }}
+        </div>
+
         <div class="card mt-5 p-4">
 
             <form action="{{ route('frontend.master_application_store') }}" method="post">

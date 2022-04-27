@@ -75,6 +75,7 @@ class WebsiteInformationController extends Controller
                 'advanced_search_description' => $request->advanced_search_description,
                 'featured_open_days_description' => $request->featured_open_days_description,
                 'featured_virtual_tours_description' => $request->featured_virtual_tours_description,
+                'master_application_description' => $request->master_application_description,
                 'updated_at' => Carbon::now(),
             ]
         );

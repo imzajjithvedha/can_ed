@@ -322,7 +322,7 @@
                             <div class="form-group">
                                 <label for="website_name" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $virtual_tour->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Approved" {{ $virtual_tour->status == 'Approved' ? "selected" : "" }}>Approved</option>
                                     <option value="Pending" {{ $virtual_tour->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

@@ -12,9 +12,9 @@
         <hr>
 
     @if($disclaimer->image != null)
-        <img src="{{ url('images/pages', $disclaimer->image) }}" alt="" class="img-fluid banner">
+        <img src="{{ url('images/pages', $disclaimer->image) }}" alt="" class="img-fluid banner d-none">
     @else
-        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner">
+        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner d-none">
     @endif
 
         <div class="gray mt-5" style="text-align: justify;">

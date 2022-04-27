@@ -32,7 +32,7 @@
                                 <input type="text" class="form-control" id="user_name" aria-describedby="user_name" placeholder="Enter a user name" name="user_name" required>
                             </div> -->
                             <div class="mb-3">
-                                <input type="password" class="form-control" id="password1" aria-describedby="password" placeholder="Password" name="password" required value="{{ old('password') }}">
+                                <input type="password" class="form-control" id="password1" aria-describedby="password" placeholder="Password (Please use uppercase letters, lowercase letters, numbers and symbols)" name="password" required value="{{ old('password') }}">
                             </div>
                             <div class="mb-3">
                                 <input type="password" class="form-control" id="password2" aria-describedby="password" placeholder="Confirm password" name="password_confirmation" required value="{{ old('password_confirmation') }}">

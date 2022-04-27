@@ -356,7 +356,7 @@
                             <div class="form-group">
                                 <label for="website_name" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $open_day->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Approved" {{ $open_day->status == 'Approved' ? "selected" : "" }}>Approved</option>
                                     <option value="Pending" {{ $open_day->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

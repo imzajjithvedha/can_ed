@@ -19,7 +19,7 @@ class ArticleController extends Controller
     {
         $text = str_replace('-', '_', $type);
 
-        $articles = Articles::where('status', 'Approved')->where('type', $text)->OrderBy('title', 'ASC')->get();
+        $articles = Articles::where('status', 'Approved')->where('type', $text)->OrderBy('title', 'ASC')->paginate(10);
 
         return view('frontend.article.articles', ['articles' => $articles]);
     }

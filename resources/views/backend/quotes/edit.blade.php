@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $quote->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Approved" {{ $quote->status == 'Approved' ? "selected" : "" }}>Approved</option>
                                     <option value="Pending" {{ $quote->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

@@ -75,7 +75,7 @@
 
                 <div class="border p-3">
                     <p class="gray fw-bold"><i class="fas fa-shield-alt" style="color: orange;"></i> Protect your account</p>
-                    <p>Whenever you sign in proxima study website ensure that the web address in the browser start with: <a href="{{ route('frontend.index') }}" class="text-decoration-none" style="font-size: 0.9rem;">https://www.proximastudy.com</a></p>
+                    <p>Whenever you sign in Proxima Study website ensure that the web address in the browser start with: https://www.proximastudy.com</a>
                     
                 </div>
             </div>

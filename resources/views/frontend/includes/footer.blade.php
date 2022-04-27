@@ -35,7 +35,7 @@
                 <h5 class="p-2 fw-bolder futura mb-4">More links</h5>
                 <!-- <hr> -->
                 <a href="{{ route('frontend.site_map') }}">Site map</a><br>
-                <a href="#">link-2</a><br>
+                <a href="#">Stories</a><br>
                 <a href="#">link-3</a><br>
                 <a href="#">link-4</a><br>
                 <a href="#">link-5</a><br>
@@ -48,11 +48,25 @@
                 <div class="footer-section footer-about">
                     <div class="footer_social">
                         <ul>
-                            <li class="fb"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            @if(App\Models\WebsiteInformation::where('id', 1)->first()->facebook != null)
+                                <li class="fb"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            @endif
+
+                            @if(App\Models\WebsiteInformation::where('id', 1)->first()->linked_in != null)
                             <li class="li"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->linked_in }}" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            @endif
+
+                            @if(App\Models\WebsiteInformation::where('id', 1)->first()->you_tube != null)
                             <li class="yt"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->you_tube }}" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+                            @endif
+
+                            @if(App\Models\WebsiteInformation::where('id', 1)->first()->instagram != null)
                             <li class="ig"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->instagram }}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            @endif
+
+                            @if(App\Models\WebsiteInformation::where('id', 1)->first()->twitter != null)
                             <li class="tw"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

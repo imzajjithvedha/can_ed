@@ -46,7 +46,7 @@
                                         @else
                                             <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                         @endif
-                                        <div class="card-body text-center card-padding {{ $key % 2 == 0 ? 'article-red': 'article-blue' }} rounded-0">
+                                        <div class="card-body text-center card-padding article-red rounded-0">
                                             <h6 class="card-title fw-bold futura">{{ $article->title }}</h6>
                                         </div>
                                     </div>

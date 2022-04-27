@@ -313,7 +313,7 @@
                             <div class="form-group">
                                 <label for="website_name" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $network->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Approved" {{ $network->status == 'Approved' ? "selected" : "" }}>Approved</option>
                                     <option value="Pending" {{ $network->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

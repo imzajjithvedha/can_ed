@@ -51,7 +51,7 @@
                         <input type="email" class="form-control" id="email" placeholder="Your email *" name="email" required>
                     </div>
                     <div class="mb-3">
-                        <textarea class="form-control" rows="7" placeholder="Your comment *" name="message" required></textarea>
+                        <textarea class="form-control" rows="7" placeholder="Your message *" name="message" required></textarea>
                     </div>
 
                     <div class="row mb-4 justify-content-center">

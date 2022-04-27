@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $video->status == 'Approved' ? "selected" : "" }}>Approve</option>   
+                                    <option value="Approved" {{ $video->status == 'Approved' ? "selected" : "" }}>Approved</option>   
                                     <option value="Pending" {{ $video->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

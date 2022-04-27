@@ -41,23 +41,23 @@
                             </div>
                             <div class="form-group">
                                 <label for="facebook" class="form-label">Facebook link *</label>
-                                <input type="url" id="facebook" class="form-control" name="facebook" value="{{ $information->facebook }}" placeholder="Facebook link *" required>
+                                <input type="url" id="facebook" class="form-control" name="facebook" value="{{ $information->facebook }}" placeholder="Facebook link *">
                             </div>
                             <div class="form-group">
                                 <label for="linked_in" class="form-label">Linkedin link *</label>
-                                <input type="url" id="linked_in" class="form-control" name="linked_in" value="{{ $information->linked_in }}" placeholder="Linkedin link *" required>
+                                <input type="url" id="linked_in" class="form-control" name="linked_in" value="{{ $information->linked_in }}" placeholder="Linkedin link *">
                             </div>
                             <div class="form-group">
                                 <label for="you-tube" class="form-label">YouTube link *</label>
-                                <input type="url" id="you-tube" class="form-control" name="you_tube" value="{{ $information->you_tube }}" placeholder="YouTube link *" required>
+                                <input type="url" id="you-tube" class="form-control" name="you_tube" value="{{ $information->you_tube }}" placeholder="YouTube link *">
                             </div>
                             <div class="form-group">
                                 <label for="instagram" class="form-label">Instagram link *</label>
-                                <input type="url" id="instagram" class="form-control" name="instagram" value="{{ $information->instagram }}" placeholder="Instagram link *" required>
+                                <input type="url" id="instagram" class="form-control" name="instagram" value="{{ $information->instagram }}" placeholder="Instagram link *">
                             </div>
                             <div class="form-group">
                                 <label for="twitter" class="form-label">Twitter link *</label>
-                                <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter link *" required>
+                                <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter link *">
                             </div>
                             <div class="form-group">
                                 <label for="featured_schools_description" class="form-label">Featured school description *</label>
@@ -145,6 +145,11 @@
                             <div class="form-group">
                                 <label for="featured_virtual_tours_description" class="form-label">Featured virtual tours description *</label>
                                 <textarea name="featured_virtual_tours_description" class="form-control" id="featured_virtual_tours_description" rows="3" value="{{ $information->featured_virtual_tours_description }}" placeholder="Featured virtual tours description *" required>{{ $information->featured_virtual_tours_description }}</textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="master_application_description" class="form-label">Master application description *</label>
+                                <textarea name="master_application_description" class="form-control" id="master_application_description" rows="3" value="{{ $information->master_application_description }}" placeholder="Master application description *" required>{{ $information->master_application_description }}</textarea>
                             </div>
                         </div>
                     </div>

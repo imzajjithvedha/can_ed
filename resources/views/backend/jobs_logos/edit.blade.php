@@ -35,7 +35,7 @@
                             <div class="form-group">
                                 <label for="status" class="form-label">Status *</label>
                                 <select class="form-control" name="status" id="status" required>
-                                    <option value="Approved" {{ $logo->status == 'Approved' ? "selected" : "" }}>Approve</option>   
+                                    <option value="Approved" {{ $logo->status == 'Approved' ? "selected" : "" }}>Approve<d/option>   
                                     <option value="Pending" {{ $logo->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

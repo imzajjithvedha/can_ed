@@ -25,11 +25,11 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('telephone');
             $table->text('email');
             $table->text('website_url');
-            $table->text('facebook');
-            $table->text('linked_in');
-            $table->text('you_tube');
-            $table->text('instagram');
-            $table->text('twitter');
+            $table->text('facebook')->nullable();
+            $table->text('linked_in')->nullable();
+            $table->text('you_tube')->nullable();
+            $table->text('instagram')->nullable();
+            $table->text('twitter')->nullable();
             $table->text('main_banner')->nullable();
             $table->text('featured_schools_description');
             $table->text('featured_businesses_description');
@@ -50,6 +50,7 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('advanced_search_description');
             $table->text('featured_open_days_description');
             $table->text('featured_virtual_tours_description');
+            $table->text('master_application_description');
             $table->timestamps();
         });
     }

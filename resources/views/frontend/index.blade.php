@@ -339,7 +339,7 @@
 
     @if(count($featured_proxima_study_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles', 'proxima-study-in-coming-to-you') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Proxima study coming to you</a>
+            <a href="{{ route('frontend.articles', 'proxima-study-in-coming-to-you') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Proxima Study is coming to you</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_proxima_study_articles_description }}</p>
 
             <div class="row mt-4">
@@ -366,7 +366,7 @@
 
     @if(count($featured_need_help_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles', 'need-more-help') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Need more help</a>
+            <a href="{{ route('frontend.articles', 'need-more-help') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Need more help?</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_need_help_articles_description }}</p>
 
             <div class="row mt-4">
@@ -393,7 +393,7 @@
 
     @if(count($featured_open_days) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.all_open_days') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured open days</a>
+            <a href="{{ route('frontend.all_open_days') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Open days</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_open_days_description }}</p>
 
             <div class="row mt-4">
@@ -420,7 +420,7 @@
     
     @if(count($featured_virtual_tours) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.all_virtual_tours') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured virtual tours</a>
+            <a href="{{ route('frontend.all_virtual_tours') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Virtual tours</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_virtual_tours_description }}</p>
 
             <div class="row mt-4">

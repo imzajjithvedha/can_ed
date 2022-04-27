@@ -27,7 +27,7 @@
                                 <th scope="col">Code</th>
                                 <th scope="col">Title</th>
                                 <th scope="col">Status</th>
-                                <th scope="col">Hot career</th>
+                                <th scope="col">Hot careers</th>
                                 <th scope="col">Option</th>
                             </tr>
                         </thead>

@@ -12,9 +12,9 @@
         <hr>
 
     @if($terms_of_use->image != null)
-        <img src="{{ url('images/pages', $terms_of_use->image) }}" alt="about-us-banner" class="img-fluid banner">
+        <img src="{{ url('images/pages', $terms_of_use->image) }}" alt="about-us-banner" class="img-fluid banner d-none">
     @else
-        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="about-us-banner" class="img-fluid w-100 banner">
+        <img src="{{ url('img/frontend/no_image.jpg') }}" alt="about-us-banner" class="img-fluid w-100 banner d-none">
     @endif
 
         <div class="gray mt-5" style="text-align: justify;">

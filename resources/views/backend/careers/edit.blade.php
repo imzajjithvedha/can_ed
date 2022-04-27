@@ -44,7 +44,7 @@
                             <div class="form-group">
                                 <label>Status</label>
                                 <select class="form-control" name="status" required>
-                                    <option value="Approved" {{ $career->status == 'Approved' ? "selected" : "" }}>Approve</option>
+                                    <option value="Approved" {{ $career->status == 'Approved' ? "selected" : "" }}>Approved</option>
                                     <option value="Pending" {{ $career->status == 'Pending' ? "selected" : "" }}>Pending</option>                               
                                 </select>
                             </div>

@@ -15,6 +15,7 @@ use App\Mail\Frontend\UserMasterApplication;
 use App\Mail\Frontend\SchoolMasterApplication;
 use App\Models\DegreeLevels;
 use App\Models\Programs;
+use App\Models\WebsiteInformation;
 use App\Mail\Frontend\MasterApplicationNormal;
 use App\Mail\Frontend\UserMasterApplicationNormal;
 
@@ -71,11 +72,14 @@ class MasterApplicationController extends Controller
 
         $prog = $b->sortBy('name');
 
+        $information = WebsiteInformation::where('id', 1)->first();
+
 
         return view('frontend.school.master_application', [
             'school' => $school,
             'prog' => $prog,
-            'data' => $data
+            'data' => $data,
+            'information' => $information
         ]);
     }
 
@@ -179,7 +183,7 @@ class MasterApplicationController extends Controller
             'email_copy' => $request->email_copy,
         ];
 
-        Mail::to(['zajjith@yopmail.com'])->send(new MasterApplication($details));
+        Mail::to(['ccaned@gmail.com'])->send(new MasterApplication($details));
 
         Mail::to([$request->email])->send(new UserMasterApplication($details));
 
@@ -196,9 +200,12 @@ class MasterApplicationController extends Controller
 
         $degrees = DegreeLevels::where('status', 'Approved')->get();
 
+        $information = WebsiteInformation::where('id', 1)->first();
+
         return view('frontend.school.master_application_normal', [
             'programs' => $programs,
             'degrees' => $degrees,
+            'information' => $information
         ]);
     }
 

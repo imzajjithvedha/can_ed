@@ -323,7 +323,7 @@ class BusinessController extends Controller
                     'package' => $package
                 ];
         
-                Mail::to(['zajjith@gmail.com'])->send(new Business($details));
+                Mail::to(['ccaned@gmail.com'])->send(new Business($details));
         
                 Mail::to([$request->email])->send(new UserBusiness($details));
                 

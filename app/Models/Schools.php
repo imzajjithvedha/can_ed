@@ -13,6 +13,7 @@ class Schools extends Model
         'school_email',
         'school_phone',
         'country',
+        'province',
         'slug',
         'featured_image',
         'images',

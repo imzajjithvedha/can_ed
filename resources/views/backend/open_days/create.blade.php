@@ -42,7 +42,7 @@
                                         <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" required>
                                     </div>
                                     <div class="col-6">
-                                        <select class="form-control" id="country" name="country" required>
+                                        <select class="form-select form-control" id="country" name="country" required>
                                             <option value="" selected hidden disabled>Country *</option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>

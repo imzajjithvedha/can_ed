@@ -38,15 +38,28 @@ class WebsiteInformationController extends Controller
             $imageName = $request->old_image;
         }
 
+
+        $logo = $request->file('new_logo');
+
+        if($logo != null) {
+            $logoName = time().'_'.rand(1000,10000).'.'.$logo->getClientOriginalExtension();
+
+            $logo->move(public_path('images/home'), $logoName);
+        } 
+        else {
+            $logoName = $request->old_logo;
+        }
+
         $information = DB::table('website_information') ->where('id', 1)->update(
             [
-                'name' => $request->name,
-                'mantra' => $request->mantra,
+                'logo' => $logoName,
+                'description' => $request->description,
                 'address_1' => $request->address_1,
                 'address_2' => $request->address_2,
                 'address_3' => $request->address_3,
                 'address_4' => $request->address_4,
                 'address_5' => $request->address_5,
+                'toll_free' => $request->toll_free,
                 'telephone' => $request->telephone,
                 'email' => $request->email,
                 'website_url' => $request->website_url,

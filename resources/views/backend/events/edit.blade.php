@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="country" class="form-label">Country *</label>
-                                        <select class="form-control" id="country" name="country" value="{{ $event->country }}" required>
+                                        <select class="form-select form-control" id="country" name="country" value="{{ $event->country }}" required>
                                             <option value="" disabled hidden>Select Country</option>
                                             <option value="Afganistan">Afghanistan</option>
                                             <option value="Albania">Albania</option>

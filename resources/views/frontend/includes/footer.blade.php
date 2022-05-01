@@ -28,7 +28,7 @@
                 <a href="{{ route('frontend.quotes') }}">Quotes</a><br>
                 <a href="{{ route('frontend.videos') }}">Videos</a><br>
                 <a href="{{ route('frontend.all_virtual_tours') }}">Virtual tours</a><br>
-                <a href="{{ route('frontend.world_wide_network') }}">World wide networks</a><br>
+                <a href="{{ route('frontend.world_wide_network') }}">Worldwide networks</a><br>
             </div>
 
             <div class="col top-footer">

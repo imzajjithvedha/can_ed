@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
-        <h4 class="fw-bolder futura">World wide network</h4>
+        <h4 class="fw-bolder futura">Worldwide network</h4>
         
         <div class="row align-items-center">
             <div class="col-10 pe-0">
@@ -58,7 +58,7 @@
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Place your banner</h5>
+                        <h5 class="modal-title">Place your banner on Proxima Study</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -66,10 +66,12 @@
                             <p class="mb-2 required fw-bold">* Indicates required fields</p>
                         </div>
                         <div class="row mb-5 align-items-center">
+                            <h6 class="mb-4">Note: You must place our banner on your website as well</h6>
+
                             <h6 class="fw-bold mb-2">1. Place our banner on your website</h6>
 
                             <div class="col-7">
-                                <textarea class="form-control" rows="3" readonly>&lt;a href="https://www.proximastudy.com/"&gt;&lt;img src="https://www.proximastudy.com/images/468x60.gif" alt="Proxima Study" &gt;&lt;/a&gt;</textarea>
+                                <textarea class="form-control" rows="3" readonly>&lt;a href="{{ route('frontend.index') }}"&gt;&lt;img src="{{ url('img/frontend/world_wide_network/banner.png') }}" alt="Proxima Study" &gt;&lt;/a&gt;</textarea>
                             </div>
 
                             <div class="col-5">
@@ -79,32 +81,33 @@
 
                         
                         <div class="row mb-3">
-                            <h6 class="fw-bold mb-2">2. Submit your request</h6>
+                            <h6 class="fw-bold mb-2">2. Tell us about yourself</h6>
+
+                            <div class="col-6">
+                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Your website URL *" name="website_url" required>
+                            </div>
                             
                             <div class="col-6">
-                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Enter your website name *" name="website_name" required>
-                            </div>
-                            <div class="col-6">
-                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Enter your website URL *" name="website_url" required>
+                                <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Your business/website name *" name="website_name" required>
                             </div>
                             
                         </div>
                     
                         <div class="row mb-3">
                             <div class="col-6">
-                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your full name *" name="name" required>
+                                <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your full name *" name="name" required>
                             </div>
                             <div class="col-6">
-                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Enter your phone number *" name="phone" required>
+                                <input type="text" class="form-control" id="number" aria-describedby="number" placeholder="Your phone number *" name="phone" required>
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <div class="col-6">
-                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter your email address *" name="email" required>
+                                <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Your email *" name="email" required>
                             </div>
                             <div class="col-6">
-                                <select class="form-control" id="country" name="country" required>
+                                <select class="form-select form-control" id="country" name="country" required>
                                     <option value="" selected disabled hidden>Country *</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>

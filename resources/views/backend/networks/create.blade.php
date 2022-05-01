@@ -13,13 +13,15 @@
                 <div class="card">
                     <div class="card-body border">
                         <div class="border p-3">
+
+                            <div class="mb-3">
+                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Website URL *" name="website_url" required>
+                            </div>
+
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="website_name" aria-describedby="website_name" placeholder="Website name *" name="website_name" required>
                             </div>
-                            <div class="mb-3">
-                                <input type="url" class="form-control" id="website_url" aria-describedby="website_url" placeholder="Website url *" name="website_url" required>
-                            </div>
-
+                            
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Full name *" name="name" required>
                             </div>
@@ -33,7 +35,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <select class="form-control" id="country" name="country" required>
+                                <select class="form-select form-control" id="country" name="country" required>
                                     <option value="" selected disabled hidden>Country *</option>
                                     <option value="Afganistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>

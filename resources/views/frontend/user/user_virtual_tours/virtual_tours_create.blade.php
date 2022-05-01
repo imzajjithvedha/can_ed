@@ -39,7 +39,7 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <select class="form-control" id="country" name="country" required>
+                                    <select class="form-select form-control" id="country" name="country" required>
                                         <option value="" selected hidden disabled>Country *</option>
                                         <option value="Afganistan">Afghanistan</option>
                                         <option value="Albania">Albania</option>

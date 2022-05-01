@@ -25,10 +25,10 @@ return [
         'register' => 'Register',
 
         'user' => [
-            'account' => 'My Account',
+            'account' => 'My account',
             'administration' => 'Administration',
-            'change_password' => 'Change Password',
-            'my_information' => 'My Information',
+            'change_password' => 'Change password',
+            'my_information' => 'My information',
             'profile' => 'Profile',
         ],
     ],

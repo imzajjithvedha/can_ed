@@ -85,7 +85,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
         <div class="container position-relative">
-          <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo_text_new.png') }}" alt="" class="img-fluid position-absolute" style="height: 4.6rem; top: -1.5rem"></a>
+          <a href="{{ route('frontend.index') }}"><img src="{{ url('images/home', App\Models\WebsiteInformation::where('id', 1)->first()->logo) }}" alt="" class="img-fluid position-absolute" style="height: 4.6rem; top: -1.5rem"></a>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

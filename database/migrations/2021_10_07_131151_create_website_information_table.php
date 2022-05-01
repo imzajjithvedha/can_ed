@@ -15,13 +15,14 @@ class CreateWebsiteInformationTable extends Migration
     {
         Schema::create('website_information', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name');
-            $table->text('mantra');
+            $table->text('logo')->nullable();
+            $table->text('description');
             $table->text('address_1');
             $table->text('address_2');
             $table->text('address_3');
             $table->text('address_4');
             $table->text('address_5');
+            $table->text('toll_free');
             $table->text('telephone');
             $table->text('email');
             $table->text('website_url');

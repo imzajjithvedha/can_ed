@@ -13,13 +13,14 @@ class WebsiteInformationSeeder extends Seeder
     public function run()
     {
         DB::table('website_information')->insert([
-           'name' => 'Proxima Study',
-           'mantra' => 'The best Canadian universities',
+           'name' => null,
+           'description' => 'We communicate with over 100 countries. Please write to us in english. Thank you for understanding and sorry for inconvenience.',
            'address_1' => '1051 Blvd Decarie',
            'address_2' => 'P.O. Box: 53555 NORGATE',
            'address_3' => 'Montreal - Qc.',
            'address_4' => 'Canada',
            'address_5' => 'Postal Code: H4L 3M0',
+           'toll_free' => '1-844-600-3737',
            'telephone' => '+1-514-557-7856 (From the rest of the world)',
            'email' => 'info@proximastudy.org',
            'website_url' => 'https://www.proximastudy.com',

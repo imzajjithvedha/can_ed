@@ -13,7 +13,7 @@
                 <h4 class="fw-bolder futura">Contact information</h4>
                 <hr>
 
-                <p class="gray">We communicate with over 100 countries. Please write to us in english. Thank you for understanding and sorry for inconvenience.</p>
+                <p class="gray">{{ $information->description }}</p>
 
                 <div class="row mt-4 mb-2 ps-3">
                     <div class="col-5">
@@ -25,6 +25,15 @@
                         <p class="gray">{{ $information->address_3 }}</p>
                         <p class="gray">{{ $information->address_4 }}</p>
                         <p class="gray">{{ $information->address_5 }}</p>
+                    </div>
+                </div>
+
+                <div class="row mb-2 ps-3">
+                    <div class="col-5">
+                        <p class="gray">Toll free:</p>
+                    </div>
+                    <div class="col-7">
+                        <p class="gray">{{ $information->toll_free }}</p>
                     </div>
                 </div>
 

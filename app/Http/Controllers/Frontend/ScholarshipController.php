@@ -138,7 +138,6 @@ class ScholarshipController extends Controller
             $action = 'action';
         }
 
-
         if(request('min_amount') != null) {
             $min_amount = request('min_amount');
         }
@@ -151,6 +150,20 @@ class ScholarshipController extends Controller
         }
         else {
             $max_amount = 'max-amount';
+        }
+
+        if(request('availability') != null) {
+            $availability = request('availability');
+        }
+        else {
+            $availability = 'availability';
+        }
+
+        if(request('level_of_study') != null) {
+            $level_of_study = request('level_of_study');
+        }
+        else {
+            $level_of_study = 'level-of-study';
         }
 
         if(request('duration') != null) {
@@ -168,13 +181,15 @@ class ScholarshipController extends Controller
             $action,
             $min_amount,
             $max_amount,
+            $availability,
+            $level_of_study,
             $duration
         ]);
 
     }
 
     public function advancedSearchFunction($name, $school, $province, $award, $action, $min_amount,
-    $max_amount, $duration)
+    $max_amount, $availability, $level_of_study, $duration)
     {
         if($name != 'name'){
             $scholarships = SchoolScholarships::where('name', 'like', '%' .  $name . '%');
@@ -208,11 +223,19 @@ class ScholarshipController extends Controller
             $scholarships = SchoolScholarships::where('amount', '<=', $max_amount);
         }
 
+        if($availability != 'availability'){
+            $scholarships = SchoolScholarships::where('availability', $availability);
+        }
+
+        if($level_of_study != 'level-of-study'){
+            $scholarships = SchoolScholarships::where('level_of_study', $level_of_study);
+        }
+
         if($duration != 'duration'){
             $scholarships = SchoolScholarships::where('duration', $duration);
         }
 
-        if ($name == 'name' && $school == 'school' && $province == 'province' && $award == 'award' && $provider == 'provider' && $min_amount == 'min-amount' && $max_amount == 'max-amount' && $duration == 'duration') {
+        if ($name == 'name' && $school == 'school' && $province == 'province' && $award == 'award' && $min_amount == 'min-amount' && $max_amount == 'max-amount' && $availability == 'availability' && $level_of_study == 'level-of-study' && $duration == 'duration') {
             $filteredScholarships = SchoolScholarships::paginate(10);
         }
         else {

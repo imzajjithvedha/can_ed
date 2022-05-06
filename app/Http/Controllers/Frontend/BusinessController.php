@@ -175,28 +175,129 @@ class BusinessController extends Controller
             }
         }
 
+        if($request->amount != '0.00')
 
+            try {
+                
+                $response = $this->gateway->purchase(
+                    array(
+                        'amount' => $request->amount,
+                        'currency' => env('PAYPAL_CURRENCY'),
+                        'returnUrl' => url('businesses/single-business/payment/success', [$name, $category_1, $category_2, $category_3, $description, $contact_name, $email, $phone, $address, $url, $facebook, $twitter, $you_tube, $linked_in, $package, $image_name]),
+                        'cancelURL' => url('businesses/single-business/payment/error')
+                    )
+                )->send();
 
-        try {
-            
-            $response = $this->gateway->purchase(
-                array(
-                    'amount' => $request->amount,
-                    'currency' => env('PAYPAL_CURRENCY'),
-                    'returnUrl' => url('businesses/single-business/payment/success', [$name, $category_1, $category_2, $category_3, $description, $contact_name, $email, $phone, $address, $url, $facebook, $twitter, $you_tube, $linked_in, $package, $image_name]),
-                    'cancelURL' => url('businesses/single-business/payment/error')
-                )
-            )->send();
+                if($response->isRedirect()) {
+                    $response->redirect();
+                }
+                else {
+                    return $response->getMessage();
+                }
 
-            if($response->isRedirect()) {
-                $response->redirect();
+            } catch (\Throwable $th) {
+                return $th->getMessage();
+            }
+        
+        else {
+
+            $user_id = auth()->user()->id;
+                
+        
+            $business = new Businesses;
+    
+            $business->user_id = $user_id;
+            $business->name = $name;
+            $business->category_1 = $category_1;
+
+            if($category_2 != 'category_2') {
+                $business->category_2 = $category_2;
             }
             else {
-                return $response->getMessage();
+                $business->category_2 = null;
+                $category_2 = null;
+            }
+            
+            if($category_3 != 'category_3') {
+                $business->category_3 = $category_3;
+            }
+            else {
+                $business->category_3 = null;
+                $category_3 = null;
             }
 
-        } catch (\Throwable $th) {
-            return $th->getMessage();
+            $business->description = $description;
+            $business->contact_name = $contact_name;
+            $business->email = $email;
+            $business->phone = $phone;
+            $business->address = $address;
+            $business->image = $image_name;
+
+            if($url != 'url') {
+                $business->url = preg_replace('/\s+/', '/', $url);
+            }
+            else {
+                $business->url = null;
+            }
+
+            if($facebook != 'facebook') {
+                $business->facebook = preg_replace('/\s+/', '/', $facebook);
+            }
+            else {
+                $business->facebook = null;
+            }
+
+            if($twitter != 'twitter') {
+                $business->twitter = preg_replace('/\s+/', '/', $twitter);
+            }
+            else {
+                $business->twitter = null;
+            }
+
+            if($you_tube != 'you_tube') {
+                $business->you_tube = preg_replace('/\s+/', '/', $you_tube);
+            }
+            else {
+                $business->you_tube = null;
+            }
+
+            if($linked_in != 'linked_in') {
+                $business->linked_in = preg_replace('/\s+/', '/', $linked_in);
+            }
+            else {
+                $business->linked_in = null;
+            }
+
+            $business->package = $package;
+            $business->status = 'Pending';
+            $business->featured = 'No';
+            $business->student_service = 'No';
+            $business->advertised = 'No';
+    
+            $business->save();
+    
+    
+            $details = [
+                'name' => $name,
+                'category_1' => $category_1,
+                'category_2' => $category_2,
+                'category_3' => $category_3,
+                'description' => $description,
+                'contact_name' => $contact_name,
+                'email' => $email,
+                'phone' => $phone,
+                'address' => $address,
+                'package' => $package
+            ];
+    
+            Mail::to(['ccaned@gmail.com'])->send(new Business($details));
+    
+            Mail::to([$request->email])->send(new UserBusiness($details));
+            
+
+            $categories = BusinessCategories::where('status', 'Approved')->get();
+
+            return view('frontend.business.business_register', ['categories' => $categories, 'success' => true])->with('success', 'success');
         }
     }
 
@@ -323,7 +424,7 @@ class BusinessController extends Controller
                     'package' => $package
                 ];
         
-                Mail::to(['ccaned@gmail.com'])->send(new Business($details));
+                Mail::to(['zajjith@gmail.com'])->send(new Business($details));
         
                 Mail::to([$request->email])->send(new UserBusiness($details));
                 

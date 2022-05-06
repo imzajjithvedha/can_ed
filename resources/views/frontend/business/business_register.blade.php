@@ -27,28 +27,7 @@
                     <div class="row align-items-center mb-4">
                         <div class="col-4">
                             <div class="form-check">
-                                <input class="form-check-input basic" type="radio" name="package" value="basic" required>
-                                <label class="form-check-label fw-bold" for="flexRadioDefault1">
-                                    Basic
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="col-8">
-                            <div class="border p-3">
-                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
-                                    <li>Standard ad, expires in 30 days - Free</li>
-                                    <li>One business category</li>
-                                </ul>
-                            </div>
-                            
-                        </div>
-                    </div>
-
-                    <div class="row align-items-center mb-4">
-                        <div class="col-4">
-                            <div class="form-check">
-                                <input class="form-check-input premium extra" type="radio" name="package" value="premium">
+                                <input class="form-check-input premium extra" type="radio" name="package" value="premium" checked>
                                 <label class="form-check-label fw-bold" for="flexRadioDefault1">
                                     Premium
                                 </label>
@@ -89,6 +68,27 @@
                                     <li>$129.99</li>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center mb-4">
+                        <div class="col-4">
+                            <div class="form-check">
+                                <input class="form-check-input basic" type="radio" name="package" value="basic" required>
+                                <label class="form-check-label fw-bold" for="flexRadioDefault1">
+                                    Basic
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="border p-3">
+                                <ul class="gray fw-bold mb-0" style="font-size: 0.9rem">
+                                    <li>Standard ad, expires in 30 days - Free</li>
+                                    <li>One business category</li>
+                                </ul>
+                            </div>
+                            
                         </div>
                     </div>
 
@@ -179,7 +179,7 @@
                     </div>
 
                     <div class="mb-5 border p-3">
-                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none">Disclaimer</a> and <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none">Privacy policy</a></p>
+                        <p class="gray fw-bold">By clicking (Submit) below, you are agreeing to our <a href="{{ route('frontend.disclaimer') }}" class="text-decoration-none" target="_blank">Disclaimer</a> and <a href="{{ route('frontend.privacy_policy') }}" class="text-decoration-none" target="_blank">Privacy policy</a></p>
                     </div>
 
                     <div class="row mb-4 justify-content-center">
@@ -188,21 +188,30 @@
                         </div>
                     </div>
 
-                    <div class="text-center">
+                    <div class="mb-5 text-center">
                         <input type="hidden" name="amount" class="amount" value="0.00">
-                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50" id="submit_btn" disabled>Submit</button>
+                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50" id="submit_btn" disabled>Proceed</button>
+                    </div>
+
+                    <div class="border p-3">
+                        <p class="gray fw-bold">Protecting your privacy is fundamental to our mission and business</p>
+                        <ul class="gray mb-0" style="font-size: 0.9rem">
+                            <li>We never sell your data or information</li>
+                            <li>We never send you junk email</li>
+                            <li>We don't own the content you add to our website</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </form>
 
-        <form action="" method="POST">
+        <!-- <form action="" method="POST">
 
             {{csrf_field()}}
 
             <input type="hidden" name="amount" class="amount" value="0.00">
-            <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50 d-none" id="subsmit_btn">Pay now</button>
-        </form>
+            <button type="submit" class="btn btn-primary px-5 py-3 text-white w-50 d-none" id="pay_btn">Pay now</button>
+        </form> -->
     </div>
 
 
@@ -216,7 +225,7 @@
                 <div class="modal-content">
 
                     <div class="modal-body" style="padding: 3rem 1rem;">
-                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible.</h4>
+                        <h4 class="mb-0 text-center">Thank you for your request. We will check and approve as soon as possible</h4>
                     </div>
                     <div class="modal-footer justify-content-center">
                         <a href="{{ route('frontend.index') }}" class="btn text-white w-25" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Refresh</a>
@@ -322,7 +331,7 @@
                 $('#featured-images').attr('required', false);
 
                 $('.amount').attr('value', '0.00');
-                $('#submit_btn').addClass('d-none');
+                // $('#pay_btn').addClass('d-none');
             }
         });
 

@@ -310,7 +310,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Advanced scholarship search</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Scholarships advanced search</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -371,6 +371,28 @@
                                 <label for="max_amount" class="form-label">Maximum Amount</label>
                                 <input type="text" class="form-control" name="max_amount">
                             </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="availability" class="form-label">Availability</label>
+                                <select name="availability" id="availability" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="All students">All students</option>
+                                    <option value="International students">International students</option>
+                                    <option value="Canadian students">Canadian students</option>
+                                    <option value="Provincial students">Provincial students</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label for="level_of_study" class="form-label">Level of study</label>
+                                <select name="level_of_study" id="level_of_study" class="form-control">
+                                    <option value="" selected disabled hidden></option>
+                                    <option value="Graduate">Graduate</option>
+                                    <option value="Undergraduate">Undergraduate</option>
+                                    <option value="Graduate and Undergraduate">Graduate and undergraduate</option>
+                                </select>
+                            </div>
+
 
                             <div class="col-12">
                                 <label for="duration" class="form-label">Duration</label>

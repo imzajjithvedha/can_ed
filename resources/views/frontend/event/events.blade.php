@@ -35,237 +35,126 @@
             @foreach($events as $event)
                 <div class="px-3">
                     <div class="row justify-content-between border py-3 px-2 mb-5 align-items-center">
-                        
-                        @if($event->image != null)
-                            <div class="col-5">
-                                
-                                <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid mb-3 w-100" style="height: 15rem; object-fit: cover;">
+                        <div class="col-5">
+
+                            @if($event->image != null)
+                                <img src="{{ url('images/events', $event->image) }}" alt="" class="img-fluid" style="height: 15rem; object-fit: cover;">
+                            @else
+                                <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 15rem; object-fit: cover;">
+                            @endif
+
+                        </div>
+
+                        <div class="col-7">
+                            <div class="row align-items-center mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">Title</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <h6 class="fw-bolder">{{ $event->title }}</h6>
+                                </div>
                             </div>
 
-                            <div class="col-7">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Title</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">Type</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
                                         </div>
                                     </div>
-
-                                    <div class="col-8">
-                                        <h6 class="fw-bolder">{{ $event->title }}</h6>
-                                    </div>
                                 </div>
 
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Type</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->type }}</p>
-                                    </div>
+                                <div class="col-8">
+                                    <p class="gray">{{ $event->type }}</p>
                                 </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Date</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->date }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Time</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->time }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">City</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->city }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Country</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->country }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12 text-end">
-                                        <a href="{{ route('frontend.single_event', $event->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Read more</a>
-                                    </div>
-                                </div>
-
                             </div>
 
-                        @else
-                            <div class="col-12">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Title</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">Date</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
                                         </div>
                                     </div>
-
-                                    <div class="col-8">
-                                        <h6 class="fw-bolder">{{ $event->title }}</h6>
-                                    </div>
                                 </div>
 
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Type</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->type }}</p>
-                                    </div>
+                                <div class="col-8">
+                                    <p class="gray">{{ $event->date }}</p>
                                 </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Date</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->date }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Time</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->time }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">City</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->city }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                <p class="fw-bold">Country</p>
-                                            </div>
-                                            <div class="col-1 p-0">
-                                                <p class="fw-bold">:</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-8">
-                                        <p class="gray">{{ $event->country }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-12 text-end">
-                                        <a href="{{ route('frontend.single_event', $event->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Read more</a>
-                                    </div>
-                                </div>
-
                             </div>
-                        @endif
 
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">Time</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="gray">{{ $event->time }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">City</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="gray">{{ $event->city }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold">Country</p>
+                                        </div>
+                                        <div class="col-1 p-0">
+                                            <p class="fw-bold">:</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <p class="gray">{{ $event->country }}</p>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12 text-end">
+                                    <a href="{{ route('frontend.single_event', $event->id) }}" class="btn btn-primary px-4" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Read more</a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             @endforeach

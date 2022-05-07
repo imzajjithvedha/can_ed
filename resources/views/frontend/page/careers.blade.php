@@ -11,24 +11,22 @@
     <div class="container careers" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Careers in Canada</h4>
 
-        <hr>
-
-        <!-- <form action="{{ route('frontend.article_search') }}"  method="POST">
+        <form action="{{ route('frontend.career_search') }}"  method="POST">
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-8">
                     <hr>
                 </div>
                 <div class="col-4 input-group">
-                    <input type="text" class="form-control text-center" id="keyword" name="keyword" aria-describedby="search_article" placeholder="Search articles">
+                    <input type="text" class="form-control text-center" id="search_careers" aria-describedby="search_careers" name="keyword">
+                    
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>    
-        </form> -->
+        </form>
 
-        
         <div class="row mt-5">
             @if(count($articles) > 0)
                 <div class="col-3 more-articles" style="padding-top: 5rem;">

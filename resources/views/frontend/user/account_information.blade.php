@@ -63,7 +63,9 @@
                                             </div>
                                             @if($user->image != null)
                                                 <div class="col-1 text-end mb-3">
-                                                    <button class="btn bg-danger delete-image" type="button"><i class="far fa-trash-alt text-white"></i></button>
+                                                    <button class="btn bg-danger" type="button" data-bs-toggle="modal" data-bs-target="#imageDeleteModal">
+                                                        <i class="far fa-trash-alt text-white"></i>
+                                                    </button>
                                                 </div>
                                             @endif
                                         </div>
@@ -445,6 +447,23 @@
             </div>
         </div>
     @endif
+
+
+    <div class="modal fade" id="imageDeleteModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-body" style="padding: 3rem 1rem;">
+                    <h4 class="mb-0 text-center">Do you want to remove your profile photo?</h4>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn text-white w-25 delete-image" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">Yes</button>
+
+                    <button type="button" class="btn text-white w-25" data-bs-dismiss="modal" style="background-image: -webkit-linear-gradient(top, #CF0411, #660000); border: none;">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 @endsection

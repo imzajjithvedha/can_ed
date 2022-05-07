@@ -99,7 +99,6 @@ Route::get('schools/single-school/{id}/{school_slug}/scholarships', [SchoolContr
 
 
 Route::get('events', [EventController::class, 'index'])->name('events');
-Route::get('get-events', [EventController::class, 'getEvents'])->name('get_events');
 Route::get('events/single-event/{id}', [EventController::class, 'singleEvent'])->name('single_event');
 Route::post('events/request', [EventController::class, 'eventRequest'])->name('event_request');
 Route::post('events/single-event/favorite', [EventController::class, 'favoriteEvent'])->name('favorite_event');
@@ -167,8 +166,8 @@ Route::get('all-virtual-tours/single-virtual-tour/{id}', [VirtualTourController:
 
 
 
-Route::post('article/search-results', [ArticleController::class, 'articleSearch'])->name('article_search');
-Route::get('article-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
+Route::post('articles/search-results', [ArticleController::class, 'articleSearch'])->name('article_search');
+Route::get('articles-search-results/{keyword}',[ArticleController::class,'articleSearchFunction'])->name('article_search_function');
 
 Route::post('business/search-results', [BusinessController::class, 'businessSearch'])->name('business_search');
 Route::get('business-search-results/{keyword}',[BusinessController::class,'businessSearchFunction'])->name('business_search_function');
@@ -178,6 +177,10 @@ Route::get('school-search-results/{keyword}',[SchoolController::class,'schoolSea
 
 Route::post('directory/search-results', [OnlineBusinessDirectoryController::class, 'directorySearch'])->name('directory_search');
 Route::get('directory-search-results/{name}/{city}/{province}/{industry}',[OnlineBusinessDirectoryController::class,'directorySearchFunction'])->name('directory_search_function');
+
+
+Route::post('careers/search-results', [CareerController::class, 'careerSearch'])->name('career_search');
+Route::get('careers-search-results/{keyword}',[CareerController::class,'careerSearchFunction'])->name('career_search_function');
 
 
 Route::get('videos', [VideoController::class, 'index'])->name('videos');

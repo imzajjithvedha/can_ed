@@ -467,7 +467,11 @@ class BusinessController extends Controller
             $query->where('category_1', $id)->orWhere('category_2', $id)->orWhere('category_3', $id);
         })->orderBy('updated_at', 'DESC')->get();
 
-        return view('frontend.business.businesses', ['businesses' => $businesses, 'category' => $category]);
+        $featuredCount = Businesses::where('status', 'Approved')->where('package', 'featured')->count();
+        $premiumCount = Businesses::where('status', 'Approved')->where('package', 'premium')->count();
+        $basicCount = Businesses::where('status', 'Approved')->where('package', 'basic')->count();
+
+        return view('frontend.business.businesses', ['businesses' => $businesses, 'category' => $category,  'featuredCount' => $featuredCount, 'premiumCount' => $premiumCount, 'basicCount' => $basicCount,]);
     }
 
     public function singleBusiness($id)
@@ -503,11 +507,25 @@ class BusinessController extends Controller
 
         if($business != 'business'){
             $businesses->where('name', 'like', '%' .  $business . '%');
+
+            $featuredCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $business . '%')->where('package', 'featured')->count();
+            $premiumCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $business . '%')->where('package', 'premium')->count();
+            $basicCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $business . '%')->where('package', 'basic')->count();
+        }
+        else {
+            $featuredCount = Businesses::where('status', 'Approved')->where('package', 'featured')->count();
+            $premiumCount = Businesses::where('status', 'Approved')->where('package', 'premium')->count();
+            $basicCount = Businesses::where('status', 'Approved')->where('package', 'basic')->count();
         }
 
         $filteredBusinesses = $businesses->get();
 
-        return view('frontend.business.businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
+        return view('frontend.page.home_businesses_search', [
+            'filteredBusinesses' => $filteredBusinesses,
+            'featuredCount' => $featuredCount,
+            'premiumCount' => $premiumCount,
+            'basicCount' => $basicCount,
+        ]);
 
     }
 

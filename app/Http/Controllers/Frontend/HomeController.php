@@ -174,11 +174,26 @@ class HomeController extends Controller
 
         if($keyword != 'businesses'){
             $businesses->where('name', 'like', '%' .  $keyword . '%');
+
+            $featuredCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $keyword . '%')->where('package', 'featured')->count();
+            $premiumCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $keyword . '%')->where('package', 'premium')->count();
+            $basicCount = Businesses::where('status', 'Approved')->where('name', 'like', '%' .  $keyword . '%')->where('package', 'basic')->count();
+        }
+
+        else {
+            $featuredCount = Businesses::where('status', 'Approved')->where('package', 'featured')->count();
+            $premiumCount = Businesses::where('status', 'Approved')->where('package', 'premium')->count();
+            $basicCount = Businesses::where('status', 'Approved')->where('package', 'basic')->count();
         }
 
         $filteredBusinesses = $businesses->get();
 
-        return view('frontend.page.home_businesses_search', ['filteredBusinesses' => $filteredBusinesses]);
+        return view('frontend.page.home_businesses_search', [
+            'filteredBusinesses' => $filteredBusinesses,
+            'featuredCount' => $featuredCount,
+            'premiumCount' => $premiumCount,
+            'basicCount' => $basicCount,
+        ]);
 
     }
 

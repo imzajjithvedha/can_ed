@@ -180,18 +180,21 @@
 
     @if(count($featured_work_study_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while study</a>
+            <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while studying</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_work_study_articles_description }}</p>
 
-            <div class="row mt-4 align-items-center">
+            <div class="row mt-4 align-items-center border p-2">
                 @if(count($jobs_logos) > 0)
                     <div class="col-6">
-                        <div class="swiper logo-sliders">
+                        <h4 class="fw-bolder futura text-center mb-3">Our Network</h4>
+                        <div class="swiper logo-sliders border p-3">
                             <div class="swiper-wrapper align-items-center">
                                 @foreach($jobs_logos as $jobs_logo)
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide position-relative">
                                         <a href="{{ route('frontend.jobs') }}" class="text-decoration-none">
-                                            <img src="{{ url('images/logos', $jobs_logo->image) }}" alt="" class="img-fluid logo mb-4">
+                                            <img src="{{ url('images/logos', $jobs_logo->image) }}" alt="" class="img-fluid logo">
+
+                                            <img src="{{ url('img/frontend/logo_frame.png') }}" alt="" class="img-fluid frame">
 
                                             <p class="gray">{{ $jobs_logo->name }}</p>
                                         
@@ -209,9 +212,9 @@
                 @endif
 
                 @foreach($featured_work_study_articles as $featured_work_study_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-3">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_work_study_article->type), $featured_work_study_article->id]) }}" class="text-decoration-none">
-                            <div class="card rounded-0">
+                            <div class="card rounded-0 mb-0">
                                 @if($featured_work_study_article->image != null)
                                     <img src="{{ url('images/articles', $featured_work_study_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else

@@ -35,28 +35,101 @@
                             'not_found_description' => 'Please check later.'
                         ])
             @else
-                @foreach($businesses as $business)
-                    <div class="col-3 mb-4">
-                        <div class="card red rounded-0">
-                            <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
-                                @if($business->image != null)
-                                    @foreach(json_decode($business->image) as $index => $im)
 
-                                        @if ($index == 0)
-                                            <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 13rem; object-fit: cover;">
+                @if($featuredCount > 0)
+                    @foreach($businesses as $business)
+
+                        @if($business->package == 'featured')
+                            <div class="col-3 mb-4">
+                                <div class="card red rounded-0">
+                                    <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
+                                        @if($business->image != null)
+                                            @foreach(json_decode($business->image) as $index => $im)
+
+                                                @if ($index == 0)
+                                                    <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 13rem; object-fit: cover;">
+                                                @endif
+                                                
+                                            @endforeach
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
                                         @endif
-                                        
-                                    @endforeach
-                                @else
-                                    <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
-                                @endif
-                                <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                        <div class="card-body text-center card-padding rounded-0">
+                                            <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                        </div>
+                                    </a>
                                 </div>
-                            </a>
-                        </div>
-                    </div>
-                @endforeach
+                            </div>
+                        @endif
+
+                    @endforeach
+                @endif
+
+
+                    <hr class="my-5 separate-line">
+
+                @if($premiumCount > 0)
+                    @foreach($businesses as $business)
+
+                        @if($business->package == 'premium')
+                            <div class="col-3 mb-4">
+                                <div class="card red rounded-0">
+                                    <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
+                                        @if($business->image != null)
+                                            @foreach(json_decode($business->image) as $index => $im)
+
+                                                @if ($index == 0)
+                                                    <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 13rem; object-fit: cover;">
+                                                @endif
+                                                
+                                            @endforeach
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
+                                        @endif
+                                        <div class="card-body text-center card-padding rounded-0">
+                                            <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+
+                    @endforeach
+                @endif
+
+
+                    <hr class="my-5 separate-line">
+
+                @if($basicCount > 0)
+                    @foreach($businesses as $business)
+
+                        @if($business->package == 'basic')
+                            <div class="col-3 mb-4">
+                                <div class="card red rounded-0">
+                                    <a href="{{ route('frontend.single_business', $business->id) }}" class="text-decoration-none">
+                                        @if($business->image != null)
+                                            @foreach(json_decode($business->image) as $index => $im)
+
+                                                @if ($index == 0)
+                                                    <img src="{{ url('images/businesses', $im) }}" class="w-100" alt="..." style="height: 13rem; object-fit: cover;">
+                                                @endif
+                                                
+                                            @endforeach
+                                        @else
+                                            <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 13rem; object-fit: cover;">
+                                        @endif
+                                        <div class="card-body text-center card-padding rounded-0">
+                                            <h6 class="card-title fw-bold gray">{{ $business->name }}</h6>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        @endif
+
+                    @endforeach
+                @endif
+
+
             @endif
         </div>
     </div>

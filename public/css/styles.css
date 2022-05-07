@@ -269,6 +269,10 @@ p {
     background-color: transparent;
     color: white;
 }
+.pagination {
+    justify-content: center!important;
+    margin-top: 2rem!important;
+}
 
 
 
@@ -292,4 +296,13 @@ p {
 }
 .k-tooltip-content {
     text-align:left;
+}
+
+
+
+
+.separate-line {
+    background: #ce0000;
+    height: 0.1px!important;
+    opacity: 0.3;
 }

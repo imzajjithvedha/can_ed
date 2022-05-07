@@ -21,7 +21,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Events::where('status', 'Approved')->orderBy('updated_at', 'DESC')->get();
+        $events = Events::where('status', 'Approved')->orderBy('updated_at', 'DESC')->paginate(10);
 
         return view('frontend.event.events', ['events' => $events]);
     }

@@ -16,5 +16,5 @@
     </div>
 
     <!-- <div class="ml-auto">Theme by <a href="http://coreui.io">CoreUI</a></div> -->
-    <div class="ml-auto text-white">Powered by <a href="https://www.freelancer.com/u/zajjithvedha" class="text-black">Zajjith</a></div>
+    <!-- <div class="ml-auto text-white">Powered by <a href="https://www.freelancer.com/u/zajjithvedha" class="text-black">Zajjith</a></div> -->
 </footer>

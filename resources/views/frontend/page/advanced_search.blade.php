@@ -22,7 +22,7 @@
             
             <div class="row mb-4">
                 <div class="col-6 mb-3">
-                    <label for="degree_level" class="form-label">Degree level</label>
+                    <label for="degree_level" class="form-label">1. Degree level</label>
                     <select name="degree_level" id="degree_level" class="form-select">
                         <option value="all">All</option>
                         @foreach($degree_levels as $degree_level)
@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="field_of_study" class="form-label">Field of study</label>
+                    <label for="field_of_study" class="form-label">2. Field of study</label>
                     <select name="field_of_study" id="field_of_study" class="form-select">
                         <option value="all">All</option>
                         @foreach($programs as $program)
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="start_date" class="form-label">When are you planning to start</label>
+                    <label for="start_date" class="form-label">3. When are you planning to start</label>
                     <select name="start_date" id="start_date" class="form-select">
                         <option value="all">All, I am not sure</option>
                         <option value="fall">Fall</option>
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="study_location" class="form-label">Where do you want to study</label>
+                    <label for="study_location" class="form-label">4. Where do you want to study</label>
                     <select name="study_location" id="study_location" class="form-select form-control" required>
                         <option value="all" selected>All</option>
                         <option value="Alberta">Alberta</option>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="online_distance_education" class="form-label">Online / distance education</label>
+                    <label for="online_distance_education" class="form-label">5. Online / distance education</label>
                     <select name="online_distance_education" id="online_distance_education" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -80,12 +80,12 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="become" class="form-label">I want to become <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="What do you want to become after you graduate?"></i></label>
+                    <label for="become" class="form-label">6. I want to become <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="What do you want to become after you graduate?"></i></label>
                     <input type="text" name="become" id="become" class="form-control">
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="school_type" class="form-label">School type</label>
+                    <label for="school_type" class="form-label">7. School type</label>
                     <select name="school_type" id="school_type" class="form-select">
                         <option value="all">All</option>
                         @foreach($school_types as $school_type)
@@ -95,7 +95,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="minimum_gpa" class="form-label">Min. GPA accepted</label>
+                    <label for="minimum_gpa" class="form-label">8. Min. GPA accepted</label>
                     <select name="minimum_gpa" id="minimum_gpa" class="form-select">
                         <option value="all">All</option>
                         <option value="50">Equivalent to 50%</option>
@@ -107,7 +107,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="conditional_acceptance" class="form-label">Conditional admission available</label>
+                    <label for="conditional_acceptance" class="form-label">9. Conditional admission available</label>
                     <select name="conditional_acceptance" id="conditional_acceptance" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -115,7 +115,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="graduate_program_type" class="form-label">Program type, graduate</label>
+                    <label for="graduate_program_type" class="form-label">10. Program type, graduate</label>
                     <select name="graduate_program_type" id="graduate_program_type" class="form-select">
                         <option value="all">All</option>
                         <option value="thesis">Thesis</option>
@@ -126,7 +126,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="under_graduate_program_type" class="form-label">Program type, undergraduate</label>
+                    <label for="under_graduate_program_type" class="form-label">11. Program type, undergraduate</label>
                     <select name="under_graduate_program_type" id="under_graduate_program_type" class="form-select">
                         <option value="all">All</option>
                         <option value="co-op">Co-op</option>
@@ -139,7 +139,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="study_method" class="form-label">I am interested in</label>
+                    <label for="study_method" class="form-label">12. I am interested in</label>
                     <select name="study_method" id="study_method" class="form-select">
                         <option value="all">All</option>
                         <option value="full-time">Full-time</option>
@@ -149,7 +149,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="delivery_mode" class="form-label">Delivery mode</label>
+                    <label for="delivery_mode" class="form-label">13. Delivery mode</label>
                     <select name="delivery_mode" id="delivery_mode" class="form-select">
                         <option value="all">All</option>
                         <option value="day">Day</option>
@@ -160,7 +160,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="accommodation" class="form-label">Housing / accommodation</label>
+                    <label for="accommodation" class="form-label">14. Housing / accommodation</label>
                     <select name="accommodation" id="accommodation" class="form-select">
                         <option value="all">All</option>
                         <option value="private">Private</option>
@@ -172,7 +172,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="work_on_campus" class="form-label">Work-study program (work on campus) <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Offers you access to clerical, research, technical, library or other jobs on campus and/or in school-affiliated entities. It helps you financially, and can develop your career-related skills and experience"></i></label>
+                    <label for="work_on_campus" class="form-label">15. Work-study program (work on campus) <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Offers you access to clerical, research, technical, library or other jobs on campus and/or in school-affiliated entities. It helps you financially, and can develop your career-related skills and experience"></i></label>
                     <select name="work_on_campus" id="work_on_campus" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -180,7 +180,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="work_during_holidays" class="form-label">Work during holidays</label>
+                    <label for="work_during_holidays" class="form-label">16. Work during holidays</label>
                     <select name="work_during_holidays" id="work_during_holidays" class="form-select">
                         <option value="all">All</option>
                         <option value="summer">Summer</option>
@@ -189,7 +189,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="internship" class="form-label">Internship <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Refers to a one-term work assignment, May be full- or part-time, paid or unpaid"></i></label>
+                    <label for="internship" class="form-label">17. Internship <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Refers to a one-term work assignment, May be full- or part-time, paid or unpaid"></i></label>
                     <select name="internship" id="internship" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -197,7 +197,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="co_op_education" class="form-label">Co-op education <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Full-time paid positions in an industry related to your field. You may alternate / combine terms (semesters) of schooling with terms of work"></i></label>
+                    <label for="co_op_education" class="form-label">18. Co-op education <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Full-time paid positions in an industry related to your field. You may alternate / combine terms (semesters) of schooling with terms of work"></i></label>
                     <select name="co_op_education" id="co_op_education" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -205,7 +205,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="job_placement" class="form-label">Job placement <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="The school helps the student look for a full-time or part-time job within, or related to, your field of study. If the employer likes you, he might keep you"></i></label>
+                    <label for="job_placement" class="form-label">19. Job placement <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="The school helps the student look for a full-time or part-time job within, or related to, your field of study. If the employer likes you, he might keep you"></i></label>
                     <select name="job_placement" id="job_placement" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -213,7 +213,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="financial_aid_domestic" class="form-label">Financial aid programs, for domestic students</label>
+                    <label for="financial_aid_domestic" class="form-label">20. Financial aid programs, for domestic students</label>
                     <select name="financial_aid_domestic" id="financial_aid_domestic" class="form-select">
                         <option value="all">All</option>
                         <option value="bursaries">Bursaries / grants</option>
@@ -223,7 +223,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="financial_aid_international" class="form-label">Financial aid programs, for international students</label>
+                    <label for="financial_aid_international" class="form-label">21. Financial aid programs, for international students</label>
                     <select name="financial_aid_international" id="financial_aid_international" class="form-select">
                         <option value="all">All</option>
                         <option value="bursaries">Bursaries / grants</option>
@@ -234,7 +234,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="teaching_language" class="form-label">Teaching languages</label>
+                    <label for="teaching_language" class="form-label">22. Teaching languages</label>
                     <select name="teaching_language" id="teaching_language" class="form-select">
                         <option value="all">All</option>
                         <option value="english">English</option>
@@ -245,7 +245,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="research" class="form-label">Research and dissertation</label>
+                    <label for="research" class="form-label">23. Research and dissertation</label>
                     <select name="research" id="research" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -253,7 +253,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="exchange_programs" class="form-label">Exchange programs</label>
+                    <label for="exchange_programs" class="form-label">24. Exchange programs</label>
                     <select name="exchange_programs" id="exchange_programs" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -261,7 +261,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="degree_modifier" class="form-label">Degree modifier</label>
+                    <label for="degree_modifier" class="form-label">25. Degree modifier</label>
                     <select name="degree_modifier" id="degree_modifier" class="form-select">
                         <option value="all">All</option>
                         <option value="apprenticeship">Apprenticeship</option>
@@ -274,7 +274,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="day_care" class="form-label">Daycare, for students with kids</label>
+                    <label for="day_care" class="form-label">26. Daycare, for students with kids</label>
                     <select name="day_care" id="day_care" class="form-select">
                         <option value="all">All</option>
                         <option value="school-owned">Yes, school-owned</option>
@@ -284,7 +284,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="elementary_school" class="form-label">Elementary school for students with kids</label>
+                    <label for="elementary_school" class="form-label">27. Elementary school for students with kids</label>
                     <select name="elementary_school" id="elementary_school" class="form-select">
                         <option value="all">All</option>
                         <option value="school-owned">Yes, school-owned</option>
@@ -295,7 +295,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="immigration_office" class="form-label">Immigration office on campus <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Immigration guidance and advice provided"></i></label>
+                    <label for="immigration_office" class="form-label">28. Immigration office on campus <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Immigration guidance and advice provided"></i></label>
                     <select name="immigration_office" id="immigration_office" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -303,7 +303,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="career_planning" class="form-label">Career planning / development services <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Assists students in their career development and search for jobs (permanent, part-time, summer, or internships. School offers workshops, individual advising, a job posting service, and a Career Resource Centre"></i></label>
+                    <label for="career_planning" class="form-label">29. Career planning / development services <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Assists students in their career development and search for jobs (permanent, part-time, summer, or internships. School offers workshops, individual advising, a job posting service, and a Career Resource Centre"></i></label>
                     <select name="career_planning" id="career_planning" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -311,7 +311,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="pathway_programs" class="form-label">Pathway programs <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="For international students who need additional language or academic preparation before enrolling in a degree program. Benefits: &#010;• Preparation provided by the school itself&#010;• Guaranteed progression to a university&#010;• Adjust to a new culture and gain necessary skill set" style="white-space: pre-line;"></i></label>
+                    <label for="pathway_programs" class="form-label">30. Pathway programs <i class="fas fa-question-circle ms-2" data-bs-toggle="tooltip" data-bs-placement="top" title="For international students who need additional language or academic preparation before enrolling in a degree program. Benefits: &#010;• Preparation provided by the school itself&#010;• Guaranteed progression to a university&#010;• Adjust to a new culture and gain necessary skill set" style="white-space: pre-line;"></i></label>
                     <select name="pathway_programs" id="pathway_programs" class="form-select">
                         <option value="all">All</option>
                         <option value="graduate">Yes, graduate</option>
@@ -320,7 +320,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="employment_rates" class="form-label">Employment rates (after graduation)</label>
+                    <label for="employment_rates" class="form-label">31. Employment rates (after graduation)</label>
                     <select name="employment_rates" id="employment_rates" class="form-select">
                         <option value="all">All</option>
                         <option value="90">Above 90%</option>
@@ -330,7 +330,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="class_size_undergraduate" class="form-label">Class size, undergraduate</label>
+                    <label for="class_size_undergraduate" class="form-label">32. Class size, undergraduate</label>
                     <select name="class_size_undergraduate" id="class_size_undergraduate" class="form-select">
                         <option value="all">All</option>
                         <option value="10">Under 10</option>
@@ -340,7 +340,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="class_size_masters" class="form-label">Class size, Masters</label>
+                    <label for="class_size_masters" class="form-label">33. Class size, Masters</label>
                     <select name="class_size_masters" id="class_size_masters" class="form-select">
                         <option value="all">All</option>
                         <option value="10">Under 10</option>
@@ -350,7 +350,7 @@
                 </div>
                 
                 <div class="col-6 mb-3">
-                    <label for="service_and_guidance_new_students" class="form-label">Service and guidance to new students</label>
+                    <label for="service_and_guidance_new_students" class="form-label">34. Service and guidance to new students</label>
                     <select name="service_and_guidance_new_students" id="service_and_guidance_new_students" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>
@@ -358,7 +358,7 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="service_and_guidance_new_arrivals" class="form-label">Service and guidance to new arrivals in Canada</label>
+                    <label for="service_and_guidance_new_arrivals" class="form-label">35. Service and guidance to new arrivals in Canada</label>
                     <select name="service_and_guidance_new_arrivals" id="service_and_guidance_new_arrivals" class="form-select">
                         <option value="all">All</option>
                         <option value="yes">Yes</option>

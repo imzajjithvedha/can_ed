@@ -142,8 +142,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="featured_basic_articles_description" class="form-label">Getting started with your Canadian education description *</label>
-                                <textarea name="featured_basic_articles_description" class="form-control" id="featured_basic_articles_description" rows="3"  value="{{ $information->featured_basic_articles_description }}" placeholder="Getting started with your Canadian education description *" required>{{ $information->featured_basic_articles_description }}</textarea>
+                                <label for="featured_common_articles_description" class="form-label">Getting started with your Canadian education description *</label>
+                                <textarea name="featured_common_articles_description" class="form-control" id="featured_common_articles_description" rows="3"  value="{{ $information->featured_common_articles_description }}" placeholder="Getting started with your Canadian education description *" required>{{ $information->featured_common_articles_description }}</textarea>
                             </div>
                             
                             <div class="form-group">

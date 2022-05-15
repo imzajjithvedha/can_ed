@@ -71,7 +71,7 @@ class WebsiteInformationController extends Controller
                 'main_banner' => $imageName,
                 'featured_schools_description' => $request->featured_schools_description,
                 'featured_businesses_description' => $request->featured_businesses_description,
-                'featured_basic_articles_description' => $request->featured_basic_articles_description,
+                'featured_common_articles_description' => $request->featured_common_articles_description,
                 'featured_international_articles_description' => $request->featured_international_articles_description,
                 'featured_canadian_articles_description' => $request->featured_canadian_articles_description,
                 'featured_work_study_articles_description' => $request->featured_work_study_articles_description,

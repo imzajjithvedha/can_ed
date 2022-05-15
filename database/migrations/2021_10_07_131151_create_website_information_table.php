@@ -34,7 +34,7 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('main_banner')->nullable();
             $table->text('featured_schools_description');
             $table->text('featured_businesses_description');
-            $table->text('featured_basic_articles_description');
+            $table->text('featured_common_articles_description');
             $table->text('featured_international_articles_description');
             $table->text('featured_canadian_articles_description');
             $table->text('featured_work_study_articles_description');

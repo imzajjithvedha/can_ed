@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         $articles = Articles::where('status', 'Approved')->orderBy('id', 'desc')->take(4)->get();
 
-        $featured_basic_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'basic_articles')->orderBy('updated_at', 'desc')->take(4)->get();
+        $featured_common_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->orderBy('updated_at', 'desc')->take(4)->get();
 
         $featured_international_articles = Articles::where('status', 'Approved')->where('featured', 'Yes')->where('type', 'financial_help_for_international_students')->orderBy('updated_at', 'desc')->take(4)->get();
 
@@ -78,7 +78,7 @@ class HomeController extends Controller
         return view('frontend.index', 
         [
             'articles' => $articles,
-            'featured_basic_articles' => $featured_basic_articles,
+            'featured_common_articles' => $featured_common_articles,
             'featured_international_articles' => $featured_international_articles,
             'featured_canadian_articles' => $featured_canadian_articles,
             'featured_work_study_articles' => $featured_work_study_articles,

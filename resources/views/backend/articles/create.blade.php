@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <select class="form-control" id="type" name="type" placeholder="Article type *" required>
                                     <option value="" selected disabled hidden>Article type *</option>
-                                    <option value="basic_articles">Basic article</option>
+                                    <option value="common_articles">Basic article</option>
                                     <option value="financial_help_for_international_students">Financial help for international students</option>
                                     <option value="financial_help_for_canadian_students">Financial help for Canadian students</option>
                                     <option value="work_while_studying">Work while studying</option>

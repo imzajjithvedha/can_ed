@@ -514,23 +514,23 @@
     @endif
 
 
-    @if(count($featured_basic_articles) > 0)
+    @if(count($featured_common_articles) > 0)
         <div class="container mt-5 red">
-            <a href="{{ route('frontend.articles', 'basic-articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
-            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_basic_articles_description }}</p>
+            <a href="{{ route('frontend.all_articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Getting started with your Canadian education</a>
+            <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_common_articles_description }}</p>
 
             <div class="row mt-4">
-                @foreach($featured_basic_articles as $featured_basic_article)
+                @foreach($featured_common_articles as $featured_common_article)
                     <div class="col-3 mb-4">
-                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_basic_article->type), $featured_basic_article->id]) }}" class="text-decoration-none">
+                        <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_common_article->type), $featured_common_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
-                                @if($featured_basic_article->image != null)
-                                    <img src="{{ url('images/articles', $featured_basic_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
+                                @if($featured_common_article->image != null)
+                                    <img src="{{ url('images/articles', $featured_common_article->image) }}" alt="" class="img-fluid" style="height: 10rem; object-fit: cover;">
                                 @else
                                     <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100" style="height: 10rem; object-fit: cover;">
                                 @endif
                                 <div class="card-body text-center card-padding rounded-0">
-                                    <h6 class="card-title futura fw-bold gray">{{ $featured_basic_article->title }}</h6>
+                                    <h6 class="card-title futura fw-bold gray">{{ $featured_common_article->title }}</h6>
                                 </div>
                             </div>
                         </a>
@@ -668,7 +668,7 @@
 
     @if(count($articles) > 0)
         <div class="container mt-5 recent-articles red">
-            <a href="{{ route('frontend.articles', 'basic-articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
+            <a href="{{ route('frontend.all_articles') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Recent articles</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->recent_articles_description }}</p>
 
             <div class="row mt-4">

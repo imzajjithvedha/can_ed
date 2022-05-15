@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label for="type" class="form-label">Article type *</label>
                                 <select class="form-control" id="type" name="type" required>
-                                    <option value="basic_articles" {{ $article->type == 'basic_article' ? "selected" : "" }}>Basic article</option>
+                                    <option value="common_articles" {{ $article->type == 'common_articles' ? "selected" : "" }}>Basic article</option>
                                     <option value="financial_help_for_international_students" {{ $article->type == 'financial_help_for_international_students' ? "selected" : "" }}>Financial help for international students</option>
                                     <option value="financial_help_for_canadian_students" {{ $article->type == 'financial_help_for_canadian_students' ? "selected" : "" }}>Financial help for Canadian students</option>
                                     <option value="work_while_studying" {{ $article->type == 'work_while_studying' ? "selected" : "" }}>Work while studying</option>

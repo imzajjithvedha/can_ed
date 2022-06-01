@@ -94,7 +94,72 @@
                 {data: 'student_service', name: 'student_service'},
                 {data: 'advertised', name: 'advertised'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
+            ],
+            "drawCallback": function(settings) {
+                $('.status-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/businesses/change-status/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+
+                $('.featured-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/businesses/change-featured/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+
+                $('.student-service-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/businesses/change-student-service/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+
+                $('.advertised-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/businesses/change-advertised/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+            }
         });
 
         let business_id;

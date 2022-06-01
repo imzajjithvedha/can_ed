@@ -83,7 +83,24 @@
                 {data: 'quote', name: 'quote'},
                 {data: 'status', name: 'status'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
+            ],
+            "drawCallback": function(settings) {
+                $('.status-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/quotes/change-status/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+            }
         });
 
         let user_id;

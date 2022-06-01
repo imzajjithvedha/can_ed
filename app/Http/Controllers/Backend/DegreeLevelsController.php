@@ -86,9 +86,9 @@ class DegreeLevelsController extends Controller
 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
-                        $status = '<span class="badge bg-success">Approved</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $status = '<span class="badge bg-warning text-dark">Pending</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $status;
                 })
@@ -153,6 +153,23 @@ class DegreeLevelsController extends Controller
         Excel::import(new DegreeLevelsImport, $request->file);
 
         return redirect()->route('admin.degree_levels.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+    public function changeStatus ($id, $status) {
+
+        if($status == 0) {
+            $value = 'Pending';
+        }
+        else {
+            $value = 'Approved';
+        }
+
+        $level = DB::table('degree_levels')->where('id', request('id'))->update(
+            [
+                'status' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
     }
 
 }

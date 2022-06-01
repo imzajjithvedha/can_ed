@@ -90,7 +90,16 @@ class AllScholarshipsController extends Controller
                         return $button;
                     })
 
-                    ->rawColumns(['action'])
+                    ->editColumn('featured', function($data){
+                        if($data->featured == 'Yes'){
+                            $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" checked data-id='.$data->id.'></div>';
+                        }else{
+                            $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" data-id='.$data->id.'></div>';
+                        }   
+                        return $featured;
+                    })
+
+                    ->rawColumns(['action', 'featured'])
                     ->make(true);
             }
             
@@ -166,6 +175,24 @@ class AllScholarshipsController extends Controller
         Excel::import(new SchoolScholarshipsImport, $request->file);
 
         return redirect()->route('admin.scholarships.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+
+    public function changeFeatured ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $scholarship = DB::table('school_scholarships')->where('id', request('id'))->update(
+            [
+                'featured' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
     }
 
 }

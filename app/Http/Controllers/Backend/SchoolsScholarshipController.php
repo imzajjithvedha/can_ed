@@ -95,9 +95,9 @@ class SchoolsScholarshipController extends Controller
 
                     ->editColumn('featured', function($data){
                         if($data->featured == 'Yes'){
-                            $featured = '<span class="badge bg-success">Yes</span>';
+                            $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" checked data-id='.$data->id.'></div>';
                         }else{
-                            $featured = '<span class="badge bg-warning text-dark">No</span>';
+                            $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" data-id='.$data->id.'></div>';
                         }   
                         return $featured;
                     })
@@ -237,4 +237,23 @@ class SchoolsScholarshipController extends Controller
 
         return redirect()->route('admin.schools.index')->withFlashSuccess('Uploaded Successfully');          
     }
+
+
+    public function changeFeatured ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $scholarship = DB::table('school_scholarships')->where('id', request('id'))->update(
+            [
+                'featured' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
+    }
+
 }

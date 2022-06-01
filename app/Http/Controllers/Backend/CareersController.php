@@ -93,18 +93,18 @@ class CareersController extends Controller
 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
-                        $status = '<span class="badge bg-success">Approved</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $status = '<span class="badge bg-warning text-dark">Pending</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $status;
                 })
 
                 ->editColumn('featured', function($data){
                     if($data->featured == 'Yes'){
-                        $featured = '<span class="badge bg-success">Yes</span>';
+                        $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                        $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $featured;
                 })
@@ -160,6 +160,42 @@ class CareersController extends Controller
         Excel::import(new CareersImport, $request->file);
 
         return redirect()->route('admin.careers.all_careers')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+
+    public function changeStatus ($id, $status) {
+
+        if($status == 0) {
+            $value = 'Pending';
+        }
+        else {
+            $value = 'Approved';
+        }
+
+        $career = DB::table('all_careers')->where('id', request('id'))->update(
+            [
+                'status' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
+    }
+
+
+    public function changeFeatured ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $career = DB::table('all_careers')->where('id', request('id'))->update(
+            [
+                'featured' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
     }
 
 }

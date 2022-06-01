@@ -32,6 +32,7 @@ class CreateWebsiteInformationTable extends Migration
             $table->text('instagram')->nullable();
             $table->text('twitter')->nullable();
             $table->text('main_banner')->nullable();
+            $table->text('website_description');
             $table->text('featured_schools_description');
             $table->text('featured_businesses_description');
             $table->text('featured_common_articles_description');

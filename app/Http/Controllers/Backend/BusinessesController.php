@@ -112,36 +112,36 @@ class BusinessesController extends Controller
 
                 ->editColumn('student_service', function($data){
                     if($data->student_service == 'Yes'){
-                        $student_service = '<span class="badge bg-success">Yes</span>';
+                        $student_service = '<div class="form-check form-switch"><input class="form-check-input student-service-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $student_service = '<span class="badge bg-warning text-dark">No</span>';
+                        $student_service = '<div class="form-check form-switch"><input class="form-check-input student-service-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $student_service;
                 })
 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
-                        $status = '<span class="badge bg-success">Approved</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $status = '<span class="badge bg-warning text-dark">Pending</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $status;
                 })
 
                 ->editColumn('featured', function($data){
                     if($data->featured == 'Yes'){
-                        $featured = '<span class="badge bg-success">Yes</span>';
+                        $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $featured = '<span class="badge bg-warning text-dark">No</span>';
+                        $featured = '<div class="form-check form-switch"><input class="form-check-input featured-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $featured;
                 })
 
                 ->editColumn('advertised', function($data){
                     if($data->advertised == 'Yes'){
-                        $advertised = '<span class="badge bg-success">Yes</span>';
+                        $advertised = '<div class="form-check form-switch"><input class="form-check-input advertised-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $advertised = '<span class="badge bg-warning text-dark">No</span>';
+                        $advertised = '<div class="form-check form-switch"><input class="form-check-input advertised-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $advertised;
                 })
@@ -238,6 +238,79 @@ class BusinessesController extends Controller
         Excel::import(new BusinessesImport, $request->file);
 
         return redirect()->route('admin.businesses.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+
+
+    public function changeStatus ($id, $status) {
+
+        if($status == 0) {
+            $value = 'Pending';
+        }
+        else {
+            $value = 'Approved';
+        }
+
+        $business = DB::table('businesses')->where('id', request('id'))->update(
+            [
+                'status' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
+    }
+
+
+    public function changeFeatured ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $business = DB::table('businesses')->where('id', request('id'))->update(
+            [
+                'featured' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
+    }
+
+
+    public function changeStudentService ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $business = DB::table('businesses')->where('id', request('id'))->update(
+            [
+                'student_service' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
+    }
+
+
+    public function changeAdvertised ($id, $status) {
+
+        if($status == 0) {
+            $value = 'No';
+        }
+        else {
+            $value = 'Yes';
+        }
+
+        $business = DB::table('businesses')->where('id', request('id'))->update(
+            [
+                'advertised' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
     }
 
 }

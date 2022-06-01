@@ -86,7 +86,40 @@
                 {data: 'status', name: 'status'},
                 {data: 'featured', name: 'featured'},
                 {data: 'action', name: 'action', orderable: false, searchable: false},
-            ]
+            ],
+            "drawCallback": function(settings) {
+                $('.status-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/schools/open-days/change-status/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+
+                $('.featured-check').change(function() {
+
+                    let status = $(this).prop('checked') == true ? 1 : 0;
+                    let id = $(this).attr('data-id');
+
+                    $.ajax({
+                        url: "{{url('/')}}/admin/schools/open-days/change-featured/" + id + "/" + status,
+                        method: "GET",
+                        timeout: 0,
+                        dataType: "json",
+                        success: function() {
+                            console.log(data.success);
+                        }
+                    });
+                });
+            }
         });
 
         let open_day_id;

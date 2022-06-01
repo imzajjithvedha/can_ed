@@ -97,6 +97,18 @@
     @endif
 
 
+    <div class="container-fluid mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="gray" style="text-align: justify;">{!! $information->website_description !!}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
     @if(count($featured_schools) > 0)
         <div class="container mt-5 featured-schools red">
             <a href="{{ route('frontend.school_degree_levels') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Featured schools</a>
@@ -183,11 +195,11 @@
             <a href="{{ route('frontend.articles', 'work-while-studying') }}" class="fw-bolder h4 text-decoration-none text-dark futura">Work while studying</a>
             <p class="gray mt-1" style="text-align: justify; overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;">{{ $information->featured_work_study_articles_description }}</p>
 
-            <div class="row mt-4 align-items-center border p-2">
+            <div class="row mt-4 align-items-center p-2" style="border: 7px solid black; border-radius: 8px;">
                 @if(count($jobs_logos) > 0)
-                    <div class="col-6">
+                    <div class="col-12 p-3">
                         <h4 class="fw-bolder futura text-center mb-3">Our Network</h4>
-                        <div class="swiper logo-sliders border p-3">
+                        <div class="swiper logo-sliders p-3">
                             <div class="swiper-wrapper align-items-center">
                                 @foreach($jobs_logos as $jobs_logo)
                                     <div class="swiper-slide position-relative">
@@ -211,7 +223,7 @@
                     </div>
                 @endif
 
-                @foreach($featured_work_study_articles as $featured_work_study_article)
+                <!-- @foreach($featured_work_study_articles as $featured_work_study_article)
                     <div class="col-3">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_work_study_article->type), $featured_work_study_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0 mb-0">
@@ -226,7 +238,7 @@
                             </div>
                         </a>
                     </div>
-                @endforeach
+                @endforeach -->
             </div>
         </div>
     @endif
@@ -809,7 +821,7 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
-            slidesPerView: 3,
+            slidesPerView: 5,
             spaceBetween: 20,
         });
     </script>

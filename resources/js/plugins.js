@@ -43,45 +43,45 @@ $(function () {
     /**
      * Generic confirm form delete using Sweet Alert
      */
-    $('body').on('submit', 'form[name=delete_item]', function (e) {
-        e.preventDefault();
+    // $('body').on('submit', 'form[name=delete_item]', function (e) {
+    //     e.preventDefault();
 
-        const form = this;
-        const link = $('a[data-method="delete"]');
-        const cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : 'Cancel';
-        const confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : 'Yes, delete';
-        const title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : 'Are you sure you want to delete this item?';
+    //     const form = this;
+    //     const link = $('a[data-method="delete"]');
+    //     const cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : 'Cancel';
+    //     const confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : 'Yes, delete';
+    //     const title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : 'Are you sure you want to delete this item?';
 
-        Swal.fire({
-            title: title,
-            showCancelButton: true,
-            confirmButtonText: confirm,
-            cancelButtonText: cancel,
-            icon: 'warning'
-        }).then((result) => {
-            result.value && form.submit();
-        });
-    }).on('click', 'a[name=confirm_item]', function (e) {
-        /**
-         * Generic 'are you sure' confirm box
-         */
-        e.preventDefault();
+    //     Swal.fire({
+    //         title: title,
+    //         showCancelButton: true,
+    //         confirmButtonText: confirm,
+    //         cancelButtonText: cancel,
+    //         icon: 'warning'
+    //     }).then((result) => {
+    //         result.value && form.submit();
+    //     });
+    // }).on('click', 'a[name=confirm_item]', function (e) {
+    //     /**
+    //      * Generic 'are you sure' confirm box
+    //      */
+    //     e.preventDefault();
 
-        const link = $(this);
-        const title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : 'Are you sure you want to do this?';
-        const cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : 'Cancel';
-        const confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : 'Continue';
+    //     const link = $(this);
+    //     const title = (link.attr('data-trans-title')) ? link.attr('data-trans-title') : 'Are you sure you want to do this?';
+    //     const cancel = (link.attr('data-trans-button-cancel')) ? link.attr('data-trans-button-cancel') : 'Cancel';
+    //     const confirm = (link.attr('data-trans-button-confirm')) ? link.attr('data-trans-button-confirm') : 'Continue';
 
-        Swal.fire({
-            title: title,
-            showCancelButton: true,
-            confirmButtonText: confirm,
-            cancelButtonText: cancel,
-            icon: 'info'
-        }).then((result) => {
-            result.value && window.location.assign(link.attr('href'));
-        });
-    });
+    //     Swal.fire({
+    //         title: title,
+    //         showCancelButton: true,
+    //         confirmButtonText: confirm,
+    //         cancelButtonText: cancel,
+    //         icon: 'info'
+    //     }).then((result) => {
+    //         result.value && window.location.assign(link.attr('href'));
+    //     });
+    // });
 
-    $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="tooltip"]').tooltip();
 });

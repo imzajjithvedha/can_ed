@@ -81,9 +81,9 @@ class SchoolsController extends Controller
 
                 ->editColumn('status', function($data){
                     if($data->status == 'Approved'){
-                        $status = '<span class="badge bg-success">Approved</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" checked data-id='.$data->id.'></div>';
                     }else{
-                        $status = '<span class="badge bg-warning text-dark">Pending</span>';
+                        $status = '<div class="form-check form-switch"><input class="form-check-input status-check" type="checkbox" data-id='.$data->id.'></div>';
                     }   
                     return $status;
                 })
@@ -112,6 +112,24 @@ class SchoolsController extends Controller
         Excel::import(new SchoolsImport, $request->file);
 
         return redirect()->route('admin.schools.index')->withFlashSuccess('Uploaded Successfully');          
+    }
+
+
+    public function changeStatus ($id, $status) {
+
+        if($status == 0) {
+            $value = 'Pending';
+        }
+        else {
+            $value = 'Approved';
+        }
+
+        $school = DB::table('schools')->where('id', request('id'))->update(
+            [
+                'status' => $value,
+                'updated_at' => Carbon::now(),
+            ]
+        );
     }
 
 }

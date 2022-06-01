@@ -76,6 +76,12 @@
                                 <input type="url" id="twitter" class="form-control" name="twitter" value="{{ $information->twitter }}" placeholder="Twitter link *">
                             </div>
 
+
+                            <div class="form-group">
+                                <label for="website_description" class="form-label">Website description *</label>
+                                <textarea name="website_description" class="ckeditor form-control" id="website_description" value="{{ $information->website_description }}" placeholder="Website description *" required>{{ $information->website_description }}</textarea>
+                            </div>
+
                             <div class="form-group">
                                 <label for="featured_schools_description" class="form-label">Featured schools *</label>
                                 <textarea name="featured_schools_description" class="form-control" id="featured_schools_description" rows="3"  value="{{ $information->featured_schools_description }}" placeholder="Featured school *" required>{{ $information->featured_schools_description }}</textarea>

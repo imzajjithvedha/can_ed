@@ -51,6 +51,8 @@ Route::get('articles/get-articles', [ArticlesController::class, 'getArticles'])-
 Route::get('articles/edit-article/{id}', [ArticlesController::class, 'editArticle'])->name('articles.edit_article');
 Route::post('articles/update-article', [ArticlesController::class, 'updateArticle'])->name('articles.update_article');
 Route::get('articles/delete-article/{id}', [ArticlesController::class, 'deleteArticle'])->name('articles.delete_article');
+Route::get('articles/change-status/{id}/{status}', [ArticlesController::class, 'changeStatus'])->name('articles.change_status');
+Route::get('articles/change-featured/{id}/{status}', [ArticlesController::class, 'changeFeatured'])->name('articles.change_featured');
 
 
 
@@ -63,6 +65,11 @@ Route::post('businesses/update-business', [BusinessesController::class, 'updateB
 Route::get('businesses/delete-business/{id}', [BusinessesController::class, 'deleteBusiness'])->name('businesses.delete_business');
 Route::get('businesses/import-businesses', [BusinessesController::class, 'importBusinesses'])->name('businesses.import_businesses');
 Route::post('businesses/import', [BusinessesController::class, 'import'])->name('businesses.import');
+Route::get('businesses/change-status/{id}/{status}', [BusinessesController::class, 'changeStatus'])->name('businesses.change_status');
+Route::get('businesses/change-featured/{id}/{status}', [BusinessesController::class, 'changeFeatured'])->name('businesses.change_featured');
+Route::get('businesses/change-student-service/{id}/{status}', [BusinessesController::class, 'changeStudentService'])->name('businesses.change_student_service');
+Route::get('businesses/change-advertised/{id}/{status}', [BusinessesController::class, 'changeAdvertised'])->name('businesses.change_advertised');
+
 
 
 Route::get('business-categories', [BusinessCategoriesController::class, 'index'])->name('categories.index');
@@ -74,6 +81,7 @@ Route::post('business-categories/update-category', [BusinessCategoriesController
 Route::get('business-categories/delete-category/{id}', [BusinessCategoriesController::class, 'deleteCategory'])->name('categories.delete_category');
 Route::get('business-categories/import-categories', [BusinessCategoriesController::class, 'importCategories'])->name('categories.import_categories');
 Route::post('business-categories/import', [BusinessCategoriesController::class, 'import'])->name('categories.import');
+Route::get('business-categories/change-status/{id}/{status}', [BusinessCategoriesController::class, 'changeStatus'])->name('categories.change_status');
 
 
 
@@ -90,6 +98,8 @@ Route::post('careers/update-career', [CareersController::class, 'updateCareer'])
 Route::get('careers/delete-career/{id}', [CareersController::class, 'deleteCareer'])->name('careers.delete_career');
 Route::get('careers/import-career', [CareersController::class, 'importCareers'])->name('careers.import_careers');
 Route::post('careers/import', [CareersController::class, 'import'])->name('careers.import');
+Route::get('careers/change-status/{id}/{status}', [CareersController::class, 'changeStatus'])->name('careers.change_status');
+Route::get('careers/change-featured/{id}/{status}', [CareersController::class, 'changeFeatured'])->name('careers.change_featured');
 
 
 Route::get('logos', [JobsLogosController::class, 'index'])->name('logos.index');
@@ -99,6 +109,7 @@ Route::get('logos/get-logos', [JobsLogosController::class, 'getLogos'])->name('l
 Route::get('logos/edit-logo/{id}', [JobsLogosController::class, 'editLogo'])->name('logos.edit_logo');
 Route::post('logos/update-logo', [JobsLogosController::class, 'updateLogo'])->name('logos.update_logo');
 Route::get('logos/delete-logo/{id}', [JobsLogosController::class, 'deleteLogo'])->name('logos.delete_logo');
+Route::get('logos/change-status/{id}/{status}', [JobsLogosController::class, 'changeStatus'])->name('logos.change_status');
 
 
 Route::get('events', [EventsController::class, 'index'])->name('events.index');
@@ -108,6 +119,9 @@ Route::get('events/get-events', [EventsController::class, 'getEvents'])->name('e
 Route::get('events/edit-event/{id}', [EventsController::class, 'editEvent'])->name('events.edit_event');
 Route::post('events/update-event', [EventsController::class, 'updateEvent'])->name('events.update_event');
 Route::get('events/delete-event/{id}', [EventsController::class, 'deleteEvent'])->name('events.delete_event');
+Route::get('events/change-status/{id}/{status}', [EventsController::class, 'changeStatus'])->name('events.change_status');
+Route::get('events/change-featured/{id}/{status}', [EventsController::class, 'changeFeatured'])->name('events.change_featured');
+Route::get('events/change-advertised/{id}/{status}', [EventsController::class, 'changeAdvertised'])->name('events.change_advertised');
 
 
 
@@ -120,6 +134,7 @@ Route::post('directory/update-directory', [DirectoryController::class, 'updateDi
 Route::get('directory/delete-directory/{id}', [DirectoryController::class, 'deleteDirectory'])->name('directory.delete_directory');
 Route::get('directory/import-directory', [DirectoryController::class, 'importDirectory'])->name('directory.import_directory');
 Route::post('directory/import', [DirectoryController::class, 'import'])->name('directory.import');
+Route::get('directory/change-status/{id}/{status}', [DirectoryController::class, 'changeStatus'])->name('directory.change_status');
 
 
 
@@ -133,6 +148,7 @@ Route::get('programs/delete-program/{id}', [ProgramsController::class, 'deletePr
 Route::get('programs/import-programs', [ProgramsController::class, 'importPrograms'])->name('programs.import_programs');
 Route::post('programs/import', [ProgramsController::class, 'import'])->name('programs.import');
 Route::post('programs/paragraph/update', [ProgramsController::class, 'programsParagraphUpdate'])->name('pages.programs_paragraph_update');
+Route::get('programs/change-status/{id}/{status}', [ProgramsController::class, 'changeStatus'])->name('programs.change_status');
 
 
 
@@ -165,6 +181,7 @@ Route::get('team/get-team', [TeamController::class, 'getTeam'])->name('team.get_
 Route::get('team/edit-team/{id}', [TeamController::class, 'editTeam'])->name('team.edit_team');
 Route::post('team/update-team', [TeamController::class, 'updateTeam'])->name('team.update_team');
 Route::get('team/delete-team/{id}', [TeamController::class, 'deleteTeam'])->name('team.delete_team');
+Route::get('team/change-status/{id}/{status}', [TeamController::class, 'changeStatus'])->name('team.change_status');
 
 
 
@@ -175,6 +192,7 @@ Route::get('sponsors/get-sponsor', [SponsorsController::class, 'getSponsors'])->
 Route::get('sponsors/edit-sponsor/{id}', [SponsorsController::class, 'editSponsor'])->name('sponsors.edit_sponsor');
 Route::post('sponsors/update-sponsor', [SponsorsController::class, 'updateSponsor'])->name('sponsors.update_sponsor');
 Route::get('sponsors/delete-sponsor/{id}', [SponsorsController::class, 'deleteSponsor'])->name('sponsors.delete_sponsor');
+Route::get('sponsors/change-status/{id}/{status}', [SponsorsController::class, 'changeStatus'])->name('sponsors.change_status');
 
 
 
@@ -184,6 +202,8 @@ Route::get('videos/get-videos', [VideosController::class, 'getVideos'])->name('v
 Route::get('videos/edit-video/{id}', [VideosController::class, 'editVideo'])->name('videos.edit_video');
 Route::post('videos/update-video', [VideosController::class, 'updateVideo'])->name('videos.update_video');
 Route::get('videos/delete-video/{id}', [VideosController::class, 'deleteVideo'])->name('videos.delete_video');
+Route::get('videos/change-status/{id}/{status}', [VideosController::class, 'changeStatus'])->name('videos.change_status');
+Route::get('videos/change-featured/{id}/{status}', [VideosController::class, 'changeFeatured'])->name('videos.change_featured');
 
 
 
@@ -194,6 +214,7 @@ Route::get('quotes/get-quotes', [QuotesController::class, 'getQuotes'])->name('q
 Route::get('quotes/edit-quote/{id}', [QuotesController::class, 'editQuote'])->name('quotes.edit_quote');
 Route::post('quotes/update-quote', [QuotesController::class, 'updateQuote'])->name('quotes.update_quote');
 Route::get('quotes/delete-quote/{id}', [QuotesController::class, 'deleteQuote'])->name('quotes.delete_quote');
+Route::get('quotes/change-status/{id}/{status}', [QuotesController::class, 'changeStatus'])->name('quotes.change_status');
 
 
 
@@ -204,6 +225,7 @@ Route::get('networks/get-networks', [NetworksController::class, 'getNetworks'])-
 Route::get('networks/edit-network/{id}', [NetworksController::class, 'editNetwork'])->name('networks.edit_network');
 Route::post('networks/update-network', [NetworksController::class, 'updateNetwork'])->name('networks.update_network');
 Route::get('networks/delete-network/{id}', [NetworksController::class, 'deleteNetwork'])->name('networks.delete_network');
+Route::get('networks/change-status/{id}/{status}', [NetworksController::class, 'changeStatus'])->name('networks.change_status');
 
 
 
@@ -213,6 +235,7 @@ Route::get('schools/create-school', [SchoolsController::class, 'createSchool'])-
 Route::post('schools/store-school', [SchoolsController::class, 'storeSchool'])->name('schools.store_school');
 Route::get('schools/get-schools', [SchoolsController::class, 'getSchools'])->name('schools.get_schools');
 Route::get('schools/delete-school/{id}', [SchoolsController::class, 'deleteSchool'])->name('schools.delete_school');
+Route::get('schools/change-status/{id}/{status}', [SchoolsController::class, 'changeStatus'])->name('schools.change_status');
 
 
 Route::get('schools/import-school', [SchoolsController::class, 'importSchools'])->name('schools.import_schools');
@@ -274,6 +297,7 @@ Route::post('schools/edit-school/scholarships/paragraph/update', [SchoolsScholar
 
 Route::get('schools/edit-school/scholarships/import-scholarships', [SchoolsScholarshipController::class, 'importScholarships'])->name('schools.import_scholarships');
 Route::post('schools/edit-school/scholarships/import', [SchoolsScholarshipController::class, 'import'])->name('schools.scholarships.import');
+Route::get('schools/scholarships/change-featured/{id}/{status}', [SchoolsScholarshipController::class, 'changeFeatured'])->name('schools.scholarships.change_featured');
 
 
 
@@ -338,6 +362,8 @@ Route::get('schools/get-open-days', [SchoolsOpenDaysController::class, 'getOpenD
 Route::get('schools/edit-open-day/{id}', [SchoolsOpenDaysController::class, 'editOpenDay'])->name('open_days.edit_open_day');
 Route::post('schools/update-open-day', [SchoolsOpenDaysController::class, 'updateOpenDay'])->name('open_days.update_open_day');
 Route::get('schools/delete-open-day/{id}', [SchoolsOpenDaysController::class, 'deleteOpenDay'])->name('open_days.delete_open_day');
+Route::get('schools/open-days/change-status/{id}/{status}', [SchoolsOpenDaysController::class, 'changeStatus'])->name('open_days.change_status');
+Route::get('schools/open-days/change-featured/{id}/{status}', [SchoolsOpenDaysController::class, 'changeFeatured'])->name('open_days.change_featured');
 
 
 
@@ -349,6 +375,8 @@ Route::get('schools/get-virtual-tours', [SchoolsVirtualToursController::class, '
 Route::get('schools/edit-virtual-tour/{id}', [SchoolsVirtualToursController::class, 'editVirtualTour'])->name('virtual_tours.edit_virtual_tour');
 Route::post('schools/update-virtual-tour', [SchoolsVirtualToursController::class, 'updateVirtualTour'])->name('virtual_tours.update_virtual_tour');
 Route::get('schools/delete-virtual-tour/{id}', [SchoolsVirtualToursController::class, 'deleteVirtualTour'])->name('virtual_tours.delete_virtual_tour');
+Route::get('schools/virtual-tours/change-status/{id}/{status}', [SchoolsVirtualToursController::class, 'changeStatus'])->name('virtual_tours.change_status');
+Route::get('schools/virtual-tours/change-featured/{id}/{status}', [SchoolsVirtualToursController::class, 'changeFeatured'])->name('virtual_tours.change_featured');
 
 
 
@@ -361,6 +389,7 @@ Route::post('school-types/update-school-type', [SchoolTypesController::class, 'u
 Route::get('school-types/delete-school-type/{id}', [SchoolTypesController::class, 'deleteSchoolType'])->name('types.delete_school_type');
 Route::get('school-types/import-school-types', [SchoolTypesController::class, 'importSchoolTypes'])->name('types.import_school_types');
 Route::post('school-types/import', [SchoolTypesController::class, 'import'])->name('types.import');
+Route::get('school-types/change-status/{id}/{status}', [SchoolTypesController::class, 'changeStatus'])->name('types.change_status');
 
 
 
@@ -375,6 +404,7 @@ Route::post('all-scholarships/update-scholarship', [AllScholarshipsController::c
 Route::get('all-scholarships/delete-scholarship/{id}', [AllScholarshipsController::class, 'deleteScholarship'])->name('scholarships.delete_scholarship');
 Route::get('all-scholarships/import-scholarships', [AllScholarshipsController::class, 'importScholarships'])->name('scholarships.import_scholarships');
 Route::post('all-scholarships/import', [AllScholarshipsController::class, 'import'])->name('scholarships.import');
+Route::get('all-scholarships/change-featured/{id}/{status}', [AllScholarshipsController::class, 'changeFeatured'])->name('scholarships.change_featured');
 
 
 
@@ -387,6 +417,7 @@ Route::post('degree-levels/update-degree-level', [DegreeLevelsController::class,
 Route::get('degree-levels/delete-degree-level/{id}', [DegreeLevelsController::class, 'deleteDegreeLevel'])->name('degree_levels.delete_degree_level');
 Route::get('degree-levels/import-degree-levels', [DegreeLevelsController::class, 'importDegreeLevels'])->name('degree_levels.import_degree_levels');
 Route::post('degree-levels/import', [DegreeLevelsController::class, 'import'])->name('degree_levels.import');
+Route::get('degree-levels/change-status/{id}/{status}', [DegreeLevelsController::class, 'changeStatus'])->name('degree_levels.change_status');
 
 
 

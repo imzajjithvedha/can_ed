@@ -17,7 +17,7 @@
                         <h4 class="fw-bolder futura">Create a new account</h4>
                         <hr style="background: #bd2130; height: 1px!important; opacity: 1!important;">
 
-                        <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation">
+                        <form action="{{ url('register') }}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                         {{ csrf_field() }}
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="first_name" aria-describedby="first_name" placeholder="First name" name="first_name" required value="{{ old('first_name') }}">

@@ -42,7 +42,7 @@
                     <p class="mb-2 required fw-bold">* Indicates required fields</p>
                 </div>
 
-                <form action="{{ route('frontend.suggestion_send') }}" method="POST">
+                <form action="{{ route('frontend.suggestion_send') }}" method="POST" novalidate>
                 {{csrf_field()}}
                     <div class="mb-3">
                         <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Your name *" name="name" required>

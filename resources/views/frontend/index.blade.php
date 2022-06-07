@@ -14,7 +14,7 @@
             <div class="container" style="margin-top: -12rem;">
                 <div class="row justify-content-center search-bar">
                     <div class="col-7">
-                        <form action="{{ route('frontend.home_search') }}"  method="POST">
+                        <form action="{{ route('frontend.home_search') }}"  method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="search-box p-2 mb-3">
                                 <div class="input-group">
@@ -47,7 +47,7 @@
             <div class="container" style="margin-top: -12rem;">
                 <div class="row justify-content-center search-bar">
                     <div class="col-7">
-                        <form action="{{ route('frontend.home_search') }}"  method="POST">
+                        <form action="{{ route('frontend.home_search') }}"  method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="search-box p-2">
                                 <div class="input-group">

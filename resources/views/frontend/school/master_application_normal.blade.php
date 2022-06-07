@@ -17,7 +17,7 @@
 
         <div class="card mt-5 p-4">
 
-            <form action="{{ route('frontend.master_application_normal_store') }}" method="post">
+            <form action="{{ route('frontend.master_application_normal_store') }}" method="post" novalidate>
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-12">

@@ -8,7 +8,7 @@
     @include('backend.includes.top_nav')
     <link rel="stylesheet" href="{{ url('css/aiz-core.css') }}">   
 
-    <form action="{{ route('admin.schools.school_information_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm();">
+    <form action="{{ route('admin.schools.school_information_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm();" novalidate>
         {{csrf_field()}}
 
         <div class="row">

@@ -31,7 +31,7 @@
                         <div class="py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
                             <h4 class="fw-bold mb-2 futura">About you</h4>
                                     
-                            <form action="{{ route('frontend.user.account_information_update') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('frontend.user.account_information_update') }}" method="post" enctype="multipart/form-data" novalidate>
                             {{csrf_field()}}
                                 <div class="row mb-3">
                                     <div class="col-6">

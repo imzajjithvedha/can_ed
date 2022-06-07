@@ -49,7 +49,7 @@
 
 
     <!-- Modal -->
-    <form action="{{ route('frontend.quote_request') }}" method="POST">
+    <form action="{{ route('frontend.quote_request') }}" method="POST" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="post-quote" tabindex="-1" aria-labelledby="post-quote-label" aria-hidden="true">
             <div class="modal-dialog modal-lg">

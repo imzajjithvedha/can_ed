@@ -3,7 +3,7 @@
         <!-- <h4 class="fw-bold mb-2 futura" style="color: #384058">Search scholarships</h4> -->
 
         <div class="p-3" style="background-color: #f2f4f8;">
-            <form action="{{ route('frontend.school_scholarship_search') }}" method="POST">
+            <form action="{{ route('frontend.school_scholarship_search') }}" method="POST" novalidate>
                 {{ csrf_field() }}
                 <div class="row mb-3">
                     <div class="col-12">

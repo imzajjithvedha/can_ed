@@ -4,7 +4,7 @@
 
 @section('content')
     
-    <form action="{{route('admin.directory.update_directory')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('admin.directory.update_directory')}}" method="POST" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">

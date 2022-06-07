@@ -15,7 +15,7 @@
 
                 <div class="card-body">
                     <div class="border p-3">
-                        <form action="{{ route('admin.pages.programs_paragraph_update') }}" method="POST">
+                        <form action="{{ route('admin.pages.programs_paragraph_update') }}" method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="form-group">
                                 <label for="description" class="form-label">Description *</label>

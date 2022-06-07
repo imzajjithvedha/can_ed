@@ -54,7 +54,7 @@
         </div>
     </div>
 
-    <form action="{{ route('frontend.user.school_delete') }}" method="post">
+    <form action="{{ route('frontend.user.school_delete') }}" method="post" novalidate>
         {{ csrf_field() }}
         <div class="modal fade" id="confirmClose" tabindex="-1" aria-labelledby="confirmCloseLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">

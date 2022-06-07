@@ -10,7 +10,7 @@
     <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h4 class="fw-bolder futura">Articles: to the students</h4>
 
-        <form action="{{ route('frontend.article_search') }}"  method="POST">
+        <form action="{{ route('frontend.article_search') }}"  method="POST" novalidate>
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-7">

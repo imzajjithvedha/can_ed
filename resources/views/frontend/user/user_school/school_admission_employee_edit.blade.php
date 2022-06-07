@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                <form action="{{ route('frontend.user.school_admission_employee_update') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('frontend.user.school_admission_employee_update') }}" method="post" enctype="multipart/form-data" novalidate>
                     {{csrf_field()}}
                     <div class="row">
                         <div class="col-12 border py-3">

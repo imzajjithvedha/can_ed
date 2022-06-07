@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_programs_paragraph_update') }}" method="POST">
+                        <form action="{{ route('admin.schools.school_programs_paragraph_update') }}" method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="title_1" class="form-label mb-1">Title 1</label>
@@ -63,7 +63,7 @@
     </div>
 
 
-    <form action="{{ route('admin.schools.school_program_create') }}" method="POST">
+    <form action="{{ route('admin.schools.school_program_create') }}" method="POST" novalidate>
         {{csrf_field()}}
         <div class="modal fade" id="createProgram" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

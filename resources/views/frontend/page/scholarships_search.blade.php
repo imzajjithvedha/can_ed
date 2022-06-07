@@ -10,7 +10,7 @@
     <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Scholarships</h4>
 
-        <form action="{{ route('frontend.scholarship_search') }}"  method="POST">
+        <form action="{{ route('frontend.scholarship_search') }}"  method="POST" novalidate>
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-7">
@@ -304,7 +304,7 @@
 
 
     <!-- Modal -->
-    <form action="{{ route('frontend.scholarships_advanced_search') }}" method="POST" id="advanced-search-form">
+    <form action="{{ route('frontend.scholarships_advanced_search') }}" method="POST" id="advanced-search-form" novalidate>
         {{ csrf_field() }}
         <div class="modal fade" id="advancedSearch" tabindex="-1" aria-labelledby="advancedSearch" aria-hidden="true">
             <div class="modal-dialog">

@@ -34,7 +34,7 @@
                         <div class="school" id="nav-information" role="tabpanel" aria-labelledby="nav-information-tab">
                             <div class="row">
                                 <div class="col-12 border py-3">
-                                    <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();">
+                                    <form action="{{ route('frontend.user.school_information_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validateForm();" novalidate>
                                         {{csrf_field()}}
                                         <div class="row">
                                             <div class="col-12">

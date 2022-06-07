@@ -11,7 +11,7 @@
     <div class="container careers" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Careers in Canada</h4>
 
-        <form action="{{ route('frontend.career_search') }}"  method="POST">
+        <form action="{{ route('frontend.career_search') }}"  method="POST" novalidate>
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-8">

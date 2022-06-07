@@ -101,7 +101,7 @@
                         </select>
                     </div>
 
-                    <div class="mb-3 category_2 d-none">
+                    <div class="mb-3 category_2">
                         <select class="form-control form-select" id="category_2" name="category_2" placeholder="Business category">
                             <option value="" selected disabled hidden>Business category 2</option>
                             @foreach($categories as $category)
@@ -110,7 +110,7 @@
                         </select>
                     </div>
 
-                    <div class="mb-3 category_3 d-none">
+                    <div class="mb-3 category_3">
                         <select class="form-control form-select" id="category_3" name="category_3" placeholder="Business category">
                             <option value="" selected disabled hidden>Business category 3</option>
                             @foreach($categories as $category)
@@ -140,12 +140,12 @@
                         <input type="url" class="form-control" id="url" aria-describedby="url" name="url" placeholder="Website URL">
                     </div>
 
-                    <div class="mb-3 basic-image">
+                    <div class="mb-3 d-none basic-image">
                         <label for="image" class="form-label">Basic business image * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                         <input class="form-control" type="file" id="basic-image" name="single_image">
                     </div>
 
-                    <div class="mb-3 d-none premium-images">
+                    <div class="mb-3 premium-images">
                         <label for="image" class="form-label">Premium business images * (Files must be less than 5MB, allowed file types: png, gif, jpg, jpeg)</label>
                         <input class="form-control" type="file" id="premium-images" name="image[]" multiple>
                     </div>

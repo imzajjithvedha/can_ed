@@ -6,7 +6,7 @@
 
 
 
-    <form action="{{ route('admin.virtual_tours.store_virtual_tour') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.virtual_tours.store_virtual_tour') }}" method="post" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-12">

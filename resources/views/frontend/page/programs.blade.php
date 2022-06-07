@@ -52,7 +52,7 @@
 
 
     <!-- Modal -->
-    <form action="{{ route('frontend.program_request') }}" method="POST">
+    <form action="{{ route('frontend.program_request') }}" method="POST" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="suggest-program" tabindex="-1" aria-labelledby="suggest-program-label" aria-hidden="true">
             <div class="modal-dialog modal-lg">

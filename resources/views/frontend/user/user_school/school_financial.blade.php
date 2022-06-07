@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_financial_update') }}" method="POST" onsubmit="return FinancialValForm();">
+                                    <form action="{{ route('frontend.user.school_financial_update') }}" method="POST" onsubmit="return FinancialValForm();" novalidate>
                                         {{csrf_field()}}
                                             <div class="mb-3">
                                                 <label for="financial_title_1" class="form-label mb-1">Title 1</label>
@@ -489,7 +489,7 @@
     @endif
 
 
-    <form action="" class="related-program-form">
+    <form action="" class="related-program-form" novalidate>
         <div class="modal fade" id="addProgram4" tabindex="-1" aria-labelledby="addProgramLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">

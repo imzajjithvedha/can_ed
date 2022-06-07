@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_overview_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return valForm();">
+                                    <form action="{{ route('frontend.user.school_overview_update') }}" method="POST" enctype="multipart/form-data" onsubmit="return valForm();" novalidate>
                                         {{csrf_field()}}
                                         <div class="mb-3">
                                             <label for="overview_title_1" class="form-label mb-1">Title 1</label>
@@ -379,7 +379,7 @@
 
 
     <form action="" class="related-program-form">
-        <div class="modal fade" id="addProgram" tabindex="-1" aria-labelledby="addProgramLabel" aria-hidden="true">
+        <div class="modal fade" id="addProgram" tabindex="-1" aria-labelledby="addProgramLabel" aria-hidden="true" novalidate>
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">

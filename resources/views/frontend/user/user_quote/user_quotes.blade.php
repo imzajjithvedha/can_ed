@@ -74,7 +74,7 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.user_quote_update') }}" method="POST">
+    <form action="{{ route('frontend.user.user_quote_update') }}" method="POST" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="editQuote" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

@@ -20,7 +20,7 @@
                     @auth
                         @if(is_favorite_business( $business->id, auth()->user()->id))
                             <div class="col-4 text-end">
-                                <form action="{{ route('frontend.favorite_business') }}" method="POST">
+                                <form action="{{ route('frontend.favorite_business') }}" method="POST" novalidate>
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $business->id }}">
                                     <input type="hidden" name='favorite' value="favorite">
@@ -29,7 +29,7 @@
                             </div>
                         @else
                             <div class="col-4 text-end">
-                                <form action="{{ route('frontend.favorite_business') }}" method="POST">
+                                <form action="{{ route('frontend.favorite_business') }}" method="POST" novalidate>
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $business->id }}">
                                     <input type="hidden" name='favorite' value="non-favorite">
@@ -193,7 +193,7 @@
 
 
     <!-- Modal -->
-    <form action="{{ route('frontend.business_single_contact') }}" method="POST">
+    <form action="{{ route('frontend.business_single_contact') }}" method="POST" novalidate>
         {{ csrf_field() }}
         <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

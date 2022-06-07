@@ -12,7 +12,7 @@
 
         <h4 class="fw-bolder futura">School degree levels</h4>
 
-        <form action="{{ route('frontend.school_search') }}" method="POST">
+        <form action="{{ route('frontend.school_search') }}" method="POST" novalidate>
             {{ csrf_field() }}
             <div class="row align-items-center">
                 <div class="col-8">

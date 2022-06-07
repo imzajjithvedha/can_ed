@@ -6,7 +6,7 @@
 
 
 
-    <form action="{{ route('admin.open_days.store_open_day') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('admin.open_days.store_open_day') }}" method="post" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-12">

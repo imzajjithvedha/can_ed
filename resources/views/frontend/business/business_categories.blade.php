@@ -12,7 +12,7 @@
 
         <h4 class="fw-bolder futura">Business categories</h4>
 
-        <form action="{{ route('frontend.business_search') }}"  method="POST">
+        <form action="{{ route('frontend.business_search') }}"  method="POST" novalidate>
         {{csrf_field()}}
             <div class="row align-items-center">
                 <div class="col-8">

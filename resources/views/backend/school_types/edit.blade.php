@@ -4,7 +4,7 @@
 
 @section('content')
     
-    <form action="{{route('admin.types.update_school_type')}}" method="POST">
+    <form action="{{route('admin.types.update_school_type')}}" method="POST" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">

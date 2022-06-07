@@ -4,7 +4,7 @@
 
 @section('content')
     
-    <form action="{{route('admin.quotes.update_quote')}}" method="post">
+    <form action="{{route('admin.quotes.update_quote')}}" method="post" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">

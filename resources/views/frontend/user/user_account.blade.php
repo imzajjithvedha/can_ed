@@ -38,7 +38,7 @@
         </div>
     </div>
 
-    <form action="{{ route('frontend.user.user_account_close') }}" method="POST">
+    <form action="{{ route('frontend.user.user_account_close') }}" method="POST" novalidate>
         {{ csrf_field() }}
         <div class="modal fade" id="confirmClose" tabindex="-1" aria-labelledby="confirmCloseLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">

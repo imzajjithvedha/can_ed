@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.schools.school_quick_facts_paragraphs_update') }}" method="POST" enctype="multipart/form-data" novalidate>
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="quick_facts_title_1" class="form-label mb-1">Title 1</label>
@@ -80,7 +80,7 @@
                         <hr class="my-5">
 
 
-                        <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validate();">
+                        <form action="{{ route('admin.schools.school_quick_facts_update') }}" method="post" enctype="multipart/form-data" onsubmit="return validate();" novalidate>
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="location" class="form-label mb-1">School location (city)</label>

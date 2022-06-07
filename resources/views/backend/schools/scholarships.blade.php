@@ -12,7 +12,7 @@
             <div class="card">
                 <div class="card-body border">
                     <div class="border p-3">
-                        <form action="{{ route('admin.schools.school_scholarships_paragraph_update') }}" method="POST" enctype="multipart/form-data" >
+                        <form action="{{ route('admin.schools.school_scholarships_paragraph_update') }}" method="POST" enctype="multipart/form-data" novalidate>
                             {{csrf_field()}}
                             <div class="mb-3">
                                 <label for="scholarships_title_1" class="form-label mb-1">Title 1</label>
@@ -183,7 +183,7 @@
     </div>
 
 
-    <form action="{{ route('admin.schools.school_scholarship_create') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.schools.school_scholarship_create') }}" method="POST" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="modal fade" id="createProgram" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">

@@ -14,7 +14,7 @@
 
         <div class="row mt-5">
             
-            <form action="{{ route('frontend.directory_search') }}" method="POST">
+            <form action="{{ route('frontend.directory_search') }}" method="POST" novalidate>
             {{@csrf_field()}}
                 <div class="row justify-content-center">
                     <div class="col-8">

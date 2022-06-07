@@ -285,7 +285,7 @@ p {
 
 
 
-.k-tooltip{
+.k-tooltip {
     background: #0094d4!important;
     border-color: #0094d4!important;
     color: white!important;
@@ -296,6 +296,9 @@ p {
 }
 .k-tooltip-content {
     text-align:left;
+}
+.k-callout-n {
+    border-bottom-color: #0094d4!important;
 }
 
 

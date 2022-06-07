@@ -52,7 +52,7 @@
     </div>
 
 
-    <form action="{{ route('admin.schools.school_scholarship_faq_create') }}" method="POST">
+    <form action="{{ route('admin.schools.school_scholarship_faq_create') }}" method="POST" novalidate>
         {{csrf_field()}}
         <div class="modal fade" id="createScholarshipFAQ" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

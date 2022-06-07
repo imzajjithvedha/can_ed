@@ -196,11 +196,14 @@
                     }
                 });
 
+                var validationMessage = 'This field is required';
+
                 // Add a tooltip to each invalid field
                 var invalidFields = $( ":invalid", form ).each(function() {
                     var field = $( this ).kendoTooltip({
                         content: function() {
-                            return field[ 0 ].validationMessage;
+                            // return field[ 0 ].validationMessage;
+                            return validationMessage;
                         },
                         position:'bottom',
                     });
@@ -209,6 +212,12 @@
                 // If there are errors, give focus to the first invalid field
                 invalidFields.first().trigger( "focus" ).eq( 0 ).focus();
             });
+        });
+    </script>
+
+    <script>
+        jQuery("input").mouseover(function(){
+            jQuery(this).removeAttr("title");
         });
     </script>
 

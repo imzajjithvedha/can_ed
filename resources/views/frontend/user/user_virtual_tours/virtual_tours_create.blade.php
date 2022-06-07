@@ -28,7 +28,7 @@
 
                 <div class="row">
                     <div class="col-12 border p-3">
-                        <form action="{{ route('frontend.user.store_virtual_tour') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('frontend.user.store_virtual_tour') }}" method="post" enctype="multipart/form-data" novalidate>
                             {{csrf_field()}}
                                 <div class="mb-3">
                                     <input type="text" class="form-control" id="city" aria-describedby="city" placeholder="City *" name="city" required>

@@ -38,7 +38,7 @@
 
 
 
-    <form action="{{ route('admin.videos.store_video') }}" method="POST">
+    <form action="{{ route('admin.videos.store_video') }}" method="POST" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="createVideo" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

@@ -12,7 +12,7 @@
 
         <h4 class="fw-bolder futura">Schools - {{ $degree->name }}</h4>
 
-        <form action="{{ route('frontend.school_search') }}" method="POST">
+        <form action="{{ route('frontend.school_search') }}" method="POST" novalidate>
             {{ csrf_field() }}
             <div class="row align-items-center">
                 <div class="col-8">

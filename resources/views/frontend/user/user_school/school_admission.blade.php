@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-12 border py-3">
 
-                                    <form action="{{ route('frontend.user.school_admission_update') }}" method="POST">
+                                    <form action="{{ route('frontend.user.school_admission_update') }}" method="POST" novalidate>
                                         {{csrf_field()}}
                                             <div class="mb-3">
                                                 <label for="admission_paragraph" class="form-label mb-1">Main paragraph</label>
@@ -141,7 +141,7 @@
     </div>
 
 
-    <form action="{{ route('frontend.user.school_admission_employee_create') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('frontend.user.school_admission_employee_create') }}" method="POST" enctype="multipart/form-data" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="createEmployee" tabindex="-1" aria-labelledby="editQuoteLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">

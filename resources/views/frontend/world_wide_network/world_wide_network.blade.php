@@ -52,7 +52,7 @@
 
 
     <!-- Modal -->
-    <form action="{{ route('frontend.network_request') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('frontend.network_request') }}" method="POST" enctype="multipart/form-data" novalidate>
     {{csrf_field()}}
         <div class="modal fade" id="post-quote" tabindex="-1" aria-labelledby="post-quote-label" aria-hidden="true">
             <div class="modal-dialog modal-lg">

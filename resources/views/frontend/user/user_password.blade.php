@@ -29,7 +29,7 @@
                     <div class="col-12 border">
                         <div class="px-2 py-3" id="nav-account" role="tabpanel" aria-labelledby="nav-account-tab">
 
-                            <form action="{{ route('frontend.user.user_password_update') }}" method="post" enctype="multipart/form-data" id="change-password-form">
+                            <form action="{{ route('frontend.user.user_password_update') }}" method="post" enctype="multipart/form-data" id="change-password-form" novalidate>
                             {{csrf_field()}}
                                 <div class="row">
                                     <div class="text-end">

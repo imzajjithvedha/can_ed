@@ -4,7 +4,7 @@
 
 @section('content')
     
-    <form action="{{route('admin.networks.update_network')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('admin.networks.update_network')}}" method="post" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-7 p-1">

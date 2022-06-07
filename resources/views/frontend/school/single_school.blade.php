@@ -40,7 +40,7 @@
 
                 <div class="card p-3 master-application rounded-0" style="background-color: #f0f0f0">
 
-                    <form action="{{ route('frontend.master_application_store') }}" method="post">
+                    <form action="{{ route('frontend.master_application_store') }}" method="post" novalidate>
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-12">
@@ -1421,7 +1421,7 @@
                     @auth
                         @if(is_favorite_school( $school->id, auth()->user()->id))
                             <div class="col-2 text-end">
-                                <form action="{{ route('frontend.favorite_school') }}" method="POST">
+                                <form action="{{ route('frontend.favorite_school') }}" method="POST" novalidate>
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $school->id }}">
                                     <input type="hidden" name='favorite' value="favorite">
@@ -1430,7 +1430,7 @@
                             </div>
                         @else
                             <div class="col-2 text-end">
-                                <form action="{{ route('frontend.favorite_school') }}" method="POST">
+                                <form action="{{ route('frontend.favorite_school') }}" method="POST" novalidate>
                                 {{csrf_field()}}
                                     <input type="hidden" name='hidden_id' value="{{ $school->id }}">
                                     <input type="hidden" name='favorite' value="non-favorite">

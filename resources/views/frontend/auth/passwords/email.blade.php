@@ -17,7 +17,7 @@
                     <h4 class="text-center text-white p-3 futura">Forgot password</h4>
                 </div>
                 
-                <form action="{{ route('frontend.auth.password.email') }}" method="post">
+                <form action="{{ route('frontend.auth.password.email') }}" method="post" novalidate>
                 {{csrf_field()}}
 
                     <div class="row mt-4 justify-content-center">

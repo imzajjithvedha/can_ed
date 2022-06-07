@@ -17,7 +17,7 @@
 
         <hr>
 
-        <form action="{{ route('frontend.advanced_search') }}" method="POST" id="advanced-search-form">
+        <form action="{{ route('frontend.advanced_search') }}" method="POST" id="advanced-search-form" novalidate>
             {{ csrf_field() }}
             
             <div class="row mb-4">

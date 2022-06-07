@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form action="{{ route('admin.scholarships.store_scholarship') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.scholarships.store_scholarship') }}" method="POST" enctype="multipart/form-data" novalidate>
         {{csrf_field()}}
         <div class="row">
             <div class="col-md-12">

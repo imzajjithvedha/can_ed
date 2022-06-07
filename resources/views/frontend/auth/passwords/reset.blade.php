@@ -17,7 +17,7 @@
                     <h5 class="text-center text-white p-3">Reset password</h5>
                 </div>
                 
-                <form action="{{route('frontend.auth.password.update')}}" method="post" id="reset-password-form">
+                <form action="{{route('frontend.auth.password.update')}}" method="post" id="reset-password-form" novalidate>
                 {{csrf_field()}}
 
                     <div class="row mt-4 justify-content-center">

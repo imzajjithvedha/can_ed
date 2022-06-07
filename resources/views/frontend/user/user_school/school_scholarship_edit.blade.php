@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-12 border py-3">
 
-                        <form action="{{ route('frontend.user.school_scholarship_update') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('frontend.user.school_scholarship_update') }}" method="post" enctype="multipart/form-data" novalidate>
                             {{csrf_field()}}
 
                                 <div class="mb-3">

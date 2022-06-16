@@ -7,15 +7,15 @@
 @endpush
 
 @section('content')
-    <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container contact-us inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5">
-            <div class="col-6">
+            <div class="col-12 col-lg-6 mb-5 mb-lg-0">
                 <h4 class="fw-bolder futura">Contact information</h4>
                 <hr>
 
                 <p class="gray">{{ $information->description }}</p>
 
-                <div class="row mt-4 mb-2 ps-3">
+                <div class="row mt-4 mb-2 ps-0 ps-lg-3">
                     <div class="col-5">
                         <p class="gray">Mailing Address:</p>
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-2 ps-3">
+                <div class="row mb-2 ps-0 ps-lg-3">
                     <div class="col-5">
                         <p class="gray">Toll free:</p>
                     </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-2 ps-3">
+                <div class="row mb-2 ps-0 ps-lg-3">
                     <div class="col-5">
                         <p class="gray">Telephone:</p>
                     </div>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-2 ps-3">
+                <div class="row mb-2 ps-0 ps-lg-3">
                     <div class="col-5">
                         <p class="gray">Email:</p>
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="row mb-2 ps-3">
+                <div class="row mb-2 ps-0 ps-lg-3">
                     <div class="col-5">
                         <p class="gray">Website:</p>
                     </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-12 col-lg-6">
                 <h4 class="fw-bolder futura">Get in touch</h4>
                 <hr>
                 <div class="text-end">
@@ -84,7 +84,7 @@
                     </div>
 
                     <div class="row mb-4 justify-content-center">
-                        <div class="col-md-8 text-center">
+                        <div class="col-12 col-lg-8 text-center">
                             <div class="g-recaptcha" data-callback="checked" data-sitekey="6Lel4Z4UAAAAAOa8LO1Q9mqKRUiMYl_00o5mXJrR"></div>
                         </div>
                     </div>

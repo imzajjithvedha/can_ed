@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container mt-5 videos" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container videos inner-parent" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">Videos</h4>
         <hr>
@@ -22,7 +22,7 @@
                     ])
             @else
                 @foreach($videos as $video)
-                    <div class="col-6 mb-4">
+                    <div class="col-12 col-md-6 mb-4">
                         <div class="card red" style="height: 25rem;">
                             <iframe width="100%" height="100%" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 

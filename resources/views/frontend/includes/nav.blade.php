@@ -1,12 +1,12 @@
 <div class="fixed-top menu-nav">
     <div class="container-fluid py-2 text-white top-nav">
         <div class="container">
-            <div class="row justify-content-end" id="navbarSupportedContent">
-                <div class="col-8 text-end">
+            <div class="row justify-content-end">
+                <div class="col-12 col-lg-8 text-end">
                     <div class="logo position-relative">
                         <a href="{{ route('frontend.index') }}"><img src="{{ url('img/frontend/logo.png') }}" alt="" class="img-fluid position-absolute"></a>
                     </div>
-                    <ul class="me-auto nav justify-content-end align-items-center">
+                    <ul class="me-auto nav justify-content-center justify-content-lg-end align-items-center">
                         <li class="nav-item border-end px-2 border-end">
                             <a class="nav-link text-white" aria-current="page" href="{{ route('frontend.school_register') }}">Register a school</a>
                         </li>
@@ -83,9 +83,9 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bottom-nav py-3">
+    <nav class="navbar navbar-expand-lg navbar-dark bottom-nav py-3">
         <div class="container position-relative">
-          <a href="{{ route('frontend.index') }}"><img src="{{ url('images/home', App\Models\WebsiteInformation::where('id', 1)->first()->logo) }}" alt="" class="img-fluid position-absolute" style="height: 4.6rem; top: -1.5rem"></a>
+          <a href="{{ route('frontend.index') }}"><img src="{{ url('images/home', App\Models\WebsiteInformation::where('id', 1)->first()->logo) }}" alt="" class="img-fluid position-absolute nav-logo" style="height: 4.6rem; top: -1.5rem"></a>
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

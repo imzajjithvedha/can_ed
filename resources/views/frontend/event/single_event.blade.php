@@ -8,10 +8,10 @@
 
 @section('content')
 
-    <div class="container mt-5 single-business" style="margin-bottom: 5rem;">
+    <div class="container single-business inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
 
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-lg-8 mb-5 mb-lg-0 single">
                 <!-- <h5 class="fw-bolder">{{ $event->title }}</h5>
                 <hr> -->
 
@@ -66,7 +66,7 @@
                 <div class="details mt-4">
 
                     <div class="row justify-content-center">
-                        <div class="col-8">
+                        <div class="col-12 col-md-8">
                             <div class="row">
                                 <div class="col-6">
                                     <h6 class="fw-bold mb-3" style="color: #800f0e;">Event date & time</h6>
@@ -103,15 +103,15 @@
 
                 <div class="row mt-5">
                     @if($event->url != null)
-                        <div class="col-4 text-end">
+                        <div class="col-12 col-md-4 text-center text-md-end mb-3 mb-md-0">
                             <a href="{{ $event->url }}" class="text-decoration-none buttons p-2 futura" type="button" target="_blank" style="font-size: 1.1rem;">Register to the event</a>
                         </div>
 
-                        <div class="col-4 text-center">
+                        <div class="col-12 col-md-4 text-center mb-3 mb-md-0">
                             <button class="text-decoration-none buttons p-2 futura" type="button" data-bs-toggle="modal" data-bs-target="#organizer" style="font-size: 1.1rem;">Contact organizer</button>
                         </div>
 
-                        <div class="col-4 text-start">
+                        <div class="col-12 col-md-4 text-center text-md-start">
                             <a href="{{ route('frontend.events') }}" class="text-decoration-none buttons p-2 futura" type="button" style="font-size: 1.1rem;">Add your event</a>
                         </div>
 
@@ -128,14 +128,14 @@
 
             </div>
 
-            <div class="col-4">
+            <div class="col-12 col-lg-4">
                 <h4 class="fw-bolder futura">More events</h4>
                 <hr>
 
                 @foreach($more_events as $more_event)
                     <a href="{{ route('frontend.single_event', $more_event->id) }}" class="text-decoration-none">
                         <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
-                            <div class="col-6">
+                            <div class="col-4 col-lg-6">
                                 @if($more_event->image != null)
                                     <img src="{{ url('images/events', $more_event->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                                 @else
@@ -143,7 +143,7 @@
                                 @endif
                             </div>
 
-                            <div class="col-6">
+                            <div class="col-8 col-lg-6">
                                 <h6 class="fw-bold gray futura">{{ $more_event->title }}</h6>
                                 <p class="gray" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{{ $more_event->description }}</p>
                             </div>

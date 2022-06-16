@@ -7,14 +7,14 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Programs</h4>
 
         <div class="row align-items-center">
-            <div class="col-10 pe-0">
+            <div class="col-12 col-md-9 pe-3 pe-md-0">
                 <hr>
             </div>
-            <div class="col-2 text-end ps-0">
+            <div class="col-12 col-md-3 text-end ps-0">
                 @auth
                     <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#suggest-program">Suggest a program</button>
                 @else
@@ -35,7 +35,7 @@
                 ])
             @else
                 @foreach($programs as $program)
-                    <div class="col-3 mb-2">
+                    <div class="col-6 col-md-4 col-lg-3 mb-2">
                         <div class="row align-items-center">
                             <div class="col-1">
                                 <i class="fas fa-star" style="color: #800000; font-size: 0.5rem; position: relative; top: -0.2rem;"></i>

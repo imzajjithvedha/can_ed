@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h4 class="fw-bolder futura">{{ $our_sponsors->title }}</h4>
         <hr>
 
@@ -17,14 +17,14 @@
             <img src="{{ url('img/frontend/no_image.jpg') }}" alt="" class="img-fluid w-100 banner">
         @endif
 
-        <div class="gray mt-5" style="text-align: justify;">
+        <div class="gray mt-3 mt-md-5" style="text-align: justify;">
             {!! $our_sponsors->description !!}
         </div>
 
 
-        <div class="row mt-5">
+        <div class="row mt-5 sponsors">
             @foreach($sponsors as $sponsor)
-                <div class="col-3" style="margin-bottom: 2rem;">
+                <div class="col-6 col-md-4 col-lg-3" style="margin-bottom: 2rem;">
                     <div class="card">
                         @if($sponsor->url != null)
                             <a href="{{ $sponsor->url }}" class="text-decoration-none" target="_blank">

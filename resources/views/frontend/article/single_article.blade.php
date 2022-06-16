@@ -7,10 +7,10 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
 
         <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-lg-8 mb-5 mb-lg-0 single">
 
                 @if($article->image != null)
                     <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 25rem; object-fit: cover;">
@@ -54,19 +54,19 @@
                 </div>
             </div>
 
-            <div class="col-4 more-articles">
+            <div class="col-12 col-lg-4 more-articles">
                 <h4 class="fw-bolder futura">More articles</h4>
                 <hr>
 
                 @foreach($more_articles as $article)
                     <div class="row align-items-center border py-3" style="margin: 0 0rem; margin-bottom: 1rem;">
-                        <div class="col-6">
+                        <div class="col-4 col-lg-6">
                             <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                                 <img src="{{ url('images/articles', $article->image) }}" alt="" class="img-fluid w-100" style="height: 6rem; object-fit: cover;">
                             </a>
                         </div>
 
-                        <div class="col-6">
+                        <div class="col-8 col-lg-6">
                             <h6 class="fw-bold gray futura">{{ $article->title }}</h6>
                             <div class="gray description" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-size: 0.8rem;">{!! $article->description !!}</div>
                         </div>

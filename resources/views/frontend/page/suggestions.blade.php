@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container contact-us" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container contact-us inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
         <div class="row contact mt-5 justify-content-center">
             <div class="col-12 mb-5">
                 <h4 class="fw-bolder futura">{{ $suggestions->title }}</h4>
@@ -32,7 +32,7 @@
                 </div>
             </div>
 
-            <div class="col-8">
+            <div class="col-12 col-md-10 col-lg-8">
 
                 <h4 class="fw-bolder futura">Feedback form</h4>
 
@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary w-25" id="submit_btn" disabled>Send message</button>
+                        <button type="submit" class="btn btn-primary" id="submit_btn" disabled>Send message</button>
                     </div>
                 </form>
             </div>

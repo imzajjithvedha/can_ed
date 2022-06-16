@@ -7,12 +7,12 @@
 @endpush
 
 @section('content')
-    <div class="container sitemap" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container sitemap inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Site map</h4>
         <hr>
 
         <div class="row">
-            <div class="col-3">
+            <div class="col-6 col-md-3 mb-4 mb-md-0">
                 <h5 class="fw-bold mb-2 futura">Proxima Study</h5>
                 <a href="{{route('frontend.about_us')}}" class="gray text-decoration-none">About us</a>
                 <a href="{{ route('frontend.articles', 'basic-articles') }}" class="gray text-decoration-none">Articles</a>
@@ -25,7 +25,7 @@
                 <a href="{{route('frontend.privacy_policy')}}" class="gray text-decoration-none">Privacy policy</a>
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3 mb-4 mb-md-0">
                 <h5 class="fw-bold mb-2 futura">For students</h5>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a question</a>
                 <a href="{{route('frontend.business_categories')}}" class="gray text-decoration-none">Business categories</a>
@@ -38,7 +38,7 @@
                 <a href="{{route('frontend.user.account_dashboard')}}" class="gray text-decoration-none">User dashboard</a>
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <h5 class="fw-bold mb-2 futura">For schools</h5>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a question</a>
                 <a href="{{route('frontend.auth.register')}}" class="gray text-decoration-none">Registration</a>
@@ -53,7 +53,7 @@
                 @endauth
             </div>
 
-            <div class="col-3">
+            <div class="col-6 col-md-3">
                 <h5 class="fw-bold mb-2 futura">For businesses</h5>
                 <a href="{{route('frontend.contact_us')}}" class="gray text-decoration-none">Ask a question</a>
                 <a href="{{route('frontend.business_categories')}}" class="gray text-decoration-none">Business categories</a>

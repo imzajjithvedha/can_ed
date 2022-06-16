@@ -8,17 +8,17 @@
 
 @section('content')
 
-    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">School degree levels</h4>
 
         <form action="{{ route('frontend.school_search') }}" method="POST" novalidate>
             {{ csrf_field() }}
             <div class="row align-items-center">
-                <div class="col-8">
+                <div class="col-12 col-md-8">
                     <hr>
                 </div>
-                <div class="col-4 input-group">
+                <div class="col-12 col-md-4 input-group">
                     <input type="text" class="form-control text-center" id="search_schools" aria-describedby="search_schools" placeholder="Search schools" name="keyword">
                     <div class="input-group-append">
                         <button type="submit" class="input-group-text"><i class="fas fa-search"></i></button>
@@ -36,7 +36,7 @@
                     ])
             @else
                 @foreach($degrees as $degree)
-                    <div class="col-3 mb-4">
+                    <div class="col-6 col-md-4 col-lg-3 mb-4">
                         <div class="card red">
                             <a href="{{ route('frontend.schools', $degree->id) }}" class="text-decoration-none">
                                 @if($degree->icon != null)

@@ -1,7 +1,7 @@
 <div class="container-fluid footer p-5" style="margin-top: 5rem;">
     <div class="container">
         <div class="row text-center">
-            <div class="col top-footer">
+            <div class="col-12 col-md top-footer mb-4 mb-md-0">
                 <h5 class="p-2 fw-bolder futura mb-4">Proxima Study</h5>
                 <!-- <hr> -->
                 <a href="{{ route('frontend.about_us') }}">About us</a><br>
@@ -16,7 +16,7 @@
                 <a href="{{ route('frontend.terms_of_use') }}">Terms of use</a><br>
             </div>
 
-            <div class="col top-footer">
+            <div class="col-12 col-md top-footer mb-4 mb-md-0">
                 <h5 class="p-2 fw-bolder futura mb-4">Resources</h5>
                 <!-- <hr> -->
                 <a href="{{ route('frontend.all_articles') }}">Articles</a><br>
@@ -31,7 +31,7 @@
                 <a href="{{ route('frontend.world_wide_network') }}">Worldwide networks</a><br>
             </div>
 
-            <div class="col top-footer">
+            <div class="col-12 col-md top-footer mb-4 mb-md-0">
                 <h5 class="p-2 fw-bolder futura mb-4">More links</h5>
                 <!-- <hr> -->
                 <a href="{{ route('frontend.site_map') }}">Site map</a><br>
@@ -47,7 +47,7 @@
     
                 <div class="footer-section footer-about">
                     <div class="footer_social">
-                        <ul>
+                        <ul class="p-0">
                             @if(App\Models\WebsiteInformation::where('id', 1)->first()->facebook != null)
                                 <li class="fb"><a href="{{ App\Models\WebsiteInformation::where('id', 1)->first()->facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             @endif

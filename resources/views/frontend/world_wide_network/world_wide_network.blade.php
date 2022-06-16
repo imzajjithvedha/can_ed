@@ -7,14 +7,14 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 3rem;">
         <h4 class="fw-bolder futura">Worldwide network</h4>
         
         <div class="row align-items-center">
-            <div class="col-10 pe-0">
+            <div class="col-12 col-md-9 pe-3 pe-md-0">
                 <hr>
             </div>
-            <div class="col-2 text-end ps-0">
+            <div class="col-12 col-md-3 text-end ps-0">
                 @auth
                     <button class="btn text-white post-btn" data-bs-toggle="modal" data-bs-target="#post-quote">Submit your banner</button>
                 @else
@@ -34,7 +34,7 @@
         @else
             <div class="row">
                 @foreach($networks as $network)
-                    <div class="col-6 mb-4">
+                    <div class="col-12 col-md-6 mb-4">
                         <div class="card">
                             <a href="{{ $network->url }}" class="text-decoration-none" target="_blank">
                                 <img src="{{ url('images/world-wide-network', $network->image) }}" class="card-img-top w-100" alt="..." style="height: 10rem;object-fit: cover;">

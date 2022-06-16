@@ -8,18 +8,24 @@
 
 @section('content')
 
-    <div class="container business" style="margin-top: 5rem; margin-bottom: 3rem;">
+    <div class="container business inner-parent" style="margin-top: 5rem; margin-bottom: 3rem;">
 
         <h4 class="fw-bolder futura">Open days</h4>
 
         @auth
             @if(is_school_registered(auth()->user()->id))
                 <div class="row align-items-center">
-                    <div class="col-10 pe-0">
+                    <div class="col-12 col-md-9 pe-3 pe-md-0">
                         <hr>
                     </div>
-                    <div class="col-2 text-end ps-0">
+                    <div class="col-12 col-md-3 text-end ps-0">
                         <a href="{{ route('frontend.user.open_days') }}" type="button" class="btn text-white post-btn">Post your open day</a>
+                    </div>
+                </div>
+            @else
+                <div class="row align-items-center">
+                    <div class="col-12">
+                        <hr>
                     </div>
                 </div>
             @endif
@@ -41,7 +47,7 @@
                 ])
             @else
                 @foreach($open_days as $open_day)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <div class="card blue rounded-0">
                             <a href="{{ route('frontend.single_open_day', $open_day->id) }}" class="text-decoration-none">
                                 @if($open_day->image != null)

@@ -7,7 +7,7 @@
 @endpush
 
 @section('content')
-    <div class="container" style="margin-top: 5rem; margin-bottom: 5rem;">
+    <div class="container inner-parent" style="margin-top: 5rem; margin-bottom: 5rem;">
         <h4 class="fw-bolder futura">Master application</h4>
         <hr>
 
@@ -1445,7 +1445,7 @@
                     </div>
 
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary px-5 py-3 text-white w-25" id="submit_btn" disabled>Submit</button>
+                        <button type="submit" class="btn btn-primary px-5 py-3 text-white" id="submit_btn" disabled>Submit</button>
                     </div>
 
                 </div>

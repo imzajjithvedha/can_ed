@@ -3,3 +3,55 @@ hr {
     height: 1px;
     opacity: 1;
 }
+
+
+
+/* Responsive */
+@media screen and (max-width: 1600px) {
+}
+
+@media screen and (max-width: 1536px) {
+}
+
+@media screen and (max-width: 1440px) {
+}
+
+@media screen and (max-width: 1366px) {
+}
+
+@media screen and (max-width: 1280px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 991px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 428px) {
+    .members img {
+        height: 10rem!important;
+    }
+    .members .card-body {
+        height: 165px!important;
+    }
+
+    .sponsors img {
+        height: 10rem!important;
+    }
+}
+
+@media screen and (max-width: 414px) {
+}
+
+@media screen and (max-width: 375px) {
+    .members .card-body {
+        height: 185px!important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+}

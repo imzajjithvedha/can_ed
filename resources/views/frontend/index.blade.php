@@ -13,7 +13,7 @@
         <div class="container-fluid main-banner" style="background-image: url('../images/home/{{ $information->main_banner }}')">
             <div class="container" style="margin-top: -12rem;">
                 <div class="row justify-content-center search-bar">
-                    <div class="col-7">
+                    <div class="col-12 col-lg-7">
                         <form action="{{ route('frontend.home_search') }}"  method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="search-box p-2 mb-3">
@@ -46,7 +46,7 @@
         <div class="container-fluid main-banner" style="background-image: url('../img/frontend/no_image.jpg')">
             <div class="container" style="margin-top: -12rem;">
                 <div class="row justify-content-center search-bar">
-                    <div class="col-7">
+                    <div class="col-12 col-lg-7">
                         <form action="{{ route('frontend.home_search') }}"  method="POST" novalidate>
                             {{csrf_field()}}
                             <div class="search-box p-2">
@@ -61,8 +61,11 @@
                                         <!-- <option value="resources">Resources</option> -->
                                     </select>
                                     <button type="submit" class="btn rounded-0 text-white me-2 bg-white border-start border-end"><i class="fas fa-search" style="color: black;"></i></button>
-                                    <a href="{{ route('frontend.advance_search') }}" type="button" class="btn text-white advanced-search rounded-0">Advanced search</a>
                                 </div>
+                            </div>
+
+                            <div class="text-center advance-box">
+                                <a href="{{ route('frontend.advance_search') }}" type="button" class="btn text-white advanced-search rounded-0">Advanced search</a>
                             </div>
                         </form>
                     </div>
@@ -76,10 +79,10 @@
     @if(count($degree_levels) > 0)
         <div class="container-fluid index-categories">
             <div class="container">
-                <div class="row p-3">
+                <div class="row p-3 justify-content-center">
                     
                     @foreach($degree_levels as $degree)
-                        <div class="col text-center">
+                        <div class="col-4 col-md-3 col-lg text-center mb-4 mb-lg-0">
                             <a href="{{ route('frontend.degree_level', [ $degree->id, $degree->slug ]) }}" class="text-decoration-none">
                                 @if($degree->icon != null)
                                     <img src="{{ url('images/degree_levels', $degree->icon) }}" alt="" class="img-fluid">
@@ -116,7 +119,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_schools as $featured_school)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_school', [$featured_school->id, $featured_school->slug]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_school->featured_image != null)
@@ -143,7 +146,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_international_articles as $featured_international_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_international_article->type), $featured_international_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_international_article->image != null)
@@ -170,7 +173,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_canadian_articles as $featured_canadian_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_canadian_article->type), $featured_canadian_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_canadian_article->image != null)
@@ -251,7 +254,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_financial_planning_articles as $featured_financial_planning_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_financial_planning_article->type), $featured_financial_planning_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_financial_planning_article->image != null)
@@ -278,7 +281,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_academic_help_articles as $featured_academic_help_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_academic_help_article->type), $featured_academic_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_academic_help_article->image != null)
@@ -305,7 +308,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_financial_help_articles as $featured_financial_help_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_financial_help_article->type), $featured_financial_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_financial_help_article->image != null)
@@ -332,7 +335,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_immigration_articles as $featured_immigration_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_immigration_article->type), $featured_immigration_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_immigration_article->image != null)
@@ -359,7 +362,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_proxima_study_articles as $featured_proxima_study_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_proxima_study_article->type), $featured_proxima_study_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_proxima_study_article->image != null)
@@ -386,7 +389,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_need_help_articles as $featured_need_help_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_need_help_article->type), $featured_need_help_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_need_help_article->image != null)
@@ -413,7 +416,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_open_days as $featured_open_day)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_open_day', $featured_open_day->id) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_open_day->image != null)
@@ -440,7 +443,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_virtual_tours as $featured_virtual_tour)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <div class="card rounded-0 position-relative">
                             <a href="{{ $featured_virtual_tour->link }}" class="text-decoration-none" target="_blank">
 
@@ -478,7 +481,7 @@
             <div class="row mt-4">
                 @foreach($featured_businesses as $featured_business)
                     @if($featured_business->advertised == 'Yes' && $featured_business->url != null)
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ $featured_business->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
                                     @if($featured_business->image != null)
@@ -499,7 +502,7 @@
                             </a>
                         </div>
                     @else
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ route('frontend.single_business', $featured_business->id) }}" class="text-decoration-none">
                                 <div class="card rounded-0">
                                     @if($featured_business->image != null)
@@ -533,7 +536,7 @@
 
             <div class="row mt-4">
                 @foreach($featured_common_articles as $featured_common_article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $featured_common_article->type), $featured_common_article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($featured_common_article->image != null)
@@ -561,7 +564,7 @@
             <div class="row mt-4">
                 @foreach($featured_events as $featured_event)
                     @if($featured_event->advertised == 'Yes' && $featured_event->url != null)
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ $featured_event->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
                                     @if($featured_event->image != null)
@@ -576,7 +579,7 @@
                             </a>
                         </div>
                     @else
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ route('frontend.single_event', $featured_event->id) }}" class="text-decoration-none">
                                 <div class="card rounded-0">
                                     @if($featured_event->image != null)
@@ -605,7 +608,7 @@
             <div class="row mt-4">
                 @foreach($student_services as $student_service)
                     @if($student_service->advertised == 'Yes' && $student_service->url != null)
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ $student_service->url }}" class="text-decoration-none" target="_blank">
                                 <div class="card rounded-0">
                                     @if($student_service->image != null)
@@ -627,7 +630,7 @@
                             </a>
                         </div>
                     @else
-                        <div class="col-3 mb-4">
+                        <div class="col-12 col-md-4 col-lg-3 mb-4">
                             <a href="{{ route('frontend.single_business', $student_service->id) }}" class="text-decoration-none">
                                 <div class="card rounded-0">
                                     @if($student_service->image != null)
@@ -662,7 +665,7 @@
 
             <div class="row mt-4">
                 @foreach($videos as $video)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <div class="card rounded-0">
                             <iframe width="100%" height="143" src="{{ $video->link }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -685,7 +688,7 @@
 
             <div class="row mt-4">
                 @foreach($articles as $article)
-                    <div class="col-3 mb-4">
+                    <div class="col-12 col-md-4 col-lg-3 mb-4">
                         <a href="{{ route('frontend.single_article', [str_replace('_', '-', $article->type), $article->id]) }}" class="text-decoration-none">
                             <div class="card rounded-0">
                                 @if($article->image != null)
@@ -823,6 +826,20 @@
             },
             slidesPerView: 5,
             spaceBetween: 20,
+            breakpoints: {
+                0: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                429: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                },
+            }
         });
     </script>
 @endpush
